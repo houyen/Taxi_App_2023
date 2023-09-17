@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:background="@color/newtaxi_app_white"
+    android:layoutDirection="@string/layout_direction"
+    android:orientation="vertical"
+    >
+
+    <include
+        android:id="@+id/common_header"
+        layout="@layout/app_common_header"/>
+
+    <!-- <ScrollView
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             app:layout_constraintTop_toBottomOf="@+id/common_header"
+         >-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_phone_number_input"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/app_top_curve_white"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_marginTop="@dimen/default_header_to"
+        android:focusableInTouchMode="true"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/common_header"
+        >
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/ic_enter_phone_number"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_back_phone_arrow"
+            app:tint="@color/light_blue_button_color"
+            />
+
+
+        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+            android:id="@+id/tv_mobile_heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_70adp"
+            android:layout_toEndOf="@+id/workimg"
+            android:text="@string/mobile_verification"
+            android:textAlignment="viewStart"
+            android:textColor="@color/newtaxi_app_black"
+            android:textSize="@dimen/_18asp"
+            app:fontname="@string/font_Medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2"
+            />
+
+        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+            android:id="@+id/tv_mobile_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20adp"
+            android:layout_toEndOf="@+id/workimg"
+            android:text="@string/please_enter_mobile_number"
+            android:textAlignment="viewStart"
+            android:textColor="@color/newtaxi_app_black"
+            android:textSize="@dimen/_16asp"
+            app:fontname="@string/font_Medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_mobile_heading"
+            />
+
+        <RelativeLayout
+            android:id="@+id/phonelayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20adp"
+            android:layout_marginTop="@dimen/_25adp"
+            android:layout_marginEnd="@dimen/_20adp"
+            android:layout_marginBottom="@dimen/_10adp"
+            android:background="@drawable/app_curve_button_white_with_outline"
+            android:gravity="center_vertical"
+            android:padding="@dimen/_3adp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_mobile_text"
+            >
+
+            <com.hbb20.CountryCodePicker
+                android:id="@+id/ccp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_5adp"
+
+                app:ccp_arrowSize="@dimen/_16asp"
+                app:ccp_autoDetectLanguage="true"
+                app:ccp_contentColor="@color/newtaxi_app_white_outline"
+                app:ccp_showArrow="false"
+                app:ccp_showNameCode="false"
+                app:ccp_textSize="@dimen/_15asp"
+                />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_layout_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_12adp"
+                android:layout_marginTop="@dimen/_10adp"
+                android:layout_marginEnd="@dimen/_12adp"
+                android:layout_marginBottom="@dimen/_10adp"
+                android:layout_toEndOf="@+id/ccp"
+                app:hintEnabled="false"
+                >
+
+                <com.seentechs.newtaxidriver.common.custompalette.FontEditText
+                    android:id="@+id/phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:background="@color/ub__transparent"
+                    android:textCursorDrawable="@drawable/app_cursor_color"
+                    android:inputType="number"
+                    android:padding="@dimen/_3asp"
+                    app:fontname="@string/font_Medium"
+                    android:textSize="@dimen/_15asp"
+                    android:textColor="@color/newtaxi_app_black"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </RelativeLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/fab_verify"
+            android:layout_width="@dimen/_60adp"
+            android:layout_height="@dimen/_60adp"
+            android:layout_gravity="bottom|end"
+            android:layout_marginTop="@dimen/_60adp"
+            android:layout_marginBottom="@dimen/_10adp"
+            app:cardBackgroundColor="@color/newtaxi_app_navy_disable"
+            app:cardCornerRadius="@dimen/_12asp"
+            app:cardElevation="@dimen/_10asp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/phonelayout"
+
+            >
+
+            <ImageView
+                android:id="@+id/imgv_next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@color/ub__transparent"
+                android:rotation="180"
+                android:padding="@dimen/_18adp"
+                android:src="@drawable/app_ic_back_arrow_white"
+                />
+
+            <ProgressBar
+                android:id="@+id/pb_number_verification"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@color/ub__transparent"
+                android:indeterminateTint="@color/newtaxi_app_white"
+                android:padding="@dimen/_10adp"
+                android:visibility="gone"
+                />
+
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
