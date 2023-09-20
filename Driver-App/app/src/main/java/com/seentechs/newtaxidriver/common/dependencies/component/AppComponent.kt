@@ -154,7 +154,6 @@ interface AppComponent {
 
     fun inject(documentDetails: DocumentDetails)
 
-    fun inject(paymentAmountPage: PaymentAmountPage)
 
     fun inject(payStatementDetails: PayStatementDetails)
 

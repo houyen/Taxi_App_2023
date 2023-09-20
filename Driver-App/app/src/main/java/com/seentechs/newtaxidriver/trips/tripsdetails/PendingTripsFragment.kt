@@ -45,7 +45,6 @@ import com.seentechs.newtaxidriver.home.interfaces.PaginationAdapterCallback
 import com.seentechs.newtaxidriver.home.interfaces.ServiceListener
 import com.seentechs.newtaxidriver.home.interfaces.YourTripsListener
 import com.seentechs.newtaxidriver.trips.RequestAcceptActivity
-import com.seentechs.newtaxidriver.trips.rating.PaymentAmountPage
 import com.seentechs.newtaxidriver.trips.rating.Riderrating
 import org.json.JSONException
 import java.util.*
@@ -387,16 +386,7 @@ class PendingTripsFragment : Fragment(), ServiceListener, PaginationAdapterCallb
                 rating.putExtra("imgprofile", earningModel.riderDetails.get(0).profileImage)
                 rating.putExtra("back", 1)
                 startActivity(rating)
-            } else if (CommonKeys.TripStatus.Payment == tripStatus) {
-
-                val bundle = Bundle()
-                bundle.putSerializable("invoiceModels", invoiceModels)
-                val main = Intent(activity, PaymentAmountPage::class.java)
-                main.putExtra("AmountDetails", jsonResp.strResponse)
-                main.putExtras(bundle)
-                startActivity(main)
-
-            }
+            } 
         } catch (e: Exception) {
             e.printStackTrace()
         }

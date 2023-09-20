@@ -394,9 +394,6 @@ class HomeController extends Controller
         }
 
         if ($response->data->status == "successful" && $response->data->chargecode == "00" && $deposit->final_amo == $response->data->amount && $deposit->method_currency == $response->data->currency && $deposit->status == '0') {
-            PaymentController::userDataUpdate($deposit->trx);
-
-
             $message = 'Transaction was successful, Ref: ' . $track;
             $notify[] = ['success', $message];
             $notifyApi[] = $message;

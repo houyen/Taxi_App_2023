@@ -67,16 +67,6 @@
             -->
         </activity>
         <activity
-                android:name="com.seentechs.newtaxiusers.appcommon.views.PaymentWebViewActivity"
-                android:screenOrientation="portrait"
-                android:theme="@style/AppTheme.NoActionBar"
-                android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
-        <activity
-            android:name="com.seentechs.newtaxiusers.appcommon.views.PaytmPaymentWebViewActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
-        <activity
             android:name="com.seentechs.newtaxiusers.appcommon.views.FlutterwaveWebViewActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
@@ -88,12 +78,6 @@
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <activity
             android:name="com.seentechs.newtaxiusers.taxiapp.firebase_auth.OTPActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
-
-        <activity
-            android:name="com.seentechs.newtaxiusers.appcommon.views.MpesaPaymentWebViewActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
@@ -112,10 +96,6 @@
                 android:enabled="true"
                 android:exported="false" />
 
-        <activity
-                android:name="com.seentechs.newtaxiusers.taxiapp.sendrequest.PaymentAmountPage"
-                android:screenOrientation="portrait"
-                android:theme="@style/AppTheme.NoActionBar" />
         <activity
                 android:name="com.seentechs.newtaxiusers.taxiapp.views.voip.CallProcessingActivity"
                 android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
@@ -288,22 +268,12 @@
         <activity
                 android:name="com.seentechs.newtaxiusers.appcommon.helper.CommonDialog"
                 android:theme="@android:style/Theme.Holo.Light.Dialog" />
-        <activity
-                android:name="com.seentechs.newtaxiusers.taxiapp.sidebar.payment.PromoAmountActivity"
-                android:screenOrientation="portrait"
-                android:theme="@style/AppTheme.NoActionBar"
-                android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <!--
 <activity
                 android:name="com.paypal.android.MEP.PayPalActivity"
                 android:configChanges="keyboardHidden|orientation"
                 android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         -->
-        <activity
-                android:name="com.seentechs.newtaxiusers.taxiapp.sidebar.payment.AddWalletActivity"
-                android:screenOrientation="portrait"
-                android:theme="@style/AppTheme.NoActionBar"
-                android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <activity
                 android:name="com.seentechs.newtaxiusers.taxiapp.views.emergency.EmergencyContact"
                 android:screenOrientation="portrait"
@@ -339,11 +309,6 @@
                 android:screenOrientation="portrait"
                 android:theme="@style/AppTheme.NoActionBar" />
         <activity
-                android:name="com.seentechs.newtaxiusers.taxiapp.sidebar.payment.PaymentPage"
-                android:screenOrientation="portrait"
-                android:theme="@style/AppTheme.NoActionBar"
-                android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
-        <activity
                 android:name="com.seentechs.newtaxiusers.taxiapp.sendrequest.SendingRequestActivity"
                 android:hardwareAccelerated="true"
                 android:screenOrientation="portrait"
@@ -364,19 +329,7 @@
             android:name="com.seentechs.newtaxiusers.taxiapp.views.termsPolicy.Terms"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-                android:name="com.braintreepayments.api.BraintreeBrowserSwitchActivity"
-                android:launchMode="singleTask"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-
-                <data android:scheme="${applicationId}.braintree" />
-            </intent-filter>
-        </activity>
+        
         <activity
             android:name=".taxiapp.views.permissionoverview.PermissionOverViewActivity"
             android:exported="true"

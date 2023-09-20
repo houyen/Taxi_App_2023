@@ -44,7 +44,6 @@ import com.seentechs.newtaxidriver.home.interfaces.ApiService
 import com.seentechs.newtaxidriver.home.interfaces.PaginationAdapterCallback
 import com.seentechs.newtaxidriver.home.interfaces.ServiceListener
 import com.seentechs.newtaxidriver.trips.RequestAcceptActivity
-import com.seentechs.newtaxidriver.trips.rating.PaymentAmountPage
 import com.seentechs.newtaxidriver.trips.rating.Riderrating
 import org.json.JSONException
 import javax.inject.Inject
@@ -383,15 +382,6 @@ class CompletedTripsFragments : Fragment(), ServiceListener, PaginationAdapterCa
             startActivity(rating)
             //recyclerView.addOnItemTouchListener(this);
 
-        } else if (CommonKeys.TripStatus.Payment == tripStatus) {
-
-            val bundle = Bundle()
-            bundle.putSerializable("invoiceModels", invoiceModels)
-            val main = Intent(activity, PaymentAmountPage::class.java)
-            main.putExtra("AmountDetails", jsonResp.strResponse)
-            main.putExtras(bundle)
-            startActivity(main)
-            //recyclerView.addOnItemTouchListener(this);
         }
         requireActivity().overridePendingTransition(R.anim.ub__slide_in_right, R.anim.ub__slide_out_left)
 

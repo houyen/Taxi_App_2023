@@ -264,10 +264,9 @@ class DriverRatingActivity : CommonActivity(), ServiceListener {
 
             //Bundle bundle = new Bundle();
             //bundle.putSerializable("invoiceModels", invoiceModels);
-            val main = Intent(this, PaymentAmountPage::class.java)
+          
             //main.putExtra("AmountDetails", jsonResp.getStrResponse().toString());
             //main.putExtras(bundle);
-            startActivity(main)
             /*sessionManager.setIsrequest(false);
             sessionManager.setIsTrip(false);
             sessionManager.setDriverAndRiderAbleToChat(false);

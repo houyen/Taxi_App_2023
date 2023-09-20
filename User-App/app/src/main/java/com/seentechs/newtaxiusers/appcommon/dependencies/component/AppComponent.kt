@@ -32,7 +32,6 @@ import com.seentechs.newtaxiusers.appcommon.pushnotification.MyFirebaseMessaging
 import com.seentechs.newtaxiusers.taxiapp.sendrequest.CancelYourTripActivity
 import com.seentechs.newtaxiusers.taxiapp.sendrequest.DriverNotAcceptActivity
 import com.seentechs.newtaxiusers.taxiapp.sendrequest.DriverRatingActivity
-import com.seentechs.newtaxiusers.taxiapp.sendrequest.PaymentAmountPage
 import com.seentechs.newtaxiusers.taxiapp.sendrequest.SendingRequestActivity
 import com.seentechs.newtaxiusers.taxiapp.sidebar.AddHome
 import com.seentechs.newtaxiusers.taxiapp.sidebar.DriverContactActivity
@@ -40,7 +39,6 @@ import com.seentechs.newtaxiusers.taxiapp.sidebar.EnRoute
 import com.seentechs.newtaxiusers.taxiapp.sidebar.FareBreakdown
 import com.seentechs.newtaxiusers.taxiapp.sidebar.Profile
 import com.seentechs.newtaxiusers.taxiapp.sidebar.Setting
-import com.seentechs.newtaxiusers.taxiapp.sidebar.payment.*
 import com.seentechs.newtaxiusers.taxiapp.sidebar.referral.ShowReferralOptions
 import com.seentechs.newtaxiusers.taxiapp.sidebar.trips.Past
 import com.seentechs.newtaxiusers.taxiapp.sidebar.trips.Receipt
@@ -105,15 +103,7 @@ interface AppComponent {
 
     fun inject(addHome: AddHome)
 
-    fun inject(paymentPage: PaymentPage)
-
-    fun inject(paymentAmountPage: PaymentAmountPage)
-
     fun inject(fareBreakdown: FareBreakdown)
-
-    fun inject(addWalletActivity: AddWalletActivity)
-
-    fun inject(promoAmountActivity: PromoAmountActivity)
 
     fun inject(yourTrips: YourTrips)
 
@@ -198,7 +188,8 @@ interface AppComponent {
 
     fun inject(upcomingTripsPaginationAdapter: UpcomingTripsPaginationAdapter)
      fun inject(addCardActivity: AddCardActivity)
-    fun inject(paymentMethodAdapter: PaymentMethodAdapter)
+
+
     fun inject(featuresInVehicleAdapter: FeaturesInVehicleAdapter)
 
     fun inject(supportActivityCommon: SupportActivityCommon)
@@ -208,11 +199,6 @@ interface AppComponent {
     fun inject(bannerActivityCommon: BannerActivityCommon)
 
     fun inject(bannerAdapter: BannerAdapter)
-
-    fun inject(paymentWebViewActivity: PaymentWebViewActivity)
-    fun inject(paytmPaymentWebViewActivity: PaytmPaymentWebViewActivity)
-    fun inject(mpesaPaymentWebViewActivity: MpesaPaymentWebViewActivity)
-    fun inject(flutterwavePaymentWebViewActivity: FlutterwaveWebViewActivity)
 
     fun inject(commonActivity: CommonActivity)
 

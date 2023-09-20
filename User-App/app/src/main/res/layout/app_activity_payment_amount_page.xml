@@ -7,7 +7,7 @@
         android:layout_height="match_parent"
         android:background="@color/newtaxi_app_white"
         android:layoutDirection="@string/layout_direction"
-        tools:context=".taxiapp.sendrequest.PaymentAmountPage"
+       
         >
 
     <include

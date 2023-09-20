@@ -92,7 +92,6 @@ import com.seentechs.newtaxidriver.home.managevehicles.ManageVehicles
 import com.seentechs.newtaxidriver.home.map.AppUtils
 import com.seentechs.newtaxidriver.home.service.HeatMapUpdation
 import com.seentechs.newtaxidriver.trips.RequestAcceptActivity
-import com.seentechs.newtaxidriver.trips.rating.PaymentAmountPage
 import com.seentechs.newtaxidriver.trips.rating.Riderrating
 import kotlinx.android.synthetic.main.fragment_home.*
 import org.json.JSONArray
@@ -1685,15 +1684,6 @@ class HomeFragment : Fragment(), OnMapReadyCallback, GoogleApiClient.ConnectionC
             commonMethods.hideProgressDialog()
             startActivity(rating)
 
-        } else if (CommonKeys.TripStatus.Payment == tripStatus) {
-            isTrip = false
-            val bundle = Bundle()
-            bundle.putSerializable("invoiceModels", invoiceModels)
-            val main = Intent(mContext, PaymentAmountPage::class.java)
-            main.putExtra("AmountDetails", jsonResp.strResponse)
-            main.putExtras(bundle)
-            commonMethods.hideProgressDialog()
-            startActivity(main)
         }
         activity?.overridePendingTransition(R.anim.ub__slide_in_right, R.anim.ub__slide_out_left)
 

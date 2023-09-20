@@ -129,7 +129,6 @@ import com.seentechs.newtaxiusers.taxiapp.adapters.CarDetailsListAdapter
 import com.seentechs.newtaxiusers.taxiapp.adapters.SeatsListAdapter
 import com.seentechs.newtaxiusers.taxiapp.database.AddFirebaseDatabase
 import com.seentechs.newtaxiusers.taxiapp.datamodels.DriverLocation
-import com.seentechs.newtaxiusers.taxiapp.datamodels.PaymentMethodsModel
 import com.seentechs.newtaxiusers.taxiapp.datamodels.RiderProfile
 import com.seentechs.newtaxiusers.taxiapp.datamodels.StepsClass
 import com.seentechs.newtaxiusers.taxiapp.datamodels.main.NearByCarsModel
@@ -140,14 +139,11 @@ import com.seentechs.newtaxiusers.taxiapp.firebase_keys.FirebaseDbKeys
 import com.seentechs.newtaxiusers.taxiapp.firebase_keys.FirebaseDbKeys.LIVE_TRACKING_NODE
 import com.seentechs.newtaxiusers.taxiapp.firebase_keys.FirebaseDbKeys.TRIP_PAYMENT_NODE
 import com.seentechs.newtaxiusers.taxiapp.sendrequest.DriverRatingActivity
-import com.seentechs.newtaxiusers.taxiapp.sendrequest.PaymentAmountPage
 import com.seentechs.newtaxiusers.taxiapp.sendrequest.SendingRequestActivity
 import com.seentechs.newtaxiusers.taxiapp.sidebar.EnRoute
 import com.seentechs.newtaxiusers.taxiapp.sidebar.FareBreakdown
 import com.seentechs.newtaxiusers.taxiapp.sidebar.Profile
 import com.seentechs.newtaxiusers.taxiapp.sidebar.Setting
-import com.seentechs.newtaxiusers.taxiapp.sidebar.payment.AddWalletActivity
-import com.seentechs.newtaxiusers.taxiapp.sidebar.payment.PaymentPage
 import com.seentechs.newtaxiusers.taxiapp.sidebar.referral.ShowReferralOptions
 import com.seentechs.newtaxiusers.taxiapp.sidebar.trips.YourTrips
 import com.seentechs.newtaxiusers.taxiapp.singledateandtimepicker.SingleDateAndTimePicker
@@ -271,20 +267,11 @@ class MainActivity : CommonActivity(), SeatsListAdapter.OnClickListener,
     @BindView(R.id.car_details_list)
     lateinit var listView: RecyclerView        // Search car list
 
-    @BindView(R.id.paymentmethod)
-    lateinit var paymentmethod: RelativeLayout        // Payment method selection layout
-
-    @BindView(R.id.paymentmethod_img)
-    lateinit var paymentmethod_img: ImageView        // Cash or paypal iamge show for payment method
-
     @BindView(R.id.wallet_img)
     lateinit var wallet_img: ImageView        // If wallet choose show in image
 
     @BindView(R.id.sos)
     lateinit var sos: TextView
-
-    @BindView(R.id.paymentmethod_type)
-    lateinit var paymentmethod_type: TextView// Payment method type show in text view
 
     @BindView(R.id.pickup_location)
     lateinit var pickup_location: TextView
@@ -1185,10 +1172,6 @@ class MainActivity : CommonActivity(), SeatsListAdapter.OnClickListener,
             overridePendingTransition(R.anim.ub__slide_in_right, R.anim.ub__slide_out_left)
         } else if (id == R.id.profile) {
             val intent = Intent(this, Profile::class.java)
-            startActivity(intent)
-            overridePendingTransition(R.anim.ub__slide_in_right, R.anim.ub__slide_out_left)
-        } else if (id == R.id.nav_wallet) {
-            val intent = Intent(this, AddWalletActivity::class.java)
             startActivity(intent)
             overridePendingTransition(R.anim.ub__slide_in_right, R.anim.ub__slide_out_left)
         } else if (id == R.id.nav_settings) {
@@ -2714,18 +2697,6 @@ class MainActivity : CommonActivity(), SeatsListAdapter.OnClickListener,
             commonMethods.hideProgressDialog()
             startActivity(rating)
 
-        } else if ("Payment" == tripStatus) {  // To open the payment page
-            sessionManager.isrequest = false
-            sessionManager.isTrip = false
-            val bundle = Bundle()
-            bundle.putSerializable("invoiceModels", invoiceModels)
-            val main = Intent(this, PaymentAmountPage::class.java)
-            main.putExtra("AmountDetails", jsonResp.strResponse)
-            //main.putExtra("paymentDetails", paymentDetails);
-            main.putExtra("driverDetails", tripDetailsModel)
-            main.putExtras(bundle)
-            commonMethods.hideProgressDialog()
-            startActivity(main)
         }
         hideAndShowEta()
         overridePendingTransition(R.anim.ub__slide_in_right, R.anim.ub__slide_out_left)

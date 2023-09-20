@@ -831,63 +831,6 @@ class TokenAuthController extends Controller
         ]);
     }
 
-    public function currency_conversion(Request $request)
-    {
-        $user_details   = JWTAuth::parseToken()->authenticate();
-
-        $payment_methods = collect(PAYMENT_METHODS);
-        $payment_methods = $payment_methods->reject(function($value) {
-            $is_enabled = payment_gateway('is_enabled',ucfirst($value['key']));
-            return ($is_enabled != '1');
-        });
-        $payment_types = $payment_methods->pluck('key')->implode(',');
-
-        $request['payment_type'] = strtolower($request->payment_type);
-
-        $rules  = [
-            'amount' => 'required|numeric|min:0',
-            'payment_type'  => 'required|in:'.$payment_types,
-        ];
-
-        $validator = Validator::make($request->all(), $rules);
-        if($validator->fails()) {
-            return response()->json([
-                'status_code' => '0',
-                'status_message' => $validator->messages()->first()
-            ]);
-        }
-
-        $currency_code  = $user_details->currency->code;
-        $payment_currency = site_settings('payment_currency');
-
-        $price = floatval($request->amount);
-
-        $converted_amount = currencyConvert($currency_code,$payment_currency,$price);
-        $bt_clientToken   = '';
-        if(strtolower($request->payment_type)=='paypal' || strtolower($request->payment_type)=='braintree' ){
-            try {
-                $service = 'App\Services\Payments\\'.ucfirst($request->payment_type)."Payment";
-                $gateway = resolve($service);
-            }catch(\Exception $e) {
-                $gateway = resolve('App\Services\Payments\PaypalPayment');
-            }
-            $customer = $gateway->CreateCustomerToken($user_details);
-            if($customer->status_code == "1")
-                $bt_clientToken   = $customer->bt_clientToken;
-            else 
-                return response()->json($customer);                
-        }
-
-
-        return response()->json([
-            'status_code'    => '1',
-            'status_message' => 'Amount converted successfully',
-            'currency_code'  => $payment_currency,
-            'amount'         => $converted_amount,
-            'braintree_clientToken' => $bt_clientToken,
-        ]);
-    }
-
     public function getSessionOrDefaultCode()
     {
         $currency_code = Currency::defaultCurrency()->first()->code;

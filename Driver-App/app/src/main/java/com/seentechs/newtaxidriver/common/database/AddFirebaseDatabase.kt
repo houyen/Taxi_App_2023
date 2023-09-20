@@ -10,7 +10,6 @@ import com.seentechs.newtaxidriver.common.network.AppController
 import com.seentechs.newtaxidriver.common.util.CommonMethods
 import com.seentechs.newtaxidriver.common.util.CommonMethods.Companion.DebuggableLogE
 import com.seentechs.newtaxidriver.home.datamodel.firebase_keys.FirebaseDbKeys
-import com.seentechs.newtaxidriver.trips.rating.PaymentAmountPage
 import org.json.JSONObject
 import javax.inject.Inject
 
@@ -118,26 +117,6 @@ class AddFirebaseDatabase {
 
     }
 
-
-    fun initPaymentChangeListener(context: Context) {
-        mFirebaseDatabase = FirebaseDatabase.getInstance().getReference(context.getString(R.string.real_time_db))
-
-        // mFirebaseDatabase = FirebaseDatabase.getInstance().getReference(FirebaseDbKeys.TRIP_PAYMENT_NODE)
-
-        query = mFirebaseDatabase!!.child(FirebaseDbKeys.TRIP_PAYMENT_NODE).child(sessionManager.tripId!!).child(FirebaseDbKeys.TRIP_PAYMENT_NODE_REFRESH_PAYMENT_TYPE_KEY)
-
-        mSearchedDriverReferenceListener = query!!.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                PaymentAmountPage.paymentAmountPageInstance.callGetInvoiceAPI()
-                DebuggableLogE(TAG, "Database Updated Successfully")
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                // Failed to read value
-                DebuggableLogE(TAG, "Failed to read user", error.toException())
-            }
-        })
-    }
 
     fun updateEtaToFirebase(eta: String, context: Context) {
         if (sessionManager.isTrip) {

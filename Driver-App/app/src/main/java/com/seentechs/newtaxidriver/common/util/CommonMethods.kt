@@ -31,9 +31,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import androidx.core.content.res.ResourcesCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
-import com.braintreepayments.api.models.ThreeDSecureAdditionalInformation
-import com.braintreepayments.api.models.ThreeDSecurePostalAddress
-import com.braintreepayments.api.models.ThreeDSecureRequest
 import com.google.android.gms.maps.model.BitmapDescriptor
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.tasks.OnCompleteListener
@@ -42,9 +39,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.iid.FirebaseInstanceId
 import com.google.gson.Gson
-import com.stripe.android.PaymentConfiguration
-import com.stripe.android.Stripe
-import com.stripe.android.model.ConfirmPaymentIntentParams
 import com.seentechs.newtaxidriver.BuildConfig
 import com.seentechs.newtaxidriver.R
 import com.seentechs.newtaxidriver.common.configs.SessionManager
@@ -93,8 +87,6 @@ class CommonMethods {
     lateinit var gson: Gson
 
     private val TAG = CommonMethods::class.java.simpleName
-
-    private var stripe: Stripe? = null
     private lateinit var auth: FirebaseAuth
 
     lateinit var tripfile: File
@@ -997,41 +989,6 @@ class CommonMethods {
 
         return pos
 
-    }
-
-    /**
-     * init Stripe
-     */
-    fun initStripeData(context: Context) {
-        PaymentConfiguration.init(context, sessionManager.stripePublishKey)
-        stripe = Stripe(context, PaymentConfiguration.getInstance(context).publishableKey)
-    }
-
-    /**
-     * Stripe Instance
-     */
-    fun stripeInstance(): Stripe? {
-        return stripe
-    }
-
-    /**
-     * Get Client Secret From Response
-     */
-    fun getClientSecret(jsonResponse: JsonResponse, activity: AppCompatActivity) {
-        val clientSecret = getJsonValue(jsonResponse.strResponse, "two_step_id", String::class.java) as String
-        if (stripeInstance() != null) {
-            stripeInstance()!!.confirmPayment(activity, createPaymentIntentParams(clientSecret, activity.applicationContext))
-        } else {
-            hideProgressDialog()
-            Toast.makeText(activity.applicationContext, activity.applicationContext.resources.getString(R.string.internal_server_error), Toast.LENGTH_SHORT).show()
-        }
-    }
-
-    /**
-     * Create a Payment to Start Payment Process
-     */
-    private fun createPaymentIntentParams(clientSecret: String, context: Context): ConfirmPaymentIntentParams {
-        return ConfirmPaymentIntentParams.create(clientSecret)
     }
 
     /**

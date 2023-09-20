@@ -42,18 +42,12 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.core.content.res.ResourcesCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
-import com.braintreepayments.api.models.ThreeDSecureAdditionalInformation
-import com.braintreepayments.api.models.ThreeDSecurePostalAddress
-import com.braintreepayments.api.models.ThreeDSecureRequest
 import com.google.android.gms.maps.model.BitmapDescriptor
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.messaging.FirebaseMessaging
-import com.stripe.android.PaymentConfiguration
-import com.stripe.android.Stripe
-import com.stripe.android.model.ConfirmPaymentIntentParams
 import com.seentechs.newtaxiusers.BuildConfig
 import com.seentechs.newtaxiusers.R
 import com.seentechs.newtaxiusers.appcommon.configs.SessionManager
@@ -863,10 +857,6 @@ class CommonMethods {
     /**
      * init Stripe
      */
-    fun initStripeData(context: Context) {
-        PaymentConfiguration.init(context, sessionManager.stripePublishKey!!)
-        stripe = Stripe(context, PaymentConfiguration.getInstance(context).publishableKey)
-    }
 
     /**
      * Stripe Instance
@@ -990,7 +980,6 @@ class CommonMethods {
                     sessionManager.clearDriverNameRatingAndProfilePicture()
                     sessionManager.isDriverAndRiderAbleToChat = false
                     CommonMethods.stopFirebaseChatListenerService(context)
-                    /*startActivity(new Intent(getApplicationContext(), PaymentAmountPage.class));*/
                     stopSinchService(context)
                     val rating = Intent(context, DriverRatingActivity::class.java)
                     rating.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)

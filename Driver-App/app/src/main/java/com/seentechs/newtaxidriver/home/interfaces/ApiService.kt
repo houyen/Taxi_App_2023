@@ -266,9 +266,6 @@ interface ApiService {
     @GET("get_pending_trips")
     fun getPendingTrips(@Query("token") token: String, @Query("page") page: String): Call<ResponseBody>
 
-    @FormUrlEncoded
-    @POST("currency_conversion")
-    fun currencyConversion(@Field("amount") amount: String, @Field("token") token: String, @Field("payment_type") paymentType:  String): Call<ResponseBody>
 
     @GET("otp_verification")
     fun otpVerification(@QueryMap hashMap: HashMap<String, String>): Call<ResponseBody>

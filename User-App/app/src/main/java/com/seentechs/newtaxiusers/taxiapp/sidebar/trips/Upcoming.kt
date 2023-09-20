@@ -45,7 +45,6 @@ import com.seentechs.newtaxiusers.taxiapp.datamodels.trip.*
 import com.seentechs.newtaxiusers.taxiapp.interfaces.PaginationAdapterCallback
 import com.seentechs.newtaxiusers.taxiapp.interfaces.YourTripsListener
 import com.seentechs.newtaxiusers.taxiapp.sendrequest.DriverRatingActivity
-import com.seentechs.newtaxiusers.taxiapp.sendrequest.PaymentAmountPage
 import com.seentechs.newtaxiusers.taxiapp.views.customize.CustomDialog
 import com.seentechs.newtaxiusers.taxiapp.views.main.MainActivity
 import org.json.JSONException
@@ -368,15 +367,6 @@ class Upcoming : Fragment(), ServiceListener, PaginationAdapterCallback {
             rating.putExtra("imgprofile", Past.tripDetailsModel.driverThumbImage)
             startActivity(rating)
 
-        } else if ("Payment" == tripStatus) {
-            // To open the payment page
-            sessionManager.isrequest = false
-            sessionManager.isTrip = false
-            val main = Intent(activity, PaymentAmountPage::class.java)
-            main.putExtra("AmountDetails", jsonResp.strResponse)
-            main.putExtra("driverDetails", Past.tripDetailsModel)
-            main.putExtra("isBack", 1)
-            startActivity(main)
         }
         activity!!.overridePendingTransition(R.anim.ub__slide_in_right, R.anim.ub__slide_out_left)
     }

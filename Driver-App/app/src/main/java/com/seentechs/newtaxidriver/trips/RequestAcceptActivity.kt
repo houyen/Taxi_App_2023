@@ -115,7 +115,6 @@ import com.seentechs.newtaxidriver.home.map.drawpolyline.DirectionsJSONParser
 import com.seentechs.newtaxidriver.home.pushnotification.Config
 import com.seentechs.newtaxidriver.home.pushnotification.NotificationUtils
 import com.seentechs.newtaxidriver.trips.proswipebutton.ProSwipeButton
-import com.seentechs.newtaxidriver.trips.rating.PaymentAmountPage
 import com.seentechs.newtaxidriver.trips.rating.Riderrating
 import com.seentechs.newtaxidriver.trips.viewmodel.ReqAccpVM
 import com.seentechs.newtaxidriver.trips.viewmodel.RequestAcceptActivityInterface
@@ -3372,7 +3371,6 @@ class RequestAcceptActivity : CommonActivity(),ImageListener, DriverDetailsAdapt
                             sessionManager.tripStatus = CommonKeys.TripDriverStatus.EndTrip
                             sessionManager.isTrip = false
 
-                            startActivity(Intent(applicationContext, PaymentAmountPage::class.java))
                         } else {
                             commonMethods.showMessage(mContext, dialog, statusmessage)
                         }

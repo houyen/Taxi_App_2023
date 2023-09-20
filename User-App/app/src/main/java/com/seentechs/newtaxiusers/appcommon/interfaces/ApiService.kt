@@ -81,14 +81,6 @@ interface ApiService {
     fun addWalletMoneyUsingPaytm(@Query("token") token: String, @Query("paykey") paykey: String, @Query("amount") amount: String): Call<ResponseBody>
 
 
-    // Change Paytm CurrencyModelList
-    @GET("paytm_currency_conversion")
-    fun paytmCurrency(@Query("token") token: String, @Query("currency_code") currency_code: String, @Query("amount") amount: String): Call<ResponseBody>
-    // Add wallet amount using Flutterwave
-    @GET("add_wallet")
-    fun addWalletMoneyUsingFlutterwave(@Query("token") token: String, @Query("paykey") paykey: String, @Query("amount") amount: String): Call<ResponseBody>
-
-
     // Change Flutterwave CurrencyModelList
     @GET("flutterwave_currency_conversion")
     fun flutterwaveCurrency(@Query("token") token: String, @Query("currency_code") currency_code: String, @Query("amount") amount: String): Call<ResponseBody>
@@ -102,9 +94,7 @@ interface ApiService {
     @GET("mpesa_currency_conversion")
     fun mpesaCurrency(@Query("token") token: String, @Query("currency_code") currency_code: String, @Query("amount") amount: String): Call<ResponseBody>
     // Change Paypal CurrencyModelList
-    @GET("paypal_currency_conversion")
-    fun paypalCurrency(@Query("token") token: String, @Query("currency_code") currency_code: String, @Query("amount") amount: String): Call<ResponseBody>
-
+ 
     // Add wallet amount using stripe card
     @FormUrlEncoded
     @POST("add_wallet")

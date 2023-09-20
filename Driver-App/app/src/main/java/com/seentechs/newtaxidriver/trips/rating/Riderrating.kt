@@ -170,15 +170,6 @@ class Riderrating : CommonActivity(), ServiceListener {
             val invoiceModels = earningModel.invoice
             val bundle = Bundle()
             bundle.putSerializable("invoiceModels", invoiceModels)
-
-            val main = Intent(applicationContext, PaymentAmountPage::class.java)
-            main.putExtras(bundle)
-            main.putExtra("AmountDetails", jsonResp.strResponse)
-            startActivity(main)
-            /*Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);*/
-            finish()
             //onBackPressed();
         } else if (!TextUtils.isEmpty(jsonResp.statusMsg)) {
 

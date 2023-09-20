@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/newtaxi_app_white"
     android:layoutDirection="@string/layout_direction"
-    tools:context=".trips.rating.PaymentAmountPage">
+>
 
    <include
        android:id="@+id/common_header"
