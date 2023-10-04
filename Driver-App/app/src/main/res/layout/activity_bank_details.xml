@@ -9,12 +9,12 @@
 
         <variable
             name="bankDetails"
-            type="com.seentechs.newtaxidriver.home.datamodel.BankDetailsModel" />
+            type="com.tkpmnc.newtaxidriver.home.datamodel.BankDetailsModel" />
 
 
         <variable
             name="handlers"
-            type="com.seentechs.newtaxidriver.home.payouts.BankDetailsActivity.MyClickHandlers" />
+            type="com.tkpmnc.newtaxidriver.home.payouts.BankDetailsActivity.MyClickHandlers" />
 
 
     </data>
@@ -61,7 +61,7 @@
                             android:weightSum="1">
 
 
-                            <com.seentechs.newtaxidriver.common.custompalette.FontEditText
+                            <com.tkpmnc.newtaxidriver.common.custompalette.FontEditText
                                 android:id="@+id/edt_acc_name"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -89,7 +89,7 @@
                             android:weightSum="1">
 
 
-                            <com.seentechs.newtaxidriver.common.custompalette.FontEditText
+                            <com.tkpmnc.newtaxidriver.common.custompalette.FontEditText
                                 android:id="@+id/edt_acc_num"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -116,7 +116,7 @@
                             android:weightSum="1">
 
 
-                            <com.seentechs.newtaxidriver.common.custompalette.FontEditText
+                            <com.tkpmnc.newtaxidriver.common.custompalette.FontEditText
                                 android:id="@+id/edt_bank_acc"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -143,7 +143,7 @@
                             android:weightSum="1">
 
 
-                            <com.seentechs.newtaxidriver.common.custompalette.FontEditText
+                            <com.tkpmnc.newtaxidriver.common.custompalette.FontEditText
                                 android:id="@+id/edt_bank_loc"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -170,7 +170,7 @@
                             android:weightSum="1">
 
 
-                            <com.seentechs.newtaxidriver.common.custompalette.FontEditText
+                            <com.tkpmnc.newtaxidriver.common.custompalette.FontEditText
                                 android:id="@+id/edt_swift_code"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -190,7 +190,7 @@
 
                     </LinearLayout>
 
-                    <com.seentechs.newtaxidriver.common.custompalette.FontButton
+                    <com.tkpmnc.newtaxidriver.common.custompalette.FontButton
                         android:id="@+id/payout_submit"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

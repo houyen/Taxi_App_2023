@@ -1,5 +1,5 @@
 
-package com.seentechs.newtaxidriver.home.map
+package com.tkpmnc.newtaxidriver.home.map
 
 /**
  *  newtaxidriver
@@ -32,7 +32,7 @@ class AppUtils {
 
         val FAILURE_RESULT = 1
 
-        val PACKAGE_NAME = "com.seentechs.newtaxidriver.map"
+        val PACKAGE_NAME = "com.tkpmnc.newtaxidriver.map"
 
         val RECEIVER = "$PACKAGE_NAME.RECEIVER"
 

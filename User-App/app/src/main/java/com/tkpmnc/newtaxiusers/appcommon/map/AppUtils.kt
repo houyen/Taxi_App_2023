@@ -1,4 +1,4 @@
-package com.seentechs.newtaxiusers.appcommon.map
+package com.tkpmnc.newtaxiusers.appcommon.map
 
 /**
  *  newtaxiusers
@@ -27,7 +27,7 @@ class AppUtils {
 
         val FAILURE_RESULT = 1
 
-        val PACKAGE_NAME = "com.seentechs.newtaxiusers.map"
+        val PACKAGE_NAME = "com.tkpmnc.newtaxiusers.map"
 
         val RECEIVER = "$PACKAGE_NAME.RECEIVER"
 

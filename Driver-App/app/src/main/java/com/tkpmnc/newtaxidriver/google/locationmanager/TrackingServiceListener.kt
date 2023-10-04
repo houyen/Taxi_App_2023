@@ -1,4 +1,4 @@
-package com.seentechs.newtaxidriver.google.locationmanager
+package com.tkpmnc.newtaxidriver.google.locationmanager
 
 import android.Manifest
 import android.app.Activity

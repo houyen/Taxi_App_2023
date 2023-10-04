@@ -1,4 +1,4 @@
-package com.seentechs.newtaxiusers.appcommon.datamodels
+package com.tkpmnc.newtaxiusers.appcommon.datamodels
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName

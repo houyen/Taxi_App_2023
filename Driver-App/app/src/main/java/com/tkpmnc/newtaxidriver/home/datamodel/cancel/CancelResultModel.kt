@@ -1,4 +1,4 @@
-package com.seentechs.newtaxidriver.home.datamodel.cancel
+package com.tkpmnc.newtaxidriver.home.datamodel.cancel
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName

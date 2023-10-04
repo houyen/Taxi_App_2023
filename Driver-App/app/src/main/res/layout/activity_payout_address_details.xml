@@ -31,7 +31,7 @@
                 android:orientation="vertical"
                 android:weightSum="1">
 
-                <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/payoutaddress_msg"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -61,7 +61,7 @@
                         android:orientation="vertical"
                         android:paddingBottom="@dimen/_5adp">
 
-                        <com.seentechs.newtaxidriver.common.custompalette.FontEditText
+                        <com.tkpmnc.newtaxidriver.common.custompalette.FontEditText
                             android:id="@+id/payoutaddress_street"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -80,7 +80,7 @@
                             android:textSize="@dimen/_14asp"
                             app:fontname="@string/font_Medium" />
 
-                        <com.seentechs.newtaxidriver.common.custompalette.FontEditText
+                        <com.tkpmnc.newtaxidriver.common.custompalette.FontEditText
                             android:id="@+id/payoutaddress_apt"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -98,7 +98,7 @@
                             android:textSize="@dimen/_14asp"
                             app:fontname="@string/font_Medium" />
 
-                        <com.seentechs.newtaxidriver.common.custompalette.FontEditText
+                        <com.tkpmnc.newtaxidriver.common.custompalette.FontEditText
                             android:id="@+id/payoutaddress_city"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -116,7 +116,7 @@
                             android:textSize="@dimen/_14asp"
                             app:fontname="@string/font_Medium" />
 
-                        <com.seentechs.newtaxidriver.common.custompalette.FontEditText
+                        <com.tkpmnc.newtaxidriver.common.custompalette.FontEditText
                             android:id="@+id/payoutaddress_state"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -134,7 +134,7 @@
                             android:textSize="@dimen/_14asp"
                             app:fontname="@string/font_Medium" />
 
-                        <com.seentechs.newtaxidriver.common.custompalette.FontEditText
+                        <com.tkpmnc.newtaxidriver.common.custompalette.FontEditText
                             android:id="@+id/payoutaddress_pin"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -152,7 +152,7 @@
                             android:textSize="@dimen/_14asp"
                             app:fontname="@string/font_Medium" />
 
-                        <com.seentechs.newtaxidriver.common.custompalette.FontEditText
+                        <com.tkpmnc.newtaxidriver.common.custompalette.FontEditText
                             android:id="@+id/payoutaddress_country"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -179,7 +179,7 @@
         </ScrollView>
     </RelativeLayout>
 
-    <com.seentechs.newtaxidriver.common.custompalette.FontButton
+    <com.tkpmnc.newtaxidriver.common.custompalette.FontButton
         android:id="@+id/payout_next"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

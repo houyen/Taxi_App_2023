@@ -77,7 +77,7 @@
                         android:layout_toEndOf="@+id/ccp"
                         app:hintEnabled="false">
 
-                        <com.seentechs.newtaxiusers.appcommon.custompalette.FontEditText
+                        <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontEditText
                             android:id="@+id/phone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -112,7 +112,7 @@
                     app:passwordToggleEnabled="true"
                     app:passwordToggleTint="@color/newtaxi_app_black">
 
-                    <com.seentechs.newtaxiusers.appcommon.custompalette.FontEditText
+                    <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontEditText
                         android:id="@+id/password_edit"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -133,7 +133,7 @@
                     android:layout_height="wrap_content">
 
 
-                    <com.seentechs.newtaxiusers.appcommon.custompalette.FontButton
+                    <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontButton
                         android:id="@+id/sigin_button"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_50adp"
@@ -157,7 +157,7 @@
                         android:gravity="center">
 
 
-                        <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+                        <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentTop="true"

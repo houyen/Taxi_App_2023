@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
             android:id="@+id/canceltext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -21,7 +21,7 @@
             android:textSize="@dimen/_18asp"
             app:fontname="@string/font_Medium" />
 
-        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
             android:id="@+id/cancel5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -46,7 +46,7 @@
             android:layout_marginTop="@dimen/_20adp"
             android:weightSum="2">
 
-            <com.seentechs.newtaxidriver.common.custompalette.FontButton
+            <com.tkpmnc.newtaxidriver.common.custompalette.FontButton
                 android:id="@+id/signup_cancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -60,7 +60,7 @@
                 android:textSize="@dimen/_15asp"
                 app:fontname="@string/font_Medium" />
 
-            <com.seentechs.newtaxidriver.common.custompalette.FontButton
+            <com.tkpmnc.newtaxidriver.common.custompalette.FontButton
                 android:id="@+id/signup_cancel_confirm"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

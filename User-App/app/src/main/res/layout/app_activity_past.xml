@@ -6,7 +6,7 @@
         android:layoutDirection="@string/layout_direction"
         android:orientation="vertical">
 
-    <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+    <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
             android:id="@+id/listempty"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -45,7 +45,7 @@
                 app:tint="@color/newtaxi_app_yellow"
                 />
 
-        <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+        <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
                 android:id="@+id/tv_otp_heading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -62,7 +62,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/imgv_otp"
                 />
 
-        <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+        <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
                 android:id="@+id/tv_otp_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -88,7 +88,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/tv_otp_text"
                 >
 
-            <com.seentechs.newtaxiusers.appcommon.custompalette.FontEditText
+            <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontEditText
                     android:id="@+id/one"
                     android:layout_width="@dimen/_50adp"
                     android:layout_height="@dimen/_50adp"
@@ -110,10 +110,10 @@
                     >
 
                 <requestFocus />
-            </com.seentechs.newtaxiusers.appcommon.custompalette.FontEditText>
+            </com.tkpmnc.newtaxiusers.appcommon.custompalette.FontEditText>
 
 
-            <com.seentechs.newtaxiusers.appcommon.custompalette.FontEditText
+            <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontEditText
                     android:id="@+id/two"
                     android:layout_width="@dimen/_50adp"
                     android:layout_height="@dimen/_50adp"
@@ -135,7 +135,7 @@
                     android:textCursorDrawable="@drawable/app_cursor_color"
                     />
 
-            <com.seentechs.newtaxiusers.appcommon.custompalette.FontEditText
+            <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontEditText
                     android:id="@+id/three"
                     android:layout_width="@dimen/_50adp"
                     android:layout_height="@dimen/_50adp"
@@ -157,7 +157,7 @@
                     android:textCursorDrawable="@drawable/app_cursor_color"
                     />
 
-            <com.seentechs.newtaxiusers.appcommon.custompalette.FontEditText
+            <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontEditText
                     android:id="@+id/four"
                     android:layout_width="@dimen/_50adp"
                     android:layout_height="@dimen/_50adp"
@@ -178,7 +178,7 @@
                     app:fontName="@string/font_Medium"
                     android:textCursorDrawable="@drawable/app_cursor_color"
                     />
-            <com.seentechs.newtaxiusers.appcommon.custompalette.FontEditText
+            <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontEditText
                 android:id="@+id/five"
                 android:layout_width="@dimen/_50adp"
                 android:layout_height="@dimen/_50adp"
@@ -199,7 +199,7 @@
                 app:fontName="@string/font_Medium"
                 android:textCursorDrawable="@drawable/app_cursor_color"
                 />
-            <com.seentechs.newtaxiusers.appcommon.custompalette.FontEditText
+            <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontEditText
                 android:id="@+id/six"
                 android:layout_width="@dimen/_50adp"
                 android:layout_height="@dimen/_50adp"
@@ -222,7 +222,7 @@
                 />
         </RelativeLayout>
 
-        <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+        <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
                 android:id="@+id/tv_otp_error_field"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -278,7 +278,7 @@
 
 
         </androidx.cardview.widget.CardView>
-        <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+        <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
             android:id="@+id/tv_resend_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -297,7 +297,7 @@
             app:layout_constraintStart_toStartOf="parent"
             />
 
-        <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+        <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
             android:id="@+id/tv_otp_resend_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -317,7 +317,7 @@
             app:layout_constraintStart_toStartOf="parent"
             />
 
-        <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+        <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
             android:id="@+id/tv_otp_resend_countdown"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -1,4 +1,4 @@
-package com.seentechs.newtaxidriver.home.payouts.payout_model_classed
+package com.tkpmnc.newtaxidriver.home.payouts.payout_model_classed
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName

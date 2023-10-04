@@ -8,7 +8,7 @@
    >
 
 
-    <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+    <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
         android:id="@+id/tvEnterAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -35,7 +35,7 @@
         android:padding="@dimen/_10adp"
         android:background="@drawable/app_curve_button_white_with_outline">
 
-       <!-- <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+       <!-- <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
             android:id="@+id/currency_symbol_wallet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
             android:visibility="gone"
             app:fontname="@string/font_UBERMedium" />-->
 
-        <com.seentechs.newtaxidriver.common.custompalette.FontEditText
+        <com.tkpmnc.newtaxidriver.common.custompalette.FontEditText
             android:id="@+id/edtOweAmount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -85,7 +85,7 @@
             android:scaleX=".3"
             android:scaleY=".3"
             />
-        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/referrel_amount"
@@ -97,7 +97,7 @@
             android:textColor="@color/newtaxi_app_black"
             android:textSize="@dimen/_15asp"/>
 
-        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
             android:id="@+id/tv_referral_amt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -141,7 +141,7 @@
             android:layout_marginStart="@dimen/_30adp"
             android:src="@drawable/app_ic_card" />
 
-        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
             android:id="@+id/tvPaymentMethod"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -155,7 +155,7 @@
             android:textSize="@dimen/_13asp"
             app:fontname="@string/font_Medium" />
 
-        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
             android:id="@+id/tvChange"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -178,7 +178,7 @@
         android:layout_marginTop="@dimen/_10adp"
         android:layout_marginBottom="@dimen/_10adp">
 
-        <com.seentechs.newtaxidriver.common.custompalette.FontButton
+        <com.tkpmnc.newtaxidriver.common.custompalette.FontButton
             android:id="@+id/btnAddMoney"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

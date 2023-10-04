@@ -1,4 +1,4 @@
-package com.seentechs.newtaxidriver.common.model
+package com.tkpmnc.newtaxidriver.common.model
 
 
 class JsonResponse {

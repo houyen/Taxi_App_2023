@@ -1,4 +1,4 @@
-package com.seentechs.newtaxidriver.common.dependencies.component
+package com.tkpmnc.newtaxidriver.common.dependencies.component
 
 /**
  * @subpackage dependencies.component

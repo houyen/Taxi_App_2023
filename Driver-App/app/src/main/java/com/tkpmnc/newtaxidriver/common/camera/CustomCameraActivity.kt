@@ -1,4 +1,4 @@
-package com.seentechs.newtaxidriver.common.camera
+package com.tkpmnc.newtaxidriver.common.camera
 
 /**
  * @subpackage Camera

@@ -1,4 +1,4 @@
-package com.seentechs.newtaxidriver.common.helper
+package com.tkpmnc.newtaxidriver.common.helper
 
 interface RetrofitMaps/*
      * Retrofit get annotation with our URL

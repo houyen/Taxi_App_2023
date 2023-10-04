@@ -1,4 +1,4 @@
-package com.seentechs.newtaxiusers.taxiapp.views.splash
+package com.tkpmnc.newtaxiusers.taxiapp.views.splash
 
 /**
  *  newtaxiusers

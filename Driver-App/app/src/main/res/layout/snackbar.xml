@@ -7,7 +7,7 @@
     android:layoutDirection="@string/layout_direction"
     android:orientation="horizontal">
 
-    <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+    <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
         android:id="@+id/snackbar_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,7 +21,7 @@
         android:textSize="16sp"
         app:fontname="@string/font_UBERMedium" />
 
-    <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+    <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
         android:id="@+id/snack_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

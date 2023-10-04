@@ -1,4 +1,4 @@
-package com.seentechs.newtaxiusers.taxiapp.views.termsPolicy
+package com.tkpmnc.newtaxiusers.taxiapp.views.termsPolicy
 
 
 import android.os.Bundle

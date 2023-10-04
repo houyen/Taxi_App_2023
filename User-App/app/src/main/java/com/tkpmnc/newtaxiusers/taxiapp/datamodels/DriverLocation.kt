@@ -1,4 +1,4 @@
-package com.seentechs.newtaxiusers.taxiapp.datamodels
+package com.tkpmnc.newtaxiusers.taxiapp.datamodels
 
 /**
  * Created by bowshulsheikrahaman on 29/01/18.

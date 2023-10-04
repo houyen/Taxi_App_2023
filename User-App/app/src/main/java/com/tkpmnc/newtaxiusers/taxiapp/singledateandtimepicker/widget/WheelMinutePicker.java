@@ -1,4 +1,4 @@
-package com.seentechs.newtaxiusers.taxiapp.singledateandtimepicker.widget;
+package com.tkpmnc.newtaxiusers.taxiapp.singledateandtimepicker.widget;
 
 import android.content.Context;
 import androidx.annotation.NonNull;
@@ -11,9 +11,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import static com.seentechs.newtaxiusers.taxiapp.singledateandtimepicker.widget.SingleDateAndTimeConstants.MAX_MINUTES;
-import static com.seentechs.newtaxiusers.taxiapp.singledateandtimepicker.widget.SingleDateAndTimeConstants.MIN_MINUTES;
-import static com.seentechs.newtaxiusers.taxiapp.singledateandtimepicker.widget.SingleDateAndTimeConstants.STEP_MINUTES_DEFAULT;
+import static com.tkpmnc.newtaxiusers.taxiapp.singledateandtimepicker.widget.SingleDateAndTimeConstants.MAX_MINUTES;
+import static com.tkpmnc.newtaxiusers.taxiapp.singledateandtimepicker.widget.SingleDateAndTimeConstants.MIN_MINUTES;
+import static com.tkpmnc.newtaxiusers.taxiapp.singledateandtimepicker.widget.SingleDateAndTimeConstants.STEP_MINUTES_DEFAULT;
 
 public class WheelMinutePicker extends WheelPicker<String> {
 

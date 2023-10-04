@@ -54,7 +54,7 @@
                     android:src="@drawable/app_ic_contact"
                     />
 
-            <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+            <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/emergencyicon"
@@ -69,7 +69,7 @@
         </RelativeLayout>
 
 
-        <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+        <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
                 android:id="@+id/alertmsg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -98,7 +98,7 @@
                 android:padding="@dimen/_10adp"
                 >
 
-            <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+            <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
                     android:id="@+id/fivecontacts"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -111,7 +111,7 @@
                     android:visibility="visible"
                     />
 
-            <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+            <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
                     android:id="@+id/remove"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -125,7 +125,7 @@
                     android:visibility="visible"
                     />
 
-            <com.seentechs.newtaxiusers.appcommon.custompalette.FontButton
+            <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontButton
                     android:id="@+id/addcontact"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

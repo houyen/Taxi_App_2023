@@ -1,4 +1,4 @@
-package com.seentechs.newtaxidriver.home.interfaces;
+package com.tkpmnc.newtaxidriver.home.interfaces;
 
 import com.tkpmnc.newtaxidriver.common.model.JsonResponse;
 

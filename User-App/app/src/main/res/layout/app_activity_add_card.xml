@@ -37,7 +37,7 @@
 
             </RelativeLayout>
         </ScrollView>
-        <com.seentechs.newtaxiusers.appcommon.custompalette.FontButton
+        <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontButton
                 android:id="@+id/addpayment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

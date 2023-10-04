@@ -1,4 +1,4 @@
-package com.seentechs.newtaxiusers.appcommon.interfaces
+package com.tkpmnc.newtaxiusers.appcommon.interfaces
 
 /**
  *  newtaxiusers

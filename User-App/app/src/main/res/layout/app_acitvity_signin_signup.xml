@@ -36,7 +36,7 @@
                     android:layout_marginBottom="@dimen/_40adp"
                     app:srcCompat="@drawable/app_a_app_logo" />
 
-                <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+                <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
                         android:id="@+id/tv_welcome"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -49,7 +49,7 @@
                         app:fontName="@string/font_UBERMedium"
                         />
 
-                <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+                <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tv_welcome"
@@ -75,7 +75,7 @@
                     android:layout_marginBottom="@dimen/_15adp"
                     >
 
-                <com.seentechs.newtaxiusers.appcommon.custompalette.FontButton
+                <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontButton
                         android:id="@+id/login"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -89,7 +89,7 @@
                         app:fontName="@string/font_UBERMedium"
                         />
 
-                <com.seentechs.newtaxiusers.appcommon.custompalette.FontButton
+                <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontButton
                     android:id="@+id/signup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -172,7 +172,7 @@
                     android:layout_margin="@dimen/_15adp"
                     >
 
-                <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+                <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
                         android:id="@+id/tv_language"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -199,7 +199,7 @@
 
             </RelativeLayout>
 
-            <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+            <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
                 android:id="@+id/text_view_privacy_policy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

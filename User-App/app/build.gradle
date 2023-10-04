@@ -30,7 +30,7 @@ android {
         enabled = true
     }
     defaultConfig {
-        applicationId "com.seentechs.newtaxiusers"
+        applicationId "com.tkpmnc.newtaxiusers"
         minSdkVersion 21
         targetSdkVersion 33
         versionCode 8

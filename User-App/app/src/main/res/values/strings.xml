@@ -2,8 +2,8 @@
 
 <!DOCTYPE resources [
     <!ENTITY appname "NewTaxi">
-    <!ENTITY driverbundle "com.seentechs.newtaxidrivers">
-    <!ENTITY siteurl "https://newtaxi.seentechs.com/">
+    <!ENTITY driverbundle "com.tkpmnc.newtaxidrivers">
+    <!ENTITY siteurl "https://newtaxi.tkpmnc.com/">
     <!ENTITY facebookKey "#FACEBOOK KEY HERE#">
     <!ENTITY googleMapKey "#YOUR GOOGLR MAP KEY HERE#">
     <!ENTITY googleAutoCompleteKey "#GOOGLE AUTOCOMPLETE KEY HERE#">

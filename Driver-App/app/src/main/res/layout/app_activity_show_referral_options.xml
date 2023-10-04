@@ -38,7 +38,7 @@
                 android:padding="@dimen/_10adp"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/tv_heading_invite_code"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -73,7 +73,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/tv_referral_code"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -101,7 +101,7 @@
                     android:background="@color/newtaxi_app_border_shadow"
                     app:layout_constraintTop_toBottomOf="@+id/tv_referral_code" />
 
-                <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/tv_referral_benifit_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -138,7 +138,7 @@
                         android:padding="@dimen/_3adp"
                         android:src="@drawable/ic_share" />
 
-                    <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                    <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
@@ -180,7 +180,7 @@
                         android:visibility="gone"
                         app:layout_constraintHorizontal_weight="2">
 
-                        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                             android:id="@+id/remaing_referral"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -222,7 +222,7 @@
                 android:visibility="gone"
                 app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
 
-                <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/tv_friends_in_completed"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -274,7 +274,7 @@
                     android:paddingTop="@dimen/_10adp"
                     app:layout_constraintBottom_toTopOf="@+id/rv_completed_referrals">
 
-                    <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                    <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                         android:id="@+id/tv_friends_completed"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -286,7 +286,7 @@
                         android:textSize="@dimen/_15asp"
                         app:fontname="@string/font_Medium" />
 
-                    <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                    <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                         android:id="@+id/tv_total_earned"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -300,7 +300,7 @@
                         app:fontname="@string/font_Medium"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                    <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                         android:id="@+id/tv_amount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -324,7 +324,7 @@
                     tools:layout_editor_absoluteX="16dp" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+            <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                 android:id="@+id/tv_no_referrals_yet"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_500adp"

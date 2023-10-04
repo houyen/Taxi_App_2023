@@ -1,4 +1,4 @@
-package com.seentechs.newtaxiusers.taxiapp.sidebar.referral.model
+package com.tkpmnc.newtaxiusers.taxiapp.sidebar.referral.model
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName

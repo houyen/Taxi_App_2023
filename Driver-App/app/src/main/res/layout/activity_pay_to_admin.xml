@@ -34,7 +34,7 @@
                 android:layout_marginTop="@dimen/_20adp"
                 android:src="@drawable/paytoadmin" />
 
-            <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+            <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                 android:id="@+id/tvWallet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -46,7 +46,7 @@
                 android:textSize="@dimen/_14asp"
                 app:fontname="@string/fonts_UBERNews" />
 
-            <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+            <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                 android:id="@+id/tvOweAmount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -1,4 +1,4 @@
-package com.seentechs.newtaxidriver.home.datamodel
+package com.tkpmnc.newtaxidriver.home.datamodel
 
 import android.view.View
 import android.widget.ImageView

@@ -26,7 +26,7 @@
                 android:background="@drawable/app_ic_back_arrow" />
 
 
-        <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+        <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
                 android:id="@+id/tv_headertext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

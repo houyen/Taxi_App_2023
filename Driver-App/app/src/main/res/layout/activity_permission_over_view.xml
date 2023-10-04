@@ -55,7 +55,7 @@
                 android:layout_height="wrap_content"
                 tools:ignore="TouchTargetSizeCheck" />
 
-            <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+            <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                 android:id="@+id/text_view_privacy_policy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -67,7 +67,7 @@
         </LinearLayout>
 
 
-        <com.seentechs.newtaxidriver.common.custompalette.FontButton
+        <com.tkpmnc.newtaxidriver.common.custompalette.FontButton
             android:id="@+id/btn_grant_permission"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -82,7 +82,7 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/btn_skip" />
 
-        <com.seentechs.newtaxidriver.common.custompalette.FontButton
+        <com.tkpmnc.newtaxidriver.common.custompalette.FontButton
             android:id="@+id/btn_skip"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

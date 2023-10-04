@@ -8,11 +8,11 @@
 
         <variable
             name="vehicleType"
-            type="com.seentechs.newtaxidriver.home.datamodel.VehiclesModel" />
+            type="com.tkpmnc.newtaxidriver.home.datamodel.VehiclesModel" />
 
         <variable
             name="callback"
-            type="com.seentechs.newtaxidriver.home.managevehicles.adapter.ManageVehicleAdapter.OnClickListener" />
+            type="com.tkpmnc.newtaxidriver.home.managevehicles.adapter.ManageVehicleAdapter.OnClickListener" />
 
         <variable
             name="position"
@@ -44,7 +44,7 @@
                 android:layout_marginTop="@dimen/_10adp"
                 android:layout_marginBottom="@dimen/_10adp">
 
-                <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/tv_status"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -106,7 +106,7 @@
                 android:layout_toStartOf="@+id/rlt_edit"
                 android:layout_toEndOf="@+id/view">
 
-                <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/tv_car_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -120,7 +120,7 @@
                     android:textSize="@dimen/_14asp"
                     app:fontname="@string/font_Medium" />
 
-                <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/tv_car_status"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -180,4 +180,3 @@
     </RelativeLayout>
 
 </layout>
-

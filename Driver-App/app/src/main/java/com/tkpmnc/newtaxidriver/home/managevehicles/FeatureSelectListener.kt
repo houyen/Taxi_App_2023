@@ -1,4 +1,4 @@
-package com.seentechs.newtaxidriver.home.managevehicles
+package com.tkpmnc.newtaxidriver.home.managevehicles
 
 interface FeatureSelectListener {
     fun onFeatureChoosed(id:Int,isSelected:Boolean)

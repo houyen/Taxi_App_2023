@@ -1,4 +1,4 @@
-package com.seentechs.newtaxiusers.taxiapp.datamodels.main
+package com.tkpmnc.newtaxiusers.taxiapp.datamodels.main
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName

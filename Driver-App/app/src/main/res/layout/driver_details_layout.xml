@@ -5,7 +5,7 @@
     <data>
         <variable
             name="riderDetailsModelList"
-            type="com.seentechs.newtaxidriver.home.datamodel.RiderDetailsModelList" />
+            type="com.tkpmnc.newtaxidriver.home.datamodel.RiderDetailsModelList" />
 
     </data>
 
@@ -49,7 +49,7 @@
             app:civ_border_color="#FF000000"
             app:civ_border_width="2dp" />-->
 
-        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
             android:id="@+id/tv_rider_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -70,4 +70,3 @@
     </RelativeLayout>
 
 </layout>
-

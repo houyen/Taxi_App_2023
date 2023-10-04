@@ -1,4 +1,4 @@
-package com.seentechs.newtaxiusers.appcommon.configs
+package com.tkpmnc.newtaxiusers.appcommon.configs
 
 /**
  *  newtaxiusers

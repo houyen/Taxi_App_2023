@@ -1,4 +1,4 @@
-package com.seentechs.newtaxiusers.taxiapp.singledateandtimepicker;
+package com.tkpmnc.newtaxiusers.taxiapp.singledateandtimepicker;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -29,7 +29,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import static com.seentechs.newtaxiusers.taxiapp.singledateandtimepicker.DateHelper.getCalendarOfDate;
+import static com.tkpmnc.newtaxiusers.taxiapp.singledateandtimepicker.DateHelper.getCalendarOfDate;
 
 public class SingleDateAndTimePicker extends LinearLayout {
 

@@ -1,4 +1,4 @@
-package com.seentechs.newtaxiusers.taxiapp.datamodels
+package com.tkpmnc.newtaxiusers.taxiapp.datamodels
 
 import android.location.Location
 

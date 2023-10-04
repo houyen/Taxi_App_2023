@@ -1,4 +1,4 @@
-package com.seentechs.newtaxidriver.home.signinsignup
+package com.tkpmnc.newtaxidriver.home.signinsignup
 
 /**
  *  newtaxidriver
@@ -491,7 +491,7 @@ class SigninSignupHomeActivity : CommonActivity(), UserChoiceSuccessResponse {
         language.isClickable = true
         LanguageChange.isClickable = true
 
-        com.seentechs.newtaxidriver.home.signinsignup.SigninSignupHomeActivity.Companion.alertDialogStores?.setOnDismissListener {
+        com.tkpmnc.newtaxidriver.home.signinsignup.SigninSignupHomeActivity.Companion.alertDialogStores?.setOnDismissListener {
             // TODO Auto-generated method stub
             if (langclick) {
                 langclick = false

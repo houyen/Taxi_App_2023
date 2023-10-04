@@ -16,7 +16,7 @@
         android:padding="@dimen/_15adp"
         >
 
-        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

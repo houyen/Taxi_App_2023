@@ -1,4 +1,4 @@
-package com.seentechs.newtaxidriver.home.map
+package com.tkpmnc.newtaxidriver.home.map
 
 /**
  *  newtaxidriver
@@ -838,7 +838,7 @@ class GpsService : Service(), ServiceListener {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private fun startMyOwnForeground() {
-        val NOTIFICATION_CHANNEL_ID = "com.seentechs.newtaxidriver"
+        val NOTIFICATION_CHANNEL_ID = "com.tkpmnc.newtaxidriver"
         val channelName = "My Background Service"
         val chan = NotificationChannel(NOTIFICATION_CHANNEL_ID, channelName, NotificationManager.IMPORTANCE_DEFAULT)
         chan.lightColor = Color.BLUE

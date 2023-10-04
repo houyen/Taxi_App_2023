@@ -1,4 +1,4 @@
-package com.seentechs.newtaxiusers.taxiapp.datamodels.signinsignup
+package com.tkpmnc.newtaxiusers.taxiapp.datamodels.signinsignup
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName

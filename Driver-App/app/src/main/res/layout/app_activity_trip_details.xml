@@ -46,7 +46,7 @@
                     android:layout_marginEnd="@dimen/_10adp"
                     android:layout_marginBottom="@dimen/_10adp"
                     >
-                    <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                    <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                         android:id="@+id/tv_tripid"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -59,7 +59,7 @@
                         app:fontname="@string/font_Medium"
                         />
 
-                    <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                    <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                         android:id="@+id/trip_date"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -74,7 +74,7 @@
                         app:fontname="@string/font_Medium"
                         />
 
-                    <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                    <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                         android:id="@+id/carname"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -91,7 +91,7 @@
                         
                         />
 
-                    <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                    <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                         android:id="@+id/trip_amount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -108,7 +108,7 @@
                         app:fontname="@string/font_Medium"
                         />
 
-                    <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                    <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                         android:id="@+id/tv_tripstatus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -135,7 +135,7 @@
                         android:text=""
                         />
 
-                    <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                    <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                         android:id="@+id/seatcount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -257,7 +257,7 @@
                             android:background="@color/ub__transparent"
                             >
 
-                            <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                            <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                                 android:id="@+id/tv_pick_Address"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -281,7 +281,7 @@
                             android:layout_toEndOf="@+id/relativeLayout2"
                             >
 
-                            <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                            <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                                 android:id="@+id/tv_drop_address"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -331,7 +331,7 @@
                     </androidx.cardview.widget.CardView>
 
 
-                    <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                    <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                         android:id="@+id/driver_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -397,7 +397,7 @@
                         android:paddingBottom="@dimen/_20adp"
                         android:paddingTop="@dimen/_20adp">
 
-                        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/duration"
@@ -405,7 +405,7 @@
                             android:textColor="@color/newtaxi_app_black"
                             android:textSize="@dimen/_14asp"
                             app:fontname="@string/font_Medium" />
-                        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                             android:id="@+id/trip_duration"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -427,7 +427,7 @@
                         android:orientation="vertical"
                         android:paddingBottom="@dimen/_20adp"
                         android:paddingTop="@dimen/_20adp">
-                        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/distance"
@@ -436,7 +436,7 @@
                             android:textSize="@dimen/_14asp"
                             app:fontname="@string/font_Medium" />
 
-                        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                             android:id="@+id/trip_km"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"

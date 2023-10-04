@@ -1,4 +1,4 @@
-package com.seentechs.newtaxiusers.taxiapp.sidebar.currency
+package com.tkpmnc.newtaxiusers.taxiapp.sidebar.currency
 
 import java.io.Serializable
 

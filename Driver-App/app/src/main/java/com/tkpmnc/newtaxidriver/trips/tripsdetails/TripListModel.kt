@@ -1,4 +1,4 @@
-package com.seentechs.newtaxidriver.trips.tripsdetails
+package com.tkpmnc.newtaxidriver.trips.tripsdetails
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName

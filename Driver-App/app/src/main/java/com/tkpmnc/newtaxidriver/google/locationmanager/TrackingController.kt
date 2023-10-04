@@ -10,7 +10,7 @@ Unless required by applicable law or agreed to in writing, software
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.seentechs.newtaxidriver.google.locationmanager
+package com.tkpmnc.newtaxidriver.google.locationmanager
 
 import android.content.Context
 import android.os.Handler

@@ -6,7 +6,7 @@
     android:animateLayoutChanges="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+    <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
         android:id="@+id/tv_close_popup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
         android:gravity="center"
         >
 
-        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
         android:id="@+id/tv_mobile_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -57,7 +57,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_otp_text"
             >
 
-            <com.seentechs.newtaxidriver.common.custompalette.FontEditText
+            <com.tkpmnc.newtaxidriver.common.custompalette.FontEditText
                 android:id="@+id/one"
                 android:layout_width="@dimen/_60adp"
                 android:background="@drawable/app_curve_button_white_with_outline"
@@ -79,10 +79,10 @@
                 >
 
                 <requestFocus />
-            </com.seentechs.newtaxidriver.common.custompalette.FontEditText>
+            </com.tkpmnc.newtaxidriver.common.custompalette.FontEditText>
 
 
-            <com.seentechs.newtaxidriver.common.custompalette.FontEditText
+            <com.tkpmnc.newtaxidriver.common.custompalette.FontEditText
                 android:id="@+id/two"
                 android:layout_width="@dimen/_60adp"
                 android:background="@drawable/app_curve_button_white_with_outline"
@@ -103,7 +103,7 @@
                 android:paddingBottom="@dimen/_10adp"
                 android:textSize="@dimen/_18asp" />
 
-            <com.seentechs.newtaxidriver.common.custompalette.FontEditText
+            <com.tkpmnc.newtaxidriver.common.custompalette.FontEditText
                 android:id="@+id/three"
                 android:layout_width="@dimen/_60adp"
                 android:background="@drawable/app_curve_button_white_with_outline"
@@ -124,7 +124,7 @@
                 android:paddingBottom="@dimen/_10adp"
                 android:textSize="@dimen/_18asp" />
 
-            <com.seentechs.newtaxidriver.common.custompalette.FontEditText
+            <com.tkpmnc.newtaxidriver.common.custompalette.FontEditText
                 android:id="@+id/four"
                 android:layout_width="@dimen/_60adp"
                 android:background="@drawable/app_curve_button_white_with_outline"
@@ -145,7 +145,7 @@
                 android:textSize="@dimen/_18asp" />
         </RelativeLayout>
 
-    <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+    <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
         android:id="@+id/tv_otp_error_field"
         android:visibility="gone"
         android:layout_width="wrap_content"
@@ -158,7 +158,7 @@
         app:layout_constraintTop_toBottomOf="@id/rl_edittexts"
         />
 
-    <com.seentechs.newtaxidriver.common.custompalette.FontButton
+    <com.tkpmnc.newtaxidriver.common.custompalette.FontButton
         android:id="@+id/btn_verify_OTP"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

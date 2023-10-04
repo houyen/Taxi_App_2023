@@ -1,4 +1,4 @@
-package com.seentechs.newtaxidriver.common.util
+package com.tkpmnc.newtaxidriver.common.util
 
 import android.app.Activity
 import android.app.ActivityManager

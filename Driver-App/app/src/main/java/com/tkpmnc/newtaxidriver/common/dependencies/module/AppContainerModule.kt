@@ -1,4 +1,4 @@
-package com.seentechs.newtaxidriver.common.dependencies.module
+package com.tkpmnc.newtaxidriver.common.dependencies.module
 
 /**
  * @subpackage dependencies.module
@@ -27,7 +27,7 @@ import javax.inject.Singleton
 /*****************************************************************
  * App Container Module
  */
-@Module(includes = [com.seentechs.newtaxidriver.common.dependencies.module.ApplicationModule::class])
+@Module(includes = [com.tkpmnc.newtaxidriver.common.dependencies.module.ApplicationModule::class])
 class AppContainerModule {
     @Provides
     @Singleton

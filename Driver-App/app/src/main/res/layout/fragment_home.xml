@@ -43,7 +43,7 @@
             android:layout_marginBottom="@dimen/_20adp"
             android:visibility="gone">
 
-            <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+            <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                 android:id="@+id/tv_add_vehicle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -58,7 +58,7 @@
                 android:textSize="@dimen/_15asp"
                 app:fontname="@string/font_Medium" />
 
-            <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+            <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                 android:id="@+id/tv_add_driver_prooof"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -74,7 +74,7 @@
                 android:textSize="@dimen/_15asp"
                 app:fontname="@string/font_Medium" />
 
-            <com.seentechs.newtaxidriver.common.custompalette.FontButton
+            <com.tkpmnc.newtaxidriver.common.custompalette.FontButton
                 android:id="@+id/btn_check_status"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -135,7 +135,7 @@
                 android:layout_toEndOf="@+id/card_view"
                 android:orientation="vertical">
 
-                <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/tv_car"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -148,7 +148,7 @@
                     app:fontname="@string/font_Medium" />
 
 
-                <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/tv_vehicle_type"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -167,7 +167,7 @@
                     app:fontname="@string/font_Medium" />
 
 
-                <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/tv_car_change"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -205,7 +205,7 @@
                     android:checked="false" />
 
 
-                <!--<com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <!--<com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/go_online"

@@ -1,4 +1,4 @@
-package com.seentechs.newtaxidriver.home.datamodel.firebase_keys
+package com.tkpmnc.newtaxidriver.home.datamodel.firebase_keys
 
 
 import androidx.annotation.StringDef

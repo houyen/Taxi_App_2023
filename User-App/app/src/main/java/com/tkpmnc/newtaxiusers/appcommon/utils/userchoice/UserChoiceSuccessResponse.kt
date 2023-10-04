@@ -1,4 +1,4 @@
-package com.seentechs.newtaxiusers.appcommon.utils.userchoice
+package com.tkpmnc.newtaxiusers.appcommon.utils.userchoice
 
 interface UserChoiceSuccessResponse {
     fun onSuccessUserSelected(type: String?, userChoiceData: String?, userChoiceCode: String?)

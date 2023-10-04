@@ -11,7 +11,7 @@
     android:id="@+id/country_layout">
 
 
-    <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+    <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
         android:text="Name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

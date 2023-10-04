@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     >
 
-    <com.seentechs.newtaxidriver.common.custompalette.FontButton
+    <com.tkpmnc.newtaxidriver.common.custompalette.FontButton
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_50adp"

@@ -1,4 +1,4 @@
-package com.seentechs.newtaxiusers.taxiapp.sidebar.referral
+package com.tkpmnc.newtaxiusers.taxiapp.sidebar.referral
 
 import android.content.Intent
 import android.graphics.Typeface

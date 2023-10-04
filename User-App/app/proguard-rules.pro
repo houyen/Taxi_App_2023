@@ -68,18 +68,18 @@
 -keep public class android.support.design.R$* { *; }
 -keep class android.support.v7.widget.AppCompatImageView { *; }
 -dontwarn com.github.mikephil.**
--keep public class com.seentechs.newtaxiusers.appcommon.helper.** {
+-keep public class com.tkpmnc.newtaxiusers.appcommon.helper.** {
      public protected *;
 }
 
--keep class com.seentechs.newtaxiusers.taxiapp.views.firebaseChat.FirebaseChatModelClass{ *; }
+-keep class com.tkpmnc.newtaxiusers.taxiapp.views.firebaseChat.FirebaseChatModelClass{ *; }
 
--keep class com.seentechs.newtaxiusers.taxiapp.views.main.MainActivity{ *; }
--keep class com.seentechs.newtaxiusers.appcommon.datamodels.**{ *; }
--keep class com.seentechs.newtaxiusers.taxiapp.datamodels.**{ *; }
--keep class com.seentechs.newtaxiusers.appcommon.map.**{ *; }
+-keep class com.tkpmnc.newtaxiusers.taxiapp.views.main.MainActivity{ *; }
+-keep class com.tkpmnc.newtaxiusers.appcommon.datamodels.**{ *; }
+-keep class com.tkpmnc.newtaxiusers.taxiapp.datamodels.**{ *; }
+-keep class com.tkpmnc.newtaxiusers.appcommon.map.**{ *; }
 
--keep class com.seentechs.newtaxiusers.taxiapp.views.voip.NewTaxiSinchService{ *; }
+-keep class com.tkpmnc.newtaxiusers.taxiapp.views.voip.NewTaxiSinchService{ *; }
 #}
 
 

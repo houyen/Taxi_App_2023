@@ -1,4 +1,4 @@
-package com.seentechs.newtaxiusers.appcommon.pushnotification
+package com.tkpmnc.newtaxiusers.appcommon.pushnotification
 
 /**
  *  

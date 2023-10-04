@@ -1,4 +1,4 @@
-package com.seentechs.newtaxiusers.taxiapp.interfaces
+package com.tkpmnc.newtaxiusers.taxiapp.interfaces
 
 /**
  *  newtaxiuserseatsdriver

@@ -1,4 +1,4 @@
-package com.seentechs.newtaxiusers.appcommon.dependencies.module
+package com.tkpmnc.newtaxiusers.appcommon.dependencies.module
 
 /**
  *  newtaxiusers

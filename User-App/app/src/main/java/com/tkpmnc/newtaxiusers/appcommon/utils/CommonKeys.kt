@@ -1,4 +1,4 @@
-package com.seentechs.newtaxiusers.appcommon.utils
+package com.tkpmnc.newtaxiusers.appcommon.utils
 
 import androidx.annotation.IntDef
 import androidx.annotation.StringDef

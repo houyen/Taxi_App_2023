@@ -1,4 +1,4 @@
-package com.seentechs.newtaxidriver.common.model
+package com.tkpmnc.newtaxidriver.common.model
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName

@@ -2,9 +2,9 @@
 
 <!DOCTYPE resources
     [<!ENTITY appname "NewTaxi Driver">
-        <!ENTITY riderbundle "com.seentechs.newtaxiuser">
-        <!ENTITY driverbundle "com.seentechs.newtaxidriver">
-        <!ENTITY siteurl "https://newtaxi.seentechs.com/">
+        <!ENTITY riderbundle "com.tkpmnc.newtaxiuser">
+        <!ENTITY driverbundle "com.tkpmnc.newtaxidriver">
+        <!ENTITY siteurl "https://newtaxi.tkpmnc.com/">
         <!ENTITY googleMapKey "#ENTER GOOGLE MAPS API KEY HERE#">
         <!ENTITY googleAutoCompleteKey "#ENTER GOOGLE AUTOCOMPLETE KEY HERE#">
         <!ENTITY firebaseDbMode "live">

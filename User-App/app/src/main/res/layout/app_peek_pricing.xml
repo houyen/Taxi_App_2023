@@ -15,7 +15,7 @@
             android:layout_marginTop="@dimen/_10adp"
             >
 
-        <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+        <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
                 android:id="@+id/tv_heading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
                 >
 
 
-            <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+            <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
                     android:id="@+id/PeakPriceDescription"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -86,7 +86,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     >
 
-                <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+                <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
 
                         android:id="@+id/tv_normalFare"
                         android:layout_width="wrap_content"
@@ -100,7 +100,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         />
 
-                <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+                <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
                         android:id="@+id/tv_peak_price_percentage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -148,7 +148,7 @@
                             app:layout_constraintGuide_end="@dimen/_40adp"
                             />
 
-                    <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+                    <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
                             android:id="@+id/tv_minimum_fare"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -165,7 +165,7 @@
                             app:layout_constraintStart_toStartOf="parent"
                             />
 
-                    <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+                    <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
                             android:id="@+id/tv_minimum_fare_static_text"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -192,7 +192,7 @@
                             >
 
 
-                        <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+                        <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
                                 android:id="@+id/tv_per_minutes"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -207,7 +207,7 @@
                                 app:layout_constraintStart_toStartOf="parent"
                                 />
 
-                        <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+                        <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
                                 android:id="@+id/tv_min_static_text"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -224,7 +224,7 @@
                                 app:layout_constraintStart_toEndOf="@id/tv_per_minutes"
                                 />
 
-                        <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+                        <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
                                 android:id="@+id/tv_per_distance"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -241,7 +241,7 @@
                                 app:layout_constraintStart_toEndOf="@+id/tv_min_static_text"
                                 />
 
-                        <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+                        <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
                                 android:id="@+id/tv_km_static_text"
                                 android:layout_width="wrap_content"
                                 android:layout_toEndOf="@+id/tv_per_distance"
@@ -296,7 +296,7 @@
                     android:layout_marginBottom="@dimen/_20adp"
                     >
 
-                <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+                <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
@@ -313,7 +313,7 @@
                         app:layout_constraintTop_toTopOf="@+id/tv_accept_higherPrice"
                         />
 
-                <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+                <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
                         android:id="@+id/tv_tryLater_higherPrice"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -335,7 +335,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/tv_accept_higherPrice"
                         />
 
-                <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+                <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
                         android:id="@+id/tv_accept_higherPrice"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-        <com.seentechs.newtaxidriver.common.helper.CircularMusicProgressBar
+        <com.tkpmnc.newtaxidriver.common.helper.CircularMusicProgressBar
             android:id="@+id/album_art"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -50,7 +50,7 @@
 
         </io.github.krtkush.lineartimer.LinearTimerView>
 
-        <com.seentechs.newtaxidriver.trips.RoundedLayout
+        <com.tkpmnc.newtaxidriver.trips.RoundedLayout
             android:id="@+id/maplayout"
             android:layout_width="150dp"
             android:layout_height="150dp"
@@ -72,7 +72,7 @@
                 android:src="@drawable/circle_shape"
                 app:tint="@color/newtaxi_app_navy" />
 
-            <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+            <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                 android:id="@+id/tv_title_accept"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -83,7 +83,7 @@
                 android:textSize="@dimen/_17asp"
                 app:fontname="@string/font_Medium" />
 
-            <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+            <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                 android:id="@+id/tvcountdowntimer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -95,12 +95,12 @@
                 app:fontname="@string/font_Medium" />
 
 
-        </com.seentechs.newtaxidriver.trips.RoundedLayout>
+        </com.tkpmnc.newtaxidriver.trips.RoundedLayout>
 
 
     </RelativeLayout>
 
-    <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+    <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
         android:id="@+id/tv_decline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -140,7 +140,7 @@
                 android:orientation="vertical"
                 android:padding="@dimen/_5adp">
 
-                <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/req_min"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -152,7 +152,7 @@
                     android:textSize="@dimen/_13asp"
                     timer:fontname="@string/font_Medium" />
 
-                <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/tv_seat_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

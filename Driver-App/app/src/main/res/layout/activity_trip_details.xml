@@ -29,7 +29,7 @@
             android:src="@drawable/gobackleftarrow"
             android:tint="@color/white" />
 
-        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -61,7 +61,7 @@
                 android:orientation="vertical"
                 android:paddingBottom="20dp">
 
-                <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/trip_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
                     android:textSize="14sp"
                     app:fontname="@string/font_UBERBook" />
 
-                <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/trip_amount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -85,7 +85,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
@@ -108,7 +108,7 @@
                         android:layout_height="wrap_content"
                         android:visibility="gone">
 
-                        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                             android:id="@+id/faretxt"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -118,7 +118,7 @@
                             android:textSize="18sp"
                             app:fontname="@string/font_UBERNews" />
 
-                        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_toEndOf="@+id/faretxt"
@@ -130,7 +130,7 @@
                             android:visibility="gone"
                             app:fontname="@string/font_UberClone" />
 
-                        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                             android:id="@+id/basefare_amount"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -152,7 +152,7 @@
                         android:paddingBottom="10dp"
                         android:visibility="gone">
 
-                        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/distancefare"
@@ -161,7 +161,7 @@
                             android:textSize="18sp"
                             app:fontname="@string/font_UBERNews" />
 
-                        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                             android:id="@+id/distance_fare"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -181,7 +181,7 @@
                         android:paddingBottom="10dp"
                         android:visibility="gone">
 
-                        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/timefare"
@@ -190,7 +190,7 @@
                             android:textSize="18sp"
                             app:fontname="@string/font_UBERNews" />
 
-                        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                             android:id="@+id/time_fare"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -211,7 +211,7 @@
                         android:paddingBottom="10dp"
                         android:visibility="gone">
 
-                        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingStart="20dp"
@@ -221,7 +221,7 @@
                             android:textSize="18sp"
                             app:fontname="@string/font_UBERNews" />
 
-                        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                             android:id="@+id/fee"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -245,7 +245,7 @@
                         android:paddingBottom="10dp"
                         android:visibility="gone">
 
-                        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                             android:id="@+id/total_payouts"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -255,7 +255,7 @@
                             android:textSize="18sp"
                             app:fontname="@string/font_UBERMedium" />
 
-                        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/total_payouts"
@@ -267,7 +267,7 @@
                             android:visibility="gone"
                             app:fontname="@string/font_UBERBook" />
 
-                        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                             android:id="@+id/totalamount"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -288,7 +288,7 @@
                         android:paddingBottom="10dp"
                         android:visibility="gone">
 
-                        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/adminamount"
@@ -297,7 +297,7 @@
                             android:textSize="18sp"
                             app:fontname="@string/font_UBERNews" />
 
-                        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                             android:id="@+id/adminamount"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -318,7 +318,7 @@
                         android:paddingBottom="10dp"
                         android:visibility="gone">
 
-                        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/oweamount"
@@ -327,7 +327,7 @@
                             android:textSize="18sp"
                             app:fontname="@string/font_UBERNews" />
 
-                        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                             android:id="@+id/oweamount"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -348,7 +348,7 @@
                         android:paddingBottom="10dp"
                         android:visibility="gone">
 
-                        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/driverpayout"
@@ -357,7 +357,7 @@
                             android:textSize="18sp"
                             app:fontname="@string/font_UBERNews" />
 
-                        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                             android:id="@+id/driverpayout"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -379,7 +379,7 @@
                         android:paddingBottom="10dp"
                         android:visibility="gone">
 
-                        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                             android:id="@+id/cashcollectamount_txt"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -389,7 +389,7 @@
                             android:textSize="18sp"
                             app:fontname="@string/font_UBERMedium" />
 
-                        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                             android:id="@+id/cashcollectamount"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -410,7 +410,7 @@
             </LinearLayout>
 
 
-            <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+            <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                 android:id="@+id/pickup_address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -430,7 +430,7 @@
                 android:visibility="gone"
                 app:fontname="@string/font_News" />
 
-            <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+            <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                 android:id="@+id/drop_address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -550,7 +550,7 @@
                     android:paddingTop="20dp"
                     android:paddingBottom="20dp">
 
-                    <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                    <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                         android:id="@+id/trip_duration"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -559,7 +559,7 @@
                         android:textSize="16sp"
                         app:fontname="@string/font_UBERNews" />
 
-                    <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                    <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/duration"
@@ -580,7 +580,7 @@
                     android:paddingTop="20dp"
                     android:paddingBottom="20dp">
 
-                    <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                    <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                         android:id="@+id/trip_km"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -589,7 +589,7 @@
                         android:textSize="16sp"
                         app:fontname="@string/font_UBERNews" />
 
-                    <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                    <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/distance"
@@ -600,7 +600,7 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+            <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_gravity="center_vertical"

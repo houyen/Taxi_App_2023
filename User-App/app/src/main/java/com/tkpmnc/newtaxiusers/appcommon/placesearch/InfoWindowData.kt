@@ -1,4 +1,4 @@
-package com.seentechs.newtaxiusers.appcommon.placesearch
+package com.tkpmnc.newtaxiusers.appcommon.placesearch
 
 class InfoWindowData {
     var image: String = ""

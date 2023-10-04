@@ -1,4 +1,4 @@
-package com.seentechs.newtaxiusers.taxiapp.firebase_keys
+package com.tkpmnc.newtaxiusers.taxiapp.firebase_keys
 
 import androidx.annotation.StringDef
 

@@ -9,7 +9,7 @@
     <data>
         <variable
             name="payoutModelList"
-            type="com.seentechs.newtaxidriver.home.datamodel.PayoutDetailsListModel" />
+            type="com.tkpmnc.newtaxidriver.home.datamodel.PayoutDetailsListModel" />
     </data>
 
     <RelativeLayout
@@ -48,7 +48,7 @@
 
                 >
 
-                <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/tv_paypal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -59,7 +59,7 @@
 
                     app:fontname="@string/font_UBERNews" />
 
-                <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/tv_desc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -73,7 +73,7 @@
 
             </RelativeLayout>
 
-            <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+            <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                 android:id="@+id/tv_default"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

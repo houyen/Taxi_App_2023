@@ -24,7 +24,7 @@
             android:background="@drawable/gobackleftarrowwrite" />
 
 
-        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -44,7 +44,7 @@
         android:layout_margin="20dp"
         android:background="@color/white">
 
-        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
             android:id="@+id/payment_msg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -79,7 +79,7 @@
                     android:textSize="14dp" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+            <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                 android:id="@+id/emailclose"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -95,7 +95,7 @@
 
     </RelativeLayout>
 
-    <com.seentechs.newtaxidriver.common.custompalette.FontButton
+    <com.tkpmnc.newtaxidriver.common.custompalette.FontButton
         android:id="@+id/save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

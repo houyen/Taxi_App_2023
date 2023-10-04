@@ -40,7 +40,7 @@
                     android:src="@drawable/app_ic_document" />
 
 
-                <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/_10adp"
@@ -84,7 +84,7 @@
                     android:gravity="center"/>
 
 
-                <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/_10adp"
@@ -126,7 +126,7 @@
                     android:layout_marginStart="@dimen/_15adp"
                     android:layout_centerVertical="true"
                     />
-                <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/_10adp"
@@ -138,7 +138,7 @@
                     android:textSize="@dimen/_16asp"
                     app:fontname="@string/font_Medium" />
 
-                <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/tv_currency"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -171,7 +171,7 @@
                     android:layout_marginStart="@dimen/_15adp"
                     android:layout_centerVertical="true"
                     />
-                <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/_10adp"
@@ -183,7 +183,7 @@
                     android:textSize="@dimen/_16asp"
                     app:fontname="@string/font_Medium" />
 
-                <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/tv_language"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -217,7 +217,7 @@
                     />
 
 
-                <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_toEndOf="@+id/iv_signoutimage"

@@ -1,4 +1,4 @@
-package com.seentechs.newtaxidriver.google.locationmanager
+package com.tkpmnc.newtaxidriver.google.locationmanager
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -85,7 +85,7 @@ class TrackingService : Service() {
         // Open request Activity while receive from Firebase DB
         val mFirebaseInstance = FirebaseDatabase.getInstance()
 
-        mFirebaseDatabaseRequest = mFirebaseInstance.getReference(applicationContext.getString(com.seentechs.newtaxidriver.R.string.real_time_db))
+        mFirebaseDatabaseRequest = mFirebaseInstance.getReference(applicationContext.getString(com.tkpmnc.newtaxidriver.R.string.real_time_db))
         //addRequestReceiveListener()
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

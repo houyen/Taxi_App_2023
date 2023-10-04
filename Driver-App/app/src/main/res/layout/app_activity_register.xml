@@ -95,7 +95,7 @@
                     android:padding="@dimen/_15adp">
 
 
-                    <com.seentechs.newtaxidriver.common.custompalette.FontEditText
+                    <com.tkpmnc.newtaxidriver.common.custompalette.FontEditText
                         android:id="@+id/input_first"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -113,7 +113,7 @@
                         app:fontname="@string/font_Medium" />
 
 
-                    <com.seentechs.newtaxidriver.common.custompalette.FontEditText
+                    <com.tkpmnc.newtaxidriver.common.custompalette.FontEditText
                         android:id="@+id/input_last"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -130,7 +130,7 @@
 
                 </LinearLayout>
 
-                <com.seentechs.newtaxidriver.common.custompalette.FontEditText
+                <com.tkpmnc.newtaxidriver.common.custompalette.FontEditText
                     android:id="@+id/emaitext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -188,7 +188,7 @@
                         android:layout_toEndOf="@+id/mobile_code"
                         app:hintEnabled="false">
 
-                        <com.seentechs.newtaxidriver.common.custompalette.FontEditText
+                        <com.tkpmnc.newtaxidriver.common.custompalette.FontEditText
                             android:id="@+id/mobile_number"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -235,7 +235,7 @@
                     app:passwordToggleEnabled="true"
                     app:passwordToggleTint="@color/newtaxi_app_black">
 
-                    <com.seentechs.newtaxidriver.common.custompalette.FontEditText
+                    <com.tkpmnc.newtaxidriver.common.custompalette.FontEditText
                         android:id="@+id/passwordtext"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -264,7 +264,7 @@
                     android:padding="@dimen/_15adp"
                     app:hintEnabled="false">
 
-                    <com.seentechs.newtaxidriver.common.custompalette.FontEditText
+                    <com.tkpmnc.newtaxidriver.common.custompalette.FontEditText
                         android:id="@+id/cityText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -305,7 +305,7 @@
                     android:padding="@dimen/_11adp"
                     app:hintEnabled="false">
 
-                    <com.seentechs.newtaxidriver.common.custompalette.FontEditText
+                    <com.tkpmnc.newtaxidriver.common.custompalette.FontEditText
                         android:id="@+id/input_referral"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -336,7 +336,7 @@
                     android:orientation="horizontal"
                     android:weightSum="1">
 
-                    <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                    <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="@dimen/_3asp"
@@ -347,7 +347,7 @@
                         android:textSize="@dimen/_15asp"
                         app:fontname="@string/font_Medium" />
 
-                    <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                    <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                         android:id="@+id/loginlink"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -364,4 +364,3 @@
         </ScrollView>
     </RelativeLayout>
 </RelativeLayout>
-

@@ -1,4 +1,4 @@
-package com.seentechs.newtaxiusers.taxiapp.views.main.filter
+package com.tkpmnc.newtaxiusers.taxiapp.views.main.filter
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName

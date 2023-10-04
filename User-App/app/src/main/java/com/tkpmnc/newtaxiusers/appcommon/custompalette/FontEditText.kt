@@ -1,4 +1,4 @@
-package com.seentechs.newtaxiusers.appcommon.custompalette
+package com.tkpmnc.newtaxiusers.appcommon.custompalette
 
 /**
  *  newtaxiusers

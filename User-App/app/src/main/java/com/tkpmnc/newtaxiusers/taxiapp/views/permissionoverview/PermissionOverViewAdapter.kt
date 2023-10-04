@@ -1,4 +1,4 @@
-package com.seentechs.newtaxiusers.taxiapp.views.permissionoverview
+package com.tkpmnc.newtaxiusers.taxiapp.views.permissionoverview
 
 import android.content.Context
 import android.view.LayoutInflater

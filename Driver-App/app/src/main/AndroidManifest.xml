@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.seentechs.newtaxidriver">
+    package="com.tkpmnc.newtaxidriver">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="32"/>
@@ -44,7 +44,7 @@
         android:required="false" />
 
     <application
-        android:name="com.seentechs.newtaxidriver.common.network.AppController"
+        android:name="com.tkpmnc.newtaxidriver.common.network.AppController"
         android:allowBackup="false"
         android:fullBackupContent="false"
         android:hardwareAccelerated="true"
@@ -58,26 +58,26 @@
         tools:replace="android:allowBackup">
 
         <activity
-            android:name="com.seentechs.newtaxidriver.common.views.FlutterwaveWebViewActivity"
+            android:name="com.tkpmnc.newtaxidriver.common.views.FlutterwaveWebViewActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
 
         <activity
-            android:name="com.seentechs.newtaxidriver.home.managevehicles.DocumentDetails"
+            android:name="com.tkpmnc.newtaxidriver.home.managevehicles.DocumentDetails"
              />
         <activity
-            android:name="com.seentechs.newtaxidriver.home.managevehicles.SettingActivity"
+            android:name="com.tkpmnc.newtaxidriver.home.managevehicles.SettingActivity"
             />
         <activity
-            android:name="com.seentechs.newtaxidriver.home.managevehicles.ManageVehicles"
+            android:name="com.tkpmnc.newtaxidriver.home.managevehicles.ManageVehicles"
              />
         <activity
-            android:name="com.seentechs.newtaxidriver.home.payouts.PayoutDetailsListActivity"
+            android:name="com.tkpmnc.newtaxidriver.home.payouts.PayoutDetailsListActivity"
            />
         <activity
-            android:name="com.seentechs.newtaxidriver.home.fragments.Referral.ShowReferralOptionsActivity"
+            android:name="com.tkpmnc.newtaxidriver.home.fragments.Referral.ShowReferralOptionsActivity"
              />
 
         <uses-library
@@ -85,7 +85,7 @@
             android:required="false" />
 
         <activity
-            android:name="com.seentechs.newtaxidriver.home.splash.SplashActivity"
+            android:name="com.tkpmnc.newtaxidriver.home.splash.SplashActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
@@ -97,17 +97,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.seentechs.newtaxidriver.home.firebase_auth.OTPActivity"
+            android:name="com.tkpmnc.newtaxidriver.home.firebase_auth.OTPActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.seentechs.newtaxidriver.home.firebase_auth.PhoneActivity"
+            android:name="com.tkpmnc.newtaxidriver.home.firebase_auth.PhoneActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <receiver
-            android:name="com.seentechs.newtaxidriver.common.helper.NetworkChangeReceiver"
+            android:name="com.tkpmnc.newtaxidriver.common.helper.NetworkChangeReceiver"
             android:exported="true"
             android:label="NetworkChangeReceiver">
             <intent-filter>
@@ -117,7 +117,7 @@
         </receiver>
 
         <receiver
-            android:name="com.seentechs.newtaxidriver.home.service.HeatMapUpdation"
+            android:name="com.tkpmnc.newtaxidriver.home.service.HeatMapUpdation"
             android:exported="true">
             <intent-filter>
                 <action android:name="HeatMapTimer" />
@@ -142,123 +142,123 @@
             android:value="@string/google_key_map_autocomplete" />
 
         <activity
-            android:name="com.seentechs.newtaxidriver.home.MainActivity"
+            android:name="com.tkpmnc.newtaxidriver.home.MainActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <activity
-            android:name="com.seentechs.newtaxidriver.home.signinsignup.SigninActivity"
+            android:name="com.tkpmnc.newtaxidriver.home.signinsignup.SigninActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <activity
-            android:name="com.seentechs.newtaxidriver.home.signinsignup.SigninSignupHomeActivity"
+            android:name="com.tkpmnc.newtaxidriver.home.signinsignup.SigninSignupHomeActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.seentechs.newtaxidriver.home.signinsignup.Register"
+            android:name="com.tkpmnc.newtaxidriver.home.signinsignup.Register"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <activity
-            android:name="com.seentechs.newtaxidriver.home.signinsignup.MobileActivity"
+            android:name="com.tkpmnc.newtaxidriver.home.signinsignup.MobileActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.seentechs.newtaxidriver.home.signinsignup.ResetPassword"
+            android:name="com.tkpmnc.newtaxidriver.home.signinsignup.ResetPassword"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <activity
-            android:name="com.seentechs.newtaxidriver.home.facebookAccountKit.FacebookAccountKitActivity"
+            android:name="com.tkpmnc.newtaxidriver.home.facebookAccountKit.FacebookAccountKitActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.seentechs.newtaxidriver.trips.tripsdetails.TripDetails"
+            android:name="com.tkpmnc.newtaxidriver.trips.tripsdetails.TripDetails"
             android:exported="false"
             android:hardwareAccelerated="true"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.seentechs.newtaxidriver.trips.tripsdetails.YourTrips"
+            android:name="com.tkpmnc.newtaxidriver.trips.tripsdetails.YourTrips"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.seentechs.newtaxidriver.trips.rating.Comments"
+            android:name="com.tkpmnc.newtaxidriver.trips.rating.Comments"
             android:exported="false"
             android:hardwareAccelerated="true"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name="com.seentechs.newtaxidriver.home.signinsignup.RegisterOTPActivity"
+            android:name="com.tkpmnc.newtaxidriver.home.signinsignup.RegisterOTPActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.seentechs.newtaxidriver.home.paymentstatement.PaymentStatementActivity"
+            android:name="com.tkpmnc.newtaxidriver.home.paymentstatement.PaymentStatementActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.seentechs.newtaxidriver.home.paymentstatement.PayStatementDetails"
+            android:name="com.tkpmnc.newtaxidriver.home.paymentstatement.PayStatementDetails"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.seentechs.newtaxidriver.home.profile.VehiclInformation"
+            android:name="com.tkpmnc.newtaxidriver.home.profile.VehiclInformation"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.seentechs.newtaxidriver.trips.RequestReceiveActivity"
+            android:name="com.tkpmnc.newtaxidriver.trips.RequestReceiveActivity"
             android:excludeFromRecents="true"
             android:exported="false"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.seentechs.newtaxidriver.trips.RequestAcceptActivity"
+            android:name="com.tkpmnc.newtaxidriver.trips.RequestAcceptActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.seentechs.newtaxidriver.home.paymentstatement.DailyEarningDetails"
+            android:name="com.tkpmnc.newtaxidriver.home.paymentstatement.DailyEarningDetails"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.seentechs.newtaxidriver.home.paymentstatement.TripEarningsDetail"
+            android:name="com.tkpmnc.newtaxidriver.home.paymentstatement.TripEarningsDetail"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.seentechs.newtaxidriver.trips.RiderContactActivity"
+            android:name="com.tkpmnc.newtaxidriver.trips.RiderContactActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.seentechs.newtaxidriver.trips.RiderProfilePage"
+            android:name="com.tkpmnc.newtaxidriver.trips.RiderProfilePage"
             android:exported="false"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <service
-            android:name="com.seentechs.newtaxidriver.home.pushnotification.MyFirebaseMessagingService"
+            android:name="com.tkpmnc.newtaxidriver.home.pushnotification.MyFirebaseMessagingService"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
         <service
-            android:name="com.seentechs.newtaxidriver.home.pushnotification.MyFirebaseInstanceIDService"
+            android:name="com.tkpmnc.newtaxidriver.home.pushnotification.MyFirebaseInstanceIDService"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
@@ -266,12 +266,12 @@
         </service>
 
         <service
-            android:name="com.seentechs.newtaxidriver.home.map.GpsService"
+            android:name="com.tkpmnc.newtaxidriver.home.map.GpsService"
             android:enabled="true"
             android:exported="true"
             android:permission="android.permission.RECEIVE_BOOT_COMPLETED" />
         <service
-            android:name="com.seentechs.newtaxidriver.home.service.ForeService"
+            android:name="com.tkpmnc.newtaxidriver.home.service.ForeService"
             android:enabled="true"
             android:exported="false"
             android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
@@ -281,39 +281,39 @@
         </service>
 
         <activity
-            android:name="com.seentechs.newtaxidriver.trips.rating.Riderrating"
+            android:name="com.tkpmnc.newtaxidriver.trips.rating.Riderrating"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <activity
-            android:name="com.seentechs.newtaxidriver.home.signinsignup.RegisterCarDetailsActivity"
+            android:name="com.tkpmnc.newtaxidriver.home.signinsignup.RegisterCarDetailsActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.seentechs.newtaxidriver.trips.CancelYourTripActivity"
+            android:name="com.tkpmnc.newtaxidriver.trips.CancelYourTripActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.seentechs.newtaxidriver.home.profile.DriverProfile"
+            android:name="com.tkpmnc.newtaxidriver.home.profile.DriverProfile"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <activity
-            android:name="com.seentechs.newtaxidriver.home.fragments.payment.PaymentPage"
+            android:name="com.tkpmnc.newtaxidriver.home.fragments.payment.PaymentPage"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.seentechs.newtaxidriver.home.fragments.payment.AddPayment"
+            android:name="com.tkpmnc.newtaxidriver.home.fragments.payment.AddPayment"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.seentechs.newtaxidriver.common.helper.CommonDialog"
+            android:name="com.tkpmnc.newtaxidriver.common.helper.CommonDialog"
             android:exported="false"
             android:theme="@android:style/Theme.Holo.Light.Dialog" />
 
@@ -323,75 +323,75 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.seentechs.newtaxidriver.common.camera.CustomCameraActivity"
+            android:name="com.tkpmnc.newtaxidriver.common.camera.CustomCameraActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.seentechs.newtaxidriver.home.firebaseChat.ActivityChat"
+            android:name="com.tkpmnc.newtaxidriver.home.firebaseChat.ActivityChat"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <activity
-            android:name="com.seentechs.newtaxidriver.home.payouts.PayoutMainActivity"
+            android:name="com.tkpmnc.newtaxidriver.home.payouts.PayoutMainActivity"
             android:exported="false"
             android:hardwareAccelerated="true"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.seentechs.newtaxidriver.home.payouts.PayoutAddressDetailsActivity"
+            android:name="com.tkpmnc.newtaxidriver.home.payouts.PayoutAddressDetailsActivity"
             android:exported="false"
             android:hardwareAccelerated="true"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.seentechs.newtaxidriver.home.payouts.PayoutBankDetailsActivity"
+            android:name="com.tkpmnc.newtaxidriver.home.payouts.PayoutBankDetailsActivity"
             android:hardwareAccelerated="true"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <activity
-            android:name="com.seentechs.newtaxidriver.home.payouts.PayoutEmailActivity"
+            android:name="com.tkpmnc.newtaxidriver.home.payouts.PayoutEmailActivity"
             android:exported="false"
             android:hardwareAccelerated="true"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.seentechs.newtaxidriver.home.payouts.PayoutEmailListActivity"
+            android:name="com.tkpmnc.newtaxidriver.home.payouts.PayoutEmailListActivity"
             android:exported="false"
             android:hardwareAccelerated="true"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <service
-            android:name="com.seentechs.newtaxidriver.home.firebaseChat.FirebaseChatNotificationService"
+            android:name="com.tkpmnc.newtaxidriver.home.firebaseChat.FirebaseChatNotificationService"
             android:enabled="true"
             android:exported="false" />
         <service
-            android:name="com.seentechs.newtaxidriver.trips.voip.NewTaxiSinchService"
+            android:name="com.tkpmnc.newtaxidriver.trips.voip.NewTaxiSinchService"
             android:enabled="true"
             android:exported="false" />
 
         <activity
-            android:name="com.seentechs.newtaxidriver.common.helper.ManualBookingDialog"
+            android:name="com.tkpmnc.newtaxidriver.common.helper.ManualBookingDialog"
             android:exported="false"
             android:theme="@style/Theme.Transparent" />
 
         <receiver
-            android:name="com.seentechs.newtaxidriver.common.util.GPSBackgroundServiceRestarterBroadcastReceiver"
+            android:name="com.tkpmnc.newtaxidriver.common.util.GPSBackgroundServiceRestarterBroadcastReceiver"
             android:enabled="true"
             android:exported="true"
             android:label="RestartServiceWhenStopped" />
 
         <activity
-            android:name="com.seentechs.newtaxidriver.home.payouts.BankDetailsActivity"
+            android:name="com.tkpmnc.newtaxidriver.home.payouts.BankDetailsActivity"
             android:exported="false"
             android:hardwareAccelerated="true"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.seentechs.newtaxidriver.home.fragments.payment.PayToAdminActivity"
+            android:name="com.tkpmnc.newtaxidriver.home.fragments.payment.PayToAdminActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoTransulent"
@@ -399,29 +399,29 @@
 
 
         <activity
-            android:name="com.seentechs.newtaxidriver.home.fragments.EarningActivity"
+            android:name="com.tkpmnc.newtaxidriver.home.fragments.EarningActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoTransulent"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <activity
-            android:name="com.seentechs.newtaxidriver.home.fragments.RatingActivity"
+            android:name="com.tkpmnc.newtaxidriver.home.fragments.RatingActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoTransulent"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <activity
-            android:name="com.seentechs.newtaxidriver.home.fragments.payment.AddCardActivity"
+            android:name="com.tkpmnc.newtaxidriver.home.fragments.payment.AddCardActivity"
             android:exported="false"
             android:theme="@style/AppTheme.NoTransulent"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <activity
-            android:name="com.seentechs.newtaxidriver.home.fragments.payment.PaymentActivity"
+            android:name="com.tkpmnc.newtaxidriver.home.fragments.payment.PaymentActivity"
             android:exported="false"
             android:theme="@style/AppTheme.NoTransulent"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <activity
-            android:name="com.seentechs.newtaxidriver.trips.voip.CallProcessingActivity"
+            android:name="com.tkpmnc.newtaxidriver.trips.voip.CallProcessingActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:excludeFromRecents="true"
             android:exported="false"
@@ -430,7 +430,7 @@
 
 
         <activity
-            android:name="com.seentechs.newtaxidriver.common.views.SupportActivityCommon"
+            android:name="com.tkpmnc.newtaxidriver.common.views.SupportActivityCommon"
             android:exported="false"
             android:hardwareAccelerated="true"
             android:screenOrientation="portrait"
@@ -443,11 +443,11 @@
             android:screenOrientation="portrait" />
 
         <service
-            android:name="com.seentechs.newtaxidriver.google.locationmanager.TrackingService"
+            android:name="com.tkpmnc.newtaxidriver.google.locationmanager.TrackingService"
             android:exported="true"
             android:foregroundServiceType="location" />
         <service
-            android:name="com.seentechs.newtaxidriver.google.locationmanager.TrackingService$HideNotificationService"
+            android:name="com.tkpmnc.newtaxidriver.google.locationmanager.TrackingService$HideNotificationService"
             android:exported="true" />
 
     </application>

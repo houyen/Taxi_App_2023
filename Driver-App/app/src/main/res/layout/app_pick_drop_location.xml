@@ -47,7 +47,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+            <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                 android:id="@+id/address_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -58,7 +58,7 @@
                 android:textSize="@dimen/_14asp"
                 app:fontname="@string/font_Medium" />
 
-            <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+            <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                 android:id="@+id/item_subtitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

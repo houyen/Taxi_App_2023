@@ -1,4 +1,4 @@
-package com.seentechs.newtaxidriver.common.configs
+package com.tkpmnc.newtaxidriver.common.configs
 
 /**
  * @subpackage configs

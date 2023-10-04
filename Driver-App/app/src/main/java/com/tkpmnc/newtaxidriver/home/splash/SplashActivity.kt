@@ -1,4 +1,4 @@
-package com.seentechs.newtaxidriver.home.splash
+package com.tkpmnc.newtaxidriver.home.splash
 
 /**
  *  home.splash

@@ -1,4 +1,4 @@
-package com.seentechs.newtaxiusers.taxiapp.firebase_auth
+package com.tkpmnc.newtaxiusers.taxiapp.firebase_auth
 
 import android.content.Intent
 import android.os.Bundle

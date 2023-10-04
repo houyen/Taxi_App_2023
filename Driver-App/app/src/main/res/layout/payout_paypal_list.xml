@@ -14,7 +14,7 @@
         android:background="@color/text_color"
         android:id="@+id/paypalemailmore">
 
-        <com.seentechs.newtaxidriver.common.custompalette.FontButton
+        <com.tkpmnc.newtaxidriver.common.custompalette.FontButton
             android:id="@+id/paypal_delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -27,7 +27,7 @@
             android:textAllCaps="false"
             android:text="@string/delete"/>
 
-        <com.seentechs.newtaxidriver.common.custompalette.FontButton
+        <com.tkpmnc.newtaxidriver.common.custompalette.FontButton
             android:id="@+id/paypal_default"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -51,7 +51,7 @@
         android:background="@color/text_color"
         android:id="@+id/paypalemailid">
 
-        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
             android:id="@+id/paypal_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -84,7 +84,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/d_bordor"/>
 
-        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
             android:id="@+id/paypal_ready"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -1,4 +1,4 @@
-package com.seentechs.newtaxidriver.home.permissionoverview
+package com.tkpmnc.newtaxidriver.home.permissionoverview
 
 import android.app.ActivityOptions
 import android.content.Intent

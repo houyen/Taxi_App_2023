@@ -52,7 +52,7 @@
                             android:layout_height="@dimen/_120adp"
                             />
 
-                        <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+                        <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
                                 android:id="@+id/edit_image"
                                 android:layout_width="@dimen/_30adp"
                                 android:layout_height="@dimen/_30adp"
@@ -83,7 +83,7 @@
                         >
 
 
-                    <com.seentechs.newtaxiusers.appcommon.custompalette.FontEditText
+                    <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontEditText
                             android:id="@+id/input_first"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -102,7 +102,7 @@
                             />
 
 
-                    <com.seentechs.newtaxiusers.appcommon.custompalette.FontEditText
+                    <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontEditText
                             android:id="@+id/input_last"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -151,7 +151,7 @@
                             app:ccp_textSize="@dimen/_16asp"
                             />
 
-                    <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+                    <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
                             android:id="@+id/mobilenumber"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -172,7 +172,7 @@
                 </RelativeLayout>
 
 
-                <com.seentechs.newtaxiusers.appcommon.custompalette.FontEditText
+                <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontEditText
                         android:id="@+id/emaitext"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -204,7 +204,7 @@
                         android:layout_marginEnd="@dimen/_10adp"
                         />
 
-                <com.seentechs.newtaxiusers.appcommon.custompalette.FontButton
+                <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontButton
                     android:id="@+id/savebutton"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_50adp"

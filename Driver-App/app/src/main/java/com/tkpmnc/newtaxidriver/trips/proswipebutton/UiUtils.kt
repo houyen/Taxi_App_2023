@@ -1,4 +1,4 @@
-package com.seentechs.newtaxidriver.trips.proswipebutton
+package com.tkpmnc.newtaxidriver.trips.proswipebutton
 
 import android.content.Context
 import android.content.res.Resources

@@ -1,4 +1,4 @@
-package com.seentechs.newtaxiusers.taxiapp.views.peakPricing
+package com.tkpmnc.newtaxiusers.taxiapp.views.peakPricing
 
 import android.os.Bundle
 import android.widget.TextView

@@ -30,7 +30,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_manual_booking_taxi" />
 
-        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
             android:id="@+id/tv_manual_booking_status_header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -63,7 +63,7 @@
                     android:tint="@color/newtaxi_app_navy"
                     app:srcCompat="@drawable/ic_user" />
 
-                <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/tv_rider_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -101,7 +101,7 @@
                     android:tint="@color/newtaxi_app_navy"
                     app:srcCompat="@drawable/ic_call" />
 
-                <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/tv_rider_contact_number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -139,7 +139,7 @@
                     android:tint="@color/newtaxi_app_navy"
                     app:srcCompat="@drawable/ic_location" />
 
-                <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/tv_rider_pickup_location"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -178,7 +178,7 @@
                     android:tint="@color/newtaxi_app_navy"
                     app:srcCompat="@drawable/ic_clock" />
 
-                <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/tv_rider_pickup_time"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -193,7 +193,7 @@
 
         </androidx.cardview.widget.CardView>
 
-        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
             android:id="@+id/btn_manual_booking_ok"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

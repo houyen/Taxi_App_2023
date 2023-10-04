@@ -7,7 +7,7 @@
 
         <variable
             name="vehicleType"
-            type="com.seentechs.newtaxidriver.home.datamodel.VehicleTypes" />
+            type="com.tkpmnc.newtaxidriver.home.datamodel.VehicleTypes" />
     </data>
 
 
@@ -35,7 +35,7 @@
                 android:layout_toStartOf="@+id/cb_vehicle_type"
                 android:layoutDirection="@string/layout_direction">
 
-                <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/tv_car_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -48,7 +48,7 @@
                     android:textSize="@dimen/_14asp"
                     app:fontname="@string/font_Medium" />
 
-                <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/tv_location"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -84,4 +84,3 @@
     </RelativeLayout>
 
 </layout>
-

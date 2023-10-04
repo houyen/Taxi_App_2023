@@ -1,4 +1,4 @@
-package com.seentechs.newtaxiusers.taxiapp.adapters
+package com.tkpmnc.newtaxiusers.taxiapp.adapters
 
 import android.content.Context
 import android.content.Intent

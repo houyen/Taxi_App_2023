@@ -1,4 +1,4 @@
-package com.seentechs.newtaxidriver.home.managevehicles.adapter
+package com.tkpmnc.newtaxidriver.home.managevehicles.adapter
 
 import android.content.Context
 import android.view.LayoutInflater

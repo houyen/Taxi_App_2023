@@ -1,4 +1,4 @@
-package com.seentechs.newtaxidriver.trips.viewmodel
+package com.tkpmnc.newtaxidriver.trips.viewmodel
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.MutableLiveData

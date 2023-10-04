@@ -1,4 +1,4 @@
-package com.seentechs.newtaxidriver.trips.viewmodel
+package com.tkpmnc.newtaxidriver.trips.viewmodel
 
 import androidx.lifecycle.LiveData
 import com.tkpmnc.newtaxidriver.common.model.JsonResponse

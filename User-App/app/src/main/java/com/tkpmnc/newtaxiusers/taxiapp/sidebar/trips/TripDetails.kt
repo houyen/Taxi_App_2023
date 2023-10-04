@@ -1,4 +1,4 @@
-package com.seentechs.newtaxiusers.taxiapp.sidebar.trips
+package com.tkpmnc.newtaxiusers.taxiapp.sidebar.trips
 
 /**
  *  newtaxiusers

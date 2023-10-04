@@ -25,7 +25,7 @@
                 android:src="@drawable/online_payment"
                 />
 
-        <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+        <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
                 android:id="@+id/tv_paymentName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

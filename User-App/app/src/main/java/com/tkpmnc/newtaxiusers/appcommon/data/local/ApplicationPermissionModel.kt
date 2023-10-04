@@ -1,4 +1,4 @@
-package com.seentechs.newtaxiusers.appcommon.data.local
+package com.tkpmnc.newtaxiusers.appcommon.data.local
 
 data class ApplicationPermissionModel(
     val imageId: Int,

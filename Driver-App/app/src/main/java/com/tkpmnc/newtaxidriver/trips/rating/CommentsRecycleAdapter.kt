@@ -1,4 +1,4 @@
-package com.seentechs.newtaxidriver.trips.rating
+package com.tkpmnc.newtaxidriver.trips.rating
 
 /**
  *  trips.rating

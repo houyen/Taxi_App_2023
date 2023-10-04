@@ -1,4 +1,4 @@
-package com.seentechs.newtaxiusers.appcommon.dependencies.module
+package com.tkpmnc.newtaxiusers.appcommon.dependencies.module
 
 /**
  *  newtaxiusers
@@ -28,7 +28,7 @@ import javax.inject.Singleton
 /*****************************************************************
  * App Container Module
  */
-@Module(includes = [com.seentechs.newtaxiusers.appcommon.dependencies.module.ApplicationModule::class])
+@Module(includes = [com.tkpmnc.newtaxiusers.appcommon.dependencies.module.ApplicationModule::class])
 class AppContainerModule {
 
     @Provides

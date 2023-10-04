@@ -1,4 +1,4 @@
-package com.seentechs.newtaxiusers.taxiapp.views.signinsignup
+package com.tkpmnc.newtaxiusers.taxiapp.views.signinsignup
 
 /**
  *  newtaxiusers
@@ -55,7 +55,7 @@ import java.io.UnsupportedEncodingException
 import java.util.*
 import javax.inject.Inject
 
-//import static com.seentechs.newtaxiusers.appcommon.utils.Enums.REQ_VALIDATE_NUMBER;
+//import static com.tkpmnc.newtaxiusers.appcommon.utils.Enums.REQ_VALIDATE_NUMBER;
 
 /* ************************************************************
    Sign in and sign up using social media (FaceBook and Google plus)

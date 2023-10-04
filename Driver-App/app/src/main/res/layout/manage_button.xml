@@ -6,7 +6,7 @@
     android:layout_margin="@dimen/_12adp"
     android:layout_height="wrap_content">
 
-    <com.seentechs.newtaxidriver.common.custompalette.FontButton
+    <com.tkpmnc.newtaxidriver.common.custompalette.FontButton
         android:id="@+id/btn_manage_vehicle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -22,7 +22,7 @@
         android:textSize="@dimen/_14asp"
         app:fontname="@string/font_Medium" />
 
-    <com.seentechs.newtaxidriver.common.custompalette.FontButton
+    <com.tkpmnc.newtaxidriver.common.custompalette.FontButton
         android:id="@+id/btn_new"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

@@ -1,4 +1,4 @@
-package com.seentechs.newtaxiusers.taxiapp.views.facebookAccountKit
+package com.tkpmnc.newtaxiusers.taxiapp.views.facebookAccountKit
 
 import android.app.Activity
 import android.content.Intent

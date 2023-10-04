@@ -8,7 +8,7 @@
         android:layout_alignParentBottom="true">
 
 
-    <com.seentechs.newtaxiusers.appcommon.custompalette.FontEditText
+    <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontEditText
         android:id="@+id/input_promo_code"
         android:layout_width="333dp"
         android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
             android:weightSum="2"
             >
 
-        <com.seentechs.newtaxiusers.appcommon.custompalette.FontButton
+        <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontButton
                 android:id="@+id/cancel_promo"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
                 app:fontName="@string/font_Medium"
                 />
 
-        <com.seentechs.newtaxiusers.appcommon.custompalette.FontButton
+        <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontButton
                 android:id="@+id/add_promo"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"

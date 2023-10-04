@@ -736,10 +736,10 @@ CREATE TABLE `driver_documents` (
 --
 
 INSERT INTO `driver_documents` (`id`, `type`, `vehicle_id`, `user_id`, `document_id`, `document`, `status`, `expired_date`) VALUES
-(1, 'Vehicle', 1, 10002, '2', 'https://newtaxi.seentechs.com/images/users/10002/insurance_1639843248.jpg', '1', '2038-12-18'),
-(2, 'Driver', 0, 10002, '1', 'https://newtaxi.seentechs.com/images/users/10002/license_1653031563.png', '1', '2025-07-17'),
-(3, 'Driver', 0, 10003, '1', 'https://newtaxi.seentechs.com/images/users/10003/license_1652858347.jpg', '1', '2023-05-15'),
-(4, 'Vehicle', 2, 10003, '2', 'https://newtaxi.seentechs.com/images/users/10003/insurance_1652858536.jpg', '1', '2023-05-24');
+(1, 'Vehicle', 1, 10002, '2', 'https://img.freepik.com/free-vector/illustration-boy-green-racing-car_1308-35830.jpg?w=1380&t=st=1696433652~exp=1696434252~hmac=604bc15ff04f07af494db9594e97bbd2640b4689eff20e4a8b3db75e45fd3b6d', '1', '2038-12-18'),
+(2, 'Driver', 0, 10002, '1', '', '1', '2025-07-17'),
+(3, 'Driver', 0, 10003, '1', '', '1', '2023-05-15'),
+(4, 'Vehicle', 2, 10003, '2', '', '1', '2023-05-24');
 
 -- --------------------------------------------------------
 
@@ -1919,10 +1919,10 @@ CREATE TABLE `profile_picture` (
 --
 
 INSERT INTO `profile_picture` (`user_id`, `src`, `photo_source`) VALUES
-(10001, 'https://newtaxi.seentechs.com/images/user.jpeg', 'Local'),
+(10001, 'https://img.freepik.com/premium-vector/beatiful-skater-ai-vector-art-digital-illustration-image_985204-496.jpg?w=826', 'Local'),
 (10002, '', 'Local'),
-(10003, 'https://newtaxi.seentechs.com/images/users/10003/profile_pic_1652863875.jpg', 'Local'),
-(10004, 'https://newtaxi.seentechs.com/images/users/10004/profile_pic_1652863838.jpg', 'Local');
+(10003, '', 'Local'),
+(10004, '', 'Local');
 
 -- --------------------------------------------------------
 
@@ -2357,7 +2357,7 @@ INSERT INTO `site_settings` (`id`, `name`, `value`) VALUES
 (8, 'head_code', ''),
 (9, 'admin_contact', '700207417'),
 (10, 'admin_country_code', '138'),
-(11, 'site_url', 'http://newtaxi.seentechs.com/public/'),
+(11, 'site_url', ''),
 (12, 'heat_map', 'Off'),
 (13, 'heat_map_hours', '3'),
 (14, 'update_loc_interval', '1'),
@@ -2370,9 +2370,9 @@ INSERT INTO `site_settings` (`id`, `name`, `value`) VALUES
 (21, 'covid_enable', '0'),
 (22, 'driver_request_seconds', '45'),
 (23, 'driver_request_limit', '100'),
-(24, 'copyright_year', '2022'),
-(25, 'copyright_url', 'https://seentechs.com'),
-(26, 'copyright_name', 'SeenTechnologies'),
+(24, 'copyright_year', '2023'),
+(25, 'copyright_url', ''),
+(26, 'copyright_name', ''),
 (27, 'default_otp', 'firebase');
 
 -- --------------------------------------------------------

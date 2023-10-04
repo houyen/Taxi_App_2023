@@ -7,7 +7,7 @@
     <data>
         <variable
             name="model"
-            type="com.seentechs.newtaxidriver.home.datamodel.Model" />
+            type="com.tkpmnc.newtaxidriver.home.datamodel.Model" />
     </data>
 
     <LinearLayout
@@ -23,7 +23,7 @@
         >
 
 
-        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
             android:id="@+id/tv_vehicle_model"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -62,4 +62,3 @@
 
 
 </layout>
-

@@ -1,4 +1,4 @@
-package com.seentechs.newtaxidriver.common.custompalette
+package com.tkpmnc.newtaxidriver.common.custompalette
 
 /**
  * @subpackage custompalette
