@@ -306,40 +306,6 @@ h1.cls_profiletitle {
     line-height: 62px;
     font-weight: bold;
 }
-.paymentpage {
-    display: inline-block;
-    width: 100%;
-    padding: 15px 0;
-    border-width: 1px 0 1px 0;
-    border-color: rgb(112 112 112 / 20%);
-    border-style: solid;
-}
-.paymentpage small
-{
-    color: #063870;
-    font-size: 17px;
-    line-height: 45px;
-}
-.paymentpage label
-{
-    color: #063870;
-    font-size: 31px;
-    line-height: 36px;
-    font-weight: bold;
-}
-
-.paymentpage small.pull-right.pull-left-sm 
-{
-    color: #063870;
-    font-size: 14px;
-    line-height: 37px;
-}
-.cls_paymentpage .form-control
-{
-    color: #063870 !important;
-    font-weight: bold !important;
-    font-size: 15px !important;
-}
 .pay_period_details .bor-left {
     background-color: #5498c4;
     border-radius: 10px;

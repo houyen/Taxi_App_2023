@@ -38,7 +38,6 @@ import com.tkpmnc.newtaxidriver.home.managevehicles.*
 import com.tkpmnc.newtaxidriver.home.managevehicles.adapter.*
 import com.tkpmnc.newtaxidriver.home.map.GpsService
 import com.tkpmnc.newtaxidriver.home.map.drawpolyline.DownloadTask
-import com.tkpmnc.newtaxidriver.home.paymentstatement.*
 import com.tkpmnc.newtaxidriver.home.payouts.*
 import com.tkpmnc.newtaxidriver.home.payouts.adapter.PayoutCountryListAdapter
 import com.tkpmnc.newtaxidriver.home.payouts.payout_model_classed.PayPalEmailAdapter
@@ -91,8 +90,6 @@ interface AppComponent {
 
     fun inject(priceStatementAdapter: PriceStatementAdapter)
 
-    fun inject(paymentPage: PaymentPage)
-
     fun inject(driverDetailsAdapter: DriverDetailsAdapter)
 
     fun inject(sessionManager: SessionManager)
@@ -117,10 +114,8 @@ interface AppComponent {
 
     fun inject(tripDetails: TripDetails)
 
-    fun inject(PaymentStatementActivity: PaymentStatementActivity)
-
-
     fun inject(ManageVehicleActivity: ManageVehicleFragment)
+    
     fun inject(vehicleTypeAdapter: VehicleTypeAdapter)
 
     fun inject(earningFragment: EarningActivity)

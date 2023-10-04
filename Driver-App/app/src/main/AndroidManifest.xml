@@ -204,16 +204,6 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.tkpmnc.newtaxidriver.home.paymentstatement.PaymentStatementActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.tkpmnc.newtaxidriver.home.paymentstatement.PayStatementDetails"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name="com.tkpmnc.newtaxidriver.home.profile.VehiclInformation"
             android:exported="false"
             android:screenOrientation="portrait"
@@ -227,16 +217,6 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.tkpmnc.newtaxidriver.trips.RequestAcceptActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.tkpmnc.newtaxidriver.home.paymentstatement.DailyEarningDetails"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.tkpmnc.newtaxidriver.home.paymentstatement.TripEarningsDetail"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -302,11 +282,6 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
-        <activity
-            android:name="com.tkpmnc.newtaxidriver.home.fragments.payment.PaymentPage"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.tkpmnc.newtaxidriver.home.fragments.payment.AddPayment"
             android:exported="false"

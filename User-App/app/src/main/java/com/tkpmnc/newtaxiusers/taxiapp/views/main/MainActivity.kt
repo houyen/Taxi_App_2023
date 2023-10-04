@@ -847,15 +847,6 @@ class MainActivity : CommonActivity(), SeatsListAdapter.OnClickListener,
         startActivity(intent)
     }
 
-    @OnClick(R.id.paymentmethod_change)
-    fun paymentchange() {
-        /**
-         * Payment method Changed
-         */
-        gotoPaymentpage()
-
-    }
-
     private lateinit var rvfilterList: RecyclerView
     private lateinit var tvsaveFilter: TextView
     private lateinit var featuresInVehicleAdapter: FeaturesInVehicleAdapter
@@ -1162,10 +1153,7 @@ class MainActivity : CommonActivity(), SeatsListAdapter.OnClickListener,
         // Handle navigation view item click here.
         val id = item.itemId
 
-        if (id == R.id.nav_payment) {
-            gotoPaymentpage()
-            // Handle the camera action
-        } else if (id == R.id.nav_yourtrips) {
+        if (id == R.id.nav_yourtrips) {
             val intent = Intent(this, YourTrips::class.java)
             intent.putExtra("upcome", "")
             startActivity(intent)
@@ -5028,17 +5016,6 @@ class MainActivity : CommonActivity(), SeatsListAdapter.OnClickListener,
             e.printStackTrace()
         }
 
-    }
-
-    fun gotoPaymentpage() {
-        if (commonMethods.isOnline(this)) {
-            val intent = Intent(this, PaymentPage::class.java)
-            intent.putExtra(CommonKeys.TYPE_INTENT_ARGUMENT_KEY, CommonKeys.StatusCode.startPaymentActivityForView)
-            startActivityForResult(intent, CommonKeys.ChangePaymentOpetionBeforeRequestCarApi)
-            overridePendingTransition(R.anim.ub__slide_in_right, R.anim.ub__slide_out_left)
-        } else {
-            CommonMethods.showUserMessage(resources.getString(R.string.turnoninternet))
-        }
     }
 
     companion object {

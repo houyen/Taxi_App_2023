@@ -49,7 +49,6 @@ import com.tkpmnc.newtaxidriver.home.interfaces.ApiService
 import com.tkpmnc.newtaxidriver.home.interfaces.ServiceListener
 import com.tkpmnc.newtaxidriver.common.model.JsonResponse
 import com.tkpmnc.newtaxidriver.common.network.AppController
-import com.tkpmnc.newtaxidriver.home.paymentstatement.PaymentStatementActivity
 import com.tkpmnc.newtaxidriver.trips.tripsdetails.YourTrips
 import com.tkpmnc.newtaxidriver.common.util.CommonMethods
 import com.tkpmnc.newtaxidriver.common.util.RequestCallback
@@ -155,15 +154,6 @@ class EarningActivity : CommonActivity(), ServiceListener {
 
             return locationHashMap
         }
-
-    @OnClick(R.id.paystatementlayout)
-    fun paystatementLayout() {
-        val signin = Intent(this, PaymentStatementActivity::class.java)
-        signin.putExtra("start_date", days[0])
-        signin.putExtra("end_date", days[days.size - 1])
-        startActivity(signin)
-        this!!.overridePendingTransition(R.anim.ub__slide_in_right, R.anim.ub__slide_out_left)
-    }
 
     @OnClick(R.id.triphistorylayout)
     fun tripHistoryLayout() {
