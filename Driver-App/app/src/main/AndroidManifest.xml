@@ -283,11 +283,6 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <activity
-            android:name="com.tkpmnc.newtaxidriver.home.fragments.payment.AddPayment"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name="com.tkpmnc.newtaxidriver.common.helper.CommonDialog"
             android:exported="false"
             android:theme="@android:style/Theme.Holo.Light.Dialog" />
@@ -387,11 +382,6 @@
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <activity
             android:name="com.tkpmnc.newtaxidriver.home.fragments.payment.AddCardActivity"
-            android:exported="false"
-            android:theme="@style/AppTheme.NoTransulent"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
-        <activity
-            android:name="com.tkpmnc.newtaxidriver.home.fragments.payment.PaymentActivity"
             android:exported="false"
             android:theme="@style/AppTheme.NoTransulent"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />

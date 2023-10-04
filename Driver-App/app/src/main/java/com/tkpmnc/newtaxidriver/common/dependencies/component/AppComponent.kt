@@ -126,8 +126,6 @@ interface AppComponent {
 
     fun inject(splashActivity: SplashActivity)
 
-    fun inject(addPayment: AddPayment)
-
     fun inject(riderProfilePage: RiderProfilePage)
 
     fun inject(setting_Activity: SettingActivity)
@@ -244,8 +242,6 @@ interface AppComponent {
     fun inject(flutterwaveWebViewActivity: FlutterwaveWebViewActivity)
 
     fun inject(manageVehicles: ManageVehicles)
-
-    fun inject(paymentActivity: PaymentActivity)
 
     fun inject(addCardActivity: AddCardActivity)
 

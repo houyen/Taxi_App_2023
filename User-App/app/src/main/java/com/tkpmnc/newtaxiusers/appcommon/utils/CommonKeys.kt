@@ -97,18 +97,6 @@ object CommonKeys {
     val API_KEY_TOKEN = "token"
 
 
-    @IntDef(StatusCode.startPaymentActivityForView, StatusCode.startPaymentActivityForChangePaymentOption, StatusCode.startPaymentActivityForAddMoneyToWallet)
-    @kotlin.annotation.Retention(AnnotationRetention.SOURCE)
-    annotation class StatusCode {
-        companion object {
-            const val startPaymentActivityForView = 0
-            const val startPaymentActivityForChangePaymentOption = 1
-            const val startPaymentActivityForAddMoneyToWallet = 2
-        }
-
-
-    }
-
     @StringDef(TripStatus.BeginTrip, TripStatus.ArriveNow, TripStatus.AcceptRequest, TripStatus.EndTrip)
     @kotlin.annotation.Retention(AnnotationRetention.SOURCE)
     annotation class TripStatus {
