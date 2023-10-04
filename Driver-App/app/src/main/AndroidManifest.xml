@@ -58,27 +58,6 @@
         tools:replace="android:allowBackup">
 
         <activity
-            android:name="com.seentechs.newtaxidriver.common.views.PaymentWebViewActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
-
-        <activity
-            android:name="com.seentechs.newtaxidriver.common.views.MpesaPaymentWebViewActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
-
-        <activity
-            android:name="com.seentechs.newtaxidriver.common.views.PaytmPaymentWebViewActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
-
-        <activity
             android:name="com.seentechs.newtaxidriver.common.views.FlutterwaveWebViewActivity"
             android:exported="false"
             android:screenOrientation="portrait"
