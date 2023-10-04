@@ -2,13 +2,10 @@
 
 /**
  * Rating DataTable
- *
- * @package     NewTaxi
+
  * @subpackage  DataTable
  * @category    Rating
- * @author      Seen Technologies
- * @version     2.2.1
- * @link        https://seentechs.com
+
  */
 
 namespace App\DataTables;

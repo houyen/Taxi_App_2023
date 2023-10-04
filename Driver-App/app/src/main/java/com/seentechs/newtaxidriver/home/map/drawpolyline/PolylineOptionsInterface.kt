@@ -1,10 +1,10 @@
 package com.seentechs.newtaxidriver.home.map.drawpolyline
 
 /**
- * @package com.seentechs.newtaxidriver
+ *  newtaxidriver
  * @subpackage map.drawpolyline
  * @category PolylineOptionsInterface
- * @author Seen Technologies
+ *  
  *
  */
 

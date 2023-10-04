@@ -5,9 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 import java.util.ArrayList
 
-/**
- * Created by Seen Technologies on 3/8/18.
- */
+
 
 class CountryResult {
 

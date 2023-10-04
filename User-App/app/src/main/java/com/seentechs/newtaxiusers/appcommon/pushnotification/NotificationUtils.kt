@@ -1,10 +1,10 @@
 package com.seentechs.newtaxiusers.appcommon.pushnotification
 
 /**
- * @package com.seentechs.newtaxiusers
+ *  newtaxiusers
  * @subpackage pushnotification
  * @category NotificationUtils
- * @author Seen Technologies
+ *  
  *
  */
 

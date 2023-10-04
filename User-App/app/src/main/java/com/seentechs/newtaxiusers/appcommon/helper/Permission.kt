@@ -1,10 +1,10 @@
 package com.seentechs.newtaxiusers.appcommon.helper
 
 /**
- * @package com.seentechs.newtaxiusers
+ *  newtaxiusers
  * @subpackage helper
  * @category Permission
- * @author Seen Technologies
+ *  
  * 
  */
 

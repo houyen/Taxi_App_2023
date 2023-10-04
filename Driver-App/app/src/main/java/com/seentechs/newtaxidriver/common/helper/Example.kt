@@ -6,8 +6,7 @@ class Example/* @SerializedName("routes")
 
     */
 /**
- *
- * @return
+@return
  * The routes
  *//*
     public List<Route> getRoutes() {
@@ -16,8 +15,7 @@ class Example/* @SerializedName("routes")
 
     */
 /**
- *
- * @param routes
+@param routes
  * The routes
  *//*
     public void setRoutes(List<Route> routes) {

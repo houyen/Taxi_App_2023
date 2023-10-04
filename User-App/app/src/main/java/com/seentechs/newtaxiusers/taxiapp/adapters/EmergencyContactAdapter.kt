@@ -1,10 +1,10 @@
 package com.seentechs.newtaxiusers.taxiapp.adapters
 
 /**
- * @package com.seentechs.newtaxiusers
+ *  newtaxiusers
  * @subpackage emergency
  * @category Emergency contact adapter
- * @author Seen Technologies
+ *  
  * 
  */
 
@@ -29,8 +29,7 @@ import java.util.ArrayList
 class EmergencyContactAdapter
 /**
  * EmergencyContactAdapter Constructor to intialize getEmergencyContactDetails and Context context
- *
- * @param getEmergencyContactDetails array list
+@param getEmergencyContactDetails array list
  * @param context                    context of the emergency context
  */
 (var getEmergencyContactDetails: ArrayList<EmergencyContactModel>, var context: Context) : RecyclerView.Adapter<EmergencyContactAdapter.ViewHolder>() {

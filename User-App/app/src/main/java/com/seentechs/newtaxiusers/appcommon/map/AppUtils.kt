@@ -1,10 +1,10 @@
 package com.seentechs.newtaxiusers.appcommon.map
 
 /**
- * @package com.seentechs.newtaxiusers
+ *  newtaxiusers
  * @subpackage map
  * @category AppUtils
- * @author Seen Technologies
+ *  
  * 
  */
 

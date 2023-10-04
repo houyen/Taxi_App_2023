@@ -2,8 +2,7 @@
 
 /**
  * Banner DataTable
- *
- * @package     NewTaxi
+
  * @subpackage  DataTable
  * @category    Banner
  */

@@ -1,10 +1,10 @@
 package com.seentechs.newtaxiusers.taxiapp.sidebar.trips
 
 /**
- * @package com.seentechs.newtaxiusers
+ *  newtaxiusers
  * @subpackage Side_Bar.trips
  * @category Receipt
- * @author Seen Technologies
+ *  
  * 
  */
 

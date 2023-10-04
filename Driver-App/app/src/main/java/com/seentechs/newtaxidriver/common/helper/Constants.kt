@@ -3,9 +3,8 @@ package com.seentechs.newtaxidriver.common.helper
 import com.seentechs.newtaxidriver.R
 
 /**
- * @author Seen Technologies
- *
- * @package com.seentechs.newtaxidriver.common.helper
+ *  
+helper
  * @subpackage helper
  * @category Constants
  */

@@ -1,10 +1,10 @@
 package com.seentechs.newtaxidriver.trips.rating
 
 /**
- * @package com.seentechs.newtaxidriver.trips.rating
+ *  trips.rating
  * @subpackage rating
  * @category Comments
- * @author Seen Technologies
+ *  
  *
  */
 

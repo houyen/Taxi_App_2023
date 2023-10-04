@@ -2,8 +2,7 @@
 
 /**
  * Cancel Reason DataTable
- *
- * @package     NewTaxi
+
  * @subpackage  DataTable
  * @category    Cancel Reason
  */

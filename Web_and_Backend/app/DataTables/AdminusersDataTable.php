@@ -2,9 +2,6 @@
 
 /**
  * Admin Users DataTable
- *
- * @package     NewTaxi
- * @subpackage  DataTable
  * @category    Admin Users
  */
 

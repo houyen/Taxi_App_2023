@@ -10,15 +10,12 @@
  * @author      SpryMedia Ltd (www.sprymedia.co.uk)
  * @contact     www.sprymedia.co.uk/contact
  * @copyright   Copyright 2011-2014 SpryMedia Ltd.
- *
- * This source file is free software, available under the following license:
+This source file is free software, available under the following license:
  *   MIT license - http://datatables.net/license/mit
- *
- * This source file is distributed in the hope that it will be useful, but
+This source file is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
  * or FITNESS FOR A PARTICULAR PURPOSE. See the license files for details.
- *
- * For details please refer to: http://www.datatables.net
+For details please refer to: http://www.datatables.net
  */
 
 (function(window, document, undefined){
@@ -37,15 +34,12 @@ var factory = function( $, DataTable ) {
  * scrolling container DataTables adds to the page. The scrolling container is
  * forced to the height it would be for the full table display using an extra
  * element.
- *
- * Note that rows in the table MUST all be the same height. Information in a cell
+Note that rows in the table MUST all be the same height. Information in a cell
  * which expands on to multiple lines will cause some odd behaviour in the scrolling.
- *
- * Scroller is initialised by simply including the letter 'S' in the sDom for the
+Scroller is initialised by simply including the letter 'S' in the sDom for the
  * table you want to have this feature enabled on. Note that the 'S' must come
  * AFTER the 't' parameter in `dom`.
- *
- * Key features include:
+Key features include:
  *   <ul class="limit_length">
  *     <li>Speed! The aim of Scroller for DataTables is to make rendering large data sets fast</li>
  *     <li>Full compatibility with deferred rendering in DataTables 1.9 for maximum speed</li>
@@ -53,18 +47,15 @@ var factory = function( $, DataTable ) {
  *     <li>Integration with state saving in DataTables (scrolling position is saved)</li>
  *     <li>Easy to use</li>
  *   </ul>
- *
- *  @class
+ @class
  *  @constructor
  *  @global
  *  @param {object} oDT DataTables settings object
  *  @param {object} [oOpts={}] Configuration object for FixedColumns. Options 
  *    are defined by {@link Scroller.defaults}
- *
- *  @requires jQuery 1.7+
+ @requires jQuery 1.7+
  *  @requires DataTables 1.9.0+
- *
- *  @example
+ @example
  *    $(document).ready(function() {
  *        $('#example').dataTable( {
  *            "sScrollY": "200px",
@@ -1006,8 +997,7 @@ Scroller.prototype = /** @lends Scroller.prototype */{
 
 
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Statics
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *Statics
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 
@@ -1144,8 +1134,7 @@ Scroller.oDefaults = Scroller.defaults;
 
 
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Constants
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *Constants
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 /**
@@ -1159,8 +1148,7 @@ Scroller.version = "1.2.2";
 
 
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Initialisation
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *Initialisation
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 /*

@@ -1,10 +1,10 @@
 package com.seentechs.newtaxiusers.appcommon.helper
 
 /**
- * @package com.seentechs.newtaxiusers
+ *  newtaxiusers
  * @subpackage helper
  * @category CommonDialog
- * @author Seen Technologies
+ *  
  *
  */
 

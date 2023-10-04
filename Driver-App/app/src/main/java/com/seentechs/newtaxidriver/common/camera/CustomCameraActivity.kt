@@ -1,10 +1,8 @@
 package com.seentechs.newtaxidriver.common.camera
 
 /**
- * @package com.seentechs.newtaxidriver
  * @subpackage Camera
  * @category CustomCameraActivity
- * @author Seen Technologies
  *
  */
 

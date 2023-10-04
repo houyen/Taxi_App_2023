@@ -177,7 +177,6 @@ return array(
     'App\\Models\\DriverOweAmountPayment' => $baseDir . '/app/Models/DriverOweAmountPayment.php',
     'App\\Models\\DriverPayment' => $baseDir . '/app/Models/DriverPayment.php',
     'App\\Models\\EmailSettings' => $baseDir . '/app/Models/EmailSettings.php',
-    'App\\Models\\EmergencySos' => $baseDir . '/app/Models/EmergencySos.php',
     'App\\Models\\Fees' => $baseDir . '/app/Models/Fees.php',
     'App\\Models\\FilterObject' => $baseDir . '/app/Models/FilterObject.php',
     'App\\Models\\FilterOption' => $baseDir . '/app/Models/FilterOption.php',

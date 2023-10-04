@@ -2,13 +2,10 @@
 
 /**
  * Profile Picture Model
- *
- * @package     NewTaxi
+
  * @subpackage  Model
  * @category    Profile Picture
- * @author      Seen Technologies
- * @version     2.2.1
- * @link        https://seentechs.com
+
  */
 
 namespace App\Models;

@@ -1,10 +1,10 @@
 package com.seentechs.newtaxidriver.home.profile
 
 /**
- * @package com.seentechs.newtaxidriver.home.profile
+ *  home.profile
  * @subpackage profile model
  * @category VehiclInformation
- * @author Seen Technologies
+ *  
  *
  */
 

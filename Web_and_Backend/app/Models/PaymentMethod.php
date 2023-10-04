@@ -2,13 +2,12 @@
 
 /**
  * PaymentMethod Model
- *
- * @package     NewTaxi
+
  * @subpackage  Model
  * @category    PaymentMethod
- * @author      Seen Technologies
+ * 
  * @version     1.7
- * @link        https://seentechs.com
+ * 
  */
 
 namespace App\Models;

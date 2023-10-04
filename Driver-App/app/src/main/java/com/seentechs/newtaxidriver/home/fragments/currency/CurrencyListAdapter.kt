@@ -1,10 +1,10 @@
 package com.seentechs.newtaxidriver.home.fragments.currency
 
 /**
- * @package com.seentechs.newtaxidriver
+ *  newtaxidriver
  * @subpackage Side_Bar.currency
  * @category CurrencyListAdapter
- * @author Seen Technologies
+ *  
  *
  */
 

@@ -2,13 +2,10 @@
 
 /**
  * Currency Controller
- *
- * @package     Makent
+@package     Makent
  * @subpackage  Controller
  * @category    Currency
- * @author      Seen Technologies
- * @version     2.2.1
- * @link        https://seentechs.com
+
  */
 
 namespace App\Http\Controllers\Admin;

@@ -1,10 +1,10 @@
 package com.seentechs.newtaxidriver.google.direction
 
 /**
- * @package com.seentechs.newtaxidriver
+ *  newtaxidriver
  * @subpackage map.drawpolyline
  * @category DirectionsJSONParser
- * @author Seen Technologies
+ *  
  * @version 1.5
  */
 

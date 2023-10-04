@@ -3,10 +3,10 @@
 package com.seentechs.newtaxiusers.taxiapp.sidebar
 
 /**
- * @package com.seentechs.newtaxiusers
+ *  newtaxiusers
  * @subpackage Side_Bar
  * @category Profile
- * @author Seen Technologies
+ *  
  * 
  */
 

@@ -2,13 +2,10 @@
 
 /**
  * Driver DataTable
- *
- * @package     NewTaxi
+
  * @subpackage  DataTable
  * @category    Driver
- * @author      Seen Technologies
- * @version     2.2.1
- * @link        https://seentechs.com
+
  */
 
 namespace App\DataTables;

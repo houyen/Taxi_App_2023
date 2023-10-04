@@ -2,13 +2,10 @@
 
 /**
  * Later Booking Controller
- *
- * @package     NewTaxi
+
  * @subpackage  Controller
  * @category    Later Booking
- * @author      Seen Technologies
- * @version     2.2.1
- * @link        https://seentechs.com
+
  */
 
 namespace App\Http\Controllers\Admin;

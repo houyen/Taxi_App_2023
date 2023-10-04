@@ -2,13 +2,8 @@
 
 /**
  * Currency Model
- *
- * @package     NewTaxi
  * @subpackage  Model
  * @category    Currency
- * @author      Seen Technologies
- * @version     2.2.1
- * @link        https://seentechs.com
  */
 
 namespace App\Models;

@@ -4,9 +4,6 @@ import android.util.Log
 
 import com.seentechs.newtaxidriver.BuildConfig
 
-/**
- * Created by Seen Technologies on 9/7/18.
- */
 
 object LogManager {
 

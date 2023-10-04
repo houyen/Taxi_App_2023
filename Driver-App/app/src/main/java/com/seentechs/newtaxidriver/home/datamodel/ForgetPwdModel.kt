@@ -3,9 +3,6 @@ package com.seentechs.newtaxidriver.home.datamodel
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-/**
- * Created by Seen Technologies on 9/7/18.
- */
 
 class ForgetPwdModel {
 

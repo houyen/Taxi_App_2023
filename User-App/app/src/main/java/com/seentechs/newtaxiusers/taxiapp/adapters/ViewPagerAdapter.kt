@@ -1,10 +1,10 @@
 package com.seentechs.newtaxiusers.taxiapp.adapters
 
 /**
- * @package com.seentechs.newtaxiusers
+ *  newtaxiusers
  * @subpackage Side_Bar.trips
  * @category ViewPagerAdapter
- * @author Seen Technologies
+ *  
  * 
  */
 

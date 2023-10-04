@@ -1,10 +1,10 @@
 package com.seentechs.newtaxidriver.home.signinsignup
 
 /**
- * @package com.seentechs.newtaxidriver
+ *  newtaxidriver
  * @subpackage signinsignup model
  * @category SigninActivity
- * @author Seen Technologies
+ *  
  *
  */
 

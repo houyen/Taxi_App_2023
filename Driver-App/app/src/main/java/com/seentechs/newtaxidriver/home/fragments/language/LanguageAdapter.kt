@@ -21,9 +21,7 @@ import com.seentechs.newtaxidriver.home.signinsignup.SigninSignupHomeActivity
 import java.util.*
 import javax.inject.Inject
 
-/**
- * Created by Seen Technologies on 31/5/18.
- */
+
 
 class LanguageAdapter(context: Context, Items: MutableList<CurrencyModel>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {

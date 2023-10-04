@@ -2,13 +2,10 @@
 
 /**
  * Driver Owe Amount Repository
- *
- * @package     NewTaxi
+
  * @subpackage  Controller
  * @category    Driver Owe Amount
- * @author      Seen Technologies
- * @version     2.2.1
- * @link        https://seentechs.com
+
  */
 
 namespace App\Repositories;

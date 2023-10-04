@@ -2,8 +2,7 @@
 
 /**
  * Image Handler Interface
- *
- * @package     Newtaxi
+@package     Newtaxi
  * @subpackage  Contracts
  * @category    Image Handler
 */

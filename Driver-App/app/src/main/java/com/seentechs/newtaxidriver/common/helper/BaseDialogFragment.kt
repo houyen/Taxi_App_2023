@@ -10,9 +10,6 @@ import android.view.ViewGroup
 
 import com.seentechs.newtaxidriver.R
 
-/**
- * Created by Seen Technologies on 9/7/18.
- */
 
 open class BaseDialogFragment : DialogFragment() {
     protected var mActivity: Activity? = null

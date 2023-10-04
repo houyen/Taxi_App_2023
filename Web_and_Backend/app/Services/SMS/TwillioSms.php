@@ -2,13 +2,8 @@
 
 /**
  * Send sms via Twillio
- *
- * @package     NewTaxi
  * @subpackage  Services
  * @category    Auth Service
- * @author      Seen Technologies
- * @version     2.2
- * @link        https://seentechs.com
 */
 
 namespace App\Services\SMS;

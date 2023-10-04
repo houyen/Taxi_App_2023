@@ -73,9 +73,6 @@ import java.util.*
 import javax.inject.Inject
 import kotlin.jvm.Throws
 
-/**
- * Created by Seen Technologies on 9/7/18.
- */
 
 class CommonMethods {
 

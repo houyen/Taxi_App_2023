@@ -2,13 +2,10 @@
 
 /**
  * Facebook Helper
- *
- * @package     NewTaxi
+
  * @subpackage  Helper
  * @category    Helper
- * @author      Seen Technologies
- * @version     2.2.1
- * @link        https://seentechs.com
+
  */
 
 namespace App\Http\Helper;

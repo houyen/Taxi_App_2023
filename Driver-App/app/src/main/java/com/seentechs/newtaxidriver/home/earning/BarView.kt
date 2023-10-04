@@ -1,10 +1,10 @@
 package com.seentechs.newtaxidriver.home.earning
 
 /**
- * @package com.seentechs.newtaxidriver.home.earning
+ *  home.earning
  * @subpackage earning
  * @category BarView
- * @author Seen Technologies
+ *  
  *
  */
 

@@ -1,10 +1,10 @@
 package com.seentechs.newtaxiusers.taxiapp.interfaces
 
 /**
- * @package com.seentechs.newtaxiuserseatsdriver
+ *  newtaxiuserseatsdriver
  * @subpackage interfaces
  * @category YourTripsListener
- * @author Seen Technologies
+ *  
  * 
  */
 

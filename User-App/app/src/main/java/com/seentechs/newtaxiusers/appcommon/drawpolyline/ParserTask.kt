@@ -1,10 +1,10 @@
 package com.seentechs.newtaxiusers.appcommon.drawpolyline
 
 /**
- * @package com.seentechs.newtaxiusersdriver
+ *  newtaxiusersdriver
  * @subpackage map.drawpolyline
  * @category ParserTask
- * @author Seen Technologies
+ *  
  *
  */
 

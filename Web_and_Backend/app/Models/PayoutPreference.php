@@ -2,13 +2,10 @@
 
 /**
  * Payout Preference Model
- *
- * @package     NewTaxi
+
  * @subpackage  Model
  * @category    Payout Preference
- * @author      Seen Technologies
- * @version     2.2.1
- * @link        https://seentechs.com
+
  */
 
 namespace App\Models;

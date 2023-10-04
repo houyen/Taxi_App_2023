@@ -1,10 +1,10 @@
 package com.seentechs.newtaxiusers.appcommon.interfaces
 
 /**
- * @package com.seentechs.newtaxiusers
+ *  newtaxiusers
  * @subpackage interfaces
  * @category ApiService
- * @author Seen Technologies
+ *  
  * 
  */
 

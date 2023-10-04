@@ -2,13 +2,10 @@
 
 /**
  * Help Sub Category DataTable
- *
- * @package     NewTaxi
+
  * @subpackage  DataTable
  * @category    Help Sub Category
- * @author      Seen Technologies
- * @version     2.2.1
- * @link        https://seentechs.com
+
  */
 
 namespace App\DataTables;

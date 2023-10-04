@@ -2,13 +2,10 @@
 
 /**
  * Payout Credentials Model
- *
- * @package     NewTaxi
+
  * @subpackage  Model
  * @category    Payout Credentials
- * @author      Seen Technologies
- * @version     2.2.1
- * @link        https://seentechs.com
+
  */
 
 namespace App\Models;

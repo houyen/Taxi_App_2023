@@ -799,8 +799,7 @@ $.extend( Buttons.prototype, {
 
 
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Statics
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *Statics
  */
 
 /**
@@ -1165,10 +1164,8 @@ $.extend( _dtButtons, {
 } );
 
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * DataTables API
- *
- * For complete documentation, please refer to the docs/api directory or the
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *DataTables API
+For complete documentation, please refer to the docs/api directory or the
  * DataTables site
  */
 
@@ -1437,8 +1434,7 @@ var _exportData = function ( dt, inOpts )
 };
 
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * DataTables interface
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *DataTables interface
  */
 
 // Attach to DataTables objects for global access

@@ -1,11 +1,8 @@
 package com.seentechs.newtaxidriver.home.payouts.payout_model_classed
 
 /**
- *
- * @package     com.seentechs.newtaxidriver
- * @subpackage  model
+@subpackage  model
  * @category    Header
- * @author      Seen Technologies
  *
  */
 

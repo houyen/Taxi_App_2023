@@ -2,8 +2,7 @@
 
 /**
  * Payment Interface
- *
- * @package     Newtaxi
+@package     Newtaxi
  * @subpackage  Contracts
  * @category    Payment Interface
 */

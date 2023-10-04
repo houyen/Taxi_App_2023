@@ -4,9 +4,9 @@ import com.google.android.gms.maps.model.LatLng
 import com.seentechs.newtaxiusers.R
 
 /**
- * @author Seen Technologies
+ *  
  * 
- * @package com.seentechs.newtaxiusers
+ *  newtaxiusers
  * @subpackage helper
  * @category Constants
  */

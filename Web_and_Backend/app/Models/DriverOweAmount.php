@@ -2,13 +2,8 @@
 
 /**
  * Driver Owe Amount Model
- *
- * @package    CabmeEats
  * @subpackage Model
  * @category   Driver Owe Amount
- * @author     Seen Technologies
- * @version    2.1
- * @link       https://seentechs.com
  */
 
 namespace App\Models;

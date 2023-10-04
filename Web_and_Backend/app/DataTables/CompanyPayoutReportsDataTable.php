@@ -2,13 +2,10 @@
 
 /**
  * Company Payout Reports DataTable
- *
- * @package     NewTaxi
+
  * @subpackage  DataTable
  * @category    Company Payout Reports
- * @author      Seen Technologies
- * @version     2.2.1
- * @link        https://seentechs.com
+
  */
 
 namespace App\DataTables;

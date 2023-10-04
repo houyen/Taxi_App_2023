@@ -1,10 +1,10 @@
 package com.seentechs.newtaxidriver.home.splash
 
 /**
- * @package com.seentechs.newtaxidriver.home.splash
+ *  home.splash
  * @subpackage Splash
  * @category GetDriverTripDetails
- * @author Seen Technologies
+ *  
  *
  */
 

@@ -1,10 +1,10 @@
 package com.seentechs.newtaxidriver.home.paymentstatement
 
 /**
- * @package com.seentechs.newtaxidriver.home.paymentstatement
+ *  home.paymentstatement
  * @subpackage paymentstatement model
  * @category PayModel
- * @author Seen Technologies
+ *  
  *
  */
 

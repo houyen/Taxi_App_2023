@@ -1,10 +1,10 @@
 package com.seentechs.newtaxiusers.taxiapp.sidebar
 
 /**
- * @package com.seentechs.newtaxiusers
+ *  newtaxiusers
  * @subpackage Side_Bar
  * @category EnRoute
- * @author Seen Technologies
+ *  
  * 
  */
 

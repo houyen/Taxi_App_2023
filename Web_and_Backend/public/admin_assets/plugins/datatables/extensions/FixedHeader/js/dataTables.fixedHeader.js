@@ -11,15 +11,12 @@
  * @author      SpryMedia Ltd (www.sprymedia.co.uk)
  * @contact     www.sprymedia.co.uk/contact
  * @copyright   Copyright 2009-2014 SpryMedia Ltd.
- *
- * This source file is free software, available under the following license:
+This source file is free software, available under the following license:
  *   MIT license - http://datatables.net/license/mit
- *
- * This source file is distributed in the hope that it will be useful, but
+This source file is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
  * or FITNESS FOR A PARTICULAR PURPOSE. See the license files for details.
- *
- * For details please refer to: http://www.datatables.net
+For details please refer to: http://www.datatables.net
  */
 
 /* Global scope for FixedColumns for backwards compatibility - will be removed
@@ -919,8 +916,7 @@ FixedHeader.prototype = {
 };
 
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Static properties and methods
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *Static properties and methods
  *   We use these for speed! This information is common to all instances of FixedHeader, so no
  * point if having them calculated and stored for each different instance.
  */
@@ -985,8 +981,7 @@ FixedHeader.fnMeasure = function ()
 FixedHeader.version = "2.1.2";
 
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Global processing
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *Global processing
  */
 
 /*

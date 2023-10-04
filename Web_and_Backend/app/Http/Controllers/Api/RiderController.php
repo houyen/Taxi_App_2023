@@ -2,13 +2,10 @@
 
 /**
  * Rider Controller
- *
- * @package     NewTaxi
+
  * @subpackage  Controller
  * @category    Rider
- * @author      Seen Technologies
- * @version     2.2.1
- * @link        https://seentechs.com
+
  */
 
 namespace App\Http\Controllers\Api;
@@ -18,7 +15,6 @@ use Illuminate\Http\Request;
 use App\Models\Admin;
 use App\Models\CarType;
 use App\Models\DriverLocation;
-use App\Models\EmergencySos;
 use App\Models\Request as RideRequest;
 use App\Models\RiderLocation;
 use App\Models\ScheduleRide;
@@ -702,7 +698,6 @@ class RiderController extends Controller
 	{
 		$user_details = JWTAuth::parseToken()->authenticate();
 		$user = User::where('id', $user_details->id)->first();
-		$count = EmergencySos::where('user_id', $user_details->id)->get()->count();
 
 		if ($request->input('mobile_number') != '') {
 			$request->replace(array('mobile_number' => preg_replace("/[^\w]+/", "", $request->input('mobile_number')), 'action' => $request->input('action'), 'name' => $request->input('name'),'country_code' => $request->input('country_code'), 'id' => $request->input('id')));
@@ -727,46 +722,6 @@ class RiderController extends Controller
 				'status_message' => __('messages.invalid_credentials'),
 			]);
 		}
-
-		$mobile_number = $request->mobile_number;
-		$emer = EmergencySos::where('mobile_number', $mobile_number)->where('user_id', $user_details->id)->first();
-		$count = EmergencySos::where('user_id', $user_details->id)->get()->count();
-		$contact_details = EmergencySos::where('user_id', $user_details->id)->get();
-		if ($request->action == 'update') {
-			if ($emer) {
-				return response()->json(['status_message' => trans('messages.mobile_number_exist'), 'status_code' => '0', 'contact_count' => $count, 'contact_details' => $contact_details]);
-			}
-
-			$emercency = new EmergencySos;
-			$emercency->name = $request->name;
-
-			$country = Country::whereShortName($request->country_code)->first();
-			$emercency->country_code = $country->phone_code;
-			$emercency->country_id 	= $country->id;
-
-			$emercency->mobile_number = $mobile_number;
-			$emercency->user_id = $user_details->id;
-			$emercency->save();
-			$count = EmergencySos::where('user_id', $user_details->id)->get()->count();
-			$contact_details = EmergencySos::where('user_id', $user_details->id)->get();
-			return response()->json(['status_message' => "Added Successfully", 'status_code' => '1', 'contact_count' => $count, 'contact_details' => $contact_details]);
-		}
-		else if ($request->action == 'delete') {
-			$del = EmergencySos::find($request->id);
-
-			if ($del == null) {
-				return response()->json(['status_message' => "Not found given request", 'status_code' => '0', 'contact_count' => $count, 'contact_details' => $contact_details]);
-			}
-
-			$del->delete();
-			$count = EmergencySos::where('user_id', $user_details->id)->get()->count();
-			$contact_details = EmergencySos::where('user_id', $user_details->id)->get();
-
-			return response()->json(['status_message' => "Delete Successfully", 'status_code' => '1', 'contact_count' => $count, 'contact_details' => $contact_details]);
-		}
-		else {
-			return response()->json(['status_message' => trans('messages.success'), 'status_code' => '1', 'contact_count' => $count, 'contact_details' => $contact_details]);
-		}
 	}
 
 	/**
@@ -777,7 +732,6 @@ class RiderController extends Controller
 	public function sosalert(Request $request)
 	{
 		$user_details = JWTAuth::parseToken()->authenticate();
-		$contact_details = EmergencySos::where('user_id', $user_details->id)->get();
 		$address = $this->request_helper->GetLocation($request->latitude, $request->longitude);
 
 		if ($address == '') {
@@ -792,13 +746,6 @@ class RiderController extends Controller
 		$message .= ' From : ' . $user_details->mobile_number;
 		$message .= ' Address : ' . $address;
 		$sms_gateway = resolve("App\Contracts\SMSInterface");
-		if ($contact_details->count() > 0) {
-			foreach ($contact_details as $details) {
-				$sms_gateway->send('+'.$details->mobile_number,$message);
-			}
-			$sms_gateway->send($mobile,$message);
-			return response()->json(['status_message' => 'Success', 'status_code' => '1']);
-		}
 		$sms_gateway->send($mobile,$message);
 		return response()->json(['status_message' => 'Success', 'status_code' => '2']);
 	}

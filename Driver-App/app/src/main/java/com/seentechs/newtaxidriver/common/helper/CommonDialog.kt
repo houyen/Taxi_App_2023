@@ -1,10 +1,10 @@
 package com.seentechs.newtaxidriver.common.helper
 
 /**
- * @package com.seentechs.newtaxidriver.common.helper
+ * helper
  * @subpackage helper
  * @category CommonDialog
- * @author Seen Technologies
+ *  
  *
  */
 

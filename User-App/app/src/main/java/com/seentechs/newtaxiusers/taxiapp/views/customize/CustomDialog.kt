@@ -1,10 +1,10 @@
 package com.seentechs.newtaxiusers.taxiapp.views.customize
 
 /**
- * @package com.seentechs.newtaxiusers
+ *  newtaxiusers
  * @subpackage view.customize
  * @category CustomDialog
- * @author Seen Technologies
+ *  
  * 
  */
 

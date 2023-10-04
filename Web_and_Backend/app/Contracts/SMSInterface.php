@@ -2,8 +2,7 @@
 
 /**
  * SMS Interface
- *
- * @package     NewTaxi
+
  * @subpackage  Contracts
  * @category    SMS Interface
 */

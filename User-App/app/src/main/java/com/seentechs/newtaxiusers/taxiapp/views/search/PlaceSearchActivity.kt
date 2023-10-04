@@ -1,10 +1,10 @@
 package com.seentechs.newtaxiusers.taxiapp.views.search
 
 /**
- * @package com.seentechs.newtaxiusers
+ *  newtaxiusers
  * @subpackage search
  * @category PlaceSearchActivity
- * @author Seen Technologies
+ *  
  * 
  */
 

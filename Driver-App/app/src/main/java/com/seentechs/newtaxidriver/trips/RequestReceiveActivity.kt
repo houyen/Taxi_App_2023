@@ -1,10 +1,10 @@
 package com.seentechs.newtaxidriver.trips
 
 /**
- * @package com.seentechs.newtaxidriver.home
+ *  home
  * @subpackage home
  * @category RequestReceiveActivity
- * @author Seen Technologies
+ *  
  *
  */
 

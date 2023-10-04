@@ -204,7 +204,6 @@ class ComposerStaticInit07703d1633a9d397d52e60a002d213f9
         'App\\Models\\DriverOweAmountPayment' => __DIR__ . '/../..' . '/app/Models/DriverOweAmountPayment.php',
         'App\\Models\\DriverPayment' => __DIR__ . '/../..' . '/app/Models/DriverPayment.php',
         'App\\Models\\EmailSettings' => __DIR__ . '/../..' . '/app/Models/EmailSettings.php',
-        'App\\Models\\EmergencySos' => __DIR__ . '/../..' . '/app/Models/EmergencySos.php',
         'App\\Models\\Fees' => __DIR__ . '/../..' . '/app/Models/Fees.php',
         'App\\Models\\FilterObject' => __DIR__ . '/../..' . '/app/Models/FilterObject.php',
         'App\\Models\\FilterOption' => __DIR__ . '/../..' . '/app/Models/FilterOption.php',

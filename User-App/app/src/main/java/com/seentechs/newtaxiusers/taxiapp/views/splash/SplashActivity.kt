@@ -1,10 +1,10 @@
 package com.seentechs.newtaxiusers.taxiapp.views.splash
 
 /**
- * @package com.seentechs.newtaxiusers
+ *  newtaxiusers
  * @subpackage splash
  * @category SplashActivity
- * @author Seen Technologies
+ *  
  *
  */
 

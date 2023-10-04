@@ -1,10 +1,10 @@
 package com.seentechs.newtaxiusers.appcommon.dependencies.module
 
 /**
- * @package com.seentechs.newtaxiusers
+ *  newtaxiusers
  * @subpackage dependencies.module
  * @category ApplicationModule
- * @author Seen Technologies
+ *  
  *
  */
 

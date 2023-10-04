@@ -1,8 +1,5 @@
 package com.seentechs.newtaxidriver.common.model
 
-/**
- * Created by Seen Technologies on 9/7/18.
- */
 
 class JsonResponse {
     var url: String? = null

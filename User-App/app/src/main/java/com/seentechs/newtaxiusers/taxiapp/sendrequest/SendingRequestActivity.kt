@@ -1,10 +1,10 @@
 package com.seentechs.newtaxiusers.taxiapp.sendrequest
 
 /**
- * @package com.seentechs.newtaxiusers
+ *  newtaxiusers
  * @subpackage sendrequest
  * @category AcceptedTripId Model
- * @author Seen Technologies
+ *  
  *
  */
 
@@ -148,7 +148,7 @@ class SendingRequestActivity : CommonActivity(), LinearTimer.TimerListener, Serv
  }
  /*  @OnClick(R.id.cf_cancel)
    fun cancel() {
-       val jsonString = """{"custom":{"ride_request":{"title":"Trip Request","request_id":1782,"pickup_location":"75F3+WCM, Murang'a, Kenya","drop_location":"Seen Technologies, Nairobi, Kenya","min_time":1,"fare_estimation":"0","pickup_latitude":"-0.7255108","pickup_longitude":"37.1532548","is_pool":false,"seat_count":""},"id":1673627745,"end_time":1673627770,"title":"Trip Request"}}"""
+       val jsonString = """{"custom":{"ride_request":{"title":"Trip Request","request_id":1782,"pickup_location":"75F3+WCM, Murang'a, Kenya","drop_location":"KHTN","min_time":1,"fare_estimation":"0","pickup_latitude":"-0.7255108","pickup_longitude":"37.1532548","is_pool":false,"seat_count":""},"id":1673627745,"end_time":1673627770,"title":"Trip Request"}}"""
        val jsonObject = JSONObject(jsonString)
        val requestId = jsonObject.getJSONObject("custom").getJSONObject("ride_request").getInt("request_id")
        val ref = FirebaseDatabase.getInstance().getReference("request_table")

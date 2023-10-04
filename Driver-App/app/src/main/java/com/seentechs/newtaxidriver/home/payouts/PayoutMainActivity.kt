@@ -1,11 +1,8 @@
 package com.seentechs.newtaxidriver.home.payouts
 
 /**
- *
- * @package     com.seentechs.newtaxidriver
- * @subpackage  Profile
+@subpackage  Profile
  * @category    PayoutMainActivity
- * @author      Seen Technologies
  *
  */
 

@@ -1,10 +1,10 @@
 package com.seentechs.newtaxidriver.home.service
 
 /**
- * @package com.seentechs.newtaxidriver
+ *  newtaxidriver
  * @subpackage utils
  * @category Location Service
- * @author Seen Technologies
+ *  
  *
  */
 

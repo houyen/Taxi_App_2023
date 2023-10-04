@@ -2,10 +2,10 @@ package com.seentechs.newtaxiusers.taxiapp.views.emergency
 
 
 /**
- * @package com.seentechs.newtaxiusers
+ *  newtaxiusers
  * @subpackage emergency
  * @category Emergency contact
- * @author Seen Technologies
+ *  
  *
  */
 

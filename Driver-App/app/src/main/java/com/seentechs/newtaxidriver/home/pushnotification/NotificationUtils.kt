@@ -1,10 +1,10 @@
 package com.seentechs.newtaxidriver.home.pushnotification
 
 /**
- * @package com.seentechs.newtaxidriver.home.pushnotification
+ *  home.pushnotification
  * @subpackage pushnotification model
  * @category NotificationUtils
- * @author Seen Technologies
+ *  
  *
  */
 

@@ -1,10 +1,8 @@
 package com.seentechs.newtaxidriver.common.dependencies.interceptors
 
 /**
- * @package com.seentechs.newtaxidriver
  * @subpackage dependencies.interceptors
  * @category NetWorkInterceptor
- * @author Seen Technologies
  *
  */
 

@@ -10,15 +10,12 @@
  * @author      SpryMedia Ltd (www.sprymedia.co.uk)
  * @contact     www.sprymedia.co.uk/contact
  * @copyright   Copyright 2010-2014 SpryMedia Ltd.
- *
- * This source file is free software, available under the following license:
+This source file is free software, available under the following license:
  *   MIT license - http://datatables.net/license/mit
- *
- * This source file is distributed in the hope that it will be useful, but
+This source file is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
  * or FITNESS FOR A PARTICULAR PURPOSE. See the license files for details.
- *
- * For details please refer to: http://www.datatables.net
+For details please refer to: http://www.datatables.net
  */
 
 (function( window, document, undefined ) {
@@ -28,8 +25,7 @@ var factory = function( $, DataTable ) {
 
 /** 
  * AutoFill provides Excel like auto-fill features for a DataTable
- *
- * @class AutoFill
+@class AutoFill
  * @constructor
  * @param {object} oTD DataTables settings object
  * @param {object} oConfig Configuration object for AutoFill
@@ -710,8 +706,7 @@ DataTable.AutoFill = AutoFill;
 
 
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Constants
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *Constants
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 /**

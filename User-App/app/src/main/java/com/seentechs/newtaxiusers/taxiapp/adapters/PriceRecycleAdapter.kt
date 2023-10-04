@@ -1,10 +1,10 @@
 package com.seentechs.newtaxiusers.taxiapp.adapters
 
 /**
- * @package com.seentechs.newtaxiusersdriver.rating
+ *  newtaxiusersdriver.rating
  * @subpackage rating
  * @category CommentsRecycleAdapter
- * @author Seen Technologies
+ *  
  * 
  */
 

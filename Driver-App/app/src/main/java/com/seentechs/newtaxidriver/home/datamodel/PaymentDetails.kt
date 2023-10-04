@@ -1,8 +1,5 @@
 package com.seentechs.newtaxidriver.home.datamodel
 
-/**
- * Created by Seen Technologies on 9/12/18.
- */
 
 
 import com.google.gson.annotations.Expose

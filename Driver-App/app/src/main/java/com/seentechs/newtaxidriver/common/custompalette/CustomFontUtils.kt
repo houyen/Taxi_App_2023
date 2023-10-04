@@ -1,10 +1,8 @@
 package com.seentechs.newtaxidriver.common.custompalette
 
 /**
- * @package com.seentechs.newtaxidriver.common.custompalette
  * @subpackage custompalette
  * @category CustomFontUtils
- * @author Seen Technologies
  *
  */
 

@@ -22,9 +22,6 @@ import retrofit2.Callback
 import retrofit2.Response
 import javax.inject.Inject
 
-/**
- * Created by Seen Technologies on 9/7/18.
- */
 
 class RequestCallback : Callback<ResponseBody> {
 

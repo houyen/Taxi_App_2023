@@ -2,13 +2,10 @@
 
 /**
  * Pages Controller
- *
- * @package     NewTaxi
+
  * @subpackage  Controller
  * @category    Pages
- * @author      Seen Technologies
- * @version     2.2.1
- * @link        https://seentechs.com
+
  */
 
 namespace App\Http\Controllers\Admin;

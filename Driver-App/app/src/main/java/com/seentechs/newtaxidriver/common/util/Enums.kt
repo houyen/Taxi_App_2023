@@ -1,8 +1,5 @@
 package com.seentechs.newtaxidriver.common.util
 
-/**
- * Created by Seen Technologies on 9/8/18.
- */
 
 object Enums {
 

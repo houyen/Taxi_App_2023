@@ -2,10 +2,10 @@ package com.seentechs.newtaxiusers.taxiapp.views.signinsignup
 
 
 /**
- * @package com.seentechs.newtaxiusers
+ *  newtaxiusers
  * @subpackage signin_signup
  * @category SSResetPassword
- * @author Seen Technologies
+ *  
  *
  */
 

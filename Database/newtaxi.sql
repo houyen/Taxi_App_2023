@@ -1341,7 +1341,6 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (38, '2018_04_02_130448_create_language_table', 1),
 (39, '2018_05_26_000018_create_payout_preference_table', 1),
 (40, '2018_05_26_000020_create_payment_method_table', 1),
-(41, '2018_07_13_063641_CreateEmergencySosTable', 1),
 (42, '2018_07_13_073129_create_schedule_ride_table', 1),
 (43, '2018_07_16_063607_entrust_setup_tables', 1),
 (44, '2018_08_08_100000_create_telescope_entries_table', 1),

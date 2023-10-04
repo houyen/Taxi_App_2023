@@ -1,10 +1,8 @@
 package com.seentechs.newtaxidriver.common.configs
 
 /**
- * @package com.seentechs.newtaxidriver
  * @subpackage configs
  * @category SessionManager
- * @author Seen Technologies
  *
  */
 

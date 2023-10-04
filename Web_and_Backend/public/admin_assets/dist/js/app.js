@@ -3,8 +3,7 @@
  * Main JS application file for AdminLTE v2. This file
  * should be included in all pages. It controls some layout
  * options and implements exclusive AdminLTE plugins.
- *
- * @Author  Almsaeed Studio
+@Author  Almsaeed Studio
  * @Support <http://www.almsaeedstudio.com>
  * @Email   <support@almsaeedstudio.com>
  * @version 2.3.0
@@ -17,8 +16,7 @@ if (typeof jQuery === "undefined") {
 }
 
 /* AdminLTE
- *
- * @type Object
+@type Object
  * @description $.AdminLTE is the main object for the template's app.
  *              It's used for implementing functions and options related
  *              to the template. Keeping everything wrapped in an object
@@ -599,8 +597,7 @@ function _init() {
  * ------------------
  * This is a custom plugin to use with the component BOX. It allows you to add
  * a refresh button to the box. It converts the box's state to a loading state.
- *
- * @type plugin
+@type plugin
  * @usage $("#box-widget").boxRefresh( options );
  */
 (function ($) {
@@ -677,8 +674,7 @@ function _init() {
  * -----------------------
  * This is a custom plugin to use with the component BOX. It allows you to activate
  * a box inserted in the DOM after the app.js was loaded.
- *
- * @type plugin
+@type plugin
  * @usage $("#box-widget").activateBox();
  */
 (function ($) {
@@ -695,8 +691,7 @@ function _init() {
  * TODO LIST CUSTOM PLUGIN
  * -----------------------
  * This plugin depends on iCheck plugin for checkbox and radio inputs
- *
- * @type plugin
+@type plugin
  * @usage $("#todo-widget").todolist( options );
  */
 (function ($) {

@@ -3,9 +3,7 @@ package com.seentechs.newtaxidriver.home.payouts.payout_model_classed
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-/**
- * Created by Seen Technologies on 3/8/18.
- */
+
 
 class PayoutDetail {
 

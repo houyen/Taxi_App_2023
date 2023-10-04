@@ -1,10 +1,10 @@
 package com.seentechs.newtaxiusers.appcommon.datamodels
 
 /**
- * @package com.seentechs.newtaxiusers
+ *  newtaxiusers
  * @subpackage datamodels.main
  * @category JsonResponse
- * @author Seen Technologies
+ *  
  * 
  */
 

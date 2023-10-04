@@ -1,10 +1,10 @@
 package com.seentechs.newtaxiusers.taxiapp.datamodels.trip
 
 /**
- * @package com.seentechs.newtaxiusers
+ *  newtaxiusers
  * @subpackage sendrequest
  * @category TripDetailsModel Model
- * @author Seen Technologies
+ *  
  *
  */
 

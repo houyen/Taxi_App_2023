@@ -1,10 +1,10 @@
 package com.seentechs.newtaxiusers.appcommon.network
 
 /**
- * @package com.seentechs.newtaxiusers
+ *  newtaxiusers
  * @subpackage network
  * @category AppController
- * @author Seen Technologies
+ *  
  * 
  */
 

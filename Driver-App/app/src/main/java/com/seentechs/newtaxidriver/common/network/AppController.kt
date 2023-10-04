@@ -1,10 +1,10 @@
 package com.seentechs.newtaxidriver.common.network
 
 /**
- * @package com.seentechs.newtaxidriver.common.network
+ * network
  * @subpackage network
  * @category AppController
- * @author Seen Technologies
+ *  
  *
  */
 

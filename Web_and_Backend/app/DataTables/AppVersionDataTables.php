@@ -2,8 +2,7 @@
 
 /**
  * Locations DataTable
- *
- * @package     NewTaxi
+
  * @subpackage  DataTable
  * @category    Locations
  */

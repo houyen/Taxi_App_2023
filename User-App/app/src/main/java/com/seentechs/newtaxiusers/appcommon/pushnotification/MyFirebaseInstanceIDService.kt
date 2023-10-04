@@ -1,10 +1,10 @@
 package com.seentechs.newtaxiusers.appcommon.pushnotification
 
 /**
- * @package com.seentechs.newtaxiusers
+ *  newtaxiusers
  * @subpackage MyFirebaseInstanceIDService
  * @category Firebase instance service
- * @author Seen Technologies
+ *  
  * 
  */
 

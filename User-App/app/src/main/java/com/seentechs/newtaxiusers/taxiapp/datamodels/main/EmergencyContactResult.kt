@@ -6,9 +6,7 @@ import com.seentechs.newtaxiusers.taxiapp.datamodels.EmergencyContactModel
 
 import java.util.ArrayList
 
-/**
- * Created by Seen Technologies on 12/9/18.
- */
+
 
 class EmergencyContactResult {
 

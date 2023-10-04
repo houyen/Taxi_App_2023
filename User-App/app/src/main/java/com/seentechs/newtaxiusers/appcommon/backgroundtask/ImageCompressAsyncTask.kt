@@ -1,9 +1,9 @@
 package com.seentechs.newtaxiusers.appcommon.backgroundtask
 /**
- * @package com.seentechs.newtaxiusers
+ *  newtaxiusers
  * @subpackage backgroundtask
  * @category ImageCompressAsyncTask
- * @author Seen Technologies
+ *  
  *
  */
 

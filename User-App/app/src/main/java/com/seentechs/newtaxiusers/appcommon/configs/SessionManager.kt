@@ -1,10 +1,10 @@
 package com.seentechs.newtaxiusers.appcommon.configs
 
 /**
- * @package com.seentechs.newtaxiusers
+ *  newtaxiusers
  * @subpackage configs
  * @category SessionManager
- * @author Seen Technologies
+ *  
  * 
  */
 

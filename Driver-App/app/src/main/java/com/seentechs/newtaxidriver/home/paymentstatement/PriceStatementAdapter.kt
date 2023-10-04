@@ -1,10 +1,10 @@
 package com.seentechs.newtaxidriver.home.paymentstatement
 
 /**
- * @package com.seentechs.newtaxidriver.trips.rating
+ *  trips.rating
  * @subpackage rating
  * @category CommentsRecycleAdapter
- * @author Seen Technologies
+ *  
  *
  */
 

@@ -1,10 +1,10 @@
 package com.seentechs.newtaxiusers.taxiapp
 
 /**
- * @package com.seentechs.newtaxiusers
+ *  newtaxiusers
  * @subpackage -
  * @category MainActivity
- * @author Seen Technologies
+ *  
  *
  */
 

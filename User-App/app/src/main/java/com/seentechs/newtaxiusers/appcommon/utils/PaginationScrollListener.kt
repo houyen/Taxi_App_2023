@@ -10,8 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 abstract class PaginationScrollListener
 /**
  * Supporting only LinearLayoutManager for now.
- *
- * @param layoutManager
+@param layoutManager
  */
 protected constructor(private val layoutManager: LinearLayoutManager?) : RecyclerView.OnScrollListener() {
 

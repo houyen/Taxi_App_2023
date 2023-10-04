@@ -1,10 +1,10 @@
 package com.seentechs.newtaxidriver.home.placesearch
 
 /**
- * @package com.seentechs.newtaxidriver
+ *  newtaxidriver
  * @subpackage placesearch
  * @category Recycler view Item click listener
- * @author Seen Technologies
+ *  
  *
  */
 

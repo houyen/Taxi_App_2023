@@ -1,10 +1,10 @@
 package com.seentechs.newtaxiusers.taxiapp.sendrequest
 
 /**
- * @package com.seentechs.newtaxiusers
+ *  newtaxiusers
  * @subpackage sendrequest
  * @category DriverNotAcceptActivity
- * @author Seen Technologies
+ *  
  *
  */
 

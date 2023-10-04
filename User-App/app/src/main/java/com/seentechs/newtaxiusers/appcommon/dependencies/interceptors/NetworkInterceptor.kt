@@ -1,10 +1,10 @@
 package com.seentechs.newtaxiusers.appcommon.dependencies.interceptors
 
 /**
- * @package com.seentechs.newtaxiusers
+ *  newtaxiusers
  * @subpackage dependencies.interceptors
  * @category NetWorkInterceptor
- * @author Seen Technologies
+ *  
  *
  */
 

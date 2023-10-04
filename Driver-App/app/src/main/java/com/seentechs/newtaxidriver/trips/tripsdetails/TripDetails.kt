@@ -1,10 +1,10 @@
 package com.seentechs.newtaxidriver.trips.tripsdetails
 
 /**
- * @package com.seentechs.newtaxidriver.trips.tripsdetails
+ *  trips.tripsdetails
  * @subpackage tripsdetails model
  * @category TripsDetails
- * @author Seen Technologies
+ *  
  *
  */
 

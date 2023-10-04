@@ -3,9 +3,7 @@ package com.seentechs.newtaxiusers.appcommon.datamodels.settings
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-/**
- * Created by Seen Technologies on 11/9/20.
- */
+
 
 class CurrencyListModel {
 

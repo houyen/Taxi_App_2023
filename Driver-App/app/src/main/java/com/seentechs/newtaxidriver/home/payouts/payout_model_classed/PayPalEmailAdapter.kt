@@ -1,12 +1,8 @@
 package com.seentechs.newtaxidriver.home.payouts.payout_model_classed
 
 /**
- *
- * @package     com.seentechs.newtaxidriver
- * @subpackage  adapter/host
+@subpackage  adapter/host
  * @category    PayPalEmailAdapter
- * @author      Seen Technologies
- *
  */
 
 import android.annotation.SuppressLint

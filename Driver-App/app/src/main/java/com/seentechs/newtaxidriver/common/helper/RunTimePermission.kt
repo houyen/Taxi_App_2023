@@ -12,9 +12,6 @@ import java.util.ArrayList
 
 import javax.inject.Inject
 
-/**
- * Created by Seen Technologies on 9/7/18.
- */
 
 class RunTimePermission {
 

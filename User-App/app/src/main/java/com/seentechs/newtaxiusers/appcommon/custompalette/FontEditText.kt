@@ -1,10 +1,10 @@
 package com.seentechs.newtaxiusers.appcommon.custompalette
 
 /**
- * @package com.seentechs.newtaxiusers
+ *  newtaxiusers
  * @subpackage custompalette
  * @category FontEditText
- * @author Seen Technologies
+ *  
  *
  */
 

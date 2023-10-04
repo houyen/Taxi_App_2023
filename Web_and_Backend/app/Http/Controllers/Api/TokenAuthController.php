@@ -2,13 +2,10 @@
 
 /**
  * Token Auth Controller
- *
- * @package     NewTaxi
+
  * @subpackage  Controller
  * @category    Token Auth
- * @author      Seen Technologies
- * @version     2.2.1
- * @link        https://seentechs.com
+
  */
 
 namespace App\Http\Controllers\Api;

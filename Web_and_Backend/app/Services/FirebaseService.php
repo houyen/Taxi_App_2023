@@ -2,13 +2,10 @@
 
 /**
  * Firebase Service
- *
- * @package     NewTaxi
+
  * @subpackage  Services
  * @category    Service
- * @author      Seen Technologies
- * @version     2.2.1
- * @link        https://seentechs.com
+
 */
 
 namespace App\Services;

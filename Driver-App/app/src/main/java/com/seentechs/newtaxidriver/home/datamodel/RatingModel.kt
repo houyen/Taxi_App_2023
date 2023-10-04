@@ -5,9 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 import java.io.Serializable
 
-/**
- * Created by Seen Technologies on 9/12/18.
- */
+
 
 class RatingModel : Serializable {
 

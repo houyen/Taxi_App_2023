@@ -2,10 +2,10 @@ package com.seentechs.newtaxidriver.home
 
 
 /**
- * @package com.seentechs.newtaxidriver
+ *  newtaxidriver
  * @subpackage -
  * @category MainActivity
- * @author Seen Technologies
+ *  
  *
  */
 

@@ -2,13 +2,10 @@
 
 /**
  * Provider statement DataTable
- *
- * @package     NewTaxi
+
  * @subpackage  DataTable
  * @category    Provider statement
- * @author      Seen Technologies
- * @version     2.2.1
- * @link        https://seentechs.com
+
  */
 
 namespace App\DataTables;

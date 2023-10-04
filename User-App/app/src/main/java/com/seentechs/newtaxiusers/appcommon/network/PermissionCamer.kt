@@ -1,10 +1,10 @@
 package com.seentechs.newtaxiusers.appcommon.network
 
 /**
- * @package com.seentechs.newtaxiusersdriver.appcommon.network
+ *  newtaxiusersdriver.appcommon.network
  * @subpackage network
  * @category PermissionCamer
- * @author Seen Technologies
+ *  
  *
  */
 

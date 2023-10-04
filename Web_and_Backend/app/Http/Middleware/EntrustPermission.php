@@ -5,8 +5,7 @@ namespace App\Http\Middleware;
 /**
  * This file is part of Entrust,
  * a role & permission management solution for Laravel.
- *
- * @license MIT
+@license MIT
  * @package Zizaco\Entrust
  */
 

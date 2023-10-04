@@ -2,10 +2,10 @@
 package com.seentechs.newtaxidriver.home.map
 
 /**
- * @package com.seentechs.newtaxidriver
+ *  newtaxidriver
  * @subpackage map
  * @category AppUtils
- * @author Seen Technologies
+ *  
  *
  */
 

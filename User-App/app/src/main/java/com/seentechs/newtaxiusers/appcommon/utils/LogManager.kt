@@ -1,10 +1,10 @@
 package com.seentechs.newtaxiusers.appcommon.utils
 
 /**
- * @package com.seentechs.newtaxiusers
+ *  newtaxiusers
  * @subpackage utils
  * @category LogManager
- * @author Seen Technologies
+ *  
  * 
  */
 

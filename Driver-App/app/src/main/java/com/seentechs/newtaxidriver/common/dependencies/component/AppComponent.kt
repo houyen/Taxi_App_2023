@@ -1,10 +1,8 @@
 package com.seentechs.newtaxidriver.common.dependencies.component
 
 /**
- * @package com.seentechs.newtaxidriver
  * @subpackage dependencies.component
  * @category AppComponent
- * @author Seen Technologies
  *
  */
 

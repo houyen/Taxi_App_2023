@@ -2,13 +2,10 @@
 
 /**
  * JoinUs Controller
- *
- * @package     NewTaxi
+
  * @subpackage  Controller
  * @category    JoinUs
- * @author      Seen Technologies
- * @version     2.2.1
- * @link        https://seentechs.com
+
  */
 
 namespace App\Http\Controllers\Admin;

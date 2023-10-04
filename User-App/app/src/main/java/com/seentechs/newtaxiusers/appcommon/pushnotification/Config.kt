@@ -1,9 +1,9 @@
 package com.seentechs.newtaxiusers.appcommon.pushnotification
 
 /**
- * @author Seen Technologies
+ *  
  * 
- * @package com.seentechs.newtaxiusers
+ *  newtaxiusers
  * @subpackage pushnotification
  * @category Firebase Config
  */

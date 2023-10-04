@@ -2,9 +2,6 @@
 
 /**
  * Auth Interface
- *
- * @package     Newtaxi
- * @subpackage  Contracts
  * @category    Auth Interface
 */
 

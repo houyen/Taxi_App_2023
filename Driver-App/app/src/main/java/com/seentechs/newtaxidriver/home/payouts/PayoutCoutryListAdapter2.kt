@@ -1,11 +1,8 @@
 package com.seentechs.newtaxidriver.home.payouts
 
 /**
- *
- * @package     com.seentechs.newtaxidriver
- * @subpackage  adapter
+@subpackage  adapter
  * @category    PayoutCountryListAdapter
- * @author      Seen Technologies
  *
  */
 

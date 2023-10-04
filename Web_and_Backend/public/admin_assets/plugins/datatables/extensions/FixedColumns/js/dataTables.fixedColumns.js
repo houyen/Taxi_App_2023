@@ -10,15 +10,12 @@
  * @author      SpryMedia Ltd (www.sprymedia.co.uk)
  * @contact     www.sprymedia.co.uk/contact
  * @copyright   Copyright 2010-2014 SpryMedia Ltd.
- *
- * This source file is free software, available under the following license:
+This source file is free software, available under the following license:
  *   MIT license - http://datatables.net/license/mit
- *
- * This source file is distributed in the hope that it will be useful, but
+This source file is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
  * or FITNESS FOR A PARTICULAR PURPOSE. See the license files for details.
- *
- * For details please refer to: http://www.datatables.net
+For details please refer to: http://www.datatables.net
  */
 
 
@@ -34,13 +31,11 @@ var factory = function( $, DataTable ) {
  * exactly this option (note for non-scrolling tables, please use the
  * FixedHeader plug-in, which can fix headers, footers and columns). Key
  * features include:
- *
- * * Freezes the left or right most columns to the side of the table
+* Freezes the left or right most columns to the side of the table
  * * Option to freeze two or more columns
  * * Full integration with DataTables' scrolling options
  * * Speed - FixedColumns is fast in its operation
- *
- *  @class
+ @class
  *  @constructor
  *  @global
  *  @param {object} dt DataTables instance. With DataTables 1.10 this can also
@@ -48,11 +43,9 @@ var factory = function( $, DataTable ) {
  *    settings object.
  *  @param {object} [init={}] Configuration object for FixedColumns. Options are
  *    defined by {@link FixedColumns.defaults}
- *
- *  @requires jQuery 1.7+
+ @requires jQuery 1.7+
  *  @requires DataTables 1.8.0+
- *
- *  @example
+ @example
  *      var table = $('#example').dataTable( {
  *        "scrollX": "100%"
  *      } );
@@ -1284,8 +1277,7 @@ FixedColumns.prototype = /** @lends FixedColumns.prototype */{
 
 
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Statics
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *Statics
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 /**
@@ -1365,8 +1357,7 @@ FixedColumns.defaults = /** @lends FixedColumns.defaults */{
 
 
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Constants
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *Constants
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 /**
@@ -1380,8 +1371,7 @@ FixedColumns.version = "3.0.4";
 
 
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Fired events (for documentation)
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *Fired events (for documentation)
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 

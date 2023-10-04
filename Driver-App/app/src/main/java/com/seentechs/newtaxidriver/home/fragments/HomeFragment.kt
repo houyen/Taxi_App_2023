@@ -1,10 +1,10 @@
 package com.seentechs.newtaxidriver.home.fragments
 
 /**
- * @package com.seentechs.newtaxidriver.home.fragments
+ *  home.fragments
  * @subpackage fragments
  * @category HomeFragment
- * @author Seen Technologies
+ *  
  *
  */
 

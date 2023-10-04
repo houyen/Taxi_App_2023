@@ -2,13 +2,10 @@
 
 /**
  * Rider Location Model
- *
- * @package     NewTaxi
+
  * @subpackage  Model
  * @category    Rider Location
- * @author      Seen Technologies
- * @version     2.2.1
- * @link        https://seentechs.com
+
  */
 
 namespace App\Models;

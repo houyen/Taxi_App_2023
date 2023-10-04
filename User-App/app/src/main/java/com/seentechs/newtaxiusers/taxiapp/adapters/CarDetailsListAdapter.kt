@@ -1,10 +1,10 @@
 package com.seentechs.newtaxiusers.taxiapp.adapters
 
 /**
- * @package com.seentechs.newtaxiusers
+ *  newtaxiusers
  * @subpackage cardetails
  * @category cardetailslist Adapter
- * @author Seen Technologies
+ *  
  * 
  */
 

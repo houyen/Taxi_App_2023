@@ -6,9 +6,7 @@ import com.seentechs.newtaxiusers.taxiapp.views.main.filter.FeaturesInCarModel
 
 import java.io.Serializable
 
-/**
- * Created by Seen Technologies on 7/9/18.
- */
+
 
 class RiderProfile : Serializable {
 

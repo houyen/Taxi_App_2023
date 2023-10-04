@@ -2,13 +2,10 @@
 
 /**
  * Helpers
- *
- * @package     NewTaxi
+
  * @subpackage  Helpers
  * @category    Helpers
- * @author      Seen Technologies
- * @version     2.2.1
- * @link        https://seentechs.com
+
  */
 
 
@@ -33,8 +30,7 @@ use App\Models\DriverLocation;
 
 /**
  * Convert String to htmlable instance
- *
- * @param  string $type      Type of the image
+@param  string $type      Type of the image
  * @return instance of \Illuminate\Contracts\Support\Htmlable
  */
 if (!function_exists('html_string')) {
@@ -47,8 +43,7 @@ if (!function_exists('html_string')) {
 
 /**
  * File Get Content by using CURL
- *
- * @param  string $url  Url
+@param  string $url  Url
  * @return string $data Response of URL
  */
 if (!function_exists('file_get_contents_curl')) {
@@ -72,8 +67,7 @@ if (!function_exists('file_get_contents_curl')) {
 
 /**
  * Do CURL With POST
- *
- * @param  String $url  Url
+@param  String $url  Url
  * @param  Array $params  Url Parameters
  * @return string $data Response of URL
  */
@@ -114,8 +108,7 @@ if (!function_exists('arrayToObject')) {
 
 /**
  * Convert Given Float To Nearest Half Integer
- *
- * @return Int
+@return Int
  */
 if (!function_exists('roundHalfInteger')) {
 	function roundHalfInteger($value)
@@ -165,8 +158,7 @@ if (!function_exists('formatStatementItem')) {
 
 /**
  * Currency Convert
- *
- * @param int $from   Currency Code From
+@param int $from   Currency Code From
  * @param int $to     Currency Code To
  * @param int $price  Price Amount
  * @return int Converted amount
@@ -193,8 +185,7 @@ if (!function_exists('currencyConvert')) {
 
 /**
  * Check if a string is a valid timezone
- *
- * @param string $timezone
+@param string $timezone
  * @return bool
  */
 if (!function_exists('isValidTimezone')) {
@@ -206,8 +197,7 @@ if (!function_exists('isValidTimezone')) {
 
 /**
  * Get Given Rider Rating
- *
- * @param String $driver_id
+@param String $driver_id
  * @return String $rider_rating
  */
 if (!function_exists('getRiderRating')) {
@@ -228,8 +218,7 @@ if (!function_exists('getRiderRating')) {
 
 /**
  * Get Given Driver Rating
- *
- * @param String $rider_id
+@param String $rider_id
  * @return String $driver_rating
  */
 if (!function_exists('getDriverRating')) {
@@ -250,8 +239,7 @@ if (!function_exists('getDriverRating')) {
 
 /**
  * Get User Wallet Amount
- *
- * @param String $user_id
+@param String $user_id
  * @return String $wallet_amount
  */
 if (!function_exists('getUserWalletAmount')) {
@@ -266,8 +254,7 @@ if (!function_exists('getUserWalletAmount')) {
 
 /**
  * Checks if a value exists in an array in a case-insensitive manner
- *
- * @param string $key The searched value
+@param string $key The searched value
  * 
  * @return if key found, return particular value of key.
  */
@@ -283,8 +270,7 @@ if (!function_exists('site_settings')) {
 
 /**
  * Checks if a value exists in an array in a case-insensitive manner
- *
- * @param string $key The searched value
+@param string $key The searched value
  * 
  * @return if key found, return particular value of key.
  */
@@ -300,8 +286,7 @@ if (!function_exists('email_settings')) {
 
 /**
  * Checks if a value exists in an array in a case-insensitive manner
- *
- * @param string $key The searched value
+@param string $key The searched value
  * 
  * @return if key found, return particular value of key.
  */
@@ -317,8 +302,7 @@ if (!function_exists('payment_gateway')) {
 
 /**
  * Checks if a value exists in an array in a case-insensitive manner
- *
- * @param string $key The searched value
+@param string $key The searched value
  * 
  * @return if key found, return particular value of key.
  */
@@ -338,8 +322,7 @@ if (!function_exists('api_credentials')) {
 
 /**
  * Checks if a value exists in an array in a case-insensitive manner
- *
- * @param string $key The searched value
+@param string $key The searched value
  * 
  * @return if key found, return particular value of key.
  */
@@ -355,8 +338,7 @@ if (!function_exists('fees')) {
 
 /**
  * Set Flash Message function
- *
- * @param  string $class     Type of the class ['danger','success','warning']
+@param  string $class     Type of the class ['danger','success','warning']
  * @param  string $message   message to be displayed
  */
 if (!function_exists('flashMessage')) {
@@ -370,8 +352,7 @@ if (!function_exists('flashMessage')) {
 
 /**
  * Get Admin default Currency Symbole
- *
- * @return currency symbol
+@return currency symbol
  */
 if (!function_exists('currency_symbol')) {
 	function currency_symbol()
@@ -386,8 +367,7 @@ if (!function_exists('currency_symbol')) {
 
 /**
  * Get a Facebook Login URL
- *
- * @return URL from Facebook API
+@return URL from Facebook API
  */
 if (!function_exists('getAppleLoginUrl')) {
 	function getAppleLoginUrl()
@@ -408,8 +388,7 @@ if (!function_exists('getAppleLoginUrl')) {
 
 /**
  * Generate Apple Client Secret
- *
- * @return String $token
+@return String $token
  */
 if (!function_exists('getAppleClientSecret')) {
 	function getAppleClientSecret()
@@ -442,8 +421,7 @@ if (!function_exists('getAppleClientSecret')) {
 
 /**
  * Get Currency Code From IP address
- *
- * @param  $ip_address [current IP]
+@param  $ip_address [current IP]
  * @return String $currency_code
  */
 if (!function_exists('get_currency_from_ip')) {
@@ -477,8 +455,7 @@ if (!function_exists('get_currency_from_ip')) {
 
 /**
  * Get Currency Code From IP address
- *
- * @param  $date_obj [Carbon date object]
+@param  $date_obj [Carbon date object]
  * @param  $format [Return Date Format]
  * @return String $currency_code
  */
@@ -494,8 +471,7 @@ if (!function_exists('getWeekStartEnd')) {
 
 /**
  * Check Cash trip or not
- *
- * @return Boolean true or false
+@return Boolean true or false
  */
 if (!function_exists('checkIsCashTrip')) {
 	function checkIsCashTrip($payment_mode)
@@ -506,8 +482,7 @@ if (!function_exists('checkIsCashTrip')) {
 
 /**
  * Check Current Environment
- *
- * @return Boolean true or false
+@return Boolean true or false
  */
 if (!function_exists('isLiveEnv')) {
 	function isLiveEnv($environments = [])
@@ -522,8 +497,7 @@ if (!function_exists('isLiveEnv')) {
 
 /**
  * Get driver request seconds
- *
- * @return Boolean true or false
+@return Boolean true or false
  */
 if (!function_exists('getDriverSec')) {
 	function getDriverSec()
@@ -534,8 +508,7 @@ if (!function_exists('getDriverSec')) {
 
 /**
  * Check Can display credentials or not
- *
- * @return Boolean true or false
+@return Boolean true or false
  */
 if (!function_exists('canDisplayCredentials')) {
 	function canDisplayCredentials()
@@ -546,10 +519,8 @@ if (!function_exists('canDisplayCredentials')) {
 
 /**
  * Convert underscore_strings to camelCase (medial capitals).
- *
- * @param {string} $str
- *
- * @return {string}
+@param {string} $str
+@return {string}
  */
 if (!function_exists('snakeToCamel')) {
 	
@@ -565,10 +536,8 @@ if (!function_exists('snakeToCamel')) {
 
 /**
  * get protected String or normal based on env
- *
- * @param {string} $str
- *
- * @return {string}
+@param {string} $str
+@return {string}
  */
 if (!function_exists('protectedString')) {
 	
@@ -650,8 +619,7 @@ if ( ! function_exists('updateEnvConfig'))
 
 /**
  * Check Given Request is from API or not
- *
- * @return Boolean
+@return Boolean
  */
 if (!function_exists('isApiRequest')) {
 
@@ -663,8 +631,7 @@ if (!function_exists('isApiRequest')) {
 
 /**
  * Check Given Request is from API or not
- *
- * @return Boolean
+@return Boolean
  */
 if (!function_exists('camelCaseToString')) {
 
@@ -678,8 +645,7 @@ if (!function_exists('camelCaseToString')) {
 
 /**
  * Check Given Request is from API or not
- *
- * @return Boolean
+@return Boolean
  */
 if (!function_exists('getPayoutMethods')) {
 
@@ -698,8 +664,7 @@ if (!function_exists('getPayoutMethods')) {
 
 /**
  * Check Given Request is from API or not
- *
- * @return Boolean
+@return Boolean
  */
 if (!function_exists('isPayoutEnabled')) {
 
@@ -719,10 +684,8 @@ if (!function_exists('isAdmin')) {
 
 /**
  * numberFormat Function
- *
- * @param {Float} $value
- *
- * @return {string}
+@param {Float} $value
+@return {string}
  */
 if (!function_exists('numberFormat')) {
 	
@@ -735,8 +698,7 @@ if (!function_exists('numberFormat')) {
  * Calculates the distance between two points, given their 
  * latitude and longitude, and returns an array of values 
  * of the most common distance units
- *
- * @param  {coord} $lat1 Latitude of the first point
+@param  {coord} $lat1 Latitude of the first point
  * @param  {coord} $lon1 Longitude of the first point
  * @param  {coord} $lat2 Latitude of the second point
  * @param  {coord} $lon2 Longitude of the second point
@@ -1021,8 +983,7 @@ if(!function_exists('checkDefault')) {
 
 /**
  * Check Current Environment
- *
- * @return Boolean true or false
+@return Boolean true or false
  */
 if (!function_exists('CheckGetInTuchpopup')) {
 	function CheckGetInTuchpopup($environments = [])
@@ -1033,8 +994,7 @@ if (!function_exists('CheckGetInTuchpopup')) {
 
 /**
  * Check Current Environment
- *
- * @return Boolean true or false
+@return Boolean true or false
  */
 if (!function_exists('hideCredentials')) {
 	function hideCredentials($key)
