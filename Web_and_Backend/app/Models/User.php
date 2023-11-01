@@ -629,39 +629,7 @@ class User extends Authenticatable implements JWTSubject
         return $this->driver_owe_amount ? $this->driver_owe_amount->amount : '';
     }
 
-    // Add referral amount to wallet
-    public function addAmountToWallet($to_user,$user_type,$currency_code,$wallet_amount)
-    {
-        $wallet = Wallet::where('user_id', $to_user)->first();
-        if(isset($wallet)) {
-            $amount = $this->currency_convert($currency_code,$wallet->getOriginal('currency_code'),$wallet_amount);
-            $final_wallet = number_format($wallet->getOriginal('amount'),2,'.','') + number_format($amount,2,'.','');
-            $wallet->amount = $final_wallet;
-        }
-        else {
-            $wallet = new Wallet;
-            $wallet->user_id = $to_user;
-            $wallet->amount = $wallet_amount;
-            $wallet->currency_code = $currency_code;
-        }
-        $wallet->save();
-
-        $this->completeReferral($to_user);
-        return '';
-    }
-
-    // Update referral user table payment status
-    public function completeReferral($referral_user_id)
-    {
-        $c_date = date('Y-m-d');
-        $referral_user = ReferralUser::where('user_id',$referral_user_id)->where('referral_id',$this->attributes['id'])->whereRaw('"'.$c_date.'" between start_date and end_date')->wherePaymentStatus('Pending')->first();
-        if($referral_user != '') {
-            $referral_user->payment_status = 'Completed';
-            $referral_user->save();
-        }
-
-        return '';
-    }
+   
 
     /**
      * calculate converted price of given amount

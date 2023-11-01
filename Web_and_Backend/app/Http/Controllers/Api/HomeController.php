@@ -77,7 +77,6 @@ class HomeController extends Controller
         $driver_km = site_settings('driver_km');
         $pickup_km = site_settings('pickup_km');
         $drop_km   = site_settings('drop_km');
-        $is_web_payment    = payment_gateway('is_web_payment','Common') =='1' ? true:false;
 //$common_data=[];
 if($request->user_type == 'Rider') {
         $common_data = array(
@@ -105,7 +104,6 @@ if($request->user_type == 'Rider') {
             // 'driver_km',
             // 'pickup_km',
             // 'drop_km',
-            'is_web_payment',
             'covid_future',
             //'arrival_time'        => $arrival_time,
         );
@@ -135,7 +133,6 @@ if($request->user_type == 'Rider') {
             // 'driver_km',
             // 'pickup_km',
             // 'drop_km',
-            'is_web_payment',
             'covid_future',
         );
 
@@ -189,62 +186,6 @@ if($request->user_type == 'Rider') {
         $default_paymode = payment_gateway('trip_default','Common');
 
         $payment_list = array();
-
-        $payment_methods->each(function($payment_method) use (&$payment_list, $default_paymode, $user_details, $is_wallet) {
-
-            if($payment_method['key'] == 'cash' && $is_wallet) {
-                $skip_payment = true;
-            }
-            if(payment_gateway('is_web_payment','Common') == '1' &&  $payment_method['key'] != 'cash')
-            {
-                    $payMethodData = array(
-                        "key"       => 'onlinepayment',
-                        "value"     => 'Online Payment',
-                        "icon"      => url('images/online-pay.png'),
-                        "is_default"=> ($default_paymode != 'cash'),
-                    );
-                    array_push($payment_list, $payMethodData);
-                    return false;
-            }
-            $payment_method['value'] = \Lang::get('messages.api.'.$payment_method['value']);
-            if($payment_method['key'] == 'stripe') {
-                $payment_details = PaymentMethod::where('user_id', $user_details->id)->Payment()->first();
-                if($payment_details != '') {
-                    $last4  = strval($payment_details->last4);
-                    $payment_method['value'] = 'xxxx xxxx xxxx '.$last4;
-
-                    $stripe_card = array(
-                        "key"           => "stripe_card",
-                        "value"         => \Lang::get('messages.api.change_debit_card'),
-                        "is_default"    => false,
-                        "icon"          => asset("images/icon/card.png"),
-                    );
-                }
-                else {
-                    $stripe_card = array(
-                        "key"           => "stripe_card",
-                        "value"         => \Lang::get('messages.api.add_debit_card'),
-                        "is_default"    => ($default_paymode == $payment_method['key']),
-                        "icon"          => asset("images/icon/card.png"),
-                    );
-                    $skip_payment = true;
-                }
-            }
-
-            if(!isset($skip_payment)) {
-                $payMethodData = array(
-                    "key"       => $payment_method['key'],
-                    "value"     => $payment_method['value'],
-                    "icon"      => $payment_method['icon'],
-                    "is_default"=> ($default_paymode == $payment_method['key']),
-                );
-                array_push($payment_list, $payMethodData);
-            }
-            
-            if(isset($stripe_card)) {
-                array_push($payment_list, $stripe_card);
-            }
-        });
 
     	$return_data = array(            
             'status_code'       => '1',

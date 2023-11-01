@@ -517,7 +517,6 @@ class RiderController extends Controller
 				'drop_location' => 'required',
 				'device_id' => 'required',
 				'device_type' => 'required',
-				'payment_method' => 'required',
 			);
 			$group_id = '';
 		}
@@ -560,8 +559,6 @@ class RiderController extends Controller
 				'driver_group_id' => $ride_request->group_id,
 				'pickup_location' => $ride_request->pickup_location,
 				'drop_location' => $ride_request->drop_location,
-				'payment_method' => $ride_request->payment_method,
-				'is_wallet' => $ride_request->is_wallet,
 				'timezone' => $ride_request->timezone,
 				'schedule_id' => $ride_request->schedule_id,
 				'additional_fare'  =>$additional_fare,
@@ -591,8 +588,6 @@ class RiderController extends Controller
 			'driver_group_id' => $request->group_id,
 			'pickup_location' => $request->pickup_location,
 			'drop_location' => $request->drop_location,
-			'payment_method' => $request->payment_method,
-			'is_wallet' => $request->is_wallet,
 			'timezone' => $request->timezone,
 			'schedule_id' => (string) $request->schedule_id,
 			'additional_fare' => $additional_fare,
@@ -626,19 +621,11 @@ class RiderController extends Controller
 			]);
 		}
 
-		$invoice_helper = resolve('App\Http\Helper\InvoiceHelper');
-		$promo_details = $invoice_helper->getUserPromoDetails($user_details->id);
 
-		$wallet_amount = getUserWalletAmount($user_details->id);
 
 		$user = array(
 			'status_code' 	=> '1',
 			'status_message'=> __('messages.api.success'),
-			'wallet_amount' => $wallet_amount,
-			'promo_details' => $promo_details,
-			// 'brand'     	=> '',
-			// 'last4'     	=> '',
-			'stripe_key' 	=> STRIPE_KEY,
 		);
 		return response()->json($user);
 	}
@@ -778,7 +765,6 @@ class RiderController extends Controller
 				'pickup_location' => 'required',
 				'drop_location' => 'required',
 				'device_id' => 'required',
-				'payment_method' => 'required',
 			);
 		}
 
@@ -825,8 +811,6 @@ class RiderController extends Controller
 			$schedule_ride->status = 'Pending';
 			$schedule_ride->trip_path = $trip_path;
 			$schedule_ride->timezone = $request->timezone;
-			$schedule_ride->payment_method =$request->payment_method;
-			$schedule_ride->is_wallet = $request->is_wallet;
 			$schedule_ride->location_id = $request->location_id;
 			$schedule_ride->peak_id = $peak_id;
 			$schedule_ride->save();

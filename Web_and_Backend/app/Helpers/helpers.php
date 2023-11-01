@@ -117,24 +117,6 @@ if (!function_exists('roundHalfInteger')) {
 	}
 }
 
-/**
- * Format Invoice Item
- * 
- * @param [Array] $[item]
- * @return [Array] [formated invoice item]
- */
-if (!function_exists('formatInvoiceItem')) {
-	function formatInvoiceItem($item)
-	{
-		return array(
-			'key' 		=> $item['key'],
-			'value' 	=> strval($item['value']),
-			'bar'		=> $item['bar'] ?? 0,
-			'colour'	=> $item['colour'] ?? '',
-			'comment' 	=> $item['comment'] ?? '',
-		);
-	}
-}
 
 /**
  * Format Driver Statement Item
@@ -284,21 +266,6 @@ if (!function_exists('email_settings')) {
 	}
 }
 
-/**
- * Checks if a value exists in an array in a case-insensitive manner
-@param string $key The searched value
- * 
- * @return if key found, return particular value of key.
- */
-if (!function_exists('payment_gateway')) {
-	
-	function payment_gateway($key, $site) {
-		$payment_gateway = resolve('payment_gateway');
-		$gateway = $payment_gateway->where('name',$key)->where('site',$site)->first();
-
-		return $gateway->value ?? '';
-	}
-}
 
 /**
  * Checks if a value exists in an array in a case-insensitive manner
@@ -469,16 +436,6 @@ if (!function_exists('getWeekStartEnd')) {
 	}
 }
 
-/**
- * Check Cash trip or not
-@return Boolean true or false
- */
-if (!function_exists('checkIsCashTrip')) {
-	function checkIsCashTrip($payment_mode)
-	{
-		return in_array($payment_mode,['Cash & Wallet','Cash']);
-	}
-}
 
 /**
  * Check Current Environment
@@ -643,24 +600,7 @@ if (!function_exists('camelCaseToString')) {
 	}
 }
 
-/**
- * Check Given Request is from API or not
-@return Boolean
- */
-if (!function_exists('getPayoutMethods')) {
 
-	function getPayoutMethods($company_id = 1)
-	{
-		if($company_id != 1) {
-			$payout_methods = ['bank_transfer'];
-		}
-		else {
-			$payout_methods = payment_gateway('payout_methods','Common');
-			$payout_methods = explode(',',$payout_methods);
-		}
-		return $payout_methods;
-	}
-}
 
 /**
  * Check Given Request is from API or not

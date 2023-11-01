@@ -118,7 +118,7 @@ class PayoutDataTable extends DataTable
     {
         $driver_id = request()->driver_id;
 
-        $trips = $model->select('trips.id as id','trips.car_id','trips.driver_id','trips.user_id','trips.begin_trip','trips.end_trip','trips.created_at','trips.payment_mode','trips.base_fare','trips.time_fare','trips.distance_fare','trips.schedule_fare','trips.access_fee','trips.peak_amount','trips.tips','trips.waiting_charge','trips.toll_fee','trips.applied_owe_amount','trips.driver_peak_amount','trips.driver_or_company_commission','trips.total_fare','trips.driver_payout','trips.wallet_amount','trips.promo_amount','trips.status','trips.subtotal_fare','trips.additional_rider_amount','trips.owe_amount','trips.remaining_owe_amount','trips.payment_status')->DriverPayoutTripsOnly()->with(['currency','driver']);
+        $trips = $model->select('trips.id as id','trips.car_id','trips.driver_id','trips.user_id','trips.begin_trip','trips.end_trip','trips.created_at','trips.payment_mode','trips.base_fare','trips.time_fare','trips.distance_fare','trips.schedule_fare','trips.access_fee','trips.peak_amount','trips.tips','trips.waiting_charge','trips.toll_fee','trips.applied_owe_amount','trips.driver_peak_amount','trips.driver_or_company_commission','trips.total_fare','trips.driver_payout','trips.wallet_amount','trips.promo_amount','trips.status','trips.subtotal_fare','trips.additional_rider_amount','trips.owe_amount','trips.remaining_owe_amount')->DriverPayoutTripsOnly()->with(['currency','driver']);
 
          $trips->join('users', function ($join) {
                 $join->on('users.id', '=', 'trips.driver_id');

@@ -12,26 +12,11 @@
 */
 
 // cron request for schedule ride
-// Flutter Wave
-Route::match(['post','get'],'flutterwave_web_payment', 'FlutterwaveController@flutterwave');
-Route::match(['post','get'],'flutterwave_payment', 'FlutterwaveController@flutterwave_payment')->name('payment.flutterwave');
-Route::match(['post','get'],'flutterwave_callback', 'FlutterwaveController@futterwave_callback');
-// Mpesa
-Route::match(['post','get'],'mpesa_web_payment', 'MpesaController@mpesa');
-Route::match(['post','get'],'mpesa_payment', 'MpesaController@customerMpesaSTKPush')->name('payment.mpesa');
-Route::match(['post','get'],'mpesa_callback', 'MpesaController@mpesaConfirmation');
-//Route::match(['post','get'],'flutterwave_callback', 'PaymentController@futterwave_callback');
-
-
-//Mollie
-Route::match(['post','get'],'mollie', 'MollieController@mollie');
-Route::match(['post','get'],'mollie_callback', 'MollieController@mollie_callback')->name('mollie.callback');
 
 
 Route::get('cron_request_car', 'CronController@requestCars');
 Route::get('cron_offline', 'CronController@updateOfflineUsers');
 Route::get('currency_cron', 'CronController@updateCurrency');
-Route::get('update_referral_cron', 'CronController@updateReferralStatus');
 Route::match(['get', 'post'], 'paypal_payout', 'CronController@updatePaypalPayouts');
 
 Route::get('check_version', 'RiderController@check_version');
@@ -106,9 +91,6 @@ Route::group(['middleware' => 'jwt.verify'], function () {
 	// TripController
 	Route::get('cancel_trip', 'TripController@cancel_trip');
 	
-	// Earning Controller
-	Route::get('earning_chart', 'EarningController@earning_chart');
-	Route::get('add_promo_code', 'EarningController@add_promo_code');
 
 	// Rating Controller
 	Route::get('driver_rating', 'RatingController@driver_rating');
@@ -128,14 +110,7 @@ Route::group(['middleware' => 'jwt.verify'], function () {
 	Route::get('get_caller_detail', 'ProfileController@get_caller_detail');
 	Route::get('vehicle_descriptions', 'ProfileController@vehicleDescriptions');
 
-	// Manage Driver Payout Routes
-	Route::get('stripe_supported_country_list', 'PayoutDetailController@stripeSupportedCountryList');
-	Route::post('update_payout_preference','PayoutDetailController@updatePayoutPreference');
-	Route::get('get_payout_list','PayoutDetailController@getPayoutPreference');
-	Route::get('earning_list', 'PayoutDetailController@earningList');
-	Route::get('weekly_trip', 'PayoutDetailController@weeklyTrip');
-	Route::get('weekly_statement', 'PayoutDetailController@weeklyStatement');
-	Route::get('daily_statement', 'PayoutDetailController@dailyStatement');
+
 	Route::post('update_vehicle', 'DriverController@updateVehicle');
 	Route::post('delete_vehicle','DriverController@deleteVehicle');
 	Route::get('update_default_vehicle','DriverController@updateDefaultVehicle');

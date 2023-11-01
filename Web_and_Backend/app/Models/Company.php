@@ -148,36 +148,7 @@ class Company extends Authenticatable
         return $applied_owe_amount;
     }
 
-    // get driver applied owe amount
-    public function getRemainingOweAmountAttribute()
-    {
-        $company_id = $this->id;
-        $company_driver_owe_amount = DriverOweAmount::whereHas('user',function($q) use ($company_id){
-            $q->where('company_id',$company_id);
-        })->sum('amount');
-        return $company_driver_owe_amount;
-    }
-
-    // Add referral amount to wallet
-    public function addAmountToWallet($to_user,$user_type,$currency_code,$wallet_amount)
-    {
-        $wallet = Wallet::where('user_id', $to_user)->first();
-        if(isset($wallet)) {
-            $amount = $this->currency_convert($currency_code,$wallet->getOriginal('currency_code'),$wallet_amount);
-            $final_wallet = intval($wallet->getOriginal('amount')) + intval($amount);
-            $wallet->amount = $final_wallet;
-        }
-        else {
-            $wallet = new Wallet;
-            $wallet->user_id = $to_user;
-            $wallet->amount = $wallet_amount;
-            $wallet->currency_code = $currency_code;
-        }
-        $wallet->save();
-
-        $this->completeReferral($to_user);
-        return '';
-    }
+  
 
     public function getEnvMobileNumberAttribute()
     {

@@ -54,8 +54,6 @@ class TokenAuthController extends Controller
      */
     protected function getUserDetails($user)
     {
-        $invoice_helper = resolve('App\Http\Helper\InvoiceHelper');
-        $promo_details = $invoice_helper->getUserPromoDetails($user->id);
 
         $user_data = array(
             'user_id'           => $user->id,
@@ -65,12 +63,6 @@ class TokenAuthController extends Controller
             'country_code'      => $user->country_code,
            // 'email_id'          => $user->email ?? '',
             'user_status'       => $user->status,
-           // 'user_thumb_image'  => @$user->profile_picture->src ?? url('images/user.jpeg'),
-            'currency_symbol'   => $user->currency->symbol,
-            'currency_code'     => $user->currency->code,
-            'payout_id'         => $user->payout_id ?? '',
-           // 'wallet_amount'     => getUserWalletAmount($user->id),
-            //'promo_details'     => $promo_details,
         );
 
         // Also sent for rider because mobile team also handle these parameters in rider

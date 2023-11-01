@@ -85,7 +85,6 @@ class TripsDataTable extends DataTable
                         + sum(ROUND((trips.peak_amount / currency.rate) * '.$currency_rate.',2)) 
                         + sum(ROUND((trips.access_fee / currency.rate) * '.$currency_rate.',2)) 
                         + sum(ROUND((trips.schedule_fare / currency.rate) * '.$currency_rate.',2)) 
-                        + sum(ROUND(( if((trips.payment_status="Completed"),(trips.tips / currency.rate),0 ) * '.$currency_rate.'),2))
                         - sum(ROUND((trips.toll_fee / currency.rate) * '.$currency_rate.',2))
                         + sum(ROUND((trips.waiting_charge / currency.rate) * '.$currency_rate.',2))  ))) as total_amount '),
                         

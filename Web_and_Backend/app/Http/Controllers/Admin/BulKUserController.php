@@ -28,14 +28,13 @@ use App\Models\Rating;
 use App\Http\Start\Helpers;
 use App\Http\Helper\RequestHelper;
 use App\Repositories\DriverOweAmountRepository;
-use App\Http\Helper\InvoiceHelper;
-use App\Models\Payment;
+
 
 class BulKUserController extends Controller 
 {
 
 
-    public function __construct(RequestHelper $request,DriverOweAmountRepository $driver_owe_amt_repository,InvoiceHelper $invoice_helper)
+    public function __construct(RequestHelper $request)
     {
         $this->request_helper = $request;
         $this->helper = new Helpers;
@@ -251,54 +250,7 @@ class BulKUserController extends Controller
                     if ($total_rating_count != 0) {
                         $driver_rating = (string) round(($total_rating / $total_rating_count), 2);
                     }
-                    if ($trip->is_calculation == 0) {
-                        $data = [
-                            'trip_id' => $trip->id,
-                            'user_id' => $user_value,
-                            'save_to_trip_table' => 1,
-                        ];
-                        $this->invoice_helper->calculation($data);
-                    }
-                    if($request->payment_type != 'Cash')
-                    {
-                        $trip = Trips::where('id', $trip->id)->first();
-                        $trip->status = $request->trip_status;
-                        $trip->paykey = 'acct_1D7JQMIBODeDZxDy';
-                        if($request->status != 'Cancelled' ){
-                            if($request->trip_status == 'Completed' || $request->trip_status == 'completed')
-                                $trip->payment_status = 'Completed';
-                            else if($request->trip_status == 'Completed')
-                                $trip->payment_status = 'Pending';
-                        }
-                        else
-                             $trip->payment_status = 'Trip Cancelled';
-                        $trip->save();
-
-                        if($trip->pool_id>0) {
-
-                            $pool_trip = PoolTrip::with('trips')->find($trip->pool_id);
-                            $trips = $pool_trip->trips->whereIn('status',['Scheduled','Begin trip','End trip','Rating','Payment'])->count();
-                            
-                            if(!$trips) {
-                                // update status
-                                $pool_trip->status = $request->trip_status;
-                                $pool_trip->save();
-                            }
-                        }
-
-                        $data = [
-                            'trip_id' => $trip->id,
-                            'correlation_id' => $pay_result->transaction_id ?? '',
-                            'driver_payout_status' => ($trip->driver_payout) ? 'Pending' : 'Completed',
-                        ];
-                        Payment::updateOrCreate(['trip_id' => $trip->id], $data);   
-            
-                    }
-                    else{
-                        
-                        $trip->status = $request->trip_status;
-                        $trip->save();
-                    }
+                   
                 }
             }
         }

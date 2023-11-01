@@ -177,7 +177,6 @@ class CompanyPayoutReportsDataTable extends DataTable
                 ['data' => 'driver_name', 'name' => 'driver_name', 'title' => 'Driver Name'],
                 ['data' => 'total_fare', 'name' => 'total_fare', 'title' => 'Total Fare'],
                 ['data' => 'company_payout', 'name' => 'company_payout', 'title' => 'Payout Amount'],
-                ['data' => 'payment_status', 'name' => 'payment_status', 'title' => 'Payment Status']
             );
         }
         return array(

@@ -22,8 +22,6 @@ use App\Models\User;
 use App\Models\Vehicle;
 use App\Models\DriverOweAmount;
 use App\Models\DriverLocation;
-use App\Models\PaymentMethod;
-use App\Models\ReferralUser;
 use App\Models\MakeVehicle;
 use App\Models\Country;
 use App\Models\CarType;
@@ -189,7 +187,6 @@ class ProfileController extends Controller
 	{
 		$user_details = JWTAuth::parseToken()->authenticate();
 
-		$invoice_helper = resolve('App\Http\Helper\InvoiceHelper');
 
 		$user_data = collect($user_details)->only(['first_name','last_name','mobile_number','country_code']);
 		$user_details->load('rider_location','profile_picture');
@@ -201,14 +198,8 @@ class ProfileController extends Controller
 		$user_data['currency_code'] = $user_details->currency->code;
 		$user_data['country_code'] 	= isset($user_details->country->short_name) ? $user_details->country->short_name:$user_details->country_code;
 		$user_data['gender'] 		= $user_details->gender_text;
-		$user_data['currency_symbol'] = html_entity_decode($user_details->currency->original_symbol);
 		$user_data = $user_data->merge($location_data);
 
-		$wallet_amount = getUserWalletAmount($user_details->id);
-		$promo_details = $invoice_helper->getUserPromoDetails($user_details->id);
-
-		$user_data['wallet_amount'] = $wallet_amount;
-		$user_data['promo_details'] = $promo_details;
 
 		// save filter options
 		if($request->has('options')) {
@@ -394,8 +385,7 @@ class ProfileController extends Controller
 		if($driver_owe)
 			$owe_amount = number_format($driver_owe->amount,2,'.','');
 
-		$driver_referral_earning = ReferralUser::where('user_id',$user_details->id)->where('payment_status','Completed')->where('pending_amount','>',0)->get();
-		$driver_referral_earning = number_format(@$driver_referral_earning->sum('pending_amount'),2,'.','');
+		
 		$vehicle = $user->vehicle ?? $user->vehicles->first();
 		$vehicles_detail = Vehicle::where('user_id',$user->id)->get();
 		$vehicles_details = [];
@@ -458,8 +448,6 @@ class ProfileController extends Controller
 			'car_active_image' 	=> optional($vehicle)->car_type ? optional($vehicle)->car_type->active_image : '',
 			'company_id' 		=> $user->company_id,
 			'company_name' 		=> @$user->company->name,
-			'owe_amount' 		=> $owe_amount,
-			'driver_referral_earning' => $driver_referral_earning,
 			'driver_documents' 	=> UserDocuments('Driver',$user,0),
 			'vehicle_details' 	=> $vehicles_details,
 			'updated_at' 		=> date('Y-m-d H:i:s',strtotime($user->updated_at))
@@ -544,9 +532,6 @@ class ProfileController extends Controller
 		$driver_owe = DriverOweAmount::where('user_id',$user_details->id)->first();
 		$owe_amount = number_format($driver_owe->amount,2,'.','');
 
-		$driver_referral_earning = ReferralUser::where('user_id',$user_details->id)->where('payment_status','Completed')->where('pending_amount','>',0)->get();
-		$driver_referral_earning = number_format(@$driver_referral_earning->sum('pending_amount'),2,'.','');
-
 		$driver_doc = DriverDocuments::where('user_id',$user->id)->get();
 		$driverArr = array();
 		if($driver_doc->count() > 0){
@@ -612,7 +597,6 @@ class ProfileController extends Controller
 			'company_id' 		=> $user->company_id,
 			'company_name' 		=> @$user->company->name,
 			'owe_amount' 		=> $owe_amount,
-			'driver_referral_earning' => $driver_referral_earning,
 			'driver_documents' 	=> $driverArr,
 			'vehicle_details' 	=> $vehicles_details,
 		]);

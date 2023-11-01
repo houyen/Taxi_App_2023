@@ -26,7 +26,6 @@ class Kernel extends ConsoleKernel
     {
         $schedule->call('App\Http\Controllers\Api\CronController@requestCars')->everyMinute();
         $schedule->call('App\Http\Controllers\Api\CronController@updateCurrency')->daily();
-        $schedule->call('App\Http\Controllers\Api\CronController@updateReferralStatus')->daily();
         $schedule->call('App\Http\Controllers\Api\CronController@updateOfflineUsers')->everyFifteenMinutes();
         $schedule->call('App\Http\Controllers\Api\CronController@updatePaypalPayouts')->twiceDaily();
         $schedule->command('queue:work --tries=3 --once')->cron('* * * * *');

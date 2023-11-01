@@ -23,7 +23,7 @@ class Request extends Model
     use SoftDeletes;
     protected $table = 'request';
 
-    protected $appends = ['accepted_count','pending_count','cancelled_count','total_count','date_time','total_fare','payment_status','currency_code','currency_symbol'];
+    protected $appends = ['accepted_count','pending_count','cancelled_count','total_count','date_time'];
     protected $dates = ['deleted_at'];
 
     // Join with users table
@@ -108,46 +108,8 @@ class Request extends Model
         return Request::where('driver_id',$this->attributes['driver_id'])->count();
     }
 
-    // get trip total fare
-    public function getTotalFareAttribute()
-    {
-        $trips= Trips::where('request_id',$this->attributes['id']);
-        if($trips->count()) {
-            return number_format(($trips->get()->first()->total_fare),2, '.', '');
-        }
-        return "N/A";
-    }
+  
 
-    // get trip payment status
-    public function getPaymentStatusAttribute()
-    {
-        $trips= Trips::where('request_id',$this->attributes['id']);
-        if($trips->count()) {
-            return @$trips->get()->first()->payment_status;
-        }
-        return "Not Paid";
-    }
-
-    // get trip currency code
-    public function getCurrencyCodeAttribute()
-    {
-        $trips= Trips::where('request_id',$this->attributes['id']);
-        if($trips->count()) {
-            return  @$trips->get()->first()->currency_code;
-        }
-        return "USD";
-    }
-
-    //get trip currency code
-    public function getCurrencySymbolAttribute()
-    {
-        $trips= Trips::where('request_id',$this->attributes['id']);
-        if($trips->count()) {
-            $code =  @$trips->first()->currency_code;
-           return Currency::where('code',$code)->first()->symbol;
-        }
-        return "$";
-    }
     /**
      * Get Date time Formatted
      *  

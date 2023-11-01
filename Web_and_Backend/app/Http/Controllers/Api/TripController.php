@@ -43,7 +43,6 @@ class TripController extends Controller
 		\Log::error('TripController start');
 
 		$this->request_helper = resolve('App\Http\Helper\RequestHelper');
-		$this->invoice_helper = resolve('App\Http\Helper\InvoiceHelper');
 		$this->paginate_limit = 50;
 	}
 
@@ -52,7 +51,7 @@ class TripController extends Controller
 		$column = strtolower($user->user_type) == 'rider' ? 'user_id':'driver_id';
 		$incomplete_trips = DB::table('trips')->select('id')->where($column,$user->id)
 		// ->whereNotIn('status',['Cancelled','Completed','Null'])
-		->whereIn('status',['Scheduled','Begin trip','End trip','Rating','Payment'])
+		->whereIn('status',['Scheduled','Begin trip','End trip','Rating'])
 		->whereNotNull('status')->orderBy('id','desc')->first();
 
 		return $incomplete_trips->id ?? 0;
@@ -73,7 +72,6 @@ class TripController extends Controller
 		$driver_location = $driver->driver_location ?? '';
 		$arrival_time = -1;
 		
-		$invoice_data = array('user_id' => $user->id,'user_type' => $user->user_type);
 		$trip_data=[];
 	if($user->user_type == 'Rider') {
 		$trip_data = array(
@@ -110,14 +108,12 @@ class TripController extends Controller
 
 		if($user->user_type == 'Rider') {
 			$driver_rating = getRiderRating($trip->driver_id);
-			$final_promo_details= $this->invoice_helper->getUserPromoDetails($user->id);
 			$user_data = array(
 				'driver_id' 		=> $driver->id ?? '',
 				'driver_name' 		=> $driver->first_name ?? '',
 				'mobile_number' 	=> $driver->phone_number ?? '',
 				'driver_thumb_image'=> @$driver->profile_picture->src ?? url('images/user.jpeg'),
 				'rating'	 		=> $driver_rating,
-			    'promo_details' 	=> $final_promo_details,
 			);
 		} else {
 			$user_data = array();
@@ -148,7 +144,7 @@ class TripController extends Controller
 
 			$trips = $pool_trip->trips
 			// ->whereNotIn('status',['Cancelled','Completed','Null'])
-			->whereIn('status',['Scheduled','Begin trip','End trip','Rating','Payment'])
+			->whereIn('status',['Scheduled','Begin trip','End trip','Rating'])
 			->whereNotNull('status');
 		} else {
 			$trips[] = $trip;
@@ -200,38 +196,13 @@ class TripController extends Controller
 		        $data[$tkey]['total_km'] 	= $trip->total_km;
 		       // $data[$tkey]['begin_trip'] 	= $trip->begin_trip;
 		       // $data[$tkey]['end_trip'] 	= $trip->end_trip;
-		        if($user->user_type == 'Rider') 
-		      	   $data[$tkey]['payment_mode'] = $trip->payment_mode;
-		       // $data[$tkey]['payment_status'] = $trip->payment_status;
-
+		       
 		        if(!isset($trip->booking_type)) {
 		        	$symbol = html_entity_decode($trip->currency->symbol);
 		        } else {
 		        	$symbol = html_entity_decode($trip->currency_symbol);
 		        }
 		        
-		        $data[$tkey]['currency_symbol']= $symbol;
-
-		        $subtotal_fare = checkIsCashTrip($trip->payment_mode) ? $trip->total_fare : $trip->subtotal_fare;
-		        //$data[$tkey]['sub_total_fare'] = $subtotal_fare;
-
-		        if(!isset($trip->booking_type)) {
-					$total_fare = $trip->admin_total_amount;
-					if(isset($trip->driver) && $trip->driver->company_id != 1 && checkIsCashTrip($trip->payment_mode) && $trip->total_fare == 0) {
-						$total_fare = $trip->company_driver_earnings;
-					}
-					
-				} else {
-					$total_fare = $trip->fare_estimation ?? '0';
-				}
-				$data[$tkey]['total_fare'] = $total_fare;
-
-				$driver_earnings = $symbol.number_format($trip->company_driver_earnings,2);
-				if($trip->status!='Completed'){
-		        		$driver_earnings=$symbol.'0.00';
-		        }
-		        $data[$tkey]['driver_earnings']= $driver_earnings;
-		        $data[$tkey]['driver_payout'] = $trip->driver_payout;
 
 		        if(!isset($trip->booking_type)) {
 		        	$data[$tkey]['booking_type'] = @$trip->ride_request->schedule_ride->booking_type ?? '';
@@ -244,12 +215,8 @@ class TripController extends Controller
 		        $data[$tkey]['rating'] 	= getDriverRating($trip->users->id);
 		        $data[$tkey]['schedule_display_date'] = $trip->schedule_display_date;
 
-		        if(isset($trip->driver))
-		        	$invoice = $this->invoice_helper->formatInvoice($trip,$invoice_data);
-		        else
-		        	$invoice = array();
+		       
 		        
-		        $data[$tkey]['invoice'] = $invoice;
 		        $data[$tkey]['otp_enabled'] = site_settings('otp_verification')=='1' ? true:false;
 			}
 		}
@@ -953,21 +920,9 @@ class TripController extends Controller
 			$push_title = __('messages.api.trip_cancelled_by_driver');
 		}
 
-		Trips::where('id', $request->trip_id)->update(['status' => 'Cancelled', 'payment_status' => 'Trip Cancelled']);
-
 		if($cancelled_id->pool_id > 0) {
 			$pool_trip = PoolTrip::find($cancelled_id->pool_id);
 			$pool_trip->seats = $pool_trip->seats + $cancelled_id->ride_request->seats;
-
-			$pending_count 	= $pool_trip->trips->whereNotIn('status',['Payment','Rating','Completed','Cancelled'])->count();
-			$completed_count= $pool_trip->trips->whereIn('status',['Payment','Rating','Completed'])->count();
-
-			if($pending_count == 0) {
-				DriverLocation::where('user_id', $cancelled_id->driver_id)->update(['status' => 'Online','pool_trip_id' => NULL]);
-				if(!$completed_count) {
-					$pool_trip->status = 'Cancelled';
-				}
-			}
 
 			$pool_trip->save();
 		} else {
@@ -1218,7 +1173,6 @@ class TripController extends Controller
 		$trip->drop_location 	= $ride_request->drop_location;
 		$trip->request_id 		= $ride_request->id;
 		$trip->trip_path 		= $ride_request->trip_path;
-		$trip->payment_mode 	= $ride_request->payment_mode;
 		$trip->status 			= 'Scheduled';
 		$trip->currency_code 	= $user->currency->code;
 		$trip->peak_fare 		= $ride_request->peak_fare;

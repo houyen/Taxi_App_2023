@@ -61,12 +61,6 @@ class RequestDataTable extends DataTable
                 return "No one accepted";
             }
         })
-        ->addColumn('payment_status', function ($get_request) {
-            return ($get_request->payment_status != null ) ? $get_request->payment_status : "Not Paid";
-        })
-        ->addColumn('total_amount', function ($get_request) {
-            return ($get_request->total_fare!= null ) ? html_entity_decode($get_request->currency_symbol)." ".$get_request->total_fare : "N/A";
-        })
         ->addColumn('action', function ($get_request) {
             return '<a href="'.url(LOGIN_USER_TYPE.'/detail_request/'.$get_request->id).'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-eye-open"></i></a>&nbsp;';
         });
@@ -102,7 +96,7 @@ class RequestDataTable extends DataTable
             $join->on('car_type.id', '=', 'request.car_id');
         })                        
         ->groupBy('group_id')
-        ->select(['request.id as id', 'users.first_name as first_name',DB::raw('CONCAT(currency.symbol, trips.total_fare) AS total_amount'),'request.group_id','request.payment_mode as payment_mode','trips.payment_status','request.updated_at','trips.total_fare','currency.symbol AS currency_symbol']);
+        ->select(['request.id as id', 'users.first_name as first_name',DB::raw('CONCAT(currency.symbol, trips.total_fare) AS total_amount'),'request.group_id','request.payment_mode as payment_mode','request.updated_at','trips.total_fare','currency.symbol AS currency_symbol']);
 
         if(LOGIN_USER_TYPE=='company') {
             $get_request = $get_request
@@ -145,12 +139,7 @@ class RequestDataTable extends DataTable
             ['data' => 'date_time', 'name' => 'date_time', 'title' => 'Date and Time ' ,'orderable' => false, 'searchable' => false],
             ['data' => 'request_status', 'name' => 'request_status', 'title' => 'Status','orderable' => false, 'searchable' => false],
         ];
-        if(LOGIN_USER_TYPE != 'company') {
-            $columns[] = ['data' => 'total_amount', 'name' => 'trips.total_fare', 'title' => 'Amount'];
-        }
         return array_merge($columns,[
-            ['data' => 'payment_mode', 'name' => 'payment_mode', 'title' => 'Payment mode'],
-            ['data' => 'payment_status', 'name' => 'payment_status', 'title' => 'Payment Status'],
         ]);
     }
 

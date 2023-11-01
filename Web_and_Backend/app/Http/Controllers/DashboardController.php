@@ -32,7 +32,6 @@ class DashboardController extends Controller
 {    
     public function __construct()
     {
-        $this->invoice_helper = resolve('App\Http\Helper\InvoiceHelper');
         $this->request_helper = resolve('App\Http\Helper\RequestHelper');
         $this->helper = resolve('App\Http\Start\Helpers');
     }
@@ -93,17 +92,7 @@ class DashboardController extends Controller
         return view('dashboard.deleteacc',$data);
     }
 
-    /** 
-    * Rider Trip Details Page
-    **/
-    public function trip_detail(Request $request)
-    {
-        $trip = Trips::findOrFail($request->id);
 
-        $invoice_data = $this->invoice_helper->getWebInvoice($trip);
-
-        return view('dashboard.trip_detail',compact('trip','invoice_data'));       
-    }
 
     /**
     * Rider Rating
@@ -130,29 +119,8 @@ class DashboardController extends Controller
         ];
     }
 
-    /**
-    * Rider invoice Page
-    **/
-    public function trip_invoice(Request $request)
-    {
-        $trip = Trips::findOrFail($request->id);
 
-        $invoice_data = $this->invoice_helper->getWebInvoice($trip);
 
-        return view('dashboard.rider_invoice', compact('trip','invoice_data'));
-    }
-
-    /**
-    * Driver Download invoice Page
-    **/
-    public function download_rider_invoice(Request $request)
-    {
-        $trip = Trips::findOrFail($request->id);
-
-        $invoice_data = $this->invoice_helper->getWebInvoice($trip);
-        $pdf = PDF::loadView('dashboard.download_rider_invoice', compact('trip','invoice_data'));
-        return $pdf->download('invoice.pdf');
-    }
    
 /**
      * Delete My Account 

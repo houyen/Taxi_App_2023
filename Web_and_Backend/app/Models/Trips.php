@@ -241,54 +241,7 @@ class Trips extends Model
         return ( $this->attributes['subtotal_fare'] + $this->attributes['driver_peak_amount'] + $this->attributes['tips'] + $this->attributes['waiting_charge'] + $this->attributes['toll_fee'] + $this->attributes['additional_rider_amount']) - $this->attributes['driver_or_company_commission'];
     }
     
-    public function getAdminTotalAmountAttribute()
-    {
-        if( $this->attributes['payment_status'] == 'Completed' && $this->attributes['status'] == 'Completed' ){
-            return ( $this->attributes['subtotal_fare'] + $this->attributes['peak_amount'] + $this->attributes['access_fee'] + $this->attributes['schedule_fare'] + $this->attributes['tips'] + $this->attributes['toll_fee'] + $this->attributes['waiting_charge']);
-        }else
-        {
-            return ( $this->attributes['subtotal_fare'] + $this->attributes['peak_amount'] + $this->attributes['access_fee'] + $this->attributes['schedule_fare'] + $this->attributes['toll_fee'] + $this->attributes['waiting_charge']);
-        }
-    }
 
-    public function getPayableDriverPayoutAttribute()
-    {
-        if($this->attributes['payment_mode']=="Cash" && $this->attributes['wallet_amount']==0 && $this->attributes['promo_amount']==0){
-            return 0;
-        }
-        
-        if(($this->attributes['payment_mode']=="Cash" || $this->attributes['payment_mode']=="Cash & Wallet") && ($this->attributes['wallet_amount']!=0 || $this->attributes['promo_amount']!=0)) {
-            $promo_wallet=$this->attributes['wallet_amount']+$this->attributes['promo_amount'];
-            $cash_collectable = $this->total_fare()-$promo_wallet;
-            if($promo_wallet > $this->total_fare()) {
-                $cash_collectable= 0;
-            }
-
-            return number_format(($this->attributes['driver_payout'] + $this->attributes['access_fee'] -$cash_collectable),2, '.', '');
-        }
-
-        return number_format((($this->total_fare()-$this->attributes['access_fee'])-$this->attributes['applied_owe_amount']),2, '.', '');
-    }
-
-    public function getRiderPaidAmountAttribute()
-    {
-        return number_format(($this->attributes['total_fare'])-($this->attributes['wallet_amount']+$this->attributes['promo_amount']),2, '.', '');   
-    }
-    public function getCashCollectableAttribute()
-    {
-        $cashcollect=0;
-
-        if($this->attributes['payment_mode']=="Cash" || $this->attributes['payment_mode']=="Cash & Wallet")
-        {  
-            if($this->attributes['promo_amount']+$this->attributes['wallet_amount'] > $this->total_fare())
-            {
-                $cashcollect = 0 ; 
-            } 
-            else
-            $cashcollect= ($this->attributes['additional_rider_amount'] + $this->total_fare())-($this->attributes['promo_amount']+$this->attributes['wallet_amount']);
-        }
-        return number_format($cashcollect,2, '.', '');
-    }
 
     public function total_fare()
     {
@@ -307,25 +260,6 @@ class Trips extends Model
         }
         return number_format($cashcollect,2, '.', '');
     }
-
-    public function getTotalPayoutFrontendAttribute()
-    {
-        return number_format($this->attributes['driver_payout'],2, '.', '');
-    }
-
-    public function getPayoutStatusAttribute()
-    {
-        $payout=Payment::where('trip_id',$this->attributes['id']);
-        if($payout->count())
-        {
-            return Payment::where('trip_id',$this->attributes['id'])->first()->driver_payout_status;    
-        }
-        else
-        {
-            return "";
-        }
-        
-    } 
     // get begin trip value
     public function getDateAttribute()
     {
@@ -743,33 +677,7 @@ class Trips extends Model
             ),
             'car_type.car_name as car_type',
             \DB::raw('"'.$user->currency->symbol.'" as currency_symbol'),
-            \DB::raw("CASE 
-                WHEN 
-                users.company_id!=1 AND (trips.payment_mode='Cash & Wallet' OR trips.payment_mode='Cash') AND (trips.base_fare + trips.time_fare + trips.distance_fare + trips.schedule_fare + trips.access_fee + trips.peak_amount + trips.tips + trips.waiting_charge + trips.toll_fee)=0 
-                THEN 
-                ((trips.subtotal_fare + trips.driver_peak_amount + trips.tips + trips.waiting_charge + trips.toll_fee + trips.additional_rider_amount - trips.driver_or_company_commission) / currency.rate) * ".$user->currency->rate." 
-                ELSE 
-                    CASE 
-                    WHEN 
-                    trips.payment_status='Completed' AND trips.status='Completed' 
-                    THEN 
-                    ((trips.subtotal_fare + trips.peak_amount + trips.access_fee + trips.schedule_fare + trips.tips + trips.toll_fee + trips.waiting_charge) / currency.rate) * ".$user->currency->rate." 
-                    ELSE 
-                    ((trips.subtotal_fare + trips.peak_amount + trips.access_fee + trips.schedule_fare + trips.toll_fee + trips.waiting_charge) / currency.rate) * ".$user->currency->rate." 
-                    END 
-                END 
-                as total_fare"
-            ),
-            \DB::raw("CASE 
-                WHEN 
-                trips.status!='Completed' 
-                THEN 
-                '".$user->currency->symbol."0.00' 
-                ELSE 
-                CONCAT('".$user->currency->symbol."','',FORMAT((((trips.subtotal_fare + trips.driver_peak_amount + trips.tips + trips.waiting_charge + trips.toll_fee + trips.additional_rider_amount - trips.driver_or_company_commission) / currency.rate) * ".$user->currency->rate."),2))
-                END 
-                as driver_earnings"
-            ),
+           
             \DB::raw("CASE 
                 WHEN 
                 profile_picture.src IS NOT NULL AND profile_picture.src!=''
@@ -800,32 +708,6 @@ class Trips extends Model
             $trip_lists->whereNotIn('trips.status',$status);
 
         return $trip_lists->orderBy('trips.id','DESC')->paginate($paginate_limit);
-    }
-
-    /**
-     * Get bank deposits.
-     *
-     * @param  $user_id | int
-     * @param  $currency_rate | int
-     * @param  $from_date | date
-     * @param  $to_date | date
-     * @param  $type | string
-     * @return array
-     */
-    public static function getBankDeposits($user_id, $currency_rate, $from_date, $to_date, $type) {
-        $bank_deposits = self::join('currency', 'currency.code', '=', 'trips.currency_code')
-        ->where('payment_mode','<>','Cash')->where('payment_status','Completed')
-        ->where('driver_id',$user_id)
-        ->whereHas('payment',function($q) use($from_date, $to_date, $type){
-            $q->where('driver_payout_status','Pending');
-            if($type=='weekly')
-                $q->whereBetween('updated_at', [$from_date, $to_date]);
-        });
-
-        if($type=='daily')
-            $bank_deposits->whereBetween('created_at', [$from_date, $to_date]);
-
-        return $bank_deposits->sum(\DB::raw('FORMAT(((trips.driver_payout / currency.rate) * '.$currency_rate.'),2)'));
     }
 
     /**

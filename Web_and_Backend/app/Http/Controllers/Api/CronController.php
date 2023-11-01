@@ -141,15 +141,6 @@ class CronController extends Controller
         }
 	}
 
-	/** 
-    * Update Referral Status
-    * 
-    **/
-	public function updateReferralStatus()
-	{
-		ReferralUser::where('end_date','<',date('Y-m-d'))->where('payment_status','Pending')->update(['payment_status' => 'Expired']);
-		return response()->json(['status' => true, 'status_message' => 'updated successfully']);
-	}
 
 	/** 
     * Update User Offline status

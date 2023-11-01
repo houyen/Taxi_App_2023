@@ -2117,7 +2117,7 @@ li > .navtree-list {
 
 @media screen and (max-width: 480px) {   
   .layout--join {
-    background: rgba(0, 0, 0, 0) url("../images/background_india.jpg") no-repeat scroll center bottom / cover ;
+    background: rgba(0, 0, 0, 0) no-repeat scroll center bottom / cover ;
     min-height: 735px;
     padding: 20px !important;
   } 

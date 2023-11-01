@@ -40,29 +40,12 @@ class ReferralsDataTable extends DataTable
             ->addColumn('referrer_name', function ($referral_user) {
                 return $referral_user->referred_user_name;
             })
-            ->addColumn('earned_amount', function ($referral_user) {
-                return $referral_user->where('user_id',$referral_user->user_id)->where('payment_status','Completed')->where('amount','>',0)->sum('amount');
-            })
-            ->addColumn('pending_amount', function ($referral_user) {
-                return $referral_user->where('user_id',$referral_user->user_id)->where('payment_status','Pending')->where('pending_amount','>',0)->sum('pending_amount');
-            })
+
             ->addColumn('action', function ($referral_user) {
                 $detail = '<a href="'.url('admin/referrals/'.$referral_user->user_id).'" class="btn btn-xs btn-primary"><i class="fa fa-eye" ></i></a>';
 
                 return $detail;
             });
-    }
-
-    /**
-     * Get query source of dataTable.
-     *
-     * @param ReferralUser $model
-     * @return \Illuminate\Database\Eloquent\Builder
-     */
-    public function query(ReferralUser $model)
-    {
-        $referrals = $model->with('user','referral_user')->where('user_type',$this->user_type)->where('payment_status','!=','Expired')->groupBy('user_id')->get();
-        return $referrals;
     }
 
     /**

@@ -11,14 +11,6 @@
 |
 */
 
-Route::get('facke_user/{count}/{user_type}', 'BulKUserController@createUser');
-Route::get('add_trip_details','BulKUserController@tripDetails');
-Route::get('company_details/{count}','BulKUserController@companyDetails');
-Route::get('document_details/{count}/{type}','BulKUserController@documentDetails');
-Route::get('help_category_pages/{count}','BulKUserController@helpCategoryPages');
-Route::get('help_subcategory_pages/{count}/{category}','BulKUserController@helpSubCategoryPages');
-Route::get('help_bulk/{count}/{category}/{sub_category}','BulKUserController@helpPages');
-// Route::get('help/{count}/{category}/{sub_category}','BulKUserController@helpSubCategoryPages');
 
 Route::group(['prefix' => 'admin', 'middleware' =>'admin_auth'], function () {
 	Route::get('login', 'AdminController@login')->name('admin_login');
@@ -176,31 +168,8 @@ Route::group(['prefix' => (LOGIN_USER_TYPE=='company')?'company':'admin', 'middl
 		Route::get('trips/export/{from}/{to}', 'TripsController@export');
 	});
 
-	// Manage Company Payout Routes
-	Route::group(['middleware' =>  'admin_can:manage_company_payment'], function() {
-		Route::get('payout/company/overall', 'CompanyPayoutController@overall_payout');
-		Route::get('weekly_payout/company/{company_id}', 'CompanyPayoutController@weekly_payout');
-		Route::get('per_week_report/company/{company_id}/{start_date}/{end_date}', 'CompanyPayoutController@payout_per_week_report');
-		Route::get('per_day_report/company/{company_id}/{date}', 'CompanyPayoutController@payout_per_day_report');
-		Route::post('make_payout/company', 'CompanyPayoutController@payout_to_company');
-	});
 
-	// Manage Driver Payout Routes
-	Route::group(['middleware' =>  'admin_can:manage_driver_payments'], function() {
-		Route::get('payout/overall', 'PayoutController@overall_payout');
-		Route::get('weekly_payout/{driver_id}', 'PayoutController@weekly_payout');
-		Route::get('per_week_report/{driver_id}/{start_date}/{end_date}', 'PayoutController@payout_per_week_report');
-		Route::get('per_day_report/{driver_id}/{date}', 'PayoutController@payout_per_day_report');
-		Route::post('make_payout', 'PayoutController@payout_to_driver');
-	});
-
-	// Manage Wallet
-	Route::group(['prefix' => 'wallet', 'middleware' =>  'admin_can:manage_wallet'], function() {
-		Route::get('{user_type}', 'WalletController@index')->name('wallet');
-		Route::match(array('GET', 'POST'), 'add/{user_type}', 'WalletController@add')->name('add_wallet');
-		Route::match(array('GET', 'POST'), 'edit/{user_type}/{id}', 'WalletController@update')->where('id', '[0-9]+')->name('edit_wallet');
-		Route::get('delete/{user_type}/{id}', 'WalletController@delete')->where('id', '[0-9]+')->name('delete_wallet');
-	});
+	
 	
 	// Owe Amount
 	Route::group(['middleware' =>  'admin_can:manage_owe_amount'], function() {
@@ -212,8 +181,6 @@ Route::group(['prefix' => (LOGIN_USER_TYPE=='company')?'company':'admin', 'middl
 		Route::post('update_company_payment', 'OweController@update_company_payment')->name('update_company_payment');
 	});
 
-	// Company Owe amount
-	Route::get('driver_payment', 'OweController@driver_payment')->name('driver_payment');
 
 	// Manage Promo Code
 	Route::group(['middleware' =>  'admin_can:manage_promo_code'], function() {
@@ -223,12 +190,7 @@ Route::group(['prefix' => (LOGIN_USER_TYPE=='company')?'company':'admin', 'middl
 		Route::get('delete_promo_code/{id}', 'PromocodeController@delete');
 	});
 
-	// Payments
-	Route::group(['middleware' =>  'admin_can:manage_payments'], function() {
-		Route::match(array('GET', 'POST'), 'payments', 'PaymentsController@index');
-		Route::get('view_payments/{id}', 'PaymentsController@view');
-		Route::get('payments/export/{from}/{to}', 'PaymentsController@export');
-	});
+
 
 	// Cancelled Trips
 	Route::group(['middleware' =>  'admin_can:manage_cancel_trips'], function() {
@@ -263,11 +225,6 @@ Route::group(['prefix' => (LOGIN_USER_TYPE=='company')?'company':'admin', 'middl
 	
 	// Manage Api credentials
 	Route::match(array('GET', 'POST'), 'api_credentials', 'ApiCredentialsController@index')->middleware('admin_can:manage_api_credentials');
-
-	// Manage Payment Gateway
-	Route::group(['middleware' =>  'admin_can:manage_payment_gateway'], function() {
-		Route::match(array('GET', 'POST'), 'payment_gateway', 'PaymentGatewayController@index');
-	});
 
 	// Request
 	Route::group(['middleware' =>  'admin_can:manage_requests'], function() {

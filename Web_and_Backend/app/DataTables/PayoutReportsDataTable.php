@@ -162,7 +162,6 @@ class PayoutReportsDataTable extends DataTable
                 ['data' => 'id', 'name' => 'id', 'title' => 'Trip Id'],
                 ['data' => 'total_fare', 'name' => 'total_fare', 'title' => 'Total Fare'],
                 ['data' => 'driver_payout', 'name' => 'driver_payout', 'title' => 'Payout Amount'],
-                ['data' => 'payment_status', 'name' => 'payment_status', 'title' => 'Payment Status']
             );
         }
         return array(

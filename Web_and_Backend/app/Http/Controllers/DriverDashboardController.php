@@ -40,7 +40,6 @@ class DriverDashboardController extends Controller
 {
     public function __construct()
     {
-        $this->invoice_helper = resolve('App\Http\Helper\InvoiceHelper');
         $this->otp_helper = resolve('App\Http\Helper\OtpHelper');
     }
 
@@ -357,32 +356,7 @@ class DriverDashboardController extends Controller
         return back();
     }
 
-    /**
-     * Driver Download invoice Page
-     */
-    public function download_invoice(Request $request)
-    {
-        $trip = Trips::findOrFail($request->id);
 
-        $invoice_data = $this->invoice_helper->getWebInvoice($trip);
-        
-        $pdf = PDF::loadView('dashboard.download_invoice', compact('trip','invoice_data'));
-
-        set_time_limit(300); // Extends to 5 minutes.
-        return $pdf->download('invoice.pdf');
-    }
-
-    /**
-    * Driver print invoice Page
-    */
-    public function print_invoice(Request $request)
-    {
-        $trip = Trips::findOrFail($request->id);
-
-        $invoice_data = $this->invoice_helper->getWebInvoice($trip);
-
-        return view('dashboard.print_invoice',compact('trip','invoice_data'));
-    }
 
    
 
@@ -598,161 +572,11 @@ class DriverDashboardController extends Controller
         }
     }
 
-    /*
-    * Driver payment page
-    */
-    public function driver_payment()
-    {
-        $data['total_earnings'] = Trips::where('driver_id',Auth::id())
-                     ->where('status','Completed')
-                     ->get()
-                     ->sum('company_driver_earnings');
+   
 
-        $total_count = RideRequest::where('driver_id',Auth::id())->count();
-        $acceptance_count = RideRequest::where('driver_id',Auth::id())->where('status','Accepted')->count();
-        if($acceptance_count != '0' || $total_count != '0') {
-            $data['acceptance_rate'] = round(($acceptance_count/$total_count)*100).'%';
-        }
-        else {
-            $data['acceptance_rate'] = '0%';
-        }
-        $data['completed_trips'] = Trips::where('driver_id',Auth::id())->where('status','Completed')->count();
-        $data['cancelled_trips'] = Trips::where('driver_id',Auth::id())->where('status','Cancelled')->count();
-        $data['all_trips'] = Trips::with(['currency'])->where('driver_id',Auth::id())->orderBy('created_at', 'desc');
-        $data['all_trips'] = $data['all_trips']->paginate(4)->toJson();
-        
-        return view('driver_dashboard.driver_payment',$data);
-    }
 
-    /*
-    * Driver invoice page
-    */
-    public function driver_invoice(Request $request)
-    {
-        $trip = Trips::findOrFail($request->id);
 
-        $invoice_data = $this->invoice_helper->getWebInvoice($trip);
-        $all_invoice = false;
-
-        return view('driver_dashboard.driver_invoice',compact('trip','invoice_data','all_invoice')); 
-    }
-
-    /*
-    * Show all trips
-    */
-    public function show_invoice(Request $request)
-    {
-        if($request->limit == 'undefined') {
-            return ['status' => false];
-        }
-
-        if($request->limit) {
-            $data = Trips::where('driver_id',Auth::id())->with(['currency'])->orderBy('created_at', 'desc')->paginate($request->limit);
-            return $data;
-        }
-        $data['trips'] = Trips::where('driver_id',Auth::id())->with(['currency'])->orderBy('created_at', 'desc')->paginate(10)->toJson();
-        $data['all_invoice'] = true;
-        return view('driver_dashboard.driver_invoice',$data);
-    }
-
-    /*
-    * Driver Trip Details
-    */
-    public function driver_trip_detail(Request $request)
-    {
-        $trip = Trips::findOrFail($request->id);
-
-        $invoice_data = $this->invoice_helper->getWebInvoice($trip);
-        return view('driver_dashboard.driver_trip_detail',compact('trip','invoice_data'));
-    }
-
-    /*
-    * Get payment information
-    */
-    public function ajax_payment(Request $request)    
-    {
-        if($request->data == 'all') {
-            $data['completed_trips'] = Trips::where('driver_id',Auth::id())
-                                ->where('status','Completed')
-                                ->count();
-            $data['cancelled_trips'] = Trips::where('driver_id',Auth::id())
-                                ->where('status','Cancelled')
-                                ->count();
-            return $data;
-        }
-        elseif($request->data == 'current') {
-            $from = date('Y-m-d');
-            $to   = date('Y-m-d');
-            $data['completed_trips'] = Trips::where('driver_id',Auth::id())
-                                ->where('status','Completed')
-                                ->where('created_at','>=',$from)
-                                ->where('created_at','<=',$to)
-                                ->count();
-            $data['cancelled_trips'] = Trips::where('driver_id',Auth::id())
-                                ->where('status','Cancelled')
-                                ->where('created_at','>=',$from)
-                                ->where('created_at','<=',$to)
-                                ->count();
-            return $data;
-        }
-        elseif($request->data == 'all_trips') {
-            if($request->begin_trip != '' || $request->end_trip != '')
-                $data = Trips::with(['currency'])->where('driver_id',Auth::id())
-                        ->where('created_at','>=',$request->begin_trip)
-                        ->where('created_at','<=',$request->end_trip)->orderBy('created_at', 'desc');
-            else
-                $data = Trips::with(['currency'])->where('driver_id',Auth::id())->orderBy('created_at', 'desc');
-
-            $data =  $data->paginate(4)->toJson();
-            return $data;
-        }
-        elseif($request->data == 'completed_trips') {
-            if($request->begin_trip != '' || $request->end_trip != '') {
-                $data = Trips::with(['currency'])->where('driver_id',Auth::id())
-                    ->where('created_at','>=',$request->begin_trip)
-                    ->where('created_at','<=',$request->end_trip)
-                    ->where('status','Completed')->orderBy('created_at', 'desc');
-            }
-            else {
-                $data = Trips::with(['currency'])->where('driver_id',Auth::id())->where('status','Completed')->orderBy('created_at', 'desc');
-            }
-
-            $data =  $data->paginate(4)->toJson();
-            return $data;
-        }
-        elseif($request->data == 'cancelled_trips') {   
-            if($request->begin_trip != '' || $request->end_trip != '') {
-                $data = Trips::with(['currency'])->where('driver_id',Auth::id())
-                    ->where('created_at','>=',$request->begin_trip)
-                    ->where('created_at','<=',$request->end_trip)
-                    ->where('status','Cancelled')->orderBy('created_at', 'desc');
-            }
-            else {
-                $data = Trips::with(['currency'])->where('driver_id',Auth::id())
-                    ->where('status','Cancelled')->orderBy('created_at', 'desc');
-            }
-
-            $data =  $data->paginate(4)->toJson();
-            return $data;
-        }
-        else {
-            $date = explode('/', $request->data);
-            $from = date('Y-m-d',strtotime($date[0]));
-            $to   = date('Y-m-d',strtotime($date[1]));
-            $data['completed_trips'] = Trips::where('driver_id',Auth::id())
-                                ->where('status','Completed')
-                                ->where('created_at','>=',$from)
-                                ->where('created_at','<=',$to)
-                                ->count();
-            $data['cancelled_trips'] = Trips::where('driver_id',Auth::id())
-                                ->where('status','Cancelled')
-                                ->where('created_at','>=',$from)
-                                ->where('created_at','<=',$to)
-                                ->count();
-            return $data;
-        }
-    }
-
+    
     /** 
     * Change Mobile Number
     **/
