@@ -208,22 +208,10 @@ class SessionManager {
         get() = sharedPreferences.getString("paymentMethod", "")
         set(paymentMethod) = sharedPreferences.edit().putString("paymentMethod", paymentMethod).apply()
 
-    var paymentMethodkey: String?
-        get() = sharedPreferences.getString("paymentMethodkey", "")
-        set(paymentMethodkey) = sharedPreferences.edit().putString("paymentMethodkey", paymentMethodkey).apply()
-
     var paymentMethodImage: String?
         get() = sharedPreferences.getString("paymentMethodImage", "")
         set(paymentMethodImage) = sharedPreferences.edit().putString("paymentMethodImage", paymentMethodImage).apply()
 
-
-    var walletPaymentMethod: String?
-        get() = sharedPreferences.getString("walletpaymentmethod", "")
-        set(walletpaymentmethod) = sharedPreferences.edit().putString("walletpaymentmethod", walletpaymentmethod).apply()
-
-    var walletPaymentMethodkey: String?
-        get() = sharedPreferences.getString("walletPaymentMethodkey", "")
-        set(walletPaymentMethodkey) = sharedPreferences.edit().putString("walletPaymentMethodkey", walletPaymentMethodkey).apply()
     var cardValue: String?
         get() = sharedPreferences.getString("cardValue", "")
         set(cardValue) = sharedPreferences.edit().putString("cardValue", cardValue).apply()
@@ -303,13 +291,6 @@ class SessionManager {
         sharedPreferences.edit().putString("token", "").apply()
     }
 
-    fun clearPaymentType() {
-        sharedPreferences.edit().putString("paymentMethod", "").apply()
-        sharedPreferences.edit().putString("paymentMethodImage", "").apply()
-        sharedPreferences.edit().putString("walletPaymentMethod", "").apply()
-        sharedPreferences.edit().putString("paymentMethodkey", "").apply()
-        sharedPreferences.edit().putString("walletPaymentMethodkey", "").apply()
-    }
     fun clearAll() {
         sharedPreferences.edit().clear().apply()
         type = "2"

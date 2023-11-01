@@ -230,12 +230,6 @@ class SessionManager {
         get() = sharedPreferences.getString("profilearratdetail", "")
         set(profilearratdetail) = sharedPreferences.edit().putString("profilearratdetail", profilearratdetail).apply()
 
-
-    var paymentMethodkey: String
-        get() = sharedPreferences.getString("paymentMethodkey", "").toString()
-        set(paymentMethodkey) = sharedPreferences.edit().putString("paymentMethodkey", paymentMethodkey).apply()
-
-
     var paymentMethod: String?
         get() = sharedPreferences.getString("paymentMethod", "")
         set(paymentMethod) = sharedPreferences.edit().putString("paymentMethod", paymentMethod).apply()

@@ -16,9 +16,6 @@ class TripInvoiceModel {
     @SerializedName("payment_mode")
     @Expose
     var paymentMode: String? = null
-    @SerializedName("payment_status")
-    @Expose
-    var paymentStatus: String? = null
     @SerializedName("invoice")
     @Expose
     var invoice: ArrayList<InvoiceModel>? = null

@@ -85,8 +85,6 @@ import com.tkpmnc.newtaxidriver.home.firebaseChat.ActivityChat
 import com.tkpmnc.newtaxidriver.home.fragments.EarningActivity
 import com.tkpmnc.newtaxidriver.home.fragments.HomeFragment
 import com.tkpmnc.newtaxidriver.home.fragments.RatingActivity
-import com.tkpmnc.newtaxidriver.home.fragments.Referral.ShowReferralOptionsActivity
-import com.tkpmnc.newtaxidriver.home.fragments.payment.PayToAdminActivity
 import com.tkpmnc.newtaxidriver.home.interfaces.ApiService
 import com.tkpmnc.newtaxidriver.home.interfaces.ServiceListener
 import com.tkpmnc.newtaxidriver.home.managevehicles.DocumentDetails
@@ -567,17 +565,8 @@ class MainActivity : CommonActivity(), ServiceListener {
                     startActivity(rating)
                     false
                 }
-                R.id.pay_to_admin -> {
-                    val payto = Intent(this, PayToAdminActivity::class.java)
-                    startActivity(payto)
-                    false
-                }
-                R.id.nav_referral -> {
 
-                    val intent = Intent(this, ShowReferralOptionsActivity::class.java)
-                    startActivity(intent)
-                    false
-                }
+
                 R.id.manage_vehicles -> {
 
                     val intent = Intent(this, ManageVehicles::class.java)

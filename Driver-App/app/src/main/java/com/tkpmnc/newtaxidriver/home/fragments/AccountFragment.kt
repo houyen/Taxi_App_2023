@@ -51,7 +51,6 @@ import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import com.tkpmnc.newtaxidriver.home.MainActivity
 import com.tkpmnc.newtaxidriver.R
-import com.tkpmnc.newtaxidriver.home.fragments.Referral.ShowReferralOptionsActivity
 import com.tkpmnc.newtaxidriver.common.configs.SessionManager
 import com.tkpmnc.newtaxidriver.home.datamodel.BankDetailsModel
 import com.tkpmnc.newtaxidriver.home.datamodel.CurrencyDetailsModel
@@ -60,7 +59,6 @@ import com.tkpmnc.newtaxidriver.home.datamodel.DriverProfileModel
 import com.tkpmnc.newtaxidriver.home.fragments.currency.CurrencyListAdapter
 import com.tkpmnc.newtaxidriver.home.fragments.currency.CurrencyModel
 import com.tkpmnc.newtaxidriver.home.fragments.language.LanguageAdapter
-import com.tkpmnc.newtaxidriver.home.fragments.payment.PayToAdminActivity
 import com.tkpmnc.newtaxidriver.common.helper.CustomDialog
 import com.tkpmnc.newtaxidriver.home.interfaces.ApiService
 import com.tkpmnc.newtaxidriver.home.interfaces.ServiceListener
@@ -226,14 +224,7 @@ class AccountFragment : Fragment(), ServiceListener {
         startActivity(intent)
     }
 
-    /**
-     * Pay to admin
-     */
-    @OnClick(R.id.rltPayTo)
-    fun payto() {
-        val payto = Intent(activity, PayToAdminActivity::class.java)
-        startActivity(payto)
-    }
+   
 
     /**
      * Language List
@@ -244,11 +235,6 @@ class AccountFragment : Fragment(), ServiceListener {
         languagelayout.isClickable = false
     }
 
-    @OnClick(R.id.referral_layout)
-    fun referral() {
-        val intent = Intent(activity, ShowReferralOptionsActivity::class.java)
-        startActivity(intent)
-    }
 
 
     override fun onAttach(context: Context) {

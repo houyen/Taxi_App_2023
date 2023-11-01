@@ -26,7 +26,4 @@ class CompletedOrPendingReferrals {
     @SerializedName("earnable_amounts")
     @Expose
     var earnableAmount: String? = null
-    @SerializedName("payment_status")
-    @Expose
-    var status: String? = null
 }

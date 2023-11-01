@@ -76,9 +76,7 @@
         <activity
             android:name="com.tkpmnc.newtaxidriver.home.payouts.PayoutDetailsListActivity"
            />
-        <activity
-            android:name="com.tkpmnc.newtaxidriver.home.fragments.Referral.ShowReferralOptionsActivity"
-             />
+       
 
         <uses-library
             android:name="org.apache.http.legacy"
@@ -360,12 +358,6 @@
             android:hardwareAccelerated="true"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.tkpmnc.newtaxidriver.home.fragments.payment.PayToAdminActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoTransulent"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
 
 
         <activity

@@ -30,7 +30,6 @@ import com.tkpmnc.newtaxidriver.home.fragments.AccountFragment
 import com.tkpmnc.newtaxidriver.home.fragments.EarningActivity
 import com.tkpmnc.newtaxidriver.home.fragments.HomeFragment
 import com.tkpmnc.newtaxidriver.home.fragments.RatingActivity
-import com.tkpmnc.newtaxidriver.home.fragments.Referral.ShowReferralOptionsActivity
 import com.tkpmnc.newtaxidriver.home.fragments.currency.CurrencyListAdapter
 import com.tkpmnc.newtaxidriver.home.fragments.language.LanguageAdapter
 import com.tkpmnc.newtaxidriver.home.fragments.payment.*
@@ -237,7 +236,6 @@ interface AppComponent {
 
     fun inject(firebaseDatabase: AddFirebaseDatabase)
 
-    fun inject(payToAdminActivity: PayToAdminActivity)
 
     fun inject(flutterwaveWebViewActivity: FlutterwaveWebViewActivity)
 
@@ -253,13 +251,10 @@ interface AppComponent {
 
     fun inject(priceRecycleAdapter: PriceRecycleAdapter)
 
-    fun inject(showReferralOptionsActivity: ShowReferralOptionsActivity)
 
     fun inject(upcomingTripsPaginationAdapter: PendingTripsPaginationAdapter)
 
     fun inject(pastTripsPaginationAdapter: CompletedTripsPaginationAdapter)
-    fun inject(paymentMethodAdapter: PaymentMethodAdapter)
-
 
     fun inject(featuresInVehicleAdapter: FeaturesInVehicleAdapter)
 

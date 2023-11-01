@@ -24,9 +24,6 @@ class TripInvoiceModel {
     @SerializedName("payment_mode")
     @Expose
     var paymentMode: String=""
-    @SerializedName("payment_status")
-    @Expose
-    var paymentStatus: String=""
     @SerializedName("applied_owe_amount")
     @Expose
     var appliedOweAmount: String=""
