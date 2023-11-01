@@ -8,9 +8,6 @@
 		</div>
 	</div>
 	<div class="page-lead separated--bottom  text--center">
-		<a href="{{ url('driver_invoice/'.$trip->id)}}" style="padding: 0px 15px 0px 0px !important;font-size: 14px !important;" type="submit" class="btn btn--primary btn-blue"><span style="padding: 7px;" class="icon icon_download"></span>
-			@lang('messages.profile.dwnld_invoice')
-		</a>
 		</div>
 		<div class="trip-details__breakdown">
 			<div class="">
@@ -74,16 +71,6 @@
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 palm-one-whole soft--bottom" ng-cloak>
 					<h2 class="text--center text--uppercase" style="font-size: 17px; font-weight: 600;">{{trans('messages.profile.fare_break')}}</h2>
-					<table class="table table--condensed fare-breakdown separated--top">
-						<tbody>
-							@foreach($invoice_data as $invoice)
-							<tr class="gamma fare-breakdown__primary-charge text-{{ $invoice['colour'] }}">
-								<td colspan="2" class="text--left"> {{ $invoice['key'] }} </td>
-								<td class="text--right"> {{ $invoice['value'] }} </td>
-							</tr>
-							@endforeach
-						</tbody>
-					</table>
 				</div>
 			</div>
 		</div>

@@ -71,7 +71,6 @@ return array(
     'App\\Http\\Controllers\\Admin\\HelpSubCategoryController' => $baseDir . '/app/Http/Controllers/Admin/HelpSubCategoryController.php',
     'App\\Http\\Controllers\\Admin\\JoinUsController' => $baseDir . '/app/Http/Controllers/Admin/JoinUsController.php',
     'App\\Http\\Controllers\\Admin\\LanguageController' => $baseDir . '/app/Http/Controllers/Admin/LanguageController.php',
-    'App\\Http\\Controllers\\Admin\\LaterBookingController' => $baseDir . '/app/Http/Controllers/Admin/LaterBookingController.php',
     'App\\Http\\Controllers\\Admin\\LocaleFileController' => $baseDir . '/app/Http/Controllers/Admin/LocaleFileController.php',
     'App\\Http\\Controllers\\Admin\\LocationsController' => $baseDir . '/app/Http/Controllers/Admin/LocationsController.php',
     'App\\Http\\Controllers\\Admin\\MakeVehicleController' => $baseDir . '/app/Http/Controllers/Admin/MakeVehicleController.php',

@@ -36,30 +36,7 @@ if(!App::runningInConsole() && request()->getScheme()=='https') {
 	$mpesa_image = asset("images/icon/mpesa.png");
 }
 
-$payment_methods = array(
-	["key" => "cash", "value" => 'Cash', 'icon' => $cash_image],
-	["key" => "paypal", "value" => 'PayPal', 'icon' => $paypal_image],
-	["key" => "braintree", "value" => 'Card Payment', 'icon' => $card_image],
-	["key" => "stripe", "value" => 'Card Payment', 'icon' => $card_image],
-	["key" => "paytm", "value" => 'Paytm', 'icon' => $paytm_image],
-	["key" => "flutterwave", "value" => 'Flutterwave', 'icon' => $flutterwave_image],
-	["key" => "mpesa", "value" => 'Mpesa', 'icon' => $mpesa_image],
-);
 
-if(!defined('PAYMENT_METHODS')) {
-	define('PAYMENT_METHODS', $payment_methods);	
-}
-
-$payout_methods = array(
-	["key" => "bank_transfer", "value" => 'Bank Transfer'],
-	["key" => "paypal", "value" => 'PayPal'],
-	["key" => "stripe", "value" => 'Stripe'],
-	["key" => "paytm", "value" => 'Paytm']
-);
-
-if(!defined('PAYOUT_METHODS')) {
-	define('PAYOUT_METHODS', $payout_methods);	
-}
 
 if(!defined('CACHE_HOURS')) {
 	define('CACHE_HOURS', 24);	

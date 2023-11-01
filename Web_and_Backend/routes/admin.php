@@ -289,9 +289,7 @@ Route::group(['prefix' => (LOGIN_USER_TYPE=='company')?'company':'admin', 'middl
         Route::post('search_cars', 'ManualBookingController@search_cars');
         Route::post('get_driver', 'ManualBookingController@get_driver');
         Route::post('driver_list', 'ManualBookingController@driver_list');
-        Route::get('later_booking', 'LaterBookingController@index');
-        Route::post('immediate_request', 'LaterBookingController@immediate_request');
-        Route::post('manual_booking/cancel', 'LaterBookingController@cancel');
+
     });
 
     // Manage Support

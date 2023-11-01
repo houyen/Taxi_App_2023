@@ -98,7 +98,6 @@ class ComposerStaticInit07703d1633a9d397d52e60a002d213f9
         'App\\Http\\Controllers\\Admin\\HelpSubCategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/HelpSubCategoryController.php',
         'App\\Http\\Controllers\\Admin\\JoinUsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/JoinUsController.php',
         'App\\Http\\Controllers\\Admin\\LanguageController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/LanguageController.php',
-        'App\\Http\\Controllers\\Admin\\LaterBookingController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/LaterBookingController.php',
         'App\\Http\\Controllers\\Admin\\LocaleFileController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/LocaleFileController.php',
         'App\\Http\\Controllers\\Admin\\LocationsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/LocationsController.php',
         'App\\Http\\Controllers\\Admin\\MakeVehicleController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/MakeVehicleController.php',

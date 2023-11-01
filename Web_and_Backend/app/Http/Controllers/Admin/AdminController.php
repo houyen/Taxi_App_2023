@@ -143,26 +143,6 @@ class AdminController extends Controller
         
      
 
-        if(LOGIN_USER_TYPE=='company') {
-            $admin_driver_paid_amount = with(clone $revenue_trips)
-            ->where('trips.status','Completed')
-            ->where('driver_payout','>',0)
-            ->where('payment_mode','<>','Cash')
-            ->join('users', function($join) {
-                $join->on('trips.driver_id', '=', 'users.id')->where('company_id',Auth::guard('company')->user()->id);
-            })
-            ->join('payment', function($join) {
-                $join->on('trips.id', '=', 'payment.trip_id');
-            })
-            ->select(DB::raw('sum(ROUND((trips.driver_payout/currency.rate) * '.$currency_rate.')) as driver_payout'));
-
-            $admin_paid_amount = with(clone $admin_driver_paid_amount)->where('payment.admin_payout_status','Paid')->first();
-            $admin_pending_amount = with(clone $admin_driver_paid_amount)->where('payment.admin_payout_status','Pending')->first();
-
-            $data['admin_paid_amount'] = $admin_paid_amount ? $admin_paid_amount->driver_payout:0;
-            $data['admin_pending_amount'] = $admin_pending_amount ? $admin_pending_amount->driver_payout:0;
-
-        }
        
 
         $data['recent_trips'] = RideRequest::
