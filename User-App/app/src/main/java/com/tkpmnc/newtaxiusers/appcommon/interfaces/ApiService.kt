@@ -104,11 +104,6 @@ interface ApiService {
     @GET("add_wallet")
     fun addWalletMoneyUsingPaypal(@Query("token") token: String, @Query("paykey") paykey: String, @Query("amount") amount: String): Call<ResponseBody>
 
-    // Proceed To Card and Paypal Payment
-    @FormUrlEncoded
-    @POST("after_payment")
-    fun proceedAfterPayment(@FieldMap linkedHashMap: LinkedHashMap<String, String>): Call<ResponseBody>
-
     // Update Rider Profile
     @GET("update_rider_profile")
     fun updateProfile(@Query("profile_image") profile_image: String, @Query("first_name") first_name: String, @Query("last_name") last_name: String, @Query("country_code") country_code: String, @Query("mobile_number") mobile_number: String, @Query("email_id") email_id: String, @Query("token") token: String): Call<ResponseBody>
@@ -149,18 +144,6 @@ interface ApiService {
     @GET("update_device")
     fun updateDevice(@Query("token") token: String, @Query("user_type") userType: String, @Query("device_type") device_type: String, @Query("device_id") device_id: String): Call<ResponseBody>
 
-    // Get Promo Details
-    @GET("promo_details")
-    fun promoDetails(@Query("token") token: String): Call<ResponseBody>
-
-    // Add Promo Code
-    @GET("add_promo_code")
-    fun addPromoDetails(@Query("token") token: String, @Query("code") code: String): Call<ResponseBody>
-
-    // add card details
-    @GET("add_card_details")
-    fun addCard(@Query("intent_id") stripeId: String, @Query("token") token: String): Call<ResponseBody>
-    // SoS alert
     @GET("sosalert")
     fun sosalert(@Query("token") token: String, @Query("latitude") latitude: String, @Query("longitude") longitude: String): Call<ResponseBody>
 
@@ -168,13 +151,6 @@ interface ApiService {
     @GET("sos")
     fun sos(@Query("token") token: String, @Query("mobile_number") mobile_number: String, @Query("action") action: String, @Query("name") name: String, @Query("country_code") country_code: String, @Query("id") id: String): Call<ResponseBody>
 
-
-    @GET("get_referral_details")
-    fun getReferralDetails(@Query("token") token: String): Call<ResponseBody>
-
-    // get Trip invoice Details  Rider
-    @GET("get_invoice")
-    fun getInvoice(@Query("is_wallet") isWallet: String, @Query("payment_mode") paymentMethod: String, @Query("token") token: String, @Query("trip_id") TripId: String, @Query("user_type") userType: String): Call<ResponseBody>
 
     //Force Update API
     @GET("check_version")
@@ -205,21 +181,6 @@ interface ApiService {
     // Get given trip details
     @GET("get_trip_details")
     fun getTripDetails(@Query("token") token: String, @Query("trip_id") trip_id: String): Call<ResponseBody>
-
-    //Currency Conversion for Braintree
-    @FormUrlEncoded
-    @POST("currency_conversion")
-    fun currencyConversion(@Field("amount") amount: String, @Field("token") token: String, @Field("payment_type") paymentType:  String): Call<ResponseBody>
-
-    // Get Card
-    @GET("get_card_details")
-    fun viewCard(@Query("token") token: String): Call<ResponseBody>
-
-    // GET PAYMENTMETHODLIST
-    @FormUrlEncoded
-    @POST("get_payment_list")
-    fun getPaymentMethodlist(@Field("token") token: String,@Field("is_wallet") isWallet: Int): Call<ResponseBody>
-
 
     @GET("otp_verification")
     fun otpVerification(@QueryMap hashMap: HashMap<String, String>): Call<ResponseBody>

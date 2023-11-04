@@ -114,12 +114,8 @@ class AccountFragment : Fragment(), ServiceListener {
     var documentlayout: RelativeLayout
     lateinit @BindView(R.id.signlayout)
     var signlayout: RelativeLayout
-    lateinit @BindView(R.id.paymentlayout)
-    var paymentlayout: RelativeLayout
     lateinit @BindView(R.id.rltPayTo)
     var rltPayTo: RelativeLayout
-    lateinit @BindView(R.id.currencylayout)
-    var currencylayout: RelativeLayout
     lateinit @BindView(R.id.languagelayout)
     var languagelayout: RelativeLayout
     lateinit @BindView(R.id.profile_image1)
@@ -244,16 +240,6 @@ class AccountFragment : Fragment(), ServiceListener {
     }
 
 
-    /**
-     * Payout
-     */
-    @SuppressLint("UseRequireInsteadOfGet")
-    @OnClick(R.id.paymentlayout)
-    fun payout() {
-        val signin = Intent(activity, PayoutEmailListActivity::class.java)
-        startActivity(signin)
-        activity!!.overridePendingTransition(R.anim.ub__slide_in_right, R.anim.ub__slide_out_left)
-    }
 
     @SuppressLint("UseRequireInsteadOfGet")
     @OnClick(R.id.signlayout)

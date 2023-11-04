@@ -40,7 +40,6 @@ Route::group(['middleware' => 'jwt.verify'], function () {
 	\Log::error('route start');
 
 	Route::match(array('GET', 'POST'),'common_data','HomeController@commonData');
-	Route::post('get_payment_list','HomeController@getPaymentList');
 
 	Route::get('logout', 'TokenAuthController@logout');
 	

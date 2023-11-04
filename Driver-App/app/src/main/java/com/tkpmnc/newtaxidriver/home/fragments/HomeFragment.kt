@@ -1349,17 +1349,6 @@ class HomeFragment : Fragment(), OnMapReadyCallback, GoogleApiClient.ConnectionC
 
     private fun onSuccessCommonData(jsonResp: JsonResponse) {
         try {
-            try {
-                sessionManager.payementModeWebView = commonMethods.getJsonValue(
-                    jsonResp.strResponse,
-                    "is_web_payment",
-                    String::class.java
-                ) as Boolean
-            } catch (e: Exception) {
-                sessionManager.payementModeWebView = false
-                e.printStackTrace()
-            }
-
             sessionManager.sinchKey = commonMethods.getJsonValue(
                 jsonResp.strResponse,
                 "sinch_key",
@@ -1409,12 +1398,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback, GoogleApiClient.ConnectionC
 
             val commonData = gson.fromJson(jsonResp.strResponse, CommonData::class.java)
             if (commonData != null) {
-                sessionManager.payementModeWebView = commonData.isWebPaymentEnable
-                if (commonData.status.equals("pending", ignoreCase = true)) {
-                    updateActInActStatus(true)
-                } else {
-                    updateActInActStatus(false)
-                }
+
                 if (commonData.heatMap!!.equals("1", ignoreCase = true)) {
                     //rbHeatMap.setChecked(false);
                     rbHeatMap.visibility = View.VISIBLE
@@ -1618,7 +1602,6 @@ class HomeFragment : Fragment(), OnMapReadyCallback, GoogleApiClient.ConnectionC
         sessionManager.beginLatitude = tripDetailsModel.riderDetails.get(0).pickup_lat
         sessionManager.beginLongitude = tripDetailsModel.riderDetails.get(0).pickup_lng
         val invoiceModels = tripDetailsModel.riderDetails.get(0).invoice
-        // sessionManager.paymentMethod = tripDetailsModel.paymentMode
 
         var poolIDs = ""
         sessionManager.poolIds = ""

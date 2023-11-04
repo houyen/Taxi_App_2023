@@ -25,7 +25,6 @@ import com.tkpmnc.newtaxiusers.appcommon.utils.CommonKeys.KEY_CALLER_ID
 import com.tkpmnc.newtaxiusers.appcommon.utils.CommonMethods
 import com.tkpmnc.newtaxiusers.appcommon.views.CommonActivity
 import com.tkpmnc.newtaxiusers.taxiapp.views.voip.CallProcessingActivity
-import kotlinx.android.synthetic.main.app_activity_payment_page.*
 import javax.inject.Inject
 
 /* ************************************************************

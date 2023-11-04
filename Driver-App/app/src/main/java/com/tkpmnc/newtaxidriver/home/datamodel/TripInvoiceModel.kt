@@ -13,12 +13,6 @@ class TripInvoiceModel {
     @SerializedName("status_message")
     @Expose
     var statusMessage: String? = null
-    @SerializedName("payment_mode")
-    @Expose
-    var paymentMode: String? = null
-    @SerializedName("invoice")
-    @Expose
-    var invoice: ArrayList<InvoiceModel>? = null
     @SerializedName("total_fare")
     @Expose
     var totalFare: String? = null

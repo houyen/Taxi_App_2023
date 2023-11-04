@@ -492,7 +492,6 @@ class RequestReceiveActivity : CommonActivity(), LinearTimer.TimerListener, Serv
         sessionManager.subTripStatus = resources.getString(R.string.confirm_arrived)
         //sessionManager.setTripStatus("CONFIRM YOU'VE ARRIVED");
         sessionManager.tripStatus = CommonKeys.TripDriverStatus.ConfirmArrived
-        // sessionManager.paymentMethod = tripDetailsModel.paymentMode
 
         sessionManager.isTrip = true
         /*  sessionManager.isPool=tripDetailsModel.isPool

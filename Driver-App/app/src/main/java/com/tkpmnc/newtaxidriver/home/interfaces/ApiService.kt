@@ -172,14 +172,6 @@ interface ApiService {
     @GET("country_list")
     fun getCountryList(@Query("token") token: String): Call<ResponseBody>
 
-    //List of Stripe Supported Countries
-    @GET("stripe_supported_country_list")
-    fun stripeSupportedCountry(@Query("token")  token: String): Call<ResponseBody>
-
-    //Get pre_payment
-    @GET("payout_changes")
-    fun payoutChanges(@Query("token") token: String, @Query("payout_id") payout_id: String, @Query("type") type: String): Call<ResponseBody>
-
     // Add stripe payout preference
     @POST("update_payout_preference")
     fun uploadStripe(@Body RequestBody: RequestBody, @Query("token") token: String): Call<ResponseBody>
@@ -188,28 +180,11 @@ interface ApiService {
     @GET("toll_reasons")
     fun getToll_reasons(@Query("token") tokenx: String): Call<ResponseBody>
 
-    // get Trip invoice Details  Rider
-    @GET("get_invoice")
-    fun getInvoice(@Query("token") token: String, @Query("trip_id") TripId: String, @Query("user_type") userType: String): Call<ResponseBody>
 
     //Force Update API
     @GET("check_version")
     fun checkVersion(@Query("version") code: String, @Query("user_type") type: String, @Query("device_type") deviceType: String): Call<ResponseBody>
 
-    // Get Card
-    @GET("get_card_details")
-    fun viewCard(@Query("token") token: String): Call<ResponseBody>
-
-
-    // Add to cart
-    @GET("add_card_details")
-    fun addCard(@Query("intent id") stripeId: String, @Query("token") token: String): Call<ResponseBody>
-
-
-    // GET PAYMENTMETHODLIST
-    @FormUrlEncoded
-    @POST("get_payment_list")
-    fun getPaymentMethodlist(@Field("token") token: String, @Field("is_wallet")isWallet:Int): Call<ResponseBody>
 
     @FormUrlEncoded
     @POST("delete_vehicle")

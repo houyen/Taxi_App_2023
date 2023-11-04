@@ -110,7 +110,6 @@ import com.tkpmnc.newtaxiusers.appcommon.utils.CommonMethods.Companion.Debuggabl
 import com.tkpmnc.newtaxiusers.appcommon.utils.CommonMethods.Companion.DebuggableLogV
 import com.tkpmnc.newtaxiusers.appcommon.utils.CommonMethods.Companion.startChatActivityFrom
 import com.tkpmnc.newtaxiusers.appcommon.utils.CommonMethods.Companion.startSinchService
-import com.tkpmnc.newtaxiusers.appcommon.utils.Enums.REG_GET_PAYMENTMETHOD
 import com.tkpmnc.newtaxiusers.appcommon.utils.Enums.REQ_COMMON_DATA
 import com.tkpmnc.newtaxiusers.appcommon.utils.Enums.REQ_GET_DRIVER
 import com.tkpmnc.newtaxiusers.appcommon.utils.Enums.REQ_GET_RIDER_PROFILE
@@ -137,7 +136,6 @@ import com.tkpmnc.newtaxiusers.taxiapp.datamodels.trip.Riders
 import com.tkpmnc.newtaxiusers.taxiapp.datamodels.trip.TripDetailsModel
 import com.tkpmnc.newtaxiusers.taxiapp.firebase_keys.FirebaseDbKeys
 import com.tkpmnc.newtaxiusers.taxiapp.firebase_keys.FirebaseDbKeys.LIVE_TRACKING_NODE
-import com.tkpmnc.newtaxiusers.taxiapp.firebase_keys.FirebaseDbKeys.TRIP_PAYMENT_NODE
 import com.tkpmnc.newtaxiusers.taxiapp.sendrequest.DriverRatingActivity
 import com.tkpmnc.newtaxiusers.taxiapp.sendrequest.SendingRequestActivity
 import com.tkpmnc.newtaxiusers.taxiapp.sidebar.EnRoute
@@ -646,7 +644,6 @@ class MainActivity : CommonActivity(), SeatsListAdapter.OnClickListener,
         if (!isInternetAvailable) {
             commonMethods.showMessage(this@MainActivity, dialog, resources.getString(R.string.no_connection))
         } else {
-            val iswallet: String
             val pickup = markerPoints?.get(0)
             pickuplocation = Location("")
             pickuplocation!!.latitude = pickup?.latitude!!
@@ -660,15 +657,7 @@ class MainActivity : CommonActivity(), SeatsListAdapter.OnClickListener,
                     dropaddress = dropaddress!!.replace("null".toRegex(), "")
 
 
-                    if (sessionManager.isWallet) {
-                        if (java.lang.Float.valueOf(sessionManager.walletAmount) > 0)
-                            iswallet = "Yes"
-                        else
-                            iswallet = "No"
-                    } else {
-                        iswallet = "No"
-                    }
-                    println("ScheduleDetails" + clickedcar + iswallet)
+                    
                     scheduleIntent = Intent(this@MainActivity, ScheduleRideDetailActivity::class.java)
                     scheduleIntent.putExtra("Schedule", "Schedule")
                     scheduleIntent.putExtra("clicked_car", clickedcar)
@@ -682,7 +671,6 @@ class MainActivity : CommonActivity(), SeatsListAdapter.OnClickListener,
                     scheduleIntent.putExtra("location_id", locationIDForSelectedCar)
                     scheduleIntent.putExtra("peak_id", peakIDForSelectedCar)
                     scheduleIntent.putExtra("polyline", overviewPolylines)
-                    scheduleIntent.putExtra("is_wallet", iswallet)
 
                     isSchedule = CommonKeys.ISSCHEDULE
                     if (isPeakPriceAppliedForClickedCar == CommonKeys.YES) {
@@ -826,7 +814,6 @@ class MainActivity : CommonActivity(), SeatsListAdapter.OnClickListener,
         headerViewset()
         isEtaFromPolyline = true
         getCommonDataAPI()
-        //getPaymentListApi()
         //getNearestDrivers()
         initNavitgaionview()
 
@@ -889,12 +876,6 @@ class MainActivity : CommonActivity(), SeatsListAdapter.OnClickListener,
 
     }
 
-    private fun getPaymentListApi() {
-        isMainActivity = true
-        CommonKeys.isFirstSetpaymentMethod = true
-        apiService.getPaymentMethodlist(sessionManager.accessToken!!, CommonKeys.isWallet).enqueue(RequestCallback(REG_GET_PAYMENTMETHOD, this))
-
-    }
 
     private fun initMapPlaceAPI() {
         if (!Places.isInitialized()) {
@@ -922,11 +903,6 @@ class MainActivity : CommonActivity(), SeatsListAdapter.OnClickListener,
     fun sessionGetset() {
         isRequest = sessionManager.isrequest
         isTrip = sessionManager.isTrip
-        println("Payment method One : " + sessionManager.paymentMethod)
-        /*  if (sessionManager.paymentMethod == "") {
-              sessionManager.paymentMethod = CommonKeys.PAYMENT_PAYPAL
-              sessionManager.isWallet=true
-          }*/
         mContext = this
     }
 
@@ -1211,18 +1187,6 @@ class MainActivity : CommonActivity(), SeatsListAdapter.OnClickListener,
             }
         } catch (ex: Exception) {
             ex.printStackTrace()
-        }
-
-        try {
-            print("isRequestisRequest$isRequest")
-            if (isRequest) {
-                if (!CommonKeys.isFirstSetpaymentMethod) {
-                    getPaymentListApi()
-                }
-                enableViews(true, false)
-            }
-        } catch (e: Resources.NotFoundException) {
-            DebuggableLogE("NewTaxi", "Can't find style. Error: ", e)
         }
 
         /**
@@ -2242,7 +2206,6 @@ class MainActivity : CommonActivity(), SeatsListAdapter.OnClickListener,
         edit_map.visibility = View.INVISIBLE
         rltContactAdmin.visibility = View.GONE
         listView.visibility = View.GONE
-        paymentmethod.visibility = View.GONE
         requestuber.visibility = View.INVISIBLE
         loading_car.visibility = View.VISIBLE
         hideWaitingTimeDescription()
@@ -2302,12 +2265,7 @@ class MainActivity : CommonActivity(), SeatsListAdapter.OnClickListener,
                 commonMethods.hideProgressDialog()
                 commonMethods.showMessage(this, dialog, jsonResp.statusMsg)
             }
-            REG_GET_PAYMENTMETHOD -> if (jsonResp.isSuccess) {
-                commonMethods.hideProgressDialog()
-            } else if (!TextUtils.isEmpty(jsonResp.statusMsg)) {
-                commonMethods.hideProgressDialog()
-                commonMethods.showMessage(this, dialog, jsonResp.statusMsg)
-            }
+    
 
             // Search Cars
             REQ_SEARCH_CARS -> {
@@ -2329,7 +2287,6 @@ class MainActivity : CommonActivity(), SeatsListAdapter.OnClickListener,
                         requestubers.visibility = View.VISIBLE
                         edit_map.visibility = View.INVISIBLE
                         listView.visibility = View.GONE
-                        paymentmethod.visibility = View.GONE
                         requestuber.visibility = View.VISIBLE
                         no_car.visibility = View.VISIBLE
                         loading_car.visibility = View.GONE
@@ -2340,7 +2297,6 @@ class MainActivity : CommonActivity(), SeatsListAdapter.OnClickListener,
                     requestubers.visibility = View.VISIBLE
                     edit_map.visibility = View.INVISIBLE
                     listView.visibility = View.GONE
-                    paymentmethod.visibility = View.GONE
                     requestuber.visibility = View.VISIBLE
                     no_car.visibility = View.VISIBLE
                     loading_car.visibility = View.GONE
@@ -2383,23 +2339,12 @@ class MainActivity : CommonActivity(), SeatsListAdapter.OnClickListener,
         sessionManager.sinchKey = commonMethods.getJsonValue(jsonResp.strResponse, "sinch_key", String::class.java) as String
         sessionManager.googleMapKey = resources.getString(R.string.google_key_url)
         val adminContact = commonMethods.getJsonValue(jsonResp.strResponse, "admin_contact", String::class.java) as String
-        sessionManager.stripePublishKey = commonMethods.getJsonValue(jsonResp.strResponse, "stripe_publish_key", String::class.java) as String
-        sessionManager.paypal_mode = commonMethods.getJsonValue(jsonResp.strResponse, "paypal_mode", String::class.java) as Int
-        sessionManager.paypal_app_id = commonMethods.getJsonValue(jsonResp.strResponse, "paypal_client", String::class.java) as String
-        sessionManager.cardBrand = commonMethods.getJsonValue(jsonResp.strResponse, "brand", String::class.java) as String
-        sessionManager.cardValue = commonMethods.getJsonValue(jsonResp.strResponse, "last4", String::class.java) as String
         sessionManager.firebaseCustomToken = commonMethods.getJsonValue(jsonResp.strResponse, "firebase_token", String::class.java) as String
         sessionManager.isCovidFeature = commonMethods.getJsonValue(jsonResp.strResponse, "covid_future", Boolean::class.java) as Boolean
-        //sessionManager.defaultPayment = commonMethods.getJsonValue(jsonResp.strResponse, "trip_default", String::class.java) as String
         //CommonKeys.car_radius = commonMethods.getJsonValue(jsonResp.strResponse, "driver_km", String::class.java) as String
         commonMethods.initStripeData(applicationContext)
         sessionManager.adminContact = adminContact
-        try {
-            sessionManager.payementModeWebView = commonMethods.getJsonValue(jsonResp.strResponse, "is_web_payment", Boolean::class.java) as Boolean
-        } catch (e: Exception) {
-            sessionManager.payementModeWebView = false
-            e.printStackTrace()
-        }
+       
         initMapPlaceAPI()
         //Firebase Auth
         signinFirebase()
@@ -2618,7 +2563,6 @@ class MainActivity : CommonActivity(), SeatsListAdapter.OnClickListener,
             edit_map.visibility = View.INVISIBLE
             rltContactAdmin.visibility = View.GONE
             listView.visibility = View.GONE
-            paymentmethod.visibility = View.GONE
             requestuber.visibility = View.INVISIBLE
             loading_car.visibility = View.VISIBLE
             hideWaitingTimeDescription()
@@ -2631,7 +2575,6 @@ class MainActivity : CommonActivity(), SeatsListAdapter.OnClickListener,
         edit_map.visibility = View.INVISIBLE
         updateSearchCarToolBar()
         listView.visibility = View.VISIBLE
-        paymentmethod.visibility = View.VISIBLE
         requestuber.visibility = View.VISIBLE
         no_car.visibility = View.GONE
         loading_car.visibility = View.GONE
@@ -2663,7 +2606,6 @@ class MainActivity : CommonActivity(), SeatsListAdapter.OnClickListener,
                 requestubers.visibility = View.VISIBLE
                 edit_map.visibility = View.INVISIBLE
                 listView.visibility = View.VISIBLE
-                paymentmethod.visibility = View.VISIBLE
                 requestuber.visibility = View.VISIBLE
                 no_car.visibility = View.GONE
                 loading_car.visibility = View.GONE
@@ -3404,7 +3346,7 @@ class MainActivity : CommonActivity(), SeatsListAdapter.OnClickListener,
     }
 
     /**
-     * Trip status dialog ( like Arrive now, Begin trip, Payment completed )
+     * Trip status dialog ( like Arrive now, Begin trip)
      */
     fun statusDialog(message: String, show: Int) {
         val builder = android.app.AlertDialog.Builder(this)
@@ -3462,25 +3404,6 @@ class MainActivity : CommonActivity(), SeatsListAdapter.OnClickListener,
             addEtaChangeListner()
 
 
-        /*  if (sessionManager.paymentMethod == "") {
-              sessionManager.paymentMethod = CommonKeys.PAYMENT_PAYPAL
-              sessionManager.isWallet=true
-          }
-  */
-
-        if (sessionManager.isWallet) {
-            DebuggableLogV("isWallet", "iswallet" + sessionManager.walletAmount)
-            if ("" != sessionManager.walletAmount) {
-                if (java.lang.Float.valueOf(sessionManager.walletAmount) > 0)
-                    wallet_img.visibility = View.VISIBLE
-                else
-                    wallet_img.visibility = View.GONE
-            }
-
-        } else {
-            wallet_img.visibility = View.GONE
-        }
-
         /**
          * Get Rider Profile page
          */
@@ -3517,10 +3440,6 @@ class MainActivity : CommonActivity(), SeatsListAdapter.OnClickListener,
         if (CommonKeys.isRequestAccepted) {
             CommonKeys.isRequestAccepted = false
             sessionManager.tripId?.let { getPushRelatedTrip(it) }
-        }
-        if (CommonKeys.isPaymentOrCancel) {
-            CommonKeys.isPaymentOrCancel = false
-            enableViews(false, true)
         }
 
         if (CommonKeys.isArrowNow) {

@@ -635,14 +635,6 @@ class RequestAcceptActivity : CommonActivity(),ImageListener, DriverDetailsAdapt
             pickup_address.text = tripDetailsModel.riderDetails.get(currentRiderPosition).pickupAddress
         }
 
-
-
-        if (tripDetailsModel.riderDetails.get(currentRiderPosition).paymentMode.equals("Cash")) {
-            cashtrip_lay.visibility = View.VISIBLE
-        } else {
-            cashtrip_lay.visibility = View.GONE
-
-        }
         ridername.text = tripDetailsModel.riderDetails.get(currentRiderPosition).name
         val imageUr = tripDetailsModel.riderDetails.get(currentRiderPosition).profileImage
 
@@ -701,7 +693,6 @@ class RequestAcceptActivity : CommonActivity(),ImageListener, DriverDetailsAdapt
         sessionManager.beginLatitude = tripDetailsModel.riderDetails.get(currentRiderPosition).pickup_lat
         sessionManager.beginLongitude = tripDetailsModel.riderDetails.get(currentRiderPosition).pickup_lng
         val invoiceModels = tripDetailsModel.riderDetails.get(currentRiderPosition).invoice
-        // sessionManager.paymentMethod = tripDetailsModel.paymentMode
 
         // Pass different data based on trip status
 
@@ -2428,13 +2419,12 @@ class RequestAcceptActivity : CommonActivity(),ImageListener, DriverDetailsAdapt
         val rating = Intent(applicationContext, Riderrating::class.java)
         rating.putExtra("imgprofile", tripDetailsModel.riderDetails.get(currentRiderPosition).profileImage)
         startActivity(rating)
-        /*startActivity(new Intent(getApplicationContext(),PaymentAmountPage.class));*/
 
     }
 
 
     /*
-     *  Show dialog for payment completed trip cancelled
+     *  Show dialog for trip cancelled
      */
     fun statusDialog(message: String) {
         println("Print Message $message")

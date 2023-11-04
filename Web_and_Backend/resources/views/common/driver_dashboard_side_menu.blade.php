@@ -29,12 +29,7 @@
                      <li>
                         <a href="{{ url('vehicle/'.@Auth::id()) }}" aria-selected="{{ in_array(Route::currentRouteName(),array('vehicle','add_vehicle','edit_vehicle')) ? 'true' : 'false' }}"  class="side-nav-a" >{{trans('messages.driver_dashboard.vehicle')}}</a>
                     </li>
-                    <li>
-                        <a href="{{ url('driver_payment') }}" aria-selected="{{ (Route::current()->uri() == 'driver_payment') ? 'true' : 'false' }}" class="side-nav-a">{{trans('messages.header.payment')}}</a>
-                    </li>
-                    <li>
-                        <a href="{{ url('driver_invoice') }}" aria-selected="{{ (Route::current()->uri() == 'driver_invoice') ? 'true' : 'false' }}"  class="side-nav-a" >{{trans('messages.header.invoice')}}</a>
-                    </li>
+                   
                     <li>
                         <a href="{{ url('driver_trip') }}" aria-selected="{{ (Route::current()->uri() == 'driver_trip') ? 'true' : 'false' }}"  class="side-nav-a">{{trans('messages.header.mytrips')}}</a>
                     </li>

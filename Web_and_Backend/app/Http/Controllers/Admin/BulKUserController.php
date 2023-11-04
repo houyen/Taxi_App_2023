@@ -187,9 +187,8 @@ class BulKUserController extends Controller
                         'drop_longitude' =>'78.16238059999999',
                         'driver_id' => $driver_value,
                         'car_id' => 1,
-                        'pickup_location'=> '12/9, Ranan Nagar, Madurai, Tamil Nadu 625020, India',
-                        'drop_location' => '1/276, Viraganur, Tamil Nadu 625009, India',
-                        'payment_mode' => $request->payment_type,
+                        'pickup_location'=> '',
+                        'drop_location' => '',
                         // 'status' => 'Pending',
                         'timezone' => 'Asia/Kolkata',
                         'schedule_id' => $request->schedule_id ?? '',
@@ -218,7 +217,6 @@ class BulKUserController extends Controller
                     $trip->drop_location    = $datarequest->drop_location;
                     $trip->request_id       = $datarequest->id;
                     $trip->trip_path        = $datarequest->trip_path;
-                    $trip->payment_mode     = $datarequest->payment_mode;
                     $trip->status           = $request->trip_status;
                     $trip->currency_code    = $user->currency->code;
                     $trip->peak_fare        = $datarequest->peak_fare;

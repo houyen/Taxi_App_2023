@@ -75,7 +75,6 @@
                     <th class="width-20">{{trans('messages.profile.fare')}}</th>
                     <th class="width-20">{{trans('messages.profile.car')}}</th>
                     <th class="hide-sm">{{trans('messages.profile.location')}}</th>
-                    <th class="hide-sm">{{trans('messages.dashboard.payment_methods')}}</th>
                 </tr>
             </thead>
             <tbody class="all-trips-table" ng-repeat="trip in trips" ng-cloak>
@@ -86,10 +85,7 @@
                     <td data-title="Fare"><span ng-bind-html="trip.currency.original_symbol"></span>&nbsp;@{{ trip.company_driver_earnings }}<br><span class="text-danger">@{{ trip.status }}</span></td>
                     <td data-title="Car">@{{ trip.vehicle_name}}</td>
                     <td data-title="City" class="hide-sm">@{{ trip.pickup_location }}</td>
-                    <td class="hide-sm" data-title="Payment Method">
-                        
-                        <span class="soft-half--sides">@{{ trip.payment_mode }} </span>
-                    </td>
+                   
                     
                 </tr>
                 <tr class="hard">
@@ -100,12 +96,7 @@
                                     <div class="col-lg-12">
                                         <div class="displayflex" style="border-bottom: 1px solid #ddd;margin-bottom: 20px;">
                                             <div class="col-lg-8">
-                                                <div class="cls_flexbox">
-                                                    <h3 class="alpha push-half--bottom">
-                                                       @{{ trip.payment_mode }}
-                                                    <span ng-bind-html="trip.currency.original_symbol"></span>&nbsp;@{{ trip.company_driver_earnings }}</h3>
-                                                    <h6 class="soft-half--ends separated--bottom color--neutral">@{{ trip.pickup_date_time }}</h6>
-                                                </div>
+                                                
                                                 </div>
                                             <div class="col-lg-4">
                                                 <div class="cls_flexboxbtn text--right">

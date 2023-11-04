@@ -89,36 +89,10 @@ class TripDetailModel {
     @Expose
     var driverThumbImage: String=""
     @SerializedName("trip_path")
-    @Expose
-    var tripPath: String=""
-    @SerializedName("owe_amount")
-    @Expose
-    var oweAmount: String=""
-    @SerializedName("applied_owe_amount")
-    @Expose
-    var appliedOweAmount: String=""
-    @SerializedName("wallet_amount")
-    @Expose
-    var walletAmount: String=""
-    @SerializedName("promo_amount")
-    @Expose
-    var promoAmount: String=""
-    @SerializedName("driver_payout")
-    @Expose
-    var driverPayout: String=""
-    @SerializedName("payment_method")
-    @Expose
-    var paymentMethod: String=""
-    @SerializedName("remaining_owe_amount")
-    @Expose
-    var remainingOweAmount: String=""
-    @SerializedName("currency_code")
+   
     @Expose
     var currencyCode: String=""
     @SerializedName("map_image")
-    @Expose
-    var mapImage: String=""
-    @SerializedName("invoice")
     @Expose
     var invoice: ArrayList<InvoiceModel> = ArrayList()
 

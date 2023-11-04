@@ -1232,7 +1232,7 @@ class MainActivity : CommonActivity(), ServiceListener {
 
 
     /*
-     *  Dialog for arrive now , begin trip, end trip, payment completed
+     *  Dialog for arrive now , begin trip, end trip
      */
     fun statusDialog(message: String, show: Int) {
 

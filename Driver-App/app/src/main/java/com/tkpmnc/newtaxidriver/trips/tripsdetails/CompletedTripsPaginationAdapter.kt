@@ -84,9 +84,7 @@ class CompletedTripsPaginationAdapter internal constructor(private val context: 
                     pastTripsViewHolder.status.text = context.getString(R.string.Cancelled)
                 } else if (tripStatusModel?.status == CommonKeys.TripStatus.Completed) {
                     pastTripsViewHolder.status.text = context.getString(R.string.completed)
-                } else if (tripStatusModel?.status == CommonKeys.TripStatus.Payment) {
-                    pastTripsViewHolder.status.text = context.getString(R.string.payment)
-                } else if (tripStatusModel?.status == CommonKeys.TripStatus.Begin_Trip) {
+                }  else if (tripStatusModel?.status == CommonKeys.TripStatus.Begin_Trip) {
                     pastTripsViewHolder.status.text = context.getString(R.string.begin_trip)
                 } else if (tripStatusModel?.status == CommonKeys.TripStatus.End_Trip) {
                     pastTripsViewHolder.status.text = context.getString(R.string.end_trip)

@@ -197,17 +197,6 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
                     startActivity(dialogs)
 
 
-                } else if (json.getJSONObject("custom").has("trip_payment")) {
-                    val riderProfile = json.getJSONObject("custom").getJSONObject("trip_payment").getString("rider_thumb_image")
-                    sessionManager.riderProfilePic = riderProfile
-
-                    val dialogs = Intent(context, CommonDialog::class.java)
-                    dialogs.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                    dialogs.putExtra("message", resources.getString(R.string.paymentcompleted))
-                    dialogs.putExtra("type", 1)
-                    dialogs.putExtra("status", 2)
-                    startActivity(dialogs)
-
                 } else if (json.getJSONObject("custom").has("custom_message")) {
                     val notificationUtils = NotificationUtils(context)
                     notificationUtils.playNotificationSound()
@@ -315,25 +304,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
                     startActivity(dialogs)
 
 
-                } else if (json.getJSONObject("custom").has("trip_payment")) {
-                    val riderProfile = json.getJSONObject("custom").getJSONObject("trip_payment").getString("rider_thumb_image")
-                    sessionManager.riderProfilePic = riderProfile
-
-                    val dialogs = Intent(context, CommonDialog::class.java)
-                    dialogs.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                    dialogs.putExtra("message", resources.getString(R.string.paymentcompleted))
-                    dialogs.putExtra("type", 1)
-                    dialogs.putExtra("status", 2)
-                    startActivity(dialogs)
-
-                }/* else if (json.getJSONObject("custom").has("custom_message")) {
-                    val notificationUtils = NotificationUtils(context)
-                    notificationUtils.playNotificationSound()
-                    val message = json.getJSONObject("custom").getJSONObject("custom_message").getString("message_data")
-                    val title = json.getJSONObject("custom").getJSONObject("custom_message").getString("title")
-
-                    notificationUtils.generateNotification(context, message, title)
-                }*/ else if (json.getJSONObject("custom").has("manual_booking_trip_booked_info")) {
+                } else if (json.getJSONObject("custom").has("manual_booking_trip_booked_info")) {
                     manualBookingTripBookedInfo(CommonKeys.ManualBookingPopupType.bookedInfo, json.getJSONObject("custom").getJSONObject("manual_booking_trip_booked_info"),context)
                 } else if (json.getJSONObject("custom").has("manual_booking_trip_reminder")) {
                     manualBookingTripBookedInfo(CommonKeys.ManualBookingPopupType.reminder, json.getJSONObject("custom").getJSONObject("manual_booking_trip_reminder"),context)
@@ -428,7 +399,6 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         sessionManager.subTripStatus = resources.getString(R.string.confirm_arrived)
         //sessionManager.setTripStatus("CONFIRM YOU'VE ARRIVED");
         sessionManager.tripStatus = CommonKeys.TripDriverStatus.ConfirmArrived
-        //sessionManager.paymentMethod = riderModel.paymentMode
 
         sessionManager.isDriverAndRiderAbleToChat = true
         CommonMethods.startFirebaseChatListenerService(this)

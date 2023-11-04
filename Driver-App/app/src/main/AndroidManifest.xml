@@ -373,11 +373,6 @@
             android:theme="@style/AppTheme.NoTransulent"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <activity
-            android:name="com.tkpmnc.newtaxidriver.home.fragments.payment.AddCardActivity"
-            android:exported="false"
-            android:theme="@style/AppTheme.NoTransulent"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
-        <activity
             android:name="com.tkpmnc.newtaxidriver.trips.voip.CallProcessingActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:excludeFromRecents="true"

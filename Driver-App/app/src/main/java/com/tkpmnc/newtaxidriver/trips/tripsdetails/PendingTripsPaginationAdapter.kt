@@ -123,8 +123,6 @@ class PendingTripsPaginationAdapter(private val context: Context, private val mC
                         upcomingViewHolder.status?.text = context.getString(R.string.Cancelled)
                     } else if (tripStatusModel.status == CommonKeys.TripStatus.Completed) {
                         upcomingViewHolder.status?.text = context.getString(R.string.completed)
-                    } else if (tripStatusModel.status == CommonKeys.TripStatus.Payment) {
-                        upcomingViewHolder.status?.text = context.getString(R.string.payment)
                     } else if (tripStatusModel.status == CommonKeys.TripStatus.Begin_Trip) {
                         upcomingViewHolder.status?.text = context.getString(R.string.begin_trip_text)
                     } else if (tripStatusModel.status == CommonKeys.TripStatus.End_Trip) {

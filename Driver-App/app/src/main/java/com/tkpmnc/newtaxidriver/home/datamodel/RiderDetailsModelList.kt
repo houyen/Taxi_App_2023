@@ -16,9 +16,6 @@ class RiderDetailsModelList : Serializable {
     @SerializedName("id")
     @Expose
     var riderId: String? = null
-    @SerializedName("payment_mode")
-    @Expose
-    var paymentMode: String? = null
     @SerializedName("trip_id")
     @Expose
     var tripId: String? = null
@@ -110,10 +107,6 @@ class RiderDetailsModelList : Serializable {
     @Expose
     var scheduleDisplayDate: String? = null
 
-
-    @SerializedName("invoice")
-    @Expose
-    var invoice: ArrayList<InvoiceModel>? = null
 
     companion object {
         @BindingAdapter("android:loadImage")

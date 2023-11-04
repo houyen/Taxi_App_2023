@@ -21,7 +21,6 @@ object Constants {
 
     const val notificationIcon = R.drawable.app_a_notification_icon
     const val scheduledDuration = 15
-    const val Payment = 250
 
     var chatPageVisible = false
     val STATUS_MSG = "status_message"

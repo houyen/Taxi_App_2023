@@ -846,8 +846,6 @@ class CommonMethods {
     fun removeTripNodesAfterCompletedTrip(context: Context) {
         try {
             mFirebaseDatabase = FirebaseDatabase.getInstance().getReference(context.getString(R.string.real_time_db))
-            mFirebaseDatabase!!.child(FirebaseDbKeys.TRIP_PAYMENT_NODE).child(sessionManager.tripId!!).removeValue()
-            mFirebaseDatabase!!.child(FirebaseDbKeys.TRIP_PAYMENT_NODE).child(FirebaseDbKeys.TRIPLIVEPOLYLINE).removeValue()
         } catch (e: Exception) {
             e.printStackTrace()
         }
@@ -870,12 +868,9 @@ class CommonMethods {
      */
     fun getClientSecret(jsonResponse: JsonResponse, activity: CommonActivity) {
         val clientSecret = getJsonValue(jsonResponse.strResponse, "two_step_id", String::class.java) as String
-        if (stripeInstance() != null) {
-            stripeInstance()!!.confirmPayment(activity, createPaymentIntentParams(clientSecret, activity.applicationContext))
-        } else {
-            hideProgressDialog()
-            Toast.makeText(activity.applicationContext, activity.applicationContext.resources.getString(R.string.internal_server_error), Toast.LENGTH_SHORT).show()
-        }
+
+        hideProgressDialog()
+        Toast.makeText(activity.applicationContext, activity.applicationContext.resources.getString(R.string.internal_server_error), Toast.LENGTH_SHORT).show()
     }
 
     fun handleDataMessage(json: JSONObject, context: Context) {
@@ -998,29 +993,6 @@ class CommonMethods {
                         val dialogs = Intent(context, CommonDialog::class.java)
                         dialogs.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                         dialogs.putExtra("message", context.getString(R.string.yourtripcancelledbydriver))
-                        dialogs.putExtra("type", 1)
-                        context.startActivity(dialogs)
-
-
-                    }
-                } else if (json.getJSONObject("custom").has("trip_payment")) {
-                    removeLiveTrackingNodesAfterCompletedTrip(context)
-
-                    removeTripNodesAfterCompletedTrip(context)
-                    sessionManager.clearTripID()
-                    sessionManager.isDriverAndRiderAbleToChat = false
-                    /*Intent rating = new Intent(getApplicationContext(), MainActivity.class);
-                    rating.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(rating);*/
-                    sessionManager.isrequest = false
-                    sessionManager.isTrip = false
-                    //statusDialog("Your trip cancelled by driver",1);
-                    if (!MainActivity.isMainActivity) {
-
-                        val dialogs = Intent(context, CommonDialog::class.java)
-                        dialogs.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                        dialogs.putExtra("message", context.resources.getString(R.string.paymentcompleted))
-                        //dialogs.putExtra("driverImage",json.getJSONObject("custom").getJSONObject("trip_payment").getString("driver_thumb_image"));
                         dialogs.putExtra("type", 1)
                         context.startActivity(dialogs)
 
@@ -1277,7 +1249,6 @@ class CommonMethods {
                     sessionManager.isrequest = false
                     sessionManager.isTrip = false
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && NotificationUtils.isAppIsInBackground(context)) {
-                        CommonKeys.isPaymentOrCancel = true
                         val timeStamp = SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Date())
                         val rating = Intent(context, MainActivity::class.java)
                         rating.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
@@ -1309,54 +1280,6 @@ class CommonMethods {
                             dialogs.putExtra("message", context.resources.getString(R.string.yourtripcancelledbydriver))
                             dialogs.putExtra("type", 1)
                             context.startActivity(dialogs)
-                        }
-                    }
-
-                } else if (json.getJSONObject("custom").has("trip_payment")) {
-                    removeLiveTrackingNodesAfterCompletedTrip(context)
-                    removeTripNodesAfterCompletedTrip(context)
-                    sessionManager.clearTripID()
-                    sessionManager.isDriverAndRiderAbleToChat = false
-
-                    sessionManager.isrequest = false
-                    sessionManager.isTrip = false
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && NotificationUtils.isAppIsInBackground(context)) {
-                        CommonKeys.isPaymentOrCancel = true
-                        val timeStamp = SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Date())
-                        val rating = Intent(context, MainActivity::class.java)
-                        rating.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                        //notificationIntent.putExtra(CommonKeys.FIREBASE_CHAT_FROM_PUSH, json.toString())
-                        val notificationUtils = NotificationUtils(context)
-                        notificationUtils.playNotificationSound()
-                        val message = context.resources.getString(R.string.paymentcompleted)
-                        //val message = json.getJSONObject("custom").getString("title")
-                        val title = context.resources.getString(R.string.app_name)
-                        notificationUtils.showNotificationMessage(
-                            title,
-                            message,
-                            timeStamp,
-                            rating,
-                            null,
-                            0L
-                        )
-                        val pushNotification = Intent(Config.PUSH_NOTIFICATION)
-                        pushNotification.putExtra("message", "message")
-                        LocalBroadcastManager.getInstance(context).sendBroadcast(pushNotification)
-                    } else {
-                        val rating = Intent(context, MainActivity::class.java)
-                        rating.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                        context.startActivity(rating)
-
-                        if (!MainActivity.isMainActivity) {
-
-                            val dialogs = Intent(context, CommonDialog::class.java)
-                            dialogs.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                            dialogs.putExtra("message", context.resources.getString(R.string.paymentcompleted))
-                            //dialogs.putExtra("driverImage",json.getJSONObject("custom").getJSONObject("trip_payment").getString("driver_thumb_image"));
-                            dialogs.putExtra("type", 1)
-                            context.startActivity(dialogs)
-
-
                         }
                     }
 
@@ -1427,12 +1350,6 @@ class CommonMethods {
 
     }
 
-    /**
-     * Create a Payment to Start Payment Process
-     */
-    private fun createPaymentIntentParams(clientSecret: String, context: Context): ConfirmPaymentIntentParams {
-        return ConfirmPaymentIntentParams.create(clientSecret)
-    }
 
 
     fun getRiderProfile(isFilterUpdate: Boolean, isUpdateFilter: LinkedHashSet<Int>?): HashMap<String, String> {

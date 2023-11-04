@@ -30,10 +30,6 @@
             android:icon="@drawable/file"
             android:title="@string/manage_documents" />
 
-        <item
-            android:id="@+id/pay_to_admin"
-            android:icon="@drawable/payment_method"
-            android:title="@string/pay_to" />
 
         <item
             android:id="@+id/nav_referral"

@@ -51,8 +51,6 @@
     <string name="facebook">Facebook</string>
     <string name="google">Google</string>
 
-    <string name="errormsg_paymnet_type">Please Choose Your Payment Type</string>
-    <string name="payment_name">"&appname; Payment"</string>
     <string name="alert_your_emergency_contacts">Alert your Emergency Contacts</string>
     <string name="welcomeback">Welcome back, sign in to continue</string>
     <string name="forgotpassword">I forgot my password</string>
@@ -73,8 +71,6 @@
     <string name="cancel">Cancel</string>
     <string name="cancelrequest">CANCEL REQUEST</string>
     <string name="editaccount">Edit Account</string>
-    <string name="textpayment">Payment</string>
-    <string name="paypal_payment">PayPal</string>
     <string name="helptitle">Help</string>
 
     <string name="capacity">Capacity</string>
@@ -92,7 +88,6 @@
     <string name="ubergo">&appname;Go</string>
     <string name="cancel_your_trip">"Cancel Your Rider"</string>
 
-    <string name="paymentmethods">Payment Methods</string>
     <string name="cash">Cash</string>
     <string name="wallets">Wallet</string>
     <string name="promotions">Promotions</string>
@@ -153,7 +148,6 @@
 
     <!-- Help Page started -->
     <string name="tripsreview">Trips and Fare Review</string>
-    <string name="accountpayment">Account and Payment Options</string>
     <string name="guideuber">A Guide to &appname;</string>
     <string name="signingup">Signing Up</string>
     <string name="more">More</string>
@@ -165,7 +159,6 @@
     <string name="farediscribction">The fare will be the price presented upon booking, or, if the journey changes, the fare will be based on the rates provided.Tap fare for details.</string>
 
     <!-- Home Page started -->
-    <string name="payment">Payment Options</string>
     <string name="yourtrips">Ride History</string>
     <string name="begin_trip">"Begin Trip"</string>
     <string name="Rating">Rating</string>
@@ -356,18 +349,13 @@
     <string name="driverarrrive">Driver Arrives Now&#8230;</string>
     <string name="yourtripcancelledbydriver">Your trip cancelled by driver&#8230;</string>
     <string name="yourtripbegin">Your Trip Begins Now&#8230;</string>
-    <string name="paymentcompleted">Payment completed successfully&#8230;</string>
     <string name="rateyourride">Rate Your Ride</string>
     <string name="smoothorsloopy">Smooth or Sloppy?</string>
     <string name="writecomment">Write your comments&#8230;</string>
-    <string name="paymentdetails">Payment Details</string>
     <string name="otherreasons">Other reasons</string>
     <string name="enterworkaddress">Enter work address</string>
     <string name="enterhomeaddress">Enter home address</string>
 
-    <string name="paytm" translatable="false">Paytm Payment</string>
-    <string name="mpesa" translatable="false">Mpesa Payment</string>
-    <string name="flutterwave" translatable="false">Flutterwave Payment</string>
     <string name="layout_direction" translatable="false">0</string>
 
     <string name="edit_ride">EDIT TIME</string>
@@ -484,7 +472,6 @@
     <string name="tap_to_reload">Tap to reload</string>
     <string name="error_msg_unknown">An unexpected error occurred</string>
     <string name="schedule_trip">Schedule Trip</string>
-    <string name="onlinepayment">Online payment</string>
     <string name="unable_to_get_location_pickup">Unable to get pickup location please try again</string>
     <string name="to_arrive">to arrive</string>
     <string name="to_reach">to reach</string>
@@ -496,8 +483,6 @@
     <string name="stripe_error_2">Invalid Stripe API version try again later</string>
     <string name="stripe" translatable="false">Stripe</string>
     <string name="choose">Choose</string>
-    <string name="Add_payment_type">Add payment Type</string>
-    <string name="choose_payment_type">Please Choose Your Payment Type</string>
     <string name="few_seconds">This might take some few seconds</string>
     <string name="confirm_seats">CONFIRM SEATS</string>
     <string name="pool">Pool</string>

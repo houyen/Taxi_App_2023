@@ -36,10 +36,6 @@ class SessionManager {
         get() = sharedPreferences.getString("firebaseCustomToken", "")
         set(firebaseCustomToken) = sharedPreferences.edit().putString("firebaseCustomToken", firebaseCustomToken).apply()
 
-    var defaultPayment: String?
-        get() = sharedPreferences.getString("defaultPayment", "")
-        set(defaultPayment) = sharedPreferences.edit().putString("defaultPayment", defaultPayment).apply()
-
     var isFirebaseTokenUpdated: Boolean
         get() = sharedPreferences.getBoolean("isFirebaseTokenUpdated", false)
         set(isFirebaseTokenUpdated) = sharedPreferences.edit().putBoolean("isFirebaseTokenUpdated", isFirebaseTokenUpdated).apply()
@@ -200,18 +196,6 @@ class SessionManager {
         get() = sharedPreferences.getString("profilearratdetail", "")
         set(profilearratdetail) = sharedPreferences.edit().putString("profilearratdetail", profilearratdetail).apply()
 
-    var paymentMethodDetail: String?
-        get() = sharedPreferences.getString("paymentMethodDetail", "")
-        set(paymentMethodDetail) = sharedPreferences.edit().putString("paymentMethodDetail", paymentMethodDetail).apply()
-
-    var paymentMethod: String?
-        get() = sharedPreferences.getString("paymentMethod", "")
-        set(paymentMethod) = sharedPreferences.edit().putString("paymentMethod", paymentMethod).apply()
-
-    var paymentMethodImage: String?
-        get() = sharedPreferences.getString("paymentMethodImage", "")
-        set(paymentMethodImage) = sharedPreferences.edit().putString("paymentMethodImage", paymentMethodImage).apply()
-
     var cardValue: String?
         get() = sharedPreferences.getString("cardValue", "")
         set(cardValue) = sharedPreferences.edit().putString("cardValue", cardValue).apply()
@@ -227,10 +211,6 @@ class SessionManager {
     var isTrip: Boolean
         get() = sharedPreferences.getBoolean("istrip", false)
         set(istrip)= sharedPreferences.edit().putBoolean("istrip",istrip).apply()
-
-    var isWallet: Boolean
-        get() = sharedPreferences.getBoolean("isWallet", false)
-        set(isWallet)= sharedPreferences.edit().putBoolean("isWallet",isWallet).apply()
 
     var walletAmount: String?
         get() = sharedPreferences.getString("wallet_amount", "")

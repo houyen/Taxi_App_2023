@@ -19,10 +19,6 @@ use App\Models\Rating;
 use App\Models\ProfilePicture;
 use App\Models\ReferralSetting;
 use App\Models\ReferralUser;
-use App\Models\Wallet;
-use App\Models\UsersPromoCode;
-use App\Models\Currency;
-use App\Models\PaymentMethod;
 use App\Models\RiderLocation;
 use Validator;
 use Auth;
@@ -112,7 +108,6 @@ class DashboardController extends Controller
         ];
         $rating = Rating::updateOrCreate(['trip_id' => $request->trip_id], $data);
 
-        Trips::where('id',$request->trip_id)->update(['status'   => 'Payment']);
         return [
             'success' => 'true',
             'user_rating' => $rating->rider_rating
@@ -137,7 +132,6 @@ class DashboardController extends Controller
             return back();
         }
         try {
-            PaymentMethod::where('user_id',$request->id)->delete();
             $user = User::where("id","=",$id)->first();
             $user->delete($id);
             //User::find($request->id)->delete();
@@ -156,13 +150,11 @@ class DashboardController extends Controller
     {
         $return  = array('status' => '1', 'message' => '');
 
-        $user_promo = UsersPromoCode::where('user_id',$user_id)->count();
-        $user_wallet = Wallet::where('user_id',$user_id)->count();
         $user_trips = Trips::where('user_id',$user_id)->count();
         $user_referral = ReferralUser::where('user_id',$user_id)->orWhere('referral_id',$user_id)->count();
 
-        if($user_promo || $user_wallet || $user_trips) {
-            $return = ['status' => 0, 'message' => 'Rider have wallet or promo or trips, So can\'t delete this rider'];
+        if($user_trips) {
+            $return = ['status' => 0, 'message' => 'Rider have trips, So can\'t delete this rider'];
         }
         else if($user_referral) {
             $return = ['status' => 0, 'message' => 'Rider have referrals, So can\'t delete this rider'];

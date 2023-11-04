@@ -169,7 +169,6 @@ class CompletedTripsFragments : Fragment(), ServiceListener, PaginationAdapterCa
                     //String tripId=tripStatusModel.tripDetailsModel?.riderDetails?.get(0)?.getTripId().toString();
                     sessionManager.tripId = tripId
                     sessionManager.tripStatus = "end_trip"
-                    *//*startActivity(new Intent(getApplicationContext(), PaymentAmountPage.class));*//*
                     val rating = Intent(activity, Riderrating::class.java)
                     rating.putExtra("imgprofile", tripDetailsModel.profileImage)
                     rating.putExtra("back", 1)
@@ -346,7 +345,6 @@ class CompletedTripsFragments : Fragment(), ServiceListener, PaginationAdapterCa
         commonMethods.hideProgressDialog()
         val tripDetailsModel = gson.fromJson(jsonResp.strResponse, TripDetailsModel::class.java)
         val invoiceModels = tripDetailsModel.riderDetails.get(0).invoice
-        //  sessionManager.paymentMethod = tripDetailsModel.paymentMode
         sessionManager.bookingType = tripDetailsModel.riderDetails.get(0).bookingType
 
         // Pass different data based on trip status

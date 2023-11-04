@@ -14,7 +14,6 @@
 Route::post('pop_up_email', 'EmailController@pop_up_email');
 
 Route::get('oweAmount', 'Api\RatingController@oweAmount');
-Route::get('driver_invoice', 'DriverDashboardController@driver_invoice');
 Route::match(array('GET', 'POST'),'apple_callback', 'UserController@apple_callback');
 Route::get('app/driver', 'HomeController@redirect_to_driver_app');
 Route::get('app/rider', 'HomeController@redirect_to_rider_app');
@@ -104,8 +103,6 @@ Route::group(['middleware' =>'locale'], function () {
 
 	Route::post('change_mobile_number', 'DriverDashboardController@change_mobile_number');
 	Route::post('profile_upload', 'DriverDashboardController@profile_upload');
-	Route::get('download_invoice/{id}', 'DriverDashboardController@download_invoice');
-	Route::get('download_rider_invoice/{id}', 'DashboardController@download_rider_invoice');
 });
 
 // Rider Routes..
@@ -114,12 +111,9 @@ Route::group(['middleware' => ['locale','rider_guest']], function () {
 	Route::get('profile', 'DashboardController@profile');
 	Route::get('deleteacc', 'DashboardController@deleteacc');
 	Route::delete('deleteacc/{user}', 'DashboardController@destroy')->name('deleteacc');
-	Route::view('payment', 'dashboard.payment');
 	Route::get('trip_detail/{id}', 'DashboardController@trip_detail');
 	Route::post('rider_rating/{rating}/{trip_id}', 'DashboardController@rider_rating');
 	Route::post('trip_detail/rider_rating/{rating}/{trip_id}', 'DashboardController@rider_rating');
-	Route::get('trip_invoice/{id}', 'DashboardController@trip_invoice');
-	Route::get('invoice_download/{id}', 'DashboardController@invoice_download');
 	Route::post('rider_update_profile/{id}', 'DashboardController@update_profile');
 	Route::get('referral', 'DashboardController@referral')->name('referral');
 	Route::post('ajax_referral_data/{id}', 'DashboardController@ajax_referral_data');
@@ -137,14 +131,11 @@ Route::group(['middleware' => ['locale','driver_guest']], function () {
 	Route::get('default_vehicle/{id}', 'DriverDashboardController@default_vehicle');
 	Route::post('makelist','DriverDashboardController@makeListValue');
 	Route::post('update_vehicle','DriverDashboardController@update_vehicle');
-	Route::get('driver_payment', 'DriverDashboardController@driver_payment');
 
-	Route::get('driver_invoice/{id}', 'DriverDashboardController@driver_invoice');
 	Route::view('driver_banking', 'driver_dashboard.driver_banking');
 	Route::view('driver_trip', 'driver_dashboard.driver_trip');
 	Route::get('driver_trip_detail/{id}', 'DriverDashboardController@driver_trip_detail');
 
-	Route::post('ajax_payment', 'DriverDashboardController@ajax_payment');
 	Route::get('driver_referral', 'DashboardController@driver_referral')->name('driver_referral');
 
 	//Delete Account 
@@ -155,8 +146,6 @@ Route::group(['middleware' => ['locale','driver_guest']], function () {
 
 	// profile update
 	Route::post('driver_update_profile/{id}', 'DriverDashboardController@driver_update_profile');
-	Route::get('driver_invoice', 'DriverDashboardController@show_invoice');
-	Route::get('print_invoice/{id}', 'DriverDashboardController@print_invoice');
 
 	// Payout Preferences
 	Route::get('payout_preferences','UserController@payoutPreferences')->name('driver_payout_preference');

@@ -52,7 +52,6 @@ class AddFirebaseDatabase {
     fun removeNodesAfterCompletedTrip(context : Context) {
         try {
             mFirebaseDatabase = FirebaseDatabase.getInstance().getReference(context.getString(R.string.real_time_db))
-            mFirebaseDatabase!!.child(FirebaseDbKeys.TRIP_PAYMENT_NODE).child(sessionManager.tripId!!).removeValue()
             query!!.removeEventListener(mSearchedDriverReferenceListener!!)
             mFirebaseDatabase!!.removeEventListener(mSearchedDriverReferenceListener!!)
             mSearchedDriverReferenceListener = null
@@ -123,42 +122,6 @@ class AddFirebaseDatabase {
         })
     }
 
-    fun updatePaymentChangedNode(isWalletAvail: String, paymentType: String,context: Context) {
-        var value = FirebaseDbKeys.PaymentChangeMode.TYPE_PAYPAL
-
-        when (paymentType) {
-            CommonKeys.PAYMENT_PAYPAL -> {
-                value = FirebaseDbKeys.PaymentChangeMode.TYPE_PAYPAL
-            }
-            CommonKeys.PAYMENT_PAYTM -> {
-                value = FirebaseDbKeys.PaymentChangeMode.TYPE_PAYTM
-            }
-            CommonKeys.PAYMENT_MPESA -> {
-                value = FirebaseDbKeys.PaymentChangeMode.TYPE_MPESA
-            }
-            CommonKeys.PAYMENT_FLUTTERWAVE -> {
-                value = FirebaseDbKeys.PaymentChangeMode.TYPE_FLUTTERWAVE
-            }
-            CommonKeys.PAYMENT_CARD -> {
-                value = FirebaseDbKeys.PaymentChangeMode.TYPE_STRIPE
-            }
-            CommonKeys.PAYMENT_CASH -> {
-                value = FirebaseDbKeys.PaymentChangeMode.TYPE_CASH
-            }
-            CommonKeys.PAYMENT_BRAINTREE -> {
-                value = FirebaseDbKeys.PaymentChangeMode.TYPE_BRAINTREE
-            }
-        }
-
-        if (isWalletAvail.equals("yes", ignoreCase = true)) {
-            value = value + FirebaseDbKeys.PaymentChangeMode.WALLET_ADDED
-        }
-        if (sessionManager.promoCount > 0) {
-            value = value + FirebaseDbKeys.PaymentChangeMode.PROMO_ADDED
-        }
-        mFirebaseDatabase = FirebaseDatabase.getInstance().getReference(context.getString(R.string.real_time_db))
-        mFirebaseDatabase!!.child(FirebaseDbKeys.TRIP_PAYMENT_NODE).child(sessionManager.tripId!!).child(FirebaseDbKeys.TRIP_PAYMENT_NODE_REFRESH_PAYMENT_TYPE_KEY).setValue(value)
-    }
 
     companion object{
         private var firebaseDbPush: ValueEventListener? = null

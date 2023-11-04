@@ -46,8 +46,6 @@
     @butterknife.OnLongClick <methods>;
 }
 
-#For Stripe payment (card payment)
--keep class com.stripe.android.** { *; }
 
 
 #For retrofit

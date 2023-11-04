@@ -10,7 +10,6 @@
       </h1>
       <ol class="breadcrumb">
         <li><a href="{{ url(LOGIN_USER_TYPE.'/dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="{{ url(LOGIN_USER_TYPE.'/payments') }}">Payments</a></li>
         <li class="active">Details</li>
       </ol>
     </section>

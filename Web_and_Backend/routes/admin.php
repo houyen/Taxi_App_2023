@@ -164,32 +164,11 @@ Route::group(['prefix' => (LOGIN_USER_TYPE=='company')?'company':'admin', 'middl
 	Route::group(['middleware' =>  'admin_can:manage_trips'], function() {
 		Route::match(array('GET', 'POST'), 'trips', 'TripsController@index');
 		Route::get('view_trips/{id}', 'TripsController@view');
-		Route::post('trips/payout/{id}', 'TripsController@payout');
 		Route::get('trips/export/{from}/{to}', 'TripsController@export');
 	});
 
 
 	
-	
-	// Owe Amount
-	Route::group(['middleware' =>  'admin_can:manage_owe_amount'], function() {
-		Route::match(array('GET', 'POST'), 'owe', 'OweController@index')->name('owe');
-		Route::match(array('GET', 'POST'), 'company_owe/{id}', 'OweController@company_index')->name('owe');
-		Route::get('details/{type}', 'OweController@owe_details')->name('owe_details');
-		Route::get('update_driver_payment', 'OweController@update_payment')->name('update_payment');
-		Route::post('update_owe_payment', 'OweController@updateOwePayment')->name('update_owe_payment');
-		Route::post('update_company_payment', 'OweController@update_company_payment')->name('update_company_payment');
-	});
-
-
-	// Manage Promo Code
-	Route::group(['middleware' =>  'admin_can:manage_promo_code'], function() {
-		Route::get('promo_code', 'PromocodeController@index');
-		Route::match(array('GET', 'POST'), 'add_promo_code', 'PromocodeController@add');		
-		Route::match(array('GET', 'POST'), 'edit_promo_code/{id}', 'PromocodeController@update')->where('id', '[0-9]+');
-		Route::get('delete_promo_code/{id}', 'PromocodeController@delete');
-	});
-
 
 
 	// Cancelled Trips

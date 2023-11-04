@@ -74,7 +74,6 @@ class ScheduleRideDetailActivity : CommonActivity(), ServiceListener {
     private var clickedCar: String? = null
     private var pickupLocation: String? = null
     private var dropLocation: String? = null
-    private var isWallet: String? = null
     private var fare: String? = null
     private var pickupLatitude: Double = 0.toDouble()
     private var pickupLongitude: Double = 0.toDouble()
@@ -120,14 +119,12 @@ class ScheduleRideDetailActivity : CommonActivity(), ServiceListener {
         /**Commmon Header Text View */
         commonMethods.setheaderText(resources.getString(R.string.UpcomingRideSet), common_header)
 
-        println("thisSchedule" + intent.getStringExtra("is_wallet"))
         date = sessionManager.scheduleDateTime.toString()
         locationId = intent.getStringExtra("location_id")
         peakId = intent.getStringExtra("peak_id")
         clickedCar = intent.getStringExtra("clicked_car")
         pickupLocation = intent.getStringExtra("pickup_location")
         dropLocation = intent.getStringExtra("drop_location")
-        isWallet = intent.getStringExtra("is_wallet")
         fare = intent.getStringExtra("fare_estimation")
         pickupLatitude = intent.getDoubleExtra("pickup_latitude", 0.0)
         pickupLongitude = intent.getDoubleExtra("pickup_longitude", 0.0)
@@ -158,8 +155,6 @@ class ScheduleRideDetailActivity : CommonActivity(), ServiceListener {
             scheduleHashMap["drop_longitude"] = dropLongitude.toString()
             scheduleHashMap["pickup_location"] = pickupLocation.toString()
             scheduleHashMap["drop_location"] = dropLocation.toString()
-            scheduleHashMap["payment_method"] = sessionManager.paymentMethod.toString()
-            scheduleHashMap["is_wallet"] = isWallet.toString()
             scheduleHashMap["user_type"] = sessionManager.type.toString()
             scheduleHashMap["device_type"] = sessionManager.deviceType.toString()
             scheduleHashMap["device_id"] = sessionManager.deviceId.toString()

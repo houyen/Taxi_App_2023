@@ -32,14 +32,10 @@ import com.tkpmnc.newtaxidriver.home.fragments.HomeFragment
 import com.tkpmnc.newtaxidriver.home.fragments.RatingActivity
 import com.tkpmnc.newtaxidriver.home.fragments.currency.CurrencyListAdapter
 import com.tkpmnc.newtaxidriver.home.fragments.language.LanguageAdapter
-import com.tkpmnc.newtaxidriver.home.fragments.payment.*
 import com.tkpmnc.newtaxidriver.home.managevehicles.*
 import com.tkpmnc.newtaxidriver.home.managevehicles.adapter.*
 import com.tkpmnc.newtaxidriver.home.map.GpsService
 import com.tkpmnc.newtaxidriver.home.map.drawpolyline.DownloadTask
-import com.tkpmnc.newtaxidriver.home.payouts.*
-import com.tkpmnc.newtaxidriver.home.payouts.adapter.PayoutCountryListAdapter
-import com.tkpmnc.newtaxidriver.home.payouts.payout_model_classed.PayPalEmailAdapter
 import com.tkpmnc.newtaxidriver.home.profile.DriverProfile
 import com.tkpmnc.newtaxidriver.home.profile.VehiclInformation
 import com.tkpmnc.newtaxidriver.home.pushnotification.MyFirebaseInstanceIDService
@@ -69,23 +65,6 @@ import javax.inject.Singleton
 interface AppComponent {
     // ACTIVITY
 
-    fun inject(bankDetailsActivity: BankDetailsActivity)
-
-
-    fun inject(currencyListAdapter: CurrencyListAdapter)
-
-    fun inject(payoutEmailActivity: PayoutEmailActivity)
-
-    fun inject(payoutEmailListActivity: PayoutEmailListActivity)
-
-
-    fun inject(payPalEmailAdapter: PayPalEmailAdapter)
-
-    fun inject(payoutAddressDetailsActivity: PayoutAddressDetailsActivity)
-
-    fun inject(payoutBankDetailsActivity: PayoutBankDetailsActivity)
-
-    fun inject(payoutCoutryListAdapter2: PayoutCoutryListAdapter2)
 
     fun inject(priceStatementAdapter: PriceStatementAdapter)
 
@@ -143,9 +122,6 @@ interface AppComponent {
 
     fun inject(documentDetails: DocumentDetails)
 
-
-    fun inject(payStatementDetails: PayStatementDetails)
-
     fun inject(tripEarningsDetail: TripEarningsDetail)
 
     fun inject(dailyEarningDetails: DailyEarningDetails)
@@ -191,8 +167,6 @@ interface AppComponent {
 
     fun inject(yearAdapter: YearAdapter)
 
-    fun inject(payoutDetailsListAdapter: PayoutDetailsListAdapter)
-
     fun inject(languageAdapter: LanguageAdapter)
 
     fun inject(addVehicle: AddVehicleFragment)
@@ -206,8 +180,6 @@ interface AppComponent {
     fun inject(imageCompressAsyncTask: ImageCompressAsyncTask)
 
     fun inject(firebaseChatHandler: FirebaseChatHandler)
-
-    fun inject(payoutCountryListAdapter: PayoutCountryListAdapter)
 
     fun inject(adapterFirebaseRecylcerview: AdapterFirebaseRecylcerview)
 
@@ -242,8 +214,6 @@ interface AppComponent {
     fun inject(manageVehicles: ManageVehicles)
 
     fun inject(addCardActivity: AddCardActivity)
-
-    fun inject(payoutDetailsListActivity: PayoutDetailsListActivity)
 
     fun inject(manageDocumentActivity: ManageVehicleDocumentFragment)
 

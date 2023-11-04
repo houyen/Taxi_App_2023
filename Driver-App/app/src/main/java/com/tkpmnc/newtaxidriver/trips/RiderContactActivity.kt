@@ -26,7 +26,6 @@ import com.tkpmnc.newtaxidriver.common.util.CommonMethods
 import com.tkpmnc.newtaxidriver.common.views.CommonActivity
 import com.tkpmnc.newtaxidriver.home.firebaseChat.ActivityChat
 import com.tkpmnc.newtaxidriver.trips.voip.CallProcessingActivity
-import kotlinx.android.synthetic.main.activity_payment.*
 import javax.inject.Inject
 
 /* ************************************************************

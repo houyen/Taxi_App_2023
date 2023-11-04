@@ -463,8 +463,6 @@ class Setting : CommonActivity(), ServiceListener,UserChoiceSuccessResponse {
 
         sessionManager.clearToken()
         sessionManager.clearAll()
-        sessionManager.clearPaymentType()
-        CommonKeys.isFirstSetpaymentMethod=false
         Firebase.auth.signOut()
 
         // Clear local saved data
@@ -743,26 +741,6 @@ class Setting : CommonActivity(), ServiceListener,UserChoiceSuccessResponse {
             }
 
             return dir!!.delete()
-        }
-    }
-
-    override fun onSuccessUserSelected(type: String?, userChoiceData: String?, userChoiceCode: String?) {
-        if (type.equals(Enums.USER_CHOICE_LANGUAGE)){
-            val langocde = sessionManager.languageCode
-            val lang = sessionManager.language
-            language.text = lang
-            updateLanguage()
-            setLocale(langocde!!)
-            CommonKeys.isFirstSetpaymentMethod=false
-            recreate()
-            val intent = Intent(this@Setting, SplashActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-            startActivity(intent)
-        }
-       else if (type.equals(Enums.USER_CHOICE_CURRENCY)){
-            currency = sessionManager.currencyCode!!
-            currency_code.text =sessionManager.currencySymbol +" "+ currency
-            updateCurrency()
         }
     }
 

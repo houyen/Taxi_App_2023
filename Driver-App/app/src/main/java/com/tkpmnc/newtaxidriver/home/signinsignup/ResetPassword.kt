@@ -316,10 +316,7 @@ class ResetPassword : CommonActivity(), ServiceListener {
                     Bundle bndlanimation = ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.cb_fade_in, R.anim.cb_face_out).toBundle();
                     startActivity(x, bndlanimation);
                     finish();
-                } else {
-                    Intent signin = new Intent(getApplicationContext(), PaymentPage.class);
-                    startActivity(signin);
-                    overridePendingTransition(R.anim.ub__slide_in_right, R.anim.ub__slide_out_left);
+                }
                 }*/
                 openMainActivity()
             } else if (driverStatus == "Active") {
@@ -331,10 +328,7 @@ class ResetPassword : CommonActivity(), ServiceListener {
                     Bundle bndlanimation = ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.cb_fade_in, R.anim.cb_face_out).toBundle();
                     startActivity(x, bndlanimation);
                     finish();
-                } else {
-                    Intent signin = new Intent(getApplicationContext(), PaymentPage.class);
-                    startActivity(signin);
-                    overridePendingTransition(R.anim.ub__slide_in_right, R.anim.ub__slide_out_left);
+                } 
                 }*/openMainActivity()
             } else {
                 // Redirect to sign in signup home page

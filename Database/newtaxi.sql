@@ -794,49 +794,6 @@ INSERT INTO `driver_owe_amounts` (`id`, `user_id`, `amount`, `currency_code`) VA
 (1, 10002, '54.00', 'USD'),
 (8, NULL, NULL, NULL);
 
--- --------------------------------------------------------
-
---
--- Table structure for table `driver_owe_amount_payments`
---
-
-CREATE TABLE `driver_owe_amount_payments` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `user_id` int(10) UNSIGNED NOT NULL,
-  `transaction_id` varchar(70) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `amount` decimal(11,2) DEFAULT NULL,
-  `currency_code` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` tinyint(4) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `driver_owe_amount_payments`
---
-
-INSERT INTO `driver_owe_amount_payments` (`id`, `user_id`, `transaction_id`, `amount`, `currency_code`, `status`, `created_at`, `updated_at`) VALUES
-(1, 10003, 'pi_3L1fHDJbZQ9xXEmX18Ej0TVF', '1.00', 'USD', 1, NULL, NULL),
-(2, 10002, 'RFH495SWG4', '1.00', 'USD', 1, NULL, NULL),
-(3, 10002, 'rave648d1d4279a9a', '20.00', 'USD', 1, NULL, NULL),
-(4, 10002, 'rave648d1d4279a9a', '20.00', 'USD', 1, NULL, NULL),
-(5, 10002, 'rave648d301ceab76', '9.00', 'USD', 1, NULL, NULL),
-(6, 10002, 'rave648d335e0c874', '5.00', 'USD', 1, NULL, NULL),
-(7, 10002, 'RFH29FKJ3Q', '1.00', 'USD', 1, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `driver_payment`
---
-
-CREATE TABLE `driver_payment` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `driver_id` int(10) UNSIGNED NOT NULL,
-  `last_trip_id` int(10) UNSIGNED NOT NULL,
-  `currency_code` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `paid_amount` decimal(7,2) NOT NULL DEFAULT '0.00'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -1256,8 +1213,6 @@ INSERT INTO `metas` (`id`, `url`, `title`, `description`, `keywords`) VALUES
 (14, 'drive_safety', 'Driver Safety', 'Driver Safety', ''),
 (15, 'driver_profile', 'Driver Profile', 'Driver Profile', ''),
 (16, 'documents/{id}', 'Driver Documents', 'Driver Documents', ''),
-(17, 'driver_payment', 'Driver Payment', 'Driver Payment', ''),
-(18, 'driver_invoice', 'Driver Invoice', 'Driver Invoice', ''),
 (19, 'driver_trip', 'Driver Trips', 'Driver Trips', ''),
 (20, 'driver_trip_detail/{id}', 'Driver Trips Details', 'Driver Trips Details', ''),
 (21, 'download_invoice/{id}', 'Invoice', 'Invoice', ''),
@@ -1329,9 +1284,6 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (26, '2017_05_24_095833_create_cancel_table', 1),
 (27, '2017_06_01_130626_create_fees_table', 1),
 (28, '2017_06_08_085929_create_api_credentials_table', 1),
-(29, '2017_06_08_102833_create_payment_gateway_table', 1),
-(30, '2017_06_16_112151_create_payment_table', 1),
-(31, '2017_06_16_112152_create_driver_payment_table', 1),
 (32, '2017_09_21_115741_create_jobs_table', 1),
 (33, '2017_11_12_133719_create_wallet_table', 1),
 (34, '2017_11_17_071107_create_promo_code_table', 1),
@@ -1340,7 +1292,6 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (37, '2018_03_09_193447_create_help_sub_category_lang_table', 1),
 (38, '2018_04_02_130448_create_language_table', 1),
 (39, '2018_05_26_000018_create_payout_preference_table', 1),
-(40, '2018_05_26_000020_create_payment_method_table', 1),
 (42, '2018_07_13_073129_create_schedule_ride_table', 1),
 (43, '2018_07_16_063607_entrust_setup_tables', 1),
 (44, '2018_08_08_100000_create_telescope_entries_table', 1),
@@ -1357,8 +1308,6 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (55, '2019_04_11_115908_create_vehicle_table', 1),
 (56, '2019_06_22_052259_create_referral_settings_table', 1),
 (57, '2019_06_22_053324_create_referral_users_table', 1),
-(58, '2019_09_24_051053_create_driver_owe_amounts_table', 1),
-(59, '2019_09_25_104410_create_driver_owe_amount_payments_table', 1),
 (60, '2019_10_18_130612_create_trip_toll_reasons_table', 1),
 (61, '2019_10_21_123628_create_applied_referrals_table', 1),
 (62, '2020_02_24_070641_create_failed_jobs_table', 1),
@@ -1433,231 +1382,6 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `payment`
---
-
-CREATE TABLE `payment` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `trip_id` int(10) UNSIGNED NOT NULL,
-  `correlation_id` text COLLATE utf8mb4_unicode_ci,
-  `admin_transaction_id` text COLLATE utf8mb4_unicode_ci,
-  `driver_transaction_id` text COLLATE utf8mb4_unicode_ci,
-  `admin_payout_status` enum('Pending','Processing','Paid') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Pending',
-  `driver_payout_status` enum('Pending','Processing','Paid') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Pending'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `payment`
---
-
-INSERT INTO `payment` (`id`, `trip_id`, `correlation_id`, `admin_transaction_id`, `driver_transaction_id`, `admin_payout_status`, `driver_payout_status`) VALUES
-(1, 1, '', NULL, '', 'Pending', 'Paid'),
-(2, 2, '', NULL, '', 'Pending', 'Paid'),
-(3, 3, '', NULL, NULL, 'Pending', 'Pending'),
-(4, 4, NULL, NULL, NULL, 'Pending', 'Pending');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `payment_gateway`
---
-
-CREATE TABLE `payment_gateway` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `value` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `site` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `payment_gateway`
---
-
-INSERT INTO `payment_gateway` (`id`, `name`, `value`, `site`) VALUES
-(1, 'trip_default', 'paytm', 'Common'),
-(2, 'payout_methods', 'paytm', 'Common'),
-(3, 'is_enabled', '1', 'Cash'),
-(4, 'is_enabled', '0', 'Paypal'),
-(5, 'paypal_id', '#', 'Paypal'),
-(6, 'mode', 'sandbox', 'Paypal'),
-(7, 'client', 'AbZqxwGM87-fRHI-HnG_plBoz-Z_j2OgcAKRFQzgdR4qd5dszhQXS5nk6FTPd9sw0vSSLMadISBc2_lA', 'Paypal'),
-(8, 'secret', 'EDFYQf8itbqoWi-9BIzgzrNvGWLI62UEliT1i8f_APi_MAJkteZLwnXGmTvBkBIRAVy-jCBi-PmYyNUa', 'Paypal'),
-(9, 'access_token', 'access_token$sandbox$d7852qvvw6wj277m$71ad22f88418c3a7f17d824ad0786ffc', 'Paypal'),
-(10, 'is_enabled', '0', 'Stripe'),
-(11, 'publish', 'pk_test_lQctuc2tx2IVDCSYIjiFodaz00n0TNteiG', 'Stripe'),
-(12, 'secret', 'sk_test_1tiewAwj00VlKzL7uwMPZcTN003Vk0kWl6', 'Stripe'),
-(13, 'api_version', '2019-12-03', 'Stripe'),
-(14, 'is_enabled', '0', 'Braintree'),
-(15, 'mode', 'sandbox', 'Braintree'),
-(16, 'merchant_id', 'g3dprd7kyfs7f3jr', 'Braintree'),
-(17, 'public_key', 'prwd98qgnqkdptkp', 'Braintree'),
-(18, 'private_key', 'fe3e98760ba97b6b2e01fe28379cd477', 'Braintree'),
-(19, 'tokenization_key', 'sandbox_jy9mwggn_q8v7ynjw9fssn4hy', 'Braintree'),
-(20, 'merchant_account_id', '', 'Braintree'),
-(21, 'is_web_payment', '', 'Common'),
-(22, 'is_enabled', '1', 'Paytm'),
-(23, 'paytm_merchant', 'LkWJXg58223806923015', 'Paytm'),
-(24, 'paytm_secret', 'EJETB%2pZaHB3Ra%', 'Paytm'),
-(25, 'mode', 'live', 'Paytm'),
-(26, 'mode', 'live', 'Flutterwave'),
-(27, 'public_key', 'FLWPUBK_TEST-f2a7a1ca6cdf04f4ab00d9006073ff6d-X', 'Flutterwave'),
-(28, 'secret_key', 'FLWSECK_TEST-f356353d77c4637026991ae1db0dc608-X', 'Flutterwave'),
-(29, 'encryption_key', 'FLWSECK_TEST636841ac21f2', 'Flutterwave'),
-(30, 'is_enabled', '1', 'Flutterwave'),
-(31, 'is_enabled', '1', 'Mpesa'),
-(32, 'mode', 'sandbox', 'Mpesa'),
-(33, 'consumer_key', 'sMpgnYW62glBlxPXbyTBEGdPib8eJLOL', 'Mpesa'),
-(34, 'consumer_secret', 'IcK2PkAFArVVVffU', 'Mpesa'),
-(35, 'callback_url', 'https://new.newtaxi.co/api/mpesa_callback', 'Mpesa'),
-(36, 'business_shortcode', '174379', 'Mpesa'),
-(37, 'is_enabled', '', 'Mollie'),
-(38, 'mode', '', 'Mollie'),
-(39, 'api_key', '', 'Mollie'),
-(40, 'partner_id', '', 'Mollie'),
-(41, 'profile_id', '', 'Mollie');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `payment_method`
---
-
-CREATE TABLE `payment_method` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `user_id` int(10) UNSIGNED NOT NULL,
-  `customer_id` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `intent_id` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `payment_method_id` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `brand` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `last4` varchar(5) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `payment_method`
---
-
-INSERT INTO `payment_method` (`id`, `user_id`, `customer_id`, `intent_id`, `payment_method_id`, `brand`, `last4`, `created_at`, `updated_at`) VALUES
-(1, 10004, 'cus_Li8bVOriLsvnwT', 'seti_1L0iKfJbZQ9xXEmX60Bq9lP0', 'pm_1L0iKiJbZQ9xXEmXqdqa7K2T', 'mastercard', '4444', NULL, NULL),
-(2, 10003, 'cus_Lj7WUol47sc4vV', 'seti_1L1fH0JbZQ9xXEmXRbxcELj2', 'pm_1L1fH5JbZQ9xXEmX5VqS2uby', 'mastercard', '4444', NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `payout_credentials`
---
-
-CREATE TABLE `payout_credentials` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `user_id` int(10) UNSIGNED NOT NULL,
-  `preference_id` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `default` enum('no','yes') COLLATE utf8mb4_unicode_ci NOT NULL,
-  `type` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payout_id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `payout_credentials`
---
-
-INSERT INTO `payout_credentials` (`id`, `user_id`, `preference_id`, `default`, `type`, `payout_id`, `created_at`, `updated_at`) VALUES
-(1, 10002, '1', 'yes', 'BankTransfer', '123456789', '2021-12-18 16:13:31', '2021-12-18 16:13:31'),
-(2, 10003, '2', 'yes', 'Paypal', 'admin@admin.com', '2022-11-12 07:07:08', '2022-11-12 07:07:08');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `payout_preference`
---
-
-CREATE TABLE `payout_preference` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `user_id` int(10) UNSIGNED NOT NULL,
-  `address1` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `address2` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `city` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `state` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `postal_code` varchar(25) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `country` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `payout_method` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `paypal_email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `currency_code` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `routing_number` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `account_number` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `holder_name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `holder_type` enum('Individual','Company') COLLATE utf8mb4_unicode_ci NOT NULL,
-  `document_id` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `document_image` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `additional_document_id` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `additional_document_image` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `phone_number` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `address_kanji` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `bank_name` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `bank_location` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `branch_name` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `branch_code` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `ssn_last_4` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `payout_preference`
---
-
-INSERT INTO `payout_preference` (`id`, `user_id`, `address1`, `address2`, `city`, `state`, `postal_code`, `country`, `payout_method`, `paypal_email`, `currency_code`, `routing_number`, `account_number`, `holder_name`, `holder_type`, `document_id`, `document_image`, `additional_document_id`, `additional_document_image`, `phone_number`, `address_kanji`, `bank_name`, `bank_location`, `branch_name`, `branch_code`, `ssn_last_4`, `created_at`, `updated_at`) VALUES
-(1, 10002, '', '', NULL, NULL, NULL, NULL, 'BankTransfer', '123456789', '', '', '123456789', 'SMR IT SOLUTIONS', 'Company', NULL, NULL, NULL, NULL, '', '[]', 'Demo', 'Demo', '', 'Demo', '', '2021-12-18 16:13:31', '2021-12-18 16:15:00'),
-(2, 10003, '10444', '', 'Nairobi', 'Nairobi', '2333', 'KE', 'Paypal', 'admin@admin.com', 'USD', '', '', '', 'Company', NULL, NULL, NULL, NULL, '', '[]', '', '', '', '', '', '2022-11-12 07:07:08', '2022-11-12 07:07:08');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `paytm_payments`
---
-
-CREATE TABLE `paytm_payments` (
-  `id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `payment_id` varchar(120) NOT NULL,
-  `amount` decimal(11,2) NOT NULL,
-  `pay_for` varchar(120) NOT NULL,
-  `status` enum('Pending','Paid') NOT NULL DEFAULT 'Pending',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `paytm_payments`
---
-
-INSERT INTO `paytm_payments` (`id`, `user_id`, `payment_id`, `amount`, `pay_for`, `status`, `created_at`, `updated_at`) VALUES
-(1, 10033, '6485e550883fa', '300.00', 'wallet', 'Pending', '2023-06-11 15:16:32', NULL),
-(2, 10033, '6485e683a9eb6', '100.00', 'wallet', 'Pending', '2023-06-11 15:21:39', NULL),
-(3, 10033, '6485e68ed6f4a', '5454.00', 'wallet', 'Pending', '2023-06-11 15:21:50', NULL),
-(4, 10029, '6485ee8eda470', '20.00', 'pay_to_admin', 'Pending', '2023-06-11 15:55:58', NULL),
-(5, 10029, '6485efbfae104', '65.00', 'pay_to_admin', 'Pending', '2023-06-11 16:01:03', NULL),
-(6, 10029, '6485eff04b44d', '39.00', 'pay_to_admin', 'Pending', '2023-06-11 16:01:52', NULL),
-(7, 10029, '6485f0248e783', '60.00', 'pay_to_admin', 'Pending', '2023-06-11 16:02:44', NULL),
-(8, 10029, '6485f98d38647', '20.00', 'pay_to_admin', 'Pending', '2023-06-11 16:42:53', NULL),
-(9, 10029, '6485fc7d5b840', '68.00', 'pay_to_admin', 'Pending', '2023-06-11 16:55:25', NULL),
-(10, 10029, '6485fd20bf3f6', '50.00', 'pay_to_admin', 'Pending', '2023-06-11 16:58:08', NULL),
-(11, 10035, '64860b3f9b38a', '10.00', 'wallet', 'Pending', '2023-06-11 17:58:23', NULL),
-(12, 10035, '64860b6c3ab7f', '500.00', 'wallet', 'Pending', '2023-06-11 17:59:08', NULL),
-(13, 10035, '64860bad21379', '50.00', 'wallet', 'Pending', '2023-06-11 18:00:13', NULL),
-(14, 10002, '648c6dbb84fd5', '1.00', 'pay_to_admin', 'Pending', '2023-06-16 14:12:11', NULL),
-(15, 10002, '648c716639212', '100.00', 'pay_to_admin', 'Pending', '2023-06-16 14:27:50', NULL),
-(16, 10004, '648c79931e147', '100.00', 'wallet', 'Pending', '2023-06-16 15:02:43', NULL),
-(17, 10004, '648c7a0243a28', '255.00', 'wallet', 'Pending', '2023-06-16 15:04:34', NULL),
-(18, 10004, '648c7a19da6d9', '200.00', 'wallet', 'Pending', '2023-06-16 15:04:57', NULL),
-(19, 10004, '648c7a25002c1', '555.00', 'wallet', 'Pending', '2023-06-16 15:05:09', NULL),
-(20, 10004, '648cd6532bbfb', '10.00', 'wallet', 'Pending', '2023-06-16 21:38:27', NULL);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `peak_fare_details`
 --
 
@@ -1707,15 +1431,10 @@ INSERT INTO `permissions` (`id`, `name`, `display_name`, `description`, `created
 (14, 'manage_vehicle_type', 'Manage Vehicle Type', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
 (15, 'manage_send_message', 'Manage Send Message', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
 (16, 'manage_api_credentials', 'Manage Api Credentials', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
-(17, 'manage_payment_gateway', 'Manage Payment Gateway', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
 (18, 'manage_site_settings', 'Manage Site Settings', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
 (19, 'manage_map', 'Manage Map', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
 (20, 'manage_statements', 'Manage Statements', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
 (21, 'manage_trips', 'Manage Trips', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
-(22, 'manage_wallet', 'Manage Wallet', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
-(23, 'manage_owe_amount', 'Manage Owe Amount', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
-(24, 'manage_promo_code', 'Manage Promo Code', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
-(25, 'manage_driver_payments', 'Manage Driver Payments', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
 (26, 'manage_cancel_trips', 'Manage Cancel Trips', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
 (27, 'manage_rating', 'Manage Rating', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
 (28, 'manage_fees', 'Manage Fees', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
@@ -1733,8 +1452,6 @@ INSERT INTO `permissions` (`id`, `name`, `display_name`, `description`, `created
 (40, 'manage_country', 'Manage Country', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
 (41, 'manage_heat_map', 'Manage Heat Map', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
 (42, 'manage_manual_booking', 'Manage Manual Booking', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
-(43, 'manage_company_payment', 'Manage Company Payment', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
-(44, 'manage_payments', 'Manage Payments', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
 (45, 'manage_vehicle', 'Manage Vehicle', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
 (46, 'manage_referral_settings', 'Manage Referral Settings', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
 (47, 'manage_rider_referrals', 'Manage Rider Referrals', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
@@ -1927,23 +1644,6 @@ INSERT INTO `profile_picture` (`user_id`, `src`, `photo_source`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `promo_code`
---
-
-CREATE TABLE `promo_code` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `amount` int(11) NOT NULL,
-  `currency_code` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `expire_date` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status` enum('Active','Inactive') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Active',
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `rating`
 --
 
@@ -2041,7 +1741,6 @@ CREATE TABLE `request` (
   `car_id` int(10) UNSIGNED NOT NULL,
   `group_id` int(11) DEFAULT NULL,
   `driver_id` int(10) UNSIGNED NOT NULL,
-  `payment_mode` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Credit Card',
   `schedule_id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Null',
   `location_id` int(10) UNSIGNED NOT NULL,
   `additional_fare` enum('Peak') COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -2054,21 +1753,6 @@ CREATE TABLE `request` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `request`
---
-
-INSERT INTO `request` (`id`, `user_id`, `seats`, `pickup_latitude`, `pickup_longitude`, `drop_latitude`, `drop_longitude`, `pickup_location`, `drop_location`, `car_id`, `group_id`, `driver_id`, `payment_mode`, `schedule_id`, `location_id`, `additional_fare`, `peak_fare`, `additional_rider`, `timezone`, `trip_path`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 10001, 0, '19.1438971', '72.8427707', '19.1178548', '72.8631304', 'Jogeshwari West, Mumbai, Maharashtra, India', 'Andheri East, Mumbai, Maharashtra, India', 3, 1, 10002, 'Cash & Wallet', '', 2, '', '0', '75', 'Asia/Kolkata', 'g`zsBmbr{LlDa@RKjAOrDc@rFg@n@Wd@Yh@e@JUJa@B_@Ia@Kw@Eq@?gBRcCj@uHLcBRe@JmAd@gDH{@Bo@Ey@SoAWgAmAeE}@uBiAcD]wAOy@QcAMc@hAA`IUxBE~@HbBCbACv@Aza@o@vKM|FAbCI|@M`A[rDcB|B}@dASdAMlAAj@@hFt@zEp@fEn@pBTl@GfALvCXD?HEP?zBT\\DFJpDTx@cBt@kBZk@dAoBj@aBLw@ZiCF{@P{EgAu@MMaAaB}@sBq@aBc@s@Ya@a@[_Ac@yBy@WSKIAA', 'Accepted', '2021-12-18 21:26:47', '2021-12-18 15:58:09', NULL),
-(2, 10001, 0, '19.1438971', '72.8427707', '19.1178548', '72.8631304', 'Jogeshwari, Mumbai, Maharashtra, India', 'Andheri East, Mumbai, Maharashtra, India', 3, 2, 10002, 'Cash & Wallet', '', 2, '', '0', '75', 'Asia/Kolkata', 'g`zsBmbr{LlDa@RKjAOrDc@rFg@n@Wd@Yh@e@JUJa@B_@Ia@Kw@Eq@?gBRcCj@uHLcBRe@JmAd@gDH{@Bo@Ey@SoAWgAmAeE}@uBiAcD]wAOy@QcAMc@hAA`IUxBE~@HbBCbACv@Aza@o@vKM|FAbCI|@M`A[rDcB|B}@dASdAMlAAj@@hFt@zEp@fEn@pBTl@GfALvCXD?HEP?zBT\\DFJpDTx@cBt@kBZk@dAoBj@aBLw@ZiCF{@P{EgAu@MMaAaB}@sBq@aBc@s@Ya@a@[_Ac@yBy@WSKIAA', 'Accepted', '2021-12-18 23:02:05', '2021-12-18 17:33:46', NULL),
-(3, 10004, 0, '-0.7269114', '37.1610938', '-1.3230381', '36.703815899999995', '75F6+77P, Murang\'a, Kenya', 'PR35+G42, Ngong Rd, Nairobi, Kenya', 1, 3, 10003, 'Stripe', '', 3, '', '0', '75', 'Africa/Nairobi', '', 'Accepted', '2022-05-18 08:09:30', '2022-05-18 05:34:23', NULL),
-(4, 10004, 0, '-0.728249', '37.1582974', '-1.2962358999999999', '36.8077602', '75F5+5GC, Murang\'a, Kenya', 'Nairobi hospital, Ngong Road, Nairobi, Kenya', 1, 4, 10003, 'Cash', '', 3, '', '0', '75', 'Africa/Nairobi', 'remConxaFcBvNvAfEl@x@d@Zl@dABjBi@`BJpA\\zAI`@n@x@t@f@nFdHxEbEpF|AjDJpFs@pE{BbBgBnCkFbIcR`FiYLgIFkA|@iDbGaG`KkFvKsDhDYhCd@rCxCfFbNtAfKf@tN\\jI`@nBdAdBvBrAnEj@jM^pCg@|BkAlDyDfB_AnCKxF|ArE^tVsA|HGxGj@pG|AlTnJvCpBnFhItHfHnDtCjDdFhDnIpB`D`DlDpFbE`LlEhK|DbFlElEpGtFrHjHdF~FvBjHjAbILfGe@jKsCbPwFtYeK|PeG|JeCjHg@fILfb@hBzVdAbMjAnP|EfJ`BnGl@hMZxSk@jw@yDlLm@`KeBxYaIdI{AtDWdKLhH^va@vBxKV`OuB`a@cCfCL`Ct@rBzAjBpC`MpUlG|LpCtCfKjGzIhFfCjBbD|DtCnI|AvG|BfCdIlCrI`CpE|BnDfEdFrIlI~F|HfBtENnIaAlKsC~VaHbNcD|KOnKKnJkCrIuG~HaHtCsAbCe@|MPlMp@~PrAxSzEdf@~LnE^|Dc@|L}ClEw@zALzAr@jCpEhDvC|CbC~E|FpFvHtGrFtKvEnRdHzMfIjGxFxJzLlItPdEtLzCtHhFdI|KdK|EtCrJxDzJjBjMnAzSnCbHrBpKnFfOpKbIbFtNtL|DrD|JvGvMbFtWvGvL|EvFpCzO|GfKlD|KhFnUhP`]zM~X~KrKhI~J~IlJxGdQxGjIlAdY_@fIj@|OjExPzFzdAr]`]|Iv\\hIzTpG`\\zOlXnN`_@rRjS`M`TpPtSdStLdK~FvFvCbEvHtKpN~Rp\\f`@fUzVtRxShIhFlNvDnVhFfItBdHlDpEnDtV~YdR~TpClDdDdGbBlGl@fHNba@l@xNzAhRnAhK~Fl]pCnNfBbFzApCzFtGbVhNjRfKnHdGlIlK~EdElGrBdh@xLzo@jNjRfEhIhExExEpDnGtGjN|LlWnFpIjRnR~]bZjWjVndAlaAr^d]jKlIpPfOxMdM~DvE|BvFlCbLjIf^bJ|^vDfHbHpIfTzVjUrShQ|Vpa@tl@hPpTzDfE~DpCzKdExVhItDjBhJrI|V`VlZxYbKnKbKtN`ClH`@tTRlG~@dE|A`ExEdMnD~HzBvChHlLlJzPzFzFrOvLhO~XvPpW~EhGhErA`B`Bx@~AbBZ|Am@nBEx@\\pAzADh@k@bBjClG?tCdF|LxBhFj@E`LeErLqF`Aa@^|@At@hHbRxEnMTdChBdGtExKtFbMt@^hJyDvB_ANIFAt@SxFsBh@s@o@gB', 'Accepted', '2022-05-20 15:30:12', '2022-05-20 12:30:26', NULL),
-(5, 10004, 0, '-1.4922531', '36.9568555', '-1.334992', '36.6726212', 'GX54+3PC, Athi River, Kenya', 'PR35+G42, Ngong Rd, Nairobi, Kenya', 1, 5, 10002, 'Flutterwave', '', 3, '', '0', '75', 'Africa/Nairobi', 'dnbHidq`Fb@VKNQXRLj@Hp@`@mAdBkAvBm@lA`@JJNBD@H{CIi@Au@CaLu@sJgAaDc@iJyAkHaB}JsBmTqEeZoGyLyB_PqDkLuCyGmBaGsBmVwJyOmGkLmEmDgAgBg@aIqAyE_@cJQwE?sFLwBDeEEyRcAwC@cDl@aBx@oAz@w@f@}CvA}Cv@gFd@i@FiDHkBVeBfAqEnB}CdBiCvBgCfCw@`A}@zA_ApAoFxGqLxLwJjIgGtEiFhDiGnDwTdKmh@hUqV|KoLdFmSbJiDpA_@DiCjA{ExBcE`BsIbEmNfHaJhFyJ`GqH~EePjLaHvFeEbD{I~HmK|JmCnCcFlFkFfGqLrN}KlM_Xz[iTlWyFfGuC`CwEvCcJrDaDz@k]hG_KbB}MbCuI~BiEfB{At@yAdAaF~DcE~D{J`KaSfSwErEcHlHuJpKcXl[cChD}@xAy@|A_C~Hm@pEQlIX|Ht@bMdC`]jDdf@vAbTl@lJ@tGk@~F_AbEqD~IKj@kBhEwLpVw@vAuEnJ@pAl@lAj@v@^~@FjBBfAT~APv@jAnCTb@`A|BfBdHpAbMpAvL|BbShBjQx@tHh@pChAlE`E`I`C~FX`Ar@hENhDCtCWhDaBnKQjDFtCb@rEnBfSLdJSbYOjM_@bFaApE{@dCaCnE{JdMkGjI_KjOyCfDuEhDcG`EmDpBsIxF}DpCcC`CqBzCi@nAiAzD]rBQvB@lDn@jGpAfJZzDDhF[dH]~BqArGc@jCYbEB`D\\pDl@dC^`AbBfDzCtDlC`CbD~DfAxBr@rBl@`DRjDFbHNlD`@jCXjAjAzCrD|FpBzChAhCj@vBh@nD`AxKtB|WxAnQf@rH?zBU~CQrAcErMoKrZ}@|AcBxBoDdDqR|OoIzGqE|BuCx@gJ`ByC|@uAv@oCzBgAnAOb@Ih@LjAfAfBPt@@x@Qt@y@dAiAnAOv@?XAv@Vl@HNZn@`@j@nAtAtC`DzB|BdApAbClD`AtAbC`DdKhMpKhMrC~CbC`Dn@jA\\xA~AfIxC`Oz@nEx@`DH@NVALDf@fAxDhApENz@pDrL|B~H~@nJtBjTXjBFpAAxB]fCFv@h@bA`BbAxCz@l@f@^h@VbAFdBPpAVt@xA`BfB~AtAnBf@dBRvANlFE~@Yv@kAfA}C~B[h@W`ACb@J~@fFbP|BzGlEbMvBzFtAxBrBnC|A`BjCpBbBpAtAjAjAdA', 'Cancelled', '2023-06-17 04:51:09', '2023-06-17 04:53:10', NULL),
-(6, 10004, 0, '-1.4922531', '36.9569106', '-1.334992', '36.6726212', 'GX54+3PC, Athi River, Kenya', 'PR35+G42, Ngong Rd, Nairobi, Kenya', 1, 6, 10002, 'Flutterwave', '', 3, '', '0', '75', 'Africa/Nairobi', '~mbHmdq`Fh@Z]h@zAb@TTKNm@|@oApBe@dAWd@XDLJ@BHTmFMgHc@eIs@{Fu@wF{@eI{AqMoCoU}EgWqFwGmAsHyAkN}CmLsCkFwAiGqBeU}IiSkIcLkEaDeAuG{AmIeAkJSyFGoEHmHJ_TcAqAGaB?eDj@qAh@iBhAwDvB}Cx@sC\\aFd@eDFc@HuBlAyCpAmE`CiCrBgChCQHoAnBy@rAgGtH_HjHeLhKsGdFcFlDkHhEaJrE{q@lZwT`KeP|GcLdF{I~DiBn@I?o@PyFrCeE|AcKzE}J`FyMpHuOlJ_OdK}JrHeH|FkHpG_LhKuCvCmI`JoMfOsg@pm@iOrQgKzLmCfCsCtByCfBeDzA{FnB_QdDkYbFcMxByFpAaH|BiFtCqCtBqDjDqDzDuHlHsPzP{EvEsF|FuEtEoD~DaZp]}DlFkBfD_B~Ey@xD]jFIxBBhDJhCBb@x@rNh@nGt@|KlEln@~Bz[PdIUdFs@~EoAfEiCbGCXmMvXoCdFqCrFgA~BAZ@j@Vx@v@dAh@bAHv@JxDb@zBzAxCr@|AnAbEz@dFf@dFxAhNbBbOvArNdBtOt@lE^nBpBbFnAzB`BfDdB`Fd@~B\\|EIjFi@pEw@nEa@nE?jCN|BhCzWJzFQd\\IjKSjEs@xE{@vCiBbEuCfEkEhFaFtGgMbRkCjDoExDaHjEaBjAcI`F}F|DkCvBiC`Ds@lAyApEa@pBSxBGfCF|BTzBzAjKb@hEHxFI`Ec@tEmCvNMhD?jBZnDl@`D~@`CfBzC|BjCvAnAlAhArAzAlBfDb@~@`AtD`@|EDzCHnGTvBXzAn@vBrAtCr@hA`DpEjBvDjApEpAnNjBtUbBtS\\tDNfEI~CY|B_@dBiAjDsEfNqFzOgAbCmAfBwA~AkBbBqBbBkNfLwGrFeChBmBdAqDpAwIzAeEfA_Ab@eBlAqClCUf@Kd@Aj@Jh@z@rA\\~@Bx@Kv@q@dA}@t@Yb@Ml@C|Al@rAvAlBvDhEdAdApBrBnBxChA~A`BvBvBtCrG`IjJ|KhEbF~CzDv@lAV~@fBdJdCxLnArG|@lDFBPRAN@^t@fC~AdGB`@xDjM|BzH`ApJlB|Rh@xE@hC_@fCBt@^bAn@l@p@\\dDbAd@Z`@h@\\fAHzAJrAVx@f@t@n@n@`BzAzAlBh@`BXhBJjC@lCU`Ay@|@iDbCg@t@Uv@Eb@D~@d@fBbE`MpB`GzDzK|BxGhAtBpCvDr@x@rBfBpCtBvAhAdB|A', 'Accepted', '2023-06-17 04:53:10', '2023-06-17 01:53:14', NULL),
-(7, 10004, 0, '-1.4850465', '36.9509603', '-1.334992', '36.6726212', 'GX82+6GP, Old Namanga Rd, Athi River, Kenya', 'PR35+G42, Ngong Rd, Nairobi, Kenya', 1, 7, 10002, 'Mpesa', '', 3, '', '0', '75', 'Africa/Nairobi', 'h`aHe~o`FSKIEJcBBEDIC[LeAtAwCH_@i@CsBKqBKYAIOQ]AwADyCAMQKaAOEIKOEM^o@FGS[g@Wx@{B_ASgCk@kDu@HUu@OcH{AeCg@eHyAgWqFwGmAsHyAkN}CmLsCkFwAiGqBeU}IiSkIcLkEaDeAuG{AmIeAkJSyFGoEHmHJ_TcAqAGaB?eDj@qAh@iBhAwDvB}Cx@sC\\aFd@eDFc@HuBlAyCpAmE`CiCrBgChCQHoAnBy@rAgGtH_HjHeLhKsGdFcFlDkHhEaJrE{q@lZwT`KeP|GcLdF{I~DiBn@I?o@PyFrCeE|AcKzE}J`FyMpHuOlJ_OdK}JrHeH|FkHpG_LhKuCvCmI`JoMfOsg@pm@iOrQgKzLmCfCsCtByCfBeDzA{FnB_QdDkYbFcMxByFpAaH|BiFtCqCtBqDjDqDzDuHlHsPzP{EvEsF|FuEtEoD~DaZp]}DlFkBfD_B~Ey@xD]jFIxBBhDJhCBb@x@rNh@nGt@|KlEln@~Bz[PdIUdFs@~EoAfEiCbGCXmMvXoCdFqCrFgA~BAZ@j@Vx@v@dAh@bAHv@JxDb@zBzAxCr@|AnAbEz@dFf@dFxAhNbBbOvArNdBtOt@lE^nBpBbFnAzB`BfDdB`Fd@~B\\|EIjFi@pEw@nEa@nE?jCN|BhCzWJzFQd\\IjKSjEs@xE{@vCiBbEuCfEkEhFaFtGgMbRkCjDoExDaHjEaBjAcI`F}F|DkCvBiC`Ds@lAyApEa@pBSxBGfCF|BTzBzAjKb@hEHxFI`Ec@tEmCvNMhD?jBZnDl@`D~@`CfBzC|BjCvAnAlAhArAzAlBfDb@~@`AtD`@|EDzCHnGTvBXzAn@vBrAtCr@hA`DpEjBvDjApEpAnNjBtUbBtS\\tDNfEI~CY|B_@dBiAjDsEfNqFzOgAbCmAfBwA~AkBbBqBbBkNfLwGrFeChBmBdAqDpAwIzAeEfA_Ab@eBlAqClCUf@Kd@Aj@Jh@z@rA\\~@Bx@Kv@q@dA}@t@Yb@Ml@C|Al@rAvAlBvDhEdAdApBrBnBxChA~A`BvBvBtCrG`IjJ|KhEbF~CzDv@lAV~@fBdJdCxLnArG|@lDFBPRAN@^t@fC~AdGB`@xDjM|BzH`ApJlB|Rh@xE@hC_@fCBt@^bAn@l@p@\\dDbAd@Z`@h@\\fAHzAJrAVx@f@t@n@n@`BzAzAlBh@`BXhBJjC@lCU`Ay@|@iDbCg@t@Uv@Eb@D~@d@fBbE`MpB`GzDzK|BxGhAtBpCvDr@x@rBfBpCtBvAhAdB|A', 'Cancelled', '2023-06-17 05:59:11', '2023-06-17 05:59:21', NULL),
-(8, 10004, 0, '-1.4850465', '36.9509603', '-1.2962375', '36.807765599999996', 'GX82+6GP, Old Namanga Rd, Athi River, Kenya', 'PR35+G42 Ngong, Kenya', 1, 8, 10002, 'Mpesa', '', 3, '', '0', '75', 'Africa/Nairobi', 'h`aHe~o`FSKIEJcBBEDIC[?WLm@tAwCH_@i@CsBKqBKYAIOQ]CO@gA@oBBi@AMQKaAI?EEIKOEM^o@FGS[g@Wn@sBHG_ASgCk@kDu@HUu@OcH{AeCg@wBa@mDw@iCg@kFkAqK}BqFgAe@EsHyAkN}CeCo@gHcBkFwAiGqB}QkHgBq@iEiB_DoA_HqC}B}@sD{AqBq@aDeA}A_@w@W_Cc@sEq@yBSeCIeFIyEG_@?oEHoCH}C@aEQoBMiCIcFYqAGk@Cu@B_AJeB^c@Lm@ZiBhAe@ZgAp@iAh@}Cx@_BVs@DcD\\}@FaCBc@Bc@Hq@\\cAn@_@PODiBx@cCjAiAt@oA|@y@t@mAlAy@z@QHoAnBy@rAgGtH}CjDaC~BkGbGyCdCsGdFcFlDkHhEiDjBwDfBs\\`OgTjJyNxG}DfBqEnBsIlDeElB}EvB{I~DeBr@CCA?G?o@PyFrCeE|AcKzE}J`FmGhDkEfCiFzCkHpE_OdK}JrHwBlBsB`By@l@mAdA}EjEsAjAkI|HcAbAOTaA|@mBnBcDjD{@dAeFzFiFjGqClDmCvCyDvEyXr\\iOrQ{E~FkDzDmCfCsCtByCfBeDzA{FnBcBb@sJdBgBZkYbFcMxByFpAeF`B{@ZmAn@oAn@kAt@ST}B~AaBzAoAnA_C`Cq@x@uHlHsPzPoDnDk@f@sF|FuEtEoD~DuNrPkJ|KuBhCgAbBeAdBe@`A_B~Ea@`BWvAUxBGpBIxBBhDJhCBb@XtE^|GN`CXlCt@|KlEln@|@lM^xF`@rEJxCDjDChBQzBYbCYzAe@fBi@~AiCbG]h@eEtIgA`C_B~CkD|GkD~G_C`FiBlDoMxWoCbFM`@gBnDmExImCrFiD~Go@hAARSj@}@lCI`@K`@c@nBWt@e@hA_A|A]h@}AnBcDtCYPO@_Az@uBxAoBfAmEhBeGxBgHhCyNfFwHhCiBn@u@^c@\\AJELURMDQ@OAMEe@B}PlGsG~Be@XELGHMFOfACz@CZMjAc@jCe@vD@JSd@CL@B@HAJCDOBEA_DbA{CbAw@\\ORMROf@[bBMb@UT[PwAb@oAz@o@r@_@b@{@`BKb@?b@@v@K^UXs@`@qB`AMRIDIJQ`@LbAJ^PZRPZPn@Zf@f@RZL^Pn@\\vAd@fCJ`AD~@DzA?pF@jABj@N^Vb@h@n@tAtAz@|AZv@z@dBS@]JFWBUq@{A', 'Cancelled', '2023-06-17 07:50:58', '2023-06-17 07:51:09', NULL),
-(9, 10004, 0, '-1.4850448', '36.9510505', '-1.334992', '36.6726212', 'GX82+6GP, Old Namanga Rd, Athi River, Kenya', 'PR35+G42, Ngong Rd, Nairobi, Kenya', 1, 9, 10002, 'Mpesa', '', 3, '', '0', '75', 'Africa/Nairobi', '``aHi~o`FKGIEJcBBEDIC[LeAtAwCH_@i@CsBKqBKYAIOQ]AwADyCAMQKaAOEIKOEM^o@FGS[g@Wx@{B_ASgCk@kDu@HUu@OcH{AeCg@eHyAgWqFwGmAsHyAkN}CmLsCkFwAiGqBeU}IiSkIcLkEaDeAuG{AmIeAkJSyFGoEHmHJ_TcAqAGaB?eDj@qAh@iBhAwDvB}Cx@sC\\aFd@eDFc@HuBlAyCpAmE`CiCrBgChCQHoAnBy@rAgGtH_HjHeLhKsGdFcFlDkHhEaJrE{q@lZwT`KeP|GcLdF{I~DiBn@I?o@PyFrCeE|AcKzE}J`FyMpHuOlJ_OdK}JrHeH|FkHpG_LhKuCvCmI`JoMfOsg@pm@iOrQgKzLmCfCsCtByCfBeDzA{FnB_QdDkYbFcMxByFpAaH|BiFtCqCtBqDjDqDzDuHlHsPzP{EvEsF|FuEtEoD~DaZp]}DlFkBfD_B~Ey@xD]jFIxBBhDJhCBb@x@rNh@nGt@|KlEln@~Bz[PdIUdFs@~EoAfEiCbGCXmMvXoCdFqCrFgA~BAZ@j@Vx@v@dAh@bAHv@JxDb@zBzAxCr@|AnAbEz@dFf@dFxAhNbBbOvArNdBtOt@lE^nBpBbFnAzB`BfDdB`Fd@~B\\|EIjFi@pEw@nEa@nE?jCN|BhCzWJzFQd\\IjKSjEs@xE{@vCiBbEuCfEkEhFaFtGgMbRkCjDoExDaHjEaBjAcI`F}F|DkCvBiC`Ds@lAyApEa@pBSxBGfCF|BTzBzAjKb@hEHxFI`Ec@tEmCvNMhD?jBZnDl@`D~@`CfBzC|BjCvAnAlAhArAzAlBfDb@~@`AtD`@|EDzCHnGTvBXzAn@vBrAtCr@hA`DpEjBvDjApEpAnNjBtUbBtS\\tDNfEI~CY|B_@dBiAjDsEfNqFzOgAbCmAfBwA~AkBbBqBbBkNfLwGrFeChBmBdAqDpAwIzAeEfA_Ab@eBlAqClCUf@Kd@Aj@Jh@z@rA\\~@Bx@Kv@q@dA}@t@Yb@Ml@C|Al@rAvAlBvDhEdAdApBrBnBxChA~A`BvBvBtCrG`IjJ|KhEbF~CzDv@lAV~@fBdJdCxLnArG|@lDFBPRAN@^t@fC~AdGB`@xDjM|BzH`ApJlB|Rh@xE@hC_@fCBt@^bAn@l@p@\\dDbAd@Z`@h@\\fAHzAJrAVx@f@t@n@n@`BzAzAlBh@`BXhBJjC@lCU`Ay@|@iDbCg@t@Uv@Eb@D~@d@fBbE`MpB`GzDzK|BxGhAtBpCvDr@x@rBfBpCtBvAhAdB|A', 'Accepted', '2023-06-17 07:52:50', '2023-06-17 04:52:57', NULL);
 
 -- --------------------------------------------------------
 
@@ -2087,16 +1771,6 @@ CREATE TABLE `rider_location` (
   `work_longitude` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `latitude` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `longitude` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `rider_location`
---
-
-INSERT INTO `rider_location` (`id`, `user_id`, `home`, `work`, `home_latitude`, `home_longitude`, `work_latitude`, `work_longitude`, `latitude`, `longitude`) VALUES
-(1, 10001, 'Nairobi, Kenya', 'Mombasa, Kenya', '-1.2920659', '36.8219462', '-4.0434771', '39.6682065', '19.14430794923723', '72.83747524023056'),
-(2, 10004, 'PR35+G42, Ngong Rd, Nairobi, Kenya', 'Murang\'a, Kenya', '-1.2962359', '36.8077602', '-0.7236857999999999', '37.1606968', '43.07034264312149', '47.338916435837746');
-
 -- --------------------------------------------------------
 
 --
@@ -2182,9 +1856,7 @@ CREATE TABLE `schedule_ride` (
   `driver_id` int(11) NOT NULL DEFAULT '0',
   `status` enum('Pending','Completed','Cancelled','Car Not Found') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `timezone` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payment_method` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `fare_estimation` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `is_wallet` enum('Yes','No') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2347,7 +2019,6 @@ CREATE TABLE `site_settings` (
 
 INSERT INTO `site_settings` (`id`, `name`, `value`) VALUES
 (1, 'site_name', 'NewTaxi'),
-(2, 'payment_currency', 'USD'),
 (3, 'version', '1.0'),
 (4, 'logo', 'logo.png'),
 (5, 'page_logo', 'page_logo.png'),
@@ -2460,65 +2131,6 @@ INSERT INTO `toll_reasons` (`id`, `reason`, `status`) VALUES
 
 -- --------------------------------------------------------
 
---
--- Table structure for table `transactions`
---
-
-CREATE TABLE `transactions` (
-  `id` int(11) NOT NULL,
-  `user_id` varchar(120) NOT NULL,
-  `payment_id` varchar(120) NOT NULL,
-  `amount` decimal(11,2) NOT NULL,
-  `currency` varchar(120) NOT NULL,
-  `pay_for` varchar(120) NOT NULL,
-  `payment_type` varchar(120) NOT NULL,
-  `transaction_id` varchar(255) DEFAULT NULL,
-  `payment_desc` varchar(255) DEFAULT NULL,
-  `status` enum('Pending','Paid','Failed') NOT NULL DEFAULT 'Pending',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `transactions`
---
-
-INSERT INTO `transactions` (`id`, `user_id`, `payment_id`, `amount`, `currency`, `pay_for`, `payment_type`, `transaction_id`, `payment_desc`, `status`, `created_at`, `updated_at`) VALUES
-(20, '10002', 'ws_CO_17062023035346773748977926', '1.00', 'USD', 'pay_to_admin', 'mpesa', NULL, NULL, 'Pending', '2023-06-17 00:52:32', NULL),
-(21, '10002', 'ws_CO_17062023035845402748977926', '1.00', 'USD', 'pay_to_admin', 'mpesa', NULL, NULL, 'Failed', '2023-06-17 00:58:14', '2023-06-17 00:58:23'),
-(22, '10002', 'ws_CO_17062023041952066748977926', '1.00', 'USD', 'pay_to_admin', 'mpesa', NULL, NULL, 'Failed', '2023-06-17 01:18:38', '2023-06-17 01:18:46'),
-(23, '10002', 'ws_CO_17062023042243870748977926', '1.00', 'USD', 'pay_to_admin', 'mpesa', NULL, NULL, 'Failed', '2023-06-17 01:21:29', '2023-06-17 01:21:38'),
-(24, '10002', 'ws_CO_17062023042352123748977926', '1.00', 'USD', 'pay_to_admin', 'mpesa', NULL, NULL, 'Failed', '2023-06-17 01:22:38', '2023-06-17 01:22:45'),
-(25, '10002', 'ws_CO_17062023043610882748977926', '1.00', 'USD', 'pay_to_admin', 'mpesa', NULL, NULL, 'Pending', '2023-06-17 01:34:56', NULL),
-(26, '10002', 'ws_CO_17062023043843762748977926', '1.00', 'USD', 'pay_to_admin', 'mpesa', 'RFH795RQRN', NULL, 'Paid', '2023-06-17 01:37:29', '2023-06-17 01:37:42'),
-(27, '10002', 'ws_CO_17062023044251265748977926', '1.00', 'USD', 'pay_to_admin', 'mpesa', 'RFH495SWG4', NULL, 'Paid', '2023-06-17 01:42:20', '2023-06-17 01:42:33'),
-(28, '10002', 'ws_CO_17062023044856408748977926', '10.00', 'USD', 'pay_to_admin', 'mpesa', NULL, 'The balance is insufficient for the transaction.', 'Failed', '2023-06-17 01:47:42', '2023-06-17 01:47:49'),
-(29, '10002', 'ws_CO_17062023045430289748977926', '1.00', 'USD', 'pay_to_admin', 'mpesa', NULL, 'Request cancelled by user', 'Failed', '2023-06-17 01:53:59', '2023-06-17 01:54:23'),
-(30, '10002', 'rave648d1ac59b6d8', '20.00', 'USD', 'pay_to_admin', 'flutterwave', NULL, NULL, 'Pending', '2023-06-17 02:30:29', NULL),
-(31, '10002', 'rave648d1cf1131a9', '10.00', 'USD', 'pay_to_admin', 'flutterwave', NULL, NULL, 'Pending', '2023-06-17 02:39:45', NULL),
-(32, '10002', 'rave648d1d4279a9a', '20.00', 'USD', 'pay_to_admin', 'flutterwave', NULL, NULL, 'Pending', '2023-06-17 02:41:06', NULL),
-(33, '10002', 'rave648d301ceab76', '9.00', 'USD', 'pay_to_admin', 'flutterwave', NULL, NULL, 'Pending', '2023-06-17 04:01:32', NULL),
-(34, '10002', 'rave648d335e0c874', '5.00', 'USD', 'pay_to_admin', 'flutterwave', 'RV31686975373940266CD73DA2', 'successful', 'Paid', '2023-06-17 04:15:26', '2023-06-17 04:16:25'),
-(35, '10004', 'ws_CO_17062023073500824700207417', '1.00', 'USD', 'wallet', 'mpesa', 'RFH699VOPI', 'The service request is processed successfully.', 'Paid', '2023-06-17 04:34:29', '2023-06-17 04:34:42'),
-(36, '10004', 'ws_CO_17062023074027084797049288', '1.00', 'USD', 'wallet', 'mpesa', NULL, NULL, 'Pending', '2023-06-17 04:39:12', NULL),
-(37, '10004', 'ws_CO_17062023074114708700207417', '1.00', 'USD', 'wallet', 'mpesa', NULL, 'Request cancelled by user', 'Failed', '2023-06-17 04:40:43', '2023-06-17 04:41:03'),
-(38, '10004', 'rave648d39f3e6652', '5.00', 'USD', 'wallet', 'flutterwave', 'RV3168697709206043D0C09AC9', 'successful', 'Paid', '2023-06-17 04:43:31', '2023-06-17 04:45:03'),
-(39, '10004', 'rave648d3a70d1641', '100.00', 'USD', 'wallet', 'flutterwave', 'RV31686977191106781FD9EF7D', 'successful', 'Paid', '2023-06-17 04:45:36', '2023-06-17 04:46:38'),
-(40, '10002', 'ws_CO_17062023082459769748977926', '10.00', 'USD', 'pay_to_admin', 'mpesa', NULL, NULL, 'Pending', '2023-06-17 05:23:45', NULL),
-(41, '10002', 'ws_CO_17062023082616709748977926', '1.00', 'USD', 'pay_to_admin', 'mpesa', NULL, NULL, 'Pending', '2023-06-17 05:25:02', NULL),
-(42, '10002', 'ws_CO_17062023082809415748977926', '10.00', 'USD', 'pay_to_admin', 'mpesa', NULL, NULL, 'Pending', '2023-06-17 05:27:38', NULL),
-(43, '10002', '', '8.00', 'USD', 'pay_to_admin', 'mpesa', NULL, NULL, 'Pending', '2023-06-17 05:37:24', NULL),
-(44, '10002', '', '1.00', 'USD', 'pay_to_admin', 'mpesa', NULL, NULL, 'Pending', '2023-06-17 05:46:22', NULL),
-(46, '10002', 'ws_CO_17062023085136826748977926', '1.00', 'USD', 'pay_to_admin', 'mpesa', NULL, 'The balance is insufficient for the transaction.', 'Failed', '2023-06-17 05:51:05', '2023-06-17 05:51:12'),
-(47, '10002', 'ws_CO_17062023085245315748977926', '1.00', 'USD', 'pay_to_admin', 'mpesa', 'RFH29FKJ3Q', 'The service request is processed successfully.', 'Paid', '2023-06-17 05:51:31', '2023-06-17 05:51:42'),
-(48, '10004', 'ws_CO_17062023101857623797049288', '100.00', 'USD', 'wallet', 'mpesa', NULL, 'Request cancelled by user', 'Failed', '2023-06-17 07:17:43', '2023-06-17 07:17:53'),
-(49, '10004', 'ws_CO_17062023101934963797049288', '1.00', 'USD', 'wallet', 'mpesa', NULL, NULL, 'Pending', '2023-06-17 07:18:20', NULL),
-(50, '10004', 'ws_CO_17062023102001612797049288', '1.00', 'USD', 'wallet', 'mpesa', NULL, NULL, 'Pending', '2023-06-17 07:18:47', NULL),
-(51, '10004', 'ws_CO_17062023102021948797049288', '1.00', 'USD', 'wallet', 'mpesa', 'RFH19NC7RX', 'The service request is processed successfully.', 'Paid', '2023-06-17 07:19:07', '2023-06-17 07:19:18');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `trips`
 --
 
@@ -2568,7 +2180,6 @@ CREATE TABLE `trips` (
   `begin_trip` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `end_trip` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `paykey` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payment_mode` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Braintree',
   `is_calculation` enum('1','0') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
   `currency_code` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
   `fare_estimation` text COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -2577,13 +2188,6 @@ CREATE TABLE `trips` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `trips`
---
-
-INSERT INTO `trips` (`id`, `user_id`, `pool_id`, `pickup_latitude`, `pickup_longitude`, `drop_latitude`, `drop_longitude`, `pickup_location`, `drop_location`, `car_id`, `request_id`, `driver_id`, `trip_path`, `map_image`, `seats`, `total_time`, `total_km`, `time_fare`, `distance_fare`, `base_fare`, `additional_rider`, `additional_rider_amount`, `peak_fare`, `peak_amount`, `driver_peak_amount`, `schedule_fare`, `access_fee`, `tips`, `waiting_charge`, `toll_reason_id`, `toll_fee`, `wallet_amount`, `promo_amount`, `subtotal_fare`, `total_fare`, `driver_payout`, `driver_or_company_commission`, `owe_amount`, `remaining_owe_amount`, `applied_owe_amount`, `to_trip_id`, `arrive_time`, `begin_trip`, `end_trip`, `paykey`, `payment_mode`, `is_calculation`, `currency_code`, `fare_estimation`, `status`, `otp`, `created_at`, `updated_at`) VALUES
-
 -- --------------------------------------------------------
 
 --
@@ -2905,27 +2509,6 @@ ALTER TABLE `driver_location`
   ADD KEY `driver_location_status_latitude_longitude_index` (`status`,`latitude`,`longitude`);
 
 --
--- Indexes for table `driver_owe_amounts`
---
-ALTER TABLE `driver_owe_amounts`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `driver_owe_amounts_user_id_foreign` (`user_id`);
-
---
--- Indexes for table `driver_owe_amount_payments`
---
-ALTER TABLE `driver_owe_amount_payments`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `driver_owe_amount_payments_user_id_foreign` (`user_id`);
-
---
--- Indexes for table `driver_payment`
---
-ALTER TABLE `driver_payment`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `driver_payment_driver_id_foreign` (`driver_id`);
-
---
 -- Indexes for table `email_settings`
 --
 ALTER TABLE `email_settings`
@@ -3082,26 +2665,6 @@ ALTER TABLE `password_resets`
   ADD KEY `password_resets_token_index` (`token`);
 
 --
--- Indexes for table `payment`
---
-ALTER TABLE `payment`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `payment_trip_id_foreign` (`trip_id`);
-
---
--- Indexes for table `payment_gateway`
---
-ALTER TABLE `payment_gateway`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `payment_method`
---
-ALTER TABLE `payment_method`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `payment_method_user_id_foreign` (`user_id`);
-
---
 -- Indexes for table `payout_credentials`
 --
 ALTER TABLE `payout_credentials`
@@ -3112,12 +2675,6 @@ ALTER TABLE `payout_credentials`
 -- Indexes for table `payout_preference`
 --
 ALTER TABLE `payout_preference`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `paytm_payments`
---
-ALTER TABLE `paytm_payments`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -3156,13 +2713,6 @@ ALTER TABLE `pool_trips`
 --
 ALTER TABLE `profile_picture`
   ADD UNIQUE KEY `profile_picture_user_id_unique` (`user_id`);
-
---
--- Indexes for table `promo_code`
---
-ALTER TABLE `promo_code`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `promo_code_currency_code_foreign` (`currency_code`);
 
 --
 -- Indexes for table `rating`
@@ -3278,12 +2828,6 @@ ALTER TABLE `telescope_entries_tags`
 -- Indexes for table `toll_reasons`
 --
 ALTER TABLE `toll_reasons`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `transactions`
---
-ALTER TABLE `transactions`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -3478,18 +3022,6 @@ ALTER TABLE `driver_owe_amounts`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `driver_owe_amount_payments`
---
-ALTER TABLE `driver_owe_amount_payments`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT for table `driver_payment`
---
-ALTER TABLE `driver_payment`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `email_settings`
 --
 ALTER TABLE `email_settings`
@@ -3622,42 +3154,6 @@ ALTER TABLE `pages_translations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `payment`
---
-ALTER TABLE `payment`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `payment_gateway`
---
-ALTER TABLE `payment_gateway`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
-
---
--- AUTO_INCREMENT for table `payment_method`
---
-ALTER TABLE `payment_method`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `payout_credentials`
---
-ALTER TABLE `payout_credentials`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `payout_preference`
---
-ALTER TABLE `payout_preference`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `paytm_payments`
---
-ALTER TABLE `paytm_payments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
-
---
 -- AUTO_INCREMENT for table `peak_fare_details`
 --
 ALTER TABLE `peak_fare_details`
@@ -3752,12 +3248,6 @@ ALTER TABLE `telescope_entries`
 --
 ALTER TABLE `toll_reasons`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `transactions`
---
-ALTER TABLE `transactions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `trips`
@@ -3870,24 +3360,6 @@ ALTER TABLE `driver_location`
   ADD CONSTRAINT `driver_location_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `driver_owe_amounts`
---
-ALTER TABLE `driver_owe_amounts`
-  ADD CONSTRAINT `driver_owe_amounts_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
-
---
--- Constraints for table `driver_owe_amount_payments`
---
-ALTER TABLE `driver_owe_amount_payments`
-  ADD CONSTRAINT `driver_owe_amount_payments_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
-
---
--- Constraints for table `driver_payment`
---
-ALTER TABLE `driver_payment`
-  ADD CONSTRAINT `driver_payment_driver_id_foreign` FOREIGN KEY (`driver_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
-
---
 -- Constraints for table `emergency_sos`
 --
 ALTER TABLE `emergency_sos`
@@ -3941,18 +3413,6 @@ ALTER TABLE `help_translations`
 --
 ALTER TABLE `manage_fare`
   ADD CONSTRAINT `manage_fare_currency_code_foreign` FOREIGN KEY (`currency_code`) REFERENCES `currency` (`code`);
-
---
--- Constraints for table `payment`
---
-ALTER TABLE `payment`
-  ADD CONSTRAINT `payment_trip_id_foreign` FOREIGN KEY (`trip_id`) REFERENCES `trips` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `payment_method`
---
-ALTER TABLE `payment_method`
-  ADD CONSTRAINT `payment_method_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
 -- Constraints for table `peak_fare_details`

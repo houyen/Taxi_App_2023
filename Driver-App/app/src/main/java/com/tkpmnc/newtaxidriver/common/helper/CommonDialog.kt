@@ -28,7 +28,7 @@ import javax.inject.Inject
 
 /* ************************************************************
                       CommonDialog
-Its used for commondialog screen    (Like Arrive now, Begin trip, Payment completed)
+Its used for commondialog screen    (Like Arrive now, Begin trip)
 *************************************************************** */
 
 class CommonDialog : Activity(), View.OnClickListener {
@@ -55,7 +55,7 @@ class CommonDialog : Activity(), View.OnClickListener {
             setMessage = resources.getString(R.string.yourtripcanceledrider)
         } else if (status == 2) {
 
-            setMessage = resources.getString(R.string.paymentcompleted)
+            setMessage = "completed"
         }
         val message = findViewById<View>(R.id.message) as TextView
         println("getMessag $setMessage")

@@ -173,7 +173,7 @@ class PendingTripsFragment : Fragment(), ServiceListener, PaginationAdapterCallb
                     sessionManager.isDriverAndRiderAbleToChat = true
                     CommonMethods.startFirebaseChatListenerService(Objects.requireNonNull(activity!!))
                     val status = tripDetailsModel.status
-                    if (status.equals("Rating") || status.equals("Payment")) {
+                    if (status.equals("Rating")) {
                         getRiderApi(tripDetailsModel.tripId.toString())
                     } else {
                         getRiderApi("")

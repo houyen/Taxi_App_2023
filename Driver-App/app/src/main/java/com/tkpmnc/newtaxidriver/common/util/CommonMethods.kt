@@ -345,17 +345,6 @@ class CommonMethods {
                     context.startActivity(dialogs)
 
 
-                } else if (json.getJSONObject("custom").has("trip_payment")) {
-                    val riderProfile = json.getJSONObject("custom").getJSONObject("trip_payment").getString("rider_thumb_image")
-                    sessionManager.riderProfilePic = riderProfile
-
-                    val dialogs = Intent(context, CommonDialog::class.java)
-                    dialogs.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                    dialogs.putExtra("message", context.resources.getString(R.string.paymentcompleted))
-                    dialogs.putExtra("type", 1)
-                    dialogs.putExtra("status", 2)
-                    context.startActivity(dialogs)
-
                 } else if (json.getJSONObject("custom").has("custom_message")) {
                     val notificationUtils = NotificationUtils(context)
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
@@ -517,36 +506,6 @@ class CommonMethods {
                         dialogs.putExtra("message", context.resources.getString(R.string.yourtripcanceledrider))
                         dialogs.putExtra("type", 1)
                         dialogs.putExtra("status", 1)
-                        context.startActivity(dialogs)
-                    }
-
-                } else if (json.getJSONObject("custom").has("trip_payment")) {
-                    val riderProfile = json.getJSONObject("custom").getJSONObject("trip_payment").getString("rider_thumb_image")
-                    sessionManager.riderProfilePic = riderProfile
-
-
-                    AddFirebaseDatabase().removeNodesAfterCompletedTrip(context)
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && NotificationUtils.isAppIsInBackground(context)) {
-                        val timeStamp = SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Date())
-                        val intent = Intent(context, MainActivity::class.java)
-                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                        //notificationIntent.putExtra(CommonKeys.FIREBASE_CHAT_FROM_PUSH, json.toString())
-                        val notificationUtils = NotificationUtils(context)
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
-                            notificationUtils.playNotificationSound()
-                        val message = context.resources.getString(R.string.paymentcompleted)
-                        val title = context.getString(R.string.app_name)
-                        notificationUtils.showNotificationMessage(title, message, timeStamp, intent, null, 0L)
-                        val pushNotification = Intent(Config.PUSH_NOTIFICATION)
-                        pushNotification.putExtra("message", "message")
-                        LocalBroadcastManager.getInstance(context).sendBroadcast(pushNotification)
-                    } else {
-                        val dialogs = Intent(context, CommonDialog::class.java)
-                        dialogs.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                        dialogs.putExtra("message", context.resources.getString(R.string.paymentcompleted))
-                        dialogs.putExtra("type", 1)
-                        dialogs.putExtra("status", 2)
                         context.startActivity(dialogs)
                     }
 
@@ -1040,7 +999,6 @@ class CommonMethods {
         sessionManager.subTripStatus = context.resources.getString(R.string.confirm_arrived)
         //sessionManager.setTripStatus("CONFIRM YOU'VE ARRIVED");
         sessionManager.tripStatus = CommonKeys.TripDriverStatus.ConfirmArrived
-        //sessionManager.paymentMethod = riderModel.paymentMode
 
         sessionManager.isDriverAndRiderAbleToChat = true
         CommonMethods.startFirebaseChatListenerService(context)

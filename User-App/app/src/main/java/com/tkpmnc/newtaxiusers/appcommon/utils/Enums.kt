@@ -41,8 +41,6 @@ object Enums {
     const val REQ_NEAREST_CARS = 127
     const val REQ_PAST_TRIPS = 129
     const val REQ_UPCOMING_TRIPS = 130
-    const val REQ_CURRENCY_CONVERT = 132
-    const val REG_GET_PAYMENTMETHOD=133
     const val REG_GET_CHECK_VERSION=134
     const val REQ_OTP_VERIFIACTION=135
     const val REQ_PAYTM_CURRENCY = 136

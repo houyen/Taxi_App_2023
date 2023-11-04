@@ -28,7 +28,7 @@ import javax.inject.Inject
 
 /* ************************************************************
                 CommonDialog
-Common dialog for firebase service its show dialog like (Arrive now , Begin trip, Payment)
+Common dialog for firebase service its show dialog like (Arrive now , Begin trip)
 *************************************************************** */
 class CommonDialog : Activity(), View.OnClickListener {
 

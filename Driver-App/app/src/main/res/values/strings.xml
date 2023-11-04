@@ -135,9 +135,6 @@
     <string name="seeyourdriving">"See your driving style profile after completing more trips"</string>
     <string name="cancel_your_trip">"Cancel Your Ride"</string>
     <string name="rider_profile">"RIDER PROFILE"</string>
-    <string name="waiting_for_payment">"Waiting for payment…"</string>
-    <string name="payment_done">"Payment done"</string>
-    <string name="paid">"Paid"</string>
 
     <!--Document attach page start-->
     <string name="documents">"DOCUMENTS"</string>
@@ -193,20 +190,12 @@
     <string name="currency">"₹ "</string>
     <string name="tripsdetails">"TRIP DETAIL"</string>
     <string name="triphistory">"TRIP HISTORY"</string>
-    <string name="trip_payment">"Trips &amp; Payments"</string>
 
-    <string name="tripearnings">"TRIP EARNINGS"</string>
     <string name="fare">"Base Fare"</string>
     <string name="uberfee">"Access Fee"</string>
     <string name="distancefare">"Distance Fare"</string>
     <string name="timefare">"Time Fare"</string>
     <string name="totalamount">"Total Trip Fare"</string>
-    <string name="adminamount">"Admin's Amount"</string>
-    <string name="oweamount">"Owe Amount"</string>
-    <string name="driverpayout">"Driver Payout"</string>
-    <string name="cashcollectable">"Collectable Cash"</string>
-    <string name="cash_trip">"Cash Trip"</string>
-    <string name="cashcollected">"Cash Collected"</string>
     <string name="waitforrider">"Waiting for rider confirmation"</string>
 
     <string name="duration">"DURATION"</string>
@@ -214,12 +203,6 @@
     <string name="thisweek">"THIS WEEK"</string>
     <string name="thisweek_empty">"You have not driven this week"</string>
     <string name="last_trip">"Last trip: "</string>
-    <string name="pay_statemet">"Pay Statements"</string>
-    <string name="payment">"Payment"</string>
-    <string name="payment_failed">"Payment Failed"</string>
-    <string name="payout">"Payout"</string>
-    <string name="addpayout">Add PayPal Payout</string>
-    <string name="most_recent">"Most recent payout: "</string>
 
     <string name="begin_trip">"Swipe to Begin Trip"</string>
     <string name="confirm_arrived">"SWIPE TO CONFIRM YOU'VE ARRIVED"</string>
@@ -237,22 +220,6 @@
     <string name="scheduled">"Scheduled"</string>
     <!--Trips details Page Ended-->
 
-    <!--Payment Statement started-->
-    <string name="paystatement">"PAY STATEMENT"</string>
-    <string name="weeklystatement">"WEEKLY STATEMENT"</string>
-
-    <string name="timeonline">"TIME ONLINE"</string>
-    <string name="completedtrips">"Complete Trips"</string>
-    <string name="dailyearning">"DAILY EARNINGS"</string>
-    <string name="bankdeposit">"Bank Deposit"</string>
-    <string name="totaluberearning">"Total Driver Earnings"</string>
-    <string name="riderfaresearn">"Rider fares earned and kept."</string>
-    <!--Payment Statement endted-->
-    <string name="Interneterror">No internet connection</string>
-    <string name="no_connection">No internet connection</string>
-    <string name="enable_connection_and_come_back">Please enable connection and come again </string>
-    <string name="send_message">Send Message</string>
-    <string name="go_online">GO ONLINE</string>
     <!--Fetch Address-->
 
     <string name="no_address_found">Sorry, no address found</string>
@@ -329,10 +296,8 @@
     <string name="acceptingpickup">Accepting pickup…</string>
     <string name="rateyourrider">Rate your rider</string>
     <string name="writecomment">Write your comments… </string>
-    <string name="paymentdetails">Payment Details</string>
     <string name="view">VIEW</string>
     <string name="pressbackagain">Press back again to exit</string>
-    <string name="paymentcompleted">Payment completed successfully…</string>
     <string name="addphoto">Add Photo</string>
     <string name="choosefromlib">Choose from Library</string>
     <string name="save">save</string>
@@ -498,17 +463,7 @@
     <string name="total_trip_amount">Total trip amount</string>
     <string name="doc_upload_error">Please upload all documents</string>
 
-    <string name="pay_to">Pay to Admin</string>
-    <string name="your_pay_to">Your Payment To Admin</string>
 
-    <string name="add_card">Add Card</string>
-    <string name="change">CHANGE</string>
-    <string name="enter_amount">Enter Amount</string>
-    <string name="enter_amount_empty">Please Enter the amount</string>
-    <string name="entered_amt_msg">Entered amount is greater than Owe amount</string>
-    <string name="payment_methods">Payment method</string>
-    <string name="credit_or_debit">Add Credit or Debit Card</string>
-    <string name="select_reason">Select Reason</string>
 
     <string name="default_direction" translatable="false">0</string>
     <string name="mobile_verification">Mobile Verification</string>
@@ -529,59 +484,14 @@
     <string name="connecting">Connecting…</string>
 
 
-    <string name="amount">Amount</string>
-    <string name="apply">Apply</string>
-    <string name="apply_extra_fee">Apply Extra Fee</string>
-    <string name="enter_other_reason">Enter Other Reason</string>
-    <string name="enter_extra_fee_description">Enter extra fee description</string>
-    <string name="enter_extra_fee">Enter Extra Fee</string>
-    <string name="no">No</string>
-    <string name="yes">Yes</string>
-    <string name="select_extra_fee_description">Select extra fee description</string>
-    <string name="error_select_extra_fee_description">Please select extra fee description</string>
-    <string name="er_read_loc">Problem reading list of locations.</string>
-
-
-    <string name="referral">My Referrals</string>
-    <string name="your_invite_code">Your invite Code</string>
-    <string name="share_my_code">Share My Code</string>
-    <string name="friends_incompleted">Friends - Incomplete</string>
-    <string name="friends_completed">Friends - Completed</string>
-    <string name="referral_code_copied">Referral Code Copied</string>
-    <string name="referral_code_not_copied">Unable to copy Referral code, please share the code</string>
-    <string name="days_left">days left</string>
-    <string name="need_to_complete">Need to complete</string>
-    <string name="max_referral_earning_statement">Get up to %s for every friend who rides with &appname;</string>
-    <string name="referral_code_optional">Referral Code (Optional)</string>
-    <string name="earned">"Earned "</string>
-    <string name="no_referrals_yet">No Referrals Yet</string>
-    <string name="referral_expired">Referral Expired</string>
-    <string name="share_to_contacts">Share to contacts</string>
-    <string name="invite_msg"><![CDATA[SignUp & Get Paid For Every Invited Sign-up & Much More Bonus Awaits! Use my invite code]]></string>
-    <string name="referrel_amount">Referral Amount</string>
-    <string name="day_left">day left</string>
-    <string name="trip_left">TRIP</string>
-
     <string name="tap_to_reload">Tap to reload</string>
     <string name="error_msg_unknown">An unexpected error occurred</string>
     <string name="total_earnings">"TOTAL EARNINGS"</string>
     <string name="remaining_referral">Remaining Referral</string>
     <string name="hr_eta">"&#160;hr&#160;"</string>
 
-    <string name="stripe" translatable="false">Stripe</string>
-    <string name="choose">Choose</string>
-    <string name="Add_payment_type">Add payment Type</string>
-    <string name="choose_payment_type">Please Choose Your Payment Type</string>
-    <string name="add_payout">Add payout </string>
-    <string name="update">Update</string>
-    <string name="min">&#160;Min</string>
 
-
-    <string name="add_paypal">Add Paypal</string>
     <string name="add_driver_proof">Add Driver Proof</string>
-    <string name="payout_details">Payout Details</string>
-    <string name="onlinepayment">Online payment</string>
-    <string name="paypal">Paypal</string>
     <string name="set_canceled">Setup canceled try again</string>
     <string name="stripe_error_1">Something went wrong try again</string>
     <string name="stripe_error_2">Invalid Stripe API version try again later</string>
@@ -679,9 +589,7 @@
     <string name="trip_request">Trip Request</string>
     <string name="additional_document">Additional Document</string>
     <string name="please_enter_clabe_number">please enter CLABE</string>
-    <string name="mpesa_payment">Mpesa Payment</string>
-    <string name="patym_payment">Paytm Payment</string>
-    <string name="flutterwave_payment">Flutterwave Payment</string>
+
 
 
     <plurals name="minutes">

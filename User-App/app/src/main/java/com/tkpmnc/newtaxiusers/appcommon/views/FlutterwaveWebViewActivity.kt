@@ -15,7 +15,6 @@ import com.tkpmnc.newtaxiusers.appcommon.network.AppController
 import com.tkpmnc.newtaxiusers.appcommon.utils.CommonKeys
 import com.tkpmnc.newtaxiusers.appcommon.utils.CommonMethods
 import com.tkpmnc.newtaxiusers.taxiapp.views.customize.CustomDialog
-import kotlinx.android.synthetic.main.activity_payment_web_view.*
 import kotlinx.android.synthetic.main.app_common_header.*
 import org.json.JSONException
 import org.json.JSONObject
@@ -39,58 +38,6 @@ class FlutterwaveWebViewActivity : CommonActivity() {
     var payFor: String? = null
 
     @SuppressLint("SetJavaScriptEnabled")
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_payment_web_view)
-        AppController.appComponent.inject(this)
-        val payableWalletAmount = intent.getStringExtra("payableWalletAmount")
-        payFor = intent.getStringExtra(Constants.INTENT_PAY_FOR)
-        type = intent.getStringExtra(Constants.PAY_FOR_TYPE)
-        commonMethods.setheaderText(resources.getString(R.string.flutterwave), common_header)
-
-        back.setOnClickListener {
-            onBackPressed()
-        }
-        setProgress()
-
-        if (!progressDialog.isShowing) {
-            //progressDialog.show()
-        }
-        commonMethods.showProgressDialog(this)
-
-        payment_wv.webViewClient = object : WebViewClient() {
-            override fun onPageStarted(view: WebView, url: String, favicon: Bitmap?) {
-                super.onPageStarted(view, url, favicon)
-                if (!progressDialog.isShowing) {
-                    //progressDialog.show()
-                }
-                commonMethods.showProgressDialog(this@FlutterwaveWebViewActivity)
-            }
-
-            override fun onPageFinished(view: WebView, url: String) {
-                if (progressDialog.isShowing) {
-                    progressDialog.dismiss()
-                }
-                commonMethods.hideProgressDialog()
-                payment_wv.loadUrl("javascript:android.showHTML(document.getElementById('data').innerHTML);")
-            }
-
-            override fun onReceivedError(view: WebView?, request: WebResourceRequest?, error: WebResourceError?) {
-                super.onReceivedError(view, request, error)
-                if (progressDialog.isShowing) {
-                    progressDialog.dismiss()
-                }
-                commonMethods.hideProgressDialog()
-            }
-        }
-
-        payment_wv.settings.javaScriptEnabled = true
-        payment_wv.addJavascriptInterface(MyJavaScriptInterface(this), "android")
-
-        val url = resources.getString(R.string.base_url) + CommonKeys.PAYMENT_FLUTTERWAVE_WEBVIEW_KEY
-        val postData = "amount=" + URLEncoder.encode(payableWalletAmount, "UTF-8") + "&pay_for=" + URLEncoder.encode(payFor, "UTF-8") + "&payment_type=" + URLEncoder.encode(sessionManager.paymentMethod?.toLowerCase(), "UTF-8") + "&trip_id=" + URLEncoder.encode(sessionManager.tripId, "UTF-8")+ "&mode=" + URLEncoder.encode("light", "UTF-8") + "&token=" + URLEncoder.encode(sessionManager.accessToken, "UTF-8")
-        payment_wv.postUrl(url, postData.toByteArray())
-    }
 
     private fun setProgress() {
         progressDialog = ProgressDialog(this)
@@ -100,14 +47,6 @@ class FlutterwaveWebViewActivity : CommonActivity() {
 
     // Open previous opened link from history on webview when back button pressed
     // Detect when the back button is pressed
-    override fun onBackPressed() {
-        if (payment_wv.canGoBack()) {
-            payment_wv.goBack()
-        } else {
-            super.onBackPressed()
-            finish()
-        }
-    }
 
     inner class MyJavaScriptInterface(private var ctx: Context) {
         @JavascriptInterface

@@ -11,13 +11,11 @@ object CommonKeys {
             TODO()
         }
     var keyCaller = ""
-    var isSetPaymentMethod = false
     var isRequestAccepted = false
-    var isPaymentOrCancel = false
     var isBeginTrip = false
     var isArrowNow = false
     var isEndTrip = false
-    val ChangePaymentOpetionBeforeRequestCarApi = 124
+
     val IncompleteReferralArray = 358// just a random number
     val CompletedReferralArray = 247// just a random number
     val DeviceTypeAndroid = "2"
@@ -30,27 +28,8 @@ object CommonKeys {
 
     var getUrlCount = 0
 
-    // payment types used in payment select activity for shared preference purpose
-    val PAYMENT_PAYTM = "paytm"
-    val PAYMENT_PAYPAL = "paypal"
-    val PAYMENT_MPESA = "mpesa"
-    val PAYMENT_FLUTTERWAVE = "flutterwave"
-    val PAYMENT_CASH = "cash"
-    val PAYMENT_CARD = "stripe"
-    val PAYMENT_BRAINTREE = "braintree"
-    val TYPE_INTENT_ARGUMENT_KEY = "type"
 
-    const val PAY_FOR_WALLET = "wallet"
-    const val PAY_FOR_TRIP = "trip"
 
-    val DEFAULT_CARD = "stripe_card"
-    val AFTER_PAYMENT = "after_payment"
-
-    //val PAYMENT_WEBVIEW_KEY = "web_payment?"
-    val PAYMENT_WEBVIEW_KEY = "web_payment"
-    val PAYMENT_PAYTM_WEBVIEW_KEY = "paytm_web_payment"
-    val PAYMENT_MPESA_WEBVIEW_KEY = "mpesa_web_payment"
-    val PAYMENT_FLUTTERWAVE_WEBVIEW_KEY = "flutterwave_web_payment"
     var FIREBASE_CHAT_MESSAGE_KEY = "message"
     var FIREBASE_CHAT_TYPE_KEY = "type"
     var FIREBASE_CHAT_TYPE_RIDER = "rider"
@@ -59,11 +38,7 @@ object CommonKeys {
     var car_radius = "5"
     var IS_ALREADY_IN_TRIP = false
 
-    var isFirstSetpaymentMethod = false
-    var isWallet = 0
 
-    /*Activity request codes*/
-    val REQUEST_CODE_PAYMENT = 1
 
 
     val ACTIVITY_REQUEST_CODE_START_FACEBOOK_ACCOUNT_KIT = 102

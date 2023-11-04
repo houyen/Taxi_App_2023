@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\PaymentMethod;
 use JWTAuth;
 
 use App\Models\User;
@@ -24,7 +23,6 @@ class HomeController extends Controller
 
         $site_settings = resolve('site_settings');
         $api_credentials = resolve('api_credentials');
-        $payment_gateway = resolve('payment_gateway');
         $fees = resolve('fees');
 
         $return_data = [
@@ -38,16 +36,7 @@ class HomeController extends Controller
         $sinch_key = $api_credentials->where('name','sinch_key')->first()->value;
         $sinch_secret_key = $api_credentials->where('name','sinch_secret_key')->first()->value;
 
-        $braintree_env = payment_gateway('mode','Braintree');
-        $braintree_public_key = payment_gateway('public_key','Braintree');
 
-        $paypal_client = payment_gateway('client','Paypal');
-        $paypal_mode = payment_gateway('mode','Paypal');
-        $paypal_mode = ($paypal_mode == 'sandbox') ? 0 : 1;
-        $stripe_publish_key = payment_gateway('publish','Stripe');
-        $paytm_merchant = payment_gateway('paytm_merchant','Paytm');
-        $paytm_mode = payment_gateway('mode','Paytm');
-        $paytm_mode = ($paytm_mode == 'sandbox') ? 0 : 1;
         $referral_settings = resolve('referral_settings');
         $referral_settings = $referral_settings->where('user_type',ucfirst($request->user_type))->where('name','apply_referral')->first();
 
@@ -64,9 +53,6 @@ class HomeController extends Controller
 
         $gateway_type = "Stripe";
 
-        $payment_details = PaymentMethod::where('user_id', $user_details->id)->Payment()->first();
-        $brand  = optional($payment_details)->brand ?? '';
-        $last4  = (string)optional($payment_details)->last4 ?? '';
 
         $update_loc_interval = site_settings('update_loc_interval');
         $covid_future = site_settings('covid_enable') =='1' ? true:false;
@@ -84,26 +70,6 @@ if($request->user_type == 'Rider') {
             'sinch_secret_key',
             'apply_trip_extra_fee',
             'admin_contact',
-           // 'status',
-            //'braintree_env',
-            //'braintree_public_key',
-          //  'google_map_key',
-            //'fb_id',
-            'paypal_client',
-            'paypal_mode',
-
-            'paytm_merchant',
-            'paytm_mode',
-            'stripe_publish_key',
-           // 'gateway_type',
-            'brand',
-            'last4',
-            // 'update_loc_interval',
-            // 'trip_default',
-            // 'wallet_default',
-            // 'driver_km',
-            // 'pickup_km',
-            // 'drop_km',
             'covid_future',
             //'arrival_time'        => $arrival_time,
         );
@@ -114,25 +80,6 @@ if($request->user_type == 'Rider') {
             'sinch_secret_key',
             'apply_trip_extra_fee',
             'admin_contact',
-           // 'status',
-            //'braintree_env',
-            //'braintree_public_key',
-          //  'google_map_key',
-            //'fb_id',
-            'paypal_client',
-            'paypal_mode',
-            'paytm_merchant',
-            'paytm_mode',
-            'stripe_publish_key',
-           // 'gateway_type',
-            'brand',
-            'last4',
-            // 'update_loc_interval',
-            // 'trip_default',
-            // 'wallet_default',
-            // 'driver_km',
-            // 'pickup_km',
-            // 'drop_km',
             'covid_future',
         );
 
@@ -164,35 +111,5 @@ if($request->user_type == 'Rider') {
         return response()->json(array_merge($return_data,$common_data,$driver_data));
     }
 
-    /**
-     * Get Payment List
-     * 
-     * @param  Get method request inputs
-     *
-     * @return Response Json 
-     */
-    public function getPaymentList(Request $request)
-    {
-        $user_details = JWTAuth::parseToken()->authenticate();
 
-        $payment_methods = collect(PAYMENT_METHODS);
-        $payment_methods = $payment_methods->reject(function($value) {
-            $is_enabled = payment_gateway('is_enabled',ucfirst($value['key']));
-            return ($is_enabled != '1');
-        });
-
-        $is_wallet = $request->is_wallet == "1";
-
-        $default_paymode = payment_gateway('trip_default','Common');
-
-        $payment_list = array();
-
-    	$return_data = array(            
-            'status_code'       => '1',
-            'status_message'    => __('messages.api.listed_successfully'),
-            'payment_list'    => $payment_list,
-        );
-
-    	return response()->json($return_data);
-    }
 }

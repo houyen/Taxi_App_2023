@@ -528,17 +528,6 @@
                 app:fontname="@string/font_UberClone" />
 
             <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
-                android:id="@+id/triphistorytext"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toEndOf="@+id/historytext"
-                android:paddingStart="@dimen/_20adp"
-                android:text="@string/trip_payment"
-                android:textColor="@color/newtaxi_app_black"
-                android:textSize="@dimen/_17asp"
-                app:fontname="@string/font_Medium" />
-
-            <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                 android:id="@+id/last_trip_amount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -23,9 +23,6 @@ class CommonData : Serializable {
     @Expose
     var status: String = ""
 
-    @SerializedName("is_web_payment")
-    @Expose
-    var isWebPaymentEnable = false
 }
 
 

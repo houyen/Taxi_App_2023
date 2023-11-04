@@ -39,7 +39,6 @@ import com.tkpmnc.newtaxidriver.common.util.CommonMethods.Companion.showNoIntern
 import com.tkpmnc.newtaxidriver.common.util.Enums.REQ_TRIP_DETAILS
 import com.tkpmnc.newtaxidriver.common.util.RequestCallback
 import com.tkpmnc.newtaxidriver.common.views.CommonActivity
-import com.tkpmnc.newtaxidriver.home.datamodel.InvoiceModel
 import com.tkpmnc.newtaxidriver.home.datamodel.TripDetailsModel
 import com.tkpmnc.newtaxidriver.home.interfaces.ApiService
 import com.tkpmnc.newtaxidriver.home.interfaces.ServiceListener
@@ -146,15 +145,6 @@ class TripDetails : CommonActivity(), ServiceListener {
 
     @BindView(R.id.trip_date)
     lateinit var trip_date: TextView
-
-    @BindView(R.id.route_image)
-    lateinit var route_image: ImageView
-    var payment_method: String? = null
-    var currencysymbol: String? = null
-
-    @BindView(R.id.rvPrice)
-    lateinit var recyclerView: RecyclerView
-    internal var invoiceModels = ArrayList<InvoiceModel>()
 
     @BindView(R.id.rlt_mapview)
     lateinit var staticmapview: RelativeLayout
@@ -289,10 +279,7 @@ class TripDetails : CommonActivity(), ServiceListener {
     private fun onSuccessTripDetail(jsonResponse: String) {
 
         tripDetailsModels = gson.fromJson(jsonResponse, TripDetailsModel::class.java)
-        invoiceModels.clear()
-        with(tripDetailsModels) { this?.riderDetails?.get(0)?.invoice }?.let { invoiceModels.addAll(it) }
         recyclerView.removeAllViewsInLayout()
-        val adapter = PriceRecycleAdapter(this, invoiceModels)
         recyclerView.setAdapter(adapter)
 
         if (tripDetailsModels?.isPool!! && tripDetailsModels?.seats != 0) {

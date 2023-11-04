@@ -8,10 +8,6 @@
             android:icon="@drawable/user"
             android:title="@string/myprofile" />
         <item
-            android:id="@+id/nav_payment"
-            android:icon="@drawable/hand"
-            android:title="@string/payment" />
-        <item
             android:id="@+id/nav_yourtrips"
             android:icon="@drawable/history"
             android:title="@string/yourtrips" />
