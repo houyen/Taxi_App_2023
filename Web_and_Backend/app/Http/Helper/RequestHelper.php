@@ -163,16 +163,6 @@ class RequestHelper
 			return ($trip_destinations_count > 0);
 		})->values();
 
-		if($array['is_wallet'] == 'Yes') {
-			if ($array['payment_method'] == '') {
-				$payment_method_store == 'Wallet';
-			} else {
-				$payment_method_store = $array['payment_method'] . ' & Wallet';
-			}
-		} else {
-			$payment_method_store = ucfirst($array['payment_method']);
-		}
-
 		$i = 0;
 
 		$requestSendCount = RideRequest::where('group_id', $array['driver_group_id'])->where('status', 'Cancelled')->count();

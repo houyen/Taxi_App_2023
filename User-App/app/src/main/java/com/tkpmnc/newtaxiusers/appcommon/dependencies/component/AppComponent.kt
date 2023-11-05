@@ -161,8 +161,6 @@ interface AppComponent {
     fun inject(upcomingAdapter: UpcomingAdapter)
 
 
-    fun inject(promoAmountAdapter: PromoAmountAdapter)
-
     fun inject(carDetailsListAdapter: CarDetailsListAdapter)
 
     fun inject(myFirebaseMessagingService: MyFirebaseMessagingService)

@@ -257,7 +257,7 @@ class RiderController extends Controller
             User::find($request->id)->delete();
         }
         catch(\Exception $e) {
-            flashMessage('error','Rider have wallet or promo or trips, So can\'t delete this rider.');
+            flashMessage('error',' So can\'t delete this rider.');
             return back();
         }
 

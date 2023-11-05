@@ -27,13 +27,6 @@ class ScheduleRide extends Model
 
     public static $withoutAppends = false;
 
-    protected function getArrayableAppends() {
-        if(self::$withoutAppends){
-            $this->convert_fields = [];
-            return [];
-        }
-        return parent::getArrayableAppends();
-    }
 
     // Joins the users Table for rider
     public function users()

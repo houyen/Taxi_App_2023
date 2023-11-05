@@ -265,9 +265,6 @@ class MainActivity : CommonActivity(), SeatsListAdapter.OnClickListener,
     @BindView(R.id.car_details_list)
     lateinit var listView: RecyclerView        // Search car list
 
-    @BindView(R.id.wallet_img)
-    lateinit var wallet_img: ImageView        // If wallet choose show in image
-
     @BindView(R.id.sos)
     lateinit var sos: TextView
 
@@ -2518,7 +2515,6 @@ class MainActivity : CommonActivity(), SeatsListAdapter.OnClickListener,
         sessionManager.homeAddress = home.toString()
         sessionManager.workAddress = work.toString()
         sessionManager.profileDetail = jsonResp
-        sessionManager.walletAmount = riderProfile.walletAmount
         sessionManager.phoneNumber = riderProfile.mobileNumber
         sessionManager.firstName = riderProfile.firstName
         sessionManager.lastName = riderProfile.lastName
@@ -2540,16 +2536,6 @@ class MainActivity : CommonActivity(), SeatsListAdapter.OnClickListener,
             searchViewset(pickupForSearchCars, dropForSearchCars)
         }
 
-        try {
-            val response = JSONObject(jsonResp)
-            if (response.has("promo_details")) {
-                val promocount = response.getJSONArray("promo_details").length()
-                sessionManager.promoDetail = response.getString("promo_details")
-                sessionManager.promoCount = promocount
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
         if (isViewUpdatedWithLocalDB) {
             isViewUpdatedWithLocalDB = false
             getUserDetail()

@@ -40,7 +40,6 @@ class CreateScheduleRideTable extends Migration
             $table->string('timezone',100); 
             $table->string('payment_method',50);
             $table->string('fare_estimation',15);
-            $table->enum('is_wallet',['Yes','No'])->nullable();
             $table->nullableTimestamps();
             $table->index(['status']);
         });

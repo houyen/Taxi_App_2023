@@ -74,29 +74,5 @@ class FlutterwaveWebViewActivity : CommonActivity() {
         }
     }
 
-    private fun redirect(htmlResponse: String) {
-        val intent = Intent()
-        try {
-            var walletAmount = ""
-            val response = JSONObject(htmlResponse)
-            if (response != null) {
-                val statusCode = response.getString("status_code")
-                val statusMessage = response.getString("status_message")
-                intent.putExtra("status_message", statusMessage)
-                if (statusCode.equals("1", true)) {
-                    if (!payFor.isNullOrEmpty() && payFor.equals(CommonKeys.PAY_FOR_WALLET)) {
-                        walletAmount = response.getString("wallet_amount")
-                    }
-                    if (walletAmount.isNotEmpty())
-                        intent.putExtra("walletAmount", walletAmount)
-                }
-                setResult(RESULT_OK, intent)
-                finish()
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
-            setResult(RESULT_OK, intent)
-            finish()
-        }
-    }
+
 }

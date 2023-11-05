@@ -23,7 +23,6 @@ use App\Models\User;
 use App\Models\Rating;
 use App\Models\ManageFare;
 use App\Models\Request as RideRequest;
-use App\Models\UsersPromoCode;
 use App\Models\CancelReason;
 use App\Models\TollReason;
 use App\Models\ApiCredentials;

@@ -41,18 +41,6 @@ class RiderProfile : Serializable {
     @Expose
     var work: String=""
 
-    @SerializedName("currency_symbol")
-    @Expose
-    var currencySymbol: String=""
-
-    @SerializedName("currency_code")
-    @Expose
-    var currencyCode: String=""
-
-    @SerializedName("wallet_amount")
-    @Expose
-    var walletAmount: String=""
-
     @SerializedName("request_options")
     @Expose
     var requestOptions: ArrayList<FeaturesInCarModel>?= ArrayList()

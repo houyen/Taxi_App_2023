@@ -104,7 +104,7 @@ class StatementController extends Controller
             ]);
         }
         $trip_result = collect($data_result->data);
-        $result_data = $this->mapstatementData($trip_result,'overall');
+
 
         return response()->json([
             'total'             =>  $data_result->total,
@@ -114,85 +114,8 @@ class StatementController extends Controller
             'total_pages'       =>  $data_result->last_page,
             'from'              =>  $data_result->from,
             'to'                =>  $data_result->to,
-            'data'              =>  $result_data,
         ]);
 
-        /*$datatable = DataTables::of($trips)
-            ->addColumn('id', function ($trips) {   
-                return @$trips->id;
-            })
-            ->addColumn('pickup_location', function ($trips) {   
-                return @$trips->pickup_location;
-            })
-            ->addColumn('drop_location', function ($trips) {   
-                return @$trips->drop_location;
-            })
-            ->addColumn('action', function ($trips) {
-                return '<a href="'.url(LOGIN_USER_TYPE.'/view_trips/'.$trips->id).'?s=overall" class="btn btn-xs btn-primary">View Trip Details</a>';
-            })
-            ->addColumn('commission', function ($trips) { 
-                if (LOGIN_USER_TYPE == 'company') {
-                    //If login user is company then commission value is company commission to admin
-                    return html_entity_decode(@$trips->currency->symbol).number_format($trips->company_admin_commission, 2);
-                }
-                else {
-                    //If login user is admin then commission value is trip commission (Sum of all commission to admin)
-                    return html_entity_decode(@$trips->currency->symbol).number_format($trips->commission, 2);
-                }
-            })
-            ->addColumn('total_amount', function ($trips) {
-                return html_entity_decode(@$trips->currency->symbol).number_format($trips->company_driver_earnings, 2);
-            })
-            ->addColumn('company_name', function ($trips) {
-                return @$trips->company_name;
-            })
-            ->addColumn('admin_payout_status', function ($trips) {
-                $admin_payout_status = ($trips->payment_mode == 'Cash' || $trips->payment_mode == 'Cash & Wallet' || $trips->driver_payout == 0) ? '-' : @$trips->driver_payment->admin_payout_status;
-                return $admin_payout_status;
-            })
-            ->addColumn('dated_on', function ($trips) {   
-                return @date('Y-m-d',strtotime($trips->created_at));
-            });
-        $columns = ['id','pickup_location', 'drop_location', 'commission','dated_on','status','total_amount'];
-        $base = new DataTableBase($trips, $datatable, $columns, 'statements_');
-        return $base->render(null);*/
-    }
-
-    protected function mapstatementData($trips,$type)
-    {
-        return $trips->map(function($trip) use($type) {
-            $currency_symbol = html_entity_decode($trip->currency->symbol);
-            if (LOGIN_USER_TYPE == 'company') {
-                if($type == 'overall') {
-                    $commission = $currency_symbol.number_format($trip->company_admin_commission, 2);
-                }
-                else {
-                    $commission = $currency_symbol.$trip->company_admin_commission;
-                }
-            }
-            else {
-                if($type == 'overall') {
-                    $commission = $currency_symbol.number_format($trip->commission, 2);
-                }
-                else {
-                    $commission = $currency_symbol.($trip->access_fee + ( $trip->peak_amount - $trip->driver_peak_amount) + $trip->schedule_fare  + $trip->driver_or_company_commission);
-                }
-            }
-            $admin_payout_status = ($trip->payment_mode == 'Cash' || $trip->payment_mode == 'Cash & Wallet' || $trip->driver_payout == 0) ? '-' : @$trip->driver_payment->admin_payout_status;
-
-            return [
-                'id' => $trip->id,
-                'pickup_location' => $trip->pickup_location,
-                'drop_location' => $trip->drop_location,
-                'company_name' => $trip->company_name ?? 'admin',
-                'action' => url(LOGIN_USER_TYPE.'/view_trips/'.$trip->id),
-                'commission' => $commission,
-                'total_amount' => $currency_symbol.number_format($trip->company_driver_earnings, 2),
-                'admin_payout_status' => $admin_payout_status,
-                'created_at' => $trip->created_at,
-                'status' => $trip->status,
-            ];
-        });
     }
 
     public function get_statement_counts(Request $request) {
@@ -344,7 +267,6 @@ class StatementController extends Controller
             ]);
         }
         $trip_result = collect($data_result->data);
-        $result_data = $this->mapstatementData($trip_result,'driver');
 
         return response()->json([
             'total'             =>  $data_result->total,
@@ -354,7 +276,6 @@ class StatementController extends Controller
             'total_pages'       =>  $data_result->last_page,
             'from'              =>  $data_result->from,
             'to'                =>  $data_result->to,
-            'data'              =>  $result_data,
         ]);
         
         /*$datatable=DataTables::of($trips)

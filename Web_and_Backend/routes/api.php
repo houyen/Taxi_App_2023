@@ -63,7 +63,6 @@ Route::group(['middleware' => 'jwt.verify'], function () {
 	Route::post('request_cars', 'RiderController@requestCars');
 	Route::get('track_driver', 'RiderController@track_driver');
 	Route::get('updateriderlocation', 'RiderController@updateriderlocation');
-	Route::get('promo_details','RiderController@promo_details');
 	Route::get('sos','RiderController@sos');
 	Route::get('sosalert','RiderController@sosalert');
 	Route::post('save_schedule_ride', 'RiderController@save_schedule_ride');

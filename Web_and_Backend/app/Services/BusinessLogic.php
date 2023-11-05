@@ -10,14 +10,9 @@
 
 namespace App\Services;
 
-use App\Models\Payment;
-use App\Models\Wallet;
 use App\Models\Trips;
 use App\Models\PoolTrip;
-use App\Models\DriverOweAmount;
 use App\Models\ReferralUser;
-use App\Models\AppliedReferrals;
-use App\Models\DriverOweAmountPayment;
 use App\Http\Helper\RequestHelper;
 use Validator;
 class BusinessLogic 

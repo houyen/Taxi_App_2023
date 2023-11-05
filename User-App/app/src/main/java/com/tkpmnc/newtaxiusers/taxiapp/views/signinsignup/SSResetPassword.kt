@@ -237,21 +237,9 @@ class SSResetPassword : CommonActivity(), ServiceListener {
         } else {
             sessionManager.currencySymbol = Html.fromHtml(signinResult.currencySymbol).toString()
         }
-        sessionManager.walletAmount = signinResult.walletAmount
         sessionManager.isrequest = false
         sessionManager.accessToken = signinResult.token
         sessionManager.userId = signinResult.userId
-
-        try {
-            val response = JSONObject(jsonResp.strResponse)
-            if (response.has("promo_details")) {
-                val promocount = response.getJSONArray("promo_details").length()
-                sessionManager.promoDetail = response.getString("promo_details")
-                sessionManager.promoCount = promocount
-            }
-        } catch (j: JSONException) {
-            j.printStackTrace()
-        }
 
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)

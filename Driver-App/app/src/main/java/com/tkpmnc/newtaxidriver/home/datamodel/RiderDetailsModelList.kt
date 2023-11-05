@@ -72,10 +72,6 @@ class RiderDetailsModelList : Serializable {
     @Expose
     lateinit var bookingType: String
 
-    @SerializedName("driver_payout")
-    @Expose
-    var driverPayout: String? = null
-
     @SerializedName("total_fare")
     @Expose
     var totalFare: String? = null

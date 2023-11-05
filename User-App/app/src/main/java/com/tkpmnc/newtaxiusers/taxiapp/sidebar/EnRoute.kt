@@ -36,7 +36,6 @@ import com.tkpmnc.newtaxiusers.taxiapp.sendrequest.CancelYourTripActivity
 import com.tkpmnc.newtaxiusers.appcommon.utils.CommonKeys.KEY_CALLER_ID
 import com.tkpmnc.newtaxiusers.appcommon.utils.CommonMethods
 import com.tkpmnc.newtaxiusers.appcommon.views.CommonActivity
-import kotlinx.android.synthetic.main.app_activity_add_wallet.*
 import org.json.JSONException
 import org.json.JSONObject
 import java.text.SimpleDateFormat

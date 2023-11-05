@@ -8,10 +8,7 @@
 
  */
 
-
-use App\Models\Currency;
 use App\Models\Rating;
-use App\Models\Wallet;
 use Illuminate\Support\Arr;
 use Illuminate\Support\HtmlString;
 use Jose\Component\Core\AlgorithmManager;
@@ -219,20 +216,6 @@ if (!function_exists('getDriverRating')) {
 	}
 }
 
-/**
- * Get User Wallet Amount
-@param String $user_id
- * @return String $wallet_amount
- */
-if (!function_exists('getUserWalletAmount')) {
-	function getUserWalletAmount($user_id)
-	{
-		$wallet = Wallet::whereUserId($user_id)->first();
-		$wallet_amount = $wallet->original_amount ?? "0";
-
-		return strval($wallet_amount);
-	}
-}
 
 /**
  * Checks if a value exists in an array in a case-insensitive manner

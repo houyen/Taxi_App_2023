@@ -44,7 +44,6 @@ import com.tkpmnc.newtaxiusers.taxiapp.datamodels.trip.CancelReasonModel
 import com.tkpmnc.newtaxiusers.taxiapp.datamodels.trip.CancelResultModel
 import com.tkpmnc.newtaxiusers.taxiapp.views.customize.CustomDialog
 import com.tkpmnc.newtaxiusers.taxiapp.views.main.MainActivity
-import kotlinx.android.synthetic.main.app_activity_add_wallet.*
 import org.json.JSONException
 import org.json.JSONObject
 import java.util.*

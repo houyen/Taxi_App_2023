@@ -626,12 +626,10 @@ class ProfileController extends Controller
 
 		User::where('id', $user_details->id)->update(['currency_code' => $request->currency_code]);
 
-		$wallet_amount = getUserWalletAmount($user_details->id);
 
 		return response()->json([
 			'status_message' => trans('messages.update_success'),
 			'status_code' => '1',
-			'wallet_amount' => $wallet_amount,
 		]);
 	}
 

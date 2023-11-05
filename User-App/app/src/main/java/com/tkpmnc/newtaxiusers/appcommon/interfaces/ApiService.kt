@@ -76,33 +76,9 @@ interface ApiService {
     @GET("get_rider_trips")
     fun getRiderTrips(@Query("token") token: String, @Query("user_type") type: String): Call<ResponseBody>
 
-    // Add wallet amount using paytm
-    @GET("add_wallet")
-    fun addWalletMoneyUsingPaytm(@Query("token") token: String, @Query("paykey") paykey: String, @Query("amount") amount: String): Call<ResponseBody>
-
-
     // Change Flutterwave CurrencyModelList
     @GET("flutterwave_currency_conversion")
     fun flutterwaveCurrency(@Query("token") token: String, @Query("currency_code") currency_code: String, @Query("amount") amount: String): Call<ResponseBody>
-
-    // Add wallet amount using Mpesa
-    @GET("add_wallet")
-    fun addWalletMoneyUsingMpesa(@Query("token") token: String, @Query("paykey") paykey: String, @Query("amount") amount: String): Call<ResponseBody>
-
-
-    // Change Mpesa CurrencyModelList
-    @GET("mpesa_currency_conversion")
-    fun mpesaCurrency(@Query("token") token: String, @Query("currency_code") currency_code: String, @Query("amount") amount: String): Call<ResponseBody>
-    // Change Paypal CurrencyModelList
- 
-    // Add wallet amount using stripe card
-    @FormUrlEncoded
-    @POST("add_wallet")
-    fun addWalletMoneyUsingStripe(@FieldMap walletParams: LinkedHashMap<String, String>): Call<ResponseBody>
-
-    // Add wallet amount using paypal
-    @GET("add_wallet")
-    fun addWalletMoneyUsingPaypal(@Query("token") token: String, @Query("paykey") paykey: String, @Query("amount") amount: String): Call<ResponseBody>
 
     // Update Rider Profile
     @GET("update_rider_profile")
@@ -115,10 +91,6 @@ interface ApiService {
     // Log out Rider
     @GET("logout")
     fun logOut(@Query("token") token: String, @Query("user_type") user_type: String): Call<ResponseBody>
-
-    // Get Currency
-    @GET("currency_list")
-    fun currencyList(@Query("token") token: String): Call<ResponseBody>
 
     // Get Currency
     @GET("language")

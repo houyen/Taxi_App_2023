@@ -78,43 +78,6 @@
     <string name="done">Done</string>
     <string name="continues">CONTINUE</string>
 
-    <string name="pricepresented">Your fare will be the price presented before the trip or based on the rates below and other applicable surcharges and adjustments.</string>
-    <string name="basefare">Base Fare</string>
-    <string name="perminute">+ Per Minute</string>
-    <string name="perkm">+ Per km</string>$37.10
-
-    <string name="requestuber">"REQUEST "</string>
-    <string name="amountno7">$53.00</string>
-    <string name="ubergo">&appname;Go</string>
-    <string name="cancel_your_trip">"Cancel Your Rider"</string>
-
-    <string name="cash">Cash</string>
-    <string name="wallets">Wallet</string>
-    <string name="promotions">Promotions</string>
-    <string name="add">"Add"</string>
-    <string name="add_promo">"Add Promo/Gift Code"</string>
-    <string name="free_trip">Free trip up to</string>
-    <string name="from">from</string>
-    <string name="off">OFF</string>
-    <string name="promo_applied">Promo Applied</string>
-    <string name="enter_promo_code">"Enter your promo/gift code"</string>
-    <string name="wallet">My Wallet</string>
-    <string name="use_wallet">Use Wallet</string>
-    <string name="wallet_amount">Your Wallet Amount is</string>
-    <string name="add_amount">Add Money</string>
-    <string name="payable_amount">Payable Amount</string>
-    <string name="paid_amount">"Paid Amount"</string>
-    <string name="enter_amount">Enter The Amount</string>
-    <string name="add_money">"Add money to the wallet</string>
-    <string name="pay">Pay</string>
-    <string name="trip_id">Trip Id :</string>
-    <string name="proceed">Proceed</string>
-    <string name="waitfordriver">Waiting for driver to confirm</string>
-    <string name="paypal">PayPal</string>
-    <string name="credit_or_debit_card">Add Credit or Debit Card</string>
-    <string name="change_credit_or_debit_card">Change Credit or Debit Card</string>
-    <string name="card">Card</string>
-    <string name="save">Save</string>
 
     <string name="baseFare">Base Fare</string>
     <string name="currency">"Currency"</string>
@@ -292,9 +255,6 @@
     <string name="uberfee">Access Fee</string>
     <string name="distancefare">Distance Fare</string>
     <string name="timefare">Time Fare</string>
-    <string name="estimatedpayout">Total Trip Fare</string>
-    <string name="wallet_amounts">Wallet Amount</string>
-    <string name="promo_amounts">Promo Amount</string>
 
     <!--Fetch Address-->
     <string name="no_connection">No internet connection</string>
@@ -340,7 +300,6 @@
     <string name="gettinglocate">Getting location&#8230;</string>
     <string name="phone">Phone</string>
     <string name="verify">Verify</string>
-    <string name="please_enter_promo">Please enter the Promo Code</string>
     <string name="language">Language</string>
     <string name="selectlanguage">Select Language</string>
     <string name="turnoninternet">Turn on your Internet</string>
@@ -427,7 +386,6 @@
     <string name="share_my_code">Copy</string>
     <string name="skip">Skip</string>
     <string name="rate_your_ride">Rate your ride</string>
-    <string name="enter_wallet_amount">Please enter the wallet amount</string>
     <string name="manual_booking">Manual Booking</string>
     <string name="call_admin">Call %s</string>
     <string name="contact_admin_for_manual_booking">Contact admin for manual booking</string>

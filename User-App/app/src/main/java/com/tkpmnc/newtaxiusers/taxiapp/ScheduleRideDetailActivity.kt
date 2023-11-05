@@ -30,7 +30,6 @@ import com.tkpmnc.newtaxiusers.appcommon.utils.RequestCallback
 import com.tkpmnc.newtaxiusers.appcommon.views.CommonActivity
 import com.tkpmnc.newtaxiusers.taxiapp.sidebar.trips.YourTrips
 import com.tkpmnc.newtaxiusers.taxiapp.views.customize.CustomDialog
-import kotlinx.android.synthetic.main.app_activity_add_wallet.*
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.TimeUnit

@@ -250,30 +250,6 @@ class DriverRatingActivity : CommonActivity(), ServiceListener {
 
             sessionManager.isrequest = false
             sessionManager.isTrip = false
-
-            try {
-                val response = JSONObject(jsonResp.strResponse)
-                if (response.has("promo_details")) {
-                    val promocount = response.getJSONArray("promo_details").length()
-                    sessionManager.promoDetail = response.getString("promo_details")
-                    sessionManager.promoCount = promocount
-                }
-            } catch (j: JSONException) {
-                j.printStackTrace()
-            }
-
-            //Bundle bundle = new Bundle();
-            //bundle.putSerializable("invoiceModels", invoiceModels);
-          
-            //main.putExtra("AmountDetails", jsonResp.getStrResponse().toString());
-            //main.putExtras(bundle);
-            /*sessionManager.setIsrequest(false);
-            sessionManager.setIsTrip(false);
-            sessionManager.setDriverAndRiderAbleToChat(false);
-            CommonMethods.stopFirebaseChatListenerService(this);
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);*/
             finish()
 
         } else if (jsonResp.statusCode == "2") {

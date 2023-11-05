@@ -1285,7 +1285,6 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (27, '2017_06_01_130626_create_fees_table', 1),
 (28, '2017_06_08_085929_create_api_credentials_table', 1),
 (32, '2017_09_21_115741_create_jobs_table', 1),
-(33, '2017_11_12_133719_create_wallet_table', 1),
 (34, '2017_11_17_071107_create_promo_code_table', 1),
 (35, '2017_11_17_072500_create_users_promo_code_table', 1),
 (36, '2018_03_09_193432_create_help_category_lang_table', 1),
@@ -1601,11 +1600,8 @@ CREATE TABLE `pool_trips` (
   `waiting_charge` decimal(11,2) NOT NULL DEFAULT '0.00',
   `toll_reason_id` int(10) UNSIGNED DEFAULT NULL,
   `toll_fee` decimal(11,2) NOT NULL DEFAULT '0.00',
-  `wallet_amount` decimal(11,2) NOT NULL,
-  `promo_amount` decimal(11,2) NOT NULL,
   `subtotal_fare` decimal(11,2) NOT NULL,
   `total_fare` decimal(11,2) NOT NULL,
-  `driver_payout` decimal(11,2) NOT NULL,
   `driver_or_company_commission` decimal(11,2) NOT NULL,
   `owe_amount` decimal(11,2) NOT NULL,
   `remaining_owe_amount` decimal(11,2) NOT NULL,
@@ -2165,14 +2161,9 @@ CREATE TABLE `trips` (
   `tips` decimal(11,2) NOT NULL DEFAULT '0.00',
   `waiting_charge` decimal(11,2) NOT NULL DEFAULT '0.00',
   `toll_reason_id` int(10) UNSIGNED DEFAULT NULL,
-  `toll_fee` decimal(11,2) NOT NULL DEFAULT '0.00',
-  `wallet_amount` decimal(11,2) NOT NULL,
-  `promo_amount` decimal(11,2) NOT NULL,
   `subtotal_fare` decimal(11,2) NOT NULL,
   `total_fare` decimal(11,2) NOT NULL,
-  `driver_payout` decimal(11,2) NOT NULL,
   `driver_or_company_commission` decimal(11,2) NOT NULL,
-  `owe_amount` decimal(11,2) NOT NULL,
   `remaining_owe_amount` decimal(11,2) NOT NULL,
   `applied_owe_amount` decimal(11,2) NOT NULL,
   `to_trip_id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -2344,26 +2335,6 @@ INSERT INTO `vehicle_model` (`id`, `vehicle_make_id`, `model_name`, `status`, `c
 (6, 3, 'Sunny', 'Active', '2021-12-18 12:35:23', '2021-12-18 12:35:23');
 
 -- --------------------------------------------------------
-
---
--- Table structure for table `wallet`
---
-
-CREATE TABLE `wallet` (
-  `user_id` int(10) UNSIGNED NOT NULL,
-  `amount` decimal(7,2) NOT NULL,
-  `currency_code` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `paykey` text COLLATE utf8mb4_unicode_ci
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `wallet`
---
-
-INSERT INTO `wallet` (`user_id`, `amount`, `currency_code`, `paykey`) VALUES
-(10001, '1367.60', 'INR', NULL),
-(10004, '8107.00', 'USD', 'RFH19NC7RX');
-
 --
 -- Indexes for dumped tables
 --
@@ -2889,13 +2860,6 @@ ALTER TABLE `vehicle_make`
 --
 ALTER TABLE `vehicle_model`
   ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `wallet`
---
-ALTER TABLE `wallet`
-  ADD UNIQUE KEY `wallet_user_id_unique` (`user_id`),
-  ADD KEY `wallet_currency_code_foreign` (`currency_code`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -3530,26 +3494,11 @@ ALTER TABLE `users`
   ADD CONSTRAINT `users_country_id_foreign` FOREIGN KEY (`country_id`) REFERENCES `country` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `users_promo_code`
---
-ALTER TABLE `users_promo_code`
-  ADD CONSTRAINT `users_promo_code_promo_code_id_foreign` FOREIGN KEY (`promo_code_id`) REFERENCES `promo_code` (`id`),
-  ADD CONSTRAINT `users_promo_code_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
-
---
 -- Constraints for table `vehicle`
 --
 ALTER TABLE `vehicle`
   ADD CONSTRAINT `vehicle_company_id_foreign` FOREIGN KEY (`company_id`) REFERENCES `companies` (`id`),
   ADD CONSTRAINT `vehicle_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `wallet`
---
-ALTER TABLE `wallet`
-  ADD CONSTRAINT `wallet_currency_code_foreign` FOREIGN KEY (`currency_code`) REFERENCES `currency` (`code`),
-  ADD CONSTRAINT `wallet_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

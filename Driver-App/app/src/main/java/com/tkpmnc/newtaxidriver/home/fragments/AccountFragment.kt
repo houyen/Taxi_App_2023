@@ -68,8 +68,6 @@ import com.tkpmnc.newtaxidriver.home.managevehicles.SettingActivity.Companion.cu
 import com.tkpmnc.newtaxidriver.home.managevehicles.SettingActivity.Companion.langclick
 import com.tkpmnc.newtaxidriver.common.model.JsonResponse
 import com.tkpmnc.newtaxidriver.common.network.AppController
-import com.tkpmnc.newtaxidriver.home.payouts.PayoutDetailsListActivity
-import com.tkpmnc.newtaxidriver.home.payouts.PayoutEmailListActivity
 import com.tkpmnc.newtaxidriver.home.profile.DriverProfile
 import com.tkpmnc.newtaxidriver.home.profile.VehiclInformation
 import com.tkpmnc.newtaxidriver.home.signinsignup.SigninSignupHomeActivity
@@ -192,16 +190,6 @@ class AccountFragment : Fragment(), ServiceListener {
     @OnClick(R.id.imglatout1)
     fun profile() {
         val intent = Intent(activity, DriverProfile::class.java)
-        startActivity(intent)
-    }
-
-    /**
-     * Bank Details
-     */
-    @OnClick(R.id.rlt_bank_layout)
-    fun bankDetails() {
-        val intent = Intent(activity, PayoutDetailsListActivity::class.java)
-        //intent.putExtra("bankDetailsModel", bankDetailsModel)
         startActivity(intent)
     }
 

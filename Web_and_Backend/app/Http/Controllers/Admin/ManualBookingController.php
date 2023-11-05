@@ -142,7 +142,6 @@ class ManualBookingController extends Controller
         $schedule->trip_path = @$polyline;
         $schedule->timezone = ($timezone=='')?'Asia/Kolkata':$timezone;
         $schedule->payment_method ='Cash';
-        $schedule->is_wallet = 'No';
         $schedule->location_id = $request->location_id;
         $schedule->peak_id = $request->peak_id;
         $schedule->booking_type = 'Manual Booking';

@@ -827,21 +827,9 @@ class SigninSignupActivity : CommonActivity(), ServiceListener, UserChoiceSucces
         }
         sessionManager.currencyCode = loginResult.currencyCode
         sessionManager.accessToken = loginResult.token
-        sessionManager.walletAmount = loginResult.walletAmount
         sessionManager.userId = loginResult.userId
         sessionManager.isrequest = false
         commonMethods.hideProgressDialog()
-        try {
-            val response = JSONObject(jsonResp)
-            if (response.has("promo_details")) {
-                val promocount = response.getJSONArray("promo_details").length()
-
-                sessionManager.promoDetail = response.getString("promo_details")
-                sessionManager.promoCount = promocount
-            }
-        } catch (j: JSONException) {
-            j.printStackTrace()
-        }
 
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)

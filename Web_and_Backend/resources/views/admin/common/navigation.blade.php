@@ -208,25 +208,6 @@
 				</ul>
 			</li>
 			@endif
-			@if(@$user->can('manage_wallet') || @$user->can('manage_promo_code'))
-			<li class="treeview {{ (Route::current()->uri() == 'admin/wallet/{user_type}' || Route::current()->uri() == 'admin/promo_code') ? 'active' : ''  }}">
-				<a href="#">
-					<i class="fa fa-google-wallet"></i> <span>Manage Wallet & Promo</span> <i class="fa fa-angle-left pull-right"></i>
-				</a>
-				<ul class="treeview-menu">
-					@if($company_user || @$user->can('manage_wallet'))
-					<li class="treeview {{ (@$navigation == 'manage_wallet') ? 'active' : ''  }}">
-						<a href="{{ route('wallet',['user_type' => 'Rider']) }}"><i class="fa fa-circle-o"></i>
-							<span> Manage Wallet Amount </span>
-						</a>
-					</li>
-					@endif
-					@if(@$user->can('manage_promo_code'))
-					<li class="{{ (Route::current()->uri() == 'admin/promo_code') ? 'active' : ''  }}"><a href="{{ url('admin/promo_code') }}"><i class="fa fa-circle-o"></i><span>Manage Promo Code</span></a></li>
-					@endif
-				</ul>
-			</li>
-			@endif
 
 			@if(@$user->can('manage_rider_referrals') || @$user->can('manage_driver_referrals'))
 			<li class="treeview {{ (Route::current()->uri() == 'admin/referrals/rider' || Route::current()->uri() == 'admin/referrals/driver') ? 'active' : ''  }}">

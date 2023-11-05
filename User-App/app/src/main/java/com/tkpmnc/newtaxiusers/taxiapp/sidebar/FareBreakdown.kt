@@ -19,7 +19,6 @@ import com.tkpmnc.newtaxiusers.appcommon.network.AppController
 import com.tkpmnc.newtaxiusers.appcommon.utils.CommonMethods
 import com.tkpmnc.newtaxiusers.appcommon.views.CommonActivity
 import com.tkpmnc.newtaxiusers.taxiapp.datamodels.main.NearestCar
-import kotlinx.android.synthetic.main.app_activity_add_wallet.*
 import java.util.*
 import javax.inject.Inject
 

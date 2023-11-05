@@ -664,7 +664,6 @@ class SSRegisterActivity : CommonActivity(), ServiceListener {
         }
         sessionManager.currencyCode = signinResult.currencyCode
         sessionManager.accessToken = signinResult.token
-        sessionManager.walletAmount = signinResult.walletAmount
         sessionManager.userId = signinResult.userId
         sessionManager.countryCode = sessionManager.temporaryCountryCode
         sessionManager.phoneNumber = sessionManager.temporaryPhonenumber

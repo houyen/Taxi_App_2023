@@ -23,15 +23,5 @@ class SigninResult {
     @Expose
     var userId: String = ""
 
-    @SerializedName("currency_symbol")
-    @Expose
-    var currencySymbol: String = ""
 
-    @SerializedName("currency_code")
-    @Expose
-    var currencyCode: String = ""
-
-    @SerializedName("wallet_amount")
-    @Expose
-    var walletAmount: String = ""
 }

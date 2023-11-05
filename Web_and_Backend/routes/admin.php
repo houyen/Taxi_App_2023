@@ -76,12 +76,6 @@ Route::group(['prefix' => (LOGIN_USER_TYPE=='company')?'company':'admin', 'middl
 	Route::match(array('GET', 'POST'), 'delete_driver/{id}', 'DriverController@delete')->middleware('admin_can:delete_driver');
 	Route::post('get_documents', 'DriverController@get_documents');
 
-	// Manage Company
-	Route::get('company', 'CompanyController@index')->middleware('admin_can:view_company');
-	Route::match(array('GET', 'POST'), 'add_company', 'CompanyController@add')->middleware('admin_can:create_company');
-	Route::match(array('GET', 'POST'), 'edit_company/{id}', 'CompanyController@update')->middleware('admin_can:update_company');
-	Route::match(array('GET', 'POST'), 'delete_company/{id}', 'CompanyController@delete')->middleware('admin_can:delete_company');
-
 	// Manage Statements
 	Route::group(['middleware' =>  'admin_can:manage_statements'], function() {
 		Route::post('get_statement_counts', 'StatementController@get_statement_counts');

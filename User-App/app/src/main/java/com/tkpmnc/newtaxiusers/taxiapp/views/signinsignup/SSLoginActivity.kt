@@ -40,7 +40,6 @@ import com.tkpmnc.newtaxiusers.taxiapp.views.customize.CustomDialog
 import com.tkpmnc.newtaxiusers.taxiapp.views.facebookAccountKit.FacebookAccountKitActivity
 import com.tkpmnc.newtaxiusers.taxiapp.views.main.MainActivity
 import com.tkpmnc.newtaxiusers.taxiapp.views.splash.SplashActivity
-import kotlinx.android.synthetic.main.app_activity_add_wallet.*
 import org.json.JSONException
 import org.json.JSONObject
 import java.util.*
@@ -259,20 +258,9 @@ class SSLoginActivity : CommonActivity(), ServiceListener {
         }
         sessionManager.currencyCode = signinResult.currencyCode
         sessionManager.accessToken=signinResult.token
-        sessionManager.walletAmount = signinResult.walletAmount
         sessionManager.userId = signinResult.userId
         commonMethods.hideProgressDialog()
 
-        try {
-            val response = JSONObject(jsonResp.strResponse)
-            if (response.has("promo_details")) {
-                val promocount = response.getJSONArray("promo_details").length()
-                sessionManager.promoDetail = response.getString("promo_details")
-                sessionManager.promoCount = promocount
-            }
-        } catch (j: JSONException) {
-            j.printStackTrace()
-        }
 
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)

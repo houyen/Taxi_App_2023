@@ -64,7 +64,7 @@ import com.tkpmnc.newtaxiusers.taxiapp.firebase_auth.PhoneActivity
 import com.tkpmnc.newtaxiusers.taxiapp.views.customize.CustomDialog
 import com.tkpmnc.newtaxiusers.taxiapp.views.facebookAccountKit.FacebookAccountKitActivity
 import com.tkpmnc.newtaxiusers.taxiapp.views.splash.SplashActivity
-import kotlinx.android.synthetic.main.app_activity_add_wallet.*
+
 import okhttp3.RequestBody
 import org.json.JSONException
 import org.json.JSONObject
@@ -339,7 +339,6 @@ class Profile : CommonActivity(), ServiceListener, ImageListener, RuntimePermiss
         if (jsonResp.statusCode.matches("1".toRegex())) {
             sessionManager.profileDetail = jsonResp.strResponse
             val riderProfile = gson.fromJson(jsonResp.strResponse, RiderProfile::class.java)
-            sessionManager.walletAmount = riderProfile.walletAmount
             loaddata(jsonResp.strResponse)
         } else if (jsonResp.statusCode.matches("2".toRegex())) {
             commonMethods.showMessage(this, dialog, jsonResp.statusMsg)

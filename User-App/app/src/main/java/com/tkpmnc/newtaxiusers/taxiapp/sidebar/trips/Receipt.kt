@@ -41,22 +41,8 @@ class Receipt : Fragment() {
     lateinit var distance_fare: TextView
     @BindView(R.id.time_fare)
     lateinit var time_fare: TextView
-    @BindView(R.id.fee)
-    lateinit var fee: TextView
-    @BindView(R.id.totalamount)
-    lateinit var totalamount: TextView
-    @BindView(R.id.walletamount)
-    lateinit var walletamount: TextView
-    @BindView(R.id.promoamount)
-    lateinit var promoamount: TextView
-    @BindView(R.id.payableamount)
-    lateinit var payableamount: TextView
-    @BindView(R.id.walletamountlayout)
-    lateinit var walletamountlayout: RelativeLayout
-    @BindView(R.id.promoamountlayout)
-    lateinit var promoamountlayout: RelativeLayout
-    @BindView(R.id.payableamountlayout)
-    lateinit var payableamountlayout: RelativeLayout
+  
+
     @BindView(R.id.rvPrice)
     lateinit var recyclerView: RecyclerView
 

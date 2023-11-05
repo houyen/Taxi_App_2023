@@ -137,7 +137,7 @@ class DashboardController extends Controller
             //User::find($request->id)->delete();
         }
         catch(\Exception $e) {
-            flashMessage('error','Rider have wallet Amounts or Promo or Ongoing trips, Please check to ensure everything is cleared and try again or contact Admin.');
+            flashMessage('error','Please check to ensure everything is cleared and try again or contact Admin.');
             return back();
         }
 

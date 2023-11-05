@@ -20,9 +20,6 @@ class TripStatusModel {
     @SerializedName("subtotal_fare")
     @Expose
     var subtotalFare: String=""
-    @SerializedName("driver_payout")
-    @Expose
-    var driverPayout: String=""
     @SerializedName("car_name")
     @Expose
     var carName: String=""

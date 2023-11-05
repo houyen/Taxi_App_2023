@@ -320,10 +320,6 @@ class SessionManager {
         get() = sharedPreferences.getString("vehicleId", "")
         set(vehicleId) = sharedPreferences.edit().putString("vehicleId", vehicleId).apply()
 
-    var walletCard: Int
-        get() = sharedPreferences.getInt("walletCard", 0)
-        set(walletCard) = sharedPreferences.edit().putInt("walletCard", walletCard).apply()
-
     var isExtraFeeCollectable: Boolean
         get() = sharedPreferences.getBoolean("extra_fee", false)
         set(status) = sharedPreferences.edit().putBoolean("extra_fee", status).apply()

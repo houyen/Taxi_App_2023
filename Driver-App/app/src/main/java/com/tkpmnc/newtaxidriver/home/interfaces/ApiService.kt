@@ -137,10 +137,6 @@ interface ApiService {
     fun getDriverProfile(@Query("token") token: String): Call<ResponseBody>
 
 
-    //Driver Profile
-    @GET("get_payout_list")
-    fun getPayoutDetails(@QueryMap hashMap: HashMap<String, String>): Call<ResponseBody>
-
     //Currency list
     @GET("currency_list")
     fun getCurrency(@Query("token") token: String): Call<ResponseBody>
@@ -156,25 +152,14 @@ interface ApiService {
     @GET("update_driver_profile")
     fun updateDriverProfile(@QueryMap hashMap: LinkedHashMap<String, String>): Call<ResponseBody>
 
-    //Upload payout
-    @POST("update_payout_preference")
-    fun UpdatePayoutDetails(@QueryMap hashMap: HashMap<String, String>): Call<ResponseBody>
-
     //Sign out
     @GET("logout")
     fun logout(@Query("user_type") type: String, @Query("token") token: String): Call<ResponseBody>
 
-    //Payout Details
-    @GET("payout_details")
-    fun payoutDetails(@Query("token") token: String): Call<ResponseBody>
 
     //Get Country List
     @GET("country_list")
     fun getCountryList(@Query("token") token: String): Call<ResponseBody>
-
-    // Add stripe payout preference
-    @POST("update_payout_preference")
-    fun uploadStripe(@Body RequestBody: RequestBody, @Query("token") token: String): Call<ResponseBody>
 
     //get Additional fee reasons
     @GET("toll_reasons")
@@ -189,17 +174,6 @@ interface ApiService {
     @FormUrlEncoded
     @POST("delete_vehicle")
     fun deleteVehicle(@Field("token") token: String, @Field("id")id:String): Call<ResponseBody>
-
-    // Send OwnAmount
-    @FormUrlEncoded
-    @POST("pay_to_admin")
-    fun payToAdmin(@Field("amount") amount: String, @Field("applied_referral_amount") applyRefer: String, @Field("token") token: String): Call<ResponseBody>
-
-    // Send OwnAmount
-    @FormUrlEncoded
-    @POST("pay_to_admin")
-    fun payToAdmin(@FieldMap walletParams: LinkedHashMap<String, String>): Call<ResponseBody>
-
 
     //Daily Statement
     @GET("daily_statement")

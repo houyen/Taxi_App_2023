@@ -11,10 +11,7 @@
             android:id="@+id/nav_yourtrips"
             android:icon="@drawable/history"
             android:title="@string/yourtrips" />
-        <item
-            android:id="@+id/nav_wallet"
-            android:icon="@drawable/money"
-            android:title="@string/wallet" />
+      
 
         <item
             android:id="@+id/nav_referral"

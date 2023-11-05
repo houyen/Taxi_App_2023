@@ -604,31 +604,6 @@ class RiderController extends Controller
 		return $car_details;
 	}
 
-	/**
-	 * Display the promo details
-	 * @param  Get method request inputs
-	 *
-	 * @return Response Json
-	 */
-	public function promo_details(Request $request)
-	{
-		$user_details = JWTAuth::parseToken()->authenticate();
-		$user = User::where('id', $user_details->id)->first();
-		if ($user == '') {
-			return response()->json([
-				'status_code'	 => '0',
-				'status_message' => __('messages.invalid_credentials'),
-			]);
-		}
-
-
-
-		$user = array(
-			'status_code' 	=> '1',
-			'status_message'=> __('messages.api.success'),
-		);
-		return response()->json($user);
-	}
 
 	/**
 	 * Track the Driver Location

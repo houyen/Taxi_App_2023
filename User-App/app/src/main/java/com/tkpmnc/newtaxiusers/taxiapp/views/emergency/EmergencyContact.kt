@@ -44,7 +44,6 @@ import com.tkpmnc.newtaxiusers.taxiapp.datamodels.EmergencyContactModel
 import com.tkpmnc.newtaxiusers.taxiapp.datamodels.main.EmergencyContactResult
 import com.tkpmnc.newtaxiusers.taxiapp.views.customize.CustomDialog
 import org.json.JSONException
-import kotlinx.android.synthetic.main.app_activity_add_wallet.*
 import java.util.*
 import javax.inject.Inject
 

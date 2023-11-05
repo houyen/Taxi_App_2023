@@ -58,7 +58,6 @@ class HomeController extends Controller
         $covid_future = site_settings('covid_enable') =='1' ? true:false;
         
         $trip_default = payment_gateway('trip_default','Common');
-        $wallet_default = payment_gateway('wallet_default','Common');
 
         $driver_km = site_settings('driver_km');
         $pickup_km = site_settings('pickup_km');

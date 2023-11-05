@@ -126,11 +126,6 @@ class User extends Authenticatable implements JWTSubject
         return $this->belongsTo('App\Models\ProfilePicture','id','user_id');
     }
 
-    // Join with profile_picture table
-    public function wallet()
-    {
-        return $this->belongsTo('App\Models\Wallet','id','user_id');
-    }
 
     // Join with vehicle table
     public function vehicle()

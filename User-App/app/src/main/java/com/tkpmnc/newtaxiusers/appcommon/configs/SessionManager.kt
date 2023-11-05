@@ -168,22 +168,6 @@ class SessionManager {
         get() = sharedPreferences.getString("tripStatus", "")
         set(tripStatus) = sharedPreferences.edit().putString("tripStatus", tripStatus).apply()
 
-    var promoDetail: String?
-        get() = sharedPreferences.getString("PromoDetail", "")
-        set(PromoDetail) = sharedPreferences.edit().putString("PromoDetail", PromoDetail).apply()
-
-    var promoCount: Int
-        get() = sharedPreferences.getInt("vehicleId", 0)
-        set(vehicleId) = sharedPreferences.edit().putInt("vehicleId", vehicleId).apply()
-
-    var currencyCode: String?
-        get() = sharedPreferences.getString("currencyCode", "")
-        set(currencyCode) = sharedPreferences.edit().putString("currencyCode", currencyCode).apply()
-
-    var currencySymbol: String?
-        get() = sharedPreferences.getString("currencysymbol", "")
-        set(currencySymbol) = sharedPreferences.edit().putString("currencysymbol", currencySymbol).apply()
-
     var homeAddress: String?
         get() = sharedPreferences.getString("homeadresstext", "")
         set(homeadresstext) = sharedPreferences.edit().putString("homeadresstext", homeadresstext).apply()
@@ -196,14 +180,6 @@ class SessionManager {
         get() = sharedPreferences.getString("profilearratdetail", "")
         set(profilearratdetail) = sharedPreferences.edit().putString("profilearratdetail", profilearratdetail).apply()
 
-    var cardValue: String?
-        get() = sharedPreferences.getString("cardValue", "")
-        set(cardValue) = sharedPreferences.edit().putString("cardValue", cardValue).apply()
-
-    var cardBrand: String?
-        get() = sharedPreferences.getString("cardBrand", "")
-        set(cardBrand) = sharedPreferences.edit().putString("cardBrand", cardBrand).apply()
-
     var isrequest: Boolean
         get() = sharedPreferences.getBoolean("isrequest", false)
         set(isrequest)= sharedPreferences.edit().putBoolean("isrequest",isrequest).apply()
@@ -211,10 +187,6 @@ class SessionManager {
     var isTrip: Boolean
         get() = sharedPreferences.getBoolean("istrip", false)
         set(istrip)= sharedPreferences.edit().putBoolean("istrip",istrip).apply()
-
-    var walletAmount: String?
-        get() = sharedPreferences.getString("wallet_amount", "")
-        set(walletCard) = sharedPreferences.edit().putString("wallet_amount", walletCard).apply()
 
     var driverProfilePic: String?
         get() = sharedPreferences.getString("driverProfilePic", "")
@@ -280,17 +252,6 @@ class SessionManager {
         sharedPreferences.edit().remove("tripId").apply()
     }
 
-    //Paytm
-    var paytm_mode: Int
-        get() = sharedPreferences.getInt("paytm_mode", 0)
-        set(paytm_mode) =sharedPreferences.edit().putInt("paytm_mode",paytm_mode).apply()
-
-   // var paytm_merchant: String?
-    //    get() = sharedPreferences.getString("paytm_merchant", "")
-      //  set(paytm_merchant) =sharedPreferences.edit().putString("paytm_merchant",paytm_merchant).apply()
-
-
-
     //Flutterwave
     var flutterwave_mode: Int
         get() = sharedPreferences.getInt("flutterwave_mode", 0)
@@ -306,33 +267,6 @@ class SessionManager {
         get() = sharedPreferences.getInt("mpesa_mode", 0)
         set(mpesa_mode) =sharedPreferences.edit().putInt("mpesa_mode",mpesa_mode).apply()
 
-   // var mpesa_merchant: String?
-       // get() = sharedPreferences.getString("mpesa_merchant", "")
-       // set(mpesa_merchant) =sharedPreferences.edit().putString("mpesa_merchant",mpesa_merchant).apply()
-    var stripePublishKey: String?
-        get() = sharedPreferences.getString("StripePublishKey", "")
-        set(stripePublishKey) =sharedPreferences.edit().putString("StripePublishKey",stripePublishKey).apply()
-
-
-    var paypal_mode: Int
-        get() = sharedPreferences.getInt("paypal_mode", 0)
-        set(paypal_mode) =sharedPreferences.edit().putInt("paypal_mode",paypal_mode).apply()
-
-    var paypal_app_id: String?
-        get() = sharedPreferences.getString("paypal_app_id", "")
-        set(paypal_app_id) =sharedPreferences.edit().putString("paypal_app_id",paypal_app_id).apply()
-
-    var braintree_public_key: String?
-        get() = sharedPreferences.getString("braintree_public_key", "")
-        set(braintree_public_key) =sharedPreferences.edit().putString("braintree_public_key",braintree_public_key).apply()
-
-    var braintree_env: String?
-        get() = sharedPreferences.getString("braintree_env", "")
-        set(braintree_env) =sharedPreferences.edit().putString("braintree_env",braintree_env).apply()
-
-    var payementModeWebView: Boolean?
-        get() = sharedPreferences.getBoolean("payementModeWebView", false)
-        set(payementModeWebView) =sharedPreferences.edit().putBoolean("payementModeWebView",payementModeWebView!!).apply()
 
     var currentAddress: String?
         get() = sharedPreferences.getString("currentAddress", "")

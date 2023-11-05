@@ -30,7 +30,6 @@ import javax.inject.Inject
 import butterknife.BindView
 import butterknife.ButterKnife
 import com.tkpmnc.newtaxiusers.appcommon.views.CommonActivity
-import kotlinx.android.synthetic.main.app_activity_add_wallet.*
 import kotlinx.android.synthetic.main.app_common_header.*
 
 class SosActivity : CommonActivity(), ServiceListener {

@@ -34,7 +34,6 @@ import butterknife.OnClick
 
 import com.tkpmnc.newtaxiusers.appcommon.utils.CommonMethods.Companion.DebuggableLogI
 import com.tkpmnc.newtaxiusers.appcommon.views.CommonActivity
-import kotlinx.android.synthetic.main.app_activity_add_wallet.*
 
 /* ************************************************************
     YourTrips connect view pager

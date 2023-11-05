@@ -50,7 +50,6 @@ import com.tkpmnc.newtaxiusers.taxiapp.sendrequest.DriverRatingActivity
 import com.tkpmnc.newtaxiusers.taxiapp.views.customize.CustomDialog
 import org.json.JSONException
 import com.tkpmnc.newtaxiusers.taxiapp.adapters.PriceRecycleAdapter
-import kotlinx.android.synthetic.main.app_activity_add_wallet.common_header
 import kotlinx.android.synthetic.main.app_activity_trip_details.*
 
 import javax.inject.Inject

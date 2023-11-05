@@ -37,7 +37,6 @@ import com.tkpmnc.newtaxidriver.home.interfaces.ApiService
 import com.tkpmnc.newtaxidriver.home.interfaces.ServiceListener
 import com.tkpmnc.newtaxidriver.common.model.JsonResponse
 import com.tkpmnc.newtaxidriver.common.network.AppController
-import com.tkpmnc.newtaxidriver.home.payouts.PayoutDetailsListActivity
 import com.tkpmnc.newtaxidriver.home.signinsignup.SigninSignupHomeActivity
 import com.tkpmnc.newtaxidriver.common.util.CommonKeys
 import com.tkpmnc.newtaxidriver.common.util.CommonMethods
@@ -94,17 +93,6 @@ class SettingActivity : CommonActivity(), ServiceListener, UserChoiceSuccessResp
         intent.putExtra(CommonKeys.Intents.DocumentDetailsIntent, driverProfileModel.driverDocuments);
         startActivity(intent)
         overridePendingTransition(R.anim.ub__slide_in_right, R.anim.ub__slide_out_left)
-    }
-
-
-    /**
-     * Bank Details
-     */
-    @OnClick(R.id.rlt_payout)
-    fun bankDetails() {
-        val intent = Intent(this, PayoutDetailsListActivity::class.java)
-        intent.putExtra("bankDetailsModel", bankDetailsModel)
-        startActivity(intent)
     }
 
 

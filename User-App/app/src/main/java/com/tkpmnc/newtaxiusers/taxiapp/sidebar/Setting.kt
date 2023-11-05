@@ -65,7 +65,6 @@ import com.tkpmnc.newtaxiusers.taxiapp.views.signinsignup.SigninSignupActivity
 import com.tkpmnc.newtaxiusers.taxiapp.views.splash.SplashActivity
 import com.tkpmnc.newtaxiusers.taxiapp.views.termsPolicy.Privacy
 import com.tkpmnc.newtaxiusers.taxiapp.views.termsPolicy.Terms
-import kotlinx.android.synthetic.main.app_activity_add_wallet.*
 import org.apache.http.client.methods.HttpGet
 import org.apache.http.impl.client.BasicResponseHandler
 import org.json.JSONArray
@@ -404,18 +403,7 @@ class Setting : CommonActivity(), ServiceListener,UserChoiceSuccessResponse {
                 commonMethods.hideProgressDialog()
                 commonMethods.showMessage(this, dialog, jsonResp.statusMsg)
             }
-            REQ_UPDATE_CURR -> if (jsonResp.isSuccess) {
-                commonMethods.hideProgressDialog()
-                //Integer wallet_amount = (Integer) commonMethods.getJsonValue(jsonResp.getStrResponse(), "wallet_amount", String.class);
-
-                var wallet_amount = commonMethods.getJsonValue(jsonResp.strResponse, "wallet_amount", String::class.java) as String
-                val result = java.lang.Float.parseFloat(wallet_amount)
-                val result1 = result.toInt()
-                wallet_amount = Integer.toString(result1)
-
-                println("wallet amout : $wallet_amount")
-                sessionManager.walletAmount = wallet_amount
-            } else if (!TextUtils.isEmpty(jsonResp.statusMsg)) {
+            REQ_UPDATE_CURR ->  if (!TextUtils.isEmpty(jsonResp.statusMsg)) {
                 commonMethods.hideProgressDialog()
                 commonMethods.showMessage(this, dialog, jsonResp.statusMsg)
             }

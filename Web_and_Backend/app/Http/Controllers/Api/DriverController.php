@@ -23,7 +23,6 @@ use App\Models\ScheduleRide;
 use App\Models\Trips;
 use App\Models\User;
 use App\Models\Country;
-use App\Models\AppliedReferrals;
 use App\Models\ReferralUser;
 use App\Models\Fees;
 use App\Models\MakeVehicle;

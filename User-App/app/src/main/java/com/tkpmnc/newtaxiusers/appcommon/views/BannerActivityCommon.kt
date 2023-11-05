@@ -17,7 +17,6 @@ import com.tkpmnc.newtaxiusers.appcommon.datamodels.Banner
 import com.tkpmnc.newtaxiusers.appcommon.network.AppController
 import com.tkpmnc.newtaxiusers.appcommon.utils.CommonMethods
 import com.tkpmnc.newtaxiusers.taxiapp.views.splash.SplashActivity.Companion.checkVersionModel
-import kotlinx.android.synthetic.main.app_activity_add_wallet.*
 import java.util.*
 import javax.inject.Inject
 

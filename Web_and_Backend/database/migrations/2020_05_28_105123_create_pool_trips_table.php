@@ -43,15 +43,8 @@ class CreatePoolTripsTable extends Migration
             $table->integer('toll_reason_id')->unsigned()->nullable();
             $table->foreign('toll_reason_id')->references('id')->on('toll_reasons')->onDelete('cascade');
             $table->decimal('toll_fee', 11, 2)->default(0);
-            $table->decimal('wallet_amount', 11, 2);
-            $table->decimal('promo_amount', 11, 2);
             $table->decimal('subtotal_fare', 11, 2);
             $table->decimal('total_fare', 11, 2);
-            $table->decimal('driver_payout', 11, 2);
-            $table->decimal('driver_or_company_commission', 11, 2);
-            $table->decimal('owe_amount', 11, 2);
-            $table->decimal('remaining_owe_amount', 11, 2);
-            $table->decimal('applied_owe_amount', 11, 2);
             $table->timestamp('arrive_time')->default('0000-00-00 00:00:00');
             $table->timestamp('begin_trip')->default('0000-00-00 00:00:00');
             $table->timestamp('end_trip')->default('0000-00-00 00:00:00');

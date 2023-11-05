@@ -73,9 +73,6 @@
         <activity
             android:name="com.tkpmnc.newtaxidriver.home.managevehicles.ManageVehicles"
              />
-        <activity
-            android:name="com.tkpmnc.newtaxidriver.home.payouts.PayoutDetailsListActivity"
-           />
        
 
         <uses-library

@@ -129,13 +129,6 @@ class PermissionOverViewActivity : AppCompatActivity() {
             )
         )
 
-        permissionList.add(
-            ApplicationPermissionModel(
-                R.drawable.ic_baseline_notifications_24,
-                "Notification",
-                "We need this permission to  send notification to provide regular updates about the trip and other promotional notification."
-            )
-        )
 
         return permissionList
 

@@ -22,16 +22,11 @@ object Enums {
     const val REQ_SEND_REQUEST = 106
     const val REQ_GET_DRIVER = 107
     const val REQ_TRIP_DETAIL = 108
-    const val REQ_PAYPAL_CURRENCY = 109
     const val REQ_AFTER_PAY = 110
     const val REQ_UPDATE_PROFILE = 111
     const val REQ_LOGOUT = 112
-    const val REQ_CURRENCYLIST = 113
     const val REQ_UPDATE_CURR = 114
     const val REQ_UPDATE_LANG = 115
-    const val REQ_GET_PROMO = 116
-    const val REQ_ADD_PROMO = 117
-    const val REQ_ADD_WALLET = 118
     const val REQ_UPLOAD_PROFILE_IMG = 119
     const val REQ_ADD_CARD = 120
     const val REQ_GET_INVOICE = 123
