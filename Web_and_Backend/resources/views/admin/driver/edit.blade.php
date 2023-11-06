@@ -170,45 +170,6 @@
 						</div>
 						</div>
 
-						@if(LOGIN_USER_TYPE!='company' || Auth::guard('company')->user()->id != 1)
-						<span class="bank_detail">
-							<div class="form-group">
-								<label for="input_status" class="col-sm-3 control-label">Account Holder Name <em class="text-danger">*</em></label>
-								<div class="col-md-7 col-sm-offset-1">
-									{!! Form::text('account_holder_name',@$result->default_payout_credentials->payout_preference->holder_name, ['class' => 'form-control', 'id' => 'account_holder_name', 'placeholder' => 'Account Holder Name']) !!}
-									<span class="text-danger">{{ $errors->first('account_holder_name') }}</span>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="input_status" class="col-sm-3 control-label">Account Number <em class="text-danger">*</em></label>
-								<div class="col-md-7 col-sm-offset-1">
-									{!! Form::text('account_number',@$result->default_payout_credentials->payout_preference->account_number, ['class' => 'form-control', 'id' => 'account_number', 'placeholder' => 'Account Number']) !!}
-									<span class="text-danger">{{ $errors->first('account_number') }}</span>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="input_status" class="col-sm-3 control-label">Name of Bank <em class="text-danger">*</em></label>
-								<div class="col-md-7 col-sm-offset-1">
-									{!! Form::text('bank_name',@$result->default_payout_credentials->payout_preference->bank_name, ['class' => 'form-control', 'id' => 'bank_name', 'placeholder' => 'Name of Bank']) !!}
-									<span class="text-danger">{{ $errors->first('bank_name') }}</span>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="input_status" class="col-sm-3 control-label">Bank Location <em class="text-danger">*</em></label>
-								<div class="col-md-7 col-sm-offset-1">
-									{!! Form::text('bank_location',@$result->default_payout_credentials->payout_preference->bank_location, ['class' => 'form-control', 'id' => 'bank_location', 'placeholder' => 'Bank Location']) !!}
-									<span class="text-danger">{{ $errors->first('bank_location') }}</span>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="input_status" class="col-sm-3 control-label">BIC/SWIFT Code <em class="text-danger">*</em></label>
-								<div class="col-md-7 col-sm-offset-1">
-									{!! Form::text('bank_code',@$result->default_payout_credentials->payout_preference->branch_code, ['class' => 'form-control', 'id' => 'bank_code', 'placeholder' => 'BIC/SWIFT Code']) !!}
-									<span class="text-danger">{{ $errors->first('bank_code') }}</span>
-								</div>
-							</div>
-						</span>
-						@endif
 					</div>
 					<div class="box-footer text-center">
 						<button type="submit" class="btn btn-info" name="submit" value="submit">Submit</button>

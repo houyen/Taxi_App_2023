@@ -226,25 +226,7 @@ img.white_logo {
     top: 70px;
 }
 
-.payout_setup .panel-header {
-    padding: 12px;
-}
 
-.payout_setup {
-    /*border: 1px solid #ccc;*/
-}
-
-.payout_setup .panel {
-    margin-bottom: 30px;
-    border: none;
-    box-shadow: none;
-}
-
-.payout_intro {
-    display: inline-block;
-    width: 100%;
-    margin: 10px 0 35px;
-}
 
 .scroll_table {
     display: inline-block;
@@ -272,70 +254,6 @@ img.white_logo {
 .scroll_table table tfoot td {
     border-collapse: collapse;
     border: 1px solid #ccc;
-}
-
-.poppayout .modal-content {
-    max-width: 100%;
-    width: 500px;
-    height: auto;
-    margin: 50px auto;
-}
-
-.poppayout .panel-header {
-    padding: 20px;
-    border-radius: 10px;
-}
-
-.poppayout .panel-body {
-    padding: 20px;
-}
-
-.poppayout .panel-header .close {
-    padding: 3px;
-    position: absolute;
-    top: 12px;
-    right: 10px;
-    color: #636363;
-    opacity: 1;
-    font-size: 30px;
-    font-weight: 400;
-}
-
-.payout_popup_view label {
-    width: 100%;
-    float: left;
-    display: inline-block;
-}
-
-.payout_input_field {
-    display: inline-block;
-    float: left;
-    width: 100%;
-    padding: 15px;
-}
-
-.payout_popup_view {
-    display: inline-block;
-    width: 100%;
-    text-align: center;
-}
-
-.payout_input_field select {
-    padding: 5px;
-    margin: 0;
-    line-height: inherit;
-    height: inherit;
-}
-
-.payout_input_field input {
-    padding: 5px;
-    width: 100%;
-    border: 1px solid #ccc;
-}
-
-.perferenace_payout {
-    padding: 0 !important;
-    overflow: auto;
 }
 
 .new_fix {
@@ -570,16 +488,9 @@ img.white_logo {
         width: 100%;
     }
 
-    .layout--join_company {
-        padding: 20px !important;
-    }
+
 }
 
-@media screen and (max-width: 567px) {
-    .poppayout .modal-content {
-        width: 90%;
-    }
-}
 
 @media screen and (max-width: 425px) {
     .tr_ico {

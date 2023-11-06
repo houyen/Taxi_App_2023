@@ -173,48 +173,6 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasMany('App\Models\Trips','driver_id','id');
     }
 
-    // Return the drivers default payout credential details
-    public function payout_credentials()
-    {
-        return $this->hasMany('App\Models\PayoutCredentials','user_id','id');
-    }
-
-    // Return the drivers default payout credential details
-    public function default_payout_credentials()
-    {
-        $payout_methods = getPayoutMethods($this->company_id);
-
-        $payout_methods = array_map(function($value) {
-            return snakeToCamel($value,true);
-        }, $payout_methods);
-    	return $this->hasOne('App\Models\PayoutCredentials')->whereIn('type',$payout_methods)->where('default','yes');
-    }
-
-    // Join with company table
-    public function company()
-    {
-        return $this->belongsTo('App\Models\Company','company_id','id');
-    }
-
-    // Join with driver_owe_amount_payments table
-    public function driver_owe_amount_payments()
-    {
-        return $this->hasMany('App\Models\DriverOweAmountPayment', 'user_id', 'id');
-    }
-
-    // Join with driver_owe_amount table
-    public function driver_owe_amount()
-    {
-        return $this->hasOne('App\Models\DriverOweAmount', 'user_id', 'id');
-    }
-
-    // Get Driver payout currency
-    public function getDriverPayoutCurrencyAttribute()
-    {
-        $payout = PayoutCredentials::with(['payout_preference'])->where('user_id', $this->attributes['id'])->where('default', 'yes')->first();
-        return $payout->currency_code;
-    }
-
     //Join with country
     public function country_name()
     {
@@ -443,16 +401,6 @@ class User extends Authenticatable implements JWTSubject
         return trans('messages.driver_dashboard.'.$this->attributes['status']);
     }
 
-    // Get Payout Id of the driver
-    public function getPayoutIdAttribute()
-    {
-        $payout_id = '';
-        $payout_details = $this->default_payout_credentials;
-        if($payout_details != '')
-            $payout_id = $payout_details->account_number;
-
-        return $payout_id;
-    }
 
     // Get Mobile number with Protected format
     public function getHiddenMobileNumberAttribute()

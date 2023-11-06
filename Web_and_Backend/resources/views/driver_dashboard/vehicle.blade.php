@@ -38,7 +38,7 @@
                   <td>{{$vehicle->vehicle_type}}</td>
                   <td>{{$vehicle->vehicle_number}}</td>
                   <td>{{$vehicle->trans_status}}</td>
-                  <td class="payout-options cls_dropoption">
+                  <td class=" cls_dropoption">
                     <li class="dropdown-trigger list-unstyled">
                       <a href="javascript:void(0);" class="link-reset text-truncate" id="option1">
                         @lang('messages.account.options')

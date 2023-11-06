@@ -135,22 +135,7 @@ class TripsDataTable extends DataTable
             ['data' => 'action', 'name' => 'action', 'title' => 'Action', 'orderable' => false, 'searchable' => false, 'exportable' => false],
         ];
 
-        if(LOGIN_USER_TYPE == 'company') {
-            $payout_columns = array(
-                ['data' => 'total_amount', 'name' => 'total_fare', 'title' => 'Earned'],
-            );              
-            $company_columns = array();                
-        }
-        else {
-            $payout_columns = array(
-                ['data' => 'total_amount', 'name' => 'total_fare', 'title' => 'Earned'],
-            );
-            $company_columns = array(
-                ['data' => 'company_name', 'name' => 'companies.name', 'title' => 'Company Name']
-            );
-        }
-
-        return array_merge($col_list_1,$payout_columns,$col_list_2,$company_columns,$col_list_3);
+        return array_merge($col_list_1,$col_list_2,$company_columns,$col_list_3);
     }
 
     /**

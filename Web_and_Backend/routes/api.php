@@ -16,8 +16,6 @@
 
 Route::get('cron_request_car', 'CronController@requestCars');
 Route::get('cron_offline', 'CronController@updateOfflineUsers');
-Route::get('currency_cron', 'CronController@updateCurrency');
-Route::match(['get', 'post'], 'paypal_payout', 'CronController@updatePaypalPayouts');
 
 Route::get('check_version', 'RiderController@check_version');
 

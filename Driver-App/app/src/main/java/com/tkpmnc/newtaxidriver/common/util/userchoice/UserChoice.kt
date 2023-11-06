@@ -12,9 +12,6 @@ import com.tkpmnc.newtaxidriver.common.util.CommonMethods
 import com.tkpmnc.newtaxidriver.common.util.Enums
 import com.tkpmnc.newtaxidriver.home.datamodel.CurreneyListModel
 import com.tkpmnc.newtaxidriver.home.fragments.currency.CurrencyModel
-import com.tkpmnc.newtaxidriver.home.payouts.isClicked
-import com.tkpmnc.newtaxidriver.home.payouts.payout_model_classed.CountryModel
-import com.tkpmnc.newtaxidriver.home.payouts.payout_model_classed.Makent_model
 import java.util.*
 import javax.inject.Inject
 
@@ -39,30 +36,6 @@ class UserChoice {
     fun getUsersLanguages(context: Context?, languageList: MutableList<CurrencyModel>, type: String?, userChoiceSuccessResponse: UserChoiceSuccessResponse?) {
         this.context = context
         this.languageList = languageList
-        this.type = type
-        this.userChoiceSuccessResponse = userChoiceSuccessResponse
-        showBottomSheet()
-    }
-
-    fun getUserCurrency(context: Context?, currencyList: ArrayList<CurreneyListModel>, type: String?, userChoiceSuccessResponse: UserChoiceSuccessResponse?) {
-        this.context = context
-        this.currencyList = currencyList
-        this.type = type
-        this.userChoiceSuccessResponse = userChoiceSuccessResponse
-        showBottomSheet()
-    }
-
-    fun getCountryListForPayouts(context: Context?, countryModel: ArrayList<CountryModel>, type: String?, userChoiceSuccessResponse: UserChoiceSuccessResponse?) {
-        this.context = context
-        this.countryModelList = countryModel
-        this.type = type
-        this.userChoiceSuccessResponse = userChoiceSuccessResponse
-        showBottomSheet()
-    }
-
-    fun getStripeCountryCurrency(context: Context?, stripeCountryModel: ArrayList<Makent_model>, type: String?, userChoiceSuccessResponse: UserChoiceSuccessResponse?) {
-        this.context = context
-        this.stripeCountryModel = stripeCountryModel
         this.type = type
         this.userChoiceSuccessResponse = userChoiceSuccessResponse
         showBottomSheet()

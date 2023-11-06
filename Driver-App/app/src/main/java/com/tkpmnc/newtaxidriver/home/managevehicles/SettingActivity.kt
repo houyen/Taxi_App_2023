@@ -377,7 +377,6 @@ class SettingActivity : CommonActivity(), ServiceListener, UserChoiceSuccessResp
     private fun onSuccessgetCurrency(jsonResp: JsonResponse) {
         val currencyDetailsModel = gson.fromJson(jsonResp.strResponse, CurrencyDetailsModel::class.java)
         val currencyListModel = currencyDetailsModel.curreneyListModels
-        userChoice.getUserCurrency(this,currencyListModel,Enums.USER_CHOICE_CURRENCY,this)
        // currencylayout.isClickable = true
     }
 

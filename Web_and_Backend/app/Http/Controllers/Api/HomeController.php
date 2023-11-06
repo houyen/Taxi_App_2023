@@ -83,16 +83,7 @@ if($request->user_type == 'Rider') {
         );
 
         $driver_data = array();
-        if($user_details->user_type == 'Driver' ) {
-            $payout_methods = getPayoutMethods($user_details->company_id);
-            
-            foreach ($payout_methods as $payout_method) {
-                $payout_list[] = ["key" => $payout_method, 'value' => snakeToCamel($payout_method)];
-            }
-
-           // $driver_data = compact('payout_list');
-        }
-
+        
         // get firebase token
         $user = User::find($user_details->id);
 

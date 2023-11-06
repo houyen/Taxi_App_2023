@@ -189,40 +189,8 @@
 									{{ @$result->paykey }}
 								</div>
 							</div>
-							@if($result->driver->company->id == 1 && $result->driver->default_payout_credentials == '')
-							<div class="form-group">
-								<label class="col-sm-3 control-label">
-								</label>
-								<div class="col-md-7 col-sm-offset-1 form-control-static">
-									Yet, Driver doesn't enter his Payout details.
-								</div>
-							</div>
-							@elseif($result->status == "Completed" && $result->payout_status == "Paid")
-							<div class="form-group">
-								<label class="col-sm-3 control-label">
-									Payout Status
-								</label>
-								<div class="col-md-7 col-sm-offset-1 form-control-static">
-									Payout successfully sent..
-								</div>
-							</div>
-							@endif
 						@endif
 
-
-						@if($result->driver->company_id != 1)
-							@if($result->driver->company->default_payout_credentials == '')
-								<div class="form-group">
-									<label class="col-sm-3 control-label">
-									</label>
-									<div class="col-md-7 col-sm-offset-1 form-control-static">
-										Yet, Company doesn't enter his Payout details.
-									</div>
-								</div>
-							@else
-								
-							@endif						
-						@endif
 					</form>
 					<div class="box-footer text-center">
 						<a class="btn btn-default" href="{{$back_url}}">Back</a>

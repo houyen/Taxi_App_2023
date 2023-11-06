@@ -50,10 +50,6 @@ interface ApiService {
     @GET("numbervalidation")
     fun numberValidation(@Query("user_type") type: String, @Query("mobile_number") mobilenumber: String, @Query("country_code") countrycode: String, @Query("forgotpassword") forgotpassword: String, @Query("language") language: String): Call<ResponseBody>
 
-    @GET("add_payout")
-    fun addPayout(@Query("email_id") emailId: String, @Query("user_type") userType: String, @Query("token") token: String): Call<ResponseBody>
-
-
     //Cancel trip
     @GET("cancel_trip")
     fun cancelTrip(@Query("user_type") type: String, @Query("cancel_reason_id") cancel_reason: String, @Query("cancel_comments") cancel_comments: String, @Query("trip_id") trip_id: String, @Query("token") token: String): Call<ResponseBody>
@@ -178,14 +174,6 @@ interface ApiService {
     //Daily Statement
     @GET("daily_statement")
     fun dailyStatement(@Query("token") token: String, @Query("date") date: String, @Query("timezone") timeZone: String,@Query("page") page: String): Call<ResponseBody>
-
-    //Weekly Payout
-    @GET("weekly_statement")
-    fun weeklyStatement(@Query("token") token: String, @Query("user_type") userType: String, @Query("date") startDate: String): Call<ResponseBody>
-
-    //Weekly Trip Payout
-    @GET("weekly_trip")
-    fun weeklyTripStatement(@Query("token") token: String,@Query("page") page: String): Call<ResponseBody>
 
     //Check user Mobile Number
     @GET("numbervalidation")

@@ -41,17 +41,10 @@ class MetasTableSeeder extends Seeder
         		['url' => 'reset_password', 'title' => 'Reset Password', 'description' => 'Reset Password', 'keywords' => ''],
                 ['url' => 'forgot_password_rider', 'title' => 'Forgot Password', 'description' => 'Forgot Password', 'keywords' => ''],
                 ['url' => 'forgot_password_link/{id}', 'title' => 'Forgot Password Link', 'description' => 'Forgot Password Link', 'keywords' => ''],
-                ['url' => 'payout_preferences', 'title' => 'Payout Preferences', 'description' => 'Payout Preferences', 'keywords' => ''],
                 ['url' => 'help', 'title' => 'Help Center', 'description' => 'Help Center', 'keywords' => ''],
                 ['url' => 'help/topic/{id}/{category}', 'title' => 'Help Center', 'description' => 'Help Center', 'keywords' => ''],
                 ['url' => 'help/article/{id}/{question}', 'title' => 'Help Center', 'description' => 'Help Center', 'keywords' => ''],
-                ['url' => 'signin_company', 'title' => 'Sign In Company', 'description' => 'Sign In Company', 'keywords' => ''],
-                ['url' => 'signup_company', 'title' => 'Sign Up Company', 'description' => 'Sign Up Company', 'keywords' => ''],
-                ['url' => 'forgot_password_company', 'title' => 'Forgot Password', 'description' => 'Forgot Password', 'keywords' => ''],
-                ['url' => 'company/reset_password', 'title' => 'Reset Password', 'description' => 'Reset Password', 'keywords' => ''],
-        		
                 ['url' => 'admin', 'title' => 'Admin Panel', 'description' => 'Admin Panel', 'keywords' => ''],
-                ['url' => 'company', 'title' => 'Company Panel', 'description' => 'Company Panel', 'keywords' => ''],
                 ['url' => 'app/driver', 'title' => 'Diver App', 'description' => 'Diver App', 'keywords' => ''],
                 ['url' => 'app/rider', 'title' => 'Rider App', 'description' => 'Rider App', 'keywords' => ''],
         	]);

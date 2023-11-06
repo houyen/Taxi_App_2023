@@ -278,8 +278,6 @@ class ResetPassword : CommonActivity(), ServiceListener {
             }else{
                 Html.fromHtml(signInUpResultModel.currencySymbol).toString()
             }
-            sessionManager.currencyCode = signInUpResultModel.currencyCode
-            sessionManager.paypalEmail = signInUpResultModel.payoutId
             sessionManager.driverSignupStatus = signInUpResultModel.userStatus
             sessionManager.setAcesssToken(signInUpResultModel.token)
             sessionManager.isRegister = true

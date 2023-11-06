@@ -1,5 +1,5 @@
 @php $otp_verification = site_settings('otp_verification'); @endphp
-<div class="modal otp-popup text-left poppayout fade" id="otp_popup" aria-hidden="false" style="" tabindex="-1">
+<div class="modal otp-popup text-left fade" id="otp_popup" aria-hidden="false" style="" tabindex="-1">
 	<div id="modal-add-otp-set-address" class="modal-content">
 		<div class="panel-header">
 			<button type="button" class="close" data-dismiss="modal"></button>

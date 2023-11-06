@@ -295,9 +295,6 @@ class SigninActivity : CommonActivity(), ServiceListener {
             }else{
                 Html.fromHtml(signInUpResultModel.currencySymbol).toString()
             }
-            sessionManager.currencyCode = signInUpResultModel.currencyCode
-            sessionManager.countryCode = signInUpResultModel.country_code
-            sessionManager.paypalEmail = signInUpResultModel.payoutId
             sessionManager.driverSignupStatus = signInUpResultModel.userStatus
             sessionManager.setAcesssToken(signInUpResultModel.token)
             sessionManager.isRegister = true

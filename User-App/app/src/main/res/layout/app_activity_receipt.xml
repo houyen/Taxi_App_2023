@@ -188,28 +188,6 @@
                 android:paddingBottom="@dimen/_10adp"
                 android:paddingTop="@dimen/_20adp">
 
-            <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
-                    android:id="@+id/total_payouts"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/estimatedpayout"
-                    android:textAlignment="center"
-                    android:layout_marginStart="@dimen/_15adp"
-                    android:textColor="@color/newtaxi_app_yellow"
-                    android:textSize="@dimen/_17asp"
-                    app:fontName="@string/font_Medium" />
-
-            <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/total_payouts"
-                    android:layout_marginTop="@dimen/_3adp"
-                    android:text="*Rounded"
-                    android:textAlignment="center"
-                    android:textColor="@color/newtaxi_app_black"
-                    android:textSize="@dimen/_13asp"
-                    android:visibility="gone"
-                    app:fontName="@string/font_Book" />
 
             <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
                     android:id="@+id/totalamount"

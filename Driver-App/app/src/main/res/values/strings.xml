@@ -337,8 +337,6 @@
     <string name="settings">SETTINGS</string>
     <string name="not_now">NOT NOW</string>
     <string name="message">Message</string>
-    <string name="payout_title">Set up your &appname; payout method</string>
-    <string name="payout_address">Address of Payout</string>
     <string name="street_hint">"Street / Road Name"</string>
     <string name="apt_hint">"Apt / Suite / Building"</string>
     <string name="city_hint">"City / Town / District"</string>
@@ -388,15 +386,6 @@
 
     <string name="enable_permissions_to_proceed_further">Enable permission to proceed further</string>
     <string name="takephoto_title">Take a photo</string>
-    <string name="add_stripe_payout">Add Stripe Payout</string>
-    <string name="choose_currency">Please choose a currency</string>
-    <string name="please_choose_a_currency">Please choose a currency</string>
-    <string name="please_enter_account_number">please enter account number</string>
-    <string name="please_enter_bank_name">please enter bank name</string>
-    <string name="please_enter_branch_name">please enter branch name</string>
-    <string name="please_enter_bank_code">please enter bank code</string>
-    <string name="please_enter_branch_code">please enter branch code</string>
-    <string name="please_enter_account_holder_name">please enter account holder name</string>
     <string name="please_enter_address1">please enter address 1</string>
     <string name="please_enter_city">please enter city</string>
     <string name="please_enter_state">please enter state</string>
@@ -439,31 +428,7 @@
     <string name="skip">Skip</string>
 
 
-    <string name="bank_location">Bank Location</string>
-    <string name="bic_swift_code">BIC/SWIFT Code</string>
-    <string name="name_of_bank">Name of Bank</string>
-    <string name="account_number">Account Number</string>
-    <string name="account_holder_name">Account Holder Name</string>
-    <string name="clabe" translatable="false">CLABE</string>
-
     <string name="required"> Required</string>
-
-    <string name="bank_details">Bank Details</string>
-    <string name="bank_details_success_message">Bank Details Added Successfully</string>
-    <string name="rate_your_ride">Rate your ride</string>
-    <string name="no_ratings_display">You have no rating to display</string>
-    <string name="pending_trips">Pending Trips</string>
-    <string name="completed_trips">Completed Trips</string>
-    <string name="error_address">Please provide an address.</string>
-    <string name="error_city">Please provide a city.</string>
-    <string name="error_zip_code">Please provide a zip code.</string>
-    <string name="error_country">Please select country for payout.</string>
-    <string name="no_vehicle_assigned">No vehicle assigned</string>
-    <string name="trips">TRIPS</string>
-    <string name="total_trip_amount">Total trip amount</string>
-    <string name="doc_upload_error">Please upload all documents</string>
-
-
 
     <string name="default_direction" translatable="false">0</string>
     <string name="mobile_verification">Mobile Verification</string>
@@ -540,7 +505,6 @@
     <string name="rejected">Rejected</string>
     <string name="go_onlines">Online</string>
     <string name="go_offline">Offline</string>
-    <string name="manage_payout">Manage Payout</string>
     <string name="pool_request">Pool Request (</string>
     <string name="persons_braces">&#160;persons)</string>
     <string name="person_braces">&#160;person)</string>

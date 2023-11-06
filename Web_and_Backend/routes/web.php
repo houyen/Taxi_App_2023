@@ -136,22 +136,13 @@ Route::group(['middleware' => ['locale','driver_guest']], function () {
 	Route::view('driver_trip', 'driver_dashboard.driver_trip');
 	Route::get('driver_trip_detail/{id}', 'DriverDashboardController@driver_trip_detail');
 
-	Route::get('driver_referral', 'DashboardController@driver_referral')->name('driver_referral');
-
 	//Delete Account 
 	Route::get('deleteaccount', 'DriverDashboardController@deleteaccount');
 	Route::delete('deleteaccount/{user}', 'DriverDashboardController@destroy')->name('deleteaccount');
 
-
-
 	// profile update
 	Route::post('driver_update_profile/{id}', 'DriverDashboardController@driver_update_profile');
 
-	// Payout Preferences
-	Route::get('payout_preferences','UserController@payoutPreferences')->name('driver_payout_preference');
-	Route::post('update_payout_preference','UserController@updatePayoutPreference')->name('update_payout_preference');
-	Route::get('payout_delete/{id}', 'UserController@payoutDelete')->where('id', '[0-9]+')->name('payout_delete');
-	Route::get('payout_default/{id}', 'UserController@payoutDefault')->where('id', '[0-9]+')->name('payout_default');
 });
 
 Route::get('sign_out', function () {

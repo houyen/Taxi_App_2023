@@ -24,7 +24,7 @@ class Trips extends Model
      */
     protected $table = 'trips';
 
-    protected $appends = ['vehicle_name','driver_name','rider_name','rider_profile_picture','driver_thumb_image','rider_thumb_image','date','pickup_time','pickup_time_formatted','drop_time','pickup_date_time','trip_time','begin_date','payout_status','date_time_trip','driver_joined_at','payable_driver_payout','cash_collectable','commission','company_admin_commission','total_trip_fare','total_payout_frontend','cash_collect_frontend','driver_front_payout','rider_paid_amount','map_image','currency_symbol','status','toll_fee_reason','company_driver_earnings'];
+    protected $appends = ['vehicle_name','driver_name','rider_name','rider_profile_picture','driver_thumb_image','rider_thumb_image','date','pickup_time','pickup_time_formatted','drop_time','pickup_date_time','trip_time','begin_date','date_time_trip','driver_joined_at','commission','map_image','currency_symbol','status','toll_fee_reason'];
 
     /**
      * The attributes that aren't mass assignable.

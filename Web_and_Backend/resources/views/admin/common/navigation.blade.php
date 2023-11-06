@@ -43,17 +43,7 @@
 					<li class="{{ (Route::current()->uri() == 'admin/roles') ? 'active' : ''  }}"><a href="{{ url('admin/roles') }}"><i class="fa fa-circle-o"></i><span>Roles & Permissions</span></a></li>
 				</ul>
 			</li>
-			@endif
-			@if($company_user && $user->id != 1)
-			<li class="{{ (Route::current()->uri() == $first_segment.'/payout_preferences') ? 'active' : ''  }}"><a href="{{ url($first_segment.'/payout_preferences') }}"><i class="fa fa-paypal"></i><span>Payout Preferences</span></a></li>
-			@endif
-
-			@if(@$user->can('view_company'))
-			<li class="{{ (Route::current()->uri() == 'admin/company') ? 'active' : ''  }}"><a href="{{ url('admin/company') }}"><i class="fa fa-building"></i><span>Manage Company</span></a></li>
-			@endif
-			@if($company_user || @$user->can('view_driver'))
-			<li class="{{ (Route::current()->uri() == $first_segment.'/driver') ? 'active' : ''  }}"><a href="{{ url($first_segment.'/driver') }}"><i class="fa fa-cog"></i><span>Manage Drivers</span></a></li>
-			@endif
+			
 			@if(@$user->can('view_rider'))
 			<li class="{{ (Route::current()->uri() == 'admin/rider') ? 'active' : ''  }}"><a href="{{ url('admin/rider') }}"><i class="fa fa-users"></i><span>Manage Riders</span></a></li>
 			@endif
@@ -62,9 +52,7 @@
 			<li class="{{ (Route::current()->uri() == 'admin/documents') ? 'active' : ''  }}"><a href="{{ url('admin/documents') }}"><i class="fa fa-folder"></i><span>Manage Documents</span></a></li>
 			@endif
 			
-			@if($company_user || @$user->can('manage_send_message'))
-			<li class="{{ (Route::current()->uri() == $first_segment.'/send_message') ? 'active' : ''  }}"><a href="{{ url($first_segment.'/send_message') }}"><i class="fa fa-bullhorn"></i><span>Send Messages</span></a></li>
-			@endif
+			
 			@if(@$user->can('manage_email_settings') || @$user->can('manage_send_email'))
 			<li class="treeview {{ (Route::current()->uri() == 'admin/email_settings' || Route::current()->uri() == 'admin/send_email') ? 'active' : ''  }}">
 				<a href="#">
@@ -148,66 +136,6 @@
 			<li class="{{ (Route::current()->uri() == 'admin/manage_fare') ? 'active' : ''  }}"><a href="{{ url('admin/manage_fare') }}"><i class="fa fa fa-dollar"></i><span>Fare Management</span></a></li>
 			@endif
 
-			@if($company_user || @$user->can('manage_requests') || @$user->can('manage_trips') || @$user->can('manage_cancel_trips') || @$user->can('manage_payments') || @$user->can('manage_rating'))
-			<li class="treeview {{ (Route::current()->uri() == $first_segment.'/request' || Route::current()->uri() == $first_segment.'/trips' || Route::current()->uri() == $first_segment.'/cancel_trips' || Route::current()->uri() == $first_segment.'/payments' || Route::current()->uri() == $first_segment.'/rating') ? 'active' : ''  }}">
-				<a href="#">
-					<i class="fa fa-taxi"></i>
-					<span> Trips Management </span><i class="fa fa-angle-left pull-right"></i>
-				</a>
-				<ul class="treeview-menu">
-					@if($company_user || @$user->can('manage_requests'))
-					<li class="{{ (Route::current()->uri() == $first_segment.'/request') ? 'active' : ''  }}"><a href="{{ url($first_segment.'/request') }}"><i class="fa fa-paper-plane-o"></i><span>Manage Ride Requests</span></a></li>
-					@endif
-
-					@if($company_user || @$user->can('manage_trips'))
-					<li class="{{ (Route::current()->uri() == $first_segment.'/trips') ? 'active' : ''  }}"><a href="{{ url($first_segment.'/trips') }}"><i class="fa fa-taxi"></i><span> Manage Trips</span></a></li>
-					@endif
-
-					@if($company_user || @$user->can('manage_cancel_trips'))
-					<li class="{{ (Route::current()->uri() == $first_segment.'/cancel_trips') ? 'active' : ''  }}"><a href="{{ url($first_segment.'/cancel_trips') }}"><i class="fa fa-chain-broken"></i><span>Manage Canceled Trips</span></a></li>
-					@endif
-					
-					@if($company_user || @$user->can('manage_payments'))
-					<li class="{{ (Route::current()->uri() == $first_segment.'/payments') ? 'active' : ''  }}"><a href="{{ url($first_segment.'/payments') }}"><i class="fa fa-usd"></i><span>Manage Payments</span></a></li>
-					@endif
-					
-					@if($company_user || @$user->can('manage_rating'))
-					<li class="{{ (Route::current()->uri() == $first_segment.'/rating') ? 'active' : ''  }}"><a href="{{ url($first_segment.'/rating') }}"><i class="fa fa-star"></i><span>Ratings</span></a></li>
-					@endif
-				</ul>
-			</li>
-			@endif
-
-			@if($company_user || @$user->can('manage_driver_payments') || @$user->can('manage_company_payments'))
-			<li class="treeview {{ (Route::current()->uri() == 'admin/payout/overall' || Route::current()->uri() == 'admin/payout/company/overall' || Route::current()->uri() == 'company/payout/overall') ? 'active' : ''  }}">
-				<a href="#">
-					<i class="fa fa-dollar" aria-hidden="true"></i> <span>Manage Payouts</span> <i class="fa fa-angle-left pull-right"></i>
-				</a>
-				<ul class="treeview-menu">
-					@if(@$user->can('manage_company_payment'))
-					<li class="{{ (Route::current()->uri() == 'admin/payout/company/overall') ? 'active' : ''  }}"><a href="{{ url('admin/payout/company/overall') }}"><i class="fa fa-circle-o"></i><span>Company Payouts</span></a></li>
-					@endif
-					@if($company_user || @$user->can('manage_driver_payments'))
-					<li class="{{ (Route::current()->uri() == $first_segment.'/payout/overall') ? 'active' : ''  }}"><a href="{{ url($first_segment.'/payout/overall') }}"><i class="fa fa-circle-o"></i><span>Driver Payouts</span></a></li>
-					@endif
-				</ul>
-			</li>
-			@endif
-			@if($company_user || @$user->can('manage_owe_amount'))
-			<li class="{{ (Route::current()->uri() == $first_segment.'/owe') ? 'active' : ''  }}"><a href="{{ url($first_segment.'/owe') }}"><i class="fa fa-money"></i><span>Manage Owe Amount</span></a></li>
-			@endif
-
-			@if($company_user ||  @$user->can('manage_statements'))
-			<li class="treeview {{ (Route::current()->uri() == $first_segment.'/statements/{type}') ? 'active' : ''  }}">
-				<a href="#">
-					<i class="fa fa-area-chart"></i> <span>Manage Statements</span> <i class="fa fa-angle-left pull-right"></i>
-				</a>
-				<ul class="treeview-menu">
-					<li class="{{ (request()->type == 'overall') ? 'active' : ''  }}"><a href="{{ url($first_segment.'/statements/overall') }}"><i class="fa fa-circle-o"></i><span>Overall Statments</span></a></li>
-					<li class="{{ (request()->type == 'driver') ? 'active' : ''  }}"><a href="{{ url($first_segment.'/statements/driver') }}"><i class="fa fa-circle-o"></i><span>Drivers Statments</span></a></li>
-				</ul>
-			</li>
-			@endif
 
 			@if(@$user->can('manage_rider_referrals') || @$user->can('manage_driver_referrals'))
 			<li class="treeview {{ (Route::current()->uri() == 'admin/referrals/rider' || Route::current()->uri() == 'admin/referrals/driver') ? 'active' : ''  }}">
@@ -233,23 +161,7 @@
 				</ul>
 			</li>
 			@endif
-			@if($company_user || $user->can('manage_map') || $user->can('manage_heat_map'))
-			<li class="treeview {{ (Route::current()->uri() == $first_segment.'/map' || Route::current()->uri() == $first_segment.'/heat-map') ? 'active' : ''  }}">
-				
-				<a href="#">
-					<i class="fa fa-map-marker" aria-hidden="true"></i> <span>Manage Map</span> <i class="fa fa-angle-left pull-right"></i>
-				</a>
-				<ul class="treeview-menu">
-					@if($user->can('manage_map') || $company_user )
-						<li class="{{ (Route::current()->uri() == $first_segment.'/map') ? 'active' : ''  }}"><a href="{{ url($first_segment.'/map') }}"><i class="fa fa-circle-o"></i><span>Map View</span></a></li>
-					@endif
-
-					@if($user->can('manage_heat_map') || $company_user )
-					<li class="{{ (Route::current()->uri() == $first_segment.'/heat-map') ? 'active' : ''  }}"><a href="{{ url($first_segment.'/heat-map') }}"><i class="fa fa-circle-o"></i><span>HeatMap</span></a></li>
-					@endif
-				</ul>
-			</li>
-			@endif
+			
 			@if(@$user->can('manage_mobile_app_version'))
 			<li class="{{ (Route::current()->uri() == 'admin/mobile_app_version') ? 'active' : ''  }}"><a href="{{ url('admin/mobile_app_version') }}"><i class="fa fa-level-up"></i><span>Manage Mobile App Version</span></a></li>
 			@endif

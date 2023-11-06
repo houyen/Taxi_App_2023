@@ -17,22 +17,7 @@ $('#close_recent').on('click', function(e) {
 	$(".recent_rides_section").slideToggle();
 });
 
-$('#payout-details').on('show.bs.modal', function(e) {
-	var payout_details = $(e.relatedTarget).data('payout_details');
-	var inHTML = "";
-	if(payout_details.has_payout_data) {
-		$.each(payout_details, function(key, value) {
-			if(key != 'has_payout_data') {
-		    	inHTML += "<tr><td>"+ key + "</td><td>"+ value + "</td></tr>"
-			}
-		});
-	}
-	else {
-		inHTML += "<tr><td class='text-center'>"+ payout_details.payout_message + "</td></tr>"
-	}
 
-	$("#payout_details").html(inHTML);	
-});
 
 $(document).ready(function() {
 	$(".inactive_translate").each(function () {

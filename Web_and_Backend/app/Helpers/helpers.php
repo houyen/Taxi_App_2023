@@ -22,7 +22,6 @@ use App\Models\Location;
 use App\Models\CarType;
 use App\Models\Documents;
 use App\Models\DriverDocuments;
-use App\Models\CompanyDocuments;
 use App\Models\DriverLocation;
 
 /**
@@ -589,14 +588,6 @@ if (!function_exists('camelCaseToString')) {
  * Check Given Request is from API or not
 @return Boolean
  */
-if (!function_exists('isPayoutEnabled')) {
-
-	function isPayoutEnabled($method)
-	{
-		$payout_methods = getPayoutMethods();
-		return in_array($method, $payout_methods);
-	}
-}
 
 if (!function_exists('isAdmin')) {
 	function isAdmin()
@@ -768,15 +759,10 @@ if (!function_exists('LogDistanceMatrix')) {
 	if(!function_exists('UserDocuments')) {
 		function UserDocuments($type,$user,$vehicle_id=0) {
 
-			if($type=='Company') {
-				$docs = CompanyDocuments::whereHas('documents', function($q) {
-					$q->active();
-				})->where('company_id',$user->id)->get();
-			} else {
-				$docs = DriverDocuments::whereHas('documents', function($q) {
-					$q->active();
-				})->where('type',$type)->where('user_id',$user->id)->where('vehicle_id',$vehicle_id)->get();
-			}
+			$docs = DriverDocuments::whereHas('documents', function($q) {
+				$q->active();
+			})->where('type',$type)->where('user_id',$user->id)->where('vehicle_id',$vehicle_id)->get();
+		
 			$docArr = array();
 			if($docs->count() > 0){
 				foreach($docs as $key => $value) {

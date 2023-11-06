@@ -38,18 +38,6 @@
 
 
                     <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
-                        android:id="@+id/tv_make"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_toEndOf="@+id/ivpayout"
-                        android:gravity="center_vertical"
-                        android:text="@string/make"
-                        android:textColor="@color/newtaxi_app_black"
-                        android:textSize="@dimen/_12asp"
-                        app:fontname="@string/font_UBERNews" />
-
-
-                    <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                         android:id="@+id/tv_make_type"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -86,17 +74,6 @@
                     android:paddingTop="@dimen/_10adp"
                     android:paddingBottom="@dimen/_20adp">
 
-
-                    <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
-                        android:id="@+id/tv_model"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_toEndOf="@+id/ivpayout"
-                        android:gravity="center_vertical"
-                        android:text="@string/model"
-                        android:textColor="@color/newtaxi_app_black"
-                        android:textSize="@dimen/_12asp"
-                        app:fontname="@string/font_UBERNews" />
 
                     <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                         android:id="@+id/tv_model_type"
@@ -137,16 +114,6 @@
                     android:paddingBottom="@dimen/_20adp">
 
 
-                    <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
-                        android:id="@+id/tv_year"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_toEndOf="@+id/ivpayout"
-                        android:gravity="center_vertical"
-                        android:text="@string/year"
-                        android:textColor="@color/newtaxi_app_black"
-                        android:textSize="@dimen/_12asp"
-                        app:fontname="@string/font_UBERNews" />
 
                     <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
                         android:id="@+id/tv_year_type"
@@ -186,16 +153,6 @@
                     android:paddingBottom="@dimen/_20adp">
 
 
-                      <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
-                        android:id="@+id/tv_license"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_toEndOf="@+id/ivpayout"
-                        android:gravity="center_vertical"
-                        android:text="@string/vehicle_numbers"
-                        android:textColor="@color/newtaxi_app_black"
-                        android:textSize="@dimen/_12asp"
-                        app:fontname="@string/font_UBERNews" />
 
                         <com.tkpmnc.newtaxidriver.common.custompalette.FontEditText
                             android:id="@+id/tv_license_type"
@@ -216,17 +173,7 @@
                             app:fontname="@string/font_Medium" />
 
 
-                    <!--    <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/tv_license"
-
-                            android:gravity="center_vertical"
-                            android:layout_toEndOf="@+id/ivpayout"
-                            android:text="@string/license_plate"
-                            android:textColor="@color/colorblockgray"
-                            android:textSize="15sp"
-                            app:fontname="@string/font_UBERNews" />
+                    <!--    
 
                         <com.tkpmnc.newtaxidriver.common.custompalette.FontEditText
                             android:id="@+id/tv_license_type"
@@ -281,19 +228,6 @@
                             app:fontname="@string/font_UBERNews" />
                     </com.google.android.material.textfield.TextInputLayout>
                     <!--
-
-                                    <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:id="@+id/tv_vehicle__name_header"
-
-                                        android:gravity="center_vertical"
-                                        android:layout_toEndOf="@+id/ivpayout"
-                                        android:text="@string/vehicle_name_title"
-                                        android:textColor="@color/colorblockgray"
-                                        android:textSize="15sp"
-                                        app:fontname="@string/font_UBERNews" />
-
                                     <com.tkpmnc.newtaxidriver.common.custompalette.FontEditText
                                         android:id="@+id/tv_vehicle_name"
                                         android:layout_width="match_parent"
@@ -324,18 +258,6 @@
                     android:paddingTop="@dimen/_10adp"
                     android:paddingBottom="@dimen/_20adp">
 
-
-                    <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
-                        android:id="@+id/tv_vehicle_color_header"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_toEndOf="@+id/ivpayout"
-                        android:gravity="center_vertical"
-                        android:text="@string/vehicle_color"
-                        android:textColor="@color/newtaxi_app_black"
-                        android:textSize="@dimen/_12asp"
-                        app:fontname="@string/font_UBERNews"
-                        tools:ignore="UnknownIdInLayout" />
 
                     <com.tkpmnc.newtaxidriver.common.custompalette.FontEditText
                         android:id="@+id/tv_vehicle_color"

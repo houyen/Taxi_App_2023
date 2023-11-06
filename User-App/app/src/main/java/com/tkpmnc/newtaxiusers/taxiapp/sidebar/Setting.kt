@@ -679,7 +679,6 @@ class Setting : CommonActivity(), ServiceListener,UserChoiceSuccessResponse {
     fun onSuccessGetCurr(jsonResp: JsonResponse) {
         val currencyModel = gson.fromJson(jsonResp.strResponse, CurrencyModelList::class.java)
         val currencyListModel = currencyModel.currencyList
-        userChoice.getUserCurrency(this,currencyListModel,Enums.USER_CHOICE_CURRENCY,this)
         /*currencyList.clear()
         currencyList.addAll(currencyListModel)
         currencyListAdapter.notifyDataChanged()*/

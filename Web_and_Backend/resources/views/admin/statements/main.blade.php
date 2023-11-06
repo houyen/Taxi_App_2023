@@ -186,18 +186,14 @@ app.controller('statements', ['$scope', '$http', function($scope, $http) {
 	};
 
 	$scope.table_columns = [{data: 'id', name: 'id', title: 'Booking ID'}];
-	if(LOGIN_USER_TYPE == 'admin') {
-		$scope.table_columns.push({data: 'company_name', name: 'company_name', title: 'Company Name'});
-	}
+
 	$scope.table_columns.push(
 		{data: 'pickup_location',name: 'pickup_location',title: 'Pickup Location'},
 		{data: 'drop_location',name: 'drop_location',title: 'Drop Location'},
 		{data: 'action',name: 'action',title: 'Trips Details',orderable: false,searchable: false},
 		{data: 'commission',name: 'commission',title: 'Admin commission',searchable: false},
-		{data: 'admin_payout_status',name: 'admin_payout_status',title: 'Admin Payout Status',orderable: false,searchable: false},
 		{data: 'created_at',name: 'created_at',title: 'Dated on'},
 		{data: 'status',name: 'status',title: 'Status'},
-		{data: 'total_amount',name: 'driver_payout',title: 'Earned'}
 	);
 	
 	$(document).ready(function() {

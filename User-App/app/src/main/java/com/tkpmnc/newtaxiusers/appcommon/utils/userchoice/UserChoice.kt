@@ -40,13 +40,6 @@ class UserChoice {
         this.userChoiceSuccessResponse = userChoiceSuccessResponse
         showBottomSheet()
     }
-    fun getUserCurrency(context: Context?,currencyList: ArrayList<CurrencyListModel>,type: String?,userChoiceSuccessResponse: UserChoiceSuccessResponse?){
-        this.context = context
-        this.currencyList =currencyList
-        this.type = type
-        this.userChoiceSuccessResponse = userChoiceSuccessResponse
-        showBottomSheet()
-    }
 
 
     init {

@@ -16,8 +16,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 import com.tkpmnc.newtaxidriver.R
 import com.tkpmnc.newtaxidriver.home.datamodel.ExtraFeeReason
-import com.tkpmnc.newtaxidriver.home.payouts.payout_model_classed.CountryModel
-import com.tkpmnc.newtaxidriver.home.payouts.payout_model_classed.Header
+
 
 import java.util.ArrayList
 
@@ -27,14 +26,6 @@ class ExtraFeeReasonAdapter(internal var context: Context, private val modelItem
     : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     internal var header: Header? = null
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        val inflater = LayoutInflater.from(context)
-        println("View Type$viewType")
-        return ReasonHolder(inflater.inflate(R.layout.payout_country_list, parent, false))
-
-
-    }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
 

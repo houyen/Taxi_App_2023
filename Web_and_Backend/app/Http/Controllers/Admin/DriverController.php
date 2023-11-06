@@ -22,10 +22,6 @@ use App\Models\CarType;
 use App\Models\ProfilePicture;
 use App\Models\Company;
 use App\Models\Vehicle;
-use App\Models\ReferralUser;
-use App\Models\DriverOweAmount;
-use App\Models\PayoutPreference;
-use App\Models\PayoutCredentials;
 use App\Models\Documents;
 use Validator;
 use DB;
@@ -220,31 +216,6 @@ class DriverController extends Controller
             $user_address->postal_code   = $request->postal_code ? $request->postal_code:'';
             $user_address->save();
 
-            if($user->company_id != null && $user->company_id != 1) {
-                $payout_preference = PayoutPreference::firstOrNew(['user_id' => $user->id,'payout_method' => "BankTransfer"]);
-                $payout_preference->user_id = $user->id;
-                $payout_preference->country = "IN";
-                $payout_preference->account_number  = $request->account_number;
-                $payout_preference->holder_name     = $request->account_holder_name;
-                $payout_preference->holder_type     = "company";
-                $payout_preference->paypal_email    = $request->account_number;
-
-                $payout_preference->phone_number    = $request->mobile_number ?? '';
-                $payout_preference->branch_code     = $request->bank_code ?? '';
-                $payout_preference->bank_name       = $request->bank_name ?? '';
-                $payout_preference->bank_location   = $request->bank_location ?? '';
-                $payout_preference->payout_method   = "BankTransfer";
-                $payout_preference->address_kanji   = json_encode([]);
-                $payout_preference->save();
-
-                $payout_credentials = PayoutCredentials::firstOrNew(['user_id' => $user->id,'type' => "BankTransfer"]);
-                $payout_credentials->user_id = $user->id;
-                $payout_credentials->preference_id = $payout_preference->id;
-                $payout_credentials->payout_id = $request->account_number;
-                $payout_credentials->type = "BankTransfer";
-                $payout_credentials->default = 'yes';
-                $payout_credentials->save();
-            }
 
             $image_uploader = resolve('App\Contracts\ImageHandlerInterface');
             $target_dir = '/images/users/'.$user->id;
@@ -443,30 +414,6 @@ class DriverController extends Controller
             $user_address->postal_code   = $request->postal_code;
             $user_address->save();
 
-            if($user->company_id != null && $user->company_id != 1) {
-                $payout_preference = PayoutPreference::firstOrNew(['user_id' => $user->id,'payout_method' => "BankTransfer"]);
-                $payout_preference->user_id = $user->id;
-                $payout_preference->country = "IN";
-                $payout_preference->account_number  = $request->account_number;
-                $payout_preference->holder_name     = $request->account_holder_name;
-                $payout_preference->holder_type     = "company";
-                $payout_preference->paypal_email    = $request->account_number;
-                $payout_preference->phone_number    = $request->mobile_number ?? '';
-                $payout_preference->branch_code     = $request->bank_code ?? '';
-                $payout_preference->bank_name       = $request->bank_name ?? '';
-                $payout_preference->bank_location   = $request->bank_location ?? '';
-                $payout_preference->payout_method   = "BankTransfer";
-                $payout_preference->address_kanji   = json_encode([]);
-                $payout_preference->save();
-
-                $payout_credentials = PayoutCredentials::firstOrNew(['user_id' => $user->id,'type' => "BankTransfer"]);
-                $payout_credentials->user_id = $user->id;
-                $payout_credentials->preference_id = $payout_preference->id;
-                $payout_credentials->payout_id = $request->account_number;
-                $payout_credentials->type = "BankTransfer";                
-                $payout_credentials->default = 'yes';
-                $payout_credentials->save();
-            }
 
             $image_uploader = resolve('App\Contracts\ImageHandlerInterface');
             $target_dir = '/images/users/'.$user->id;

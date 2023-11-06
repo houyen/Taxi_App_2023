@@ -298,37 +298,6 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
-        <activity
-            android:name="com.tkpmnc.newtaxidriver.home.payouts.PayoutMainActivity"
-            android:exported="false"
-            android:hardwareAccelerated="true"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.tkpmnc.newtaxidriver.home.payouts.PayoutAddressDetailsActivity"
-            android:exported="false"
-            android:hardwareAccelerated="true"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.tkpmnc.newtaxidriver.home.payouts.PayoutBankDetailsActivity"
-            android:hardwareAccelerated="true"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
-        <activity
-            android:name="com.tkpmnc.newtaxidriver.home.payouts.PayoutEmailActivity"
-            android:exported="false"
-            android:hardwareAccelerated="true"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.tkpmnc.newtaxidriver.home.payouts.PayoutEmailListActivity"
-            android:exported="false"
-            android:hardwareAccelerated="true"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-
         <service
             android:name="com.tkpmnc.newtaxidriver.home.firebaseChat.FirebaseChatNotificationService"
             android:enabled="true"
@@ -348,14 +317,6 @@
             android:enabled="true"
             android:exported="true"
             android:label="RestartServiceWhenStopped" />
-
-        <activity
-            android:name="com.tkpmnc.newtaxidriver.home.payouts.BankDetailsActivity"
-            android:exported="false"
-            android:hardwareAccelerated="true"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-
 
         <activity
             android:name="com.tkpmnc.newtaxidriver.home.fragments.EarningActivity"

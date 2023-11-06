@@ -25,9 +25,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->call('App\Http\Controllers\Api\CronController@requestCars')->everyMinute();
-        $schedule->call('App\Http\Controllers\Api\CronController@updateCurrency')->daily();
         $schedule->call('App\Http\Controllers\Api\CronController@updateOfflineUsers')->everyFifteenMinutes();
-        $schedule->call('App\Http\Controllers\Api\CronController@updatePaypalPayouts')->twiceDaily();
         $schedule->command('queue:work --tries=3 --once')->cron('* * * * *');
         $schedule->command('backup:run')->monthly();
         $schedule->command('backup:run --only-db')->daily();

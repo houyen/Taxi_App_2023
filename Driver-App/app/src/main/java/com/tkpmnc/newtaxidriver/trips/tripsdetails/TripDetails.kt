@@ -80,51 +80,6 @@ class TripDetails : CommonActivity(), ServiceListener {
     @Inject
     lateinit var dbHelper: Sqlite
 
-   /* @BindView(R.id.adminamountlayout)
-    lateinit var adminamountlayout: RelativeLayout
-*/
-  /*  @BindView(R.id.oweamountlayout)
-    lateinit var oweamountlayout: RelativeLayout*/
-
- /*   @BindView(R.id.driverpayoutlayout)
-    lateinit var driverpayoutlayout: RelativeLayout
-
-    @BindView(R.id.cashcollectamountlayout)
-    lateinit var cashcollectamountlayout: RelativeLayout*/
-/*
-    @BindView(R.id.basefare_amount)
-    lateinit var basefare_amount: TextView
-
-    @BindView(R.id.distance_fare)
-    lateinit var distance_fare: TextView
-
-    @BindView(R.id.time_fare)
-    lateinit var time_fare: TextView
-
-    @BindView(R.id.fee)
-    lateinit var fee: TextView
-
-    @BindView(R.id.totalamount)
-    lateinit var totalamount: TextView
-
-    @BindView(R.id.total_payouts)
-    lateinit var total_payouts: TextView
-
-    @BindView(R.id.cashcollectamount)
-    lateinit var cashcollectamount: TextView
-
-    @BindView(R.id.cashcollectamount_txt)
-    lateinit var cashcollectamount_txt: TextView
-
-    @BindView(R.id.oweamount)
-    lateinit var oweamount: TextView
-
-    @BindView(R.id.driverpayout)
-    lateinit var driverpayout: TextView
-
-    @BindView(R.id.adminamount)
-    lateinit var adminamount: TextView*/
-
     @BindView(R.id.trip_amount)
     lateinit var trip_amount: TextView
 
@@ -303,32 +258,6 @@ class TripDetails : CommonActivity(), ServiceListener {
         pickup_address.text = with(tripDetailsModels) { this?.riderDetails?.get(0)?.pickupAddress }
         drop_address.text = with(tripDetailsModels) { this?.riderDetails?.get(0)?.destAddress }
         tvTripid.text = resources.getString(R.string.trip_id) + with(tripDetailsModels){ this?.riderDetails?.get(0)?.tripId }
-
-        if (sessionManager.userType != null && !TextUtils.isEmpty(sessionManager.userType) && !sessionManager.userType.equals("0", ignoreCase = true) && !sessionManager.userType.equals("1", ignoreCase = true)) {
-            // Company
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                if (java.lang.Float.valueOf(with(tripDetailsModels) { this?.riderDetails?.get(0)?.driverPayout }!!) > 0) {
-                    trip_amount.text = Html.fromHtml(with(tripDetailsModels) { this?.riderDetails?.get(0)?.driverEarnings }.toString(), Html.FROM_HTML_MODE_LEGACY)
-                } else {
-                    trip_amount.text = Html.fromHtml(sessionManager.currencySymbol!! + with(tripDetailsModels) { this?.riderDetails?.get(0)?.totalFare }.toString(), Html.FROM_HTML_MODE_LEGACY)
-                }
-
-            } else {
-                if (java.lang.Float.valueOf(with(tripDetailsModels) { this?.riderDetails?.get(0)?.driverPayout }!!) > 0) {
-                    trip_amount.text = Html.fromHtml(with(tripDetailsModels) { this?.riderDetails?.get(0)?.driverPayout }.toString())
-                } else {
-                    trip_amount.text = Html.fromHtml(sessionManager.currencySymbol!! + with(tripDetailsModels) { this?.riderDetails?.get(0)?.totalFare }.toString())
-                }
-            }
-        } else {
-
-            // Normal Driver
-            if (java.lang.Float.valueOf(with(tripDetailsModels) { this?.riderDetails?.get(0)?.driverPayout }!!) > 0) {
-                trip_amount.text = with(tripDetailsModels) { this?.riderDetails?.get(0)?.driverEarnings }
-            } else {
-                trip_amount.text = sessionManager.currencySymbol!! + with(tripDetailsModels) { this?.riderDetails?.get(0)?.totalFare }
-            }
-        }
 
         if (with(tripDetailsModels) { this?.riderDetails?.get(0)?.status }.equals(CommonKeys.TripStatus.Rating, ignoreCase = true)) {
             btnrate.setVisibility(View.VISIBLE)

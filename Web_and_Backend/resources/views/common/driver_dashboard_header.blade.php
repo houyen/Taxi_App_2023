@@ -65,9 +65,7 @@
                             <li>
                                 <a href="{{ url('driver_trip') }}">@lang('messages.header.mytrips') </a>
                             </li>
-                            <li class="{{ (Route::currentRouteName() == 'driver_payout_preference') ? 'active' : '' }}">
-                                <a href="{{ route('driver_payout_preference') }}"> @lang('messages.account.payout') </a>
-                            </li>
+                            
                             @if(Auth::user()->company_id == '1')
                             <li>
                                 <a href="{{ route('driver_referral') }}"> @lang('messages.referrals.referral') </a>
@@ -149,14 +147,7 @@
                     <li>
                         <a href="{{ url('driver_trip') }}"> @lang('messages.header.mytrips') </a>
                     </li>
-                    <li>
-                        <a href="{{ route('driver_payout_preference') }}"> @lang('messages.account.payout') </a>
-                    </li>
-                    @if(Auth::user()->company_id == '1')
-                    <li>
-                        <a href="{{ route('driver_referral') }}"> @lang('messages.referrals.referral') </a>
-                    </li>
-                    @endif
+                   
                     <li class="logout">
                         <a href="{{ url('sign_out')}}"> @lang('messages.header.logout') </a>
                     </li>
@@ -166,22 +157,6 @@
     </ul>
 </div>
 </div>
-<div class="modal poppayout fade" id="support_links" aria-hidden="false" tabindex="-1">
-                <div id="modal-add-payout-set-address" class="modal-content">   
-                    <div class="panel-header">
-                        <button type="button" class="close" data-dismiss="modal"></button>
-                            Contact Number
-                    </div>
-                    <div class="payout_popup_view">
-                        <div class="payout_input_field">
-                            <label for="payout_info_payout_country"> 
-                                <em  id=pop_up_mobile_number>
-                                </em> 
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
 <div class="flash-container">
     @if(Session::has('message'))
     <div class="alert text-center {{ Session::get('alert-class') }}" role="alert">

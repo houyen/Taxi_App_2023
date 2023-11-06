@@ -1,8 +1,5 @@
 package com.tkpmnc.newtaxidriver.common.util
 
-/**
- * this file is imported from makent to implement payout works
- */
 
 import android.content.Context
 import android.net.ConnectivityManager

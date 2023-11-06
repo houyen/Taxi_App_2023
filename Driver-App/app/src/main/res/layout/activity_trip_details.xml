@@ -236,80 +236,6 @@
 
 
                     <RelativeLayout
-                        android:id="@+id/totalpayoutlayout"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/accesslayout"
-                        android:background="@drawable/d_buttomtopboarder"
-                        android:paddingTop="10dp"
-                        android:paddingBottom="10dp"
-                        android:visibility="gone">
-
-                        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
-                            android:id="@+id/total_payouts"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/totalamount"
-                            android:textAlignment="center"
-                            android:textColor="@color/textblack"
-                            android:textSize="18sp"
-                            app:fontname="@string/font_UBERMedium" />
-
-                        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/total_payouts"
-                            android:layout_marginTop="3dp"
-                            android:text="*Rounded"
-                            android:textAlignment="center"
-                            android:textColor="@color/textblack"
-                            android:textSize="12sp"
-                            android:visibility="gone"
-                            app:fontname="@string/font_UBERBook" />
-
-                        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
-                            android:id="@+id/totalamount"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:text="500"
-                            android:textColor="@color/textblack"
-                            android:textSize="18sp"
-                            app:fontname="@string/font_UBERMedium" />
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:id="@+id/adminamountlayout"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/totalpayoutlayout"
-                        android:paddingTop="10dp"
-                        android:paddingBottom="10dp"
-                        android:visibility="gone">
-
-                        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/adminamount"
-                            android:textAlignment="center"
-                            android:textColor="@color/textblack"
-                            android:textSize="18sp"
-                            app:fontname="@string/font_UBERNews" />
-
-                        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
-                            android:id="@+id/adminamount"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:text="500"
-                            android:textColor="@color/textblack"
-                            android:textSize="18sp"
-                            app:fontname="@string/font_UBERNews" />
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
                         android:id="@+id/oweamountlayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -339,35 +265,6 @@
 
                     </RelativeLayout>
 
-                    <RelativeLayout
-                        android:id="@+id/driverpayoutlayout"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/adminamountlayout"
-                        android:paddingTop="10dp"
-                        android:paddingBottom="10dp"
-                        android:visibility="gone">
-
-                        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/driverpayout"
-                            android:textAlignment="center"
-                            android:textColor="@color/textblack"
-                            android:textSize="18sp"
-                            app:fontname="@string/font_UBERNews" />
-
-                        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
-                            android:id="@+id/driverpayout"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:text="500"
-                            android:textColor="@color/textblack"
-                            android:textSize="18sp"
-                            app:fontname="@string/font_UBERNews" />
-
-                    </RelativeLayout>
 
                     <RelativeLayout
                         android:id="@+id/cashcollectamountlayout"

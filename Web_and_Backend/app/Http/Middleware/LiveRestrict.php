@@ -59,16 +59,8 @@ class LiveRestrict
             else {  // restriction for for driver & rider urls
                 $user_unrestricted_url = [
                     'driver_update_profile/{id}',
-                    'stripe_payout_preferences',
-                    'update_payout_preferences/{id}',
                     'rider_update_profile/{id}'
                 ];
-
-                if (in_array(Route::current()->uri(),$user_unrestricted_url) || (Route::current()->uri()=='payout_preferences/{id}' && $_POST)) {
-                    Session::flash('alert-class', 'alert-error');
-                    Session::flash('message', 'Data add,edit & delete Operation are restricted in live.');
-                    return redirect(url()->previous());
-                }
             }
         }
 

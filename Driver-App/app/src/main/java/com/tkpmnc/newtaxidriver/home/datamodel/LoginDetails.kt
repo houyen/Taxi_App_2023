@@ -31,18 +31,9 @@ class LoginDetails : Serializable {
     @SerializedName("country_code")
     @Expose
     var country_code: String = ""
-    @SerializedName("currency_symbol")
-    @Expose
-    var currencySymbol: String? = null
-    @SerializedName("currency_code")
-    @Expose
-    lateinit var currencyCode: String
     @SerializedName("vehicle_id")
     @Expose
     lateinit var vehicleId: String
-    @SerializedName("payout_id")
-    @Expose
-    lateinit var payoutId: String
     @SerializedName("mobile_number")
     @Expose
     var mobileNumber: String= ""
