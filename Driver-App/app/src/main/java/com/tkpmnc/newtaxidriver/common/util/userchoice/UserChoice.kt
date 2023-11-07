@@ -11,7 +11,6 @@ import com.tkpmnc.newtaxidriver.common.network.AppController
 import com.tkpmnc.newtaxidriver.common.util.CommonMethods
 import com.tkpmnc.newtaxidriver.common.util.Enums
 import com.tkpmnc.newtaxidriver.home.datamodel.CurreneyListModel
-import com.tkpmnc.newtaxidriver.home.fragments.currency.CurrencyModel
 import java.util.*
 import javax.inject.Inject
 
@@ -24,22 +23,11 @@ class UserChoice {
     lateinit var commonMethods: CommonMethods
 
     private var context: Context? = null
-    private lateinit var languageList: MutableList<CurrencyModel>
-    private lateinit var currencyList: ArrayList<CurreneyListModel>
     private lateinit var countryModelList: ArrayList<CountryModel>
-    private lateinit var stripeCountryModel: ArrayList<Makent_model>
     private var type: String? = null
     private var userChoiceSuccessResponse: UserChoiceSuccessResponse? = null
     private var bottomSheetDialog: BottomSheetDialog? = null
 
-
-    fun getUsersLanguages(context: Context?, languageList: MutableList<CurrencyModel>, type: String?, userChoiceSuccessResponse: UserChoiceSuccessResponse?) {
-        this.context = context
-        this.languageList = languageList
-        this.type = type
-        this.userChoiceSuccessResponse = userChoiceSuccessResponse
-        showBottomSheet()
-    }
 
     init {
         AppController.getAppComponent().inject(this)
@@ -50,16 +38,12 @@ class UserChoice {
      */
     private fun showBottomSheet() {
         bottomSheetDialog = BottomSheetDialog(context!!, R.style.BottomSheetDialogTheme)
-        bottomSheetDialog!!.setContentView(R.layout.app_bottom_sheet_for_language_currency)
         val lltUserChoice = bottomSheetDialog!!.findViewById<LinearLayout>(R.id.llt_user_choice)
         val tvTitle = bottomSheetDialog!!.findViewById<TextView>(R.id.tv_title)
         val ivClose = bottomSheetDialog!!.findViewById<ImageView>(R.id.iv_close)
         when {
             type.equals(Enums.USER_CHOICE_LANGUAGE, ignoreCase = true) -> {
                 tvTitle!!.text = context!!.resources.getString(R.string.select_view, context!!.resources.getString(R.string.language))
-            }
-            type.equals(Enums.USER_CHOICE_CURRENCY, ignoreCase = true) || type.equals(Enums.USER_CHOICE_STRIPE_CURRENCY, ignoreCase = true) -> {
-                tvTitle!!.text = context!!.resources.getString(R.string.select_view, context!!.resources.getString(R.string.currencies))
             }
             type.equals(Enums.USER_CHOICE_COUNTRY, ignoreCase = true) || type.equals(Enums.USER_CHOICE_STRIPE_COUNTRY, ignoreCase = true) -> {
                 tvTitle!!.text = context!!.resources.getString(R.string.select_view, context!!.resources.getString(R.string.country_hint))

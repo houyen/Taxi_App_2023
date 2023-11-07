@@ -52,19 +52,14 @@ import com.squareup.picasso.Picasso
 import com.tkpmnc.newtaxidriver.home.MainActivity
 import com.tkpmnc.newtaxidriver.R
 import com.tkpmnc.newtaxidriver.common.configs.SessionManager
-import com.tkpmnc.newtaxidriver.home.datamodel.BankDetailsModel
-import com.tkpmnc.newtaxidriver.home.datamodel.CurrencyDetailsModel
 import com.tkpmnc.newtaxidriver.home.datamodel.CurreneyListModel
 import com.tkpmnc.newtaxidriver.home.datamodel.DriverProfileModel
-import com.tkpmnc.newtaxidriver.home.fragments.currency.CurrencyListAdapter
-import com.tkpmnc.newtaxidriver.home.fragments.currency.CurrencyModel
 import com.tkpmnc.newtaxidriver.home.fragments.language.LanguageAdapter
 import com.tkpmnc.newtaxidriver.common.helper.CustomDialog
 import com.tkpmnc.newtaxidriver.home.interfaces.ApiService
 import com.tkpmnc.newtaxidriver.home.interfaces.ServiceListener
 import com.tkpmnc.newtaxidriver.home.managevehicles.SettingActivity.Companion.alertDialogStores1
 import com.tkpmnc.newtaxidriver.home.managevehicles.SettingActivity.Companion.alertDialogStores2
-import com.tkpmnc.newtaxidriver.home.managevehicles.SettingActivity.Companion.currencyclick
 import com.tkpmnc.newtaxidriver.home.managevehicles.SettingActivity.Companion.langclick
 import com.tkpmnc.newtaxidriver.common.model.JsonResponse
 import com.tkpmnc.newtaxidriver.common.network.AppController
@@ -72,11 +67,9 @@ import com.tkpmnc.newtaxidriver.home.profile.DriverProfile
 import com.tkpmnc.newtaxidriver.home.profile.VehiclInformation
 import com.tkpmnc.newtaxidriver.home.signinsignup.SigninSignupHomeActivity
 import com.tkpmnc.newtaxidriver.common.util.CommonMethods
-import com.tkpmnc.newtaxidriver.common.util.Enums.REQ_CURRENCY
 import com.tkpmnc.newtaxidriver.common.util.Enums.REQ_DRIVER_PROFILE
 import com.tkpmnc.newtaxidriver.common.util.Enums.REQ_LANGUAGE
 import com.tkpmnc.newtaxidriver.common.util.Enums.REQ_LOGOUT
-import com.tkpmnc.newtaxidriver.common.util.Enums.REQ_UPDATE_CURRENCY
 import com.tkpmnc.newtaxidriver.common.util.RequestCallback
 import java.io.File
 import java.util.*
@@ -104,8 +97,7 @@ class AccountFragment : Fragment(), ServiceListener {
 
     lateinit @BindView(R.id.imglatout1)
     var imglatout1: RelativeLayout
-    lateinit @BindView(R.id.rlt_bank_layout)
-    var rltBankLayout: RelativeLayout
+
     lateinit @BindView(R.id.imglatout2)
     var imglatout2: RelativeLayout
     lateinit @BindView(R.id.documentlayout)
@@ -126,8 +118,6 @@ class AccountFragment : Fragment(), ServiceListener {
     var carname: TextView
     lateinit @BindView(R.id.language)
     var language: TextView
-    lateinit @BindView(R.id.currency_code)
-    var currency_code: TextView
 
     lateinit @BindView(R.id.car_image)
     var carImage: ImageView
@@ -153,20 +143,15 @@ class AccountFragment : Fragment(), ServiceListener {
     lateinit @BindView(R.id.arrarowseven)
     var arrarowseven: TextView
 
-    internal var bankDetailsModel: BankDetailsModel? = null
     var vehicle_name: String? = null
     var vehicle_number: String? = null
     var car_type: String? = null
     var car_image: String? = null
     lateinit var recyclerView1: RecyclerView
     lateinit var languageView: RecyclerView
-    lateinit var currencyList: ArrayList<CurrencyModel>
-    var languagelist: MutableList<CurrencyModel> = ArrayList<CurrencyModel>()
-    lateinit var currencyListAdapter: CurrencyListAdapter
+
     lateinit var LanguageAdapter: LanguageAdapter
     lateinit var symbol: Array<String?>
-    lateinit var currencycode: Array<String?>
-    var currency: String=""
     var Language: String? = null
     var LanguageCode: String? = null
     lateinit var driverProfileModel: DriverProfileModel
@@ -177,12 +162,6 @@ class AccountFragment : Fragment(), ServiceListener {
 
     lateinit @BindView(R.id.referral_layout)
     var referral_layout: RelativeLayout
-
-    @OnClick(R.id.currencylayout)
-    fun currency() {
-        currencylayout.isClickable = false
-        currency_list()
-    }
 
     /**
      * Driver Profile
@@ -284,45 +263,10 @@ class AccountFragment : Fragment(), ServiceListener {
         commonMethods.imageChangeforLocality(context!!,arrarowseven)
         dialog = commonMethods.getAlertDialog(activity!!)
         pbLoader.visibility = View.VISIBLE
-        currency = sessionManager.currencyCode!!
-        print("currency" + currency)
-        currency_code.text = currency
 
         return view
     }
 
-    // Load currency list deatils in dialog
-    @SuppressLint("UseRequireInsteadOfGet")
-    fun currency_list() {
-
-        getCurrency()
-
-        recyclerView1 = RecyclerView(activity!!)
-        currencyList = ArrayList()
-
-        currencyListAdapter = CurrencyListAdapter(activity!!, currencyList)
-
-        recyclerView1.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
-        recyclerView1.adapter = currencyListAdapter
-
-        val inflater = LayoutInflater.from(activity)
-        val view = inflater.inflate(R.layout.header, null)
-        alertDialogStores1 = android.app.AlertDialog.Builder(activity).setCustomTitle(view).setView(recyclerView1).setCancelable(true).show()
-        currencylayout.isClickable = true
-
-        alertDialogStores1!!.setOnDismissListener {
-            // TODO Auto-generated method stub
-            if (currencyclick!!) {
-                currencyclick = false
-                currency = sessionManager.currencyCode!!
-                // Toast.makeText(getApplicationContext(),"Dismiss dialog "+currency_codes,Toast.LENGTH_SHORT).show();
-                print("currency$currency")
-                currency_code.text = currency
-                updateCurrency()
-            }
-        }
-
-    }
 
     /**
      * Language List
@@ -359,21 +303,7 @@ class AccountFragment : Fragment(), ServiceListener {
         }
     }
 
-    fun loadlang() {
 
-        val languages: Array<String>
-        val langCode: Array<String>
-        languages = resources.getStringArray(R.array.language)
-        langCode = resources.getStringArray(R.array.languageCode)
-        languagelist.clear()
-        for (i in languages.indices) {
-            val listdata = CurrencyModel()
-            listdata.currencyName = languages[i]
-            listdata.currencySymbol = langCode[i]
-            languagelist.add(listdata)
-
-        }
-    }
 
     fun setLocale(lang: String) {
         val myLocale = Locale(lang)
@@ -402,27 +332,11 @@ class AccountFragment : Fragment(), ServiceListener {
     }
 
     /**
-     * get Currency List
-     */
-    fun getCurrency() {
-        apiService.getCurrency(sessionManager.accessToken!!).enqueue(RequestCallback(REQ_CURRENCY, this))
-    }
-
-    /**
      * Update Language
      */
     fun updateLanguage() {
         commonMethods.showProgressDialog(activity as AppCompatActivity)
         apiService.language(sessionManager.languageCode!!, sessionManager.accessToken!!).enqueue(RequestCallback(REQ_LANGUAGE, this))
-    }
-
-    /**
-     * Update Currency
-     */
-    private fun updateCurrency() {
-        commonMethods.showProgressDialog(activity as AppCompatActivity)
-        apiService.updateCurrency(currency, sessionManager.accessToken!!)
-                .enqueue(RequestCallback(REQ_UPDATE_CURRENCY, this))
     }
 
     @SuppressLint("UseRequireInsteadOfGet")
@@ -445,16 +359,7 @@ class AccountFragment : Fragment(), ServiceListener {
             } else if (!TextUtils.isEmpty(jsonResp.statusMsg)) {
                 commonMethods.showMessage(activity, dialog, jsonResp.statusMsg)
             }
-            REQ_CURRENCY -> if (jsonResp.isSuccess) {
-                onSuccessgetCurrency(jsonResp)
-            } else if (!TextUtils.isEmpty(jsonResp.statusMsg)) {
-                commonMethods.showMessage(activity, dialog, jsonResp.statusMsg)
-            }
-            REQ_UPDATE_CURRENCY -> if (jsonResp.isSuccess) {
-                getDriverProfile()
-            } else if (!TextUtils.isEmpty(jsonResp.statusMsg)) {
-                commonMethods.showMessage(activity, dialog, jsonResp.statusMsg)
-            }
+           
             REQ_LANGUAGE -> if (jsonResp.isSuccess) {
                 setLocale(langocde)
                 activity!!.recreate()
@@ -469,35 +374,6 @@ class AccountFragment : Fragment(), ServiceListener {
         }
     }
 
-    private fun onSuccessgetCurrency(jsonResp: JsonResponse) {
-        val currencyDetailsModel = gson.fromJson(jsonResp.strResponse, CurrencyDetailsModel::class.java)
-        curreneyListModels.clear()
-        curreneyListModels.addAll(currencyDetailsModel.curreneyListModels)
-
-        currencycode = arrayOfNulls<String>(curreneyListModels.size)
-        symbol = arrayOfNulls<String>(curreneyListModels.size)
-        currencyList.clear()
-        for (i in curreneyListModels.indices) {
-
-            currencycode[i] = curreneyListModels[i].code
-            symbol[i] = curreneyListModels[i].symbol
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                symbol[i] = Html.fromHtml(symbol[i],Html.FROM_HTML_MODE_COMPACT).toString()
-            }else{
-                symbol[i] = Html.fromHtml(symbol[i]).toString()
-            }
-
-
-            val listdata = CurrencyModel()
-            listdata.currencyName = currencycode[i]
-            listdata.currencySymbol = symbol[i]
-
-            currencyList.add(listdata)
-        }
-        currencyListAdapter.notifyDataChanged()
-
-    }
 
     override fun onFailure(jsonResp: JsonResponse, data: String) {
 
@@ -546,9 +422,6 @@ class AccountFragment : Fragment(), ServiceListener {
         val user_thumb_image = driverProfileModel.profileImage
         sessionManager.firstName = first_name
         sessionManager.phoneNumber = driverProfileModel.mobileNumber
-        company_id = driverProfileModel.companyId
-        companyName = driverProfileModel.companyName
-        //bankDetailsModel = driverProfileModel.bank_detail
 
 
         vehicle_name = driverProfileModel.vehicleName

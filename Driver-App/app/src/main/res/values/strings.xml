@@ -347,9 +347,7 @@
     <string name="ssn" translatable="false">SSN</string>
     <string name="routing_number">Routing Number</string>
     <string name="clearing_code">Clearing Code</string>
-    <string name="bank_name">Bank name</string>
     <string name="branch_name">Branch Name</string>
-    <string name="bank_code">Bank Code</string>
     <string name="branch_code">Branch Code</string>
     <string name="bsb" translatable="false">BSB</string>
     <string name="transit_number">Transit Number</string>

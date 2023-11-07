@@ -15,7 +15,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Start\Helpers;
 use App\Models\User;
 use App\Models\Trips;
-use App\Models\PaymentGateway;
 use App\Models\SiteSettings;
 use App\DataTables\CancelTripsDataTable;
 use App\DataTables\TripsDataTable;
@@ -54,7 +53,6 @@ class TripsController extends Controller
                 ->first();
 
         if($data['result']) {
-            $data['invoice_data'] = $this->getAdminInvoice($data['result']);
             $data['back_url'] = url(LOGIN_USER_TYPE.'/trips');
             if($request->s == 'overall') {
                 $data['back_url'] = url(LOGIN_USER_TYPE.'/statements/overall');
@@ -62,8 +60,6 @@ class TripsController extends Controller
             elseif($request->s == 'driver') {
                 $data['back_url'] = url(LOGIN_USER_TYPE.'/view_driver_statement/'.$data['result']->driver_id);
             }
-
-
             $driver_owe_amount = DriverOweAmount::where('user_id',$data['result']->driver_id)->first();
 
             return view('admin.trips.view', $data);

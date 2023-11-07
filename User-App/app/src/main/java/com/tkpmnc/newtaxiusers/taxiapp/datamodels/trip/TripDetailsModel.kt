@@ -153,8 +153,5 @@ class Riders : Serializable {
     var creatdate : String = ""
 
 
-    @SerializedName("invoice")
-    @Expose
-    var invoice = ArrayList<InvoiceModel>()
 
 }

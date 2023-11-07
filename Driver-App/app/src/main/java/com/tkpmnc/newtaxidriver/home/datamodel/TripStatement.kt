@@ -14,17 +14,11 @@ class TripStatement {
 
     class Trip_details {
         @Expose
-        @SerializedName("invoice")
-        var invoice: List<Invoice>? = null
-        @Expose
         @SerializedName("total_fare")
         var total_fare: String? = null
         @Expose
         @SerializedName("status")
         var status: String? = null
-        @Expose
-        @SerializedName("currency_code")
-        var currency_code: String? = null
         @Expose
         @SerializedName("end_trip")
         var end_trip: String? = null
@@ -51,18 +45,4 @@ class TripStatement {
         var id: Int = 0
     }
 
-    class Invoice {
-        @Expose
-        @SerializedName("colour")
-        var colour: String? = null
-        @Expose
-        @SerializedName("bar")
-        var bar: String? = null
-        @Expose
-        @SerializedName("value")
-        var value: String? = null
-        @Expose
-        @SerializedName("key")
-        var key: String? = null
-    }
 }

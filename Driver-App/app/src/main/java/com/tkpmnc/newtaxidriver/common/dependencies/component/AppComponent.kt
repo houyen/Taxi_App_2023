@@ -30,7 +30,6 @@ import com.tkpmnc.newtaxidriver.home.fragments.AccountFragment
 import com.tkpmnc.newtaxidriver.home.fragments.EarningActivity
 import com.tkpmnc.newtaxidriver.home.fragments.HomeFragment
 import com.tkpmnc.newtaxidriver.home.fragments.RatingActivity
-import com.tkpmnc.newtaxidriver.home.fragments.currency.CurrencyListAdapter
 import com.tkpmnc.newtaxidriver.home.fragments.language.LanguageAdapter
 import com.tkpmnc.newtaxidriver.home.managevehicles.*
 import com.tkpmnc.newtaxidriver.home.managevehicles.adapter.*

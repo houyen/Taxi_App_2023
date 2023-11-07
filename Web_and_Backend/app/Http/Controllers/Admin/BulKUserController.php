@@ -38,8 +38,6 @@ class BulKUserController extends Controller
     {
         $this->request_helper = $request;
         $this->helper = new Helpers;
-        $this->invoice_helper = $invoice_helper;
-        $this->driver_owe_amt_repository = $driver_owe_amt_repository;
     }
 
 	/**

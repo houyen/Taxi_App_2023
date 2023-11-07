@@ -15,11 +15,8 @@ use App\Http\Controllers\Controller;
 use App\Models\ScheduleRide;
 use App\Models\PeakFareDetail;
 use App\Models\User;
-use App\Models\ReferralUser;
 use App\Models\DriverLocation;
-use App\Models\Currency;
 use App\Models\Trips;
-use App\Models\Payment;
 use Carbon\Carbon;
 use Swap;
 class CronController extends Controller
@@ -66,7 +63,6 @@ class CronController extends Controller
 				}
 
 	            $schedule_id = $request_val->id;
-				$payment_mode = $request_val->payment_method;
 
 				$data = [ 
 					'rider_id' =>$request_val->user_id,
@@ -79,7 +75,6 @@ class CronController extends Controller
 					'driver_group_id' => null,
 					'pickup_location' => $request_val->pickup_location,
 					'drop_location' => $request_val->drop_location,
-					'payment_method' => $payment_mode,
 					'timezone' => $request_val->timezone,
 					'schedule_id' => $schedule_id,
 					'additional_fare'  =>$additional_fare,

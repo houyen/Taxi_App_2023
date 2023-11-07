@@ -2234,13 +2234,6 @@ p.ride-reservation {
     max-height: 200px !important;
   }
 
-  .guest-drive-payment{
-    overflow: auto;
-    margin-top: 30px;
-  }
-  .guest-drive-payment .earning_period_details {
-    border:none;
-  }
 
   .parter-info input {
     width: 100%;
@@ -2256,11 +2249,6 @@ p.ride-reservation {
     margin: 0px !important;
   }
 
-  select.payment-select {
-    width: 100%;
-    padding: 5px;
-    background-size: 26px;
-  }
 }
 
 @media screen and (max-width:1024px) {

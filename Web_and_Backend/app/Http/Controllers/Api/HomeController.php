@@ -57,7 +57,6 @@ class HomeController extends Controller
         $update_loc_interval = site_settings('update_loc_interval');
         $covid_future = site_settings('covid_enable') =='1' ? true:false;
         
-        $trip_default = payment_gateway('trip_default','Common');
 
         $driver_km = site_settings('driver_km');
         $pickup_km = site_settings('pickup_km');

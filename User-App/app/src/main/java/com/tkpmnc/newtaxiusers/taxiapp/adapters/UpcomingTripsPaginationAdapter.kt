@@ -135,8 +135,6 @@ class UpcomingTripsPaginationAdapter(private val context: Context, private val m
                     currentTripsViewHolder.status.text = context.getString(R.string.Cancelled)
                 } else if (tripStatusModel.status == "Completed") {
                     currentTripsViewHolder.status.text = context.getString(R.string.completed)
-                } else if (tripStatusModel.status == "Payment") {
-                    currentTripsViewHolder.status.text = context.getString(R.string.payment)
                 } else if (tripStatusModel.status == "Begin trip") {
                     currentTripsViewHolder.status.text = context.getString(R.string.begin_trip)
                 } else if (tripStatusModel.status == "End trip") {

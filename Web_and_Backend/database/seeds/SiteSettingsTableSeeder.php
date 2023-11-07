@@ -13,7 +13,6 @@ class SiteSettingsTableSeeder extends Seeder {
 
 		DB::table('site_settings')->insert([
 			['name' => 'site_name', 'value' => 'Your Domain'],
-			['name' => 'payment_currency', 'value' => 'USD'],
 			['name' => 'version', 'value' => '2.4'],
 			['name' => 'logo', 'value' => 'logo.png'],
 			['name' => 'page_logo', 'value' => 'page_logo.png'],

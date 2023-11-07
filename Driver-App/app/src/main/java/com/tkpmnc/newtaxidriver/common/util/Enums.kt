@@ -11,19 +11,12 @@ object Enums {
     val REQ_DEVICE_STATUS = 104
     val REQ_LOGOUT = 105
     val REQ_DRIVER_PROFILE = 106
-    val REQ_CURRENCY = 107
     val REQ_LANGUAGE = 108
     val REQ_ARRIVE_NOW = 109
     val REQ_BEGIN_TRIP = 110
     val REQ_END_TRIP = 111
     val REQ_UPDATE_PROFILE = 112
     val REQ_UPLOAD_PROFILE_IMG = 113
-
-
-    val REQ_GET_STRIPE = 124
-    val REQ_GET_INVOICE = 126
-    val REQ_CASH_COLLECTED = 127
-    val REQ_ADD_CARD = 129
     val REQ_CANCEL_TRIP = 130
     val REQ_CANCEL = 131
     val REQ_WEEKLY_TRIP_STATEMENT = 132
@@ -32,7 +25,6 @@ object Enums {
     val REQ_TOLL_REASON = 135
     val REQ_HEAT_MAP = 136
     val REQ_COMMON_DATA = 137
-    val REQ_UPDATE_CURRENCY = 138
     val REQ_TRIP_DETAILS = 139
     val REQ_PAST_TRIPS = 140
     val REQ_UPCOMING_TRIPS = 141
@@ -48,10 +40,6 @@ object Enums {
 
 
     val USER_CHOICE_LANGUAGE = "language"
-    val USER_CHOICE_CURRENCY = "currency"
     val USER_CHOICE_COUNTRY = "country"
-    val USER_CHOICE_STRIPE_COUNTRY = "stripe_country"
-    val USER_CHOICE_STRIPE_CURRENCY = "stripe_currency"
-    val USER_CHOICE_STRIPE_GENDER = "stripe_gender"
 
 }

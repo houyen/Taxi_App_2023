@@ -133,18 +133,11 @@ interface ApiService {
     fun getDriverProfile(@Query("token") token: String): Call<ResponseBody>
 
 
-    //Currency list
-    @GET("currency_list")
-    fun getCurrency(@Query("token") token: String): Call<ResponseBody>
-
     //language Update
     @GET("language")
     fun language(@Query("language") languageCode: String, @Query("token") token: String): Call<ResponseBody>
 
-    // Update User Currency
-    @GET("update_user_currency")
-    fun updateCurrency(@Query("currency_code") currencyCode: String, @Query("token") token: String): Call<ResponseBody>
-
+ 
     @GET("update_driver_profile")
     fun updateDriverProfile(@QueryMap hashMap: LinkedHashMap<String, String>): Call<ResponseBody>
 

@@ -61,32 +61,6 @@ class DriverProfileModel : BaseObservable(), Serializable {
     @Expose
     var vehicleNumber: String? = null
 
-    @SerializedName("currency_code")
-    @Expose
-    var currencyCode: String? = null
-    @SerializedName("currency_symbol")
-    @Expose
-    var currencySymbol: String? = null
-    @SerializedName("bank_details")
-    @Expose
-    var bank_detail: BankDetailsModel? = null
-
-    @SerializedName("company_id")
-    @Expose
-    var companyId: Int = 0
-
-    @SerializedName("company_name")
-    @Expose
-    var companyName: String? = null
-
-    @SerializedName("owe_amount")
-    @Expose
-    lateinit var oweAmount: String
-
-    @SerializedName("driver_referral_earning")
-    @Expose
-    lateinit var driverReferralEarning: String
-
     @SerializedName("car_active_image")
     @Expose
     var carActiveImage: String? = null

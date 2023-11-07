@@ -102,18 +102,9 @@ class SessionManager {
         get() = sharedPreferences.getString("gender", "")
         set(gender) = sharedPreferences.edit().putString("gender", gender).apply()
 
-
     var chatJson: String?
         get() = sharedPreferences.getString("chatJson", "")
         set(chatJson) = sharedPreferences.edit().putString("chatJson", chatJson).apply()
-
-    var currency: String?
-        get() = sharedPreferences.getString("currency", "")
-        set(currency) = sharedPreferences.edit().putString("currency", currency).apply()
-
-    var countryCurrencyType: String?
-        get() = sharedPreferences.getString("setCountryCurrencyType", "")
-        set(setCountryCurrencyType) = sharedPreferences.edit().putString("setCountryCurrencyType", setCountryCurrencyType).apply()
 
     var country: String?
         get() = sharedPreferences.getString("country", "")
@@ -209,14 +200,6 @@ class SessionManager {
         get() = sharedPreferences.getString("doc5", "")
         set(doc5) = sharedPreferences.edit().putString("doc5", doc5).apply()
 
-    var currencyCode: String?
-        get() = sharedPreferences.getString("currencyCode", "")
-        set(currencyCode) = sharedPreferences.edit().putString("currencyCode", currencyCode).apply()
-
-    var currencySymbol: String?
-        get() = sharedPreferences.getString("currencysymbol", "")
-        set(currencySymbol) = sharedPreferences.edit().putString("currencysymbol", currencySymbol).apply()
-
     var userId: String?
         get() = sharedPreferences.getString("UserId", "")
         set(UserId) = sharedPreferences.edit().putString("UserId", UserId).apply()
@@ -229,30 +212,6 @@ class SessionManager {
     var profileDetail: String?
         get() = sharedPreferences.getString("profilearratdetail", "")
         set(profilearratdetail) = sharedPreferences.edit().putString("profilearratdetail", profilearratdetail).apply()
-
-    var cardValue: String?
-        get() = sharedPreferences.getString("cardValue", "")
-        set(cardValue) = sharedPreferences.edit().putString("cardValue", cardValue).apply()
-
-    var cardBrand: String?
-        get() = sharedPreferences.getString("cardBrand", "")
-        set(cardBrand) = sharedPreferences.edit().putString("cardBrand", cardBrand).apply()
-
-    var carType: String?
-        get() = sharedPreferences.getString("CarType", "")
-        set(CarType) = sharedPreferences.edit().putString("CarType", CarType).apply()
-
-    var oweAmount: String?
-        get() = sharedPreferences.getString("oweAmount", "")
-        set(oweAmount) = sharedPreferences.edit().putString("oweAmount", oweAmount).apply()
-
-    var driverReferral: String?
-        get() = sharedPreferences.getString("driverReferral", "")
-        set(driverReferral) = sharedPreferences.edit().putString("driverReferral", driverReferral).apply()
-
-    var paypalEmail: String?
-        get() = sharedPreferences.getString("PaypalEmail", "")
-        set(PaypalEmail) = sharedPreferences.edit().putString("PaypalEmail", PaypalEmail).apply()
 
     var docCount: String?
         get() = sharedPreferences.getString("imagecount", "")
@@ -276,27 +235,6 @@ class SessionManager {
     var riderId: String
         get() = sharedPreferences.getString("riderId", "").toString()
         set(riderId) = sharedPreferences.edit().putString("riderId", riderId).apply()
-
-
-    var countryName2: String?
-        get() = sharedPreferences.getString("countryname2", "")
-        set(currencyName2) = sharedPreferences.edit().putString("countryname2", currencyName2).apply()
-
-    var countryName: String?
-        get() = sharedPreferences.getString("countryname", "")
-        set(currencyName) = sharedPreferences.edit().putString("countryname", currencyName).apply()
-
-    var currencyName2: String?
-        get() = sharedPreferences.getString("currencyname2", "")
-        set(currencyName2) = sharedPreferences.edit().putString("currencyname2", currencyName2).apply()
-
-    var stripeCountryCode: String?
-        get() = sharedPreferences.getString("StripeCountryCode", "")
-        set(stripeCountryCode) = sharedPreferences.edit().putString("StripeCountryCode", stripeCountryCode).apply()
-
-    var payPalCountryCode: String?
-        get() = sharedPreferences.getString("paypalcountrycode", "")
-        set(payPalCountryCode) = sharedPreferences.edit().putString("paypalcountrycode", payPalCountryCode).apply()
 
     var bookingType: String?
         get() = sharedPreferences.getString("bookingType", "")

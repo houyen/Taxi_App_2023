@@ -51,20 +51,6 @@ class StatementController extends Controller
 
     public function custom_statement(Request $request)
     {
-        $trips = Trips::with(['currency','driver_payment'])
-                ->join('users', function ($q) {
-                    $q->on('trips.driver_id', '=', 'users.id');
-                })
-                ->leftJoin('companies', function ($q) {
-                    $q->on('users.company_id', '=', 'companies.id');
-                });
-
-        if (LOGIN_USER_TYPE=='company') {
-            //If login user is company then get that company driver trips only
-            $trips = $trips->whereHas('driver',function($q){
-                $q->where('company_id',auth('company')->id());
-            });
-        }
         
         $filter_type = $request->filter_type;
         if($filter_type=="custom") {

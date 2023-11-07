@@ -29,7 +29,7 @@ class CreateRequestTable extends Migration
             $table->integer('group_id')->nullable();
             $table->integer('driver_id')->unsigned();
             $table->foreign('driver_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('payment_mode',50)->default('Credit Card');
+
             $table->string('schedule_id',100)->default('Null');
             $table->integer('location_id')->unsigned();
             $table->enum('additional_fare',['Peak']); 

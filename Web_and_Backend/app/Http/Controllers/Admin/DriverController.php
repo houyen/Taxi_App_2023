@@ -122,15 +122,6 @@ class DriverController extends Controller
                 }
             }
             
-            //Bank details are required only for company drivers & Not required for Admin drivers
-            if ((LOGIN_USER_TYPE!='company' && $request->company_name != 1) || (LOGIN_USER_TYPE=='company' && Auth::guard('company')->user()->id!=1)) {
-                $rules['account_holder_name'] = 'required';
-                $rules['account_number'] = 'required';
-                $rules['bank_name'] = 'required';
-                $rules['bank_location'] = 'required';
-                $rules['bank_code'] = 'required';
-            }
-
             if (LOGIN_USER_TYPE!='company') {
                 $rules['company_name'] = 'required';
             }
@@ -146,9 +137,6 @@ class DriverController extends Controller
             $attributes['status']       = trans('messages.driver_dashboard.status');
             $attributes['account_holder_name'] = 'Account Holder Name';
             $attributes['account_number'] = 'Account Number';
-            $attributes['bank_name']    = 'Name of Bank';
-            $attributes['bank_location']= 'Bank Location';
-            $attributes['bank_code']    = 'BIC/SWIFT Code';
 
             // Edit Rider Validation Custom Fields message
             $messages = array(
@@ -288,14 +276,6 @@ class DriverController extends Controller
                 'gender'        => 'required',
             );
 
-            //Bank details are updated only for company's drivers.
-            if((LOGIN_USER_TYPE!='company' && $request->company_name != 1) || (LOGIN_USER_TYPE=='company' && Auth::guard('company')->user()->id!=1)) {
-                $rules['account_holder_name'] = 'required';
-                $rules['account_number'] = 'required';
-                $rules['bank_name'] = 'required';
-                $rules['bank_location'] = 'required';
-                $rules['bank_code'] = 'required';
-            }
 
             if(LOGIN_USER_TYPE!='company') {
                 $rules['company_name'] = 'required';
@@ -312,9 +292,6 @@ class DriverController extends Controller
                 'gender'        => trans('messages.profile.gender'),
                 'account_holder_name' => 'Account Holder Name',
                 'account_number'=> 'Account Number',
-                'bank_name'     => 'Name of Bank',
-                'bank_location' => 'Bank Location',
-                'bank_code'     => 'BIC/SWIFT Code',
             );
 
             // Edit Rider Validation Custom Fields message

@@ -131,30 +131,6 @@ input:checked + .slider:before {
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="input_payment_currency" class="col-sm-3 control-label">
-								Payment Currency
-								<br>
-								<span style="font-size: 12px;">
-									Note : This currency must be same as your Braintree currency
-								</span>
-							</label>
-							<div class="col-md-7 col-sm-offset-1">
-								{!! Form::select('payment_currency', $currency, site_settings('payment_currency'), ['class' => 'form-control', 'id' => 'input_payment_currency']) !!}
-								<span class="text-danger">{{ $errors->first('payment_currency') }}</span>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="input_trip_default_paymode" class="col-sm-3 control-label">Trip Default Payment Method</label>
-							<div class="col-md-7 col-sm-offset-1" ng-init="trip_default = '{{payment_gateway('trip_default','Common')}}'">
-								<select name="trip_default_paymode" ng-model="trip_default" class="form-control" id="input_trip_default_paymode">
-									@foreach($payment_methods as $pay_method)
-										<option value="{{ $pay_method['key'] }}"> {{ $pay_method['value'] }} </option>
-									@endforeach
-								</select>
-								<span class="text-danger">{{ $errors->first('trip_default_paymode') }}</span>
-							</div>
-						</div>
-						<div class="form-group">
 							<label for="input_site_name" class="col-sm-3 control-label">Driver Kilo Meter</label>
 							<div class="col-md-7 col-sm-offset-1">
 								{!! Form::number('driver_km', site_settings('driver_km'), ['class' => 'form-control', 'id' => 'input_head_code', 'placeholder' => 'Driver kilo meter', 'min'=>'1', 'oninput'=>'validity.valid||(value="");']) !!}

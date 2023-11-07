@@ -250,11 +250,7 @@ class TripDetails : CommonActivity(), ServiceListener {
         recyclerView.setHasFixedSize(true)
         val layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
-        val invoiceModels = tripDetailsModel.riders.get(0).invoice
-        if (invoiceModels.size <= 0) {
-            profilelayout.visibility = View.GONE
-        }
-        val adapter = PriceRecycleAdapter(this, invoiceModels)
+
         recyclerView.adapter = adapter
         tv_pick_Address.text = ridersDetails.pickup
         tv_drop_address.text = ridersDetails.drop
@@ -342,9 +338,7 @@ class TripDetails : CommonActivity(), ServiceListener {
                     .into(ProfileImage)
         }
 
-        if (invoiceModels.size <= 0) {
-            profilelayout.visibility = View.GONE
-        }
+
         if (isViewUpdatedWithLocalDB) {
             isViewUpdatedWithLocalDB = false
             getUserTripsDetail()

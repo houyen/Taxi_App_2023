@@ -92,7 +92,6 @@ Route::group(['middleware' => 'jwt.verify'], function () {
 	Route::get('driver_rating', 'RatingController@driver_rating');
 	Route::get('rider_feedback', 'RatingController@rider_feedback');
 	Route::get('trip_rating', 'RatingController@trip_rating');
-	Route::get('get_invoice', 'RatingController@getinvoice');
 
 	//profile Controller
 	Route::get('get_rider_profile', 'ProfileController@get_rider_profile');

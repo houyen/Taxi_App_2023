@@ -162,13 +162,12 @@ class RatingController extends Controller
 
 		$trip = Trips::where('id', $request->trip_id)->first();
 
-		if(!in_array($trip->status,['Rating','Payment'])) {
+		if(!in_array($trip->status,['Rating'])) {
 			return response()->json([
 				'status_code' => '2',
 				'status_message' => __('messages.api.trip_already_completed'),
 			]);
 		}
-		$trip->status = 'Payment';
 
 		if($user_type == 'rider') {
 			$currency_code = $user_details->currency->code;
@@ -185,7 +184,6 @@ class RatingController extends Controller
 			
 			if(!$trips) {
 				// update status
-				$pool_trip->status = 'Payment';
 				$pool_trip->save();
 			}
 		}

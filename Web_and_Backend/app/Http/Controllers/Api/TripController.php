@@ -178,7 +178,6 @@ class TripController extends Controller
 		        $data[$tkey]['booking_type'] = 'Manual Booking';
 		        //$data[$tkey]['car_type'] = $car_type->car_name;
 		        $data[$tkey]['schedule_display_date'] = $trip->schedule_display_date;
-		        //$data[$tkey]['invoice'] = $invoice;
 
 
 		        if(!isset($trip->booking_type)) {

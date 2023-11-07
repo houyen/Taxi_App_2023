@@ -33,9 +33,6 @@ class PastTripModel : Serializable {
     @SerializedName("drop_location")
     @Expose
     var dropLocation: String? = null
-    @SerializedName("status")
-    @Expose
-    var invoice: ArrayList<InvoiceModel>? = null
     @SerializedName("rider_name")
     @Expose
     var riderName: String? = null

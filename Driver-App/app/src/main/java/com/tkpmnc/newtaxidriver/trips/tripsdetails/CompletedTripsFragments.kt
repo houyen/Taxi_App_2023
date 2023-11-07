@@ -344,7 +344,6 @@ class CompletedTripsFragments : Fragment(), ServiceListener, PaginationAdapterCa
     private fun onSuccessRiderProfile(jsonResp: JsonResponse) {
         commonMethods.hideProgressDialog()
         val tripDetailsModel = gson.fromJson(jsonResp.strResponse, TripDetailsModel::class.java)
-        val invoiceModels = tripDetailsModel.riderDetails.get(0).invoice
         sessionManager.bookingType = tripDetailsModel.riderDetails.get(0).bookingType
 
         // Pass different data based on trip status

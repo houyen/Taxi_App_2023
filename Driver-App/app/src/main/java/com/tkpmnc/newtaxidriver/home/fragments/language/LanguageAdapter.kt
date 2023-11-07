@@ -13,7 +13,6 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.tkpmnc.newtaxidriver.R
 import com.tkpmnc.newtaxidriver.common.configs.SessionManager
-import com.tkpmnc.newtaxidriver.home.fragments.currency.CurrencyModel
 import com.tkpmnc.newtaxidriver.home.managevehicles.SettingActivity
 import com.tkpmnc.newtaxidriver.home.managevehicles.SettingActivity.Companion.alertDialogStores2
 import com.tkpmnc.newtaxidriver.common.network.AppController

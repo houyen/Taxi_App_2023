@@ -64,10 +64,6 @@ class RiderDetailsModelList : Serializable {
     @Expose
     var rating: String?=null
 
-    @SerializedName("currency_symbol")
-    @Expose
-    var currencySymbol: String? = null
-
     @SerializedName("booking_type")
     @Expose
     lateinit var bookingType: String

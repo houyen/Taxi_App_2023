@@ -55,12 +55,11 @@ class RequestController extends Controller
             $data['trip_path'] = $data['request_details']->trip_path;
 
             $pending_request_status = DB::table('request')->where('group_id',$data['request_details']->group_id)->where('status','Pending');
-            $data['invoice_data'] = array();
+           
             if($request_status->count()) {
                 $ride_request = $request_status->first();
                 $req_id  = $ride_request->id;
                 $trips_controller = resolve('App\Http\Controllers\Admin\TripsController');
-                $data['invoice_data'] = $trips_controller->getAdminInvoice($ride_request->accepted_trips);
                 $trip_status = @DB::table('trips')->where('request_id',$req_id)->get()->first()->status;
 
                 $data['trip_data'] = $ride_request->accepted_trips;
@@ -73,10 +72,6 @@ class RequestController extends Controller
             }
             else {
                 $data['request_status'] = "No one accepted";
-            }
-            //For company user login, get session currency
-            if (LOGIN_USER_TYPE=='company' && session()->get('currency') != null) {
-                $data['default_currency'] = Currency::whereCode(session()->get('currency'))->first();
             }
 
             return view('admin.request.details', $data);

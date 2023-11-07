@@ -153,7 +153,7 @@ class Request extends Model
     public function getFormattedDropLatitudeAttribute()
     {
         $latitude = $this->drop_latitude;
-        if($this->trips && in_array($this->trips->status,['Rating','Payment','Completed'])) {
+        if($this->trips && in_array($this->trips->status,['Rating','Completed'])) {
             $latitude = $this->trips->drop_latitude;
         }
         return $latitude;
@@ -166,7 +166,7 @@ class Request extends Model
     public function getFormattedDropLongitudeAttribute()
     {
         $longitude = $this->drop_longitude;
-        if($this->trips && in_array($this->trips->status,['Rating','Payment','Completed'])) {
+        if($this->trips && in_array($this->trips->status,['Rating','Completed'])) {
             $longitude = $this->trips->drop_longitude;
         }
         return $longitude;

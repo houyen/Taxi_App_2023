@@ -12,9 +12,6 @@ class WeeklyTripStatement {
     @SerializedName("status_code")
     var statusCode: String? = null
 
-    @SerializedName("currency_code")
-    var currencyCode: String? = null
-
     @SerializedName("trip_week_details")
     var tripWeekDetails: ArrayList<Statement>? = null
 

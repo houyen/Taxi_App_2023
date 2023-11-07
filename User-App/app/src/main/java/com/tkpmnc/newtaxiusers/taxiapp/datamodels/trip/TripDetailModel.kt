@@ -88,13 +88,9 @@ class TripDetailModel {
     @SerializedName("driver_thumb_image")
     @Expose
     var driverThumbImage: String=""
-    @SerializedName("trip_path")
-   
-    @Expose
-    var currencyCode: String=""
-    @SerializedName("map_image")
-    @Expose
-    var invoice: ArrayList<InvoiceModel> = ArrayList()
+
+
+
 
     fun setStaticMapUR(staticMapURL: String) {
         this.staticMapURL = staticMapURL

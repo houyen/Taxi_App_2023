@@ -42,10 +42,6 @@ class AddFirebaseDatabase {
         try {
             mFirebaseDatabase = FirebaseDatabase.getInstance().getReference(context.getString(R.string.real_time_db))
 
-            sessionManager.tripId?.let {
-                mFirebaseDatabase!!.child(FirebaseDbKeys.TRIP_PAYMENT_NODE)!!.child(FirebaseDbKeys.TRIPLIVEPOLYLINE).removeValue()
-                mFirebaseDatabase!!.child(FirebaseDbKeys.TRIP_PAYMENT_NODE)!!.child(it).removeValue()
-            }
             query!!.removeEventListener(mSearchedDriverReferenceListener!!)
             mFirebaseDatabase!!.removeEventListener(mSearchedDriverReferenceListener!!)
             sessionManager.clearTripID()
@@ -121,7 +117,6 @@ class AddFirebaseDatabase {
     fun updateEtaToFirebase(eta: String, context: Context) {
         if (sessionManager.isTrip) {
             mFirebaseDatabase = FirebaseDatabase.getInstance().getReference(context.getString(R.string.real_time_db))
-            mFirebaseDatabase!!.child(FirebaseDbKeys.TRIP_PAYMENT_NODE).child(sessionManager.tripId!!).child(FirebaseDbKeys.TRIPETA).setValue(eta)
         }
 
     }
@@ -130,17 +125,7 @@ class AddFirebaseDatabase {
         if (sessionManager.isTrip) {
             val value = overviewpolylines
             mFirebaseDatabase = FirebaseDatabase.getInstance().getReference(context.getString(R.string.real_time_db))
-            mFirebaseDatabase!!.child(FirebaseDbKeys.TRIP_PAYMENT_NODE).child(sessionManager.tripId!!).child(FirebaseDbKeys.TRIPLIVEPOLYLINE).setValue(value)
-
-
             var poolIds: List<String> = sessionManager.poolIds!!.split(",").map { it.trim() }
-
-            for (i in poolIds.indices) {
-                if (!poolIds.get(i).equals(sessionManager.tripId!!))
-                    mFirebaseDatabase!!.child(FirebaseDbKeys.TRIP_PAYMENT_NODE).child(poolIds.get(i)).child(FirebaseDbKeys.TRIPLIVEPOLYLINE).setValue("0")
-
-
-            }
         }
 
     }

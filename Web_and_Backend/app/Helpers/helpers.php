@@ -114,25 +114,7 @@ if (!function_exists('roundHalfInteger')) {
 }
 
 
-/**
- * Format Driver Statement Item
- * 
- * @param [Array] $[item]
- * @param [String] $[type]
- * @return [Array] [formated invoice item]
- */
-if (!function_exists('formatStatementItem')) {
-	function formatStatementItem($item,$type = '')
-	{
-		return array(
-			'key' 		=> $item['key'],
-			'value' 	=> strval($item['value']),
-			'bar'		=> $item['bar'] ?? false,
-			'colour'	=> $item['colour'] ?? '',
-			'tooltip' 	=> $item['tooltip'] ?? '',
-		);
-	}
-}
+
 
 /**
  * Currency Convert

@@ -61,13 +61,11 @@ class CreateTripsTable extends Migration
             $table->timestamp('begin_trip')->default('0000-00-00 00:00:00');
             $table->timestamp('end_trip')->default('0000-00-00 00:00:00');
             $table->text('paykey');
-            $table->string('payment_mode',50)->default('Braintree');
-            $table->enum('payment_status',['Pending', 'Completed','Trip Cancelled'])->default('Pending');
             $table->enum('is_calculation',['1', '0'])->default('0');
             $table->string('currency_code',10);
             $table->foreign('currency_code')->references('code')->on('currency');
             $table->text('fare_estimation');
-            $table->enum('status',['Scheduled', 'Cancelled','Begin trip','End trip','Payment','Rating','Completed','Null'])->default('Null');
+            $table->enum('status',['Scheduled', 'Cancelled','Begin trip','End trip','Rating','Completed','Null'])->default('Null');
             $table->string('otp','10')->default('Null');
             $table->timestamps();
         });

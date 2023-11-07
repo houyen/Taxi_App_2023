@@ -39,9 +39,6 @@ class WeeklyStatementModel {
         @SerializedName("footer")
         var footer: List<Footer>? = null
         @Expose
-        @SerializedName("content")
-        var content: ArrayList<InvoiceContent>? = null
-        @Expose
         @SerializedName("title")
         var title: String? = null
         @Expose

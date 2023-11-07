@@ -122,7 +122,6 @@ class LaterBookingController extends Controller
             'driver_group_id'   => null,
             'pickup_location'   => $schedule->pickup_location,
             'drop_location'     => $schedule->drop_location,
-            'payment_method'    => $schedule->payment_method,
             'timezone'          => $schedule->timezone,
             'schedule_id'       => $schedule->id,
             'additional_fare'   => $additional_fare,

@@ -14,7 +14,4 @@ class TripRatingResult : Serializable {
     @SerializedName("status_code")
     @Expose
     var statusCode: String? = null
-    @SerializedName("invoice")
-    @Expose
-    var invoice: ArrayList<InvoiceModel>? = null
 }

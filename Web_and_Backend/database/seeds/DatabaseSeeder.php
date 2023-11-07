@@ -24,7 +24,6 @@ class DatabaseSeeder extends Seeder
         $this->call(CurrencyTableSeeder::class);
         $this->call(CountryTableSeeder::class);
         $this->call(LanguageTableSeeder::class);
-        $this->call(PaymentGatewayTableSeeder::class);
         $this->call(PagesTableSeeder::class);
 
         $this->call(MakeVehicleTableSeeder::class);

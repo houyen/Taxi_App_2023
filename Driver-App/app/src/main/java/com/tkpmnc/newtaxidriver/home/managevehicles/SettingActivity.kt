@@ -25,12 +25,8 @@ import com.tkpmnc.newtaxidriver.common.configs.SessionManager
 import com.tkpmnc.newtaxidriver.common.database.AddFirebaseDatabase
 import com.tkpmnc.newtaxidriver.common.database.Sqlite
 import com.tkpmnc.newtaxidriver.common.helper.Constants
-import com.tkpmnc.newtaxidriver.home.datamodel.BankDetailsModel
-import com.tkpmnc.newtaxidriver.home.datamodel.CurrencyDetailsModel
 import com.tkpmnc.newtaxidriver.home.datamodel.CurreneyListModel
 import com.tkpmnc.newtaxidriver.home.datamodel.DriverProfileModel
-import com.tkpmnc.newtaxidriver.home.fragments.currency.CurrencyListAdapter
-import com.tkpmnc.newtaxidriver.home.fragments.currency.CurrencyModel
 import com.tkpmnc.newtaxidriver.home.fragments.language.LanguageAdapter
 import com.tkpmnc.newtaxidriver.common.helper.CustomDialog
 import com.tkpmnc.newtaxidriver.home.interfaces.ApiService
@@ -41,11 +37,9 @@ import com.tkpmnc.newtaxidriver.home.signinsignup.SigninSignupHomeActivity
 import com.tkpmnc.newtaxidriver.common.util.CommonKeys
 import com.tkpmnc.newtaxidriver.common.util.CommonMethods
 import com.tkpmnc.newtaxidriver.common.util.Enums
-import com.tkpmnc.newtaxidriver.common.util.Enums.REQ_CURRENCY
 import com.tkpmnc.newtaxidriver.common.util.Enums.REQ_DRIVER_PROFILE
 import com.tkpmnc.newtaxidriver.common.util.Enums.REQ_LANGUAGE
 import com.tkpmnc.newtaxidriver.common.util.Enums.REQ_LOGOUT
-import com.tkpmnc.newtaxidriver.common.util.Enums.REQ_UPDATE_CURRENCY
 import com.tkpmnc.newtaxidriver.common.util.RequestCallback
 import com.tkpmnc.newtaxidriver.common.util.userchoice.UserChoice
 import com.tkpmnc.newtaxidriver.common.util.userchoice.UserChoiceSuccessResponse
@@ -76,11 +70,8 @@ class SettingActivity : CommonActivity(), ServiceListener, UserChoiceSuccessResp
     @Inject
     lateinit var userChoice: UserChoice
 
-    internal var bankDetailsModel: BankDetailsModel? = null
     lateinit var trackingServiceListener: TrackingServiceListener
 
-    lateinit @BindView(R.id.tv_currency)
-    var currency_code: TextView
 
     /**
      * Edit Document
@@ -342,10 +333,6 @@ class SettingActivity : CommonActivity(), ServiceListener, UserChoiceSuccessResp
 
         sessionManager.oweAmount = driverProfileModel.oweAmount
         sessionManager.driverReferral = driverProfileModel.driverReferralEarning
-
-        //bankDetailsModel = driverProfileModel.bank_detail
-
-
     }
 
 

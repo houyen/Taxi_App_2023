@@ -91,20 +91,6 @@ INSERT INTO `api_credentials` (`id`, `name`, `value`, `site`) VALUES
 (21, 'site_key', '6LfJKvoUAAAAAFe8tYNw85mY5Tur-_A4tp865bL3', 'Recaptcha'),
 (22, 'secret_key', '6LfJKvoUAAAAABh-36UFZrtp-_bZEtdgcg0kwWhy', 'Recaptcha');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `applied_referrals`
---
-
-CREATE TABLE `applied_referrals` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `user_id` int(10) UNSIGNED NOT NULL,
-  `amount` decimal(11,2) NOT NULL,
-  `currency_code` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -480,62 +466,6 @@ INSERT INTO `country` (`id`, `short_name`, `long_name`, `iso3`, `num_code`, `pho
 -- --------------------------------------------------------
 
 --
--- Table structure for table `currency`
---
-
-CREATE TABLE `currency` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `code` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `symbol` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `rate` decimal(10,2) NOT NULL,
-  `status` enum('Active','Inactive') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Active',
-  `default_currency` enum('1','0') COLLATE utf8mb4_unicode_ci NOT NULL,
-  `paypal_currency` enum('Yes','No') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'No'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `currency`
---
-
-INSERT INTO `currency` (`id`, `name`, `code`, `symbol`, `rate`, `status`, `default_currency`, `paypal_currency`) VALUES
-(1, 'US Dollar', 'USD', '&#36;', '1.00', 'Active', '1', 'Yes'),
-(2, 'Pound Sterling', 'GBP', '&pound;', '0.78', 'Active', '0', 'Yes'),
-(3, 'Europe', 'EUR', '&euro;', '0.90', 'Active', '0', 'Yes'),
-(4, 'Australian Dollar', 'AUD', '&#36;', '1.46', 'Active', '0', 'Yes'),
-(5, 'Singapore', 'SGD', '&#36;', '1.36', 'Active', '0', 'Yes'),
-(6, 'Swedish Krona', 'SEK', 'kr', '9.65', 'Active', '0', 'Yes'),
-(7, 'Danish Krone', 'DKK', 'kr', '6.70', 'Active', '0', 'Yes'),
-(8, 'Mexican Peso', 'MXN', '$', '19.12', 'Active', '0', 'Yes'),
-(9, 'Brazilian Real', 'BRL', 'R$', '4.12', 'Active', '0', 'Yes'),
-(10, 'Malaysian Ringgit', 'MYR', 'RM', '4.19', 'Active', '0', 'Yes'),
-(11, 'Philippine Peso', 'PHP', 'P', '51.35', 'Active', '0', 'Yes'),
-(12, 'Swiss Franc', 'CHF', '&euro;', '0.99', 'Active', '0', 'Yes'),
-(13, 'India', 'INR', '&#x20B9;', '70.99', 'Active', '0', 'Yes'),
-(14, 'Argentine Peso', 'ARS', '&#36;', '58.13', 'Active', '0', 'No'),
-(15, 'Canadian Dollar', 'CAD', '&#36;', '1.31', 'Active', '0', 'Yes'),
-(16, 'Chinese Yuan', 'CNY', '&#165;', '7.07', 'Active', '0', 'No'),
-(17, 'Czech Republic Koruna', 'CZK', 'K&#269;', '22.98', 'Active', '0', 'Yes'),
-(18, 'Hong Kong Dollar', 'HKD', '&#36;', '7.84', 'Active', '0', 'Yes'),
-(19, 'Hungarian Forint', 'HUF', 'Ft', '296.75', 'Active', '0', 'Yes'),
-(20, 'Indonesian Rupiah', 'IDR', 'Rp', '14117.00', 'Active', '0', 'No'),
-(21, 'Israeli New Sheqel', 'ILS', '&#8362;', '3.54', 'Active', '0', 'Yes'),
-(22, 'Japanese Yen', 'JPY', '&#165;', '108.50', 'Active', '0', 'Yes'),
-(23, 'South Korean Won', 'KRW', '&#8361;', '1173.91', 'Active', '0', 'No'),
-(24, 'Norwegian Krone', 'NOK', 'kr', '9.16', 'Active', '0', 'Yes'),
-(25, 'New Zealand Dollar', 'NZD', '&#36;', '1.56', 'Active', '0', 'Yes'),
-(26, 'Polish Zloty', 'PLN', 'z&#322;', '3.84', 'Active', '0', 'Yes'),
-(27, 'Russian Ruble', 'RUB', 'p', '63.80', 'Active', '0', 'Yes'),
-(28, 'Thai Baht', 'THB', '&#3647;', '30.27', 'Active', '0', 'Yes'),
-(29, 'Turkish Lira', 'TRY', '&#8378;', '5.79', 'Active', '0', 'No'),
-(30, 'New Taiwan Dollar', 'TWD', '&#36;', '30.56', 'Active', '0', 'Yes'),
-(31, 'Vietnamese Dong', 'VND', '&#8363;', '23161.61', 'Active', '0', 'No'),
-(32, 'South African Rand', 'ZAR', 'R', '14.80', 'Active', '0', 'No'),
-(33, 'Kenyan Shillings', 'KES', 'KSH', '132.00', 'Active', '0', 'No');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `documents`
 --
 
@@ -663,28 +593,6 @@ INSERT INTO `driver_location` (`id`, `user_id`, `latitude`, `longitude`, `car_id
 (6, 10003, '-0.7291916', '37.1600195', 2, NULL, 'Online', '2022-05-18 04:24:03', '2022-05-20 21:27:55'),
 (7, 10003, '-0.7291916', '37.1600195', 3, NULL, 'Online', '2022-05-18 04:24:03', '2022-05-20 21:27:55'),
 (8, 10003, '-0.7291916', '37.1600195', 4, NULL, 'Online', '2022-05-18 04:24:03', '2022-05-20 21:27:55');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `driver_owe_amounts`
---
-
-CREATE TABLE `driver_owe_amounts` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `user_id` int(10) UNSIGNED DEFAULT NULL,
-  `amount` decimal(11,2) DEFAULT NULL,
-  `currency_code` char(3) COLLATE utf8mb4_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `driver_owe_amounts`
---
-
-INSERT INTO `driver_owe_amounts` (`id`, `user_id`, `amount`, `currency_code`) VALUES
-(1, 10002, '54.00', 'USD'),
-(8, NULL, NULL, NULL);
-
 
 -- --------------------------------------------------------
 
@@ -1052,7 +960,6 @@ CREATE TABLE `manage_fare` (
   `schedule_cancel_fare` decimal(5,2) NOT NULL,
   `waiting_time` int(11) DEFAULT NULL,
   `waiting_charge` decimal(5,2) NOT NULL,
-  `currency_code` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `apply_peak` enum('Yes','No') COLLATE utf8mb4_unicode_ci NOT NULL,
   `apply_night` enum('Yes','No') COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -1106,7 +1013,6 @@ INSERT INTO `metas` (`id`, `url`, `title`, `description`, `keywords`) VALUES
 (16, 'documents/{id}', 'Driver Documents', 'Driver Documents', ''),
 (19, 'driver_trip', 'Driver Trips', 'Driver Trips', ''),
 (20, 'driver_trip_detail/{id}', 'Driver Trips Details', 'Driver Trips Details', ''),
-(21, 'download_invoice/{id}', 'Invoice', 'Invoice', ''),
 (22, 'trip', 'Trips', 'Trips', ''),
 (23, 'profile', 'Profile', 'Profile', ''),
 (24, 'forgot_password_driver', 'Forgot Password', 'Forgot Password', ''),

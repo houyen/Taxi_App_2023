@@ -692,7 +692,6 @@ class RequestAcceptActivity : CommonActivity(),ImageListener, DriverDetailsAdapt
         sessionManager.bookingType = tripDetailsModel.riderDetails.get(currentRiderPosition).bookingType.toString()
         sessionManager.beginLatitude = tripDetailsModel.riderDetails.get(currentRiderPosition).pickup_lat
         sessionManager.beginLongitude = tripDetailsModel.riderDetails.get(currentRiderPosition).pickup_lng
-        val invoiceModels = tripDetailsModel.riderDetails.get(currentRiderPosition).invoice
 
         // Pass different data based on trip status
 

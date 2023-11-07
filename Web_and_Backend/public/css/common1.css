@@ -268,11 +268,7 @@ img.white_logo {
     width: 20%;
 }
 
-.paymentvalue {
-    line-height: 24px;
-    padding: 1px 12px;
-    margin:0px;
-}
+
 
 .otp_footer .btn + .btn {
     margin-left: 10px;
@@ -484,9 +480,7 @@ img.white_logo {
         height: 160px !important;
     }
 
-    .paymentvalue {
-        width: 100%;
-    }
+
 
 
 }
@@ -526,9 +520,6 @@ img.white_logo {
 }
 
 @media screen and (min-width: 992px) {
-    .paymentvalue {
-        width: 66%;
-    }
 
     .countrylist span {
         width: 25%;

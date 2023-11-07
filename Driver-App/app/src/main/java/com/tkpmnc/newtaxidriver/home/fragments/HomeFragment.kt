@@ -471,73 +471,6 @@ class HomeFragment : Fragment(), OnMapReadyCallback, GoogleApiClient.ConnectionC
     }
 
 
-    // Load currency list deatils in dialog
-    fun vehicleTypeList() {
-
-        initRecyclerView()
-        val inflater = LayoutInflater.from(activity)
-        val view = inflater.inflate(R.layout.app_select_vehicle_header, null)
-        val buttonView = inflater.inflate(R.layout.manage_button, null)
-        val btn_manageVehicle = buttonView.findViewById<Button>(R.id.btn_manage_vehicle)
-        val btn_new = buttonView.findViewById<Button>(R.id.btn_new)
-        val ll = LinearLayout(activity)
-        val layoutParams: LinearLayout.LayoutParams = LinearLayout.LayoutParams(
-            LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT
-        )
-        layoutParams.gravity = Gravity.CENTER_HORIZONTAL
-        layoutParams.setMargins(10, 10, 10, 10);
-        //ll.background = context?.let { ContextCompat.getDrawable(it,R.drawable.app_curve_button_white) }
-        ll.setBackgroundResource(R.drawable.app_curve_button_white)
-        ll.setOrientation(LinearLayout.VERTICAL)
-        ll.addView(rvVehicleType)
-        ll.addView(buttonView, layoutParams)
-        val parent = view.parent as ViewGroup?
-        if (parent != null) {
-            parent.removeView(view)
-        }
-
-        val laydir = getString(R.string.layout_direction)
-        if ("1" == laydir)
-            ll.rotationY = 180f
-        btn_manageVehicle.setOnClickListener(View.OnClickListener {
-            vehicleTypeDialog?.dismiss()
-            val intent = Intent(activity, ManageVehicles::class.java)
-            intent.putExtra(
-                CommonKeys.Intents.DocumentDetailsIntent,
-                (activity as MainActivity).driverProfileModel.driverDocuments
-            );
-            intent.putExtra(
-                CommonKeys.Intents.VehicleDetailsIntent,
-                (activity as MainActivity).driverProfileModel.vehicle
-            );
-            intent.putExtra("New", false);
-            startActivity(intent)
-        })
-
-        btn_new.setOnClickListener(View.OnClickListener {
-            vehicleTypeDialog?.dismiss()
-            val intent = Intent(activity, ManageVehicles::class.java)
-            intent.putExtra(
-                CommonKeys.Intents.DocumentDetailsIntent,
-                (activity as MainActivity).driverProfileModel.driverDocuments
-            );
-            intent.putExtra(
-                CommonKeys.Intents.VehicleDetailsIntent,
-                (activity as MainActivity).driverProfileModel.vehicle
-            );
-            intent.putExtra("New", true);
-            startActivity(intent)
-            /* val fragment =AddVehicleFragment()
-               val transaction = (activity as MainActivity).supportFragmentManager.beginTransaction()
-               transaction.replace(R.id.frame_layout,fragment)
-               transaction.commit()*/
-        })
-        val header = view.findViewById<TextView>(R.id.header)
-        header.text = context?.resources?.getString(R.string.select_your_vehicle)
-        vehicleTypeDialog =
-            android.app.AlertDialog.Builder(activity).setCustomTitle(view).setView(rvVehicleType)
-                .setView(ll).setCancelable(true).show()
-    }
 
 
     @SuppressLint("UseRequireInsteadOfGet")
@@ -1601,7 +1534,6 @@ class HomeFragment : Fragment(), OnMapReadyCallback, GoogleApiClient.ConnectionC
         sessionManager.bookingType = tripDetailsModel.riderDetails.get(0).bookingType.toString()
         sessionManager.beginLatitude = tripDetailsModel.riderDetails.get(0).pickup_lat
         sessionManager.beginLongitude = tripDetailsModel.riderDetails.get(0).pickup_lng
-        val invoiceModels = tripDetailsModel.riderDetails.get(0).invoice
 
         var poolIDs = ""
         sessionManager.poolIds = ""

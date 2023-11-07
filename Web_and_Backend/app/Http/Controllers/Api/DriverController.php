@@ -321,68 +321,6 @@ class DriverController extends Controller
 		]);
 	}
 
-    /**
-	 * Driver Bank Details if company is private
-	 *
-	 * @param Get method request inputs
-	 * @return @return Response in Json
-	 */
-	public function driver_bank_details(Request $request)
-	{
-		$user = JWTAuth::toUser($request->token);
-
-		if(!$request) {
-			$bank_detail = BankDetail::where('user_id',$user->id)->first();
-			if(isset($bank_detail)) {
-				$bank_detail = (object)[];
-			}
-		}
-		else {
-			$rules = array(
-    			'account_holder_name' => 'required',
-                'account_number' => 'required',
-                'bank_name' => 'required',
-                'bank_location' => 'required',
-                'bank_code' => 'required',
-            );
-
-            $attributes = array(
-                'account_holder_name'  => trans('messages.account.holder_name'),
-                'account_number'  => trans('messages.account.account_number'),
-                'bank_name'  => trans('messages.account.bank_name'),
-                'bank_location'  => trans('messages.account.bank_location'),
-                'bank_code'  => trans('messages.account.bank_code'),
-            );
-
-    		$messages   = array('required'=> ':attribute '.trans('messages.home.field_is_required').'',);
-            $validator = Validator::make($request->all(), $rules,$messages,$attributes);
-            
-            if($validator->fails()) {
-	            return response()->json([
-	            	'status_code' => '0',
-	            	'status_message' => $validator->messages()->first()
-	            ]);
-	        }
-
-    		$bank_detail = BankDetail::firstOrNew(['user_id' => $user->id]);
-
-            $bank_detail->user_id = $user->id;
-            $bank_detail->holder_name = $request->account_holder_name;
-            $bank_detail->account_number = $request->account_number;
-            $bank_detail->bank_name = $request->bank_name;
-            $bank_detail->bank_location = $request->bank_location;
-            $bank_detail->code = $request->bank_code;
-            $bank_detail->save();
-		}
-                
-		return response()->json([
-			'status_code' => '1',
-			'status_message' => 'Listed Successfully',
-			'bank_detail' =>  $bank_detail,
-		]);
-    }
-
-
 	public function updateVehicle(Request $request) {
 
 		$user = JWTAuth::toUser($request->token);

@@ -17,16 +17,8 @@ class CarDetails : Serializable {
     @Expose
     var carName: String? = null
 
-    @SerializedName("currency_code")
-    @Expose
-    lateinit var currencyCode: String
-
     @SerializedName("status")
     @Expose
     lateinit var status: String
-
-    @SerializedName("currency_symbol")
-    @Expose
-    lateinit var currencySymbol: String
 
 }

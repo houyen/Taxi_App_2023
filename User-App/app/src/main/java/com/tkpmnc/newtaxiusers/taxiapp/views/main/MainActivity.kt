@@ -2416,7 +2416,6 @@ class MainActivity : CommonActivity(), SeatsListAdapter.OnClickListener,
         ridersDetails = tripDetailsModel!!.riders.get(0)
         var tripStatus = ridersDetails!!.status
         sessionManager.tripId = ridersDetails!!.tripId.toString()
-        var invoiceModels = tripDetailsModel!!.riders.get(0).invoice
         sessionManager.isrequest = false
         sessionManager.isTrip = true
         startDistanceTimer()
@@ -3379,16 +3378,9 @@ class MainActivity : CommonActivity(), SeatsListAdapter.OnClickListener,
         isMainActivity = true
         // CommonKeys.isFirstGeofireinitialize=true
 
-        if (!TextUtils.isEmpty(sessionManager.tripId) && mSearchedpolylineReferenceListener == null)
-            addPolyLineChangeListener()
 
         if (!TextUtils.isEmpty(sessionManager.tripId) && mSearchedLocationReferenceListener == null)
             addLatLngChangeListener()
-
-
-        if (!TextUtils.isEmpty(sessionManager.tripId) && mSearchedEtaReferenceListener == null)
-            addEtaChangeListner()
-
 
         /**
          * Get Rider Profile page
@@ -4262,109 +4254,6 @@ class MainActivity : CommonActivity(), SeatsListAdapter.OnClickListener,
         }
     }
 
-
-    /**
-     * Driver Polylinepoints change listener
-     */
-    private fun addPolyLineChangeListener() {
-        DebuggableLogE(TAG, "Driver Location data called!")
-        // User data change listener
-        if (::mFirebaseDatabasePolylines.isInitialized) {
-            querypolyline = mFirebaseDatabasePolylines.child(TRIP_PAYMENT_NODE).child(sessionManager.tripId!!).child(FirebaseDbKeys.TRIPLIVEPOLYLINE)
-            mSearchedpolylineReferenceListener = querypolyline.addValueEventListener(object : ValueEventListener {
-                override fun onDataChange(dataSnapshot: DataSnapshot) {
-                    DebuggableLogE(TAG, "Driver Location data called! success $dataSnapshot")
-                    if (sessionManager.tripId != "") {
-                        val polyline = dataSnapshot.getValue(String::class.java)
-                        println("FirebasePolyLine $polyline")
-                        isDriverForeground = !polyline.equals("0")
-
-                        if (polyline != null) {
-                            polylinefromFirebase = polyline
-                            if (isPushReceived) {
-
-                                updateRouteFromPush = true
-                                isPushReceived = false
-                                isTripFunc()
-                            }
-                        }
-
-
-                    } else {
-                        query.removeEventListener(this)
-                        mFirebaseDatabasePolylines.removeEventListener(this)
-                        mFirebaseDatabasePolylines.onDisconnect()
-                    }
-
-                }
-
-                override fun onCancelled(error: DatabaseError) {
-                    // Failed to read value
-                    DebuggableLogE(TAG, "Failed to read user", error.toException())
-                }
-            })
-        } else {
-            Toast.makeText(this, "Firabase not iniliazited", Toast.LENGTH_SHORT).show()
-        }
-
-
-    }
-
-    /**
-     * Driver Polylinepoints change listener
-     */
-    private fun addEtaChangeListner() {
-        DebuggableLogE(TAG, "Driver Location data called!")
-        // User data change listener
-        if (::mFirebaseDatabasePolylines.isInitialized) {
-            queryEta = mFirebaseDatabasePolylines.child(FirebaseDbKeys.TRIP_PAYMENT_NODE).child(sessionManager.tripId!!).child(FirebaseDbKeys.TRIPETA)
-            mSearchedEtaReferenceListener = queryEta.addValueEventListener(object : ValueEventListener {
-                override fun onDataChange(dataSnapshot: DataSnapshot) {
-                    DebuggableLogE(TAG, "Driver Location data called! success $dataSnapshot")
-                    if (!polylinefromFirebase.isEmpty() && !polylinefromFirebase.equals("0")) {
-                        if (sessionManager.tripId != "") {
-                            val eta = dataSnapshot.getValue(String::class.java)
-                            println("is Eta Updated From Firebase")
-                            println("get Eta $eta")
-                            if (eta != null) {
-                                val min = eta.toLong()
-                                println("get min $min")
-                                if (eta.toLong() > 60) {
-                                    val hours = TimeUnit.MINUTES.toHours(min.toLong())
-                                    val remainMinutes = min - TimeUnit.HOURS.toMinutes(hours)
-
-                                    println("get hours $hours")
-                                    println("get remainMinutes $remainMinutes")
-                                    tvEta.text = "${resources.getQuantityString(R.plurals.hours, hours.toInt(), hours.toInt())} ${"\n"} ${resources.getQuantityString(R.plurals.minutes, remainMinutes.toInt(), remainMinutes.toInt())} "
-                                } else {
-
-                                    tvEta.text = resources.getQuantityString(R.plurals.minutes, min.toInt(), min.toInt())
-                                }
-                            } else {
-
-                                tvEta.text = resources.getQuantityString(R.plurals.minutes, 1, 1)
-                            }
-                        } else {
-                            query.removeEventListener(this)
-                            mFirebaseDatabasePolylines.removeEventListener(this)
-                            mFirebaseDatabasePolylines.onDisconnect()
-                        }
-                    }
-
-
-                }
-
-                override fun onCancelled(error: DatabaseError) {
-                    // Failed to read value
-                    DebuggableLogE(TAG, "Failed to read user", error.toException())
-                }
-            })
-        } else {
-            Toast.makeText(this, "Firabase not iniliazited", Toast.LENGTH_SHORT).show()
-        }
-
-
-    }
 
     /**
      * Driver Location change listener

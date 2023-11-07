@@ -65,16 +65,7 @@ class Trips extends Model
     {
         return $this->belongsTo('App\Models\Cancel','id','trip_id');
     }
-    // Join with payment table
-    public function payment()
-    {
-        return $this->belongsTo('App\Models\Payment','id','trip_id');
-    }
-    // Join with Currency table
-    public function currency()
-    {
-        return $this->belongsTo('App\Models\Currency','currency_code','code');
-    }
+
     public function language()
     {
         return $this->belongsTo('App\Models\Language','language_code','value');
@@ -117,26 +108,6 @@ class Trips extends Model
     {
         return $this->belongsTo('App\Models\DriverAddress','driver_id','user_id');
     }
-
-    // Join with payment table
-    public function driver_payment()
-    {
-        return $this->hasOne('App\Models\Payment','trip_id','id');
-    }
-
-    // Join with payment table
-    public function toll_reason()
-    {
-        return $this->hasOne('App\Models\TollReason','id','toll_reason_id');
-    }
-
-     // Join with payment table
-    public function trip_toll_reason()
-    {
-        return $this->hasOne('App\Models\TripTollReason','trip_id','id');
-    }
-
-
 
     // Get vehicle name
     public function getVehicleNameAttribute()
@@ -549,7 +520,6 @@ class Trips extends Model
         )
         ->join('currency', 'currency.code', '=', 'trips.currency_code')
         ->where('trips.driver_id',$user_id)->where('trips.status','Completed')
-        ->whereBetween('trips.created_at', [$from_date, $to_date])->whereHas('payment')
         ->groupBy('trips.created_at')->orderBy('trips.created_at','DESC')->get();
     }
 
@@ -572,7 +542,6 @@ class Trips extends Model
             \DB::raw('CONCAT("'.$currency_symbol.'","",FORMAT((((trips.driver_or_company_commission) / currency.rate) * '.$currency_rate.'),2)) AS driver_commission')
         )
         ->join('currency', 'currency.code', '=', 'trips.currency_code')
-        ->where('trips.driver_id',$user_id)->where('trips.status','Completed')->whereHas('payment')
         ->whereBetween('trips.created_at', [$from_date, $to_date])->orderBy('trips.id','DESC')->paginate($per_page);
     }
 }

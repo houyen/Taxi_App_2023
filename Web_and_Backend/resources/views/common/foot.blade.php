@@ -13,7 +13,6 @@
     var app = angular.module('App', ['ngSanitize']);
     var APP_URL = {!! json_encode(url('/')) !!};
     var LOGIN_USER_TYPE = '{!! LOGIN_USER_TYPE !!}';
-    var STRIPE_PUBLISH_KEY = "{{ payment_gateway('publish','Stripe') }}";
   </script>
 
   {!! Html::script('js/common.js?v='.$version) !!}
@@ -115,12 +114,6 @@
     }
 </script>
 
-@if (Route::current()->uri() == 'trip' || Route::current()->uri() == 'driver_trip' || Route::current()->uri() == 'driver_invoice')
-  {!! Html::script('js/trip.js?v='.$version) !!}
-@endif
-@if (Route::current()->uri() == 'driver_payment' || Route::current()->uri() == 'documents/{id}')
-  {!! Html::script('js/payment.js?v='.$version) !!}
-@endif
 
 @if (Route::current()->uri() == 'signup_rider' || Route::current()->uri() == 'signup_driver' || Route::current()->uri() == 'signup_company' || Route::current()->uri() == 'driver_profile'|| Route::current()->uri() == 'profile')
 

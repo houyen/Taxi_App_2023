@@ -96,7 +96,7 @@ class RequestDataTable extends DataTable
             $join->on('car_type.id', '=', 'request.car_id');
         })                        
         ->groupBy('group_id')
-        ->select(['request.id as id', 'users.first_name as first_name',DB::raw('CONCAT(currency.symbol, trips.total_fare) AS total_amount'),'request.group_id','request.payment_mode as payment_mode','request.updated_at','trips.total_fare','currency.symbol AS currency_symbol']);
+        ->select(['request.id as id', 'users.first_name as first_name',DB::raw('CONCAT(currency.symbol, trips.total_fare) AS total_amount'),'request.group_id','request.updated_at','trips.total_fare']);
 
         if(LOGIN_USER_TYPE=='company') {
             $get_request = $get_request

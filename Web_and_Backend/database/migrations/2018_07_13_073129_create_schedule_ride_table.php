@@ -38,7 +38,6 @@ class CreateScheduleRideTable extends Migration
             $table->integer('driver_id')->default(0);
             $table->enum('status',['Pending','Completed','Cancelled','Car Not Found'])->nullable();
             $table->string('timezone',100); 
-            $table->string('payment_method',50);
             $table->string('fare_estimation',15);
             $table->nullableTimestamps();
             $table->index(['status']);
