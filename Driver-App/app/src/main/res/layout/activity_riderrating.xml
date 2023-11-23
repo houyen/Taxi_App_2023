@@ -55,7 +55,7 @@
             android:textSize="@dimen/_17asp" />
 
 
-        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
             android:id="@+id/tickshad"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -118,7 +118,7 @@
                     android:layout_marginTop="@dimen/_5adp"
                     layout="@layout/app_common_profile_card_view"/>
 
-                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/smooth"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -131,7 +131,7 @@
                     app:fontname="@string/fonts_Medium"
                     android:visibility="gone" />
 
-                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/rateyour"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -143,7 +143,7 @@
                     app:fontname="@string/fonts_Medium"
                     android:visibility="gone" />
 
-                <com.tkpmnc.newtaxidriver.common.custompalette.FontEditText
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontEditText
                     android:id="@+id/driver_comments"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_160adp"

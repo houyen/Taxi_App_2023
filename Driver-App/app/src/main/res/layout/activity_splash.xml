@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         android:background="@drawable/splash">
 
-        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
             android:layout_width="@dimen/_250adp"
             android:layout_height="@dimen/_250adp"
             android:layout_centerInParent="true"

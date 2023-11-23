@@ -162,7 +162,7 @@
                 android:paddingTop="20dp"
                 android:visibility="gone">
 
-                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/imghelptext"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -182,7 +182,7 @@
                     android:textColor="#09091A"
                     android:textSize="18dp" />
 
-                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/arrarowone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -213,7 +213,7 @@
                     android:textColor="#09091A"
                     android:textSize="18dp" />
 
-                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/arrarowtwo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -223,7 +223,7 @@
                     android:text="q"
                     app:fontname="@string/font_UberClone" />
 
-                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/imgdocumenttext2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -238,6 +238,173 @@
 
             </RelativeLayout>
 
+            <RelativeLayout
+                android:id="@+id/paymentlayout"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/documentlayout"
+                android:background="@drawable/bottomboarderearning"
+                android:paddingBottom="20dp"
+                android:paddingTop="20dp">
+
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
+                    android:id="@+id/imgpaymenttext2"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/paypal"
+                    android:backgroundTint="#ffc2c2c2"
+                    android:textColor="#ffc2c2c2"
+                    android:textSize="20dp"
+                    app:fontname="@string/font_UberClone" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/imgpaymenttext2"
+                    android:paddingStart="20dp"
+                    android:text="@string/payout"
+                    android:textColor="#09091A"
+                    android:textSize="18dp" />
+
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="20dp"
+                    android:id="@+id/arrarowthree"
+                    android:text="q"
+                    app:fontname="@string/font_UberClone" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rltPayTo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/paymentlayout"
+                android:background="@drawable/bottomboarderearning"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                tools:visibility="visible">
+
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
+                    android:id="@+id/iv_pay"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/money1"
+                    android:backgroundTint="#ffc2c2c2"
+                    android:textColor="#ffc2c2c2"
+                    android:textSize="20dp"
+                    app:fontname="@string/font_UberClone" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/iv_pay"
+                    android:paddingStart="20dp"
+                    android:text="@string/pay_to"
+                    android:textColor="#09091A"
+                    android:textSize="18dp" />
+
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="20dp"
+                    android:id="@+id/arrarowfour"
+                    android:text="q"
+                    app:fontname="@string/font_UberClone" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlt_bank_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rltPayTo"
+                android:background="@drawable/bottomboarderearning"
+                android:paddingBottom="20dp"
+                android:paddingTop="20dp"
+                android:visibility="visible">
+
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
+                    android:id="@+id/iv_bank"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/ic_credit_card_black"
+                    android:backgroundTint="#ffc2c2c2"
+                    android:textColor="#ffc2c2c2"
+                    android:textSize="20dp"
+                    app:fontname="@string/font_UberClone" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/iv_bank"
+                    android:paddingStart="20dp"
+                    android:text="@string/payout"
+                    android:textColor="#09091A"
+                    android:textSize="18dp" />
+
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="20dp"
+                    android:id="@+id/arrarowfive"
+                    android:text="q"
+                    app:fontname="@string/font_UberClone" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/aboutlayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rlt_bank_layout"
+                android:background="@drawable/bottomboarderearning"
+                android:paddingBottom="20dp"
+                android:paddingTop="20dp"
+                android:visibility="gone">
+
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
+                    android:id="@+id/imgabouttext2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="20dp"
+                    android:text="T"
+                    android:textColor="#ffc2c2c2"
+                    android:textSize="20dp"
+                    app:fontname="@string/font_UberClone" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/imgabouttext2"
+                    android:paddingStart="20dp"
+                    android:text="@string/about"
+                    android:textColor="#09091A"
+                    android:textSize="18dp" />
+
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="20dp"
+                    android:text="q"
+                    android:id="@+id/arrarowsix"
+                    app:fontname="@string/font_UberClone" />
+            </RelativeLayout>
 
 
             <RelativeLayout
@@ -267,7 +434,7 @@
                     android:textColor="#09091A"
                     android:textSize="18dp" />
 
-                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
@@ -289,7 +456,7 @@
                 android:paddingTop="10dp">
 
 
-                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
@@ -300,7 +467,7 @@
                     android:textSize="18dp"
                     app:fontname="@string/fonts_UBERBook" />
 
-                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/currency_code"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -327,7 +494,7 @@
                 android:paddingTop="10dp">
 
 
-                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
@@ -338,7 +505,7 @@
                     android:textSize="18dp"
                     app:fontname="@string/fonts_UBERBook" />
 
-                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/language"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

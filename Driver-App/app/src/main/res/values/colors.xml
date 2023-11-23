@@ -53,6 +53,16 @@
     <color name="chat_input_default_border">#ffeaeaea</color>
     <color name="gray_border">#dbd8d8</color>
 
+    <!--Payout Detail page -->
+    <color name="actionbar_text_color">#fff</color>
+    <color name="text_light_shadow">#ff616161</color>
+    <color name="text_color">#f6f6f6</color>
+    <color name="text_shadow">#484848</color>
+    <color name="calendar_text_unselectable">#84858b</color>
+    <color name="calendar_text_selected_host">#ffffffff</color>
+    <color name="chat_gray_border">#dbd8d8</color>
+
+
     <!--swipe button color-->
     <color name="proswipebtn_translucent_white">#33ffffff</color>
     <color name="proswipebtn_disabled_grey">#939393</color>

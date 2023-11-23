@@ -6,7 +6,7 @@
     android:layoutDirection="@string/layout_direction"
     android:orientation="vertical">
 
-    <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
+    <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
         android:id="@+id/listempty"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

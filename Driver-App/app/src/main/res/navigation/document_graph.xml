@@ -9,7 +9,7 @@
 
     <fragment
         android:id="@+id/documentFragment"
-        android:name="com.tkpmnc.newtaxidriver.home.managevehicles.ManageDriverDocumentFragment"
+        android:name="com.tkpmnc.sgtaxidriver.home.managevehicles.ManageDriverDocumentFragment"
         android:label="Document Management"
         tools:layout="@layout/manage_documents_fragment">
 
@@ -23,7 +23,7 @@
 
     <fragment
         android:id="@+id/viewDocumentFragment"
-        android:name="com.tkpmnc.newtaxidriver.home.managevehicles.ViewDriverDocumentFragment"
+        android:name="com.tkpmnc.sgtaxidriver.home.managevehicles.ViewDriverDocumentFragment"
         android:label="View Document"
         tools:layout="@layout/view_document_layout">
     </fragment>

@@ -11,7 +11,7 @@
     tools:context=".common.helper.CommonDialog">
 
 
-    <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
+    <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
         android:id="@+id/message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -24,7 +24,7 @@
         android:textSize="20dp"
         app:fontname="@string/font_UBERNews" />
 
-    <com.tkpmnc.newtaxidriver.common.custompalette.FontButton
+    <com.tkpmnc.sgtaxidriver.common.custompalette.FontButton
         android:id="@+id/ok_btn_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

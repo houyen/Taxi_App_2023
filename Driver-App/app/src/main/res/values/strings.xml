@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!DOCTYPE resources
-    [<!ENTITY appname "NewTaxi Driver">
-        <!ENTITY riderbundle "com.tkpmnc.newtaxiuser">
-        <!ENTITY driverbundle "com.tkpmnc.newtaxidriver">
-        <!ENTITY siteurl "https://newtaxi.tkpmnc.com/">
-        <!ENTITY googleMapKey "#ENTER GOOGLE MAPS API KEY HERE#">
-        <!ENTITY googleAutoCompleteKey "#ENTER GOOGLE AUTOCOMPLETE KEY HERE#">
+    [<!ENTITY appname "SG Taxi Driver">
+        <!ENTITY riderbundle "com.tkpmnc.sgtaxiuser">
+        <!ENTITY driverbundle "com.tkpmnc.sgtaxidriver">
+        <!ENTITY siteurl "https://sgtaxi.querysoftke.com/">
+        <!ENTITY googleMapKey "AIzaSyBjEDY9IfO_R61qEPUQDCoxydL9xkmhddI">
+        <!ENTITY googleAutoCompleteKey "AIzaSyBjEDY9IfO_R61qEPUQDCoxydL9xkmhddI">
         <!ENTITY firebaseDbMode "live">
         <!ENTITY otpEnable "false">
         ]>
@@ -135,6 +135,9 @@
     <string name="seeyourdriving">"See your driving style profile after completing more trips"</string>
     <string name="cancel_your_trip">"Cancel Your Ride"</string>
     <string name="rider_profile">"RIDER PROFILE"</string>
+    <string name="waiting_for_payment">"Waiting for payment…"</string>
+    <string name="payment_done">"Payment done"</string>
+    <string name="paid">"Paid"</string>
 
     <!--Document attach page start-->
     <string name="documents">"DOCUMENTS"</string>
@@ -190,12 +193,20 @@
     <string name="currency">"₹ "</string>
     <string name="tripsdetails">"TRIP DETAIL"</string>
     <string name="triphistory">"TRIP HISTORY"</string>
+    <string name="trip_payment">"Trips &amp; Payments"</string>
 
+    <string name="tripearnings">"TRIP EARNINGS"</string>
     <string name="fare">"Base Fare"</string>
     <string name="uberfee">"Access Fee"</string>
     <string name="distancefare">"Distance Fare"</string>
     <string name="timefare">"Time Fare"</string>
     <string name="totalamount">"Total Trip Fare"</string>
+    <string name="adminamount">"Admin's Amount"</string>
+    <string name="oweamount">"Owe Amount"</string>
+    <string name="driverpayout">"Driver Payout"</string>
+    <string name="cashcollectable">"Collectable Cash"</string>
+    <string name="cash_trip">"Cash Trip"</string>
+    <string name="cashcollected">"Cash Collected"</string>
     <string name="waitforrider">"Waiting for rider confirmation"</string>
 
     <string name="duration">"DURATION"</string>
@@ -203,6 +214,14 @@
     <string name="thisweek">"THIS WEEK"</string>
     <string name="thisweek_empty">"You have not driven this week"</string>
     <string name="last_trip">"Last trip: "</string>
+    <string name="pay_statemet">"Pay Statements"</string>
+    <string name="payment">"Payment"</string>
+    <string name="payment_failed">"Payment Failed"</string>
+    <string name="payout">"Payout"</string>
+    <string name="addpayout">Add PayPal Payout</string>
+    <string name="most_recent">"Most recent payout: "</string>
+    <string name="addpayment_msg">"To add a new payout. Create a email for your &appname;
+        account. "</string>
 
     <string name="begin_trip">"Swipe to Begin Trip"</string>
     <string name="confirm_arrived">"SWIPE TO CONFIRM YOU'VE ARRIVED"</string>
@@ -220,6 +239,22 @@
     <string name="scheduled">"Scheduled"</string>
     <!--Trips details Page Ended-->
 
+    <!--Payment Statement started-->
+    <string name="paystatement">"PAY STATEMENT"</string>
+    <string name="weeklystatement">"WEEKLY STATEMENT"</string>
+
+    <string name="timeonline">"TIME ONLINE"</string>
+    <string name="completedtrips">"Complete Trips"</string>
+    <string name="dailyearning">"DAILY EARNINGS"</string>
+    <string name="bankdeposit">"Bank Deposit"</string>
+    <string name="totaluberearning">"Total Driver Earnings"</string>
+    <string name="riderfaresearn">"Rider fares earned and kept."</string>
+    <!--Payment Statement endted-->
+    <string name="Interneterror">No internet connection</string>
+    <string name="no_connection">No internet connection</string>
+    <string name="enable_connection_and_come_back">Please enable connection and come again </string>
+    <string name="send_message">Send Message</string>
+    <string name="go_online">GO ONLINE</string>
     <!--Fetch Address-->
 
     <string name="no_address_found">Sorry, no address found</string>
@@ -296,8 +331,10 @@
     <string name="acceptingpickup">Accepting pickup…</string>
     <string name="rateyourrider">Rate your rider</string>
     <string name="writecomment">Write your comments… </string>
+    <string name="paymentdetails">Payment Details</string>
     <string name="view">VIEW</string>
     <string name="pressbackagain">Press back again to exit</string>
+    <string name="paymentcompleted">Payment completed successfully…</string>
     <string name="addphoto">Add Photo</string>
     <string name="choosefromlib">Choose from Library</string>
     <string name="save">save</string>
@@ -317,26 +354,16 @@
 
     <string-array name="language" translatable="false">
         <item>English</item>
-        <item>Français</item>
-        <item>Español</item>
-        <item>عربى</item>
-        <item>Nederlands</item>
-        <item>Português</item>
-        <item>فارسی</item>
     </string-array>
     <string-array name="languageCode" translatable="false">
         <item>en</item>
-        <item>fr</item>
-        <item>es</item>
-        <item>ar</item>
-        <item>nl</item>
-        <item>pt</item>
-        <item>fa</item>
     </string-array>
     <string name="image_uploaded">Image Uploaded Successfully</string>
     <string name="settings">SETTINGS</string>
     <string name="not_now">NOT NOW</string>
     <string name="message">Message</string>
+    <string name="payout_title">Set up your &appname; payout method</string>
+    <string name="payout_address">Address of Payout</string>
     <string name="street_hint">"Street / Road Name"</string>
     <string name="apt_hint">"Apt / Suite / Building"</string>
     <string name="city_hint">"City / Town / District"</string>
@@ -347,7 +374,9 @@
     <string name="ssn" translatable="false">SSN</string>
     <string name="routing_number">Routing Number</string>
     <string name="clearing_code">Clearing Code</string>
+    <string name="bank_name">Bank name</string>
     <string name="branch_name">Branch Name</string>
+    <string name="bank_code">Bank Code</string>
     <string name="branch_code">Branch Code</string>
     <string name="bsb" translatable="false">BSB</string>
     <string name="transit_number">Transit Number</string>
@@ -384,6 +413,15 @@
 
     <string name="enable_permissions_to_proceed_further">Enable permission to proceed further</string>
     <string name="takephoto_title">Take a photo</string>
+    <string name="add_stripe_payout">Add Stripe Payout</string>
+    <string name="choose_currency">Please choose a currency</string>
+    <string name="please_choose_a_currency">Please choose a currency</string>
+    <string name="please_enter_account_number">please enter account number</string>
+    <string name="please_enter_bank_name">please enter bank name</string>
+    <string name="please_enter_branch_name">please enter branch name</string>
+    <string name="please_enter_bank_code">please enter bank code</string>
+    <string name="please_enter_branch_code">please enter branch code</string>
+    <string name="please_enter_account_holder_name">please enter account holder name</string>
     <string name="please_enter_address1">please enter address 1</string>
     <string name="please_enter_city">please enter city</string>
     <string name="please_enter_state">please enter state</string>
@@ -426,7 +464,41 @@
     <string name="skip">Skip</string>
 
 
+    <string name="bank_location">Bank Location</string>
+    <string name="bic_swift_code">BIC/SWIFT Code</string>
+    <string name="name_of_bank">Name of Bank</string>
+    <string name="account_number">Account Number</string>
+    <string name="account_holder_name">Account Holder Name</string>
+    <string name="clabe" translatable="false">CLABE</string>
+
     <string name="required"> Required</string>
+
+    <string name="bank_details">Bank Details</string>
+    <string name="bank_details_success_message">Bank Details Added Successfully</string>
+    <string name="rate_your_ride">Rate your ride</string>
+    <string name="no_ratings_display">You have no rating to display</string>
+    <string name="pending_trips">Pending Trips</string>
+    <string name="completed_trips">Completed Trips</string>
+    <string name="error_address">Please provide an address.</string>
+    <string name="error_city">Please provide a city.</string>
+    <string name="error_zip_code">Please provide a zip code.</string>
+    <string name="error_country">Please select country for payout.</string>
+    <string name="no_vehicle_assigned">No vehicle assigned</string>
+    <string name="trips">TRIPS</string>
+    <string name="total_trip_amount">Total trip amount</string>
+    <string name="doc_upload_error">Please upload all documents</string>
+
+    <string name="pay_to">Pay to Admin</string>
+    <string name="your_pay_to">Your Payment To Admin</string>
+
+    <string name="add_card">Add Card</string>
+    <string name="change">CHANGE</string>
+    <string name="enter_amount">Enter Amount</string>
+    <string name="enter_amount_empty">Please Enter the amount</string>
+    <string name="entered_amt_msg">Entered amount is greater than Owe amount</string>
+    <string name="payment_methods">Payment method</string>
+    <string name="credit_or_debit">Add Credit or Debit Card</string>
+    <string name="select_reason">Select Reason</string>
 
     <string name="default_direction" translatable="false">0</string>
     <string name="mobile_verification">Mobile Verification</string>
@@ -447,14 +519,59 @@
     <string name="connecting">Connecting…</string>
 
 
+    <string name="amount">Amount</string>
+    <string name="apply">Apply</string>
+    <string name="apply_extra_fee">Apply Extra Fee</string>
+    <string name="enter_other_reason">Enter Other Reason</string>
+    <string name="enter_extra_fee_description">Enter extra fee description</string>
+    <string name="enter_extra_fee">Enter Extra Fee</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+    <string name="select_extra_fee_description">Select extra fee description</string>
+    <string name="error_select_extra_fee_description">Please select extra fee description</string>
+    <string name="er_read_loc">Problem reading list of locations.</string>
+
+
+    <string name="referral">My Referrals</string>
+    <string name="your_invite_code">Your invite Code</string>
+    <string name="share_my_code">Share My Code</string>
+    <string name="friends_incompleted">Friends - Incomplete</string>
+    <string name="friends_completed">Friends - Completed</string>
+    <string name="referral_code_copied">Referral Code Copied</string>
+    <string name="referral_code_not_copied">Unable to copy Referral code, please share the code</string>
+    <string name="days_left">days left</string>
+    <string name="need_to_complete">Need to complete</string>
+    <string name="max_referral_earning_statement">Get up to %s for every friend who rides with &appname;</string>
+    <string name="referral_code_optional">Referral Code (Optional)</string>
+    <string name="earned">"Earned "</string>
+    <string name="no_referrals_yet">No Referrals Yet</string>
+    <string name="referral_expired">Referral Expired</string>
+    <string name="share_to_contacts">Share to contacts</string>
+    <string name="invite_msg"><![CDATA[SignUp & Get Paid For Every Invited Sign-up & Much More Bonus Awaits! Use my invite code]]></string>
+    <string name="referrel_amount">Referral Amount</string>
+    <string name="day_left">day left</string>
+    <string name="trip_left">TRIP</string>
+
     <string name="tap_to_reload">Tap to reload</string>
     <string name="error_msg_unknown">An unexpected error occurred</string>
     <string name="total_earnings">"TOTAL EARNINGS"</string>
     <string name="remaining_referral">Remaining Referral</string>
     <string name="hr_eta">"&#160;hr&#160;"</string>
 
+    <string name="stripe" translatable="false">Stripe</string>
+    <string name="choose">Choose</string>
+    <string name="Add_payment_type">Add payment Type</string>
+    <string name="choose_payment_type">Please Choose Your Payment Type</string>
+    <string name="add_payout">Add payout </string>
+    <string name="update">Update</string>
+    <string name="min">&#160;Min</string>
 
+
+    <string name="add_paypal">Add Paypal</string>
     <string name="add_driver_proof">Add Driver Proof</string>
+    <string name="payout_details">Payout Details</string>
+    <string name="onlinepayment">Online payment</string>
+    <string name="paypal">Paypal</string>
     <string name="set_canceled">Setup canceled try again</string>
     <string name="stripe_error_1">Something went wrong try again</string>
     <string name="stripe_error_2">Invalid Stripe API version try again later</string>
@@ -469,7 +586,7 @@
     <string name="New_vehicle">New</string>
     <string name="update_vehicle">Update Vehicle</string>
     <string name="setting">App Settings</string>
-    <string name="choose_make">Choose Make</string>
+    <string name="choose_make">Choose Brand</string>
     <string name="choose_year">Choose Year</string>
     <string name="your_trips">My Rides</string>
     <string name="manage_documents">Manage Documents</string>
@@ -483,7 +600,7 @@
     <string name="license_plate">License Plate</string>
     <string name="year">Year</string>
     <string name="model">Model</string>
-    <string name="make">Make</string>
+    <string name="make">Vehicle Brand</string>
     <string name="add_vehicle">Add Vehicle</string>
     <string name="delete_msg">"Are you sure you want to Delete?"</string>
     <string name="you_have_no_vehicles">You have no vehicles</string>
@@ -503,6 +620,7 @@
     <string name="rejected">Rejected</string>
     <string name="go_onlines">Online</string>
     <string name="go_offline">Offline</string>
+    <string name="manage_payout">Manage Payout</string>
     <string name="pool_request">Pool Request (</string>
     <string name="persons_braces">&#160;persons)</string>
     <string name="person_braces">&#160;person)</string>
@@ -551,7 +669,10 @@
     <string name="trip_request">Trip Request</string>
     <string name="additional_document">Additional Document</string>
     <string name="please_enter_clabe_number">please enter CLABE</string>
-
+    <string name="mpesa_payment">Mpesa Payment</string>
+    <string name="patym_payment">Paytm Payment</string>
+    <string name="flutterwave_payment">Flutterwave Payment</string>
+    <string name="your_pay_to_desc">Making payments is easy! You can settle your fees by transferring funds to account number or simply drop off cash at our office. Choose the option that suits you best!</string>
 
 
     <plurals name="minutes">

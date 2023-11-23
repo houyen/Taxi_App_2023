@@ -6,7 +6,7 @@
     android:layoutDirection="@string/layout_direction"
     android:padding="@dimen/_10adp">
 
-    <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
+    <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
         android:id="@+id/tv_gender_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

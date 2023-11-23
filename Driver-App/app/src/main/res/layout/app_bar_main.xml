@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layoutDirection="@string/layout_direction"
     android:background="@color/newtaxi_app_white"
-    tools:context="com.tkpmnc.newtaxidriver.home.MainActivity">
+    tools:context="com.tkpmnc.sgtaxidriver.home.MainActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"

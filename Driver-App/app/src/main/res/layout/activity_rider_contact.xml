@@ -7,7 +7,7 @@
     android:layoutDirection="@string/layout_direction"
     android:orientation="vertical"
     android:background="@color/newtaxi_app_white"
-    tools:context="com.tkpmnc.newtaxidriver.trips.RiderContactActivity">
+    tools:context="com.tkpmnc.sgtaxidriver.trips.RiderContactActivity">
 
     <include
         android:id="@+id/common_header"
@@ -23,7 +23,7 @@
         >
 
 
-        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
             android:id="@+id/ridername"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
             android:textSize="@dimen/_17asp"
             app:fontname="@string/font_Medium" />
 
-        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
@@ -51,7 +51,7 @@
             app:fontname="@string/font_Medium" />
 
 
-        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
             android:id="@+id/mobilenumbertext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -102,13 +102,13 @@
                     android:src="@drawable/ic_phone"
                     />
 
-                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
                     android:text="@string/call"
                     android:textColor="@color/newtaxi_app_black"
-                    android:textSize="@dimen/_15asp"
+                    android:textSize="@dimen/_36asp"
                     app:fontname="@string/font_Medium" />
             </LinearLayout>
 
@@ -118,6 +118,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/callbutton"
                 android:layout_weight="1"
+                android:visibility="gone"
                 android:layout_marginStart="@dimen/_20adp"
                 android:layout_marginEnd="@dimen/_20adp"
                 android:layout_marginBottom="@dimen/_10adp"
@@ -137,7 +138,7 @@
                     android:src="@drawable/app_ic_message_navy"
                     app:tint="@color/newtaxi_app_black" />
 
-                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/message"

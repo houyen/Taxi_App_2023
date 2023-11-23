@@ -10,7 +10,7 @@
     android:orientation="vertical"
     android:visibility="gone">
 
-    <com.tkpmnc.newtaxidriver.common.custompalette.FontEditText
+    <com.tkpmnc.sgtaxidriver.common.custompalette.FontEditText
         android:id="@+id/addresskanji1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,7 +24,7 @@
         android:textColorHint="@color/calendar_text_unselectable"
         android:textSize="@dimen/_14asp" />
 
-    <com.tkpmnc.newtaxidriver.common.custompalette.FontEditText
+    <com.tkpmnc.sgtaxidriver.common.custompalette.FontEditText
         android:id="@+id/addresskanji2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
         android:textSize="@dimen/_14asp"
         app:fontname="@string/font_Medium" />
 
-    <com.tkpmnc.newtaxidriver.common.custompalette.FontEditText
+    <com.tkpmnc.sgtaxidriver.common.custompalette.FontEditText
         android:id="@+id/kanjicity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -54,7 +54,7 @@
         android:textSize="@dimen/_14asp"
         app:fontname="@string/font_Medium" />
 
-    <com.tkpmnc.newtaxidriver.common.custompalette.FontEditText
+    <com.tkpmnc.sgtaxidriver.common.custompalette.FontEditText
         android:id="@+id/kanjistate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
         app:fontname="@string/font_Medium" />
 
 
-    <com.tkpmnc.newtaxidriver.common.custompalette.FontEditText
+    <com.tkpmnc.sgtaxidriver.common.custompalette.FontEditText
         android:id="@+id/kanjipostalcode"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

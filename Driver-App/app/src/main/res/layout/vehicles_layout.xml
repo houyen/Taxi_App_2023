@@ -8,11 +8,11 @@
 
         <variable
             name="vehicleType"
-            type="com.tkpmnc.newtaxidriver.home.datamodel.VehiclesModel" />
+            type="com.tkpmnc.sgtaxidriver.home.datamodel.VehiclesModel" />
 
         <variable
             name="callback"
-            type="com.tkpmnc.newtaxidriver.home.managevehicles.adapter.ManageVehicleAdapter.OnClickListener" />
+            type="com.tkpmnc.sgtaxidriver.home.managevehicles.adapter.ManageVehicleAdapter.OnClickListener" />
 
         <variable
             name="position"
@@ -44,11 +44,12 @@
                 android:layout_marginTop="@dimen/_10adp"
                 android:layout_marginBottom="@dimen/_10adp">
 
-                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/tv_status"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
+                    android:visibility="invisible"
                     android:paddingStart="@dimen/_10adp"
                     android:paddingTop="@dimen/_10adp"
                     android:paddingEnd="@dimen/_10adp"
@@ -106,7 +107,7 @@
                 android:layout_toStartOf="@+id/rlt_edit"
                 android:layout_toEndOf="@+id/view">
 
-                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/tv_car_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -118,9 +119,10 @@
                     android:textAlignment="viewStart"
                     android:textColor="@color/colorblack"
                     android:textSize="@dimen/_14asp"
-                    app:fontname="@string/font_Medium" />
+                    app:fontname="@string/font_Medium"
+                    tools:ignore="RtlCompat" />
 
-                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/tv_car_status"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -134,7 +136,8 @@
                     android:textAlignment="viewStart"
                     android:textColor="@color/newtaxi_app_text_ash"
                     android:textSize="@dimen/_12asp"
-                    app:fontname="@string/font_UBERNews" />
+                    app:fontname="@string/font_UBERNews"
+                    tools:ignore="RtlCompat" />
 
             </RelativeLayout>
 
@@ -150,6 +153,7 @@
                     android:id="@+id/iv_document"
                     android:layout_width="@dimen/_22adp"
                     android:layout_height="@dimen/_22adp"
+                    android:visibility="invisible"
                     android:src="@drawable/document_view"
                     app:tint="@color/newtaxi_app_navy" />
 

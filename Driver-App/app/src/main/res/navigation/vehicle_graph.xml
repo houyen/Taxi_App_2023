@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/vehicleFragment"
-        android:name="com.tkpmnc.newtaxidriver.home.managevehicles.ManageVehicleFragment"
+        android:name="com.tkpmnc.sgtaxidriver.home.managevehicles.ManageVehicleFragment"
         android:label="Vehicle Management"
         tools:layout="@layout/manage_vehicle_fragment">
         <action
@@ -21,7 +21,7 @@
 
     <fragment
         android:id="@+id/documentFragment"
-        android:name="com.tkpmnc.newtaxidriver.home.managevehicles.ManageVehicleDocumentFragment"
+        android:name="com.tkpmnc.sgtaxidriver.home.managevehicles.ManageVehicleDocumentFragment"
         android:label="Document Management"
         tools:layout="@layout/manage_documents_fragment">
         <action
@@ -33,7 +33,7 @@
 
     <fragment
         android:id="@+id/viewDocumentFragment"
-        android:name="com.tkpmnc.newtaxidriver.home.managevehicles.ViewVehicleDocumentFragment"
+        android:name="com.tkpmnc.sgtaxidriver.home.managevehicles.ViewVehicleDocumentFragment"
         android:label="View Document"
         tools:layout="@layout/view_document_layout">
     </fragment>
@@ -41,7 +41,7 @@
 
     <fragment
         android:id="@+id/addVehicle"
-        android:name="com.tkpmnc.newtaxidriver.home.managevehicles.AddVehicleFragment"
+        android:name="com.tkpmnc.sgtaxidriver.home.managevehicles.AddVehicleFragment"
         android:label="Document Management"
         tools:layout="@layout/manage_documents_fragment">
     </fragment>

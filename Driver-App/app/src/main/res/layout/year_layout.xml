@@ -16,7 +16,7 @@
         >
 
 
-        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
             android:id="@+id/tv_vehicle_year"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

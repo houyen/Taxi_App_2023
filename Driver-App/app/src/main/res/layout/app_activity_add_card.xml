@@ -37,7 +37,7 @@
 
             </RelativeLayout>
         </ScrollView>
-        <com.tkpmnc.newtaxidriver.common.custompalette.FontButton
+        <com.tkpmnc.sgtaxidriver.common.custompalette.FontButton
             android:id="@+id/btnAddCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -29,7 +29,7 @@
             app:tint="@color/white" />
 
 
-        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
             android:id="@+id/close"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -66,7 +66,7 @@
             android:background="@drawable/pencil"
             android:visibility="gone" />
 
-        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
             android:id="@+id/tickshad"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -121,7 +121,7 @@
             </RelativeLayout>
 
 
-            <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
+            <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                 android:id="@+id/personicon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -155,7 +155,7 @@
                     android:layout_marginEnd="5dp"
                     android:layout_weight="1">
 
-                    <com.tkpmnc.newtaxidriver.common.custompalette.FontEditText
+                    <com.tkpmnc.sgtaxidriver.common.custompalette.FontEditText
                         android:id="@+id/input_first"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -177,7 +177,7 @@
                     android:layout_marginStart="5dp"
                     android:layout_weight="1">
 
-                    <com.tkpmnc.newtaxidriver.common.custompalette.FontEditText
+                    <com.tkpmnc.sgtaxidriver.common.custompalette.FontEditText
                         android:id="@+id/input_last"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -285,7 +285,7 @@
                 android:layout_marginStart="-5dp"
                 android:layout_marginTop="10dp" />
 
-            <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
+            <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/v_gender"

@@ -29,7 +29,7 @@
                 android:layout_margin="@dimen/_5adp"
                 android:layout_marginBottom="@dimen/_40adp">
 
-                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/status"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
                     android:textSize="@dimen/_16asp"
                     app:fontname="@string/font_Medium" />
 
-                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/datetime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -60,7 +60,7 @@
                     android:textSize="@dimen/_15asp"
                     app:fontname="@string/font_Medium" />
 
-                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/amountcard"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -76,7 +76,7 @@
                     android:textSize="@dimen/_16asp"
                     app:fontname="@string/font_Medium" />
 
-                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/amountcard"
@@ -88,7 +88,7 @@
                     android:visibility="gone"
                     app:fontname="@string/font_Medium" />
 
-                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/carname"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -106,7 +106,7 @@
                     android:textSize="@dimen/_15asp"
                     app:fontname="@string/font_Medium" />
 
-                <com.tkpmnc.newtaxidriver.common.custompalette.FontButton
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontButton
                     android:id="@+id/btnrate"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/_30adp"
@@ -178,7 +178,7 @@
                         android:background="@drawable/app_ic_circle_double_color" />
                 </RelativeLayout>
 
-                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/tv_pick_location"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -195,7 +195,7 @@
                     android:textSize="@dimen/_15asp"
                     app:fontname="@string/font_Medium" />
 
-                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/tv_drop_location"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

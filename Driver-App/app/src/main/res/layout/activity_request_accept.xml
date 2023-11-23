@@ -9,7 +9,7 @@
 
         <variable
             name="viewmodel"
-            type="com.tkpmnc.newtaxidriver.trips.viewmodel.ReqAccpVM" />
+            type="com.tkpmnc.sgtaxidriver.trips.viewmodel.ReqAccpVM" />
 
     </data>
 
@@ -20,7 +20,7 @@
         android:background="@color/newtaxi_app_white"
         android:keepScreenOn="true"
         android:layoutDirection="@string/layout_direction"
-        tools:context="com.tkpmnc.newtaxidriver.trips.RequestAcceptActivity">
+        tools:context="com.tkpmnc.sgtaxidriver.trips.RequestAcceptActivity">
 
         <include
             android:id="@+id/common_header"
@@ -65,7 +65,7 @@
             android:gravity="center_vertical|center_horizontal"
             android:padding="@dimen/_10adp">
 
-            <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
+            <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                 android:id="@+id/pickup_address"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -117,7 +117,7 @@
                         android:layout_centerHorizontal="true"
                         android:src="@drawable/app_ic_navigation" />
 
-                    <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
+                    <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                         android:id="@+id/txt_navigate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -132,7 +132,7 @@
                         android:textSize="@dimen/_12asp"
                         app:fontname="@string/font_Medium" />
 
-                    <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
+                    <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                         android:id="@+id/tv_eta"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -176,7 +176,7 @@
                 android:padding="@dimen/_3adp"
                 android:src="@drawable/app_ic_currency" />
 
-            <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
+            <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -203,7 +203,7 @@
             app:backgroundTint="@color/white"
             app:srcCompat="@drawable/ic_message" />
 
-        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
             android:id="@+id/latlng"
             android:layout_width="@dimen/_300adp"
             android:layout_height="wrap_content"
@@ -217,7 +217,7 @@
             android:visibility="gone"
             app:fontname="@string/font_Medium" />
 
-        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
             android:id="@+id/latlng1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -235,7 +235,7 @@
             android:visibility="gone"
             app:fontname="@string/font_Medium" />
 
-        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
             android:id="@+id/tv_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -303,7 +303,7 @@
                         android:orientation="vertical"
                         android:weightSum="2">
 
-                        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
+                        <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                             android:id="@+id/ridername"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -317,10 +317,11 @@
                             android:textSize="@dimen/_17asp"
                             app:fontname="@string/font_Medium" />
 
-                        <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
+                        <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                             android:id="@+id/fab_start_chat"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:visibility="gone"
                             android:layout_marginTop="@dimen/_10adp"
                             android:layout_weight="1"
                             android:drawableStart="@drawable/app_ic_message_navy"
@@ -343,7 +344,7 @@
                         android:src="@drawable/ub__marker_destination_walk"
                         android:visibility="gone" />
 
-                    <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
+                    <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingStart="@dimen/_5adp"
@@ -374,7 +375,7 @@
                 </RelativeLayout>
 
 
-                <com.tkpmnc.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/distance"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -399,7 +400,7 @@
                     <!--            android:background="@drawable/arrivedboarder"-->
 
 
-                    <com.tkpmnc.newtaxidriver.trips.proswipebutton.ProSwipeButton
+                    <com.tkpmnc.sgtaxidriver.trips.proswipebutton.ProSwipeButton
                         android:id="@+id/tripastatusbutton"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_40adp"
