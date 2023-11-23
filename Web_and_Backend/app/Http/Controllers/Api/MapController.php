@@ -2,10 +2,13 @@
 
 /**
  * Heat Map Controller
-
+ *
+ * @package     SGTaxi
  * @subpackage  Controller
  * @category    HeatMap
 
+
+ * 
  */
 
 namespace App\Http\Controllers\Api;
@@ -55,7 +58,7 @@ class MapController extends Controller
             ];
         });
 
-        $today_trips = Trips::select('total_fare')->where('driver_id',$user_details->id)->whereIn('status',['Rating','Completed'])->whereDate('end_trip',$current_date);
+        $today_trips = Trips::select('total_fare')->where('driver_id',$user_details->id)->whereIn('status',['Payment','Rating','Completed'])->whereDate('end_trip',$current_date);
         $today_earnings = round($today_trips->sum('total_fare'));
         $today_booking  = $today_trips->count();
 

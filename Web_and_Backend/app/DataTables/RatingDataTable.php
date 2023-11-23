@@ -2,10 +2,13 @@
 
 /**
  * Rating DataTable
-
+ *
+ * @package     SGTaxi
  * @subpackage  DataTable
  * @category    Rating
 
+
+ * 
  */
 
 namespace App\DataTables;
@@ -63,22 +66,7 @@ class RatingDataTable extends DataTable
         return $rating;
     }
 
-    /**
-     * Optional method if you want to use html builder.
-     *
-     * @return \Yajra\DataTables\Html\Builder
-     */
-    public function html()
-    {
-        return $this->builder()
-                    ->columns($this->getColumns())
-                    ->minifiedAjax()
-                    ->dom('lBfr<"table-responsive"t>ip')
-                    ->orderBy(0,'DESC')
-                    ->buttons(
-                        ['csv', 'excel', 'print', 'reset']
-                    );
-    }
+
 
     /**
      * Get columns.

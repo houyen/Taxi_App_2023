@@ -6,11 +6,11 @@
   <section class="content-header">
     <h1>
       Vehicle Make 
-      <small>Control panel</small>
+      <small>Bảng điều khiển</small>
     </h1>
     <ol class="breadcrumb">
-      <li><a href="{{ url('admin/dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li class="active">Vehicle Make</li>
+      <li><a href="{{ url('admin/dashboard') }}"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
+      <li class="active">Hãng xe</li>
     </ol>
   </section>
   <!-- Main content -->
@@ -19,10 +19,10 @@
       <div class="col-xs-12">
         <div class="box">
           <div class="box-header">
-            <!-- <h3 class="box-title">Vehicle Make Management</h3> -->
+            <!-- <h3 class="box-title">Vehicle Make Quản lýment</h3> -->
             @if(Auth::guard('admin')->user()->can('create_documents'))
             <div style="float:right;">
-              <a class="btn btn-success" href="{{ url('admin/add-vehicle-make') }}">Add Vehicle Make </a>
+              <a class="btn btn-success" href="{{ url('admin/add-vehicle-make') }}">Thêm hãng xe </a>
             </div>
             @endif
           </div>

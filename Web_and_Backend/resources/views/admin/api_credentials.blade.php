@@ -5,7 +5,7 @@
 		<h1> Api Credentials </h1>
 		<ol class="breadcrumb">
 			<li>
-				<a href="{{ url(LOGIN_USER_TYPE.'/dashboard') }}"><i class="fa fa-dashboard"></i> Home</a>
+				<a href="{{ url(LOGIN_USER_TYPE.'/dashboard') }}"><i class="fa fa-dashboard"></i> Trang chủ</a>
 			</li>
 			<li>
 				<a href="#">Api Credentials</a>
@@ -24,7 +24,7 @@
 					</div>
 					{!! Form::open(['url' => 'admin/api_credentials', 'class' => 'form-horizontal','files' => true]) !!}
 					<div class="box-body">
-						<span class="text-danger">(*)Fields are Mandatory</span>
+						<span class="text-danger">(*)Trường bắt buộc</span>
 						<div class="form-group">
 							<label for="input_google_map_key" class="col-sm-3 control-label">Google Map Key<em class="text-danger">*</em></label>
 							<div class="col-md-7 col-sm-offset-1">
@@ -43,42 +43,6 @@
 						</div>
 					</div>
 					
-					<div class="box-body">
-						<div class="form-group">
-							<label for="input_twillo_sid" class="col-sm-3 control-label">Twillo SID <em class="text-danger">*</em></label>
-							<div class="col-md-7 col-sm-offset-1">
-								{!! Form::text('twillo_sid', api_credentials('sid','Twillo'), ['class' => 'form-control', 'id' => 'input_twillo_sid', 'placeholder' => 'Twillo SID']) !!}
-								<span class="text-danger">{{ $errors->first('twillo_sid') }}</span>
-							</div>
-						</div>
-					</div>
-					<div class="box-body">
-						<div class="form-group">
-							<label for="input_twillo_token" class="col-sm-3 control-label">Twillo Token <em class="text-danger">*</em></label>
-							<div class="col-md-7 col-sm-offset-1">
-								{!! Form::text('twillo_token', api_credentials('token','Twillo'), ['class' => 'form-control', 'id' => 'input_twillo_token', 'placeholder' => 'Twillo Token']) !!}
-								<span class="text-danger">{{ $errors->first('twillo_token') }}</span>
-							</div>
-						</div>
-					</div>
-					<div class="box-body">
-						<div class="form-group">
-							<label for="input_twillo_from" class="col-sm-3 control-label">Twillo From Number <em class="text-danger">*</em></label>
-							<div class="col-md-7 col-sm-offset-1">
-								{!! Form::text('twillo_from', api_credentials('from','Twillo'), ['class' => 'form-control', 'id' => 'input_twillo_from', 'placeholder' => 'Twillo From Number']) !!}
-								<span class="text-danger">{{ $errors->first('twillo_from') }}</span>
-							</div>
-						</div>
-					</div>
-					<div class="box-body">
-						<div class="form-group">
-							<label for="input_twillo_service_sid" class="col-sm-3 control-label">Twillo Service SID <em class="text-danger">*</em></label>
-							<div class="col-md-7 col-sm-offset-1">
-								{!! Form::text('twillo_service_sid', api_credentials('service_sid','Twillo'), ['class' => 'form-control', 'id' => 'input_twillo_service_sid', 'placeholder' => 'Twillo Service SID']) !!}
-								<span class="text-danger">{{ $errors->first('twillo_service_sid') }}</span>
-							</div>
-						</div>
-					</div>
 
 					<div class="box-body">
 						<div class="form-group">
@@ -98,24 +62,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="box-body">
-						<div class="form-group">
-							<label for="input_fcm_sender_id" class="col-sm-3 control-label">Facebook Client ID<em class="text-danger">*</em></label>
-							<div class="col-md-7 col-sm-offset-1">
-								{!! Form::text('facebook_client_id', api_credentials('client_id','Facebook'), ['class' => 'form-control', 'id' => 'input_facebook_client_id', 'placeholder' => 'Facebook Client ID']) !!}
-								<span class="text-danger">{{ $errors->first('facebook_client_id') }}</span>
-							</div>
-						</div>
-					</div>
-					<div class="box-body">
-						<div class="form-group">
-							<label for="input_fcm_sender_id" class="col-sm-3 control-label">Facebook Client Secret<em class="text-danger">*</em></label>
-							<div class="col-md-7 col-sm-offset-1">
-								{!! Form::text('facebook_client_secret', api_credentials('client_secret','Facebook'), ['class' => 'form-control', 'id' => 'input_facebook_client_secret', 'placeholder' => 'Facebook Client Secret']) !!}
-								<span class="text-danger">{{ $errors->first('facebook_client_secret') }}</span>
-							</div>
-						</div>
-					</div>
+					
 					<div class="box-body">
 						<div class="form-group">
 							<label for="input_fcm_sender_id" class="col-sm-3 control-label"> Google Client ID <em class="text-danger">*</em></label>
@@ -151,42 +98,10 @@
 							</div>
 						</div>
 					</div>
-					<div class="box-body">
-						<div class="form-group">
-							<label for="input_apple_service_id" class="col-sm-3 control-label"> Apple Service Id <em class="text-danger">*</em></label>
-							<div class="col-md-7 col-sm-offset-1">
-								{!! Form::text('apple_service_id', old('apple_service_id',api_credentials('service_id','Apple')), ['class' => 'form-control', 'id' => 'input_apple_service_id', 'placeholder' => 'Apple Service Id']) !!}
-								<span class="text-danger">{{ $errors->first('apple_service_id') }}</span>
-							</div>
-						</div>
-					</div>
-					<div class="box-body">
-						<div class="form-group">
-							<label for="input_apple_team_id" class="col-sm-3 control-label"> Apple Team Id <em class="text-danger">*</em></label>
-							<div class="col-md-7 col-sm-offset-1">
-								{!! Form::text('apple_team_id', old('apple_team_id',api_credentials('team_id','Apple')), ['class' => 'form-control', 'id' => 'input_apple_team_id', 'placeholder' => 'Apple Team Id']) !!}
-								<span class="text-danger">{{ $errors->first('apple_team_id') }}</span>
-							</div>
-						</div>
-					</div>
-					<div class="box-body">
-						<div class="form-group">
-							<label for="input_apple_key_id" class="col-sm-3 control-label"> Apple Key Id <em class="text-danger">*</em></label>
-							<div class="col-md-7 col-sm-offset-1">
-								{!! Form::text('apple_key_id', old('apple_key_id',api_credentials('key_id','Apple')), ['class' => 'form-control', 'id' => 'input_apple_key_id', 'placeholder' => 'Apple Key Id']) !!}
-								<span class="text-danger">{{ $errors->first('apple_key_id') }}</span>
-							</div>
-						</div>
-					</div>
-					<div class="box-body">
-						<div class="form-group">
-							<label for="input_apple_key_file" class="col-sm-3 control-label"> Apple Key File <em class="text-danger">*</em></label>
-							<div class="col-md-7 col-sm-offset-1">
-								{!! Form::file('apple_key_file', ['class' => 'form-control', 'id' => 'input_apple_key_file', 'accept' => 'mimes/txt']) !!}
-								<span class="text-danger">{{ $errors->first('apple_key_file') }}</span>
-							</div>
-						</div>
-					</div>
+					
+					
+					
+
 					<div class="box-body">
 						<div class="form-group">
 							<label for="input_database_url" class="col-sm-3 control-label"> Firebase Database URL <em class="text-danger">*</em></label>
@@ -227,7 +142,7 @@
 		          	@endif
 		          	
 					<div class="box-footer text-center">
-						<button type="submit" class="btn btn-info" name="submit" value="submit">Submit</button>
+						<button type="submit" class="btn btn-info" name="submit" value="submit">Xác nhận </button>
 						<button type="reset" class="btn btn-default"> Reset </button>
 					</div>
 					{!! Form::close() !!}

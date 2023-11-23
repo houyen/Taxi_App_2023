@@ -9,7 +9,7 @@
 			<li>
 				<a href="{{ url(LOGIN_USER_TYPE.'/dashboard') }}">
 					<i class="fa fa-dashboard"></i>
-					Home
+					Trang chủ
 				</a>
 			</li>
 			<li>
@@ -83,15 +83,15 @@
 							</label>
 							<div class="col-md-7 col-sm-offset-1">
 								<div class="input-group">
-									{!! Form::select('additional_fee', array_merge(['Yes' =>'Yes','No' =>'No']),fees('additional_fee'), ['class' => 'form-control', 'id' => 'input_additional_fee']) !!}
+									{!! Form::select('additional_fee', array_merge(['Yes' =>'Có','No' =>'Không']),fees('additional_fee'), ['class' => 'form-control', 'id' => 'input_additional_fee']) !!}
 									<span class="text-danger">{{ $errors->first('additional_fee') }}</span>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="box-footer text-center">
-						<button type="submit" class="btn btn-info" name="submit" value="submit">Submit</button>
-						<button type="reset" class="btn btn-default" name="cancel">Cancel</button>
+						<button type="submit" class="btn btn-info" name="submit" value="submit">Xác nhận </button>
+						<button type="reset" class="btn btn-default" name="cancel">Huỷ bỏ</button>
 					</div>
 					{!! Form::close() !!}
 				</div>

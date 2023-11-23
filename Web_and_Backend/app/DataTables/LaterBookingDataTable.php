@@ -2,8 +2,13 @@
 
 /**
  * Car Type DataTable
+ *
+ * @package     SGTaxi
  * @subpackage  DataTable
  * @category    Car Type
+
+
+ * 
  */
 
 namespace App\DataTables;
@@ -151,22 +156,7 @@ class  LaterBookingDataTable extends DataTable
         return $schedule_rides;
     }
 
-    /**
-     * Optional method if you want to use html builder.
-     *
-     * @return \Yajra\DataTables\Html\Builder
-     */
-    public function html()
-    {
-        return $this->builder()
-                    ->columns($this->getColumns())
-                    ->minifiedAjax()
-                    ->dom('lBfr<"table-responsive"t>ip')
-                    ->orderBy(0)
-                    ->buttons(
-                        ['csv', 'excel', 'print', 'reset']
-                    );
-    }
+
 
     /**
      * Get columns.

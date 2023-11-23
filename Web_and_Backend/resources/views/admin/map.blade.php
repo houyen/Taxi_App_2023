@@ -6,11 +6,11 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Map View
+      Bản đồ
     </h1>
     <ol class="breadcrumb">
-      <li><a href="{{ url(LOGIN_USER_TYPE.'/dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li class="active">Map</li>
+      <li><a href="{{ url(LOGIN_USER_TYPE.'/dashboard') }}"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
+      <li class="active">Bản đồ</li>
     </ol>
   </section>
 
@@ -21,20 +21,20 @@
       <div class="col-md-12">
         <div id="map"></div>
         <div id="legend" style="z-index: 0; position: absolute; bottom: 127px; right: 26px;">
-          <h3>Note: </h3>
+          <h3>Ghi chú: </h3>
           @if(LOGIN_USER_TYPE!='company')
           <div>
-            <img src="{{url('images/marker_green.png')}}"> User
+            <img src="{{url('images/marker_green.png')}}"> Khách hàng
           </div>
           @endif
           <div>
-            <img src="{{url('images/marker_pink.png')}}"> Unavailable Driver
+            <img src="{{url('images/marker_pink.png')}}"> Tài xế không hoạt động
           </div>
           <div>
-            <img src="{{url('images/marker_dgreen.png')}}"> Available Driver
+            <img src="{{url('images/marker_dgreen.png')}}"> Tài xế đang hoạt động
           </div>
           <div>
-            <img src="{{url('images/marker_pink_plus.png')}}"> Unactivated Driver
+            <img src="{{url('images/marker_pink_plus.png')}}"> Tài xế không xác định
           </div>
         </div>
 

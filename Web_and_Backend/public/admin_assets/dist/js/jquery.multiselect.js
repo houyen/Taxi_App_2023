@@ -5,7 +5,8 @@
  * @Contact: @JediNobleclem
  * @Website: springstubbe.us
  * @Source: https://github.com/nobleclem/jQuery-MultiSelect
-Usage:
+ *
+ * Usage:
  *     $('select[multiple]').multiselect();
  *     $('select[multiple]').multiselect({ texts: { placeholder: 'Select options' } });
  *     $('select[multiple]').multiselect('reload');

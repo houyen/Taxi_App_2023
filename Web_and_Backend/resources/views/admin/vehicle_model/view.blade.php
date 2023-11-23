@@ -5,12 +5,12 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Vehicle Model
-      <small>Control panel</small>
+    Mẫu xe
+      <small>Bảng điều khiển</small>
     </h1>
     <ol class="breadcrumb">
-      <li><a href="{{ url('admin/dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li class="active">Vehicle Model</li>
+      <li><a href="{{ url('admin/dashboard') }}"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
+      <li class="active">Mẫu xe</li>
     </ol>
   </section>
   <!-- Main content -->
@@ -19,10 +19,10 @@
       <div class="col-xs-12">
         <div class="box">
           <div class="box-header">
-            <!-- <h3 class="box-title">Vehicle Model Management</h3> -->
+            <!-- <h3 class="box-title">Vehicle Model Quản lýment</h3> -->
             @if(Auth::guard('admin')->user()->can('create_vehicle_model'))
             <div style="float:right;">
-              <a class="btn btn-success" href="{{ url('admin/add-vehicle_model') }}">Add Vehicle Model</a>
+              <a class="btn btn-success" href="{{ url('admin/add-vehicle_model') }}">Thêm Mẫu xe</a>
             </div>
             @endif
           </div>

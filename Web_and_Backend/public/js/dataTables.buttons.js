@@ -799,7 +799,8 @@ $.extend( Buttons.prototype, {
 
 
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *Statics
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Statics
  */
 
 /**
@@ -1021,7 +1022,7 @@ Buttons.buttonSelector = function ( insts, selector )
  * @static
  */
 Buttons.defaults = {
-	buttons: [ 'copy', 'excel', 'csv', 'pdf', 'print' ],
+	buttons: [ 'copy'],
 	name: 'main',
 	tabIndex: 0,
 	dom: {
@@ -1164,8 +1165,10 @@ $.extend( _dtButtons, {
 } );
 
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *DataTables API
-For complete documentation, please refer to the docs/api directory or the
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * DataTables API
+ *
+ * For complete documentation, please refer to the docs/api directory or the
  * DataTables site
  */
 
@@ -1434,7 +1437,8 @@ var _exportData = function ( dt, inOpts )
 };
 
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *DataTables interface
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * DataTables interface
  */
 
 // Attach to DataTables objects for global access

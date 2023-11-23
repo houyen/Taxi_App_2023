@@ -4,11 +4,11 @@
   <div class="content-wrapper" ng-controller='later_booking'>
     <section class="content-header">
       <h1>
-        Manage Bookings
-        <small>Control panel</small>
+        Quản lý Bookings
+        <small>Bảng điều khiển</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="{{ url(LOGIN_USER_TYPE.'/dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="{{ url(LOGIN_USER_TYPE.'/dashboard') }}"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
         <li class="active">Bookings</li>
       </ol>
     </section>
@@ -17,7 +17,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header" style="height: 54px;">
-              <!-- <h3 class="box-title">Manage Bookings </h3> -->
+              <!-- <h3 class="box-title">Quản lý Bookings </h3> -->
 
             </div>
             <div class="box-body">
@@ -32,14 +32,14 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal"></button>
-            <h4 class="modal-title">Booking Cancel</h4>
+            <h4 class="modal-title">Booking Huỷ bỏ</h4>
           </div>
           <div class="modal-body">
             {!! Form::open(['method'=>'POST','url' => 'admin/manual_booking/cancel', 'class' => 'form-horizontal manual_booking_cancel','id'=>'manual_booking_cancel']) !!}
               {!! Form::hidden('manual_booking_id', '', ['ng-model' => 'manual_booking_cancel_id']) !!}
               <div class="row">
                 <div class="col-md-3">
-                  Cancel Reason
+                  Huỷ bỏ Reason
                 </div>
                 <div class="col-md-7 col-sm-offset-1">
                   <select class="form-control cancel_reason_id" name="cancel_reason_id">
@@ -55,7 +55,7 @@
                   Reason
                 </div>
                 <div class="col-md-7 col-sm-offset-1">
-                  {!! Form::textarea('cancel_reason', '', ['class' => 'form-control', 'id' => 'input_cancel_reason', 'placeholder' => 'Cancel Reason']) !!}
+                  {!! Form::textarea('cancel_reason', '', ['class' => 'form-control', 'id' => 'input_cancel_reason', 'placeholder' => 'Huỷ bỏ Reason']) !!}
                 </div>
               </div>
               <div class="row" align="center">
@@ -71,11 +71,11 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal"></button>
-            <h4 class="modal-title">Booking Cancel Reason</h4>
+            <h4 class="modal-title">Booking Huỷ bỏ Reason</h4>
           </div>
           <div class="modal-body">
-            <p>Cancel By: <span class="cancel_by">@{{cancel_by}}</span></p>
-            <p>Cancel Reason: <span class="cancel_reason">@{{cancel_reason}}</span></p>
+            <p>Huỷ bỏ By: <span class="cancel_by">@{{cancel_by}}</span></p>
+            <p>Huỷ bỏ Reason: <span class="cancel_reason">@{{cancel_reason}}</span></p>
             <p>Reason: <span class="reason">@{{cancel_reason}}</span></p>
           </div>
         </div>

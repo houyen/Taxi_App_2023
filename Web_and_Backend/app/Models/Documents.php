@@ -2,8 +2,13 @@
 
 /**
 * Documents Model
+*
+* @package     NewTaxi
 * @subpackage  Controller
 * @category    Documents
+* @author      Seen Technologies
+* @version     2.2.1
+* 
 */
 
 

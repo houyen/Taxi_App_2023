@@ -10,12 +10,15 @@
  * @author      SpryMedia Ltd (www.sprymedia.co.uk)
  * @contact     www.sprymedia.co.uk/contact
  * @copyright   Copyright 2010-2015 SpryMedia Ltd.
-This source file is free software, available under the following license:
+ *
+ * This source file is free software, available under the following license:
  *   MIT license - http://datatables.net/license/mit
-This source file is distributed in the hope that it will be useful, but
+ *
+ * This source file is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
  * or FITNESS FOR A PARTICULAR PURPOSE. See the license files for details.
-For details please refer to: http://www.datatables.net
+ *
+ * For details please refer to: http://www.datatables.net
  */
 
 (function(window, document, undefined) {
@@ -26,7 +29,8 @@ var factory = function( $, DataTable ) {
 
 /**
  * ColVis provides column visibility control for DataTables
-@class ColVis
+ *
+ * @class ColVis
  * @constructor
  * @param {object} DataTables settings object. With DataTables 1.10 this can
  *   also be and API instance, table node, jQuery collection or jQuery selector.
@@ -871,7 +875,8 @@ ColVis.prototype = {
 
 
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *Static object methods
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Static object methods
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 /**
@@ -1021,7 +1026,8 @@ ColVis.defaults = {
 
 
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *Static object properties
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Static object properties
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 /**
@@ -1037,7 +1043,8 @@ ColVis.aInstances = [];
 
 
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *Constants
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Constants
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 /**
@@ -1062,7 +1069,8 @@ ColVis.prototype.VERSION = ColVis.VERSION;
 
 
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *Initialisation
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Initialisation
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 /*

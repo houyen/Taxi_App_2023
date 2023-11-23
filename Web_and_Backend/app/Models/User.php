@@ -2,10 +2,13 @@
 
 /**
  * User Model
-
+ *
+ * @package     SGTaxi
  * @subpackage  Model
  * @category    User
 
+
+ * 
  */
 
 namespace App\Models;
@@ -126,6 +129,11 @@ class User extends Authenticatable implements JWTSubject
         return $this->belongsTo('App\Models\ProfilePicture','id','user_id');
     }
 
+    // Join with profile_picture table
+    public function wallet()
+    {
+        return $this->belongsTo('App\Models\Wallet','id','user_id');
+    }
 
     // Join with vehicle table
     public function vehicle()
@@ -171,6 +179,48 @@ class User extends Authenticatable implements JWTSubject
     public function driver_trips()
     {
         return $this->hasMany('App\Models\Trips','driver_id','id');
+    }
+
+    // Return the drivers default payout credential details
+    public function payout_credentials()
+    {
+        return $this->hasMany('App\Models\PayoutCredentials','user_id','id');
+    }
+
+    // Return the drivers default payout credential details
+    public function default_payout_credentials()
+    {
+        $payout_methods = getPayoutMethods($this->company_id);
+
+        $payout_methods = array_map(function($value) {
+            return snakeToCamel($value,true);
+        }, $payout_methods);
+    	return $this->hasOne('App\Models\PayoutCredentials')->whereIn('type',$payout_methods)->where('default','yes');
+    }
+
+    // Join with company table
+    public function company()
+    {
+        return $this->belongsTo('App\Models\Company','company_id','id');
+    }
+
+    // Join with driver_owe_amount_payments table
+    public function driver_owe_amount_payments()
+    {
+        return $this->hasMany('App\Models\DriverOweAmountPayment', 'user_id', 'id');
+    }
+
+    // Join with driver_owe_amount table
+    public function driver_owe_amount()
+    {
+        return $this->hasOne('App\Models\DriverOweAmount', 'user_id', 'id');
+    }
+
+    // Get Driver payout currency
+    public function getDriverPayoutCurrencyAttribute()
+    {
+        $payout = PayoutCredentials::with(['payout_preference'])->where('user_id', $this->attributes['id'])->where('default', 'yes')->first();
+        return $payout->currency_code;
     }
 
     //Join with country
@@ -401,6 +451,16 @@ class User extends Authenticatable implements JWTSubject
         return trans('messages.driver_dashboard.'.$this->attributes['status']);
     }
 
+    // Get Payout Id of the driver
+    public function getPayoutIdAttribute()
+    {
+        $payout_id = '';
+        $payout_details = $this->default_payout_credentials;
+        if($payout_details != '')
+            $payout_id = $payout_details->account_number;
+
+        return $payout_id;
+    }
 
     // Get Mobile number with Protected format
     public function getHiddenMobileNumberAttribute()
@@ -424,6 +484,205 @@ class User extends Authenticatable implements JWTSubject
         return $protected_number;
     }
 
+    /**
+     * Get Company name
+     * 
+     */
+    public function getCompanyNameAttribute()
+    {
+        $company_name = '';
+
+        if(@$this->attributes['user_type'] == 'Driver') {
+            $company_name = isset($this->company) ? $this->company->name : '';
+        }
+
+        return $company_name;
+    }
+
+     // Set valid Driver referral code
+    public function setUsedReferralCodeAttribute($value)
+    {
+        $user = User::where('referral_code',$value)->first();
+        if($user != '') {
+            $this->attributes['used_referral_code'] = $value;
+        }
+        else {
+            $this->attributes['used_referral_code'] = '';
+        }
+    }
+
+    // Get Unique Referral Code
+    public function getUniqueReferralCode()
+    {
+        $code = $this->generateUniqueReferralCode();
+        $is_valid = $this->isValidReferralCode($code);        
+        if($is_valid) {
+            return $code;
+        }
+        else {
+            return $this->getUniqueReferralCode();
+        }
+    }
+
+    // Get Unique Referral Code
+    public function generateUniqueReferralCode()
+    {
+        $code = strtoupper(str_random(10));
+        return $code;
+    }
+
+    // Validate Referral Code already taken by others
+    public function isValidReferralCode($code)
+    {
+        $prev_code_check = DB::Table('users')->where('referral_code',$code)->count();
+        return $prev_code_check == 0;
+    }
+
+    // get the referred user id
+    public function getReferralUserIdAttribute()
+    {
+        $referral_user = DB::Table('users')->where('referral_code',$this->attributes['used_referral_code'])->first(['id']);
+        return (isset($referral_user->id)) ? $referral_user->id : '';
+    }
+
+    // Check user has completed their referrals
+    public function getIsReferralCompletedAttribute()
+    {
+        if($this->referral_user_id == '')
+            return false;
+
+        $c_date = date('Y-m-d');
+
+        $referral_user = ReferralUser::where('user_id',$this->referral_user_id)->where('referral_id',$this->attributes['id'])->whereRaw('"'.$c_date.'" between start_date and end_date')->wherePaymentStatus('Pending')->first();
+
+        return (isset($referral_user) && $referral_user->remaining_trips == 0);
+    }
+
+    /**
+     * Get User Total Referral Amount
+     * 
+     */
+    public function getTotalReferralEarningsAttribute()
+    {
+        $total_amount = number_format(0,2);
+        $currency_symbol = '';
+        $referral_users = ReferralUser::where('user_id',$this->attributes['id'])->wherePaymentStatus('Completed')->get();
+
+        if($referral_users->count()) {
+            $currency_symbol = html_entity_decode($referral_users[0]->currency_symbol);
+            $total_amount = $referral_users->sum(function ($referral_user) {
+                return $referral_user->amount;
+            });
+        }
+
+        return $currency_symbol.''.$total_amount;
+    }
+
+    /**
+     * Get User Pending Referral Amount
+     * 
+     */
+    public function getPendingReferralAmountAttribute()
+    {
+        $total_amount = number_format(0,2);
+        $currency_symbol = '';
+        $referral_users = ReferralUser::where('user_id',$this->attributes['id'])->wherePaymentStatus('Pending')->where('pending_amount','>',0)->get();
+
+        if($referral_users->count()) {
+            $currency_symbol = html_entity_decode($referral_users[0]->currency_symbol);
+            $total_amount = $referral_users->sum(function ($referral_user) {
+                return $referral_user->pending_amount;
+            });
+        }
+
+        return $currency_symbol.''.$total_amount;
+    }
+
+    // get driver total owe amount
+    public function getTotalOweAmountAttribute()
+    {
+        $owe_amount = $this->driver_trips->sum('owe_amount');
+        return $owe_amount;
+    }
+
+    // get driver applied owe amount
+    public function getAppliedOweAmountAttribute()
+    {
+        $applied_owe_amount = $this->trip_applied_owe_amount + $this->paid_amount;
+        return $applied_owe_amount;
+    }
+
+    // get driver applied owe amount
+    public function getTripAppliedOweAmountAttribute()
+    {
+        $applied_owe_amount = $this->driver_trips->sum('applied_owe_amount');
+        return $applied_owe_amount;
+    }
+
+    // get driver applied owe amount
+    public function getPaidAmountAttribute()
+    {
+        $paid_amount = $this->driver_owe_amount_payments->sum('amount');
+        return $paid_amount;
+    }
+
+    // get driver remaining owe amount
+    public function getRemainingOweAmountAttribute()
+    {
+        return $this->driver_owe_amount ? $this->driver_owe_amount->amount : '';
+    }
+
+    // Add referral amount to wallet
+    public function addAmountToWallet($to_user,$user_type,$currency_code,$wallet_amount)
+    {
+        $wallet = Wallet::where('user_id', $to_user)->first();
+        if(isset($wallet)) {
+            $amount = $this->currency_convert($currency_code,$wallet->getOriginal('currency_code'),$wallet_amount);
+            $final_wallet = number_format($wallet->getOriginal('amount'),2,'.','') + number_format($amount,2,'.','');
+            $wallet->amount = $final_wallet;
+        }
+        else {
+            $wallet = new Wallet;
+            $wallet->user_id = $to_user;
+            $wallet->amount = $wallet_amount;
+            $wallet->currency_code = $currency_code;
+        }
+        $wallet->save();
+
+        $this->completeReferral($to_user);
+        return '';
+    }
+
+    // Update referral user table payment status
+    public function completeReferral($referral_user_id)
+    {
+        $c_date = date('Y-m-d');
+        $referral_user = ReferralUser::where('user_id',$referral_user_id)->where('referral_id',$this->attributes['id'])->whereRaw('"'.$c_date.'" between start_date and end_date')->wherePaymentStatus('Pending')->first();
+        if($referral_user != '') {
+            $referral_user->payment_status = 'Completed';
+            $referral_user->save();
+        }
+
+        return '';
+    }
+
+    /**
+     * calculate converted price of given amount
+     * 
+     */
+    public function currency_convert($from, $to, $price = 0)
+    {
+        if($from == $to) {
+            return $price;
+        }
+
+        $rate = Currency::whereCode($from)->first()->rate;
+        $session_rate = Currency::whereCode($to)->first()->rate;
+        $usd_amount = $price / $rate;
+
+        $currency_val = number_format($usd_amount * $session_rate, 2, '.', '');
+        return $currency_val;
+    }
 
     /**
      * Get Full name

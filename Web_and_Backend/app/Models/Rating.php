@@ -2,10 +2,13 @@
 
 /**
  * Rating Model
-
+ *
+ * @package     SGTaxi
  * @subpackage  Model
  * @category    Rating
 
+
+ * 
  */
 
 namespace App\Models;

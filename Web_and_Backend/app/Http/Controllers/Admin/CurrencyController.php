@@ -2,10 +2,13 @@
 
 /**
  * Currency Controller
-@package     Makent
+ *
+ * @package     Makent
  * @subpackage  Controller
  * @category    Currency
 
+
+ * 
  */
 
 namespace App\Http\Controllers\Admin;
@@ -224,6 +227,7 @@ class CurrencyController extends Controller
     {
         $active_currency_count = Currency::where('status', 'Active')->count();
         $is_default_currency = Currency::find($id)->default_currency;
+        $payment_currency = site_settings('payment_currency');
 
         $return  = ['status' => '1', 'message' => ''];
         if($active_currency_count < 1)
@@ -233,6 +237,10 @@ class CurrencyController extends Controller
         else if($is_default_currency == 1)
         {
             $return = ['status' => 0, 'message' => 'Sorry, This currency is Default Currency. So, change the Default Currency.'];
+        }
+        else if($payment_currency == $code)
+        {
+            $return = ['status' => 0, 'message' => 'Sorry, This currency is Payment Currency. So, change the Payment Currency.'];
         }
 
         return $return;

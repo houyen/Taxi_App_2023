@@ -2,10 +2,13 @@
 
 /**
  * Rider Controller
-
+ *
+ * @package     SGTaxi
  * @subpackage  Controller
  * @category    Rider
 
+
+ * 
  */
 
 namespace App\Http\Controllers\Api;
@@ -15,6 +18,7 @@ use Illuminate\Http\Request;
 use App\Models\Admin;
 use App\Models\CarType;
 use App\Models\DriverLocation;
+use App\Models\EmergencySos;
 use App\Models\Request as RideRequest;
 use App\Models\RiderLocation;
 use App\Models\ScheduleRide;
@@ -517,6 +521,7 @@ class RiderController extends Controller
 				'drop_location' => 'required',
 				'device_id' => 'required',
 				'device_type' => 'required',
+				'payment_method' => 'required',
 			);
 			$group_id = '';
 		}
@@ -559,6 +564,8 @@ class RiderController extends Controller
 				'driver_group_id' => $ride_request->group_id,
 				'pickup_location' => $ride_request->pickup_location,
 				'drop_location' => $ride_request->drop_location,
+				'payment_method' => $ride_request->payment_method,
+				'is_wallet' => $ride_request->is_wallet,
 				'timezone' => $ride_request->timezone,
 				'schedule_id' => $ride_request->schedule_id,
 				'additional_fare'  =>$additional_fare,
@@ -588,6 +595,8 @@ class RiderController extends Controller
 			'driver_group_id' => $request->group_id,
 			'pickup_location' => $request->pickup_location,
 			'drop_location' => $request->drop_location,
+			'payment_method' => $request->payment_method,
+			'is_wallet' => $request->is_wallet,
 			'timezone' => $request->timezone,
 			'schedule_id' => (string) $request->schedule_id,
 			'additional_fare' => $additional_fare,
@@ -604,6 +613,39 @@ class RiderController extends Controller
 		return $car_details;
 	}
 
+	/**
+	 * Display the promo details
+	 * @param  Get method request inputs
+	 *
+	 * @return Response Json
+	 */
+	public function promo_details(Request $request)
+	{
+		$user_details = JWTAuth::parseToken()->authenticate();
+		$user = User::where('id', $user_details->id)->first();
+		if ($user == '') {
+			return response()->json([
+				'status_code'	 => '0',
+				'status_message' => __('messages.invalid_credentials'),
+			]);
+		}
+
+		$invoice_helper = resolve('App\Http\Helper\InvoiceHelper');
+		$promo_details = $invoice_helper->getUserPromoDetails($user_details->id);
+
+		$wallet_amount = getUserWalletAmount($user_details->id);
+
+		$user = array(
+			'status_code' 	=> '1',
+			'status_message'=> __('messages.api.success'),
+			'wallet_amount' => $wallet_amount,
+			'promo_details' => $promo_details,
+			// 'brand'     	=> '',
+			// 'last4'     	=> '',
+			'stripe_key' 	=> STRIPE_KEY,
+		);
+		return response()->json($user);
+	}
 
 	/**
 	 * Track the Driver Location
@@ -660,6 +702,7 @@ class RiderController extends Controller
 	{
 		$user_details = JWTAuth::parseToken()->authenticate();
 		$user = User::where('id', $user_details->id)->first();
+		$count = EmergencySos::where('user_id', $user_details->id)->get()->count();
 
 		if ($request->input('mobile_number') != '') {
 			$request->replace(array('mobile_number' => preg_replace("/[^\w]+/", "", $request->input('mobile_number')), 'action' => $request->input('action'), 'name' => $request->input('name'),'country_code' => $request->input('country_code'), 'id' => $request->input('id')));
@@ -684,6 +727,46 @@ class RiderController extends Controller
 				'status_message' => __('messages.invalid_credentials'),
 			]);
 		}
+
+		$mobile_number = $request->mobile_number;
+		$emer = EmergencySos::where('mobile_number', $mobile_number)->where('user_id', $user_details->id)->first();
+		$count = EmergencySos::where('user_id', $user_details->id)->get()->count();
+		$contact_details = EmergencySos::where('user_id', $user_details->id)->get();
+		if ($request->action == 'update') {
+			if ($emer) {
+				return response()->json(['status_message' => trans('messages.mobile_number_exist'), 'status_code' => '0', 'contact_count' => $count, 'contact_details' => $contact_details]);
+			}
+
+			$emercency = new EmergencySos;
+			$emercency->name = $request->name;
+
+			$country = Country::whereShortName($request->country_code)->first();
+			$emercency->country_code = $country->phone_code;
+			$emercency->country_id 	= $country->id;
+
+			$emercency->mobile_number = $mobile_number;
+			$emercency->user_id = $user_details->id;
+			$emercency->save();
+			$count = EmergencySos::where('user_id', $user_details->id)->get()->count();
+			$contact_details = EmergencySos::where('user_id', $user_details->id)->get();
+			return response()->json(['status_message' => "Added Successfully", 'status_code' => '1', 'contact_count' => $count, 'contact_details' => $contact_details]);
+		}
+		else if ($request->action == 'delete') {
+			$del = EmergencySos::find($request->id);
+
+			if ($del == null) {
+				return response()->json(['status_message' => "Not found given request", 'status_code' => '0', 'contact_count' => $count, 'contact_details' => $contact_details]);
+			}
+
+			$del->delete();
+			$count = EmergencySos::where('user_id', $user_details->id)->get()->count();
+			$contact_details = EmergencySos::where('user_id', $user_details->id)->get();
+
+			return response()->json(['status_message' => "Delete Successfully", 'status_code' => '1', 'contact_count' => $count, 'contact_details' => $contact_details]);
+		}
+		else {
+			return response()->json(['status_message' => trans('messages.success'), 'status_code' => '1', 'contact_count' => $count, 'contact_details' => $contact_details]);
+		}
 	}
 
 	/**
@@ -694,6 +777,7 @@ class RiderController extends Controller
 	public function sosalert(Request $request)
 	{
 		$user_details = JWTAuth::parseToken()->authenticate();
+		$contact_details = EmergencySos::where('user_id', $user_details->id)->get();
 		$address = $this->request_helper->GetLocation($request->latitude, $request->longitude);
 
 		if ($address == '') {
@@ -708,6 +792,13 @@ class RiderController extends Controller
 		$message .= ' From : ' . $user_details->mobile_number;
 		$message .= ' Address : ' . $address;
 		$sms_gateway = resolve("App\Contracts\SMSInterface");
+		if ($contact_details->count() > 0) {
+			foreach ($contact_details as $details) {
+				$sms_gateway->send('+'.$details->mobile_number,$message);
+			}
+			$sms_gateway->send($mobile,$message);
+			return response()->json(['status_message' => 'Success', 'status_code' => '1']);
+		}
 		$sms_gateway->send($mobile,$message);
 		return response()->json(['status_message' => 'Success', 'status_code' => '2']);
 	}
@@ -740,6 +831,7 @@ class RiderController extends Controller
 				'pickup_location' => 'required',
 				'drop_location' => 'required',
 				'device_id' => 'required',
+				'payment_method' => 'required',
 			);
 		}
 
@@ -786,6 +878,8 @@ class RiderController extends Controller
 			$schedule_ride->status = 'Pending';
 			$schedule_ride->trip_path = $trip_path;
 			$schedule_ride->timezone = $request->timezone;
+			$schedule_ride->payment_method =$request->payment_method;
+			$schedule_ride->is_wallet = $request->is_wallet;
 			$schedule_ride->location_id = $request->location_id;
 			$schedule_ride->peak_id = $peak_id;
 			$schedule_ride->save();

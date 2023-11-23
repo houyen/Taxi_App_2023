@@ -5,11 +5,11 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-    Manage Language file
+    Quản lý Language file
     </h1>
     <ol class="breadcrumb">
-      <li><a href="{{ url(LOGIN_USER_TYPE.'/dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li class="active">Manage Language file</li>
+      <li><a href="{{ url(LOGIN_USER_TYPE.'/dashboard') }}"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
+      <li class="active">Quản lý Language file</li>
     </ol>
   </section>
   <!-- Main content -->
@@ -21,17 +21,17 @@
         <!-- Horizontal Form -->
         <div class="box box-info">
           <div class="box-header with-border">
-            <h3 class="box-title">Manage Language file Form</h3>
+            <h3 class="box-title">Quản lý Language file Form</h3>
           </div>
           <!-- /.box-header -->
           <!-- form start -->
           {!! Form::open(['url' => route('language.update_locale'), 'class' => '']) !!}
           <div class="box-body">
-            <span class="text-danger">(*)Fields are Mandatory</span>
+            <span class="text-danger">(*)Trường bắt buộc</span>
             <div class="form-group" style="margin-top: 20px;">
                   <label for="input_currency_code" class="col-sm-2 text-right control-label" style="font-size: 16px;text-transform: capitalize;">Language</label>
                   <div class="col-sm-10">
-                    {!! Form::select('lanuage',$all_lanuage, $select_lang, ['class' => 'form-control', 'id' => 'input_locale_lanuage', 'placeholder' => 'Select']) !!}
+                    {!! Form::select('lanuage',$all_lanuage, $select_lang, ['class' => 'form-control', 'id' => 'input_locale_lanuage', 'placeholder'  => 'Chọn']) !!}
                     <span class="text-danger">{{ $errors->first('lanuage') }}</span>
                   </div>
             </div>
@@ -85,8 +85,8 @@
           </div>
           <!-- /.box-body -->
           <div class="box-footer">
-            <button type="submit" class="btn btn-info pull-right" name="submit" value="submit">Submit</button>
-            <button type="submit" class="btn btn-default pull-left" name="cancel" value="cancel">Cancel</button>
+            <button type="submit" class="btn btn-info pull-right" name="submit" value="submit">Xác nhận </button>
+            <button type="submit" class="btn btn-default pull-left" name="cancel" value="cancel">Huỷ bỏ</button>
           </div>
           <!-- /.box-footer -->
           {!! Form::close() !!}

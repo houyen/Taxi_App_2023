@@ -2,10 +2,13 @@
 
 /**
  * Manage Fare Controller
-
+ *
+ * @package     SGTaxi
  * @subpackage  Controller
  * @category    Manage Fare
 
+
+ * 
  */
 
 namespace App\Http\Controllers\Admin;

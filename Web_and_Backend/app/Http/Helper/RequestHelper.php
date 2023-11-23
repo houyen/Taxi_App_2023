@@ -2,14 +2,18 @@
 
 /**
  * Request Helper
-
+ *
+ * @package     SGTaxi
  * @subpackage  Controller
  * @category    Request
 
+
+ * 
  */
 namespace App\Http\Helper;
 
 use App\Models\DriverLocation;
+use App\Models\PaymentGateway;
 use App\Models\Request;
 use App\Models\Request as RideRequest;
 use App\Models\ScheduleRide;
@@ -162,6 +166,16 @@ class RequestHelper
 			return ($trip_destinations_count > 0);
 		})->values();
 
+		if($array['is_wallet'] == 'Yes') {
+			if ($array['payment_method'] == '') {
+				$payment_method_store == 'Wallet';
+			} else {
+				$payment_method_store = $array['payment_method'] . ' & Wallet';
+			}
+		} else {
+			$payment_method_store = ucfirst($array['payment_method']);
+		}
+
 		$i = 0;
 
 		$requestSendCount = RideRequest::where('group_id', $array['driver_group_id'])->where('status', 'Cancelled')->count();
@@ -208,6 +222,7 @@ class RequestHelper
 						$request->car_id = $array['car_id'];
 						$request->pickup_location = $array['pickup_location'];
 						$request->drop_location = $array['drop_location'];
+						$request->payment_mode = $payment_method_store;
 						$request->status = 'Pending';
 						$request->timezone = $array['timezone'];
 						$request->schedule_id = $array['schedule_id'];
@@ -353,6 +368,7 @@ class RequestHelper
         $ride_request->car_id = $schedule->car_id;
         $ride_request->pickup_location = $schedule->pickup_location;
         $ride_request->drop_location = $schedule->drop_location;
+        $ride_request->payment_mode = $schedule->payment_method;
         $ride_request->status = 'Accepted';
         $ride_request->timezone = $schedule->timezone;
         $ride_request->schedule_id = $schedule->id;
@@ -423,6 +439,7 @@ class RequestHelper
         $trip->drop_location = $schedule->drop_location;
         $trip->request_id = $ride_request->id;
         $trip->trip_path = $schedule->trip_path;
+        $trip->payment_mode = $schedule->payment_method;
         $trip->status = 'Scheduled';
         $trip->currency_code = $schedule->users->currency->code;
         $trip->peak_fare = $ride_request->peak_fare;
@@ -466,6 +483,7 @@ class RequestHelper
 			'rating_value' 		=> '',
 			'car_type' 			=> $ride_request->car_type->car_name,
 			'car_active_image' 	=>$ride_request->car_type->active_image,
+			'payment_method' 	=> $ride_request->payment_mode,
 			'booking_type' 		=> (@$trip->ride_request->schedule_ride->booking_type==null)?"":@$trip->ride_request->schedule_ride->booking_type,
 			'apply_trip_additional_fee' => ($apply_extra_fee == 'Yes'),
 		));

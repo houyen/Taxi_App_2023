@@ -8,7 +8,7 @@
     Send Email
     </h1>
     <ol class="breadcrumb">
-      <li><a href="{{ url(LOGIN_USER_TYPE.'/dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li><a href="{{ url(LOGIN_USER_TYPE.'/dashboard') }}"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
       <li class="active">Send Email</li>
     </ol>
   </section>
@@ -26,7 +26,7 @@
           <!-- form start -->
           {!! Form::open(['url' => 'admin/send_email', 'class' => 'form-horizontal']) !!}
           <div class="box-body">
-            <span class="text-danger">(*)Fields are Mandatory</span>
+            <span class="text-danger">(*)Trường bắt buộc</span>
             <div class="form-group">
               <label class="col-sm-3 control-label">Email To<em class="text-danger">*</em></label>
               <div class="col-md-7 col-sm-offset-1">
@@ -67,8 +67,8 @@
           </div>
           <!-- /.box-body -->
           <div class="box-footer text-center">
-            <button type="submit" class="btn btn-info" name="submit" value="submit">Submit</button>
-            <a href="{{url('admin/send_email')}}" class="btn btn-default">Cancel</a>
+            <button type="submit" class="btn btn-info" name="submit" value="submit">Xác nhận </button>
+            <a href="{{url('admin/send_email')}}" class="btn btn-default">Huỷ bỏ</a>
           </div>
           <!-- /.box-footer -->
           {!! Form::close() !!}

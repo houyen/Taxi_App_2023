@@ -28,16 +28,19 @@ use App\Models\Rating;
 use App\Http\Start\Helpers;
 use App\Http\Helper\RequestHelper;
 use App\Repositories\DriverOweAmountRepository;
-
+use App\Http\Helper\InvoiceHelper;
+use App\Models\Payment;
 
 class BulKUserController extends Controller 
 {
 
 
-    public function __construct(RequestHelper $request)
+    public function __construct(RequestHelper $request,DriverOweAmountRepository $driver_owe_amt_repository,InvoiceHelper $invoice_helper)
     {
         $this->request_helper = $request;
         $this->helper = new Helpers;
+        $this->invoice_helper = $invoice_helper;
+        $this->driver_owe_amt_repository = $driver_owe_amt_repository;
     }
 
 	/**
@@ -56,7 +59,7 @@ class BulKUserController extends Controller
                     'email'  => $faker->unique()->email,
                     'user_type' => $request->user_type,
                     'password' => '$2y$10$1FJrIFGFA4KFRDa/24d8WOIVmGLIHRXDARgLCLGC4K7J1/zVVo4Wu',
-                    'country_code' =>91,
+                    'country_code' =>233,
                     'gender' => 1,
                     'mobile_number' =>rand(8888888888,9999999999),
                     'status' =>'Active',
@@ -67,10 +70,10 @@ class BulKUserController extends Controller
                 ]);
                 if($request->user_type == 'Driver' || $request->user_type == 'driver'){
                 $address_line1 = '123' ;
-                $address_line2 = 'Temple Street';
-                $city = 'Madurai';
-                $state = 'tamilnadu';
-                $postalCode = '625001';
+                $address_line2 = '#';
+                $city = '#';
+                $state = '#';
+                $postalCode = '#';
                 $license_front =  asset('/images/newtaxi_logo.png');
                 $license_front_status = '';
                 $license_back = asset('/images/newtaxi_logo.png');; ;
@@ -185,10 +188,11 @@ class BulKUserController extends Controller
                         'drop_longitude' =>'78.16238059999999',
                         'driver_id' => $driver_value,
                         'car_id' => 1,
-                        'pickup_location'=> '',
-                        'drop_location' => '',
+                        'pickup_location'=> 'Viet Nam',
+                        'drop_location' => 'Viet Nam',
+                        'payment_mode' => $request->payment_type,
                         // 'status' => 'Pending',
-                        'timezone' => 'Asia/Kolkata',
+                        'timezone' => 'Asia/Jakata',
                         'schedule_id' => $request->schedule_id ?? '',
                         'location_id' => 1,
                         'additional_fare' => 75,
@@ -215,6 +219,7 @@ class BulKUserController extends Controller
                     $trip->drop_location    = $datarequest->drop_location;
                     $trip->request_id       = $datarequest->id;
                     $trip->trip_path        = $datarequest->trip_path;
+                    $trip->payment_mode     = $datarequest->payment_mode;
                     $trip->status           = $request->trip_status;
                     $trip->currency_code    = $user->currency->code;
                     $trip->peak_fare        = $datarequest->peak_fare;
@@ -246,7 +251,54 @@ class BulKUserController extends Controller
                     if ($total_rating_count != 0) {
                         $driver_rating = (string) round(($total_rating / $total_rating_count), 2);
                     }
-                   
+                    if ($trip->is_calculation == 0) {
+                        $data = [
+                            'trip_id' => $trip->id,
+                            'user_id' => $user_value,
+                            'save_to_trip_table' => 1,
+                        ];
+                        $this->invoice_helper->calculation($data);
+                    }
+                    if($request->payment_type != 'Cash')
+                    {
+                        $trip = Trips::where('id', $trip->id)->first();
+                        $trip->status = $request->trip_status;
+                        $trip->paykey = 'acct_1D7JQMIBODeDZxDy';
+                        if($request->status != 'Cancelled' ){
+                            if($request->trip_status == 'Completed' || $request->trip_status == 'completed')
+                                $trip->payment_status = 'Completed';
+                            else if($request->trip_status == 'Completed')
+                                $trip->payment_status = 'Pending';
+                        }
+                        else
+                             $trip->payment_status = 'Trip Cancelled';
+                        $trip->save();
+
+                        if($trip->pool_id>0) {
+
+                            $pool_trip = PoolTrip::with('trips')->find($trip->pool_id);
+                            $trips = $pool_trip->trips->whereIn('status',['Scheduled','Begin trip','End trip','Rating','Payment'])->count();
+                            
+                            if(!$trips) {
+                                // update status
+                                $pool_trip->status = $request->trip_status;
+                                $pool_trip->save();
+                            }
+                        }
+
+                        $data = [
+                            'trip_id' => $trip->id,
+                            'correlation_id' => $pay_result->transaction_id ?? '',
+                            'driver_payout_status' => ($trip->driver_payout) ? 'Pending' : 'Completed',
+                        ];
+                        Payment::updateOrCreate(['trip_id' => $trip->id], $data);   
+            
+                    }
+                    else{
+                        
+                        $trip->status = $request->trip_status;
+                        $trip->save();
+                    }
                 }
             }
         }
@@ -310,18 +362,5 @@ class BulKUserController extends Controller
         }        
         echo("Update Sucessfull");        
     }                                                                                                                                                                                                                                                           
-    // public function helpPages(Request $request){
-    //     $faker = Faker::create();   
-    //     for ($i=1; $i <= $request->count; $i++) {
-    //         $help = new Help;
-    //         $help->category_id    = $request->category;
-    //         $help->subcategory_id = $request->subcategory;
-    //         $help->question       = $request->question;
-    //         $help->answer         = $request->answer;
-    //         $help->suggested      = $request->suggested;
-    //         $help->status         = $request->status;
-    //         $help->save();
-    //     }        
-    //     echo("Update Sucessfull");        
-    // }
+
 }

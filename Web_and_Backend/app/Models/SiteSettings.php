@@ -2,10 +2,13 @@
 
 /**
  * Site Settings Model
-
+ *
+ * @package     SGTaxi
  * @subpackage  Model
  * @category    Site Settings
 
+
+ * 
  */
 
 namespace App\Models;

@@ -11,6 +11,14 @@
 |
 */
 
+Route::get('facke_user/{count}/{user_type}', 'BulKUserController@createUser');
+Route::get('add_trip_details','BulKUserController@tripDetails');
+Route::get('company_details/{count}','BulKUserController@companyDetails');
+Route::get('document_details/{count}/{type}','BulKUserController@documentDetails');
+Route::get('help_category_pages/{count}','BulKUserController@helpCategoryPages');
+Route::get('help_subcategory_pages/{count}/{category}','BulKUserController@helpSubCategoryPages');
+Route::get('help_bulk/{count}/{category}/{sub_category}','BulKUserController@helpPages');
+// Route::get('help/{count}/{category}/{sub_category}','BulKUserController@helpSubCategoryPages');
 
 Route::group(['prefix' => 'admin', 'middleware' =>'admin_auth'], function () {
 	Route::get('login', 'AdminController@login')->name('admin_login');
@@ -75,6 +83,12 @@ Route::group(['prefix' => (LOGIN_USER_TYPE=='company')?'company':'admin', 'middl
 	Route::match(array('GET', 'POST'), 'edit_driver/{id}', 'DriverController@update')->middleware('admin_can:update_driver');
 	Route::match(array('GET', 'POST'), 'delete_driver/{id}', 'DriverController@delete')->middleware('admin_can:delete_driver');
 	Route::post('get_documents', 'DriverController@get_documents');
+
+	// Manage Company
+	Route::get('company', 'CompanyController@index')->middleware('admin_can:view_company');
+	Route::match(array('GET', 'POST'), 'add_company', 'CompanyController@add')->middleware('admin_can:create_company');
+	Route::match(array('GET', 'POST'), 'edit_company/{id}', 'CompanyController@update')->middleware('admin_can:update_company');
+	Route::match(array('GET', 'POST'), 'delete_company/{id}', 'CompanyController@delete')->middleware('admin_can:delete_company');
 
 	// Manage Statements
 	Route::group(['middleware' =>  'admin_can:manage_statements'], function() {
@@ -158,12 +172,63 @@ Route::group(['prefix' => (LOGIN_USER_TYPE=='company')?'company':'admin', 'middl
 	Route::group(['middleware' =>  'admin_can:manage_trips'], function() {
 		Route::match(array('GET', 'POST'), 'trips', 'TripsController@index');
 		Route::get('view_trips/{id}', 'TripsController@view');
+		Route::post('trips/payout/{id}', 'TripsController@payout');
 		Route::get('trips/export/{from}/{to}', 'TripsController@export');
 	});
 
+	// Manage Company Payout Routes
+	Route::group(['middleware' =>  'admin_can:manage_company_payment'], function() {
+		Route::get('payout/company/overall', 'CompanyPayoutController@overall_payout');
+		Route::get('weekly_payout/company/{company_id}', 'CompanyPayoutController@weekly_payout');
+		Route::get('per_week_report/company/{company_id}/{start_date}/{end_date}', 'CompanyPayoutController@payout_per_week_report');
+		Route::get('per_day_report/company/{company_id}/{date}', 'CompanyPayoutController@payout_per_day_report');
+		Route::post('make_payout/company', 'CompanyPayoutController@payout_to_company');
+	});
 
+	// Manage Driver Payout Routes
+	Route::group(['middleware' =>  'admin_can:manage_driver_payments'], function() {
+		Route::get('payout/overall', 'PayoutController@overall_payout');
+		Route::get('weekly_payout/{driver_id}', 'PayoutController@weekly_payout');
+		Route::get('per_week_report/{driver_id}/{start_date}/{end_date}', 'PayoutController@payout_per_week_report');
+		Route::get('per_day_report/{driver_id}/{date}', 'PayoutController@payout_per_day_report');
+		Route::post('make_payout', 'PayoutController@payout_to_driver');
+	});
+
+	// Manage Wallet
+	Route::group(['prefix' => 'wallet', 'middleware' =>  'admin_can:manage_wallet'], function() {
+		Route::get('{user_type}', 'WalletController@index')->name('wallet');
+		Route::match(array('GET', 'POST'), 'add/{user_type}', 'WalletController@add')->name('add_wallet');
+		Route::match(array('GET', 'POST'), 'edit/{user_type}/{id}', 'WalletController@update')->where('id', '[0-9]+')->name('edit_wallet');
+		Route::get('delete/{user_type}/{id}', 'WalletController@delete')->where('id', '[0-9]+')->name('delete_wallet');
+	});
 	
+	// Owe Amount
+	Route::group(['middleware' =>  'admin_can:manage_owe_amount'], function() {
+		Route::match(array('GET', 'POST'), 'owe', 'OweController@index')->name('owe');
+		Route::match(array('GET', 'POST'), 'company_owe/{id}', 'OweController@company_index')->name('owe');
+		Route::get('details/{type}', 'OweController@owe_details')->name('owe_details');
+		Route::get('update_driver_payment', 'OweController@update_payment')->name('update_payment');
+		Route::post('update_owe_payment', 'OweController@updateOwePayment')->name('update_owe_payment');
+		Route::post('update_company_payment', 'OweController@update_company_payment')->name('update_company_payment');
+	});
 
+	// Company Owe amount
+	Route::get('driver_payment', 'OweController@driver_payment')->name('driver_payment');
+
+	// Manage Promo Code
+	Route::group(['middleware' =>  'admin_can:manage_promo_code'], function() {
+		Route::get('promo_code', 'PromocodeController@index');
+		Route::match(array('GET', 'POST'), 'add_promo_code', 'PromocodeController@add');		
+		Route::match(array('GET', 'POST'), 'edit_promo_code/{id}', 'PromocodeController@update')->where('id', '[0-9]+');
+		Route::get('delete_promo_code/{id}', 'PromocodeController@delete');
+	});
+
+	// Payments
+	Route::group(['middleware' =>  'admin_can:manage_payments'], function() {
+		Route::match(array('GET', 'POST'), 'payments', 'PaymentsController@index');
+		Route::get('view_payments/{id}', 'PaymentsController@view');
+		Route::get('payments/export/{from}/{to}', 'PaymentsController@export');
+	});
 
 	// Cancelled Trips
 	Route::group(['middleware' =>  'admin_can:manage_cancel_trips'], function() {
@@ -198,6 +263,11 @@ Route::group(['prefix' => (LOGIN_USER_TYPE=='company')?'company':'admin', 'middl
 	
 	// Manage Api credentials
 	Route::match(array('GET', 'POST'), 'api_credentials', 'ApiCredentialsController@index')->middleware('admin_can:manage_api_credentials');
+
+	// Manage Payment Gateway
+	Route::group(['middleware' =>  'admin_can:manage_payment_gateway'], function() {
+		Route::match(array('GET', 'POST'), 'payment_gateway', 'PaymentGatewayController@index');
+	});
 
 	// Request
 	Route::group(['middleware' =>  'admin_can:manage_requests'], function() {
@@ -262,7 +332,9 @@ Route::group(['prefix' => (LOGIN_USER_TYPE=='company')?'company':'admin', 'middl
         Route::post('search_cars', 'ManualBookingController@search_cars');
         Route::post('get_driver', 'ManualBookingController@get_driver');
         Route::post('driver_list', 'ManualBookingController@driver_list');
-
+        Route::get('later_booking', 'LaterBookingController@index');
+        Route::post('immediate_request', 'LaterBookingController@immediate_request');
+        Route::post('manual_booking/cancel', 'LaterBookingController@cancel');
     });
 
     // Manage Support
@@ -273,14 +345,6 @@ Route::group(['prefix' => (LOGIN_USER_TYPE=='company')?'company':'admin', 'middl
 		Route::get('delete_support/{id}', 'SupportController@delete')->where('id', '[0-9]+')->name('delete');
 	});
 
-
-    // Manage App Banners
-	Route::group(['middleware' => 'admin_can:manage_banner'],function () {
-		Route::get('banner', 'BannerController@index');
-		Route::match(array('GET', 'POST'), 'add_banner', 'BannerController@add');
-		Route::match(array('GET', 'POST'), 'edit_banner/{id}', 'BannerController@update')->where('id', '[0-9]+')->name('edit');
-		Route::get('delete_banner/{id}', 'BannerController@delete')->where('id', '[0-9]+')->name('delete');
-	});
 	
 	// Manage Email Settings Routes
 	Route::match(array('GET', 'POST'), 'email_settings', 'EmailController@index')->middleware(['admin_can:manage_email_settings']);

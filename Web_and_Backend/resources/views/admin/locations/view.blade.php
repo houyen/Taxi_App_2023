@@ -5,12 +5,12 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Locations
-      <small>Control panel</small>
+      Toạ độ
+      <small>Bảng điều khiển</small>
     </h1>
     <ol class="breadcrumb">
-      <li><a href="{{ url('admin/dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li class="active">Locations</li>
+      <li><a href="{{ url('admin/dashboard') }}"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
+      <li class="active">Toạ độ</li>
     </ol>
   </section>
   <!-- Main content -->
@@ -19,9 +19,9 @@
       <div class="col-xs-12">
         <div class="box">
           <div class="box-header">
-            <!-- <h3 class="box-title">Locations Management</h3> -->
+            <!-- <h3 class="box-title">Locations Quản lýment</h3> -->
             <div style="float:right;">
-              <a class="btn btn-success" href="{{ url('admin/add_location') }}">Add Location</a>
+              <a class="btn btn-success" href="{{ url('admin/add_location') }}">Thêm toạ độ</a>
             </div>
           </div>
           <!-- /.box-header -->

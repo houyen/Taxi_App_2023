@@ -2,10 +2,13 @@
 
 /**
  * Map Type Controller
-
+ *
+ * @package     SGTaxi
  * @subpackage  Controller
  * @category    Map
 
+
+ * 
  */
 
 namespace App\Http\Controllers\Admin;

@@ -8,7 +8,7 @@
     Edit Language
     </h1>
     <ol class="breadcrumb">
-      <li><a href="{{ url(LOGIN_USER_TYPE.'/dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li><a href="{{ url(LOGIN_USER_TYPE.'/dashboard') }}"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
       <li><a href="{{ url(LOGIN_USER_TYPE.'/language') }}">Language</a></li>
       <li class="active">Edit</li>
     </ol>
@@ -27,7 +27,7 @@
           <!-- form start -->
           {!! Form::open(['url' => 'admin/edit_language/'.$result->id, 'class' => 'form-horizontal']) !!}
           <div class="box-body">
-            <span class="text-danger">(*)Fields are Mandatory</span>
+            <span class="text-danger">(*)Trường bắt buộc</span>
             <div class="form-group">
               <label for="input_name" class="col-sm-3 control-label">Name<em class="text-danger">*</em></label>
               <div class="col-md-7 col-sm-offset-1">
@@ -43,17 +43,17 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="input_status" class="col-sm-3 control-label">Status<em class="text-danger">*</em></label>
+              <label for="input_status" class="col-sm-3 control-label">Trạng thái<em class="text-danger">*</em></label>
               <div class="col-md-7 col-sm-offset-1">
-                {!! Form::select('status', array('Active' => 'Active', 'Inactive' => 'Inactive'), old('status',$result->status), ['class' => 'form-control', 'id' => 'input_status', 'placeholder' => 'Select']) !!}
+                {!! Form::select('status', array('Active' => 'Hoạt động', 'Inactive'  => 'Ẩn'), old('status',$result->status), ['class' => 'form-control', 'id' => 'input_status', 'placeholder'  => 'Chọn']) !!}
                 <span class="text-danger">{{ $errors->first('status') }}</span>
               </div>
             </div>
           </div>
           <!-- /.box-body -->
           <div class="box-footer text-center">
-            <button type="submit" class="btn btn-info" name="submit" value="submit">Submit</button>
-            <button type="submit" class="btn btn-default" name="cancel" value="cancel">Cancel</button>
+            <button type="submit" class="btn btn-info" name="submit" value="submit">Xác nhận </button>
+            <button type="submit" class="btn btn-default" name="cancel" value="cancel">Huỷ bỏ</button>
           </div>
           <!-- /.box-footer -->
           {!! Form::close() !!}

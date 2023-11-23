@@ -2,10 +2,13 @@
 
 /**
  * Driver Controller
-
+ *
+ * @package     SGTaxi
  * @subpackage  Controller
  * @category    Driver
 
+
+ * 
  */
 
 namespace App\Http\Controllers\Admin;
@@ -22,6 +25,10 @@ use App\Models\CarType;
 use App\Models\ProfilePicture;
 use App\Models\Company;
 use App\Models\Vehicle;
+use App\Models\ReferralUser;
+use App\Models\DriverOweAmount;
+use App\Models\PayoutPreference;
+use App\Models\PayoutCredentials;
 use App\Models\Documents;
 use Validator;
 use DB;
@@ -122,6 +129,15 @@ class DriverController extends Controller
                 }
             }
             
+            //Bank details are required only for company drivers & Not required for Admin drivers
+            if ((LOGIN_USER_TYPE!='company' && $request->company_name != 1) || (LOGIN_USER_TYPE=='company' && Auth::guard('company')->user()->id!=1)) {
+                $rules['account_holder_name'] = 'required';
+                $rules['account_number'] = 'required';
+                $rules['bank_name'] = 'required';
+                $rules['bank_location'] = 'required';
+                $rules['bank_code'] = 'required';
+            }
+
             if (LOGIN_USER_TYPE!='company') {
                 $rules['company_name'] = 'required';
             }
@@ -137,6 +153,9 @@ class DriverController extends Controller
             $attributes['status']       = trans('messages.driver_dashboard.status');
             $attributes['account_holder_name'] = 'Account Holder Name';
             $attributes['account_number'] = 'Account Number';
+            $attributes['bank_name']    = 'Name of Bank';
+            $attributes['bank_location']= 'Bank Location';
+            $attributes['bank_code']    = 'BIC/SWIFT Code';
 
             // Edit Rider Validation Custom Fields message
             $messages = array(
@@ -204,6 +223,31 @@ class DriverController extends Controller
             $user_address->postal_code   = $request->postal_code ? $request->postal_code:'';
             $user_address->save();
 
+            if($user->company_id != null && $user->company_id != 1) {
+                $payout_preference = PayoutPreference::firstOrNew(['user_id' => $user->id,'payout_method' => "BankTransfer"]);
+                $payout_preference->user_id = $user->id;
+                $payout_preference->country = "IN";
+                $payout_preference->account_number  = $request->account_number;
+                $payout_preference->holder_name     = $request->account_holder_name;
+                $payout_preference->holder_type     = "company";
+                $payout_preference->paypal_email    = $request->account_number;
+
+                $payout_preference->phone_number    = $request->mobile_number ?? '';
+                $payout_preference->branch_code     = $request->bank_code ?? '';
+                $payout_preference->bank_name       = $request->bank_name ?? '';
+                $payout_preference->bank_location   = $request->bank_location ?? '';
+                $payout_preference->payout_method   = "BankTransfer";
+                $payout_preference->address_kanji   = json_encode([]);
+                $payout_preference->save();
+
+                $payout_credentials = PayoutCredentials::firstOrNew(['user_id' => $user->id,'type' => "BankTransfer"]);
+                $payout_credentials->user_id = $user->id;
+                $payout_credentials->preference_id = $payout_preference->id;
+                $payout_credentials->payout_id = $request->account_number;
+                $payout_credentials->type = "BankTransfer";
+                $payout_credentials->default = 'yes';
+                $payout_credentials->save();
+            }
 
             $image_uploader = resolve('App\Contracts\ImageHandlerInterface');
             $target_dir = '/images/users/'.$user->id;
@@ -276,6 +320,14 @@ class DriverController extends Controller
                 'gender'        => 'required',
             );
 
+            //Bank details are updated only for company's drivers.
+            if((LOGIN_USER_TYPE!='company' && $request->company_name != 1) || (LOGIN_USER_TYPE=='company' && Auth::guard('company')->user()->id!=1)) {
+                $rules['account_holder_name'] = 'required';
+                $rules['account_number'] = 'required';
+                $rules['bank_name'] = 'required';
+                $rules['bank_location'] = 'required';
+                $rules['bank_code'] = 'required';
+            }
 
             if(LOGIN_USER_TYPE!='company') {
                 $rules['company_name'] = 'required';
@@ -292,6 +344,9 @@ class DriverController extends Controller
                 'gender'        => trans('messages.profile.gender'),
                 'account_holder_name' => 'Account Holder Name',
                 'account_number'=> 'Account Number',
+                'bank_name'     => 'Name of Bank',
+                'bank_location' => 'Bank Location',
+                'bank_code'     => 'BIC/SWIFT Code',
             );
 
             // Edit Rider Validation Custom Fields message
@@ -391,6 +446,30 @@ class DriverController extends Controller
             $user_address->postal_code   = $request->postal_code;
             $user_address->save();
 
+            if($user->company_id != null && $user->company_id != 1) {
+                $payout_preference = PayoutPreference::firstOrNew(['user_id' => $user->id,'payout_method' => "BankTransfer"]);
+                $payout_preference->user_id = $user->id;
+                $payout_preference->country = "IN";
+                $payout_preference->account_number  = $request->account_number;
+                $payout_preference->holder_name     = $request->account_holder_name;
+                $payout_preference->holder_type     = "company";
+                $payout_preference->paypal_email    = $request->account_number;
+                $payout_preference->phone_number    = $request->mobile_number ?? '';
+                $payout_preference->branch_code     = $request->bank_code ?? '';
+                $payout_preference->bank_name       = $request->bank_name ?? '';
+                $payout_preference->bank_location   = $request->bank_location ?? '';
+                $payout_preference->payout_method   = "BankTransfer";
+                $payout_preference->address_kanji   = json_encode([]);
+                $payout_preference->save();
+
+                $payout_credentials = PayoutCredentials::firstOrNew(['user_id' => $user->id,'type' => "BankTransfer"]);
+                $payout_credentials->user_id = $user->id;
+                $payout_credentials->preference_id = $payout_preference->id;
+                $payout_credentials->payout_id = $request->account_number;
+                $payout_credentials->type = "BankTransfer";                
+                $payout_credentials->default = 'yes';
+                $payout_credentials->save();
+            }
 
             $image_uploader = resolve('App\Contracts\ImageHandlerInterface');
             $target_dir = '/images/users/'.$user->id;

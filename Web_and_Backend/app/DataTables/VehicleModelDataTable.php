@@ -2,10 +2,13 @@
 
 /**
  * VehicleModel DataTable
-
+ *
+ * @package     SGTaxi
  * @subpackage  DataTable
  * @category    VehicleModel
 
+
+ * 
  */
 
 namespace App\DataTables;
@@ -48,23 +51,7 @@ class VehicleModelDataTable extends DataTable
         return $model->all();
     }
 
-    /**
-     * Optional method if you want to use html builder.
-     *
-     * @return \Yajra\DataTables\Html\Builder
-     */
-    public function html()
-    {
-        return $this->builder()
-                    ->columns($this->getColumns())
-                    ->addAction()
-                    ->minifiedAjax()
-                    ->dom('lBfr<"table-responsive"t>ip')
-                    ->orderBy(0)
-                    ->buttons(
-                        ['csv', 'excel', 'print', 'reset']
-                    );
-    }
+
 
     /**
      * Get columns.

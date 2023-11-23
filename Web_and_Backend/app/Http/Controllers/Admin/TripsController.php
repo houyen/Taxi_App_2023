@@ -2,10 +2,13 @@
 
 /**
  * Trips Controller
-
+ *
+ * @package     SGTaxi
  * @subpackage  Controller
  * @category    Trips
 
+
+ * 
  */
 
 namespace App\Http\Controllers\Admin;
@@ -15,7 +18,12 @@ use App\Http\Controllers\Controller;
 use App\Http\Start\Helpers;
 use App\Models\User;
 use App\Models\Trips;
+use App\Models\Payment;
+use App\Models\PaymentGateway;
 use App\Models\SiteSettings;
+use App\Models\Currency;
+use App\Models\PayoutCredentials;
+use App\Models\DriverOweAmount;
 use App\DataTables\CancelTripsDataTable;
 use App\DataTables\TripsDataTable;
 use Excel;
@@ -53,6 +61,7 @@ class TripsController extends Controller
                 ->first();
 
         if($data['result']) {
+            $data['invoice_data'] = $this->getAdminInvoice($data['result']);
             $data['back_url'] = url(LOGIN_USER_TYPE.'/trips');
             if($request->s == 'overall') {
                 $data['back_url'] = url(LOGIN_USER_TYPE.'/statements/overall');
@@ -60,6 +69,8 @@ class TripsController extends Controller
             elseif($request->s == 'driver') {
                 $data['back_url'] = url(LOGIN_USER_TYPE.'/view_driver_statement/'.$data['result']->driver_id);
             }
+
+
             $driver_owe_amount = DriverOweAmount::where('user_id',$data['result']->driver_id)->first();
 
             return view('admin.trips.view', $data);
@@ -123,4 +134,242 @@ class TripsController extends Controller
         return $dataTable->render('admin.trips.cancel');
     }
 
+    public function getAdminInvoice($trips)
+    {
+        $default_currency = Currency::defaultCurrency()->first();
+        if (LOGIN_USER_TYPE=='company' && session()->get('currency') != null) {
+            $default_currency = Currency::whereCode(session('currency'))->first();
+        }
+        $currency_code = $default_currency->code;
+
+        $symbol = html_entity_decode($default_currency->symbol);
+
+        $invoice = array();
+
+        if($trips->pool_id) {
+            $item = array(
+                'key'   => 'No.of Seats',
+                'value' => $trips->seats,
+            );
+            $invoice[] = formatStatementItem($item);
+        }
+
+        if($trips->total_km > 0) {
+            $item = array(
+                'key' => 'Distance',
+                'value' => $trips->total_km.' KM',
+            );
+            $invoice[] = formatStatementItem($item);
+        }
+
+        if($trips->base_fare > 0) {
+            $item = array(
+                'key' => 'Base fare',
+                'value' => $symbol.$trips->base_fare,
+            );
+            $invoice[] = formatStatementItem($item);
+        }
+
+        if($trips->time_fare > 0) {
+            $item = array(
+                'key' => 'Time fare',
+                'value' => $symbol.$trips->time_fare,
+            );
+            $invoice[] = formatStatementItem($item);
+        }
+
+        if($trips->distance_fare > 0) {
+            $item = array(
+                'key' => 'Distance fare',
+                'value' => $symbol.$trips->distance_fare,
+            );
+            $invoice[] = formatStatementItem($item);
+        }
+
+        if($trips->schedule_fare > 0) {
+            $item = array(
+                'key' => 'Schedule fare',
+                'value' => $symbol.$trips->schedule_fare,
+            );
+            $invoice[] = formatStatementItem($item);
+        }
+
+        if($trips->peak_fare > 0) {
+            $item = array(
+                'key' => 'Normal fare',
+                'value' => $symbol.$trips->subtotal_fare,
+            );
+            $invoice[] = formatStatementItem($item);
+
+            $item = array(
+                'key' => 'Peak time pricing  x '.$trips->peak_fare,
+                'value' => $symbol.$trips->peak_amount,
+            );
+            $invoice[] = formatStatementItem($item);
+
+            $item = array(
+                'key' => 'Subtotal',
+                'value' => $symbol.$trips->peak_subtotal_fare,
+            );
+            $invoice[] = formatStatementItem($item);
+
+            $item = array(
+                'key' => 'Driver Peak Amount',
+                'value' => $symbol.$trips->driver_peak_amount,
+            );
+            $invoice[] = formatStatementItem($item);
+
+            $item = array(
+                'key' => 'Admin Peak Amount',
+                'value' => $symbol.($trips->peak_amount - $trips->driver_peak_amount),
+            );
+            $invoice[] = formatStatementItem($item);
+        }
+        else {
+            if($trips->subtotal_fare > 0) {
+                $item = array(
+                    'key'   => 'Sub Total Fare',
+                    'value' => $symbol.$trips->subtotal_fare,
+                );
+                $invoice[] = formatInvoiceItem($item);
+            }
+        }
+
+        if($trips->additional_rider_amount > 0) {
+            $item = array(
+                'key' => __('messages.additional_rider_amount'),
+                'value' => $symbol.$trips->additional_rider_amount,
+            );
+            $invoice[] = formatStatementItem($item);
+        }
+
+        if($trips->waiting_charge > 0) {
+            $item = array(
+                'key' => 'Waiting Charge',
+                'value' => $symbol.$trips->waiting_charge,
+            );
+            $invoice[] = formatStatementItem($item);
+        }
+
+        if($trips->toll_reason_id) {
+            if($trips->toll_reason_id == 1) {
+                $item['key'] = $trips->trip_toll_fee_reason;
+            }
+            else {
+                $item['key'] = $trips->toll_fee_reason;   
+            }
+            $item['value'] = $symbol.$trips->toll_fee;
+
+            $invoice[] = formatStatementItem($item);
+        }
+
+        if($trips->tips > 0) {
+            $item = array(
+                'key' => 'Driver Tips',
+                'value' => $symbol.$trips->tips,
+            );
+            $invoice[] = formatStatementItem($item);
+        }
+
+        if(LOGIN_USER_TYPE != 'company') {
+            if($trips->admin_total_amount > 0) {
+                $item = array(
+                    'key' => 'Total fare',
+                    // 'value' => $symbol.(number_format($trips->base_fare + $trips->time_fare +  $trips->distance_fare +  $trips->peak_amount + $trips->access_fee + $trips->schedule_fare + $trips->tips+ $trips->waiting_charge,2,'.','')),
+                    'value' => $symbol.(number_format($trips->admin_total_amount + $trips->additional_rider_amount,2,'.','')),
+                );
+                $invoice[] = formatStatementItem($item);
+            }
+
+            if($trips->access_fee > 0) {
+                $item = array(
+                    'key' => 'Admin Commission for Rider',
+                    'value' => $symbol.$trips->access_fee,
+                );
+                $invoice[] = formatStatementItem($item);
+            }
+        }
+        if($trips->driver_or_company_commission > 0) {
+            $item = array(
+                'key' => 'Admin Commission for Driver',
+                'value' => $symbol.$trips->driver_or_company_commission,
+            );
+            $invoice[] = formatStatementItem($item);
+        }
+
+        if($trips->owe_amount > 0) {
+            $item['key'] = 'Owe Amount';
+            if(LOGIN_USER_TYPE == 'company') {
+                $item['key'] .= ' ( Service fee + Admin Commission)';
+            }
+            $item['value'] = $symbol.$trips->owe_amount;
+
+            $invoice[] = formatStatementItem($item);
+        }
+
+        if($trips->applied_owe_amount > 0) {
+            $item = array(
+                'key' => 'Applied Owe Amount',
+                'value' => $symbol.$trips->applied_owe_amount,
+            );
+
+            $invoice[] = formatStatementItem($item);
+        }
+
+        $item = array(
+            'key' => 'Remaining Owe amount',
+            'value' => $symbol.$trips->remaining_owe_amount,
+        );
+
+        if($trips->wallet_amount > 0 && LOGIN_USER_TYPE != 'company') {
+            $item = array(
+                'key' => 'Wallet amount',
+                'value' => $symbol.$trips->wallet_amount,
+            );
+
+            $invoice[] = formatStatementItem($item);
+        }
+
+        if($trips->promo_amount > 0) {
+            $item = array(
+                'key' => 'Promo amount',
+                'value' => $symbol.$trips->promo_amount,
+            );
+
+            $invoice[] = formatStatementItem($item);
+        }
+
+        if($trips->cash_collectable > 0) {
+            $item = array(
+                'key' => 'Cash Collected by Driver',
+                'value' => $symbol.$trips->cash_collectable,
+            );
+
+            $invoice[] = formatStatementItem($item);
+        }
+        if(LOGIN_USER_TYPE != 'company' && $trips->payment_mode != 'Cash' && $trips->status == 'Completed' && $trips->driver_payout > 0) {
+            $item = array(
+                'key' => 'Driver Payout Amount',
+                'value' => $symbol.$trips->driver_payout,
+            );
+
+            $invoice[] = formatStatementItem($item);
+        }
+
+        $item = array(
+                'key' => 'Driver Earnings',
+                'value' => $symbol.$trips->company_driver_earnings,
+            );
+
+            $invoice[] = formatStatementItem($item);
+
+        $item = array(
+            'key' => 'Payment Mode',
+            'value' => $trips->payment_mode,
+        );
+
+        $invoice[] = formatStatementItem($item);
+
+        return $invoice;
+    }
 }

@@ -2,10 +2,13 @@
 
 /**
  * Rider Location Model
-
+ *
+ * @package     SGTaxi
  * @subpackage  Model
  * @category    Rider Location
 
+
+ * 
  */
 
 namespace App\Models;

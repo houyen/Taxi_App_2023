@@ -5,7 +5,8 @@ namespace App\Http\Middleware;
 /**
  * This file is part of Entrust,
  * a role & permission management solution for Laravel.
-@license MIT
+ *
+ * @license MIT
  * @package Zizaco\Entrust
  */
 
@@ -29,7 +30,7 @@ class EntrustPermission
         $this->company_auth = auth('company');
 
         // Roles can visible to company
-        $this->company_role = array('manage_manual_booking','manage_trips','view_driver','create_driver','update_driver','delete_driver','update_company','manage_statements','manage_cancel_trips','manage_owe_amount','manage_send_message','manage_map','manage_heat_map','manage_rating','manage_requests','manage_vehicle');
+        $this->company_role = array('manage_manual_booking','manage_trips','view_driver','create_driver','update_driver','delete_driver','update_company','manage_statements','manage_cancel_trips','manage_owe_amount','manage_send_message','manage_driver_payments','manage_map','manage_heat_map','manage_payments','manage_rating','manage_requests','manage_vehicle');
     }
 
     /**

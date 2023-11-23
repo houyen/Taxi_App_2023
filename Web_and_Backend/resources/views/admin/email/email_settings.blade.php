@@ -8,7 +8,7 @@
     Email Settings
     </h1>
     <ol class="breadcrumb">
-      <li><a href="{{ url(LOGIN_USER_TYPE.'/dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li><a href="{{ url(LOGIN_USER_TYPE.'/dashboard') }}"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
       <li class="active">Email Settings</li>
     </ol>
   </section>
@@ -26,7 +26,7 @@
           <!-- form start -->
           {!! Form::open(['url' => 'admin/email_settings', 'class' => 'form-horizontal']) !!}
           <div class="box-body"  ng-init="email_driver='{{ old('driver',$result[0]->value) }}';smtp_username='{{$result[6]->value}}';smtp_password='{{$result[7]->value}}';saved_domain='{{$result[8]->value}}';saved_secret='{{$result[9]->value}}';">
-            <span class="text-danger">(*)Fields are Mandatory</span>
+            <span class="text-danger">(*)Trường bắt buộc</span>
             <div class="form-group">
               <label for="input_driver" class="col-sm-3 control-label">
                 Driver<em class="text-danger">*</em>
@@ -93,10 +93,10 @@
               </div>
               <div class="form-group">
                 <label for="input_password" class="col-sm-3 control-label">
-                  Password<em class="text-danger">*</em>
+                  Mật khẩu<em class="text-danger">*</em>
                 </label>
                 <div class="col-md-7 col-sm-offset-1">
-                  {!! Form::text('password', old('password',$result[7]->value), ['class' => 'form-control', 'id' => 'input_password', 'placeholder' => 'Password']) !!}
+                  {!! Form::text('password', old('password',$result[7]->value), ['class' => 'form-control', 'id' => 'input_password', 'placeholder' => 'Mật khẩu']) !!}
                   <span class="text-danger">{{ $errors->first('password') }}</span>
                 </div>
               </div>
@@ -124,8 +124,8 @@
           </div>
           <!-- /.box-body -->
           <div class="box-footer text-center">
-            <button type="submit" class="btn btn-info" name="submit" value="submit">Submit</button>
-            <button type="submit" class="btn btn-default" name="cancel" value="cancel">Cancel</button>
+            <button type="submit" class="btn btn-info" name="submit" value="submit">Xác nhận </button>
+            <button type="submit" class="btn btn-default" name="cancel" value="cancel">Huỷ bỏ</button>
           </div>
           <!-- /.box-footer -->
           {!! Form::close() !!}

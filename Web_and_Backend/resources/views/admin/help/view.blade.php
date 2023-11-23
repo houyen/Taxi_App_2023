@@ -7,10 +7,10 @@
     <section class="content-header">
       <h1>
         Help
-        <small>Control panel</small>
+        <small>Bảng điều khiển</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="dashboard"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
         <li class="active">Help</li>
       </ol>
     </section>
@@ -22,7 +22,7 @@
 
           <div class="box">
             <div class="box-header">
-              <!-- <h3 class="box-title">Help Management</h3> -->
+              <!-- <h3 class="box-title">Help Quản lýment</h3> -->
               <div style="float:right;"><a class="btn btn-success" href="{{ url('admin/add_help') }}">Add Help</a></div>
             </div>
             <!-- /.box-header -->

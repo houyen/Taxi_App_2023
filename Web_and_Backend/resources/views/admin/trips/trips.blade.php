@@ -9,7 +9,7 @@
         Trips
       </h1>
       <ol class="breadcrumb">
-        <li><a href="{{ url(LOGIN_USER_TYPE.'/dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="{{ url(LOGIN_USER_TYPE.'/dashboard') }}"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
         <li><a href="{{ url(LOGIN_USER_TYPE.'/trips') }}">Trips</a></li>
       </ol>
     </section>
@@ -47,11 +47,11 @@
                   <th>From Location</th>
                   <th>To Location</th>
                   <th>Date</th>
-                  <th>Driver Name</th>
+                  <th>Tên tài xế</th>
                   <th>Rider Name</th>
                   <th>Fare</th>
                   <th>Vehicle Details</th>
-                  <th>Status</th>
+                  <th>Trạng thái</th>
                   <th>Created At</th>
                   <th>Action</th>
                 </thead>

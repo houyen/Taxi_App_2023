@@ -2,10 +2,13 @@
 
 /**
  * Site Settings Controller
-
+ *
+ * @package     SGTaxi
  * @subpackage  Controller
  * @category    Site Settings
 
+
+ * 
  */
 
 namespace App\Http\Controllers\Admin;
@@ -15,6 +18,7 @@ use Illuminate\Http\Request;
 use App\Http\Start\Helpers;
 use App\Models\Currency;
 use App\Models\SiteSettings;
+use App\Models\PaymentGateway;
 use App\Models\Language;
 use App\Models\Country;
 use Validator;
@@ -33,6 +37,26 @@ class SiteSettingsController extends Controller
 	 */
 	public function index(Request $request)
 	{
+		$payment_methods = collect(PAYMENT_METHODS);
+		$payment_methods = $payment_methods->reject(function($value) {
+			if($value['key'] == 'cash') {
+				return false;
+			}
+			$is_enabled = payment_gateway('is_enabled',ucfirst($value['key']));
+			return ($is_enabled != '1');
+		});
+
+		if ($request->isMethod('GET')) {
+			$data['result'] = SiteSettings::get();
+
+			$data['currency'] = @Currency::codeSelect();
+			$data['payment_methods'] = $payment_methods;
+			$data['countries'] = Country::select('id','long_name','phone_code')->get();
+			$data['default_currency'] = @Currency::defaultCurrency()->first()->code;
+			return view('admin.site_settings', $data);
+		}
+
+		$payment_types = $payment_methods->pluck('key')->implode(',');
 
 		// Site Settings Validation Rules
 		$rules = array(
@@ -47,6 +71,7 @@ class SiteSettingsController extends Controller
 			'admin_contact' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/',
 			'admin_country_code' => 'required',
 			'heat_map' => 'required|In:On,Off',
+			'trip_default_paymode' => 'required|in:'.$payment_types,
 			'update_loc_interval' => 'required',
 			'social_logins.*' => 'in:facebook,google,apple',
 			'otp_verification' => 'in:1,0',
@@ -141,8 +166,11 @@ class SiteSettingsController extends Controller
         Language::where('default_language',1)->update(['default_language' => 0]);
         Language::where('value', $request->default_language)->update(['default_language' => 1]);
 
+        PaymentGateway::where(['name' => 'trip_default', 'site' => 'Common'])->update(['value' => $request->trip_default_paymode]);
+
 		SiteSettings::where(['name' => 'site_name'])->update(['value' => $request->site_name]);
 		SiteSettings::where(['name' => 'version'])->update(['value' => $request->version]);
+		SiteSettings::where(['name' => 'payment_currency'])->update(['value' => $request->payment_currency]);
 		SiteSettings::where(['name' => 'location_fare'])->update(['value' => $request->location_fare]);
 		SiteSettings::where(['name' => 'head_code'])->update(['value' => $request->head_code]);
 		SiteSettings::where(['name' => 'driver_km'])->update(['value' => $request->driver_km]);

@@ -2,10 +2,10 @@
 @section('main')
 <div class="content-wrapper">
 	<section class="content-header">
-		<h1> Manage Trips Details </h1>
+		<h1> Quản lý Trips Details </h1>
 		<ol class="breadcrumb">
 			<li>
-				<a href="{{ url(LOGIN_USER_TYPE.'/dashboard') }}"><i class="fa fa-dashboard"></i> Home</a>
+				<a href="{{ url(LOGIN_USER_TYPE.'/dashboard') }}"><i class="fa fa-dashboard"></i> Trang chủ</a>
 			</li>
 			<li>
 				<a href="{{ url(LOGIN_USER_TYPE.'/trips') }}">Trips</a>
@@ -125,20 +125,30 @@
 							</div>
 						</div>
 
+						@foreach($invoice_data as $invoice)
+						<div class="form-group">
+							<label class="col-sm-3 control-label">
+								{{ $invoice['key'] }}
+							</label>
+							<div class="col-md-7 col-sm-offset-1 form-control-static">
+								{{ $invoice['value'] }}
+							</div>
+						</div>
+						@endforeach
 						
 						<div class="form-group">
 							<label class="col-sm-3 control-label">
-								Status
+								Trạng thái
 							</label>
 							<div class="col-md-7 col-sm-offset-1 form-control-static">
 								{{ $result->status }}
 							</div>
 						</div>
 						
-						@if($result->status == "Cancelled")
+						@if($result->status == "Huỷ bỏled")
 						<div class="form-group">
 							<label class="col-sm-3 control-label">
-								Cancelled Reason
+								Huỷ bỏled Reason
 							</label>
 							<div class="col-md-7 col-sm-offset-1 form-control-static">
 								{{ @$result->cancel->cancel_reason->reason }}
@@ -146,7 +156,7 @@
 						</div>
 						<div class="form-group">
 							<label class="col-sm-3 control-label">
-								Cancelled Message
+								Huỷ bỏled Message
 							</label>
 							<div class="col-md-7 col-sm-offset-1 form-control-static">
 								{{ @$result->cancel->cancel_comments }}
@@ -154,7 +164,7 @@
 						</div>
 						<div class="form-group">
 							<label class="col-sm-3 control-label">
-								Cancelled By
+								Huỷ bỏled By
 							</label>
 							<div class="col-md-7 col-sm-offset-1 form-control-static">
 								{{ @$result->cancel->cancelled_by }}
@@ -162,7 +172,7 @@
 						</div>
 						<div class="form-group">
 							<label class="col-sm-3 control-label">
-								Cancelled Date
+								Huỷ bỏled Date
 							</label>
 							<div class="col-md-7 col-sm-offset-1 form-control-static">
 								{{ @$result->cancel->created_at }}
@@ -179,8 +189,40 @@
 									{{ @$result->paykey }}
 								</div>
 							</div>
+							@if($result->driver->company->id == 1 && $result->driver->default_payout_credentials == '')
+							<div class="form-group">
+								<label class="col-sm-3 control-label">
+								</label>
+								<div class="col-md-7 col-sm-offset-1 form-control-static">
+									Yet, Driver doesn't enter his Payout details.
+								</div>
+							</div>
+							@elseif($result->status == "Completed" && $result->payout_status == "Paid")
+							<div class="form-group">
+								<label class="col-sm-3 control-label">
+									Payout Trạng thái
+								</label>
+								<div class="col-md-7 col-sm-offset-1 form-control-static">
+									Payout successfully sent..
+								</div>
+							</div>
+							@endif
 						@endif
 
+
+						@if($result->driver->company_id != 1)
+							@if($result->driver->company->default_payout_credentials == '')
+								<div class="form-group">
+									<label class="col-sm-3 control-label">
+									</label>
+									<div class="col-md-7 col-sm-offset-1 form-control-static">
+										Yet, Company doesn't enter his Payout details.
+									</div>
+								</div>
+							@else
+								
+							@endif						
+						@endif
 					</form>
 					<div class="box-footer text-center">
 						<a class="btn btn-default" href="{{$back_url}}">Back</a>

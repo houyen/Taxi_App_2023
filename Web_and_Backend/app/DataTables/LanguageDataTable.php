@@ -2,10 +2,13 @@
 
 /**
  * Language DataTable
-
+ *
+ * @package     SGTaxi
  * @subpackage  DataTable
  * @category    Language
 
+
+ * 
  */
 
 namespace App\DataTables;
@@ -45,23 +48,7 @@ class LanguageDataTable extends DataTable
         return $model->all();
     }
 
-    /**
-     * Optional method if you want to use html builder.
-     *
-     * @return \Yajra\DataTables\Html\Builder
-     */
-    public function html()
-    {
-        return $this->builder()
-                    ->columns($this->getColumns())
-                    ->addAction()
-                    ->minifiedAjax()
-                    ->dom('lBfr<"table-responsive"t>ip')
-                    ->orderBy(0,'DESC')
-                    ->buttons(
-                        ['csv', 'excel', 'print', 'reset']
-                    );
-    }
+
 
     /**
      * Get columns.

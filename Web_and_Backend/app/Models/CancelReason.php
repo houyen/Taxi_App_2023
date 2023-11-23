@@ -2,8 +2,13 @@
 
 /**
  * Cancel Reson Model
+ *
+ * @package     SGTaxi
  * @subpackage  Model
  * @category    CancelReason
+
+
+ * 
  */
 
 namespace App\Models;

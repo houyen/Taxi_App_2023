@@ -12,10 +12,34 @@
 */
 
 // cron request for schedule ride
+Route::match(['post','get'],'web_payment', 'PaymentController@payment')->name('paypal.view');
+// Flutter Wave
+Route::match(['post','get'],'flutterwave_web_payment', 'FlutterwaveController@flutterwave');
+Route::match(['post','get'],'flutterwave_payment', 'FlutterwaveController@flutterwave_payment')->name('payment.flutterwave');
+Route::match(['post','get'],'flutterwave_callback', 'FlutterwaveController@futterwave_callback');
+// Mpesa
+Route::match(['post','get'],'mpesa_web_payment', 'MpesaController@mpesa');
+Route::match(['post','get'],'mpesa_payment', 'MpesaController@customerMpesaSTKPush')->name('payment.mpesa');
+Route::match(['post','get'],'mpesa_callback', 'MpesaController@mpesaConfirmation');
+//Route::match(['post','get'],'flutterwave_callback', 'PaymentController@futterwave_callback');
+
+// cron request for schedule ride
+Route::match(['post','get'],'paytm_web_payment', 'PaymentController@paytm_payment')->name('paytm.view');
+
+Route::match(['post','get'],'paytm_callback', 'PaymentController@paytm_callback');
+
+//Mollie
+Route::match(['post','get'],'mollie', 'MollieController@mollie');
+Route::match(['post','get'],'mollie_callback', 'MollieController@mollie_callback')->name('mollie.callback');
 
 
+Route::post('payment/success', 'PaymentController@success')->name('payment.success');
+Route::get('payment/cancel', 'PaymentController@cancel')->name('payment.cancel');
 Route::get('cron_request_car', 'CronController@requestCars');
 Route::get('cron_offline', 'CronController@updateOfflineUsers');
+Route::get('currency_cron', 'CronController@updateCurrency');
+Route::get('update_referral_cron', 'CronController@updateReferralStatus');
+Route::match(['get', 'post'], 'paypal_payout', 'CronController@updatePaypalPayouts');
 
 Route::get('check_version', 'RiderController@check_version');
 
@@ -38,6 +62,7 @@ Route::group(['middleware' => 'jwt.verify'], function () {
 	\Log::error('route start');
 
 	Route::match(array('GET', 'POST'),'common_data','HomeController@commonData');
+	Route::post('get_payment_list','HomeController@getPaymentList');
 
 	Route::get('logout', 'TokenAuthController@logout');
 	
@@ -61,13 +86,16 @@ Route::group(['middleware' => 'jwt.verify'], function () {
 	Route::post('request_cars', 'RiderController@requestCars');
 	Route::get('track_driver', 'RiderController@track_driver');
 	Route::get('updateriderlocation', 'RiderController@updateriderlocation');
+
 	Route::get('sos','RiderController@sos');
 	Route::get('sosalert','RiderController@sosalert');
 	Route::post('save_schedule_ride', 'RiderController@save_schedule_ride');
 	Route::get('schedule_ride_cancel', 'RiderController@schedule_ride_cancel');
-
+	Route::post('add_wallet', 'AppPaymentController@appPaymentSuccess');
+	Route::post('after_payment', 'AppPaymentController@appPaymentSuccess');
 	Route::get('get_past_trips','TripController@get_past_trips');
 	Route::get('get_upcoming_trips','TripController@get_upcoming_trips');
+	Route::match(['GET', 'POST'],'currency_conversion', 'TokenAuthController@currency_conversion');
 
 	// Driver Only APIs
 	Route::get('get_pending_trips','TripController@get_pending_trips');
@@ -82,16 +110,20 @@ Route::group(['middleware' => 'jwt.verify'], function () {
 	Route::match(array('GET', 'POST'), 'upload_profile_image','ProfileController@upload_profile_image');
 	
 	Route::get('heat_map', 'MapController@heat_map');
-
+	Route::post('pay_to_admin', 'AppPaymentController@appPaymentSuccess');
 
 	// TripController
 	Route::get('cancel_trip', 'TripController@cancel_trip');
 	
+	// Earning Controller
+	Route::get('earning_chart', 'EarningController@earning_chart');
+	Route::get('add_promo_code', 'EarningController@add_promo_code');
 
 	// Rating Controller
 	Route::get('driver_rating', 'RatingController@driver_rating');
 	Route::get('rider_feedback', 'RatingController@rider_feedback');
 	Route::get('trip_rating', 'RatingController@trip_rating');
+	Route::get('get_invoice', 'RatingController@getinvoice');
 
 	//profile Controller
 	Route::get('get_rider_profile', 'ProfileController@get_rider_profile');
@@ -105,7 +137,17 @@ Route::group(['middleware' => 'jwt.verify'], function () {
 	Route::get('get_caller_detail', 'ProfileController@get_caller_detail');
 	Route::get('vehicle_descriptions', 'ProfileController@vehicleDescriptions');
 
+	Route::get('add_card_details', 'AppPaymentController@add_card_details');
+	Route::get('get_card_details', 'AppPaymentController@get_card_details');
 
+	// Manage Driver Payout Routes
+	Route::get('stripe_supported_country_list', 'PayoutDetailController@stripeSupportedCountryList');
+	Route::post('update_payout_preference','PayoutDetailController@updatePayoutPreference');
+	Route::get('get_payout_list','PayoutDetailController@getPayoutPreference');
+	Route::get('earning_list', 'PayoutDetailController@earningList');
+	Route::get('weekly_trip', 'PayoutDetailController@weeklyTrip');
+	Route::get('weekly_statement', 'PayoutDetailController@weeklyStatement');
+	Route::get('daily_statement', 'PayoutDetailController@dailyStatement');
 	Route::post('update_vehicle', 'DriverController@updateVehicle');
 	Route::post('delete_vehicle','DriverController@deleteVehicle');
 	Route::get('update_default_vehicle','DriverController@updateDefaultVehicle');

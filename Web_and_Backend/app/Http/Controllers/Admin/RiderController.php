@@ -2,10 +2,13 @@
 
 /**
  * Rider Controller
-
+ *
+ * @package     SGTaxi
  * @subpackage  Controller
  * @category    Rider
 
+
+ * 
  */
 
 namespace App\Http\Controllers\Admin;
@@ -15,8 +18,11 @@ use App\Http\Controllers\Controller;
 use App\DataTables\RiderDataTable;
 use App\Models\User;
 use App\Models\Trips;
+use App\Models\Wallet;
+use App\Models\UsersPromoCode;
 use App\Models\Country;
 use App\Models\ProfilePicture;
+use App\Models\PaymentMethod;
 use App\Models\RiderLocation;
 use App\Models\ApiCredentials;
 use App\Models\ReferralUser;
@@ -104,6 +110,7 @@ class RiderController extends Controller
             $user->first_name   = $request->first_name;
             $user->last_name    = $request->last_name;
             $user->email        = $request->email;
+            $user->is_vip       = $request->is_vip;
             $user->country_code = $request->country_code;
             $user->country_id   = $request->country_id;
             $user->mobile_number= $request->mobile_number;
@@ -207,6 +214,7 @@ class RiderController extends Controller
             $user->first_name   = $request->first_name;
             $user->last_name    = $request->last_name;
             $user->email        = $request->email;
+            $user->is_vip       = $request->is_vip;
             $user->country_code = $request->country_code;
             $user->gender       = $request->gender;
             if($request->mobile_number != "") {
@@ -254,10 +262,11 @@ class RiderController extends Controller
             return back();
         }
         try {
+            PaymentMethod::where('user_id',$request->id)->delete();
             User::find($request->id)->delete();
         }
         catch(\Exception $e) {
-            flashMessage('error',' So can\'t delete this rider.');
+            flashMessage('error','Rider have wallet or promo or trips, So can\'t delete this rider.');
             return back();
         }
 
@@ -269,11 +278,14 @@ class RiderController extends Controller
     public function canDestroy($user_id)
     {
         $return  = array('status' => '1', 'message' => '');
+
+        $user_promo = UsersPromoCode::where('user_id',$user_id)->count();
+        $user_wallet = Wallet::where('user_id',$user_id)->count();
         $user_trips = Trips::where('user_id',$user_id)->count();
         $user_referral = ReferralUser::where('user_id',$user_id)->orWhere('referral_id',$user_id)->count();
 
-        if( $user_trips) {
-            $return = ['status' => 0, 'message' => 'Rider have trips, So can\'t delete this rider'];
+        if($user_promo || $user_wallet || $user_trips) {
+            $return = ['status' => 0, 'message' => 'Rider have wallet or promo or trips, So can\'t delete this rider'];
         }
         else if($user_referral) {
             $return = ['status' => 0, 'message' => 'Rider have referrals, So can\'t delete this rider'];

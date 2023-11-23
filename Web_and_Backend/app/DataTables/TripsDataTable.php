@@ -2,10 +2,13 @@
 
 /**
  * Trips DataTable
-
+ *
+ * @package     SGTaxi
  * @subpackage  DataTable
  * @category    Trips
 
+
+ * 
  */
 
 namespace App\DataTables;
@@ -85,6 +88,7 @@ class TripsDataTable extends DataTable
                         + sum(ROUND((trips.peak_amount / currency.rate) * '.$currency_rate.',2)) 
                         + sum(ROUND((trips.access_fee / currency.rate) * '.$currency_rate.',2)) 
                         + sum(ROUND((trips.schedule_fare / currency.rate) * '.$currency_rate.',2)) 
+                        + sum(ROUND(( if((trips.payment_status="Completed"),(trips.tips / currency.rate),0 ) * '.$currency_rate.'),2))
                         - sum(ROUND((trips.toll_fee / currency.rate) * '.$currency_rate.',2))
                         + sum(ROUND((trips.waiting_charge / currency.rate) * '.$currency_rate.',2))  ))) as total_amount '),
                         
@@ -93,22 +97,7 @@ class TripsDataTable extends DataTable
         return $trips;
     }
 
-    /**
-     * Optional method if you want to use html builder.
-     *
-     * @return \Yajra\DataTables\Html\Builder
-     */
-    public function html()
-    {
-        return $this->builder()
-                    ->columns($this->getColumns())
-                    ->minifiedAjax()
-                    ->dom('lBfr<"table-responsive"t>ip')
-                    ->orderBy(0)
-                    ->buttons(
-                        ['csv', 'excel', 'print', 'reset']
-                    );
-    }
+
 
     /**
      * Get columns.
@@ -135,7 +124,22 @@ class TripsDataTable extends DataTable
             ['data' => 'action', 'name' => 'action', 'title' => 'Action', 'orderable' => false, 'searchable' => false, 'exportable' => false],
         ];
 
-        return array_merge($col_list_1,$col_list_2,$company_columns,$col_list_3);
+        if(LOGIN_USER_TYPE == 'company') {
+            $payout_columns = array(
+                ['data' => 'total_amount', 'name' => 'total_fare', 'title' => 'Earned'],
+            );              
+            $company_columns = array();                
+        }
+        else {
+            $payout_columns = array(
+                ['data' => 'total_amount', 'name' => 'total_fare', 'title' => 'Earned'],
+            );
+            $company_columns = array(
+                ['data' => 'company_name', 'name' => 'companies.name', 'title' => 'Company Name']
+            );
+        }
+
+        return array_merge($col_list_1,$payout_columns,$col_list_2,$company_columns,$col_list_3);
     }
 
     /**

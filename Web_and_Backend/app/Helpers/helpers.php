@@ -2,12 +2,17 @@
 
 /**
  * Helpers
-
+ *
+ * @package     SGTaxi
  * @subpackage  Helpers
  * @category    Helpers
 
+
+ * 
  */
 
+
+use App\Models\Currency;
 use App\Models\Rating;
 use Illuminate\Support\Arr;
 use Illuminate\Support\HtmlString;
@@ -22,11 +27,13 @@ use App\Models\Location;
 use App\Models\CarType;
 use App\Models\Documents;
 use App\Models\DriverDocuments;
+use App\Models\CompanyDocuments;
 use App\Models\DriverLocation;
 
 /**
  * Convert String to htmlable instance
-@param  string $type      Type of the image
+ *
+ * @param  string $type      Type of the image
  * @return instance of \Illuminate\Contracts\Support\Htmlable
  */
 if (!function_exists('html_string')) {
@@ -39,7 +46,8 @@ if (!function_exists('html_string')) {
 
 /**
  * File Get Content by using CURL
-@param  string $url  Url
+ *
+ * @param  string $url  Url
  * @return string $data Response of URL
  */
 if (!function_exists('file_get_contents_curl')) {
@@ -63,7 +71,8 @@ if (!function_exists('file_get_contents_curl')) {
 
 /**
  * Do CURL With POST
-@param  String $url  Url
+ *
+ * @param  String $url  Url
  * @param  Array $params  Url Parameters
  * @return string $data Response of URL
  */
@@ -104,7 +113,8 @@ if (!function_exists('arrayToObject')) {
 
 /**
  * Convert Given Float To Nearest Half Integer
-@return Int
+ *
+ * @return Int
  */
 if (!function_exists('roundHalfInteger')) {
 	function roundHalfInteger($value)
@@ -113,12 +123,49 @@ if (!function_exists('roundHalfInteger')) {
 	}
 }
 
+/**
+ * Format Invoice Item
+ * 
+ * @param [Array] $[item]
+ * @return [Array] [formated invoice item]
+ */
+if (!function_exists('formatInvoiceItem')) {
+	function formatInvoiceItem($item)
+	{
+		return array(
+			'key' 		=> $item['key'],
+			'value' 	=> strval($item['value']),
+			'bar'		=> $item['bar'] ?? 0,
+			'colour'	=> $item['colour'] ?? '',
+			'comment' 	=> $item['comment'] ?? '',
+		);
+	}
+}
 
-
+/**
+ * Format Driver Statement Item
+ * 
+ * @param [Array] $[item]
+ * @param [String] $[type]
+ * @return [Array] [formated invoice item]
+ */
+if (!function_exists('formatStatementItem')) {
+	function formatStatementItem($item,$type = '')
+	{
+		return array(
+			'key' 		=> $item['key'],
+			'value' 	=> strval($item['value']),
+			'bar'		=> $item['bar'] ?? false,
+			'colour'	=> $item['colour'] ?? '',
+			'tooltip' 	=> $item['tooltip'] ?? '',
+		);
+	}
+}
 
 /**
  * Currency Convert
-@param int $from   Currency Code From
+ *
+ * @param int $from   Currency Code From
  * @param int $to     Currency Code To
  * @param int $price  Price Amount
  * @return int Converted amount
@@ -145,7 +192,8 @@ if (!function_exists('currencyConvert')) {
 
 /**
  * Check if a string is a valid timezone
-@param string $timezone
+ *
+ * @param string $timezone
  * @return bool
  */
 if (!function_exists('isValidTimezone')) {
@@ -157,7 +205,8 @@ if (!function_exists('isValidTimezone')) {
 
 /**
  * Get Given Rider Rating
-@param String $driver_id
+ *
+ * @param String $driver_id
  * @return String $rider_rating
  */
 if (!function_exists('getRiderRating')) {
@@ -178,7 +227,8 @@ if (!function_exists('getRiderRating')) {
 
 /**
  * Get Given Driver Rating
-@param String $rider_id
+ *
+ * @param String $rider_id
  * @return String $driver_rating
  */
 if (!function_exists('getDriverRating')) {
@@ -197,10 +247,26 @@ if (!function_exists('getDriverRating')) {
 	}
 }
 
+/**
+ * Get User Wallet Amount
+ *
+ * @param String $user_id
+ * @return String $wallet_amount
+ */
+if (!function_exists('getUserWalletAmount')) {
+	function getUserWalletAmount($user_id)
+	{
+		$wallet = Wallet::whereUserId($user_id)->first();
+		$wallet_amount = $wallet->original_amount ?? "0";
+
+		return strval($wallet_amount);
+	}
+}
 
 /**
  * Checks if a value exists in an array in a case-insensitive manner
-@param string $key The searched value
+ *
+ * @param string $key The searched value
  * 
  * @return if key found, return particular value of key.
  */
@@ -216,7 +282,8 @@ if (!function_exists('site_settings')) {
 
 /**
  * Checks if a value exists in an array in a case-insensitive manner
-@param string $key The searched value
+ *
+ * @param string $key The searched value
  * 
  * @return if key found, return particular value of key.
  */
@@ -230,10 +297,27 @@ if (!function_exists('email_settings')) {
 	}
 }
 
+/**
+ * Checks if a value exists in an array in a case-insensitive manner
+ *
+ * @param string $key The searched value
+ * 
+ * @return if key found, return particular value of key.
+ */
+if (!function_exists('payment_gateway')) {
+	
+	function payment_gateway($key, $site) {
+		$payment_gateway = resolve('payment_gateway');
+		$gateway = $payment_gateway->where('name',$key)->where('site',$site)->first();
+
+		return $gateway->value ?? '';
+	}
+}
 
 /**
  * Checks if a value exists in an array in a case-insensitive manner
-@param string $key The searched value
+ *
+ * @param string $key The searched value
  * 
  * @return if key found, return particular value of key.
  */
@@ -253,7 +337,8 @@ if (!function_exists('api_credentials')) {
 
 /**
  * Checks if a value exists in an array in a case-insensitive manner
-@param string $key The searched value
+ *
+ * @param string $key The searched value
  * 
  * @return if key found, return particular value of key.
  */
@@ -269,7 +354,8 @@ if (!function_exists('fees')) {
 
 /**
  * Set Flash Message function
-@param  string $class     Type of the class ['danger','success','warning']
+ *
+ * @param  string $class     Type of the class ['danger','success','warning']
  * @param  string $message   message to be displayed
  */
 if (!function_exists('flashMessage')) {
@@ -283,7 +369,8 @@ if (!function_exists('flashMessage')) {
 
 /**
  * Get Admin default Currency Symbole
-@return currency symbol
+ *
+ * @return currency symbol
  */
 if (!function_exists('currency_symbol')) {
 	function currency_symbol()
@@ -298,7 +385,8 @@ if (!function_exists('currency_symbol')) {
 
 /**
  * Get a Facebook Login URL
-@return URL from Facebook API
+ *
+ * @return URL from Facebook API
  */
 if (!function_exists('getAppleLoginUrl')) {
 	function getAppleLoginUrl()
@@ -319,7 +407,8 @@ if (!function_exists('getAppleLoginUrl')) {
 
 /**
  * Generate Apple Client Secret
-@return String $token
+ *
+ * @return String $token
  */
 if (!function_exists('getAppleClientSecret')) {
 	function getAppleClientSecret()
@@ -352,7 +441,8 @@ if (!function_exists('getAppleClientSecret')) {
 
 /**
  * Get Currency Code From IP address
-@param  $ip_address [current IP]
+ *
+ * @param  $ip_address [current IP]
  * @return String $currency_code
  */
 if (!function_exists('get_currency_from_ip')) {
@@ -386,7 +476,8 @@ if (!function_exists('get_currency_from_ip')) {
 
 /**
  * Get Currency Code From IP address
-@param  $date_obj [Carbon date object]
+ *
+ * @param  $date_obj [Carbon date object]
  * @param  $format [Return Date Format]
  * @return String $currency_code
  */
@@ -400,10 +491,22 @@ if (!function_exists('getWeekStartEnd')) {
 	}
 }
 
+/**
+ * Check Cash trip or not
+ *
+ * @return Boolean true or false
+ */
+if (!function_exists('checkIsCashTrip')) {
+	function checkIsCashTrip($payment_mode)
+	{
+		return in_array($payment_mode,['Cash & Wallet','Cash']);
+	}
+}
 
 /**
  * Check Current Environment
-@return Boolean true or false
+ *
+ * @return Boolean true or false
  */
 if (!function_exists('isLiveEnv')) {
 	function isLiveEnv($environments = [])
@@ -418,7 +521,8 @@ if (!function_exists('isLiveEnv')) {
 
 /**
  * Get driver request seconds
-@return Boolean true or false
+ *
+ * @return Boolean true or false
  */
 if (!function_exists('getDriverSec')) {
 	function getDriverSec()
@@ -429,7 +533,8 @@ if (!function_exists('getDriverSec')) {
 
 /**
  * Check Can display credentials or not
-@return Boolean true or false
+ *
+ * @return Boolean true or false
  */
 if (!function_exists('canDisplayCredentials')) {
 	function canDisplayCredentials()
@@ -440,8 +545,10 @@ if (!function_exists('canDisplayCredentials')) {
 
 /**
  * Convert underscore_strings to camelCase (medial capitals).
-@param {string} $str
-@return {string}
+ *
+ * @param {string} $str
+ *
+ * @return {string}
  */
 if (!function_exists('snakeToCamel')) {
 	
@@ -457,8 +564,10 @@ if (!function_exists('snakeToCamel')) {
 
 /**
  * get protected String or normal based on env
-@param {string} $str
-@return {string}
+ *
+ * @param {string} $str
+ *
+ * @return {string}
  */
 if (!function_exists('protectedString')) {
 	
@@ -540,7 +649,8 @@ if ( ! function_exists('updateEnvConfig'))
 
 /**
  * Check Given Request is from API or not
-@return Boolean
+ *
+ * @return Boolean
  */
 if (!function_exists('isApiRequest')) {
 
@@ -552,7 +662,8 @@ if (!function_exists('isApiRequest')) {
 
 /**
  * Check Given Request is from API or not
-@return Boolean
+ *
+ * @return Boolean
  */
 if (!function_exists('camelCaseToString')) {
 
@@ -564,12 +675,39 @@ if (!function_exists('camelCaseToString')) {
 	}
 }
 
+/**
+ * Check Given Request is from API or not
+ *
+ * @return Boolean
+ */
+if (!function_exists('getPayoutMethods')) {
 
+	function getPayoutMethods($company_id = 1)
+	{
+		if($company_id != 1) {
+			$payout_methods = ['bank_transfer'];
+		}
+		else {
+			$payout_methods = payment_gateway('payout_methods','Common');
+			$payout_methods = explode(',',$payout_methods);
+		}
+		return $payout_methods;
+	}
+}
 
 /**
  * Check Given Request is from API or not
-@return Boolean
+ *
+ * @return Boolean
  */
+if (!function_exists('isPayoutEnabled')) {
+
+	function isPayoutEnabled($method)
+	{
+		$payout_methods = getPayoutMethods();
+		return in_array($method, $payout_methods);
+	}
+}
 
 if (!function_exists('isAdmin')) {
 	function isAdmin()
@@ -580,8 +718,10 @@ if (!function_exists('isAdmin')) {
 
 /**
  * numberFormat Function
-@param {Float} $value
-@return {string}
+ *
+ * @param {Float} $value
+ *
+ * @return {string}
  */
 if (!function_exists('numberFormat')) {
 	
@@ -594,7 +734,8 @@ if (!function_exists('numberFormat')) {
  * Calculates the distance between two points, given their 
  * latitude and longitude, and returns an array of values 
  * of the most common distance units
-@param  {coord} $lat1 Latitude of the first point
+ *
+ * @param  {coord} $lat1 Latitude of the first point
  * @param  {coord} $lon1 Longitude of the first point
  * @param  {coord} $lat2 Latitude of the second point
  * @param  {coord} $lon2 Longitude of the second point
@@ -741,10 +882,15 @@ if (!function_exists('LogDistanceMatrix')) {
 	if(!function_exists('UserDocuments')) {
 		function UserDocuments($type,$user,$vehicle_id=0) {
 
-			$docs = DriverDocuments::whereHas('documents', function($q) {
-				$q->active();
-			})->where('type',$type)->where('user_id',$user->id)->where('vehicle_id',$vehicle_id)->get();
-		
+			if($type=='Company') {
+				$docs = CompanyDocuments::whereHas('documents', function($q) {
+					$q->active();
+				})->where('company_id',$user->id)->get();
+			} else {
+				$docs = DriverDocuments::whereHas('documents', function($q) {
+					$q->active();
+				})->where('type',$type)->where('user_id',$user->id)->where('vehicle_id',$vehicle_id)->get();
+			}
 			$docArr = array();
 			if($docs->count() > 0){
 				foreach($docs as $key => $value) {
@@ -874,7 +1020,8 @@ if(!function_exists('checkDefault')) {
 
 /**
  * Check Current Environment
-@return Boolean true or false
+ *
+ * @return Boolean true or false
  */
 if (!function_exists('CheckGetInTuchpopup')) {
 	function CheckGetInTuchpopup($environments = [])
@@ -885,7 +1032,8 @@ if (!function_exists('CheckGetInTuchpopup')) {
 
 /**
  * Check Current Environment
-@return Boolean true or false
+ *
+ * @return Boolean true or false
  */
 if (!function_exists('hideCredentials')) {
 	function hideCredentials($key)

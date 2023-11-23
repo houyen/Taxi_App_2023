@@ -10,12 +10,15 @@
  * @author      SpryMedia Ltd (www.sprymedia.co.uk)
  * @contact     www.sprymedia.co.uk/contact
  * @copyright   Copyright 2014-2015 SpryMedia Ltd.
-This source file is free software, available under the following license:
+ *
+ * This source file is free software, available under the following license:
  *   MIT license - http://datatables.net/license/mit
-This source file is distributed in the hope that it will be useful, but
+ *
+ * This source file is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
  * or FITNESS FOR A PARTICULAR PURPOSE. See the license files for details.
-For details please refer to: http://www.datatables.net
+ *
+ * For details please refer to: http://www.datatables.net
  */
 
 (function(window, document, undefined) {
@@ -30,32 +33,40 @@ var factory = function( $, DataTable ) {
  * visibility of columns so the displayed columns fit into the table container.
  * The end result is that complex tables will be dynamically adjusted to fit
  * into the viewport, be it on a desktop, tablet or mobile browser.
-Responsive for DataTables has two modes of operation, which can used
+ *
+ * Responsive for DataTables has two modes of operation, which can used
  * individually or combined:
-* Class name based control - columns assigned class names that match the
+ *
+ * * Class name based control - columns assigned class names that match the
  *   breakpoint logic can be shown / hidden as required for each breakpoint.
  * * Automatic control - columns are automatically hidden when there is no
  *   room left to display them. Columns removed from the right.
-In additional to column visibility control, Responsive also has built into
+ *
+ * In additional to column visibility control, Responsive also has built into
  * options to use DataTables' child row display to show / hide the information
  * from the table that has been hidden. There are also two modes of operation
  * for this child row display:
-* Inline - when the control element that the user can use to show / hide
+ *
+ * * Inline - when the control element that the user can use to show / hide
  *   child rows is displayed inside the first column of the table.
  * * Column - where a whole column is dedicated to be the show / hide control.
-Initialisation of Responsive is performed by:
-* Adding the class `responsive` or `dt-responsive` to the table. In this case
+ *
+ * Initialisation of Responsive is performed by:
+ *
+ * * Adding the class `responsive` or `dt-responsive` to the table. In this case
  *   Responsive will automatically be initialised with the default configuration
  *   options when the DataTable is created.
  * * Using the `responsive` option in the DataTables configuration options. This
  *   can also be used to specify the configuration options, or simply set to
  *   `true` to use the defaults.
- @class
+ *
+ *  @class
  *  @param {object} settings DataTables settings object for the host table
  *  @param {object} [opts] Configuration options
  *  @requires jQuery 1.7+
  *  @requires DataTables 1.10.1+
- @example
+ *
+ *  @example
  *      $('#example').DataTable( {
  *        responsive: true
  *      } );
@@ -668,9 +679,11 @@ Responsive.prototype = {
 /**
  * List of default breakpoints. Each item in the array is an object with two
  * properties:
-* `name` - the breakpoint name.
+ *
+ * * `name` - the breakpoint name.
  * * `width` - the breakpoint width
-@name Responsive.breakpoints
+ *
+ * @name Responsive.breakpoints
  * @static
  */
 Responsive.breakpoints = [
@@ -684,7 +697,8 @@ Responsive.breakpoints = [
 
 /**
  * Responsive default settings for initialisation
-@namespace
+ *
+ * @namespace
  * @name Responsive.defaults
  * @static
  */
@@ -808,7 +822,8 @@ Api.register( 'responsive.recalc()', function () {
 
 /**
  * Version information
-@name Responsive.version
+ *
+ * @name Responsive.version
  * @static
  */
 Responsive.version = '1.0.6';

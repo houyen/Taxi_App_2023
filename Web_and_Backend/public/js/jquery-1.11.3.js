@@ -1,12 +1,15 @@
 /*!
  * jQuery JavaScript Library v1.11.3
  * http://jquery.com/
-Includes Sizzle.js
+ *
+ * Includes Sizzle.js
  * http://sizzlejs.com/
-Copyright 2005, 2014 jQuery Foundation, Inc. and other contributors
+ *
+ * Copyright 2005, 2014 jQuery Foundation, Inc. and other contributors
  * Released under the MIT license
  * http://jquery.org/license
-Date: 2015-04-28T16:19Z
+ *
+ * Date: 2015-04-28T16:19Z
  */
 
 (function( global, factory ) {
@@ -589,10 +592,12 @@ var Sizzle =
 /*!
  * Sizzle CSS Selector Engine v2.2.0-pre
  * http://sizzlejs.com/
-Copyright 2008, 2014 jQuery Foundation, Inc. and other contributors
+ *
+ * Copyright 2008, 2014 jQuery Foundation, Inc. and other contributors
  * Released under the MIT license
  * http://jquery.org/license
-Date: 2014-12-16
+ *
+ * Date: 2014-12-16
  */
 (function( window ) {
 
@@ -3090,9 +3095,11 @@ function createOptions( options ) {
  *
  *	options: an optional list of space-separated options that will change how
  *			the callback list behaves or a more traditional option object
-By default a callback list will act like an event callback list and can be
+ *
+ * By default a callback list will act like an event callback list and can be
  * "fired" multiple times.
-Possible options:
+ *
+ * Possible options:
  *
  *	once:			will ensure the callback list can only be fired once (like a Deferred)
  *

@@ -2,16 +2,20 @@
 
 /*
  * DataTables example server-side processing script.
-Please note that this script is intentionally extremely simply to show how
+ *
+ * Please note that this script is intentionally extremely simply to show how
  * server-side processing can be implemented, and probably shouldn't be used as
  * the basis for a large complex system. It is suitable for simple use cases as
  * for learning.
-See http://datatables.net/usage/server-side for full details on the server-
+ *
+ * See http://datatables.net/usage/server-side for full details on the server-
  * side processing requirements of DataTables.
-@license MIT - http://datatables.net/license_mit
+ *
+ * @license MIT - http://datatables.net/license_mit
  */
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *Easy set variables
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Easy set variables
  */
 
 // DB table to use
@@ -41,7 +45,8 @@ $sql_details = array(
 );
 
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *If you just want to use the basic configuration for DataTables with PHP
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * If you just want to use the basic configuration for DataTables with PHP
  * server-side, there is no need to edit below this line.
  */
 

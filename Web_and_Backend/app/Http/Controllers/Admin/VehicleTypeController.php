@@ -2,10 +2,13 @@
 
 /**
  * Vehicle Type Controller
-
+ *
+ * @package     SGTaxi
  * @subpackage  Controller
  * @category    Vehicle Type
 
+
+ * 
  */
 
 namespace App\Http\Controllers\Admin;

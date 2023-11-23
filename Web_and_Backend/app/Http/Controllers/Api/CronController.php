@@ -2,10 +2,13 @@
 
 /**
  * Cron Controller
-
+ *
+ * @package     SGTaxi
  * @subpackage  Controller
  * @category    Cron
 
+
+ * 
  */
 
 namespace App\Http\Controllers\Api;
@@ -15,8 +18,11 @@ use App\Http\Controllers\Controller;
 use App\Models\ScheduleRide;
 use App\Models\PeakFareDetail;
 use App\Models\User;
+use App\Models\ReferralUser;
 use App\Models\DriverLocation;
+use App\Models\Currency;
 use App\Models\Trips;
+use App\Models\Payment;
 use Carbon\Carbon;
 use Swap;
 class CronController extends Controller
@@ -63,6 +69,8 @@ class CronController extends Controller
 				}
 
 	            $schedule_id = $request_val->id;
+				$payment_mode = $request_val->payment_method;
+				$is_wallet = $request_val->is_wallet;
 
 				$data = [ 
 					'rider_id' =>$request_val->user_id,
@@ -75,6 +83,8 @@ class CronController extends Controller
 					'driver_group_id' => null,
 					'pickup_location' => $request_val->pickup_location,
 					'drop_location' => $request_val->drop_location,
+					'payment_method' => $payment_mode,
+					'is_wallet' => $is_wallet,
 					'timezone' => $request_val->timezone,
 					'schedule_id' => $schedule_id,
 					'additional_fare'  =>$additional_fare,
@@ -134,6 +144,15 @@ class CronController extends Controller
         }
 	}
 
+	/** 
+    * Update Referral Status
+    * 
+    **/
+	public function updateReferralStatus()
+	{
+		ReferralUser::where('end_date','<',date('Y-m-d'))->where('payment_status','Pending')->update(['payment_status' => 'Expired']);
+		return response()->json(['status' => true, 'status_message' => 'updated successfully']);
+	}
 
 	/** 
     * Update User Offline status
@@ -149,4 +168,83 @@ class CronController extends Controller
 	}
 
 
+	/** 
+    * Update Currency rate
+    * 
+    **/
+
+	public function updateCurrency()
+	{
+		$exchangerate = file_get_contents_curl('https://openexchangerates.org/api/latest.json?app_id=2ef0e67012ec4cf9b86795a53e495c3e');
+		$getCurrency = json_decode($exchangerate, true);
+		$return_data = array();
+		foreach ($getCurrency['rates'] as $key => $value) {
+			try {
+				if($key != 'USD') {
+					Currency::where('code',$key)->update(['rate' => $value]);
+			        $return_data[] = [
+			        	'status' => true,
+			        	'status_message' => 'updated successfully',
+			        	'target' => $key,
+			        	'value' => $value
+			        ];
+				}
+			} catch (\Exception $e) {
+				$return_data[] = [
+					'status' => false,
+					'status_message' => $e->getMessage(),
+					'target' => $key
+				];
+			}
+		}
+		
+		return response()->json($return_data);
+	}
+
+	/** 
+    * Update Paypal Payout Status
+    * 
+    **/
+	public function updatePaypalPayouts()
+	{
+		$pending_payments = Payment::where('driver_payout_status','Processing')->orWhere('admin_payout_status','Processing')->get();
+		if($pending_payments->count() == 0) {
+			return response()->json(['status' => false, 'status_message' => 'No Pending Payouts found']);
+		}
+
+		$paypal_payout = resolve("App\Services\Payouts\PaypalPayout");
+		$pending_payments->each(function($pending_payment) use($paypal_payout) {
+			$batch_id = $pending_payment->correlation_id;
+			$payment_data = $paypal_payout->fetchPayoutViaBatchId($batch_id);
+			if($payment_data['status']) {
+				$payout_data = $paypal_payout->getPayoutStatus($payment_data['data']);
+				$trip = Trips::find($pending_payment->trip_id);
+
+				if($payout_data['status']) {
+					if($payout_data['payout_status'] == 'SUCCESS') {
+						if($trip->driver->company_id == '1') {
+							$pending_payment->driver_payout_status = "Paid";
+							$pending_payment->driver_transaction_id = $payout_data['transaction_id'];
+						}
+						else {
+							$pending_payment->admin_payout_status = "Paid";
+							$pending_payment->admin_transaction_id = $payout_data['transaction_id'];
+						}
+					}
+
+					if(in_array($payout_data['payout_status'], ['FAILED','RETURNED','BLOCKED'])) {
+						if($trip->driver->company_id == '1') {
+							$pending_payment->driver_payout_status = "Pending";
+						}
+						else {
+							$pending_payment->admin_payout_status = "Pending";
+						}
+					}
+					
+					$pending_payment->save();
+				}
+			}
+		});
+		return response()->json(['status' => true, 'status_message' => 'updated successfully']);
+	}
 }

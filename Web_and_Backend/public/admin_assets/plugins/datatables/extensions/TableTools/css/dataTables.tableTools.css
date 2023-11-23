@@ -7,10 +7,13 @@
  * Project:     DataTables
  * 
  * Copyright 2009-2012 Allan Jardine, all rights reserved.
-* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-CSS name space:
+ *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ *
+ * CSS name space:
  *   DTTT                  DataTables TableTools
-Style sheet provides:
+ *
+ * Style sheet provides:
  *   CONTAINER             TableTools container element and styles applying to all components
  *   BUTTON_STYLES         Action specific button styles
  *   SELECTING             Row selection styles

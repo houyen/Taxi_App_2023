@@ -3,11 +3,11 @@
 <div class="content-wrapper">
     <section class="content-header">
         <h1>
-        Manage Ride Requests
-        <small>Control panel</small>
+        Quản lý Ride Requests
+        <small>Bảng điều khiển</small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="{{ url(LOGIN_USER_TYPE.'/dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="{{ url(LOGIN_USER_TYPE.'/dashboard') }}"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
             <li class="active">Ride Requests</li>
         </ol>
     </section>
@@ -16,7 +16,7 @@
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header" style="height: 54px;">
-                        <!-- <h3 class="box-title"> Manage Ride Requests </h3> -->
+                        <!-- <h3 class="box-title"> Quản lý Ride Requests </h3> -->
                     </div>
                     <div class="box-body">
                         {!! $dataTable->table() !!}

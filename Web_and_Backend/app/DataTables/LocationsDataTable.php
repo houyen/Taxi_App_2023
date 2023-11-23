@@ -2,10 +2,13 @@
 
 /**
  * Locations DataTable
-
+ *
+ * @package     SGTaxi
  * @subpackage  DataTable
  * @category    Locations
 
+
+ * 
  */
 
 namespace App\DataTables;
@@ -47,22 +50,7 @@ class LocationsDataTable extends DataTable
         return $locations;
     }
 
-    /**
-     * Optional method if you want to use html builder.
-     *
-     * @return \Yajra\DataTables\Html\Builder
-     */
-    public function html()
-    {
-        return $this->builder()
-                    ->columns($this->getColumns())
-                    ->minifiedAjax()
-                    ->dom('lBfr<"table-responsive"t>ip')
-                    ->orderBy(0,'DESC')
-                    ->buttons(
-                        ['csv', 'excel', 'print', 'reset']
-                    );
-    }
+
 
     /**
      * Get columns.

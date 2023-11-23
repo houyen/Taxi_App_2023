@@ -2,10 +2,13 @@
 
 /**
  * Profile Picture Model
-
+ *
+ * @package     SGTaxi
  * @subpackage  Model
  * @category    Profile Picture
 
+
+ * 
  */
 
 namespace App\Models;

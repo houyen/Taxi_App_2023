@@ -2,8 +2,10 @@
 
 /** 
  * ionCube Loader install Wizard
-ionCube is a registered trademark of ionCube Ltd. 
-Copyright (c) ionCube Ltd. 2002-2019
+ *
+ * ionCube is a registered trademark of ionCube Ltd. 
+ *
+ * Copyright (c) ionCube Ltd. 2002-2019
  */
 
 

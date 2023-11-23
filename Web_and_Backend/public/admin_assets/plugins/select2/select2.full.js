@@ -1,7 +1,8 @@
 /*!
  * Select2 4.0.0
  * https://select2.github.io
-Released under the MIT license
+ *
+ * Released under the MIT license
  * https://github.com/select2/select2/blob/master/LICENSE.md
  */
 (function (factory) {
@@ -5872,7 +5873,8 @@ S2.define('jquery.select2',[
 
 /*!
  * jQuery Mousewheel 3.1.12
-Copyright 2014 jQuery Foundation and other contributors
+ *
+ * Copyright 2014 jQuery Foundation and other contributors
  * Released under the MIT license.
  * http://jquery.org/license
  */

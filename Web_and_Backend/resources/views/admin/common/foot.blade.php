@@ -16,6 +16,7 @@
 	var COMPANY_ADMIN_URL = {!! json_encode(url('/'.LOGIN_USER_TYPE)) !!}; 
 	var LOGIN_USER_TYPE = '{!! LOGIN_USER_TYPE !!}';
 	var popup_code  = {!! session('error_code') ? session('error_code') : 0  !!};
+	var STRIPE_PUBLISH_KEY = "{{ payment_gateway('publish','Stripe') }}";
 </script>
 
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -46,7 +47,7 @@
 		<script src="{{ url('admin_assets/plugins/datepicker/bootstrap-datepicker.js') }}"></script>
 	@endif
 
-	@if (Route::current()->uri() == 'admin/driver' || Route::current()->uri() == 'admin/vehicle'  || Route::current()->uri() == 'admin/rider' || Route::current()->uri() == 'admin/admin_user' || Route::current()->uri() == 'admin/vehicle_type'|| Route::current()->uri() == 'admin/rating' || Route::current()->uri() == 'company/rating' ||  Route::current()->uri() == 'admin/request' ||  Route::current()->uri() == 'company/request' ||  Route::current()->uri() == 'admin/cancel_trips' ||  Route::current()->uri() == 'company/cancel_trips' ||  Route::current()->uri() == 'admin/trips' || Route::current()->uri() == 'admin/pages' || Route::current()->uri() == 'admin/metas' || Route::current()->uri() == 'admin/statements/{type}' || Route::current()->uri() == 'company/statements/{type}' || Route::current()->uri() == 'admin/view_driver_statement/{driver_id}' || Route::current()->uri() == 'company/view_driver_statement/{driver_id}' || Route::current()->uri() == 'admin/currency' || Route::current()->uri() == 'admin/locations' || Route::current()->uri() == 'admin/roles' || Route::current()->uri() == 'admin/manage_fare' || Route::current()->uri() == 'admin/language' || Route::current()->uri() == 'admin/help_category' || Route::current()->uri() == 'admin/help_subcategory' || Route::current()->uri() == 'admin/help' || Route::current()->uri() == 'admin/country'  || Route::current()->uri() == 'admin/per_day_report/company/{company_id}/{date}' || Route::current()->uri() == 'admin/later_booking' || Route::current()->uri() == 'company/later_booking' || Route::current()->uri() == 'admin/company' || Route::current()->uri() == 'company/driver' || Route::current()->uri() == 'admin/cancel-reason' || Route::current()->uri() == 'admin/vehicle_make' || Route::current()->uri() == 'admin/vehicle_model' || Route::current()->uri() == 'admin/documents' || Route::current()->uri() == 'admin/support' || Route::current()->uri() == 'admin/banner'|| Route::current()->uri() == 'admin/mobile_app_version')
+	@if (Route::current()->uri() == 'admin/driver' || Route::current()->uri() == 'admin/vehicle' || Route::current()->uri() == 'company/vehicle' || Route::current()->uri() == 'admin/rider' || Route::current()->uri() == 'admin/admin_user' || Route::current()->uri() == 'admin/vehicle_type'|| Route::current()->uri() == 'admin/rating' || Route::current()->uri() == 'company/rating' ||  Route::current()->uri() == 'admin/request' ||  Route::current()->uri() == 'company/request' ||  Route::current()->uri() == 'admin/cancel_trips' ||  Route::current()->uri() == 'company/cancel_trips' ||  Route::current()->uri() == 'admin/trips' ||  Route::current()->uri() == 'company/trips' ||  Route::current()->uri() == 'admin/payments' ||  Route::current()->uri() == 'company/payments'|| Route::current()->uri() == 'admin/pages' || Route::current()->uri() == 'admin/metas' || Route::current()->uri() == 'admin/promo_code' || Route::current()->uri() == 'admin/statements/{type}' || Route::current()->uri() == 'company/statements/{type}' || Route::current()->uri() == 'admin/view_driver_statement/{driver_id}' || Route::current()->uri() == 'company/view_driver_statement/{driver_id}' || Route::current()->uri() == 'admin/currency' || Route::current()->uri() == 'admin/locations' || Route::current()->uri() == 'admin/roles' || Route::current()->uri() == 'admin/manage_fare' || Route::current()->uri() == 'admin/language' || Route::current()->uri() == 'admin/help_category' || Route::current()->uri() == 'admin/help_subcategory' || Route::current()->uri() == 'admin/help' || Route::current()->uri() == 'admin/country' || Route::current()->uri() == 'admin/payout/overall' || Route::current()->uri() == 'company/payout/overall' || Route::current()->uri() == 'admin/payout/company/overall' || Route::current()->uri() == 'admin/weekly_payout/{driver_id}' || Route::current()->uri() == 'company/weekly_payout/{driver_id}' || Route::current()->uri() == 'admin/weekly_payout/company/{company_id}' || Route::current()->uri() == 'admin/per_week_report/{driver_id}/{start_date}/{end_date}' || Route::current()->uri() == 'company/per_week_report/{driver_id}/{start_date}/{end_date}' || Route::current()->uri() == 'admin/per_week_report/company/{company_id}/{start_date}/{end_date}' || Route::current()->uri() == 'admin/per_day_report/{driver_id}/{date}' || Route::current()->uri() == 'company/per_day_report/{driver_id}/{date}' || Route::current()->uri() == 'admin/per_day_report/company/{company_id}/{date}' || Route::current()->uri() == 'admin/later_booking' || Route::current()->uri() == 'company/later_booking' || Route::current()->uri() == 'admin/company' || Route::current()->uri() == 'company/driver' || Route::current()->uri() == 'admin/cancel-reason' || Route::current()->uri() == 'admin/vehicle_make' || Route::current()->uri() == 'admin/vehicle_model' || Route::current()->uri() == 'admin/documents' || Route::current()->uri() == 'admin/support' || Route::current()->uri() == 'admin/banner'|| Route::current()->uri() == 'admin/mobile_app_version')
 		<script src="{{ url('admin_assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
 		<script src="{{ url('admin_assets/plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
 	@endif
@@ -60,7 +61,7 @@
 		<script src="{{ url('admin_assets/plugins/jQuery/jquery.validate.js') }}"></script>
 	@endif
 
-	@if (Route::current()->uri() == 'admin/trips')
+	@if (Route::current()->uri() == 'admin/trips' || Route::current()->uri() == 'admin/payments')
 		<script src="{{ url('admin_assets/dist/js/reports.js') }}"></script>
 	@endif
 
@@ -120,8 +121,19 @@
 <script src="{{ url('admin_assets/dist/js/demo.js') }}"></script>
 <script src="{{ url('admin_assets/dist/js/app.js') }}"></script>
 <script src="{{ url('admin_assets/dist/js/common.js?v='.$version) }}"></script>
+@if (Route::current()->uri() == 'company/payout_preferences')
+	{!! Html::script('js/common.js?v='.$version) !!}
+@endif
 
+@stack('scripts')
 
+<script type="text/javascript">
+  $(document).ready(function() {
+    if(popup_code == 1) {
+      $('#payout_popup').modal('show');
+    }
+  });
+</script>
 
 
 <script type="text/javascript">

@@ -1468,6 +1468,73 @@ label {
   color: #C6C6C6;
 }
 
+.payout-options .dropdown-trigger {
+  position: relative
+}
+#payout_methods {
+  overflow: hidden;
+}
+
+.payout-options .dropdown-trigger:hover::after {
+  bottom: -10px;
+  content: '';
+  display: block;
+  position: absolute;
+  left: -20px;
+  right: -20px;
+  top: -10px;
+  z-index: -1
+}
+
+.ie9 .payout-options .dropdown-trigger,
+.ie10 .payout-options .dropdown-trigger {
+  background-color: rgba(0, 0, 0, 0.001)
+}
+
+.payout-options .dropdown-trigger .dropdown-menu {
+  display: none;
+  top: 22px;
+  right: 0;
+  left: auto;
+  max-width: none
+}
+
+.payout-options .dropdown-trigger .dropdown-menu.tooltip-top-left {
+  left: 0;
+  right: 0;
+  top: 15px;
+  min-width: auto;
+      padding: 0;
+}
+
+.payout-options .dropdown-trigger .dropdown-menu.help-dropdown {
+  width: 280px
+}
+
+.payout-options .dropdown-trigger .dropdown-menu.notifications-dropdown {
+  right: -13px;
+  padding: 0;
+  max-width: 400px;
+  min-width: 250px;
+  line-height: 18px
+}
+
+.payout-options .dropdown-trigger .dropdown-menu.notifications-dropdown .loading {
+  padding: 30px
+}
+
+.payout-options .dropdown-trigger .dropdown-menu>li {
+  white-space: nowrap
+}
+
+.payout-options .dropdown-trigger:hover .dropdown-menu {
+  display: block;
+  opacity: 1;
+  z-index: 1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: alpha(opacity=100)
+}
+
 button[value="whatsapp"] {
   display: none;
 }
@@ -2050,7 +2117,7 @@ li > .navtree-list {
 
 @media screen and (max-width: 480px) {   
   .layout--join {
-    background: rgba(0, 0, 0, 0) no-repeat scroll center bottom / cover ;
+    background: rgba(0, 0, 0, 0) url("../images/background_india.jpg") no-repeat scroll center bottom / cover ;
     min-height: 735px;
     padding: 20px !important;
   } 
@@ -2234,6 +2301,13 @@ p.ride-reservation {
     max-height: 200px !important;
   }
 
+  .guest-drive-payment{
+    overflow: auto;
+    margin-top: 30px;
+  }
+  .guest-drive-payment .earning_period_details {
+    border:none;
+  }
 
   .parter-info input {
     width: 100%;
@@ -2249,6 +2323,11 @@ p.ride-reservation {
     margin: 0px !important;
   }
 
+  select.payment-select {
+    width: 100%;
+    padding: 5px;
+    background-size: 26px;
+  }
 }
 
 @media screen and (max-width:1024px) {

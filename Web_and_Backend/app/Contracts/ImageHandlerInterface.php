@@ -2,9 +2,13 @@
 
 /**
  * Image Handler Interface
-@package     Newtaxi
+ *
+ * @package     SGTaxi
  * @subpackage  Contracts
  * @category    Image Handler
+
+
+ * 
 */
 
 namespace App\Contracts;

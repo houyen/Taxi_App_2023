@@ -1,23 +1,27 @@
 /*! TableTools 2.2.4
  * 2009-2015 SpryMedia Ltd - datatables.net/license
-ZeroClipboard 1.0.4
+ *
+ * ZeroClipboard 1.0.4
  * Author: Joseph Huckaby - MIT licensed
  */
 
 /**
  * @summary     TableTools
  * @description Tools and buttons for DataTables
- * .4
+ * @version     2.2.4
  * @file        dataTables.tableTools.js
  * @author      SpryMedia Ltd (www.sprymedia.co.uk)
  * @contact     www.sprymedia.co.uk/contact
  * @copyright   Copyright 2009-2015 SpryMedia Ltd.
-This source file is free software, available under the following license:
+ *
+ * This source file is free software, available under the following license:
  *   MIT license - http://datatables.net/license/mit
-This source file is distributed in the hope that it will be useful, but
+ *
+ * This source file is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
  * or FITNESS FOR A PARTICULAR PURPOSE. See the license files for details.
-For details please refer to: http://www.datatables.net
+ *
+ * For details please refer to: http://www.datatables.net
  */
 
 
@@ -2669,7 +2673,8 @@ TableTools.prototype = {
 
 
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *Static variables
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Static variables
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 /**
@@ -2693,7 +2698,8 @@ TableTools._aListeners = [];
 
 
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *Static methods
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Static methods
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 /**
@@ -2788,7 +2794,8 @@ TableTools._fnEventDispatch = function ( that, type, node, selected )
 
 
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *Constants
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Constants
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 
@@ -3137,7 +3144,8 @@ if ( $.fn.dataTable.Api ) {
 
 
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *Initialisation
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Initialisation
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 /*

@@ -2,7 +2,13 @@
 
 /**
  * Auth Interface
+ *
+ * @package     SGTaxi
+ * @subpackage  Contracts
  * @category    Auth Interface
+
+
+ * 
 */
 
 namespace App\Contracts;

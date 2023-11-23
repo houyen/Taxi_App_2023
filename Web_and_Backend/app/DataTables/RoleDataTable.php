@@ -2,10 +2,13 @@
 
 /**
  * Role DataTable
-
+ *
+ * @package     SGTaxi
  * @subpackage  DataTable
  * @category    Role
 
+
+ * 
  */
 
 namespace App\DataTables;
@@ -44,22 +47,7 @@ class RoleDataTable extends DataTable
         return $model->all();
     }
 
-    /**
-     * Optional method if you want to use html builder.
-     *
-     * @return \Yajra\DataTables\Html\Builder
-     */
-    public function html()
-    {
-        return $this->builder()
-                    ->columns($this->getColumns())
-                    ->minifiedAjax()
-                    ->dom('lBfr<"table-responsive"t>ip')
-                    ->orderBy(0,'ASC')
-                    ->buttons(
-                        ['csv', 'excel', 'print', 'reset']
-                    );
-    }
+
 
     /**
      * Get columns.

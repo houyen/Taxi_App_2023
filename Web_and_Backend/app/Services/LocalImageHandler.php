@@ -2,10 +2,13 @@
 
 /**
  * Local Image Handler
-
+ *
+ * @package     SGTaxi
  * @subpackage  Services
  * @category    Image Handler
 
+
+ * 
 */
 
 namespace App\Services;

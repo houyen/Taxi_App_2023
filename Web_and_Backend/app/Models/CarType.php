@@ -2,8 +2,13 @@
 
 /**
  * Car Type Model
+ *
+ * @package     SGTaxi
  * @subpackage  Model
  * @category    Car Type
+
+
+ * 
  */
 
 namespace App\Models;

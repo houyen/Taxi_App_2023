@@ -11,11 +11,15 @@ var $sanitizeMinErr = angular.$$minErr('$sanitize');
  * @ngdoc module
  * @name ngSanitize
  * @description
-# ngSanitize
-The `ngSanitize` module provides functionality to sanitize HTML.
  *
-<div doc-module-components="ngSanitize"></div>
-See {@link ngSanitize.$sanitize `$sanitize`} for usage.
+ * # ngSanitize
+ *
+ * The `ngSanitize` module provides functionality to sanitize HTML.
+ *
+ *
+ * <div doc-module-components="ngSanitize"></div>
+ *
+ * See {@link ngSanitize.$sanitize `$sanitize`} for usage.
  */
 
 /*
@@ -23,7 +27,8 @@ See {@link ngSanitize.$sanitize `$sanitize`} for usage.
  * based on:  HTML Parser By John Resig (ejohn.org)
  * Original code by Erik Arvidsson, Mozilla Public License
  * http://erik.eae.net/simplehtmlparser/simplehtmlparser.js
-// Use like so:
+ *
+ * // Use like so:
  * htmlParser(htmlString, {
  *     start: function(tag, attrs, unary) {},
  *     end: function(tag) {},
@@ -38,7 +43,8 @@ See {@link ngSanitize.$sanitize `$sanitize`} for usage.
  * @ngdoc service
  * @name $sanitize
  * @kind function
-@description
+ *
+ * @description
  *   The input is sanitized by parsing the HTML into tokens. All safe tokens (from a whitelist) are
  *   then serialized back to properly escaped html string. This means that no unsafe input can make
  *   it into the returned string, however, since our parser is more strict than a typical browser
@@ -46,9 +52,11 @@ See {@link ngSanitize.$sanitize `$sanitize`} for usage.
  *   browser, won't make it through the sanitizer. The input may also contain SVG markup.
  *   The whitelist is configured using the functions `aHrefSanitizationWhitelist` and
  *   `imgSrcSanitizationWhitelist` of {@link ng.$compileProvider `$compileProvider`}.
-@param {string} html HTML input.
+ *
+ * @param {string} html HTML input.
  * @returns {string} Sanitized HTML.
-@example
+ *
+ * @example
    <example module="sanitizeExample" deps="angular-sanitize.js">
    <file name="index.html">
      <script>
@@ -252,7 +260,8 @@ function makeMap(str) {
  *     chars: function(text) {},
  *     comment: function(text) {}
  * });
-@param {string} html string
+ *
+ * @param {string} html string
  * @param {object} handler
  */
 function htmlParser(html, handler) {
@@ -518,16 +527,21 @@ angular.module('ngSanitize', []).provider('$sanitize', $SanitizeProvider);
  * @ngdoc filter
  * @name linky
  * @kind function
-@description
+ *
+ * @description
  * Finds links in text input and turns them into html links. Supports http/https/ftp/mailto and
  * plain email address links.
-Requires the {@link ngSanitize `ngSanitize`} module to be installed.
-@param {string} text Input text.
+ *
+ * Requires the {@link ngSanitize `ngSanitize`} module to be installed.
+ *
+ * @param {string} text Input text.
  * @param {string} target Window (_blank|_self|_parent|_top) or named frame to open links in.
  * @returns {string} Html-linkified text.
-@usage
+ *
+ * @usage
    <span ng-bind-html="linky_expression | linky"></span>
-@example
+ *
+ * @example
    <example module="linkyExample" deps="angular-sanitize.js">
      <file name="index.html">
        <script>

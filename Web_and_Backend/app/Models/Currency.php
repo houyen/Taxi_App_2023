@@ -2,8 +2,13 @@
 
 /**
  * Currency Model
+ *
+ * @package     SGTaxi
  * @subpackage  Model
  * @category    Currency
+
+
+ * 
  */
 
 namespace App\Models;
