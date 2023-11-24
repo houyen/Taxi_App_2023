@@ -18,7 +18,44 @@
             android:layout_below="@+id/common_header"
             android:layout_marginTop="@dimen/default_header_to"
             android:background="@drawable/app_top_curve_white">
-        
+        <RelativeLayout
+                android:id="@+id/wallet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_35adp">
+
+            <ImageView
+                    android:id="@+id/wallet_img"
+                    android:layout_width="@dimen/_110adp"
+                    android:layout_height="@dimen/_110adp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_40adp"
+                    android:src="@drawable/app_ic_wallet" />
+
+            <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+                    android:id="@+id/fontTextView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/wallet_img"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_30adp"
+                    android:text=""
+                    android:textColor="@color/newtaxi_app_black"
+                    android:textSize="@dimen/_14asp"
+                    app:fontName="@string/font_UBERNews" />
+
+            <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+                    android:id="@+id/tv_caller_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/fontTextView2"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_10adp"
+                    android:text="$150"
+                    android:textColor="@color/newtaxi_app_black"
+                    android:textSize="@dimen/_26asp"
+                    app:fontName="@string/font_Medium" />
+        </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -28,7 +65,7 @@
             android:paddingTop="@dimen/_10adp"
             android:paddingBottom="@dimen/_10adp">
 
-            <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontButton
+            <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontButton
                 android:id="@+id/add_amount"
                 style="@style/CommonBottomSheetButton"
                 android:layout_width="match_parent"

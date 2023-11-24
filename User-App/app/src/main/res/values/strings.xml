@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!DOCTYPE resources [
-    <!ENTITY appname "NewTaxi">
-    <!ENTITY driverbundle "com.tkpmnc.newtaxidrivers">
-    <!ENTITY siteurl "https://newtaxi.tkpmnc.com/">
-    <!ENTITY facebookKey "#FACEBOOK KEY HERE#">
-    <!ENTITY googleMapKey "#YOUR GOOGLR MAP KEY HERE#">
-    <!ENTITY googleAutoCompleteKey "#GOOGLE AUTOCOMPLETE KEY HERE#">
-    <!ENTITY googleClientId "#GOGLE CLIENT ID HERE#">
+    <!ENTITY appname "SG Taxi">
+    <!ENTITY driverbundle "com.tkpmnc.sgtaxidrivers">
+    <!ENTITY siteurl "https://sgtaxi.querysoftke.com/">
+    <!ENTITY facebookKey "#FACEBOOK KEY HERE##">
+    <!ENTITY googleMapKey "AIzaSyBjEDY9IfO_R61qEPUQDCoxydL9xkmhddI">
+    <!ENTITY googleAutoCompleteKey "AIzaSyBjEDY9IfO_R61qEPUQDCoxydL9xkmhddI">
+    <!ENTITY googleClientId "#GOGLE CLIENT ID HERE##">
     <!ENTITY firebaseDbMode "live">
     <!ENTITY otpEnable "false">
     ]>
@@ -51,6 +51,8 @@
     <string name="facebook">Facebook</string>
     <string name="google">Google</string>
 
+    <string name="errormsg_paymnet_type">Please Choose Your Payment Type</string>
+    <string name="payment_name">"&appname; Payment"</string>
     <string name="alert_your_emergency_contacts">Alert your Emergency Contacts</string>
     <string name="welcomeback">Welcome back, sign in to continue</string>
     <string name="forgotpassword">I forgot my password</string>
@@ -71,6 +73,8 @@
     <string name="cancel">Cancel</string>
     <string name="cancelrequest">CANCEL REQUEST</string>
     <string name="editaccount">Edit Account</string>
+    <string name="textpayment">Payment</string>
+    <string name="paypal_payment">PayPal</string>
     <string name="helptitle">Help</string>
 
     <string name="capacity">Capacity</string>
@@ -78,6 +82,44 @@
     <string name="done">Done</string>
     <string name="continues">CONTINUE</string>
 
+    <string name="pricepresented">Your fare will be the price presented before the trip or based on the rates below and other applicable surcharges and adjustments.</string>
+    <string name="basefare">Base Fare</string>
+    <string name="perminute">+ Per Minute</string>
+    <string name="perkm">+ Per km</string>$37.10
+
+    <string name="requestuber">"REQUEST "</string>
+    <string name="amountno7">$53.00</string>
+    <string name="ubergo">&appname;Go</string>
+    <string name="cancel_your_trip">"Cancel Your Rider"</string>
+
+    <string name="paymentmethods">Payment Methods</string>
+    <string name="cash">Cash</string>
+    <string name="wallets">Wallet</string>
+    <string name="promotions">Promotions</string>
+    <string name="add">"Add"</string>
+    <string name="add_promo">"Add Promo/Gift Code"</string>
+    <string name="free_trip">Free trip up to</string>
+    <string name="from">from</string>
+    <string name="off">OFF</string>
+    <string name="promo_applied">Promo Applied</string>
+    <string name="enter_promo_code">"Enter your promo/gift code"</string>
+    <string name="wallet">My Wallet</string>
+    <string name="use_wallet">Use Wallet</string>
+    <string name="wallet_amount">Your Wallet Amount is</string>
+    <string name="add_amount">Add Money</string>
+    <string name="payable_amount">Payable Amount</string>
+    <string name="paid_amount">"Paid Amount"</string>
+    <string name="enter_amount">Enter The Amount</string>
+    <string name="add_money">"Add money to the wallet</string>
+    <string name="pay">Pay</string>
+    <string name="trip_id">Trip Id :</string>
+    <string name="proceed">Proceed</string>
+    <string name="waitfordriver">Waiting for driver to confirm</string>
+    <string name="paypal">PayPal</string>
+    <string name="credit_or_debit_card">Add Credit or Debit Card</string>
+    <string name="change_credit_or_debit_card">Change Credit or Debit Card</string>
+    <string name="card">Card</string>
+    <string name="save">Save</string>
 
     <string name="baseFare">Base Fare</string>
     <string name="currency">"Currency"</string>
@@ -111,6 +153,7 @@
 
     <!-- Help Page started -->
     <string name="tripsreview">Trips and Fare Review</string>
+    <string name="accountpayment">Account and Payment Options</string>
     <string name="guideuber">A Guide to &appname;</string>
     <string name="signingup">Signing Up</string>
     <string name="more">More</string>
@@ -122,6 +165,7 @@
     <string name="farediscribction">The fare will be the price presented upon booking, or, if the journey changes, the fare will be based on the rates provided.Tap fare for details.</string>
 
     <!-- Home Page started -->
+    <string name="payment">Payment Options</string>
     <string name="yourtrips">Ride History</string>
     <string name="begin_trip">"Begin Trip"</string>
     <string name="Rating">Rating</string>
@@ -255,6 +299,9 @@
     <string name="uberfee">Access Fee</string>
     <string name="distancefare">Distance Fare</string>
     <string name="timefare">Time Fare</string>
+    <string name="estimatedpayout">Total Trip Fare</string>
+    <string name="wallet_amounts">Wallet Amount</string>
+    <string name="promo_amounts">Promo Amount</string>
 
     <!--Fetch Address-->
     <string name="no_connection">No internet connection</string>
@@ -300,6 +347,7 @@
     <string name="gettinglocate">Getting location&#8230;</string>
     <string name="phone">Phone</string>
     <string name="verify">Verify</string>
+    <string name="please_enter_promo">Please enter the Promo Code</string>
     <string name="language">Language</string>
     <string name="selectlanguage">Select Language</string>
     <string name="turnoninternet">Turn on your Internet</string>
@@ -308,13 +356,18 @@
     <string name="driverarrrive">Driver Arrives Now&#8230;</string>
     <string name="yourtripcancelledbydriver">Your trip cancelled by driver&#8230;</string>
     <string name="yourtripbegin">Your Trip Begins Now&#8230;</string>
+    <string name="paymentcompleted">Payment completed successfully&#8230;</string>
     <string name="rateyourride">Rate Your Ride</string>
     <string name="smoothorsloopy">Smooth or Sloppy?</string>
     <string name="writecomment">Write your comments&#8230;</string>
+    <string name="paymentdetails">Payment Details</string>
     <string name="otherreasons">Other reasons</string>
     <string name="enterworkaddress">Enter work address</string>
     <string name="enterhomeaddress">Enter home address</string>
 
+    <string name="paytm" translatable="false">Paytm Payment</string>
+    <string name="mpesa" translatable="false">Mpesa Payment</string>
+    <string name="flutterwave" translatable="false">Flutterwave Payment</string>
     <string name="layout_direction" translatable="false">0</string>
 
     <string name="edit_ride">EDIT TIME</string>
@@ -344,21 +397,10 @@
 
     <string-array name="language" translatable="false">
         <item>English</item>
-        <item>Français</item>
-        <item>Español</item>
-        <item>عربى</item>
-        <item>Nederlands</item>
-        <item>Português</item>
-        <item>فارسی</item>
     </string-array>
     <string-array name="languageCode" translatable="false">
         <item>en</item>
-        <item>fr</item>
-        <item>es</item>
-        <item>ar</item>
-        <item>nl</item>
-        <item>pt</item>
-        <item>fa</item>
+
     </string-array>
     <string name="minimum_fare">MINIMUM FARE</string>
     <string name="signin">Sign In</string>
@@ -386,6 +428,7 @@
     <string name="share_my_code">Copy</string>
     <string name="skip">Skip</string>
     <string name="rate_your_ride">Rate your ride</string>
+    <string name="enter_wallet_amount">Please enter the wallet amount</string>
     <string name="manual_booking">Manual Booking</string>
     <string name="call_admin">Call %s</string>
     <string name="contact_admin_for_manual_booking">Contact admin for manual booking</string>
@@ -430,6 +473,7 @@
     <string name="tap_to_reload">Tap to reload</string>
     <string name="error_msg_unknown">An unexpected error occurred</string>
     <string name="schedule_trip">Schedule Trip</string>
+    <string name="onlinepayment">Online payment</string>
     <string name="unable_to_get_location_pickup">Unable to get pickup location please try again</string>
     <string name="to_arrive">to arrive</string>
     <string name="to_reach">to reach</string>
@@ -441,6 +485,8 @@
     <string name="stripe_error_2">Invalid Stripe API version try again later</string>
     <string name="stripe" translatable="false">Stripe</string>
     <string name="choose">Choose</string>
+    <string name="Add_payment_type">Add payment Type</string>
+    <string name="choose_payment_type">Please Choose Your Payment Type</string>
     <string name="few_seconds">This might take some few seconds</string>
     <string name="confirm_seats">CONFIRM SEATS</string>
     <string name="pool">Pool</string>

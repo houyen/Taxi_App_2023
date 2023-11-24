@@ -22,7 +22,7 @@
             >
 
 
-        <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
+        <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
                 android:id="@+id/driver_name_contact"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -35,7 +35,7 @@
                 app:fontName="@string/font_Medium" />
 
 
-        <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
+        <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
                 android:id="@+id/driver_phone_contact"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -75,8 +75,8 @@
                 >
 
             <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
                     android:paddingEnd="@dimen/_20adp"
                     android:paddingStart="@dimen/_20adp"
                     android:scaleX=".8"
@@ -84,14 +84,14 @@
                     android:src="@drawable/ic_phone"
                     />
 
-            <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
+            <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10adp"
                     android:text="@string/call"
                     android:textAlignment="center"
                     android:textColor="@color/newtaxi_app_black"
-                    android:textSize="@dimen/_14asp"
+                    android:textSize="@dimen/_24asp"
                     app:fontName="@string/font_Medium" />
         </LinearLayout>
 
@@ -100,6 +100,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:visibility="gone"
                 android:layout_marginStart="@dimen/_20adp"
                 android:layout_marginEnd="@dimen/_20adp"
                 android:layout_marginBottom="@dimen/_2adp"
@@ -120,7 +121,7 @@
                     android:src="@drawable/app_ic_message_yellow"
                     app:tint="@color/newtaxi_app_black" />
 
-            <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
+            <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10adp"

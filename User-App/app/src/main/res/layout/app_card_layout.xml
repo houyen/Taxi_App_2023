@@ -23,7 +23,7 @@
                 android:weightSum="2"
                 >
 
-            <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
+            <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
                     android:id="@+id/status"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
                     app:fontName="@string/font_UBERMedium"
                     />
 
-            <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
+            <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
                     android:id="@+id/amountcard"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -63,7 +63,7 @@
                 android:background="@color/newtaxi_app_white"
                 >
 
-            <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
+            <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
                     android:id="@+id/datetime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -79,7 +79,7 @@
                     app:fontName="@string/font_Medium"
                     />
 
-            <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
+            <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
                     android:id="@+id/carname"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -95,7 +95,7 @@
                     />
 
 
-            <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontButton
+            <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontButton
                     android:id="@+id/btnrate"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/_30adp"
@@ -110,7 +110,7 @@
                     app:fontName="@string/font_Medium"
                     />
 
-            <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
+            <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
                     android:id="@+id/seatcount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -187,7 +187,7 @@
                 android:visibility="visible"
                 >
 
-            <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
+            <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
                     android:id="@+id/tv_pick_location"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -202,7 +202,7 @@
                     app:fontName="@string/font_Medium"
                     />
 
-            <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
+            <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
                     android:id="@+id/tv_drop_location"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

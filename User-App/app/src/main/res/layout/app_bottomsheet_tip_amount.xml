@@ -12,7 +12,7 @@
             android:background="@drawable/app_top_curve_gray">
 
 
-        <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
+        <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
                 android:id="@+id/tv_currency_symbol"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -30,7 +30,7 @@
                 app:layout_constraintTop_toTopOf="@+id/ed_tripAmount"
                 />
 
-        <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontEditText
+        <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontEditText
                 android:id="@+id/ed_tripAmount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -71,7 +71,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 />
 
-        <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
+        <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
                 android:id="@+id/tv_total_trip_amount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -90,7 +90,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 />
 
-        <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontButton
+        <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontButton
                 android:id="@+id/btn_setTripAmount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

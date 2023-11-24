@@ -10,14 +10,553 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="48a03541-4065-474a-bdba-d74a5cd7694d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/backgroundtask/ImageCompressAsyncTask.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/backgroundtask/ImageCompressAsyncTask.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/configs/RunTimePermission.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/configs/RunTimePermission.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/configs/SessionManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/configs/SessionManager.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/custompalette/CustomFontUtils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/custompalette/CustomFontUtils.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/custompalette/CustomTypefaceSpan.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/custompalette/CustomTypefaceSpan.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/custompalette/FontButton.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/custompalette/FontButton.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/custompalette/FontCache.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/custompalette/FontCache.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/custompalette/FontEditText.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/custompalette/FontEditText.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/custompalette/FontTextView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/custompalette/FontTextView.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/data/local/ApplicationPermissionModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/data/local/ApplicationPermissionModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/database/SqLiteDb.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/database/SqLiteDb.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/datamodels/CheckVersionModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/datamodels/CheckVersionModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/datamodels/JsonResponse.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/datamodels/JsonResponse.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/datamodels/settings/CurrencyListModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/datamodels/settings/CurrencyListModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/datamodels/settings/CurrencyModelList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/datamodels/settings/CurrencyModelList.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/dependencies/component/AppComponent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/dependencies/component/AppComponent.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/dependencies/interceptors/AuthTokenInterceptor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/dependencies/interceptors/AuthTokenInterceptor.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/dependencies/interceptors/NetworkInterceptor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/dependencies/interceptors/NetworkInterceptor.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/dependencies/module/AppContainerModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/dependencies/module/AppContainerModule.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/dependencies/module/ApplicationModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/dependencies/module/ApplicationModule.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/dependencies/module/NetworkModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/dependencies/module/NetworkModule.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/drawpolyline/DirectionsJSONParser.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/drawpolyline/DirectionsJSONParser.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/drawpolyline/DownloadTask.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/drawpolyline/DownloadTask.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/drawpolyline/ParserTask.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/drawpolyline/ParserTask.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/drawpolyline/PolylineOptionsInterface.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/drawpolyline/PolylineOptionsInterface.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/helper/CircularMusicProgressBar.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/helper/CircularMusicProgressBar.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/helper/CommonDialog.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/helper/CommonDialog.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/helper/Constants.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/helper/Constants.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/helper/LatLngInterpolator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/helper/LatLngInterpolator.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/helper/NetworkChangeReceiver.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/helper/NetworkChangeReceiver.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/helper/Permission.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/helper/Permission.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/helper/ReturnValues.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/helper/ReturnValues.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/helper/WaveDrawable.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/helper/WaveDrawable.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/interfaces/ApiService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/interfaces/ApiService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/interfaces/ImageListener.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/interfaces/ImageListener.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/interfaces/ServiceListener.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/interfaces/ServiceListener.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/map/AppUtils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/map/AppUtils.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/map/FetchAddressIntentService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/map/FetchAddressIntentService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/network/AppController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/network/AppController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/network/PermissionCamer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/network/PermissionCamer.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/placesearch/InfoWindowData.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/placesearch/InfoWindowData.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/pushnotification/Config.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/pushnotification/Config.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/pushnotification/MyFirebaseInstanceIDService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/pushnotification/MyFirebaseInstanceIDService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/pushnotification/MyFirebaseMessagingService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/pushnotification/MyFirebaseMessagingService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/pushnotification/NotificationUtils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/pushnotification/NotificationUtils.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/utils/CommonKeys.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/utils/CommonKeys.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/utils/CommonMethods.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/utils/CommonMethods.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/utils/Enums.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/utils/Enums.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/utils/LogManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/utils/LogManager.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/utils/PaginationScrollListener.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/utils/PaginationScrollListener.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/utils/RequestCallback.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/utils/RequestCallback.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/utils/RuntimePermissionDialogFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/utils/RuntimePermissionDialogFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/utils/userchoice/UserChoice.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/utils/userchoice/UserChoice.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/utils/userchoice/UserChoiceSuccessResponse.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/utils/userchoice/UserChoiceSuccessResponse.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/views/BannerActivityCommon.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/views/BannerActivityCommon.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/views/BannerAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/views/BannerAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/views/CommonActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/views/CommonActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/views/ContextWrapper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/views/ContextWrapper.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/views/FlutterwaveWebViewActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/views/FlutterwaveWebViewActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/views/SupportActivityCommon.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/views/SupportActivityCommon.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/views/SupportAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/appcommon/views/SupportAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/RoundedLayout.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/RoundedLayout.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/ScheduleRideDetailActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/ScheduleRideDetailActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/adapters/CarDetailsListAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/adapters/CarDetailsListAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/adapters/EmergencyContactAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/adapters/EmergencyContactAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/adapters/PastTripsPaginationAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/adapters/PastTripsPaginationAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/adapters/SeatsListAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/adapters/SeatsListAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/adapters/UpcomingAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/adapters/UpcomingAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/adapters/UpcomingTripsPaginationAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/adapters/UpcomingTripsPaginationAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/adapters/ViewPagerAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/adapters/ViewPagerAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/database/AddFirebaseDatabase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/database/AddFirebaseDatabase.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/database/IFirebaseReqListener.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/database/IFirebaseReqListener.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/datamodels/DriverLocation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/datamodels/DriverLocation.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/datamodels/EmergencyContactModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/datamodels/EmergencyContactModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/datamodels/NumberValidationModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/datamodels/NumberValidationModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/datamodels/RiderProfile.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/datamodels/RiderProfile.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/datamodels/StepsClass.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/datamodels/StepsClass.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/datamodels/main/EmergencyContactResult.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/datamodels/main/EmergencyContactResult.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/datamodels/main/LocationModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/datamodels/main/LocationModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/datamodels/main/NearByCarsModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/datamodels/main/NearByCarsModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/datamodels/main/NearestCar.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/datamodels/main/NearestCar.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/datamodels/main/SearchCarResult.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/datamodels/main/SearchCarResult.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/datamodels/signinsignup/CarDetails.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/datamodels/signinsignup/CarDetails.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/datamodels/signinsignup/SigninResult.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/datamodels/signinsignup/SigninResult.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/datamodels/trip/CancelReasonModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/datamodels/trip/CancelReasonModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/datamodels/trip/CancelResultModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/datamodels/trip/CancelResultModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/datamodels/trip/RiderTripsModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/datamodels/trip/RiderTripsModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/datamodels/trip/ScheduleDetail.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/datamodels/trip/ScheduleDetail.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/datamodels/trip/TripDetailModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/datamodels/trip/TripDetailModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/datamodels/trip/TripDetailsModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/datamodels/trip/TripDetailsModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/datamodels/trip/TripListModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/datamodels/trip/TripListModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/datamodels/trip/TripListModelArrayList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/datamodels/trip/TripListModelArrayList.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/datamodels/trip/TripResult.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/datamodels/trip/TripResult.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/datamodels/trip/TripStatusModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/datamodels/trip/TripStatusModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/firebase_auth/OTPActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/firebase_auth/OTPActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/firebase_auth/PhoneActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/firebase_auth/PhoneActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/firebase_keys/FirebaseDbKeys.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/firebase_keys/FirebaseDbKeys.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/interfaces/PaginationAdapterCallback.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/interfaces/PaginationAdapterCallback.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/interfaces/YourTripsListener.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/interfaces/YourTripsListener.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/sendrequest/CancelYourRequestActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/sendrequest/CancelYourRequestActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/sendrequest/CancelYourTripActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/sendrequest/CancelYourTripActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/sendrequest/DriverNotAcceptActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/sendrequest/DriverNotAcceptActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/sendrequest/DriverRatingActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/sendrequest/DriverRatingActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/sendrequest/SendingRequestActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/sendrequest/SendingRequestActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/sidebar/AddHome.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/sidebar/AddHome.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/sidebar/DriverContactActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/sidebar/DriverContactActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/sidebar/EnRoute.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/sidebar/EnRoute.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/sidebar/FareBreakdown.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/sidebar/FareBreakdown.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/sidebar/Profile.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/sidebar/Profile.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/sidebar/Setting.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/sidebar/Setting.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/sidebar/WrapContentViewPager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/sidebar/WrapContentViewPager.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/sidebar/currency/CurrencyModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/sidebar/currency/CurrencyModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/sidebar/trips/Past.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/sidebar/trips/Past.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/sidebar/trips/TripDetails.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/sidebar/trips/TripDetails.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/sidebar/trips/Upcoming.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/sidebar/trips/Upcoming.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/sidebar/trips/YourTrips.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/sidebar/trips/YourTrips.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/singledateandtimepicker/DateHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/singledateandtimepicker/DateHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/singledateandtimepicker/SingleDateAndTimePicker.java" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/singledateandtimepicker/SingleDateAndTimePicker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/singledateandtimepicker/widget/SingleDateAndTimeConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/singledateandtimepicker/widget/SingleDateAndTimeConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/singledateandtimepicker/widget/WheelAmPmPicker.java" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/singledateandtimepicker/widget/WheelAmPmPicker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/singledateandtimepicker/widget/WheelDayOfMonthPicker.java" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/singledateandtimepicker/widget/WheelDayOfMonthPicker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/singledateandtimepicker/widget/WheelDayPicker.java" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/singledateandtimepicker/widget/WheelDayPicker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/singledateandtimepicker/widget/WheelHourPicker.java" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/singledateandtimepicker/widget/WheelHourPicker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/singledateandtimepicker/widget/WheelMinutePicker.java" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/singledateandtimepicker/widget/WheelMinutePicker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/singledateandtimepicker/widget/WheelMonthPicker.java" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/singledateandtimepicker/widget/WheelMonthPicker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/singledateandtimepicker/widget/WheelPicker.java" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/singledateandtimepicker/widget/WheelPicker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/singledateandtimepicker/widget/WheelYearPicker.java" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/singledateandtimepicker/widget/WheelYearPicker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/customize/BaseDialogFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/customize/BaseDialogFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/customize/CustomDialog.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/customize/CustomDialog.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/emergency/EmergencyContact.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/emergency/EmergencyContact.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/emergency/SosActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/emergency/SosActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/facebookAccountKit/FacebookAccountKitActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/facebookAccountKit/FacebookAccountKitActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/firebaseChat/ActivityChat.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/firebaseChat/ActivityChat.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/firebaseChat/AdapterFirebaseRecylcerview.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/firebaseChat/AdapterFirebaseRecylcerview.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/firebaseChat/FirebaseChatHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/firebaseChat/FirebaseChatHandler.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/firebaseChat/FirebaseChatModelClass.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/firebaseChat/FirebaseChatModelClass.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/firebaseChat/FirebaseChatNotificationService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/firebaseChat/FirebaseChatNotificationService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/main/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/main/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/main/filter/FeatureSelectListener.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/main/filter/FeatureSelectListener.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/main/filter/FeaturesInCarModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/main/filter/FeaturesInCarModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/main/filter/FeaturesInVehicleAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/main/filter/FeaturesInVehicleAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/peakPricing/PeakPricing.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/peakPricing/PeakPricing.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/permissionoverview/PermissionOverViewActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/permissionoverview/PermissionOverViewActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/permissionoverview/PermissionOverViewAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/permissionoverview/PermissionOverViewAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/search/GoogleMapPlaceSearchAutoCompleteRecyclerView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/search/GoogleMapPlaceSearchAutoCompleteRecyclerView.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/search/PlaceSearchActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/search/PlaceSearchActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/signinsignup/SSLoginActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/signinsignup/SSLoginActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/signinsignup/SSRegisterActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/signinsignup/SSRegisterActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/signinsignup/SSResetPassword.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/signinsignup/SSResetPassword.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/signinsignup/SigninSignupActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/signinsignup/SigninSignupActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/signinsignup/lanuching.java" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/signinsignup/lanuching.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/splash/SplashActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/splash/SplashActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/termsPolicy/Privacy.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/termsPolicy/Privacy.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/termsPolicy/Terms.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/termsPolicy/Terms.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/voip/CallProcessingActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/voip/CallProcessingActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/voip/NewTaxiSinchService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/java/com/tkpmnc/newtaxiusers/taxiapp/views/voip/NewTaxiSinchService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/drawable/app_a_app_logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/drawable/app_a_app_logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/drawable/app_a_app_splash_icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/drawable/app_a_app_splash_icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/drawable/app_a_notification_icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/drawable/app_a_notification_icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/drawable/splash.png" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/drawable/splash.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/activity_calling_processing.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/activity_calling_processing.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/activity_cars_available.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/activity_cars_available.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/activity_common_dialog.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/activity_common_dialog.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/activity_custom_dialog.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/activity_custom_dialog.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/activity_permission_over_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/activity_permission_over_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/activity_sos_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/activity_sos_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/activity_splash.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/activity_splash.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/activity_ss_resetpassword.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/activity_ss_resetpassword.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/addphoto_header.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/addphoto_header.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_acitvity_signin_signup.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_acitvity_signin_signup.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_add_card.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_add_card.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_add_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_add_home.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_add_wallet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_add_wallet.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_cancel_your_trip.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_cancel_your_trip.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_chat.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_chat.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_driver_contact.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_driver_contact.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_driver_not_accept.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_driver_not_accept.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_driverrating.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_driverrating.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_emergency_contact.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_emergency_contact.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_en_route.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_en_route.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_fare_breakdown.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_fare_breakdown.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_number_verfication.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_number_verfication.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_otpactivity.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_otpactivity.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_past.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_past.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_phone_verification.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_phone_verification.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_place_search.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_place_search.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_profile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_profile.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_receipt.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_receipt.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_schedule_ride.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_schedule_ride.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_schedule_ride_detail_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_schedule_ride_detail_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_sending_request.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_sending_request.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_setting.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_setting.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_show_referral_option.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_show_referral_option.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_sslogin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_sslogin.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_sssocial_details.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_sssocial_details.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_trip_details.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_trip_details.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_upcoming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_activity_upcoming.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_adapter_firebase_chat_single_row.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_adapter_firebase_chat_single_row.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_banner_layout_service.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_banner_layout_service.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_bar_home_toolbar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_bar_home_toolbar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_bottom_sheet_for_language_currency.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_bottom_sheet_for_language_currency.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_bottomsheet_emergency_contact.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_bottomsheet_emergency_contact.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_bottomsheet_tip_amount.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_bottomsheet_tip_amount.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_camera_dialog_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_camera_dialog_layout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_car_details.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_car_details.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_card_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_card_layout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_common_header.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_common_header.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_content_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_content_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_dialogsignup_cancel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_dialogsignup_cancel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_emergency_contact_detail.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_emergency_contact_detail.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_nav_header_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_nav_header_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_peek_pricing.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_peek_pricing.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_recyclerview_adapter_referral_friends_status_sing_row.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_recyclerview_adapter_referral_friends_status_sing_row.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_schedule_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_schedule_layout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_social_facebook_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_social_facebook_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_social_login_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_social_login_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_support_layout_service.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_support_layout_service.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_user_choice_items.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/app_user_choice_items.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/custom_emergency_dialog.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/custom_emergency_dialog.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/dialog_logout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/dialog_logout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/filter_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/filter_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/layout_seat.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/layout_seat.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/location_search.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/location_search.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/select_gender.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/select_gender.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/single_day_picker.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/single_day_picker.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/spinner_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/spinner_layout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/update_filters.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/update_filters.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/update_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/layout/update_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/menu/activity_main_drawer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/menu/activity_main_drawer.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/mipmap-mdpi/ic_launcher_foreground.png" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/mipmap-mdpi/ic_launcher_foreground.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../User-App/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../User-App/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/Constants/constants.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Web_and_Backend/app/Constants/constants.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/Contracts/SMSInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/DataTables/CancelReasonDataTable.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/DataTables/CancelTripsDataTable.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/DataTables/MetasDataTable.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/DataTables/PayoutDataTable.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/DataTables/RequestDataTable.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/DataTables/RoleDataTable.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/DataTables/SupportDataTable.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/Helpers/helpers.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/Http/Controllers/Admin/AppVersionController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/Http/Controllers/Admin/BannerController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/Http/Controllers/Admin/CancelReasonController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/Http/Controllers/Admin/EmailController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/Http/Controllers/Admin/FeesController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/Http/Controllers/Admin/HelpCategoryController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/Http/Controllers/Admin/HelpController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/Http/Controllers/Admin/HelpSubCategoryController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/Http/Controllers/Admin/JoinUsController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/Http/Controllers/Admin/LanguageController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/Http/Controllers/Admin/LocaleFileController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/Http/Controllers/Admin/MetasController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/Http/Controllers/Admin/PagesController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/Http/Controllers/Admin/PaymentGatewayController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/Http/Controllers/Admin/ReferralSettingsController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/Http/Controllers/Admin/ReferralsController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/Http/Controllers/Admin/RequestController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/Http/Controllers/Admin/RolesController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/Http/Controllers/Admin/SendmessageController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/Http/Controllers/Admin/SiteSettingsController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/Http/Controllers/Admin/StatementController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/Http/Controllers/Admin/SupportController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/Http/Controllers/Admin/TollReasonController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/Http/Helper/FacebookHelper.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/Http/Helper/OtpHelper.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/Http/Helper/PaymentHelper.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/Http/Helper/RequestHelper.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/Http/Middleware/CheckForMaintenanceMode.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/Http/Middleware/GetUserFromToken.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/Http/Middleware/RedirectIfDriverAuthenticated.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/Http/Middleware/RedirectIfRiderAuthenticated.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/Http/Middleware/canInstall.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/Http/Requests/StoreCancelReasonRequest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/Http/Requests/StoreTollReasonRequest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/Http/Start/helpers.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/Http/Start/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/Services/Auth/AuthViaApple.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/Services/Auth/AuthViaEmail.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/Services/Auth/AuthViaFacebook.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/Services/Auth/AuthViaGoogle.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/app/Services/SMS/TwillioSms.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/composer/ClassLoader.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/composer/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/composer/autoload_classmap.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/composer/autoload_files.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/composer/autoload_namespaces.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/composer/autoload_psr4.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/composer/autoload_real.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/composer/autoload_static.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/config/backup.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/config/dompdf.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/config/entrust_seeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Web_and_Backend/config/entrust_seeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/config/excel.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2014_08_25_160119_create_country_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2014_10_11_095317_create_companies_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2014_10_12_100000_create_password_resets_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2015_08_17_142217_create_session_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2015_08_23_070159_create_site_settings_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2015_09_24_163220_create_admins_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2016_03_25_173347_create_pages_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2016_03_27_084526_create_join_us_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2016_04_02_160807_create_metas_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2016_05_09_140352_create_help_category_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2016_05_09_140411_create_help_subcategory_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2016_05_09_140500_create_help_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2016_10_13_114638_create_currency_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2017_04_18_070421_create_profile_picture_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2017_04_18_080501_create_driver_documents_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2017_04_24_071834_create_driver_address_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2017_04_24_141629_create_car_type_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2017_04_25_063221_create_driver_location_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2017_04_27_101812_create_request_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2017_05_08_123453_create_toll_reason_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2017_05_09_044810_create_trips_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2017_05_23_060535_create_rider_location_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2017_05_24_092403_create_rating_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2017_05_24_095832_create_cancel_reasons_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2017_05_24_095833_create_cancel_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2017_06_01_130626_create_fees_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2017_06_08_085929_create_api_credentials_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2017_09_21_115741_create_jobs_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2018_03_09_193432_create_help_category_lang_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2018_03_09_193447_create_help_sub_category_lang_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2018_04_02_130448_create_language_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2018_07_13_063641_CreateEmergencySosTable.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2018_07_13_073129_create_schedule_ride_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2018_07_16_063607_entrust_setup_tables.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2018_08_08_100000_create_telescope_entries_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2019_01_09_111401_create_locations_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2019_01_09_115510_create_manage_fare_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2019_01_09_120028_create_peak_fare_details_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2019_01_19_062416_create_email_settings_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2019_02_06_055025_create_help_translations_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2019_03_07_131731_create_schedule_cancel_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2019_04_11_115908_create_vehicle_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2019_06_22_052259_create_referral_settings_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2019_10_18_130612_create_trip_toll_reasons_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2020_02_24_070641_create_failed_jobs_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2020_05_28_105123_create_pool_trips_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2020_07_10_061326_create_vehicle_make.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2020_07_10_090927_create_vehicle_model.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2020_07_10_135338_create_documents_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2020_07_25_061824_create_documents_langs_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2020_10_20_113351_create_filter_options_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2020_10_22_070142_create_filter_objects_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2020_10_22_123351_create_filter_options_translations.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2020_11_05_132127_create_supports_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2021_03_11_102950_create_app_version_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2021_05_17_082442_create_cancel_reason_translations_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/migrations/2021_05_19_044410_create_pages_translations.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/seeds/ApiCredentialsTableSeeder.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/seeds/CancelReasonsTableSeeder.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/seeds/CompaniesTableSeeder.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/seeds/CountryTableSeeder.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/seeds/CurrencyTableSeeder.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/seeds/DatabaseSeeder.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/seeds/EmailSettingsTableSeeder.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/seeds/FeesTableSeeder.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/seeds/FilterOptionsTableSeeder.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/seeds/JoinUsTableSeeder.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/seeds/LanguageTableSeeder.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/seeds/LaravelEntrustSeeder.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/seeds/MakeVehicleTableSeeder.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/seeds/MetasTableSeeder.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/seeds/PagesTableSeeder.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/seeds/ReferralSettingsTableSeeder.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/seeds/SiteSettingsTableSeeder.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/seeds/SupportTableSeeder.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/seeds/TollReasonSeeder.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/seeds/VehiclesTableSeeder.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/database/seeds/vehicleModelTableSeeder.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/public/js/web_payment.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/public/trip_file/10_file.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/public/trip_file/11_file.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/public/trip_file/12_file.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/public/trip_file/13_file.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/public/trip_file/14_file.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/public/trip_file/15_file.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/public/trip_file/16_file.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/public/trip_file/17_file.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/public/trip_file/18_file.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/public/trip_file/19_file.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/public/trip_file/1_file.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/public/trip_file/20_file.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/public/trip_file/2_file.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/public/trip_file/32_file.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/public/trip_file/33_file.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/public/trip_file/34_file.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/public/trip_file/3_file.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/public/trip_file/4_file.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/public/trip_file/5_file.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/public/trip_file/6_file.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/public/trip_file/7_file.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/public/trip_file/8_file.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/public/trip_file/9_file.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/app_version/add.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/app_version/edit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/app_version/view.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/banner/add.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/banner/edit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/banner/view.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/cancel_reason/add.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/cancel_reason/edit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/cancel_reason/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/cancel_reason/view.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/email/email_settings.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/email/send_email.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/help/add.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/help/edit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/help/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/help/view.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/help_category/add.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/help_category/edit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/help_category/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/help_category/view.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/help_subcategory/add.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/help_subcategory/edit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/help_subcategory/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/help_subcategory/view.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/metas/edit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/metas/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/metas/view.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/pages/add.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/pages/edit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/pages/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/pages/view.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/payouts/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/payouts/view.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/request/details.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/request/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/request/view.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/roles/add.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/roles/edit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/roles/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/roles/view.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/statements/driver_statement.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/statements/main.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/statements/provider.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/support/add.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/support/edit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/support/view.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/toll_reason/add.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/toll_reason/edit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/toll_reason/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/admin/toll_reason/view.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/common/driver_dashboard_footer.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/common/driver_dashboard_header.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/common/driver_dashboard_side_menu.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/common/help_header.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/dashboard/deleteacc.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/dashboard/mobile_number_change.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/dashboard/profile.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/dashboard/trip.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/dashboard/trip_detail.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/drive/drive.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/drive/drive_safety.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/drive/driver_app.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/drive/requirements.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/driver_dashboard/add_vehicle.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/driver_dashboard/add_vehicle_new.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/driver_dashboard/deleteaccount.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/driver_dashboard/driver_profile.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/driver_dashboard/driver_trip.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/driver_dashboard/driver_trip_detail.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/driver_dashboard/edit_vehicle.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/driver_dashboard/vehicle.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/emails/common/footer.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/emails/common/header.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/emails/custom_email.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/emails/forgot_password.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/emails/payout_preferences.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/emails/pop_email.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/emails/pop_template.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/emails/template.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/emails/template_two.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/help/help.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/home/apps.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/home/fare_estimate.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/home/help.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/home/home.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/home/static_pages.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/ride/how_it_works.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/ride/ride.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/ride/safety.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/user/disabled.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/user/driver_car_details.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/user/driver_deletion.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/user/forgot_password.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/user/login.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/user/otp_popup.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/user/reset_password.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/user/rider_deletion.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/user/signin.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/user/signin_company.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/user/signin_driver.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/user/signin_rider.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/user/signup.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/user/signup_company.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/user/signup_driver.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/user/signup_rider.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/vendor/mail/html/button.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/vendor/mail/html/footer.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/vendor/mail/html/header.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/vendor/mail/html/layout.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/vendor/mail/html/message.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/vendor/mail/html/panel.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/vendor/mail/html/promotion.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/vendor/mail/html/promotion/button.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/vendor/mail/html/subcopy.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/vendor/mail/html/table.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/vendor/mail/html/themes/default.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/vendor/mail/markdown/button.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/vendor/mail/markdown/footer.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/vendor/mail/markdown/header.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/vendor/mail/markdown/layout.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/vendor/mail/markdown/message.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/vendor/mail/markdown/panel.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/vendor/mail/markdown/promotion.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/vendor/mail/markdown/promotion/button.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/vendor/mail/markdown/subcopy.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/vendor/mail/markdown/table.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/resources/views/vendor/notifications/email.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/routes/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Web_and_Backend/routes/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Web_and_Backend/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web_and_Backend/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Web_and_Backend/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,25 +625,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ApkExportedModule": "Driver-App.app",
-    "ExportApk.ApkPathForDriver-App.app": "/Users/odhiamboatieno/Desktop/M16/NewTaxi-1.6/Driver-App/app",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "android-custom-viewG:/CNTT/VB2 HCMUS/HK V/CDTKPMNC/Do An Cuoi Khoa 2023/Taxi_Application/Driver-App/app/src/main/java/com/tkpmnc/sgtaxidriver/home/earning/BarView.kt_SELECTED": "BarView",
-    "cidr.known.project.marker": "true",
-    "com.google.services.firebase.aqiPopupShown": "true",
-    "last_opened_file_path": "G:/CNTT/VB2 HCMUS/HK V/CDTKPMNC/Do An Cuoi Khoa 2023/Taxi_Application/Driver-App",
-    "memory.settings.postsync.last.time.stamp": "1690547596121"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ApkExportedModule&quot;: &quot;Driver-App.app&quot;,
+    &quot;ExportApk.ApkPathForDriver-App.app&quot;: &quot;/Users/odhiamboatieno/Desktop/M16/NewTaxi-1.6/Driver-App/app&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;android-custom-viewG:/CNTT/VB2 HCMUS/HK V/CDTKPMNC/Do An Cuoi Khoa 2023/Taxi_Application/Driver-App/app/src/main/java/com/tkpmnc/sgtaxidriver/home/earning/BarView.kt_SELECTED&quot;: &quot;BarView&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;com.google.services.firebase.aqiPopupShown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;G:/CNTT/VB2 HCMUS/HK V/CDTKPMNC/Do An Cuoi Khoa 2023/Taxi_Application/Driver-App&quot;,
+    &quot;memory.settings.postsync.last.time.stamp&quot;: &quot;1690547596121&quot;
   },
-  "keyToStringList": {
-    "ExportApk.BuildVariants": [
-      "debug"
+  &quot;keyToStringList&quot;: {
+    &quot;ExportApk.BuildVariants&quot;: [
+      &quot;debug&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/src/main/res/layout" />

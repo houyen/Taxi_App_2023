@@ -31,7 +31,7 @@
                     ></include>
 
 
-            <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
+            <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
                     android:id="@+id/tv_referral_friend_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -49,7 +49,7 @@
 
                     />
 
-            <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
+            <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
                     android:id="@+id/tv_remaining_days_and_trips"
                     android:layout_width="@dimen/_150adp"
                     android:layout_height="wrap_content"
@@ -81,7 +81,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     >
 
-                <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
+                <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
                         android:id="@+id/tv_amount_gain"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

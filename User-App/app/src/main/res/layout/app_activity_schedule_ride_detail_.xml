@@ -36,7 +36,7 @@
                     >
 
 
-                <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
+                <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
                         android:id="@+id/trip_date_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -76,7 +76,7 @@
                     android:paddingEnd="@dimen/_20adp"
                     >
 
-                <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
+                <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="@dimen/_5adp"
@@ -86,7 +86,7 @@
                         app:fontName="@string/font_Medium"
                         />
 
-                <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
+                <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
                         android:id="@+id/amountscheduled"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -98,7 +98,7 @@
                         app:fontName="@string/font_News"
                         />
 
-                <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
+                <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="@dimen/_5adp"
@@ -123,7 +123,7 @@
                     >
 
 
-                <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
+                <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
                         android:id="@+id/done"
                         android:layout_width="match_parent"
                         android:layout_height="60dp"

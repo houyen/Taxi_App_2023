@@ -34,10 +34,12 @@
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
                     />
+
+
         </androidx.cardview.widget.CardView>
 
 
-        <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
+        <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
             android:id="@+id/tv_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -53,7 +55,7 @@
             android:textSize="@dimen/_16asp"
             app:fontName="@string/font_Medium" />
 
-        <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
+        <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
             android:id="@+id/username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -69,6 +71,16 @@
             android:textColor="@color/white"
             android:textSize="@dimen/_16asp"
             app:fontName="@string/font_Medium" />
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/vip_image1"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:paddingStart="@dimen/_16adp"
+            android:layout_below="@+id/username"
+            android:layout_gravity="center_horizontal"
+            android:layout_toEndOf="@+id/card_view"
+            android:scaleType="centerCrop"
+            android:src="@drawable/vip" />
 
         <TextView
                 android:layout_width="wrap_content"

@@ -10,7 +10,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-        <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
+        <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
                 android:id="@+id/canceltext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -21,7 +21,7 @@
                 android:textSize="@dimen/_16asp"
                 app:fontName="@string/font_Medium" />
 
-        <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
+        <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
                 android:id="@+id/cancel5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -43,7 +43,7 @@
                 android:layout_marginTop="@dimen/_25adp"
                 android:weightSum="2">
 
-            <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontButton
+            <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontButton
                     android:id="@+id/signup_cancel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -57,7 +57,7 @@
                     android:textSize="@dimen/_16asp"
                     app:fontName="@string/font_Medium" />
 
-            <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontButton
+            <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontButton
                     android:id="@+id/signup_cancel_confirm"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

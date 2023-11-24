@@ -33,7 +33,7 @@
                 />
 
 
-        <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
+        <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10adp"
@@ -44,7 +44,7 @@
                 app:fontName="@string/font_Medium"
                 />
 
-        <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
+        <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -59,7 +59,7 @@
                 app:fontName="@string/font_Medium"
                 />
 
-        <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
+        <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
                 android:id="@+id/tickshad"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -132,7 +132,7 @@
                             />
 
 
-                    <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
+                    <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
                             android:id="@+id/smooth"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -145,7 +145,7 @@
                             app:fontName="@string/font_Medium"
                             />
 
-                    <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
+                    <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
                             android:id="@+id/rateyour"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -170,7 +170,7 @@
                             />
 
 
-                    <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontEditText
+                    <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontEditText
                             android:id="@+id/rider_comments"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_150adp"
@@ -188,7 +188,7 @@
                             android:textCursorDrawable="@drawable/app_cursor_color"
                             android:textSize="@dimen/_15asp"
                             app:fontName="@string/font_Book"
-                            />
+                        tools:ignore="RtlCompat" />
 
                 </RelativeLayout>
 
@@ -206,10 +206,10 @@
                         android:paddingTop="@dimen/_10adp"
                         android:paddingEnd="@dimen/_20adp"
                         android:paddingBottom="@dimen/_10adp"
-                        android:visibility="visible"
+                        android:visibility="invisible"
                         >
 
-                    <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
+                    <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
                             android:id="@+id/tv_tip_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -235,7 +235,7 @@
 
                 </RelativeLayout>
 
-                <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
+                <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
                         android:id="@+id/tv_covid_feature"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -264,7 +264,7 @@
                         >
 
 
-                    <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontButton
+                    <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontButton
                             android:id="@+id/rate_submit"
                             style="@style/CommonBottomSheetButton"
                             android:layout_width="match_parent"

@@ -18,7 +18,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-            <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
+            <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
                     android:id="@+id/nameofcontact"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -48,7 +48,7 @@
                     android:layout_weight="0.3"
                      />
 
-            <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
+            <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
                     android:id="@+id/numberofcontact"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

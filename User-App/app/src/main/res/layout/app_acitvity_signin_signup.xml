@@ -36,7 +36,7 @@
                     android:layout_marginBottom="@dimen/_40adp"
                     app:srcCompat="@drawable/app_a_app_logo" />
 
-                <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
+                <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
                         android:id="@+id/tv_welcome"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -49,7 +49,7 @@
                         app:fontName="@string/font_UBERMedium"
                         />
 
-                <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
+                <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tv_welcome"
@@ -75,7 +75,7 @@
                     android:layout_marginBottom="@dimen/_15adp"
                     >
 
-                <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontButton
+                <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontButton
                         android:id="@+id/login"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -89,7 +89,7 @@
                         app:fontName="@string/font_UBERMedium"
                         />
 
-                <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontButton
+                <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontButton
                     android:id="@+id/signup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -167,12 +167,13 @@
                     android:id="@+id/rlt_language"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:visibility="invisible"
                     android:layout_below="@+id/rlt_sociallogin"
                     android:layout_centerHorizontal="true"
                     android:layout_margin="@dimen/_15adp"
                     >
 
-                <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
+                <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
                         android:id="@+id/tv_language"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -199,18 +200,7 @@
 
             </RelativeLayout>
 
-            <com.tkpmnc.newtaxiusers.appcommon.custompalette.FontTextView
-                android:id="@+id/text_view_privacy_policy"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/rlt_language"
-                android:layout_marginStart="@dimen/_15adp"
-                android:layout_marginEnd="@dimen/_15adp"
-                android:layout_marginBottom="@dimen/_15adp"
-                android:textAlignment="center"
-                android:textColor="@color/newtaxi_app_black"
-                android:textSize="@dimen/_18asp"
-                app:fontName="@string/font_UBERMedium" />
+
         </RelativeLayout>
     </ScrollView>
 </RelativeLayout>
