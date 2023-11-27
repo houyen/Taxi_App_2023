@@ -4,9 +4,9 @@
     [<!ENTITY appname "SG Taxi Driver">
         <!ENTITY riderbundle "com.tkpmnc.sgtaxiuser">
         <!ENTITY driverbundle "com.tkpmnc.sgtaxidriver">
-        <!ENTITY siteurl "https://sgtaxi.querysoftke.com/">
-        <!ENTITY googleMapKey "AIzaSyBjEDY9IfO_R61qEPUQDCoxydL9xkmhddI">
-        <!ENTITY googleAutoCompleteKey "AIzaSyBjEDY9IfO_R61qEPUQDCoxydL9xkmhddI">
+        <!ENTITY siteurl "https://taxiapp-tkpmnc.click/">
+        <!ENTITY googleMapKey "AIzaSyDpFzekXePARCI1WqbgcCCHWalRO7iVVrc">
+        <!ENTITY googleAutoCompleteKey "AIzaSyDpFzekXePARCI1WqbgcCCHWalRO7iVVrc">
         <!ENTITY firebaseDbMode "live">
         <!ENTITY otpEnable "false">
         ]>

@@ -62,11 +62,11 @@
 
 -dontwarn com.squareup.okhttp.**
 
--keep class com.tkpmnc.newtaxidriver.home.firebaseChat.FirebaseChatModelClass{ *; }
--keep class com.tkpmnc.newtaxidriver.home.datamodel{ *; }
--keep class com.tkpmnc.newtaxidriver.trips.voip.NewTaxiSinchService{ *; }
--keep class com.tkpmnc.newtaxidriver.home.map.FetchAddressIntentService{ *; }
--keep class com.tkpmnc.newtaxidriver.home.map.AppUtils{ *; }
--keep class com.tkpmnc.newtaxidriver.home.map.drawpolyline{ *; }
--keep class com.tkpmnc.newtaxidriver.home.map  { *; }
+-keep class com.tkpmnc.sgtaxidriver.home.firebaseChat.FirebaseChatModelClass{ *; }
+-keep class com.tkpmnc.sgtaxidriver.home.datamodel{ *; }
+-keep class com.tkpmnc.sgtaxidriver.trips.voip.NewTaxiSinchService{ *; }
+-keep class com.tkpmnc.sgtaxidriver.home.map.FetchAddressIntentService{ *; }
+-keep class com.tkpmnc.sgtaxidriver.home.map.AppUtils{ *; }
+-keep class com.tkpmnc.sgtaxidriver.home.map.drawpolyline{ *; }
+-keep class com.tkpmnc.sgtaxidriver.home.map  { *; }
 #}
