@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!DOCTYPE resources [
-    <!ENTITY appname "NewTaxi">
-    <!ENTITY driverbundle "com.seentechs.newtaxidrivers">
-    <!ENTITY siteurl "https://newtaxi.seentechs.com/">
-    <!ENTITY facebookKey "#FACEBOOK KEY HERE#">
-    <!ENTITY googleMapKey "#YOUR GOOGLR MAP KEY HERE#">
-    <!ENTITY googleAutoCompleteKey "#GOOGLE AUTOCOMPLETE KEY HERE#">
-    <!ENTITY googleClientId "#GOGLE CLIENT ID HERE#">
+    <!ENTITY appname "SG Taxi">
+    <!ENTITY driverbundle "com.tkpmnc.sgtaxidriver">
+    <!ENTITY siteurl "https://taxiapp-tkpmnc.click/">
+    <!ENTITY facebookKey "#FACEBOOK KEY HERE##">
+    <!ENTITY googleMapKey "AIzaSyDpFzekXePARCI1WqbgcCCHWalRO7iVVrc">
+    <!ENTITY googleAutoCompleteKey "AIzaSyDpFzekXePARCI1WqbgcCCHWalRO7iVVrc">
+    <!ENTITY googleClientId "#GOGLE CLIENT ID HERE##">
     <!ENTITY firebaseDbMode "live">
     <!ENTITY otpEnable "false">
     ]>
@@ -397,21 +397,10 @@
 
     <string-array name="language" translatable="false">
         <item>English</item>
-        <item>Français</item>
-        <item>Español</item>
-        <item>عربى</item>
-        <item>Nederlands</item>
-        <item>Português</item>
-        <item>فارسی</item>
     </string-array>
     <string-array name="languageCode" translatable="false">
         <item>en</item>
-        <item>fr</item>
-        <item>es</item>
-        <item>ar</item>
-        <item>nl</item>
-        <item>pt</item>
-        <item>fa</item>
+
     </string-array>
     <string name="minimum_fare">MINIMUM FARE</string>
     <string name="signin">Sign In</string>

@@ -15,7 +15,7 @@
             android:orientation="vertical"
             >
 
-        <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+        <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                 android:id="@+id/confirm_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -40,7 +40,7 @@
                 android:background="@color/newtaxi_app_white"
                 >
 
-            <com.seentechs.newtaxiusers.appcommon.custompalette.FontEditText
+            <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontEditText
                 android:id="@+id/nameofcontact"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -84,7 +84,7 @@
                         app:ccp_textSize="@dimen/_15asp"
                         />
 
-                <com.seentechs.newtaxiusers.appcommon.custompalette.FontEditText
+                <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontEditText
                     android:id="@+id/numberofcontact"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -118,7 +118,7 @@
                 android:weightSum="2"
                 >
 
-            <com.seentechs.newtaxiusers.appcommon.custompalette.FontButton
+            <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontButton
                     android:id="@+id/btn_cancel"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_50adp"
@@ -132,7 +132,7 @@
                     app:fontName="@string/font_Medium"
                     />
 
-            <com.seentechs.newtaxiusers.appcommon.custompalette.FontButton
+            <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontButton
                     android:id="@+id/btn_confirm"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_50adp"

@@ -3,12 +3,12 @@
 /**
  * Heat Map Controller
  *
- * @package     NewTaxi
+ * @package     SGTaxi
  * @subpackage  Controller
  * @category    HeatMap
- * @author      Seen Technologies
- * @version     2.2.1
- * @link        https://seentechs.com
+
+
+ * 
  */
 
 namespace App\Http\Controllers\Api;

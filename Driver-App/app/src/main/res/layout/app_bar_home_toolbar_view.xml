@@ -41,6 +41,7 @@
             android:layout_marginTop="@dimen/_15adp"
             android:layout_marginEnd="@dimen/_10adp"
             android:layout_toEndOf="@+id/homelist"
+            android:visibility="invisible"
             android:layout_weight="0.3"
             android:gravity="end">
 
@@ -59,7 +60,7 @@
                 app:textOn="@string/online" />
 
 
-            <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+            <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                 android:id="@+id/tv_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -88,7 +89,7 @@
                   android:checked="false" />-->
         </RelativeLayout>
 
-        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
             android:id="@+id/txt_checkdriverstatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

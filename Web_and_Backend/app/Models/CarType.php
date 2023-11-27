@@ -3,12 +3,12 @@
 /**
  * Car Type Model
  *
- * @package     NewTaxi
+ * @package     SGTaxi
  * @subpackage  Model
  * @category    Car Type
- * @author      Seen Technologies
- * @version     2.2.1
- * @link        https://seentechs.com
+
+
+ * 
  */
 
 namespace App\Models;

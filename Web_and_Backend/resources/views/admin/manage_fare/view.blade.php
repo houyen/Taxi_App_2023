@@ -5,12 +5,12 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Manage Fare
-      <small>Control panel</small>
+      Quản lý gia
+      <small>Bảng điều khiển</small>
     </h1>
     <ol class="breadcrumb">
-      <li><a href="{{ url('admin/dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li class="active">Manage Fare</li>
+      <li><a href="{{ url('admin/dashboard') }}"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
+      <li class="active">Quản lý giá</li>
     </ol>
   </section>
   <!-- Main content -->
@@ -19,9 +19,9 @@
       <div class="col-xs-12">
         <div class="box">
           <div class="box-header">
-            <!-- <h3 class="box-title">Manage Fare Management</h3> -->
+            <!-- <h3 class="box-title">Quản lý Fare Quản lýment</h3> -->
             <div style="float:right;">
-              <a class="btn btn-success" href="{{ url('admin/add_manage_fare') }}">Add Manage Fare</a>
+              <a class="btn btn-success" href="{{ url('admin/add_manage_fare') }}"> Quản lý giá</a>
             </div>
           </div>
           <!-- /.box-header -->

@@ -3,12 +3,12 @@
 /**
  * Driver Payment DataTable
  *
- * @package     NewTaxi
+ * @package     SGTaxi
  * @subpackage  DataTable
  * @category    Driver Payment
- * @author      Seen Technologies
- * @version     2.2.1
- * @link        https://seentechs.com
+
+
+ * 
  */
 
 namespace App\DataTables;
@@ -91,22 +91,6 @@ class DriverPaymentDataTable extends DataTable
         return $owe;
     }
 
-    /**
-     * Optional method if you want to use html builder.
-     *
-     * @return \Yajra\DataTables\Html\Builder
-     */
-    public function html()
-    {
-        return $this->builder()
-                    ->columns($this->getColumns())
-                    ->minifiedAjax()
-                    ->dom('lBfr<"table-responsive"t>ip')
-                    ->orderBy(0,'DESC')
-                    ->buttons(
-                        ['csv', 'excel', 'print', 'reset']
-                    );
-    }
 
     /**
      * Get columns.

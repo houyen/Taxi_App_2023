@@ -8,7 +8,7 @@
 
         <variable
             name="make"
-            type="com.seentechs.newtaxidriver.home.datamodel.Make" />
+            type="com.tkpmnc.sgtaxidriver.home.datamodel.Make" />
 
     </data>
 
@@ -23,7 +23,7 @@
         android:paddingBottom="@dimen/_5adp">
 
 
-        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
             android:id="@+id/tv_car_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -60,4 +60,3 @@
     </LinearLayout>
 
 </layout>
-

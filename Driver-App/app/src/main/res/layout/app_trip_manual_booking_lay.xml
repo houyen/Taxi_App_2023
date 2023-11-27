@@ -36,7 +36,7 @@
                     android:orientation="horizontal"
                     android:weightSum="2">
 
-                <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/trip_status"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -48,7 +48,7 @@
                     app:fontname="@string/font_Medium"
                     />
 
-                    <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                    <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                         android:id="@+id/trip_amount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -73,7 +73,7 @@
                     android:layout_marginTop="@dimen/_5adp"
                     android:weightSum="2">
 
-                    <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                    <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                         android:id="@+id/trip_id_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -86,7 +86,7 @@
                         app:fontname="@string/font_Medium"
                         />
 
-                    <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                    <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                         android:id="@+id/car_type"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -157,7 +157,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
-                        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                        <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                             android:id="@+id/pickupaddress"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_30adp"
@@ -174,7 +174,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
-                        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                        <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                             android:id="@+id/destadddress"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_30adp"
@@ -185,7 +185,7 @@
                             android:textColor="@color/newtaxi_app_black"
                             android:textSize="@dimen/_15asp">
 
-                        </com.seentechs.newtaxidriver.common.custompalette.FontTextView>
+                        </com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView>
 
 
                     </RelativeLayout>

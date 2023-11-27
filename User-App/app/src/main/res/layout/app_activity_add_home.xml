@@ -23,7 +23,7 @@
                 layout="@layout/app_common_header"/>
 
 
-        <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+        <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                 android:id="@+id/destclose"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_30adp"
@@ -39,7 +39,7 @@
                 app:fontName="@string/font_UberClone"
                 />
 
-        <com.seentechs.newtaxiusers.appcommon.custompalette.FontEditText
+        <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontEditText
                 android:id="@+id/destadddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -60,7 +60,7 @@
                 >
 
             <requestFocus />
-        </com.seentechs.newtaxiusers.appcommon.custompalette.FontEditText>
+        </com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontEditText>
     </RelativeLayout>
 
 
@@ -112,7 +112,7 @@
                         android:layout_height="wrap_content"
                         >
 
-                    <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+                    <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                             android:id="@+id/setlocationimage"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -135,7 +135,7 @@
                             android:visibility="visible"
                             >
 
-                        <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+                        <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/setlocationonmap"
@@ -144,7 +144,7 @@
                                 app:fontName="@string/font_News"
                                 />
 
-                        <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+                        <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/setlocationonmap"
@@ -197,7 +197,7 @@
                 android:visibility="gone"
                 />
 
-        <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+        <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                 android:id="@+id/drop_done"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -214,5 +214,3 @@
     </RelativeLayout>
 
 </RelativeLayout>
-
-

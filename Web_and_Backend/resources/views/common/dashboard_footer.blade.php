@@ -76,24 +76,6 @@
       <li><a class="_style_2HGMjk" href="{{ url('how_it_works') }}"> How It Works </a></li>
     </ul>
   </div>
-  <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
-    <div class="currency_select">
-      <select id="js-currency-select" class="select payment-select paysel" style="width: 100%; background-color: #000;">
-        @foreach($currency_select as $code)
-        <option value="{{$code}}" @if(session('currency') == $code ) selected="selected" @endif >{{$code}}</option>
-        @endforeach
-      </select>
-    </div>
-  </div>
-  <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
-    <div class="currency_select">
-      <select id="js-currency-select" class="select payment-select paysel" style="width: 100%; background-color: #000;">
-        @foreach($currency_select as $code)
-        <option value="{{$code}}" @if(session('currency') == $code ) selected="selected" @endif >{{$code}}</option>
-        @endforeach
-      </select>
-    </div>
-  </div>
   <div class="col-lg-4 col-md-3 col-sm-3 col-xs-12">
     <div class="app-links clearfix mobile-links">
       <div class="app-title col-xs-12 p-0">

@@ -311,13 +311,9 @@ class HomeController extends Controller
     
     public static function flutterwave(Request $request)
     {
-        $data['amount'] = 100;
-		$data['currency_code'] = 'USD';
-		$data['payment_type'] = 'paypal';
-		$data['pay_for'] = 'wallet';
 		$data['token'] = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vdmlub3RoLmNvbS9nb2Zlci9wdWJsaWMvYXBpL2xvZ2luIiwiaWF0IjoxNjE2MTMzNjg0LCJleHAiOjE2MTg3NjE2ODQsIm5iZiI6MTYxNjEzMzY4NCwianRpIjoiMzY4ejZXNnhLWWJDdGdKeCIsInN1YiI6MTAxMDcsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.IIJaQNbwXXvZzjmKD8TYB3ktPLPacEtobdWcNo-YKMc';
 
-		return array('view'=>'paypal','data'=>$data);
+		return array('view'=>'','data'=>$data);
     
     }
 
@@ -394,9 +390,6 @@ class HomeController extends Controller
         }
 
         if ($response->data->status == "successful" && $response->data->chargecode == "00" && $deposit->final_amo == $response->data->amount && $deposit->method_currency == $response->data->currency && $deposit->status == '0') {
-            PaymentController::userDataUpdate($deposit->trx);
-
-
             $message = 'Transaction was successful, Ref: ' . $track;
             $notify[] = ['success', $message];
             $notifyApi[] = $message;

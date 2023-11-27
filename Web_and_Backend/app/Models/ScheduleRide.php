@@ -3,12 +3,12 @@
 /**
  * ScheduleRide Model
  *
- * @package     NewTaxi
+ * @package     SGTaxi
  * @subpackage  Model
  * @category    ScheduleRide
- * @author      Seen Technologies
- * @version     2.2.1
- * @link        https://seentechs.com
+
+
+ * 
  */
 
 namespace App\Models;

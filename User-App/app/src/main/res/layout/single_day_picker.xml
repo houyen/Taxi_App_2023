@@ -14,14 +14,14 @@
         android:gravity="center"
         android:orientation="horizontal">
 
-        <com.seentechs.newtaxiusers.taxiapp.singledateandtimepicker.widget.WheelDayPicker
+        <com.tkpmnc.sgtaxiuser.taxiapp.singledateandtimepicker.widget.WheelDayPicker
             android:id="@+id/daysPicker"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             app:wheel_atmospheric="true"
             app:wheel_item_align="right" />
 
-        <com.seentechs.newtaxiusers.taxiapp.singledateandtimepicker.widget.WheelDayOfMonthPicker
+        <com.tkpmnc.sgtaxiuser.taxiapp.singledateandtimepicker.widget.WheelDayOfMonthPicker
                 android:id="@+id/daysOfMonthPicker"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -30,7 +30,7 @@
                 app:wheel_atmospheric="true"
                 app:wheel_item_align="right" />
 
-        <com.seentechs.newtaxiusers.taxiapp.singledateandtimepicker.widget.WheelMonthPicker
+        <com.tkpmnc.sgtaxiuser.taxiapp.singledateandtimepicker.widget.WheelMonthPicker
                 android:id="@+id/monthPicker"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -39,7 +39,7 @@
                 app:wheel_atmospheric="true"
                 app:wheel_item_align="right" />
 
-        <com.seentechs.newtaxiusers.taxiapp.singledateandtimepicker.widget.WheelYearPicker
+        <com.tkpmnc.sgtaxiuser.taxiapp.singledateandtimepicker.widget.WheelYearPicker
                 android:id="@+id/yearPicker"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -48,7 +48,7 @@
                 android:layout_marginStart="5dp"
                 android:layout_marginEnd="5dp"/>
 
-        <com.seentechs.newtaxiusers.taxiapp.singledateandtimepicker.widget.WheelHourPicker
+        <com.tkpmnc.sgtaxiuser.taxiapp.singledateandtimepicker.widget.WheelHourPicker
                 android:id="@+id/hoursPicker"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -57,14 +57,14 @@
                 app:wheel_atmospheric="true"
                 app:wheel_item_align="center" />
 
-        <com.seentechs.newtaxiusers.taxiapp.singledateandtimepicker.widget.WheelMinutePicker
+        <com.tkpmnc.sgtaxiuser.taxiapp.singledateandtimepicker.widget.WheelMinutePicker
             android:id="@+id/minutesPicker"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             app:wheel_atmospheric="true"
             app:wheel_item_align="center" />
 
-        <com.seentechs.newtaxiusers.taxiapp.singledateandtimepicker.widget.WheelAmPmPicker
+        <com.tkpmnc.sgtaxiuser.taxiapp.singledateandtimepicker.widget.WheelAmPmPicker
                 android:id="@+id/amPmPicker"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"

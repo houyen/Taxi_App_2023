@@ -45,7 +45,7 @@
                         android:src="@drawable/ic_emergency_alert"
                         />
 
-                <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+                <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
@@ -82,7 +82,7 @@
                         android:src="@drawable/messagewarningnormal"
                         />
 
-                <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+                <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_10adp"
@@ -112,7 +112,7 @@
                     >
 
 
-                <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+                <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_25adp"
@@ -125,7 +125,7 @@
                         app:fontName="@string/font_Medium"
                         />
 
-                <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+                <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                         android:id="@+id/close"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

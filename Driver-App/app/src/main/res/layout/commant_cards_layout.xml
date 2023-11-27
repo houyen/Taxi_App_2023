@@ -20,7 +20,7 @@
         android:padding="@dimen/_5adp"
         >
 
-        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
             android:id="@+id/comant"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -45,7 +45,7 @@
             android:isIndicator="true"
             />
 
-        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
             android:id="@+id/date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

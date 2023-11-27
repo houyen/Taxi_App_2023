@@ -9,7 +9,7 @@
       Edit Company
     </h1>
     <ol class="breadcrumb">
-      <li><a href="{{ url(LOGIN_USER_TYPE.'/dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li><a href="{{ url(LOGIN_USER_TYPE.'/dashboard') }}"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
       @if(LOGIN_USER_TYPE == 'admin')
       <li><a href="{{ url(LOGIN_USER_TYPE.'/company') }}">Companies</a></li>
       @endif
@@ -31,7 +31,7 @@
           {!! Form::open(['url'=>LOGIN_USER_TYPE.'/edit_company/'.$result->id, 'class'=>'form-horizontal', 'files'=>true, 'id'=>'company_form', 'novalidate']) !!}
           {{ Form::hidden('user_id', $result->id, array('id'=>'user_id')) }}
           <div class="box-body">
-            <span class="text-danger">(*)Fields are Mandatory</span>
+            <span class="text-danger">(*)Trường bắt buộc</span>
             <div class="form-group">
               <label for="input_name" class="col-sm-3 control-label">Name <em class="text-danger">*</em></label>
               <div class="col-md-7 col-sm-offset-1">
@@ -57,69 +57,69 @@
             </div>
 
             <div class="form-group">
-              <label for="input_password" class="col-sm-3 control-label">Password</label>
+              <label for="input_password" class="col-sm-3 control-label">Mật khẩu</label>
               <div class="col-md-7 col-sm-offset-1">
-                {!! Form::text('password', '', ['class' => 'form-control', 'id' => 'input_password', 'placeholder' => 'Password']) !!}
+                {!! Form::text('password', '', ['class' => 'form-control', 'id' => 'input_password', 'placeholder' => 'Mật khẩu']) !!}
                 <span class="text-danger">{{ $errors->first('password') }}</span>
               </div>
             </div>
 
-            {!! Form::hidden('user_type','Company', ['class' => 'form-control', 'id' => 'user_type', 'placeholder' => 'Select']) !!}
+            {!! Form::hidden('user_type','Company', ['class' => 'form-control', 'id' => 'user_type', 'placeholder'  => 'Chọn']) !!}
             <div class="form-group">
-              <label for="input_country_code" class="col-sm-3 control-label">Country Code<em class="text-danger">*</em></label>
+              <label for="input_country_code" class="col-sm-3 control-label">Quốc tịch<em class="text-danger">*</em></label>
               <div class="col-md-7 col-sm-offset-1">
                 
-                {!! Form::select('country_code', $country_code_option, $result->country_id, ['class' => 'form-control', 'id' => 'input_country_code', 'placeholder' => 'Select']) !!}
+                {!! Form::select('country_code', $country_code_option, $result->country_id, ['class' => 'form-control', 'id' => 'input_country_code', 'placeholder'  => 'Chọn']) !!}
                 <span class="text-danger">{{ $errors->first('country_code') }}</span>
               </div>
             </div>
 
             <div class="form-group">
-              <label for="input_status" class="col-sm-3 control-label">Mobile Number</label>
+              <label for="input_status" class="col-sm-3 control-label">Số điện thoại</label>
               <div class="col-md-7 col-sm-offset-1">
-                {!! Form::text('mobile_number', $result->env_mobile_number, ['class' => 'form-control', 'id' => 'mobile_number', 'placeholder' => 'Mobile Number']) !!}
+                {!! Form::text('mobile_number', $result->env_mobile_number, ['class' => 'form-control', 'id' => 'mobile_number', 'placeholder' => 'Số điện thoại']) !!}
                 <span class="text-danger">{{ $errors->first('mobile_number') }}</span>
               </div>
             </div> 
 
             @if(LOGIN_USER_TYPE!='company') 
             <div class="form-group">
-              <label for="input_status" class="col-sm-3 control-label">Status <em class="text-danger">*</em></label>
+              <label for="input_status" class="col-sm-3 control-label">Trạng thái <em class="text-danger">*</em></label>
               <div class="col-md-7 col-sm-offset-1">
-                {!! Form::select('status', array('Active' => 'Active', 'Inactive' => 'Inactive', 'Pending' => 'Pending'), $result->status, ['class' => 'form-control', 'id' => 'input_status', 'placeholder' => 'Select']) !!}
+                {!! Form::select('status', array('Active' => 'Hoạt động', 'Inactive'  => 'Ẩn', 'Đợi duyệt' => 'Đợi duyệt'), $result->status, ['class' => 'form-control', 'id' => 'input_status', 'placeholder'  => 'Chọn']) !!}
                 <span class="text-danger">{{ $errors->first('status') }}</span>
               </div>
             </div>
             @endif
 
             <div class="form-group">
-              <label for="input_status" class="col-sm-3 control-label">Address Line <em class="text-danger">*</em></label>
+              <label for="input_status" class="col-sm-3 control-label">Địa chỉ <em class="text-danger">*</em></label>
               <div class="col-md-7 col-sm-offset-1">
-                {!! Form::text('address_line',$result->address, ['class' => 'form-control', 'id' => 'address_line', 'placeholder' => 'Address Line']) !!}
+                {!! Form::text('address_line',$result->address, ['class' => 'form-control', 'id' => 'address_line', 'placeholder' => 'Địa chỉ']) !!}
                 <span class="text-danger">{{ $errors->first('address_line') }}</span>
               </div>
             </div>
 
             <div class="form-group">
-              <label for="input_status" class="col-sm-3 control-label">City </label>
+              <label for="input_status" class="col-sm-3 control-label">Thành phố </label>
               <div class="col-md-7 col-sm-offset-1">
-                {!! Form::text('city',$result->city, ['class' => 'form-control', 'id' => 'city', 'placeholder' => 'City']) !!}
+                {!! Form::text('city',$result->city, ['class' => 'form-control', 'id' => 'city', 'placeholder' => 'Thành phố']) !!}
                 <span class="text-danger">{{ $errors->first('city') }}</span>
               </div>
             </div>
 
             <div class="form-group">
-              <label for="input_status" class="col-sm-3 control-label">State</label>
+              <label for="input_status" class="col-sm-3 control-label">Tỉnh</label>
               <div class="col-md-7 col-sm-offset-1">
-                {!! Form::text('state',$result->state, ['class' => 'form-control', 'id' => 'state', 'placeholder' => 'State']) !!}
+                {!! Form::text('state',$result->state, ['class' => 'form-control', 'id' => 'state', 'placeholder' => 'Tỉnh']) !!}
                 <span class="text-danger">{{ $errors->first('state') }}</span>
               </div>
             </div> 
 
             <div class="form-group">
-              <label for="input_status" class="col-sm-3 control-label">Postal Code <em class="text-danger">*</em></label>
+              <label for="input_status" class="col-sm-3 control-label">Mã bưu điện <em class="text-danger">*</em></label>
               <div class="col-md-7 col-sm-offset-1">
-                {!! Form::text('postal_code',$result->postal_code, ['class' => 'form-control', 'id' => 'postal_code', 'placeholder' => 'Postal Code']) !!}
+                {!! Form::text('postal_code',$result->postal_code, ['class' => 'form-control', 'id' => 'postal_code', 'placeholder' => 'Mã bưu điện']) !!}
                 <span class="text-danger">{{ $errors->first('postal_code') }}</span>
               </div>
             </div>
@@ -162,26 +162,26 @@
             </div>
             
            <div class="form-group" ng-if="doc.expiry_required=='1'" style="margin-bottom: 0;">
-            <label class="col-sm-3 control-label" ng-if="doc.expiry_required=='1'">Expire Date <em class="text-danger">*</em></label>
+            <label class="col-sm-3 control-label" ng-if="doc.expiry_required=='1'">Ngày hết hạn <em class="text-danger">*</em></label>
             <div class="col-md-7 col-sm-offset-1" ng-if="doc.expiry_required=='1'">
-              <input type="text" min="{{ date('Y-m-d') }}" name="expired_date_@{{doc.id}}" value="@{{doc.expired_date}}" class="form-control document_expired" placeholder="Expire date" autocomplete="off">
+              <input type="text" min="{{ date('Y-m-d') }}" name="expired_date_@{{doc.id}}" value="@{{doc.expired_date}}" class="form-control document_expired" placeholder="Ngày hết hạn" autocomplete="off">
               <span class="text-danger">@{{ errors['expired_date_'+doc.id][0] }}</span>
             </div>
           </div>
 
           <div class="form-group">
-            <label class="col-sm-3 control-label"> @{{doc.document_name}} Status<em class="text-danger">*</em></label>
+            <label class="col-sm-3 control-label"> @{{doc.document_name}} Trạng thái<em class="text-danger">*</em></label>
             <div class="col-md-7 col-sm-offset-1">
               @if(LOGIN_USER_TYPE != 'company')
                 <select class ='form-control' name='@{{doc.doc_name}}_status'>
-                  <option value="0" ng-selected="doc.status==0">Pending</option>
-                  <option value="1" ng-selected="doc.status==1">Approved</option>
-                  <option value="2" ng-selected="doc.status==2">Rejected</option>
+                  <option value="0" ng-selected="doc.status==0">Đợi duyệt</option>
+                  <option value="1" ng-selected="doc.status==1">Được duyệt</option>
+                  <option value="2" ng-selected="doc.status==2">Từ chối</option>
                 </select>
               @else
-                <div ng-if="doc.status==0"> Pending </div>
-                <div ng-if="doc.status==1"> Approved </div>
-                <div ng-if="doc.status==2"> Rejected </div>
+                <div ng-if="doc.status==0"> Đợi duyệt </div>
+                <div ng-if="doc.status==1"> Được duyệt </div>
+                <div ng-if="doc.status==2"> Từ chối </div>
               @endif
           </div>
         </div>
@@ -206,11 +206,11 @@
           <!-- /.box-body -->
 
           <div class="box-footer text-center">
-            <button type="submit" class="btn btn-info" name="submit" value="submit">Submit</button>
+            <button type="submit" class="btn btn-info" name="submit" value="submit">Xác nhận </button>
             @if(LOGIN_USER_TYPE == 'company')
-            <a href="{{url(LOGIN_USER_TYPE.'/edit_company/'.$result->id)}}"><span class="btn btn-default">Cancel</span></a>
+            <a href="{{url(LOGIN_USER_TYPE.'/edit_company/'.$result->id)}}"><span class="btn btn-default">Huỷ bỏ</span></a>
             @else
-            <a href="{{url(LOGIN_USER_TYPE.'/company')}}"><span class="btn btn-default">Cancel</span></a>
+            <a href="{{url(LOGIN_USER_TYPE.'/company')}}"><span class="btn btn-default">Huỷ bỏ</span></a>
             @endif
           </div>
           <!-- /.box-footer -->

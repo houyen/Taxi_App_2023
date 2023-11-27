@@ -14,7 +14,7 @@
             android:paddingStart="@dimen/_20adp"
             android:paddingTop="@dimen/_20adp">
 
-        <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+        <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                 android:id="@+id/promo_amount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -26,7 +26,7 @@
                 android:textSize="@dimen/_16asp"
                 app:fontName="@string/font_UBERMedium" />
 
-        <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+        <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                 android:id="@+id/promo_amt_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -40,7 +40,7 @@
                 android:textSize="@dimen/_15asp"
                 app:fontName="@string/font_UBERMedium" />
 
-        <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+        <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                 android:id="@+id/promo_exp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -62,7 +62,3 @@
     </RelativeLayout>
 
 </RelativeLayout>
-
-
-
-

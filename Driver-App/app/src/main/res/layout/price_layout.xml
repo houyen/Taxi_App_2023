@@ -17,7 +17,7 @@
         android:layout_weight="4"
         android:layout_height="wrap_content">
 
-        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
             android:id="@+id/faretxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -31,7 +31,7 @@
             android:textSize="@dimen/_14asp"
             app:fontname="@string/font_Medium" />
 
-        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
             android:id="@+id/baseview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -58,7 +58,7 @@
 
     </LinearLayout>
 
-    <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+    <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
         android:id="@+id/fareAmt"
         android:layout_weight="1"
         android:layout_width="wrap_content"

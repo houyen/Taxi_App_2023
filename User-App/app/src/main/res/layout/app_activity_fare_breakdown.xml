@@ -31,7 +31,7 @@
 
                 >
 
-            <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+            <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/_40adp"
@@ -48,7 +48,7 @@
                 android:layout_height="wrap_content"
                 >
 
-            <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+            <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                     android:id="@+id/basefare"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -60,7 +60,7 @@
                     app:fontName="@string/font_UBERMedium"
                     />
 
-            <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+            <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                     android:id="@+id/mimimum"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -73,7 +73,7 @@
                     app:fontName="@string/font_Medium"
                     />
 
-            <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+            <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                     android:id="@+id/minute"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -86,7 +86,7 @@
                     app:fontName="@string/font_Medium"
                     />
 
-            <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+            <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                     android:id="@+id/per"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -113,7 +113,7 @@
                     android:visibility="gone"
                     ></RelativeLayout>
 
-            <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+            <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                     android:id="@+id/amount1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -126,7 +126,7 @@
                     />
 
 
-            <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+            <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                     android:id="@+id/amount2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -149,7 +149,7 @@
                     android:background="#ffd6d7d7"
                     ></RelativeLayout>
 
-            <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+            <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                     android:id="@+id/amount3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -172,7 +172,7 @@
                     android:background="#ffd6d7d7"
                     ></RelativeLayout>
 
-            <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+            <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                     android:id="@+id/amount4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

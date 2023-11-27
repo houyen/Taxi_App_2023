@@ -91,20 +91,6 @@ INSERT INTO `api_credentials` (`id`, `name`, `value`, `site`) VALUES
 (21, 'site_key', '6LfJKvoUAAAAAFe8tYNw85mY5Tur-_A4tp865bL3', 'Recaptcha'),
 (22, 'secret_key', '6LfJKvoUAAAAABh-36UFZrtp-_bZEtdgcg0kwWhy', 'Recaptcha');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `applied_referrals`
---
-
-CREATE TABLE `applied_referrals` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `user_id` int(10) UNSIGNED NOT NULL,
-  `amount` decimal(11,2) NOT NULL,
-  `currency_code` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -156,7 +142,7 @@ INSERT INTO `cancel` (`id`, `trip_id`, `user_id`, `cancel_reason_id`, `cancel_co
 CREATE TABLE `cancel_reasons` (
   `id` int(10) UNSIGNED NOT NULL,
   `reason` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `cancelled_by` enum('Rider','Driver','Admin','Company') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `cancelled_by` enum('Rider','Driver','Admin') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` enum('Active','Inactive') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Active'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -173,7 +159,7 @@ INSERT INTO `cancel_reasons` (`id`, `reason`, `cancelled_by`, `status`) VALUES
 (6, 'Rider not yet come', 'Driver', 'Active'),
 (7, 'Rider ask for Cancel', 'Admin', 'Active'),
 (8, 'Other Reasons', 'Admin', 'Active'),
-(9, 'Rider Cancelled', 'Company', 'Active');
+(9, 'Rider Cancelled', '', 'Active');
 
 -- --------------------------------------------------------
 
@@ -217,115 +203,6 @@ INSERT INTO `car_type` (`id`, `car_name`, `description`, `vehicle_image`, `activ
 (4, 'POOL', 'POOL', 'newtaxipool_black.png', 'newtaxipool.png', 'Yes', 'Active');
 
 -- --------------------------------------------------------
-
---
--- Table structure for table `companies`
---
-
-CREATE TABLE `companies` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `profile` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `country_code` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `mobile_number` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `vat_number` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` enum('Pending','Active','Inactive') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Pending',
-  `device_type` enum('1','2') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `device_id` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `language` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `address` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `city` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `state` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `country` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `postal_code` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `company_commission` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
-  `country_id` int(10) UNSIGNED DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  `deleted_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `companies`
---
-
-INSERT INTO `companies` (`id`, `name`, `profile`, `email`, `country_code`, `mobile_number`, `vat_number`, `password`, `remember_token`, `status`, `device_type`, `device_id`, `language`, `address`, `city`, `state`, `country`, `postal_code`, `company_commission`, `country_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Admin', '', 'admin@admin.com', '254', '1234567890', NULL, '$2y$10$7QrzLFU2DE4m5In.VYzZP.qclISTKsXUa8QSYlxPrD399vRAlnWk6', NULL, 'Active', NULL, '', '', 'Nairobi, Kenya', NULL, NULL, '254', '40000', '', 110, '2016-04-16 22:00:00', '2022-05-20 04:29:43', NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `company_documents`
---
-
-CREATE TABLE `company_documents` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `company_id` int(10) UNSIGNED NOT NULL,
-  `document_id` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `document` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `expired_date` date DEFAULT NULL,
-  `status` enum('0','1','2') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `company_payout_credentials`
---
-
-CREATE TABLE `company_payout_credentials` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `company_id` int(10) UNSIGNED NOT NULL,
-  `preference_id` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `default` enum('no','yes') COLLATE utf8mb4_unicode_ci NOT NULL,
-  `type` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payout_id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `company_payout_preference`
---
-
-CREATE TABLE `company_payout_preference` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `company_id` int(10) UNSIGNED NOT NULL,
-  `address1` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `address2` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `city` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `state` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `postal_code` varchar(25) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `country` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `payout_method` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `paypal_email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `currency_code` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `routing_number` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `account_number` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `holder_name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `holder_type` enum('Individual','Company') COLLATE utf8mb4_unicode_ci NOT NULL,
-  `document_id` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `document_image` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `additional_document_id` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `additional_document_image` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `phone_number` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `address_kanji` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `bank_name` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `bank_location` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `branch_name` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `branch_code` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `ssn_last_4` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
 --
 -- Table structure for table `country`
 --
@@ -589,69 +466,13 @@ INSERT INTO `country` (`id`, `short_name`, `long_name`, `iso3`, `num_code`, `pho
 -- --------------------------------------------------------
 
 --
--- Table structure for table `currency`
---
-
-CREATE TABLE `currency` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `code` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `symbol` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `rate` decimal(10,2) NOT NULL,
-  `status` enum('Active','Inactive') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Active',
-  `default_currency` enum('1','0') COLLATE utf8mb4_unicode_ci NOT NULL,
-  `paypal_currency` enum('Yes','No') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'No'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `currency`
---
-
-INSERT INTO `currency` (`id`, `name`, `code`, `symbol`, `rate`, `status`, `default_currency`, `paypal_currency`) VALUES
-(1, 'US Dollar', 'USD', '&#36;', '1.00', 'Active', '1', 'Yes'),
-(2, 'Pound Sterling', 'GBP', '&pound;', '0.78', 'Active', '0', 'Yes'),
-(3, 'Europe', 'EUR', '&euro;', '0.90', 'Active', '0', 'Yes'),
-(4, 'Australian Dollar', 'AUD', '&#36;', '1.46', 'Active', '0', 'Yes'),
-(5, 'Singapore', 'SGD', '&#36;', '1.36', 'Active', '0', 'Yes'),
-(6, 'Swedish Krona', 'SEK', 'kr', '9.65', 'Active', '0', 'Yes'),
-(7, 'Danish Krone', 'DKK', 'kr', '6.70', 'Active', '0', 'Yes'),
-(8, 'Mexican Peso', 'MXN', '$', '19.12', 'Active', '0', 'Yes'),
-(9, 'Brazilian Real', 'BRL', 'R$', '4.12', 'Active', '0', 'Yes'),
-(10, 'Malaysian Ringgit', 'MYR', 'RM', '4.19', 'Active', '0', 'Yes'),
-(11, 'Philippine Peso', 'PHP', 'P', '51.35', 'Active', '0', 'Yes'),
-(12, 'Swiss Franc', 'CHF', '&euro;', '0.99', 'Active', '0', 'Yes'),
-(13, 'India', 'INR', '&#x20B9;', '70.99', 'Active', '0', 'Yes'),
-(14, 'Argentine Peso', 'ARS', '&#36;', '58.13', 'Active', '0', 'No'),
-(15, 'Canadian Dollar', 'CAD', '&#36;', '1.31', 'Active', '0', 'Yes'),
-(16, 'Chinese Yuan', 'CNY', '&#165;', '7.07', 'Active', '0', 'No'),
-(17, 'Czech Republic Koruna', 'CZK', 'K&#269;', '22.98', 'Active', '0', 'Yes'),
-(18, 'Hong Kong Dollar', 'HKD', '&#36;', '7.84', 'Active', '0', 'Yes'),
-(19, 'Hungarian Forint', 'HUF', 'Ft', '296.75', 'Active', '0', 'Yes'),
-(20, 'Indonesian Rupiah', 'IDR', 'Rp', '14117.00', 'Active', '0', 'No'),
-(21, 'Israeli New Sheqel', 'ILS', '&#8362;', '3.54', 'Active', '0', 'Yes'),
-(22, 'Japanese Yen', 'JPY', '&#165;', '108.50', 'Active', '0', 'Yes'),
-(23, 'South Korean Won', 'KRW', '&#8361;', '1173.91', 'Active', '0', 'No'),
-(24, 'Norwegian Krone', 'NOK', 'kr', '9.16', 'Active', '0', 'Yes'),
-(25, 'New Zealand Dollar', 'NZD', '&#36;', '1.56', 'Active', '0', 'Yes'),
-(26, 'Polish Zloty', 'PLN', 'z&#322;', '3.84', 'Active', '0', 'Yes'),
-(27, 'Russian Ruble', 'RUB', 'p', '63.80', 'Active', '0', 'Yes'),
-(28, 'Thai Baht', 'THB', '&#3647;', '30.27', 'Active', '0', 'Yes'),
-(29, 'Turkish Lira', 'TRY', '&#8378;', '5.79', 'Active', '0', 'No'),
-(30, 'New Taiwan Dollar', 'TWD', '&#36;', '30.56', 'Active', '0', 'Yes'),
-(31, 'Vietnamese Dong', 'VND', '&#8363;', '23161.61', 'Active', '0', 'No'),
-(32, 'South African Rand', 'ZAR', 'R', '14.80', 'Active', '0', 'No'),
-(33, 'Kenyan Shillings', 'KES', 'KSH', '132.00', 'Active', '0', 'No');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `documents`
 --
 
 CREATE TABLE `documents` (
   `id` int(10) UNSIGNED NOT NULL,
   `document_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `type` enum('Driver','Vehicle','Company') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` enum('Driver','Vehicle') COLLATE utf8mb4_unicode_ci NOT NULL,
   `country_code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `expire_on_date` enum('Yes','No') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'No',
   `status` enum('Active','Inactive') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Active',
@@ -736,10 +557,10 @@ CREATE TABLE `driver_documents` (
 --
 
 INSERT INTO `driver_documents` (`id`, `type`, `vehicle_id`, `user_id`, `document_id`, `document`, `status`, `expired_date`) VALUES
-(1, 'Vehicle', 1, 10002, '2', 'https://newtaxi.seentechs.com/images/users/10002/insurance_1639843248.jpg', '1', '2038-12-18'),
-(2, 'Driver', 0, 10002, '1', 'https://newtaxi.seentechs.com/images/users/10002/license_1653031563.png', '1', '2025-07-17'),
-(3, 'Driver', 0, 10003, '1', 'https://newtaxi.seentechs.com/images/users/10003/license_1652858347.jpg', '1', '2023-05-15'),
-(4, 'Vehicle', 2, 10003, '2', 'https://newtaxi.seentechs.com/images/users/10003/insurance_1652858536.jpg', '1', '2023-05-24');
+(1, 'Vehicle', 1, 10002, '2', 'https://img.freepik.com/free-vector/illustration-boy-green-racing-car_1308-35830.jpg?w=1380&t=st=1696433652~exp=1696434252~hmac=604bc15ff04f07af494db9594e97bbd2640b4689eff20e4a8b3db75e45fd3b6d', '1', '2038-12-18'),
+(2, 'Driver', 0, 10002, '1', '', '1', '2025-07-17'),
+(3, 'Driver', 0, 10003, '1', '', '1', '2023-05-15'),
+(4, 'Vehicle', 2, 10003, '2', '', '1', '2023-05-24');
 
 -- --------------------------------------------------------
 
@@ -772,71 +593,6 @@ INSERT INTO `driver_location` (`id`, `user_id`, `latitude`, `longitude`, `car_id
 (6, 10003, '-0.7291916', '37.1600195', 2, NULL, 'Online', '2022-05-18 04:24:03', '2022-05-20 21:27:55'),
 (7, 10003, '-0.7291916', '37.1600195', 3, NULL, 'Online', '2022-05-18 04:24:03', '2022-05-20 21:27:55'),
 (8, 10003, '-0.7291916', '37.1600195', 4, NULL, 'Online', '2022-05-18 04:24:03', '2022-05-20 21:27:55');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `driver_owe_amounts`
---
-
-CREATE TABLE `driver_owe_amounts` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `user_id` int(10) UNSIGNED DEFAULT NULL,
-  `amount` decimal(11,2) DEFAULT NULL,
-  `currency_code` char(3) COLLATE utf8mb4_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `driver_owe_amounts`
---
-
-INSERT INTO `driver_owe_amounts` (`id`, `user_id`, `amount`, `currency_code`) VALUES
-(1, 10002, '54.00', 'USD'),
-(8, NULL, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `driver_owe_amount_payments`
---
-
-CREATE TABLE `driver_owe_amount_payments` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `user_id` int(10) UNSIGNED NOT NULL,
-  `transaction_id` varchar(70) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `amount` decimal(11,2) DEFAULT NULL,
-  `currency_code` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` tinyint(4) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `driver_owe_amount_payments`
---
-
-INSERT INTO `driver_owe_amount_payments` (`id`, `user_id`, `transaction_id`, `amount`, `currency_code`, `status`, `created_at`, `updated_at`) VALUES
-(1, 10003, 'pi_3L1fHDJbZQ9xXEmX18Ej0TVF', '1.00', 'USD', 1, NULL, NULL),
-(2, 10002, 'RFH495SWG4', '1.00', 'USD', 1, NULL, NULL),
-(3, 10002, 'rave648d1d4279a9a', '20.00', 'USD', 1, NULL, NULL),
-(4, 10002, 'rave648d1d4279a9a', '20.00', 'USD', 1, NULL, NULL),
-(5, 10002, 'rave648d301ceab76', '9.00', 'USD', 1, NULL, NULL),
-(6, 10002, 'rave648d335e0c874', '5.00', 'USD', 1, NULL, NULL),
-(7, 10002, 'RFH29FKJ3Q', '1.00', 'USD', 1, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `driver_payment`
---
-
-CREATE TABLE `driver_payment` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `driver_id` int(10) UNSIGNED NOT NULL,
-  `last_trip_id` int(10) UNSIGNED NOT NULL,
-  `currency_code` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `paid_amount` decimal(7,2) NOT NULL DEFAULT '0.00'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -1204,7 +960,6 @@ CREATE TABLE `manage_fare` (
   `schedule_cancel_fare` decimal(5,2) NOT NULL,
   `waiting_time` int(11) DEFAULT NULL,
   `waiting_charge` decimal(5,2) NOT NULL,
-  `currency_code` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `apply_peak` enum('Yes','No') COLLATE utf8mb4_unicode_ci NOT NULL,
   `apply_night` enum('Yes','No') COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -1256,27 +1011,18 @@ INSERT INTO `metas` (`id`, `url`, `title`, `description`, `keywords`) VALUES
 (14, 'drive_safety', 'Driver Safety', 'Driver Safety', ''),
 (15, 'driver_profile', 'Driver Profile', 'Driver Profile', ''),
 (16, 'documents/{id}', 'Driver Documents', 'Driver Documents', ''),
-(17, 'driver_payment', 'Driver Payment', 'Driver Payment', ''),
-(18, 'driver_invoice', 'Driver Invoice', 'Driver Invoice', ''),
 (19, 'driver_trip', 'Driver Trips', 'Driver Trips', ''),
 (20, 'driver_trip_detail/{id}', 'Driver Trips Details', 'Driver Trips Details', ''),
-(21, 'download_invoice/{id}', 'Invoice', 'Invoice', ''),
 (22, 'trip', 'Trips', 'Trips', ''),
 (23, 'profile', 'Profile', 'Profile', ''),
 (24, 'forgot_password_driver', 'Forgot Password', 'Forgot Password', ''),
 (25, 'reset_password', 'Reset Password', 'Reset Password', ''),
 (26, 'forgot_password_rider', 'Forgot Password', 'Forgot Password', ''),
 (27, 'forgot_password_link/{id}', 'Forgot Password Link', 'Forgot Password Link', ''),
-(28, 'payout_preferences', 'Payout Preferences', 'Payout Preferences', ''),
 (29, 'help', 'Help Center', 'Help Center', ''),
 (30, 'help/topic/{id}/{category}', 'Help Center', 'Help Center', ''),
 (31, 'help/article/{id}/{question}', 'Help Center', 'Help Center', ''),
-(32, 'signin_company', 'Sign In Company', 'Sign In Company', ''),
-(33, 'signup_company', 'Sign Up Company', 'Sign Up Company', ''),
-(34, 'forgot_password_company', 'Forgot Password', 'Forgot Password', ''),
-(35, 'company/reset_password', 'Reset Password', 'Reset Password', ''),
 (36, 'admin', 'Admin Panel', 'Admin Panel', ''),
-(37, 'company', 'Company Panel', 'Company Panel', ''),
 (38, 'app/driver', 'Diver App', 'Diver App', ''),
 (39, 'app/rider', 'Rider App', 'Rider App', ''),
 (40, 'rider_delete', 'Delete Rider', 'Delete Rider', ''),
@@ -1329,19 +1075,12 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (26, '2017_05_24_095833_create_cancel_table', 1),
 (27, '2017_06_01_130626_create_fees_table', 1),
 (28, '2017_06_08_085929_create_api_credentials_table', 1),
-(29, '2017_06_08_102833_create_payment_gateway_table', 1),
-(30, '2017_06_16_112151_create_payment_table', 1),
-(31, '2017_06_16_112152_create_driver_payment_table', 1),
 (32, '2017_09_21_115741_create_jobs_table', 1),
-(33, '2017_11_12_133719_create_wallet_table', 1),
 (34, '2017_11_17_071107_create_promo_code_table', 1),
 (35, '2017_11_17_072500_create_users_promo_code_table', 1),
 (36, '2018_03_09_193432_create_help_category_lang_table', 1),
 (37, '2018_03_09_193447_create_help_sub_category_lang_table', 1),
 (38, '2018_04_02_130448_create_language_table', 1),
-(39, '2018_05_26_000018_create_payout_preference_table', 1),
-(40, '2018_05_26_000020_create_payment_method_table', 1),
-(41, '2018_07_13_063641_CreateEmergencySosTable', 1),
 (42, '2018_07_13_073129_create_schedule_ride_table', 1),
 (43, '2018_07_16_063607_entrust_setup_tables', 1),
 (44, '2018_08_08_100000_create_telescope_entries_table', 1),
@@ -1349,17 +1088,11 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (46, '2019_01_09_115510_create_manage_fare_table', 1),
 (47, '2019_01_09_120028_create_peak_fare_details_table', 1),
 (48, '2019_01_19_062416_create_email_settings_table', 1),
-(49, '2019_01_19_132454_create_payout_credentials', 1),
 (50, '2019_02_06_055025_create_help_translations_table', 1),
 (51, '2019_03_07_131731_create_schedule_cancel_table', 1),
-(52, '2019_04_01_100347_create_company_documents_table', 1),
-(53, '2019_04_08_125114_create_company_payout_credentials_table', 1),
-(54, '2019_04_09_051226_create_company_payout_preference_table', 1),
 (55, '2019_04_11_115908_create_vehicle_table', 1),
 (56, '2019_06_22_052259_create_referral_settings_table', 1),
 (57, '2019_06_22_053324_create_referral_users_table', 1),
-(58, '2019_09_24_051053_create_driver_owe_amounts_table', 1),
-(59, '2019_09_25_104410_create_driver_owe_amount_payments_table', 1),
 (60, '2019_10_18_130612_create_trip_toll_reasons_table', 1),
 (61, '2019_10_21_123628_create_applied_referrals_table', 1),
 (62, '2020_02_24_070641_create_failed_jobs_table', 1),
@@ -1387,7 +1120,7 @@ CREATE TABLE `pages` (
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `url` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `footer` enum('yes','no') COLLATE utf8mb4_unicode_ci NOT NULL,
-  `under` enum('company','discover','hosting') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `under` enum('discover','hosting') COLLATE utf8mb4_unicode_ci NOT NULL,
   `content` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` enum('Active','Inactive') COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -1399,11 +1132,11 @@ CREATE TABLE `pages` (
 --
 
 INSERT INTO `pages` (`id`, `name`, `url`, `footer`, `under`, `content`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Terms of Service', 'terms_of_service', 'yes', 'company', '<span id=\"docs-internal-guid-f7e67a51-7fff-1c1d-45ae-29ad878ff34a\"><h4 dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 24pt; font-family: Arial; color: rgb(0, 0, 0); font-weight: 700; vertical-align: baseline; white-space: pre-wrap;\">Terms Of Service</span></h4><br><h4 dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 12pt; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap;\">Last updated: February 15, 2019</span></h4><br><h4 dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 12pt; font-family: Arial; color: rgb(0, 0, 0); font-weight: 700; vertical-align: baseline; white-space: pre-wrap;\">Contractual Relationship</span></h4><br><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;\">These Terms of Use (\"Terms\") administer the entrance or use by you, a person, from inside any nation in the realm of utilizations, sites, substance, items, and administrations (the \"Administrations\") </span></p><br><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;\">It would be ideal if you READ THESE TERMS CAREFULLY BEFORE ACCESSING OR USING THE SERVICES. </span></p><br><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;\">Your entrance and utilization of the Services comprises your consent to be bound by these Terms, which builds up a legally binding connection among you and newtaxi. In the event that you don\'t consent to these Terms, you may not access or utilize the Services. These Terms explicitly override earlier understandings or courses of action with you. newtaxi may quickly end these Terms or any Services as for you, or by and large stop offering or deny access to the Services or any segment thereof, whenever for any reason. </span></p><br><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;\">Supplemental terms may apply to specific Services, for example, approaches for a specific occasion, movement or advancement, and such supplemental terms will be unveiled to you regarding the material Services. Supplemental terms are notwithstanding, and will be esteemed a piece of, the Terms for the motivations behind the material Services. Supplemental terms will beat these Terms in case of a contention regarding the pertinent Services. </span></p><br><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;\">newtaxi may correct the Terms identified with the Services every once in a while. Alterations will be compelling upon newtaxi\' posting of such refreshed Terms at this area or the changed arrangements or supplemental terms on the relevant Service. Your proceeded with access or utilization of the Services after such presenting establishes your assent on be bound by the Terms, as altered. </span></p><br><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;\">newtaxi may give to a cases processor or a safety net provider any fundamental data (counting your contact data) if there is a dissension, debate or strife, which may incorporate a mishap, including you and a Third Party Provider and such data or information is important to determine the grumbling, question or struggle.</span></p><br><h5 dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); font-weight: 700; vertical-align: baseline; white-space: pre-wrap;\">License.</span></h5><br><h5 dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap;\">Subject to your consistence with these Terms, newtaxi awards you a constrained, non-elite, non-sublicensable, revocable, non-transferrable permit to: (I) access and utilize the Applications on your own gadget exclusively regarding your utilization of the Services; and (ii) access and utilize any substance, data and related materials that might be made accessible through the Services, for each situation exclusively for your own, noncommercial use. Any rights not explicitly allowed in this are held by newtaxi and newtaxi\' licensors.</span></h5><br><h5 dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); font-weight: 700; vertical-align: baseline; white-space: pre-wrap;\">Restrictions.</span></h5><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;\">You may not: (I) evacuate any copyright, trademark or other exclusive notification from any bit of the Services; (ii) replicate, change, get ready subsidiary works dependent on, circulate, permit, rent, move, exchange, exchange, freely show, openly perform, transmit, stream, communicate or generally misuse the Services aside from as explicitly allowed by newtaxi; (iii) decompile, figure out or dismantle the Services with the exception of as might be allowed by material law; (iv) connection to, mirror or edge any bit of the Services; (v) cause or dispatch any projects or contents to scrape, ordering, looking over, or generally information mining any part of the Services or unduly loading or frustrating the task as well as usefulness of any part of the Services; or (vi) endeavor to increase unapproved access to or disable any part of the Services or its related frameworks or systems.</span></p><br><h5 dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); font-weight: 700; vertical-align: baseline; white-space: pre-wrap;\">Ownership.</span></h5><br><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;\">The Services and all rights in that are and will remain newtaxi\' property or the property of newtaxi\' licensors. Neither these Terms nor your utilization of the Services pass on or concede to you any rights: (I) in or identified with the Services aside from the constrained permit allowed above; or (ii) to utilize or reference in any way newtaxi\' organization names, logos, item and administration names, trademarks or administrations marks or those of newtaxi\' licensors.</span></p><br><h4 dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 12pt; font-family: Arial; color: rgb(0, 0, 0); font-weight: 700; vertical-align: baseline; white-space: pre-wrap;\">Your Use of the Services</span></h4><br><h5 dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); font-weight: 700; vertical-align: baseline; white-space: pre-wrap;\">User Accounts.</span></h5><br><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;\">So as to utilize most parts of the Services, you should enroll for and keep up a functioning individual client Services (\"Account\"). You should be around 18 years old, or the time of lawful larger part in your locale (if not quite the same as 18), to acquire an Account. Record enlistment expects you to submit to newtaxi certain individual data, for example, your name, address, cell phone number and age, and additionally no less than one substantial installment technique (either a charge card or acknowledged installment accomplice). You consent to keep up exact, finish, and up and coming data in your Account. Your inability to keep up exact, finish, and up and coming Account </span></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;\">data, including having an invalid or lapsed installment strategy on document, may result in your powerlessness to access and utilize the Services or newtaxi\' end of these Terms with you. You are in charge of all movement that happens under your Account, and you consent to keep up the security and mystery of your Account username and secret key consistently. Except if generally allowed by newtaxi in thinking of, you may just have one Account.</span></p><br><h5 dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); font-weight: 700; vertical-align: baseline; white-space: pre-wrap;\">User Requirements and Conduct.</span></h5><br><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;\">The Service isn\'t accessible for use by people younger than 18. You may not approve outsiders to utilize your Account, and you may not permit people younger than 18 to get transportation or coordinations administrations from Third Party Providers except if they are joined by you. You may not relegate or generally exchange your Account to some other individual or substance. You consent to follow every single pertinent law when utilizing the Services, and you may just utilize the Services for legal purposes (e.g., no vehicle of unlawful or perilous materials). You won\'t, in your utilization of the Services, cause disturbance, irritation, burden, or property harm, regardless of whether to the Third Party Provider or some other gathering. In specific occurrences you might be solicited to give confirmation from identity to access or utilize the Services, and you concur that you might be denied access to or utilization of the Services in the event that you decline to give evidence of personality.</span></p><br><h5 dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); font-weight: 700; vertical-align: baseline; white-space: pre-wrap;\">Promotional Codes.</span></h5><br><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;\">newtaxi may, in newtaxi\' sole circumspection, make limited time codes that might be reclaimed for Account credit, or different highlights or advantages identified with the Services as well as a Third Party Provider\'s administrations, subject to any extra terms that newtaxi sets up on a for every special code premise (\"Promo Codes\"). You concur that Promo Codes: (I) must be utilized for the target group and reason, and in a legal way; (ii) may not be copied, sold or moved in any way, or made accessible to the overall population (regardless of whether presented on an open frame or something else), except if explicitly allowed by newtaxi; (iii) might be crippled by newtaxi whenever for any reason without risk to newtaxi; (iv) may just be utilized as per the explicit terms that newtaxi sets up for such Promo Code; (v) are not substantial for money; and (vi) may lapse preceding your utilization. newtaxi maintains whatever authority is needed to retain or deduct credits or different highlights or advantages acquired using Promo Codes by you or some other client if newtaxi decides or trusts that the utilization or reclamation of the Promo Code was in blunder, deceitful, unlawful, or disregarding the pertinent Promo Code terms or these Terms.</span></p><br><h5 dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); font-weight: 700; vertical-align: baseline; white-space: pre-wrap;\">User Provided Content.</span></h5><br><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;\">newtaxi may, in newtaxi\' sole carefulness, allow you now and again to submit, transfer, distribute or generally make accessible to newtaxi through the Services literary, sound, or potentially visual substance and data, including critique and criticism identified with the Services, commencement of help solicitations, and accommodation of passages for rivalries and advancements (\"User Content\"). Any User Content given by you remains your property. In any case, by giving User Content to newtaxi, you give newtaxi an around the world, unending, permanent, transferrable, eminence free permit, with the privilege to sublicense, to utilize, duplicate, adjust, make subordinate works of, appropriate, openly show, freely perform, and generally misuse in any way such User Content in all arrangements and dissemination channels currently known or in the future contrived (incorporating into association with the Services and newtaxi\' the same old thing and on outsider locales and administrations), without further notice to or assent from you, and without the prerequisite of installment to you or some other individual or element. </span></p><br><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;\">You speak to and warrant that: (I) you either are the sole and select proprietor of all User Content or you have all rights, licenses, assents and discharges important to give newtaxi the permit to the User Content as put forward above; and (ii) neither the User Content nor your accommodation, transferring, distributing or generally making accessible of such User Content nor newtaxi\' utilization of the User Content as allowed in this will encroach, abuse or damage an outsider\'s protected innovation or exclusive rights, or privileges of exposure or security, or result in the infringement of any relevant law or direction. </span></p><br><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;\">You consent to not give User Content that is slanderous, derogatory, contemptuous, savage, profane, obscene, unlawful, or generally hostile, as controlled by newtaxi in its sole watchfulness, regardless of whether such material might be secured by law. newtaxi may, however will not be committed to, survey, screen, or evacuate User Content, at newtaxi\' sole prudence and whenever and for any reason, without notice to you. </span></p><br><h5 dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); font-weight: 700; vertical-align: baseline; white-space: pre-wrap;\">Network Access and Devices.</span></h5><br><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;\">You are in charge of getting the information arrange get to important to utilize the Services. Your portable system\'s information and informing rates and expenses may apply on the off chance that you access or utilize the Services from a remote empowered gadget and you will be in charge of such rates and charges. You are in charge of getting and refreshing perfect equipment or gadgets important to access and utilize the Services and Applications and any updates thereto. newtaxi does not ensure that the Services, or any segment thereof, will work on a specific equipment or gadgets. Also, the Services might be liable to glitches</span></p><br><p dir=\"ltr\" style=\"line-height:2.057148;margin-top:0pt;margin-bottom:12pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; font-weight: 700; vertical-align: baseline; white-space: pre-wrap;\">Payment</span></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;\">You comprehend that utilization of the Services may result in charges to you for the administrations or merchandise you get from a Third Party Provider (\"Charges\"). After you have gotten administrations or products acquired through your utilization of the Service, newtaxi will encourage your installment of the material Charges for the benefit of the Third Party Provider thusly Third Party Provider\'s constrained installment accumulation operator. Installment of the Charges in such way will be viewed as equivalent to installment made straightforwardly by you to the Third Party Provider. Charges will be comprehensive of relevant expenses where required by law. Charges paid by you are conclusive and non-refundable, except if generally dictated by newtaxi. You hold the privilege to ask for lower Charges from a Third Party Provider for administrations or products gotten by you from such Third Party Provider at the time you get such administrations or merchandise. newtaxi will react in like manner to any demand from a Third Party Provider to adjust the Charges for a specific administration or great. </span></p><br><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;\">All Charges are expected quickly and installment will be encouraged by newtaxi utilizing the favored installment technique assigned in your Account, after which newtaxi will send you a receipt by email. In the event that your essential Account installment strategy is resolved to be terminated, invalid or generally not ready to be charged, you concur that newtaxi may, as the Third Party Provider\'s constrained installment accumulation specialist, utilize an optional installment technique in your Account, if accessible. </span></p><br><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;\">As among you and newtaxi, newtaxi claims all authority to set up, expel as well as change Charges for any or all administrations or products acquired using the Services whenever in newtaxi\' sole caution. Further, you recognize and concur that Charges material in certain topographical zones may increment significantly amid times of appeal. newtaxi will utilize sensible endeavors to advise you of Charges that may apply, gave that you will be in charge of Charges brought about under your Account paying little mind to your consciousness of such Charges or the sums thereof. newtaxi may every once in a while give certain clients special offers and limits that may result in various sums charged for the equivalent or comparative administrations or products got using the Services, and you concur that such special offers and limits, except if likewise made accessible to you, will make little difference to your utilization of the Services or the Charges connected to you. You may choose to drop your demand for administrations or merchandise from a Third Party Provider whenever before such Third Party Provider\'s landing, in which case you might be charged an abrogation expense. </span></p><br><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;\">This installment structure is planned to completely repay the Third Party Provider for the administrations or products gave. Aside from as for cab transportation administrations asked for through the Application, newtaxi does not assign any bit of your installment as a tip or tip to the Third Party Provider. Any portrayal by newtaxi (on newtaxi\' site, in the Application, or in newtaxi\' advertising materials) such that tipping is \"deliberate,\" \"not required,\" as well as \"included\" in the installments you make for administrations or products gave isn\'t proposed to recommend that newtaxi gives any extra sums, past those depicted above, to the Third Party Provider. You comprehend and concur that, while you are allowed to give extra installment as a tip to any Third Party Provider who gives you administrations or products acquired through the Service, you are under no commitment to do as such. Tips are deliberate. After you have gotten administrations or merchandise acquired through the Service, you will have the chance to rate your experience and leave extra criticism about your Third Party Provider.</span></p><br><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; font-weight: 700; vertical-align: baseline; white-space: pre-wrap;\">General </span></p><br><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;\">You may not dole out or move these Terms in entire or partially without newtaxi\' earlier composed endorsement. You give your endorsement to newtaxi for it to appoint or move these Terms in entire or to some extent, including to: (I) a backup or associate; (ii) an acquirer of newtaxi\' value, business or resources; or (iii) a successor by merger. No joint endeavor, association, business or office relationship exists between you, newtaxi or any Third Party Provider because of the agreement among you and newtaxi or utilization of the Services. </span></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;\">On the off chance that any arrangement of these Terms is held to be unlawful, invalid or unenforceable, in entire or to some extent, under any law, such arrangement or part thereof will to that degree be regarded not to frame some portion of these Terms but rather the lawfulness, legitimacy and enforceability of alternate arrangements in these Terms will not be influenced. In that occasion, the gatherings will supplant the illicit, invalid or unenforceable arrangement or part thereof with an arrangement or part thereof that is legitimate, substantial and enforceable and that has, to the best degree conceivable, a comparable impact as the unlawful, invalid or unenforceable arrangement or part thereof, given the substance and reason for these Terms. These Terms comprise the whole ascension and comprehension of the gatherings as for its topic and replaces and overrides all earlier or contemporaneous understandings or endeavors with respect to such topic. In these Terms, the words \"counting\" and \"incorporate\" signify \"counting, however not restricted to.\"</span></p><br><br></span>', 'Active', '2016-03-26 13:50:11', '2016-03-26 16:08:22');
+(1, 'Terms of Service', 'terms_of_service', 'yes', '<span id=\"docs-internal-guid-f7e67a51-7fff-1c1d-45ae-29ad878ff34a\"><h4 dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 24pt; font-family: Arial; color: rgb(0, 0, 0); font-weight: 700; vertical-align: baseline; white-space: pre-wrap;\">Terms Of Service</span></h4><br><h4 dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 12pt; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap;\">Last updated: February 15, 2019</span></h4><br><h4 dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 12pt; font-family: Arial; color: rgb(0, 0, 0); font-weight: 700; vertical-align: baseline; white-space: pre-wrap;\">Contractual Relationship</span></h4><br><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;\">These Terms of Use (\"Terms\") administer the entrance or use by you, a person, from inside any nation in the realm of utilizations, sites, substance, items, and administrations (the \"Administrations\") </span></p><br><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;\">It would be ideal if you READ THESE TERMS CAREFULLY BEFORE ACCESSING OR USING THE SERVICES. </span></p><br><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;\">Your entrance and utilization of the Services comprises your consent to be bound by these Terms, which builds up a legally binding connection among you and newtaxi. In the event that you don\'t consent to these Terms, you may not access or utilize the Services. These Terms explicitly override earlier understandings or courses of action with you. newtaxi may quickly end these Terms or any Services as for you, or by and large stop offering or deny access to the Services or any segment thereof, whenever for any reason. </span></p><br><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;\">Supplemental terms may apply to specific Services, for example, approaches for a specific occasion, movement or advancement, and such supplemental terms will be unveiled to you regarding the material Services. Supplemental terms are notwithstanding, and will be esteemed a piece of, the Terms for the motivations behind the material Services. Supplemental terms will beat these Terms in case of a contention regarding the pertinent Services. </span></p><br><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;\">newtaxi may correct the Terms identified with the Services every once in a while. Alterations will be compelling upon newtaxi\' posting of such refreshed Terms at this area or the changed arrangements or supplemental terms on the relevant Service. Your proceeded with access or utilization of the Services after such presenting establishes your assent on be bound by the Terms, as altered. </span></p><br><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;\">newtaxi may give to a cases processor or a safety net provider any fundamental data (counting your contact data) if there is a dissension, debate or strife, which may incorporate a mishap, including you and a Third Party Provider and such data or information is important to determine the grumbling, question or struggle.</span></p><br><h5 dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); font-weight: 700; vertical-align: baseline; white-space: pre-wrap;\">License.</span></h5><br><h5 dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap;\">Subject to your consistence with these Terms, newtaxi awards you a constrained, non-elite, non-sublicensable, revocable, non-transferrable permit to: (I) access and utilize the Applications on your own gadget exclusively regarding your utilization of the Services; and (ii) access and utilize any substance, data and related materials that might be made accessible through the Services, for each situation exclusively for your own, noncommercial use. Any rights not explicitly allowed in this are held by newtaxi and newtaxi\' licensors.</span></h5><br><h5 dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); font-weight: 700; vertical-align: baseline; white-space: pre-wrap;\">Restrictions.</span></h5><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;\">You may not: (I) evacuate any copyright, trademark or other exclusive notification from any bit of the Services; (ii) replicate, change, get ready subsidiary works dependent on, circulate, permit, rent, move, exchange, exchange, freely show, openly perform, transmit, stream, communicate or generally misuse the Services aside from as explicitly allowed by newtaxi; (iii) decompile, figure out or dismantle the Services with the exception of as might be allowed by material law; (iv) connection to, mirror or edge any bit of the Services; (v) cause or dispatch any projects or contents to scrape, ordering, looking over, or generally information mining any part of the Services or unduly loading or frustrating the task as well as usefulness of any part of the Services; or (vi) endeavor to increase unapproved access to or disable any part of the Services or its related frameworks or systems.</span></p><br><h5 dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); font-weight: 700; vertical-align: baseline; white-space: pre-wrap;\">Ownership.</span></h5><br><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;\">The Services and all rights in that are and will remain newtaxi\' property or the property of newtaxi\' licensors. Neither these Terms nor your utilization of the Services pass on or concede to you any rights: (I) in or identified with the Services aside from the constrained permit allowed above; or (ii) to utilize or reference in any way newtaxi\' organization names, logos, item and administration names, trademarks or administrations marks or those of newtaxi\' licensors.</span></p><br><h4 dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 12pt; font-family: Arial; color: rgb(0, 0, 0); font-weight: 700; vertical-align: baseline; white-space: pre-wrap;\">Your Use of the Services</span></h4><br><h5 dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); font-weight: 700; vertical-align: baseline; white-space: pre-wrap;\">User Accounts.</span></h5><br><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;\">So as to utilize most parts of the Services, you should enroll for and keep up a functioning individual client Services (\"Account\"). You should be around 18 years old, or the time of lawful larger part in your locale (if not quite the same as 18), to acquire an Account. Record enlistment expects you to submit to newtaxi certain individual data, for example, your name, address, cell phone number and age, and additionally no less than one substantial installment technique (either a charge card or acknowledged installment accomplice). You consent to keep up exact, finish, and up and coming data in your Account. Your inability to keep up exact, finish, and up and coming Account </span></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;\">data, including having an invalid or lapsed installment strategy on document, may result in your powerlessness to access and utilize the Services or newtaxi\' end of these Terms with you. You are in charge of all movement that happens under your Account, and you consent to keep up the security and mystery of your Account username and secret key consistently. Except if generally allowed by newtaxi in thinking of, you may just have one Account.</span></p><br><h5 dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); font-weight: 700; vertical-align: baseline; white-space: pre-wrap;\">User Requirements and Conduct.</span></h5><br><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;\">The Service isn\'t accessible for use by people younger than 18. You may not approve outsiders to utilize your Account, and you may not permit people younger than 18 to get transportation or coordinations administrations from Third Party Providers except if they are joined by you. You may not relegate or generally exchange your Account to some other individual or substance. You consent to follow every single pertinent law when utilizing the Services, and you may just utilize the Services for legal purposes (e.g., no vehicle of unlawful or perilous materials). You won\'t, in your utilization of the Services, cause disturbance, irritation, burden, or property harm, regardless of whether to the Third Party Provider or some other gathering. In specific occurrences you might be solicited to give confirmation from identity to access or utilize the Services, and you concur that you might be denied access to or utilization of the Services in the event that you decline to give evidence of personality.</span></p><br><h5 dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); font-weight: 700; vertical-align: baseline; white-space: pre-wrap;\">Promotional Codes.</span></h5><br><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;\">newtaxi may, in newtaxi\' sole circumspection, make limited time codes that might be reclaimed for Account credit, or different highlights or advantages identified with the Services as well as a Third Party Provider\'s administrations, subject to any extra terms that newtaxi sets up on a for every special code premise (\"Promo Codes\"). You concur that Promo Codes: (I) must be utilized for the target group and reason, and in a legal way; (ii) may not be copied, sold or moved in any way, or made accessible to the overall population (regardless of whether presented on an open frame or something else), except if explicitly allowed by newtaxi; (iii) might be crippled by newtaxi whenever for any reason without risk to newtaxi; (iv) may just be utilized as per the explicit terms that newtaxi sets up for such Promo Code; (v) are not substantial for money; and (vi) may lapse preceding your utilization. newtaxi maintains whatever authority is needed to retain or deduct credits or different highlights or advantages acquired using Promo Codes by you or some other client if newtaxi decides or trusts that the utilization or reclamation of the Promo Code was in blunder, deceitful, unlawful, or disregarding the pertinent Promo Code terms or these Terms.</span></p><br><h5 dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); font-weight: 700; vertical-align: baseline; white-space: pre-wrap;\">User Provided Content.</span></h5><br><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;\">newtaxi may, in newtaxi\' sole carefulness, allow you now and again to submit, transfer, distribute or generally make accessible to newtaxi through the Services literary, sound, or potentially visual substance and data, including critique and criticism identified with the Services, commencement of help solicitations, and accommodation of passages for rivalries and advancements (\"User Content\"). Any User Content given by you remains your property. In any case, by giving User Content to newtaxi, you give newtaxi an around the world, unending, permanent, transferrable, eminence free permit, with the privilege to sublicense, to utilize, duplicate, adjust, make subordinate works of, appropriate, openly show, freely perform, and generally misuse in any way such User Content in all arrangements and dissemination channels currently known or in the future contrived (incorporating into association with the Services and newtaxi\' the same old thing and on outsider locales and administrations), without further notice to or assent from you, and without the prerequisite of installment to you or some other individual or element. </span></p><br><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;\">You speak to and warrant that: (I) you either are the sole and select proprietor of all User Content or you have all rights, licenses, assents and discharges important to give newtaxi the permit to the User Content as put forward above; and (ii) neither the User Content nor your accommodation, transferring, distributing or generally making accessible of such User Content nor newtaxi\' utilization of the User Content as allowed in this will encroach, abuse or damage an outsider\'s protected innovation or exclusive rights, or privileges of exposure or security, or result in the infringement of any relevant law or direction. </span></p><br><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;\">You consent to not give User Content that is slanderous, derogatory, contemptuous, savage, profane, obscene, unlawful, or generally hostile, as controlled by newtaxi in its sole watchfulness, regardless of whether such material might be secured by law. newtaxi may, however will not be committed to, survey, screen, or evacuate User Content, at newtaxi\' sole prudence and whenever and for any reason, without notice to you. </span></p><br><h5 dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); font-weight: 700; vertical-align: baseline; white-space: pre-wrap;\">Network Access and Devices.</span></h5><br><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;\">You are in charge of getting the information arrange get to important to utilize the Services. Your portable system\'s information and informing rates and expenses may apply on the off chance that you access or utilize the Services from a remote empowered gadget and you will be in charge of such rates and charges. You are in charge of getting and refreshing perfect equipment or gadgets important to access and utilize the Services and Applications and any updates thereto. newtaxi does not ensure that the Services, or any segment thereof, will work on a specific equipment or gadgets. Also, the Services might be liable to glitches</span></p><br><p dir=\"ltr\" style=\"line-height:2.057148;margin-top:0pt;margin-bottom:12pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; font-weight: 700; vertical-align: baseline; white-space: pre-wrap;\">Payment</span></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;\">You comprehend that utilization of the Services may result in charges to you for the administrations or merchandise you get from a Third Party Provider (\"Charges\"). After you have gotten administrations or products acquired through your utilization of the Service, newtaxi will encourage your installment of the material Charges for the benefit of the Third Party Provider thusly Third Party Provider\'s constrained installment accumulation operator. Installment of the Charges in such way will be viewed as equivalent to installment made straightforwardly by you to the Third Party Provider. Charges will be comprehensive of relevant expenses where required by law. Charges paid by you are conclusive and non-refundable, except if generally dictated by newtaxi. You hold the privilege to ask for lower Charges from a Third Party Provider for administrations or products gotten by you from such Third Party Provider at the time you get such administrations or merchandise. newtaxi will react in like manner to any demand from a Third Party Provider to adjust the Charges for a specific administration or great. </span></p><br><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;\">All Charges are expected quickly and installment will be encouraged by newtaxi utilizing the favored installment technique assigned in your Account, after which newtaxi will send you a receipt by email. In the event that your essential Account installment strategy is resolved to be terminated, invalid or generally not ready to be charged, you concur that newtaxi may, as the Third Party Provider\'s constrained installment accumulation specialist, utilize an optional installment technique in your Account, if accessible. </span></p><br><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;\">As among you and newtaxi, newtaxi claims all authority to set up, expel as well as change Charges for any or all administrations or products acquired using the Services whenever in newtaxi\' sole caution. Further, you recognize and concur that Charges material in certain topographical zones may increment significantly amid times of appeal. newtaxi will utilize sensible endeavors to advise you of Charges that may apply, gave that you will be in charge of Charges brought about under your Account paying little mind to your consciousness of such Charges or the sums thereof. newtaxi may every once in a while give certain clients special offers and limits that may result in various sums charged for the equivalent or comparative administrations or products got using the Services, and you concur that such special offers and limits, except if likewise made accessible to you, will make little difference to your utilization of the Services or the Charges connected to you. You may choose to drop your demand for administrations or merchandise from a Third Party Provider whenever before such Third Party Provider\'s landing, in which case you might be charged an abrogation expense. </span></p><br><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;\">This installment structure is planned to completely repay the Third Party Provider for the administrations or products gave. Aside from as for cab transportation administrations asked for through the Application, newtaxi does not assign any bit of your installment as a tip or tip to the Third Party Provider. Any portrayal by newtaxi (on newtaxi\' site, in the Application, or in newtaxi\' advertising materials) such that tipping is \"deliberate,\" \"not required,\" as well as \"included\" in the installments you make for administrations or products gave isn\'t proposed to recommend that newtaxi gives any extra sums, past those depicted above, to the Third Party Provider. You comprehend and concur that, while you are allowed to give extra installment as a tip to any Third Party Provider who gives you administrations or products acquired through the Service, you are under no commitment to do as such. Tips are deliberate. After you have gotten administrations or merchandise acquired through the Service, you will have the chance to rate your experience and leave extra criticism about your Third Party Provider.</span></p><br><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; font-weight: 700; vertical-align: baseline; white-space: pre-wrap;\">General </span></p><br><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;\">You may not dole out or move these Terms in entire or partially without newtaxi\' earlier composed endorsement. You give your endorsement to newtaxi for it to appoint or move these Terms in entire or to some extent, including to: (I) a backup or associate; (ii) an acquirer of newtaxi\' value, business or resources; or (iii) a successor by merger. No joint endeavor, association, business or office relationship exists between you, newtaxi or any Third Party Provider because of the agreement among you and newtaxi or utilization of the Services. </span></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; vertical-align: baseline; white-space: pre-wrap;\">On the off chance that any arrangement of these Terms is held to be unlawful, invalid or unenforceable, in entire or to some extent, under any law, such arrangement or part thereof will to that degree be regarded not to frame some portion of these Terms but rather the lawfulness, legitimacy and enforceability of alternate arrangements in these Terms will not be influenced. In that occasion, the gatherings will supplant the illicit, invalid or unenforceable arrangement or part thereof with an arrangement or part thereof that is legitimate, substantial and enforceable and that has, to the best degree conceivable, a comparable impact as the unlawful, invalid or unenforceable arrangement or part thereof, given the substance and reason for these Terms. These Terms comprise the whole ascension and comprehension of the gatherings as for its topic and replaces and overrides all earlier or contemporaneous understandings or endeavors with respect to such topic. In these Terms, the words \"counting\" and \"incorporate\" signify \"counting, however not restricted to.\"</span></p><br><br></span>', 'Active', '2016-03-26 13:50:11', '2016-03-26 16:08:22');
 INSERT INTO `pages` (`id`, `name`, `url`, `footer`, `under`, `content`, `status`, `created_at`, `updated_at`) VALUES
-(2, 'Privacy Policy', 'privacy_policy', 'yes', 'company', '<h1>Privacy Policy</h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Introduction</span></p><p><b style=\"font-weight:normal;\" id=\"docs-internal-guid-6f636417-7fff-8cb2-eb22-d2e54c334be5\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">When you use newtaxi, you confide in us with your data. We are focused on keeping that trust. That begins with helping you comprehend our security rehearses. </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">This policy portrays the data we gather, how it is utilized and shared, and your decisions in regards to this data. </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Last adjusted: 15 Feb 2019 </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Powerful date: 15 Feb 2019 </span></p><h4 dir=\"ltr\" style=\"line-height:1.38;margin-top:12pt;margin-bottom:2pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Data collection and use</span></h4><h5 dir=\"ltr\" style=\"line-height:1.38;margin-top:11pt;margin-bottom:2pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Scope</span></h5><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">This Policy applies to user of newtaxi services anywhere in the world, including user of newtaxi\' applications, websites, highlights or different services. </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">This Policy depicts how newtaxi and its partners gather and utilize individual data to give our services. </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">This Policy explicitly applies to: </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Drivers:</span><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\"> user who give transport independently or through accomplice transport organizations to deliver food.</span></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Riders : </span><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">users who request for the ride to travel.</span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">This policy likewise applies to the individuals who furnish data to newtaxi regarding an application to utilize our services, or whose data newtaxi generally gets regarding its services.</span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">The practices portrayed in this policy are liable to appropriate laws in the spots in which we work. This implies we just take part in the practices portrayed in this policy in a specific nation or area whenever allowed under the laws of those spots. If you don\'t mind get in touch with us in the event that you have inquiries on our practices in your nation or area. </span></p><p><b style=\"font-weight:normal;\"><br></b></p><h5 dir=\"ltr\" style=\"line-height:1.38;margin-top:11pt;margin-bottom:2pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Data controller</span></h5><h5 dir=\"ltr\" style=\"line-height:1.38;margin-top:11pt;margin-bottom:2pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">The information we collect</span></h5><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">newtaxi collects:: </span></p><p><b style=\"font-weight:normal;\"><br></b></p><ul style=\"margin-top:0pt;margin-bottom:0pt;\"><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Data that you give to newtaxi, for example, when you make your newtaxi account. </span></p></li></ul><p><b style=\"font-weight:normal;\"><br></b></p><ul style=\"margin-top:0pt;margin-bottom:0pt;\"><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Data made when you utilize our services, for example, area, utilization and gadget data. </span></p></li></ul><p><b style=\"font-weight:normal;\"><br></b></p><ul style=\"margin-top:0pt;margin-bottom:0pt;\"><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Information from other sources, such as newtaxi partners and third parties that use newtaxi APIs.</span></p></li></ul><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">The accompanying data is gathered by or for newtaxi: </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:2.052;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Information you provide</span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">This may include: </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">User profile</span><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\"> : We gather data when you make or refresh your newtaxi account. This may incorporate your name, email address, telephone number, login name and secret key, address, installment or keeping money data (counting related installment check data), government recognizable proof numbers, for example, Social Security number, driving permit or identification whenever required by law, date of birth, photograph and mark. This likewise incorporates driver vehicle or protection data. This likewise incorporates the inclinations and settings that you empower for your newtaxi account. </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Background check information</span><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\"> We may gather historical verification data in the event that you join to utilize newtaxi\' services as a driver or delivery partner. This may incorporate data, for example, your driving history or criminal record (where allowed by law). This data might be gathered by a seller for newtaxi\' sake. </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">User content:</span><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\"> We may gather data that you submit when you contact newtaxi customer support, give appraisals or compliments to different user, or generally contact newtaxi. </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:2.052;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Information created when you use our services</span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">This may include: </span></p><p><b style=\"font-weight:normal;\"><br></b></p><ul style=\"margin-top:0pt;margin-bottom:0pt;\"><li dir=\"ltr\" style=\"list-style-type:square;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:2.052;margin-top:2pt;margin-bottom:2pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Location information</span></p></li></ul><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Depending upon the newtaxi services you use and your application settings or gadget consents, we may gather your exact or inexact area data as decided through information, for example, GPS, IP address and Wi-Fi. </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">On the off chance that you are a driver, newtaxi gathers area data when the newtaxi application is running in the closer view (application open and onscreen) or background (application open yet not onscreen) of your gadget. </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Riders and drivers can utilize the newtaxi application without permitting newtaxi to gather their location information. Be that as it may, this may influence the usefulness accessible on your newtaxi application. For instance, on the off chance that you don\'t permit newtaxi to gather your area data, you should enter your get address physically. What\'s more, area data will be gathered from the driver amid your excursion and connected to your record, regardless of whether you have not permitted newtaxi to gather your area data. </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:2.052;margin-top:2pt;margin-bottom:2pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Transaction information</span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">We gather transaction information identified with your utilization of our services, including the kind of services you asked for or gave, your request subtleties, &nbsp;delivery information, date and time the administration was given, sum charged, separate voyaged, and installment Policy. Likewise, on the off chance that somebody utilizes your advancement code, we may connect your name with that individual. </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:2.052;margin-top:2pt;margin-bottom:2pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Usage information</span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">We gather data about how you interface with our services. This incorporates data, for example, get to dates and times, application highlights or pages saw, application crashes and other framework action, kind of program, and outsider destinations or services you were utilizing before cooperating with our services. Sometimes, we gather this data through treats, pixel labels and comparable advancements that make and keep up remarkable identifiers. To discover increasingly about these advancements, if it\'s not too much trouble see our Cookie Statement. </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:2.052;margin-top:2pt;margin-bottom:2pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Communications data</span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">We empower user to speak with one another and newtaxi by means of the newtaxi applications, sites and other services. For instance, we empower drivers and riders, are beneficiaries, to call one another (in a few nations, without uncovering their phone numbers to one another). To give this administration, newtaxi gets some data with respect to the calls, including the date and time of the call/content and the substance of the interchanges. newtaxi may likewise utilize this data for customer support services (counting to determine question between user), for wellbeing and security purposes, to enhance our items and services, and for investigation. </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:2.052;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Information from other sources</span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">This may include: </span></p><p><b style=\"font-weight:normal;\"><br></b></p><ul style=\"margin-top:0pt;margin-bottom:0pt;\"><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">User feedback, such as ratings or compliments.</span></p></li><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">user furnishing your data regarding referral programs. </span></p></li><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">user asking for services for you or for your benefit. </span></p></li><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">user or others giving data in association claims or debate. </span></p></li><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">newtaxi colleagues through which you make or access your newtaxi account, for example, installment suppliers, internet based life services, on-request music services, or applications or sites who utilize newtaxi\' APIs or whose APIs newtaxi utilizes, (for example, when you arrange a stumble on Google Maps). </span></p></li><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Protection suppliers (on the off chance that you are a driver or delivery partner). </span></p></li><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Money related services suppliers (on the off chance that you are a driver or delivery partner). </span></p></li><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Accomplice transport organizations (in the event that you are a driver who utilizes our services through a record related with such an organization). </span></p></li><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">The proprietor of a newtaxi for Business or newtaxi Family profile that you use. </span></p></li><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Publicly available sources.</span></p></li><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Marketing service providers.</span></p></li></ul><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">newtaxi may consolidate the data gathered from these sources with other data in its ownership. </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">How we utilize your data </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">newtaxi gathers and uses data to empower dependable and helpful transportation, conveyance and different items and services. We likewise utilize the data we gather: </span></p><p><b style=\"font-weight:normal;\"><br></b></p><ul style=\"margin-top:0pt;margin-bottom:0pt;\"><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">To improve the wellbeing and security of our user and services </span></p></li><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">For customer support </span></p></li><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">For innovative work </span></p></li><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">To empower interchanges to or between user </span></p></li><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">To give advancements or challenges </span></p></li><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Regarding legitimate procedures </span></p></li></ul><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">newtaxi does not offer or share your own data to outsiders for outsider direct showcasing purposes. </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">newtaxi utilizes the data it gathers for purposes including: </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:2.052;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Providing services and features</span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">newtaxi utilizes the data we gather to give, customize, keep up and enhance our items and services. This incorporates utilizing the data to: </span></p><p><b style=\"font-weight:normal;\"><br></b></p><ul style=\"margin-top:0pt;margin-bottom:0pt;\"><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Make and refresh your record. </span></p></li><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:2.052;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Verify your identity.</span></p></li><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Process or encourage installments for those services. </span></p></li></ul><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;margin-left: 36pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Offer, acquire, give or encourage protection or financing policies regarding our services. </span></p><ul style=\"margin-top:0pt;margin-bottom:0pt;\"><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Track the advancement of your trek or conveyance. </span></p></li><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Empower highlights that enable you to impart data to other individuals, for example, when you present a compliment about a driver, allude a companion to newtaxi, split charges or offer your ETA. </span></p></li><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Empower highlights to customize your newtaxi account, for example, making bookmarks for your most loved spots, and to empower speedy access to past goals. </span></p></li><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Empower availability includes that make it less demanding for user with handicaps to utilize our services, for example, those that empower hard of hearing or in need of a hearing aide drivers to alarm their riders of their incapacities, permit just instant messages from riders, and to get blazing outing demand warnings rather than sound notices. </span></p></li><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Perform inward tasks important to give our services, including to investigate programming bugs and operational issues, to lead information examination, testing and look into, and to screen and dissect use and movement patterns. </span></p></li></ul><p><b style=\"font-weight:normal;\"><br></b></p><h5 dir=\"ltr\" style=\"line-height:1.38;margin-top:11pt;margin-bottom:2pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Cookies and third-party technologies</span></h5><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">newtaxi and its accomplices use cookies and other identification technologies on our applications, sites, messages and online promotions for purposes portrayed in this approach. </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Cookies are little content documents that are put away on your program or gadget by sites, applications, online media and commercials. newtaxi utilizes treats and comparable advancements for purposes, for example, </span></p><p><b style=\"font-weight:normal;\"><br></b></p><ul style=\"margin-top:0pt;margin-bottom:0pt;\"><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Validating clients </span></p></li><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Recollecting client inclinations and settings </span></p></li><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Deciding the prevalence of substance </span></p></li><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Conveying and estimating the viability of publicizing efforts </span></p></li></ul><ul style=\"margin-top:0pt;margin-bottom:0pt;\"><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Investigating webpage traffic and inclines, and by and large understanding the online conduct and premiums of individuals who associate with our administrations We may likewise enable others to give group of onlookers estimation and examination administrations for us, to serve promotions for our benefit over the Internet, and to track and give an account of the execution of those ads. These substances may utilize treats, web reference points, SDKs and different innovations to recognize your gadget when you visit our webpage and utilize our administrations, and in addition when you visit other online locales and administrations. It would be ideal if you see our Cookie Statement for more data with respect to the utilization of cookies and different advances portrayed in this area, including in regards to your decisions identifying with such advances. </span></p></li></ul><p><b style=\"font-weight:normal;\"><br></b></p><h4 dir=\"ltr\" style=\"line-height:1.38;margin-top:12pt;margin-bottom:2pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Choice and transparency</span></h4><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">newtaxi gives the way to you to see and control the data that newtaxi gathers, including through: </span></p><p><b style=\"font-weight:normal;\"><br></b></p><ul style=\"margin-top:0pt;margin-bottom:0pt;\"><li dir=\"ltr\" style=\"list-style-type:square;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">in-app privacy settings</span></p></li><li dir=\"ltr\" style=\"list-style-type:square;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">device permissions</span></p></li><li dir=\"ltr\" style=\"list-style-type:square;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">in-app ratings pages</span></p></li><li dir=\"ltr\" style=\"list-style-type:square;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">marketing opt-outs</span></p></li></ul><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">You can likewise ask newtaxi to give you clarification, duplicates or revision of your information. </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:2.052;margin-top:2pt;margin-bottom:2pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">PRIVACY SETTINGS</span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">The Privacy Settings menu in the newtaxi Rider application enables clients to set or refresh their area and contacts sharing inclinations, and their inclinations for getting portable notices from newtaxi. Data on these settings, how to set or change these settings, and the impact of killing these settings are depicted underneath. </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Location information</span></p><p><b style=\"font-weight:normal;\"><br><br></b></p><ul style=\"margin-top:0pt;margin-bottom:0pt;\"><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">newtaxi utilizes riders\' gadget area administrations to make it simpler to get a sheltered, dependable excursion at whatever point you require one. Area information enhances our administrations, including pick-ups, route and client bolster. </span></p></li></ul><p><b style=\"font-weight:normal;\"><br></b></p><ul style=\"margin-top:0pt;margin-bottom:0pt;\"><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">You can empower/incapacitate or change newtaxi\' accumulation of rider area data whenever through the Privacy Settings menu in the newtaxi application, or by means of the settings on your cell phone. On the off chance that you cripple the gadget area benefits on your gadget, your utilization of the newtaxi application will be influenced. For instance, you should enter your get or drop-off areas physically. What\'s more, area data will be gathered from the driver amid your outing and connected to your record, regardless of whether you have not empowered newtaxi to gather your area data. </span></p></li></ul><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:2.052;margin-top:2pt;margin-bottom:2pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Notifications: Account and trip updates</span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">newtaxi gives clients arrange status warnings and updates identified with your record. These warnings are an important piece of utilizing the newtaxi application and can\'t be handicapped. In any case, you can pick the strategy by which you get these notices through the Privacy Settings menu in the newtaxi application. </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:2.052;margin-top:2pt;margin-bottom:2pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Notifications: Discounts and news</span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">You can empower newtaxi to send you push warnings about limits and news from newtaxi. You can empower/impair these notices whenever through the Privacy Settings menu in the newtaxi application. </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:2.052;margin-top:2pt;margin-bottom:2pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">DEVICE PERMISSIONS</span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Most portable stages (iOS, Android, and so on.) have characterized specific kinds of gadget information that applications can\'t access without your assent. These stages have diverse authorization frameworks for acquiring your assent. The iOS stage will caution you the first run through the newtaxi application needs authorization to get to particular sorts of information and will give you a chance to assent (or not assent) to that ask. Android gadgets will advise you of the authorizations that the newtaxi application looks for before you first utilize the application, and your utilization of the application establishes your assent. </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Updates to this policy</span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">We may sometimes refresh this arrangement. </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">We may sometimes refresh this arrangement. On the off chance that we roll out huge improvements, we will inform you of the progressions through the newtaxi applications or through others implies, for example, email. To the degree allowed under pertinent law, by utilizing our administrations after such notice, you agree to our updates to this strategy. </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">We urge you to occasionally survey this strategy for the most recent data on our protection rehearses. We will likewise make earlier forms of our protection strategies accessible for survey.</span></p><p><br></p><p></p><p></p>', 'Active', '2016-03-26 15:26:38', '2016-03-26 15:31:17');
+(2, 'Privacy Policy', 'privacy_policy', 'yes', '<h1>Privacy Policy</h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Introduction</span></p><p><b style=\"font-weight:normal;\" id=\"docs-internal-guid-6f636417-7fff-8cb2-eb22-d2e54c334be5\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">When you use newtaxi, you confide in us with your data. We are focused on keeping that trust. That begins with helping you comprehend our security rehearses. </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">This policy portrays the data we gather, how it is utilized and shared, and your decisions in regards to this data. </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Last adjusted: 15 Feb 2019 </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Powerful date: 15 Feb 2019 </span></p><h4 dir=\"ltr\" style=\"line-height:1.38;margin-top:12pt;margin-bottom:2pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Data collection and use</span></h4><h5 dir=\"ltr\" style=\"line-height:1.38;margin-top:11pt;margin-bottom:2pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Scope</span></h5><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">This Policy applies to user of newtaxi services anywhere in the world, including user of newtaxi\' applications, websites, highlights or different services. </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">This Policy depicts how newtaxi and its partners gather and utilize individual data to give our services. </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">This Policy explicitly applies to: </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Drivers:</span><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\"> user who give transport independently or through accomplice transport organizations to deliver food.</span></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Riders : </span><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">users who request for the ride to travel.</span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">This policy likewise applies to the individuals who furnish data to newtaxi regarding an application to utilize our services, or whose data newtaxi generally gets regarding its services.</span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">The practices portrayed in this policy are liable to appropriate laws in the spots in which we work. This implies we just take part in the practices portrayed in this policy in a specific nation or area whenever allowed under the laws of those spots. If you don\'t mind get in touch with us in the event that you have inquiries on our practices in your nation or area. </span></p><p><b style=\"font-weight:normal;\"><br></b></p><h5 dir=\"ltr\" style=\"line-height:1.38;margin-top:11pt;margin-bottom:2pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Data controller</span></h5><h5 dir=\"ltr\" style=\"line-height:1.38;margin-top:11pt;margin-bottom:2pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">The information we collect</span></h5><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">newtaxi collects:: </span></p><p><b style=\"font-weight:normal;\"><br></b></p><ul style=\"margin-top:0pt;margin-bottom:0pt;\"><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Data that you give to newtaxi, for example, when you make your newtaxi account. </span></p></li></ul><p><b style=\"font-weight:normal;\"><br></b></p><ul style=\"margin-top:0pt;margin-bottom:0pt;\"><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Data made when you utilize our services, for example, area, utilization and gadget data. </span></p></li></ul><p><b style=\"font-weight:normal;\"><br></b></p><ul style=\"margin-top:0pt;margin-bottom:0pt;\"><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Information from other sources, such as newtaxi partners and third parties that use newtaxi APIs.</span></p></li></ul><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">The accompanying data is gathered by or for newtaxi: </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:2.052;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Information you provide</span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">This may include: </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">User profile</span><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\"> : We gather data when you make or refresh your newtaxi account. This may incorporate your name, email address, telephone number, login name and secret key, address, installment or keeping money data (counting related installment check data), government recognizable proof numbers, for example, Social Security number, driving permit or identification whenever required by law, date of birth, photograph and mark. This likewise incorporates driver vehicle or protection data. This likewise incorporates the inclinations and settings that you empower for your newtaxi account. </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Background check information</span><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\"> We may gather historical verification data in the event that you join to utilize newtaxi\' services as a driver or delivery partner. This may incorporate data, for example, your driving history or criminal record (where allowed by law). This data might be gathered by a seller for newtaxi\' sake. </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">User content:</span><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\"> We may gather data that you submit when you contact newtaxi customer support, give appraisals or compliments to different user, or generally contact newtaxi. </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:2.052;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Information created when you use our services</span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">This may include: </span></p><p><b style=\"font-weight:normal;\"><br></b></p><ul style=\"margin-top:0pt;margin-bottom:0pt;\"><li dir=\"ltr\" style=\"list-style-type:square;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:2.052;margin-top:2pt;margin-bottom:2pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Location information</span></p></li></ul><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Depending upon the newtaxi services you use and your application settings or gadget consents, we may gather your exact or inexact area data as decided through information, for example, GPS, IP address and Wi-Fi. </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">On the off chance that you are a driver, newtaxi gathers area data when the newtaxi application is running in the closer view (application open and onscreen) or background (application open yet not onscreen) of your gadget. </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Riders and drivers can utilize the newtaxi application without permitting newtaxi to gather their location information. Be that as it may, this may influence the usefulness accessible on your newtaxi application. For instance, on the off chance that you don\'t permit newtaxi to gather your area data, you should enter your get address physically. What\'s more, area data will be gathered from the driver amid your excursion and connected to your record, regardless of whether you have not permitted newtaxi to gather your area data. </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:2.052;margin-top:2pt;margin-bottom:2pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Transaction information</span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">We gather transaction information identified with your utilization of our services, including the kind of services you asked for or gave, your request subtleties, &nbsp;delivery information, date and time the administration was given, sum charged, separate voyaged, and installment Policy. Likewise, on the off chance that somebody utilizes your advancement code, we may connect your name with that individual. </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:2.052;margin-top:2pt;margin-bottom:2pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Usage information</span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">We gather data about how you interface with our services. This incorporates data, for example, get to dates and times, application highlights or pages saw, application crashes and other framework action, kind of program, and outsider destinations or services you were utilizing before cooperating with our services. Sometimes, we gather this data through treats, pixel labels and comparable advancements that make and keep up remarkable identifiers. To discover increasingly about these advancements, if it\'s not too much trouble see our Cookie Statement. </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:2.052;margin-top:2pt;margin-bottom:2pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Communications data</span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">We empower user to speak with one another and newtaxi by means of the newtaxi applications, sites and other services. For instance, we empower drivers and riders, are beneficiaries, to call one another (in a few nations, without uncovering their phone numbers to one another). To give this administration, newtaxi gets some data with respect to the calls, including the date and time of the call/content and the substance of the interchanges. newtaxi may likewise utilize this data for customer support services (counting to determine question between user), for wellbeing and security purposes, to enhance our items and services, and for investigation. </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:2.052;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Information from other sources</span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">This may include: </span></p><p><b style=\"font-weight:normal;\"><br></b></p><ul style=\"margin-top:0pt;margin-bottom:0pt;\"><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">User feedback, such as ratings or compliments.</span></p></li><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">user furnishing your data regarding referral programs. </span></p></li><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">user asking for services for you or for your benefit. </span></p></li><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">user or others giving data in association claims or debate. </span></p></li><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">newtaxi colleagues through which you make or access your newtaxi account, for example, installment suppliers, internet based life services, on-request music services, or applications or sites who utilize newtaxi\' APIs or whose APIs newtaxi utilizes, (for example, when you arrange a stumble on Google Maps). </span></p></li><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Protection suppliers (on the off chance that you are a driver or delivery partner). </span></p></li><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Money related services suppliers (on the off chance that you are a driver or delivery partner). </span></p></li><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Accomplice transport organizations (in the event that you are a driver who utilizes our services through a record related with such an organization). </span></p></li><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">The proprietor of a newtaxi for Business or newtaxi Family profile that you use. </span></p></li><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Publicly available sources.</span></p></li><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Marketing service providers.</span></p></li></ul><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">newtaxi may consolidate the data gathered from these sources with other data in its ownership. </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">How we utilize your data </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">newtaxi gathers and uses data to empower dependable and helpful transportation, conveyance and different items and services. We likewise utilize the data we gather: </span></p><p><b style=\"font-weight:normal;\"><br></b></p><ul style=\"margin-top:0pt;margin-bottom:0pt;\"><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">To improve the wellbeing and security of our user and services </span></p></li><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">For customer support </span></p></li><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">For innovative work </span></p></li><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">To empower interchanges to or between user </span></p></li><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">To give advancements or challenges </span></p></li><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Regarding legitimate procedures </span></p></li></ul><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">newtaxi does not offer or share your own data to outsiders for outsider direct showcasing purposes. </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">newtaxi utilizes the data it gathers for purposes including: </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:2.052;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Providing services and features</span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">newtaxi utilizes the data we gather to give, customize, keep up and enhance our items and services. This incorporates utilizing the data to: </span></p><p><b style=\"font-weight:normal;\"><br></b></p><ul style=\"margin-top:0pt;margin-bottom:0pt;\"><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Make and refresh your record. </span></p></li><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:2.052;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Verify your identity.</span></p></li><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Process or encourage installments for those services. </span></p></li></ul><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;margin-left: 36pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Offer, acquire, give or encourage protection or financing policies regarding our services. </span></p><ul style=\"margin-top:0pt;margin-bottom:0pt;\"><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Track the advancement of your trek or conveyance. </span></p></li><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Empower highlights that enable you to impart data to other individuals, for example, when you present a compliment about a driver, allude a companion to newtaxi, split charges or offer your ETA. </span></p></li><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Empower highlights to customize your newtaxi account, for example, making bookmarks for your most loved spots, and to empower speedy access to past goals. </span></p></li><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Empower availability includes that make it less demanding for user with handicaps to utilize our services, for example, those that empower hard of hearing or in need of a hearing aide drivers to alarm their riders of their incapacities, permit just instant messages from riders, and to get blazing outing demand warnings rather than sound notices. </span></p></li><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Perform inward tasks important to give our services, including to investigate programming bugs and operational issues, to lead information examination, testing and look into, and to screen and dissect use and movement patterns. </span></p></li></ul><p><b style=\"font-weight:normal;\"><br></b></p><h5 dir=\"ltr\" style=\"line-height:1.38;margin-top:11pt;margin-bottom:2pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Cookies and third-party technologies</span></h5><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">newtaxi and its accomplices use cookies and other identification technologies on our applications, sites, messages and online promotions for purposes portrayed in this approach. </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Cookies are little content documents that are put away on your program or gadget by sites, applications, online media and commercials. newtaxi utilizes treats and comparable advancements for purposes, for example, </span></p><p><b style=\"font-weight:normal;\"><br></b></p><ul style=\"margin-top:0pt;margin-bottom:0pt;\"><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Validating clients </span></p></li><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Recollecting client inclinations and settings </span></p></li><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Deciding the prevalence of substance </span></p></li><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Conveying and estimating the viability of publicizing efforts </span></p></li></ul><ul style=\"margin-top:0pt;margin-bottom:0pt;\"><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Investigating webpage traffic and inclines, and by and large understanding the online conduct and premiums of individuals who associate with our administrations We may likewise enable others to give group of onlookers estimation and examination administrations for us, to serve promotions for our benefit over the Internet, and to track and give an account of the execution of those ads. These substances may utilize treats, web reference points, SDKs and different innovations to recognize your gadget when you visit our webpage and utilize our administrations, and in addition when you visit other online locales and administrations. It would be ideal if you see our Cookie Statement for more data with respect to the utilization of cookies and different advances portrayed in this area, including in regards to your decisions identifying with such advances. </span></p></li></ul><p><b style=\"font-weight:normal;\"><br></b></p><h4 dir=\"ltr\" style=\"line-height:1.38;margin-top:12pt;margin-bottom:2pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Choice and transparency</span></h4><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">newtaxi gives the way to you to see and control the data that newtaxi gathers, including through: </span></p><p><b style=\"font-weight:normal;\"><br></b></p><ul style=\"margin-top:0pt;margin-bottom:0pt;\"><li dir=\"ltr\" style=\"list-style-type:square;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">in-app privacy settings</span></p></li><li dir=\"ltr\" style=\"list-style-type:square;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">device permissions</span></p></li><li dir=\"ltr\" style=\"list-style-type:square;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">in-app ratings pages</span></p></li><li dir=\"ltr\" style=\"list-style-type:square;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">marketing opt-outs</span></p></li></ul><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">You can likewise ask newtaxi to give you clarification, duplicates or revision of your information. </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:2.052;margin-top:2pt;margin-bottom:2pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">PRIVACY SETTINGS</span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">The Privacy Settings menu in the newtaxi Rider application enables clients to set or refresh their area and contacts sharing inclinations, and their inclinations for getting portable notices from newtaxi. Data on these settings, how to set or change these settings, and the impact of killing these settings are depicted underneath. </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Location information</span></p><p><b style=\"font-weight:normal;\"><br><br></b></p><ul style=\"margin-top:0pt;margin-bottom:0pt;\"><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">newtaxi utilizes riders\' gadget area administrations to make it simpler to get a sheltered, dependable excursion at whatever point you require one. Area information enhances our administrations, including pick-ups, route and client bolster. </span></p></li></ul><p><b style=\"font-weight:normal;\"><br></b></p><ul style=\"margin-top:0pt;margin-bottom:0pt;\"><li dir=\"ltr\" style=\"list-style-type:disc;font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">You can empower/incapacitate or change newtaxi\' accumulation of rider area data whenever through the Privacy Settings menu in the newtaxi application, or by means of the settings on your cell phone. On the off chance that you cripple the gadget area benefits on your gadget, your utilization of the newtaxi application will be influenced. For instance, you should enter your get or drop-off areas physically. What\'s more, area data will be gathered from the driver amid your outing and connected to your record, regardless of whether you have not empowered newtaxi to gather your area data. </span></p></li></ul><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:2.052;margin-top:2pt;margin-bottom:2pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Notifications: Account and trip updates</span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">newtaxi gives clients arrange status warnings and updates identified with your record. These warnings are an important piece of utilizing the newtaxi application and can\'t be handicapped. In any case, you can pick the strategy by which you get these notices through the Privacy Settings menu in the newtaxi application. </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:2.052;margin-top:2pt;margin-bottom:2pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Notifications: Discounts and news</span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">You can empower newtaxi to send you push warnings about limits and news from newtaxi. You can empower/impair these notices whenever through the Privacy Settings menu in the newtaxi application. </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:2.052;margin-top:2pt;margin-bottom:2pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">DEVICE PERMISSIONS</span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Most portable stages (iOS, Android, and so on.) have characterized specific kinds of gadget information that applications can\'t access without your assent. These stages have diverse authorization frameworks for acquiring your assent. The iOS stage will caution you the first run through the newtaxi application needs authorization to get to particular sorts of information and will give you a chance to assent (or not assent) to that ask. Android gadgets will advise you of the authorizations that the newtaxi application looks for before you first utilize the application, and your utilization of the application establishes your assent. </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Updates to this policy</span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">We may sometimes refresh this arrangement. </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">We may sometimes refresh this arrangement. On the off chance that we roll out huge improvements, we will inform you of the progressions through the newtaxi applications or through others implies, for example, email. To the degree allowed under pertinent law, by utilizing our administrations after such notice, you agree to our updates to this strategy. </span></p><p><b style=\"font-weight:normal;\"><br></b></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">We urge you to occasionally survey this strategy for the most recent data on our protection rehearses. We will likewise make earlier forms of our protection strategies accessible for survey.</span></p><p><br></p><p></p><p></p>', 'Active', '2016-03-26 15:26:38', '2016-03-26 15:31:17');
 INSERT INTO `pages` (`id`, `name`, `url`, `footer`, `under`, `content`, `status`, `created_at`, `updated_at`) VALUES
-(3, 'About Us', 'about_us', 'yes', 'company', '&nbsp;&nbsp;&nbsp;<div class=\"text-copy\"><h1 class=\"h2 row-space-4\">About Us</h1><p>&nbsp; Founded in Jan of 2016 and based in India, SITE_NAME is a trusted community marketplace for people to list, discover, and book unique accommodations around the world — online or from a mobile phone or tablet.</p><p class=\"row-space-4\">&nbsp; Whether an apartment for a night, a castle for a week, or a villa for a month, SITE_NAME connects people to unique travel experiences, at any price point, in more than 34,000 cities and 190 countries. And with world-class customer service and a growing community of users, SITE_NAME is the easiest way for people to monetize their extra space and showcase it to an audience of millions.</p></div>', 'Active', '2016-03-26 17:22:05', '2016-03-26 17:23:32');
+(3, 'About Us', 'about_us', 'yes', '&nbsp;&nbsp;&nbsp;<div class=\"text-copy\"><h1 class=\"h2 row-space-4\">About Us</h1><p>&nbsp; Founded in Jan of 2016 and based in India, SITE_NAME is a trusted community marketplace for people to list, discover, and book unique accommodations around the world — online or from a mobile phone or tablet.</p><p class=\"row-space-4\">&nbsp; Whether an apartment for a night, a castle for a week, or a villa for a month, SITE_NAME connects people to unique travel experiences, at any price point, in more than 34,000 cities and 190 countries. And with world-class customer service and a growing community of users, SITE_NAME is the easiest way for people to monetize their extra space and showcase it to an audience of millions.</p></div>', 'Active', '2016-03-26 17:22:05', '2016-03-26 17:23:32');
 
 -- --------------------------------------------------------
 
@@ -1430,231 +1163,6 @@ CREATE TABLE `password_resets` (
   `token` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `payment`
---
-
-CREATE TABLE `payment` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `trip_id` int(10) UNSIGNED NOT NULL,
-  `correlation_id` text COLLATE utf8mb4_unicode_ci,
-  `admin_transaction_id` text COLLATE utf8mb4_unicode_ci,
-  `driver_transaction_id` text COLLATE utf8mb4_unicode_ci,
-  `admin_payout_status` enum('Pending','Processing','Paid') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Pending',
-  `driver_payout_status` enum('Pending','Processing','Paid') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Pending'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `payment`
---
-
-INSERT INTO `payment` (`id`, `trip_id`, `correlation_id`, `admin_transaction_id`, `driver_transaction_id`, `admin_payout_status`, `driver_payout_status`) VALUES
-(1, 1, '', NULL, '', 'Pending', 'Paid'),
-(2, 2, '', NULL, '', 'Pending', 'Paid'),
-(3, 3, '', NULL, NULL, 'Pending', 'Pending'),
-(4, 4, NULL, NULL, NULL, 'Pending', 'Pending');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `payment_gateway`
---
-
-CREATE TABLE `payment_gateway` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `value` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `site` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `payment_gateway`
---
-
-INSERT INTO `payment_gateway` (`id`, `name`, `value`, `site`) VALUES
-(1, 'trip_default', 'paytm', 'Common'),
-(2, 'payout_methods', 'paytm', 'Common'),
-(3, 'is_enabled', '1', 'Cash'),
-(4, 'is_enabled', '0', 'Paypal'),
-(5, 'paypal_id', '#', 'Paypal'),
-(6, 'mode', 'sandbox', 'Paypal'),
-(7, 'client', 'AbZqxwGM87-fRHI-HnG_plBoz-Z_j2OgcAKRFQzgdR4qd5dszhQXS5nk6FTPd9sw0vSSLMadISBc2_lA', 'Paypal'),
-(8, 'secret', 'EDFYQf8itbqoWi-9BIzgzrNvGWLI62UEliT1i8f_APi_MAJkteZLwnXGmTvBkBIRAVy-jCBi-PmYyNUa', 'Paypal'),
-(9, 'access_token', 'access_token$sandbox$d7852qvvw6wj277m$71ad22f88418c3a7f17d824ad0786ffc', 'Paypal'),
-(10, 'is_enabled', '0', 'Stripe'),
-(11, 'publish', 'pk_test_lQctuc2tx2IVDCSYIjiFodaz00n0TNteiG', 'Stripe'),
-(12, 'secret', 'sk_test_1tiewAwj00VlKzL7uwMPZcTN003Vk0kWl6', 'Stripe'),
-(13, 'api_version', '2019-12-03', 'Stripe'),
-(14, 'is_enabled', '0', 'Braintree'),
-(15, 'mode', 'sandbox', 'Braintree'),
-(16, 'merchant_id', 'g3dprd7kyfs7f3jr', 'Braintree'),
-(17, 'public_key', 'prwd98qgnqkdptkp', 'Braintree'),
-(18, 'private_key', 'fe3e98760ba97b6b2e01fe28379cd477', 'Braintree'),
-(19, 'tokenization_key', 'sandbox_jy9mwggn_q8v7ynjw9fssn4hy', 'Braintree'),
-(20, 'merchant_account_id', '', 'Braintree'),
-(21, 'is_web_payment', '', 'Common'),
-(22, 'is_enabled', '1', 'Paytm'),
-(23, 'paytm_merchant', 'LkWJXg58223806923015', 'Paytm'),
-(24, 'paytm_secret', 'EJETB%2pZaHB3Ra%', 'Paytm'),
-(25, 'mode', 'live', 'Paytm'),
-(26, 'mode', 'live', 'Flutterwave'),
-(27, 'public_key', 'FLWPUBK_TEST-f2a7a1ca6cdf04f4ab00d9006073ff6d-X', 'Flutterwave'),
-(28, 'secret_key', 'FLWSECK_TEST-f356353d77c4637026991ae1db0dc608-X', 'Flutterwave'),
-(29, 'encryption_key', 'FLWSECK_TEST636841ac21f2', 'Flutterwave'),
-(30, 'is_enabled', '1', 'Flutterwave'),
-(31, 'is_enabled', '1', 'Mpesa'),
-(32, 'mode', 'sandbox', 'Mpesa'),
-(33, 'consumer_key', 'sMpgnYW62glBlxPXbyTBEGdPib8eJLOL', 'Mpesa'),
-(34, 'consumer_secret', 'IcK2PkAFArVVVffU', 'Mpesa'),
-(35, 'callback_url', 'https://new.newtaxi.co/api/mpesa_callback', 'Mpesa'),
-(36, 'business_shortcode', '174379', 'Mpesa'),
-(37, 'is_enabled', '', 'Mollie'),
-(38, 'mode', '', 'Mollie'),
-(39, 'api_key', '', 'Mollie'),
-(40, 'partner_id', '', 'Mollie'),
-(41, 'profile_id', '', 'Mollie');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `payment_method`
---
-
-CREATE TABLE `payment_method` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `user_id` int(10) UNSIGNED NOT NULL,
-  `customer_id` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `intent_id` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `payment_method_id` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `brand` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `last4` varchar(5) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `payment_method`
---
-
-INSERT INTO `payment_method` (`id`, `user_id`, `customer_id`, `intent_id`, `payment_method_id`, `brand`, `last4`, `created_at`, `updated_at`) VALUES
-(1, 10004, 'cus_Li8bVOriLsvnwT', 'seti_1L0iKfJbZQ9xXEmX60Bq9lP0', 'pm_1L0iKiJbZQ9xXEmXqdqa7K2T', 'mastercard', '4444', NULL, NULL),
-(2, 10003, 'cus_Lj7WUol47sc4vV', 'seti_1L1fH0JbZQ9xXEmXRbxcELj2', 'pm_1L1fH5JbZQ9xXEmX5VqS2uby', 'mastercard', '4444', NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `payout_credentials`
---
-
-CREATE TABLE `payout_credentials` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `user_id` int(10) UNSIGNED NOT NULL,
-  `preference_id` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `default` enum('no','yes') COLLATE utf8mb4_unicode_ci NOT NULL,
-  `type` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payout_id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `payout_credentials`
---
-
-INSERT INTO `payout_credentials` (`id`, `user_id`, `preference_id`, `default`, `type`, `payout_id`, `created_at`, `updated_at`) VALUES
-(1, 10002, '1', 'yes', 'BankTransfer', '123456789', '2021-12-18 16:13:31', '2021-12-18 16:13:31'),
-(2, 10003, '2', 'yes', 'Paypal', 'admin@admin.com', '2022-11-12 07:07:08', '2022-11-12 07:07:08');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `payout_preference`
---
-
-CREATE TABLE `payout_preference` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `user_id` int(10) UNSIGNED NOT NULL,
-  `address1` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `address2` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `city` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `state` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `postal_code` varchar(25) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `country` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `payout_method` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `paypal_email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `currency_code` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `routing_number` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `account_number` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `holder_name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `holder_type` enum('Individual','Company') COLLATE utf8mb4_unicode_ci NOT NULL,
-  `document_id` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `document_image` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `additional_document_id` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `additional_document_image` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `phone_number` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `address_kanji` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `bank_name` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `bank_location` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `branch_name` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `branch_code` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `ssn_last_4` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `payout_preference`
---
-
-INSERT INTO `payout_preference` (`id`, `user_id`, `address1`, `address2`, `city`, `state`, `postal_code`, `country`, `payout_method`, `paypal_email`, `currency_code`, `routing_number`, `account_number`, `holder_name`, `holder_type`, `document_id`, `document_image`, `additional_document_id`, `additional_document_image`, `phone_number`, `address_kanji`, `bank_name`, `bank_location`, `branch_name`, `branch_code`, `ssn_last_4`, `created_at`, `updated_at`) VALUES
-(1, 10002, '', '', NULL, NULL, NULL, NULL, 'BankTransfer', '123456789', '', '', '123456789', 'SMR IT SOLUTIONS', 'Company', NULL, NULL, NULL, NULL, '', '[]', 'Demo', 'Demo', '', 'Demo', '', '2021-12-18 16:13:31', '2021-12-18 16:15:00'),
-(2, 10003, '10444', '', 'Nairobi', 'Nairobi', '2333', 'KE', 'Paypal', 'admin@admin.com', 'USD', '', '', '', 'Company', NULL, NULL, NULL, NULL, '', '[]', '', '', '', '', '', '2022-11-12 07:07:08', '2022-11-12 07:07:08');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `paytm_payments`
---
-
-CREATE TABLE `paytm_payments` (
-  `id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `payment_id` varchar(120) NOT NULL,
-  `amount` decimal(11,2) NOT NULL,
-  `pay_for` varchar(120) NOT NULL,
-  `status` enum('Pending','Paid') NOT NULL DEFAULT 'Pending',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `paytm_payments`
---
-
-INSERT INTO `paytm_payments` (`id`, `user_id`, `payment_id`, `amount`, `pay_for`, `status`, `created_at`, `updated_at`) VALUES
-(1, 10033, '6485e550883fa', '300.00', 'wallet', 'Pending', '2023-06-11 15:16:32', NULL),
-(2, 10033, '6485e683a9eb6', '100.00', 'wallet', 'Pending', '2023-06-11 15:21:39', NULL),
-(3, 10033, '6485e68ed6f4a', '5454.00', 'wallet', 'Pending', '2023-06-11 15:21:50', NULL),
-(4, 10029, '6485ee8eda470', '20.00', 'pay_to_admin', 'Pending', '2023-06-11 15:55:58', NULL),
-(5, 10029, '6485efbfae104', '65.00', 'pay_to_admin', 'Pending', '2023-06-11 16:01:03', NULL),
-(6, 10029, '6485eff04b44d', '39.00', 'pay_to_admin', 'Pending', '2023-06-11 16:01:52', NULL),
-(7, 10029, '6485f0248e783', '60.00', 'pay_to_admin', 'Pending', '2023-06-11 16:02:44', NULL),
-(8, 10029, '6485f98d38647', '20.00', 'pay_to_admin', 'Pending', '2023-06-11 16:42:53', NULL),
-(9, 10029, '6485fc7d5b840', '68.00', 'pay_to_admin', 'Pending', '2023-06-11 16:55:25', NULL),
-(10, 10029, '6485fd20bf3f6', '50.00', 'pay_to_admin', 'Pending', '2023-06-11 16:58:08', NULL),
-(11, 10035, '64860b3f9b38a', '10.00', 'wallet', 'Pending', '2023-06-11 17:58:23', NULL),
-(12, 10035, '64860b6c3ab7f', '500.00', 'wallet', 'Pending', '2023-06-11 17:59:08', NULL),
-(13, 10035, '64860bad21379', '50.00', 'wallet', 'Pending', '2023-06-11 18:00:13', NULL),
-(14, 10002, '648c6dbb84fd5', '1.00', 'pay_to_admin', 'Pending', '2023-06-16 14:12:11', NULL),
-(15, 10002, '648c716639212', '100.00', 'pay_to_admin', 'Pending', '2023-06-16 14:27:50', NULL),
-(16, 10004, '648c79931e147', '100.00', 'wallet', 'Pending', '2023-06-16 15:02:43', NULL),
-(17, 10004, '648c7a0243a28', '255.00', 'wallet', 'Pending', '2023-06-16 15:04:34', NULL),
-(18, 10004, '648c7a19da6d9', '200.00', 'wallet', 'Pending', '2023-06-16 15:04:57', NULL),
-(19, 10004, '648c7a25002c1', '555.00', 'wallet', 'Pending', '2023-06-16 15:05:09', NULL),
-(20, 10004, '648cd6532bbfb', '10.00', 'wallet', 'Pending', '2023-06-16 21:38:27', NULL);
 
 -- --------------------------------------------------------
 
@@ -1701,22 +1209,13 @@ INSERT INTO `permissions` (`id`, `name`, `display_name`, `description`, `created
 (7, 'view_driver', 'View Driver', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
 (8, 'update_driver', 'Update Driver', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
 (9, 'delete_driver', 'Delete Driver', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
-(10, 'create_company', 'Create Company', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
-(11, 'view_company', 'View Company', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
-(12, 'update_company', 'Update Company', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
-(13, 'delete_company', 'Delete Company', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
 (14, 'manage_vehicle_type', 'Manage Vehicle Type', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
 (15, 'manage_send_message', 'Manage Send Message', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
 (16, 'manage_api_credentials', 'Manage Api Credentials', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
-(17, 'manage_payment_gateway', 'Manage Payment Gateway', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
 (18, 'manage_site_settings', 'Manage Site Settings', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
 (19, 'manage_map', 'Manage Map', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
 (20, 'manage_statements', 'Manage Statements', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
 (21, 'manage_trips', 'Manage Trips', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
-(22, 'manage_wallet', 'Manage Wallet', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
-(23, 'manage_owe_amount', 'Manage Owe Amount', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
-(24, 'manage_promo_code', 'Manage Promo Code', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
-(25, 'manage_driver_payments', 'Manage Driver Payments', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
 (26, 'manage_cancel_trips', 'Manage Cancel Trips', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
 (27, 'manage_rating', 'Manage Rating', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
 (28, 'manage_fees', 'Manage Fees', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
@@ -1734,8 +1233,6 @@ INSERT INTO `permissions` (`id`, `name`, `display_name`, `description`, `created
 (40, 'manage_country', 'Manage Country', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
 (41, 'manage_heat_map', 'Manage Heat Map', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
 (42, 'manage_manual_booking', 'Manage Manual Booking', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
-(43, 'manage_company_payment', 'Manage Company Payment', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
-(44, 'manage_payments', 'Manage Payments', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
 (45, 'manage_vehicle', 'Manage Vehicle', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
 (46, 'manage_referral_settings', 'Manage Referral Settings', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
 (47, 'manage_rider_referrals', 'Manage Rider Referrals', NULL, '2021-12-18 12:35:24', '2021-12-18 12:35:24'),
@@ -1885,12 +1382,8 @@ CREATE TABLE `pool_trips` (
   `waiting_charge` decimal(11,2) NOT NULL DEFAULT '0.00',
   `toll_reason_id` int(10) UNSIGNED DEFAULT NULL,
   `toll_fee` decimal(11,2) NOT NULL DEFAULT '0.00',
-  `wallet_amount` decimal(11,2) NOT NULL,
-  `promo_amount` decimal(11,2) NOT NULL,
   `subtotal_fare` decimal(11,2) NOT NULL,
   `total_fare` decimal(11,2) NOT NULL,
-  `driver_payout` decimal(11,2) NOT NULL,
-  `driver_or_company_commission` decimal(11,2) NOT NULL,
   `owe_amount` decimal(11,2) NOT NULL,
   `remaining_owe_amount` decimal(11,2) NOT NULL,
   `applied_owe_amount` decimal(11,2) NOT NULL,
@@ -1920,27 +1413,10 @@ CREATE TABLE `profile_picture` (
 --
 
 INSERT INTO `profile_picture` (`user_id`, `src`, `photo_source`) VALUES
-(10001, 'https://newtaxi.seentechs.com/images/user.jpeg', 'Local'),
+(10001, 'https://img.freepik.com/premium-vector/beatiful-skater-ai-vector-art-digital-illustration-image_985204-496.jpg?w=826', 'Local'),
 (10002, '', 'Local'),
-(10003, 'https://newtaxi.seentechs.com/images/users/10003/profile_pic_1652863875.jpg', 'Local'),
-(10004, 'https://newtaxi.seentechs.com/images/users/10004/profile_pic_1652863838.jpg', 'Local');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `promo_code`
---
-
-CREATE TABLE `promo_code` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `amount` int(11) NOT NULL,
-  `currency_code` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `expire_date` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status` enum('Active','Inactive') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Active',
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+(10003, '', 'Local'),
+(10004, '', 'Local');
 
 -- --------------------------------------------------------
 
@@ -2019,7 +1495,6 @@ CREATE TABLE `referral_users` (
   `currency_code` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `amount` decimal(11,2) NOT NULL,
   `pending_amount` decimal(11,2) NOT NULL,
-  `payment_status` enum('Pending','Expired','Completed') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Pending',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2043,7 +1518,6 @@ CREATE TABLE `request` (
   `car_id` int(10) UNSIGNED NOT NULL,
   `group_id` int(11) DEFAULT NULL,
   `driver_id` int(10) UNSIGNED NOT NULL,
-  `payment_mode` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Credit Card',
   `schedule_id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Null',
   `location_id` int(10) UNSIGNED NOT NULL,
   `additional_fare` enum('Peak') COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -2056,21 +1530,6 @@ CREATE TABLE `request` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `request`
---
-
-INSERT INTO `request` (`id`, `user_id`, `seats`, `pickup_latitude`, `pickup_longitude`, `drop_latitude`, `drop_longitude`, `pickup_location`, `drop_location`, `car_id`, `group_id`, `driver_id`, `payment_mode`, `schedule_id`, `location_id`, `additional_fare`, `peak_fare`, `additional_rider`, `timezone`, `trip_path`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 10001, 0, '19.1438971', '72.8427707', '19.1178548', '72.8631304', 'Jogeshwari West, Mumbai, Maharashtra, India', 'Andheri East, Mumbai, Maharashtra, India', 3, 1, 10002, 'Cash & Wallet', '', 2, '', '0', '75', 'Asia/Kolkata', 'g`zsBmbr{LlDa@RKjAOrDc@rFg@n@Wd@Yh@e@JUJa@B_@Ia@Kw@Eq@?gBRcCj@uHLcBRe@JmAd@gDH{@Bo@Ey@SoAWgAmAeE}@uBiAcD]wAOy@QcAMc@hAA`IUxBE~@HbBCbACv@Aza@o@vKM|FAbCI|@M`A[rDcB|B}@dASdAMlAAj@@hFt@zEp@fEn@pBTl@GfALvCXD?HEP?zBT\\DFJpDTx@cBt@kBZk@dAoBj@aBLw@ZiCF{@P{EgAu@MMaAaB}@sBq@aBc@s@Ya@a@[_Ac@yBy@WSKIAA', 'Accepted', '2021-12-18 21:26:47', '2021-12-18 15:58:09', NULL),
-(2, 10001, 0, '19.1438971', '72.8427707', '19.1178548', '72.8631304', 'Jogeshwari, Mumbai, Maharashtra, India', 'Andheri East, Mumbai, Maharashtra, India', 3, 2, 10002, 'Cash & Wallet', '', 2, '', '0', '75', 'Asia/Kolkata', 'g`zsBmbr{LlDa@RKjAOrDc@rFg@n@Wd@Yh@e@JUJa@B_@Ia@Kw@Eq@?gBRcCj@uHLcBRe@JmAd@gDH{@Bo@Ey@SoAWgAmAeE}@uBiAcD]wAOy@QcAMc@hAA`IUxBE~@HbBCbACv@Aza@o@vKM|FAbCI|@M`A[rDcB|B}@dASdAMlAAj@@hFt@zEp@fEn@pBTl@GfALvCXD?HEP?zBT\\DFJpDTx@cBt@kBZk@dAoBj@aBLw@ZiCF{@P{EgAu@MMaAaB}@sBq@aBc@s@Ya@a@[_Ac@yBy@WSKIAA', 'Accepted', '2021-12-18 23:02:05', '2021-12-18 17:33:46', NULL),
-(3, 10004, 0, '-0.7269114', '37.1610938', '-1.3230381', '36.703815899999995', '75F6+77P, Murang\'a, Kenya', 'PR35+G42, Ngong Rd, Nairobi, Kenya', 1, 3, 10003, 'Stripe', '', 3, '', '0', '75', 'Africa/Nairobi', '', 'Accepted', '2022-05-18 08:09:30', '2022-05-18 05:34:23', NULL),
-(4, 10004, 0, '-0.728249', '37.1582974', '-1.2962358999999999', '36.8077602', '75F5+5GC, Murang\'a, Kenya', 'Nairobi hospital, Ngong Road, Nairobi, Kenya', 1, 4, 10003, 'Cash', '', 3, '', '0', '75', 'Africa/Nairobi', 'remConxaFcBvNvAfEl@x@d@Zl@dABjBi@`BJpA\\zAI`@n@x@t@f@nFdHxEbEpF|AjDJpFs@pE{BbBgBnCkFbIcR`FiYLgIFkA|@iDbGaG`KkFvKsDhDYhCd@rCxCfFbNtAfKf@tN\\jI`@nBdAdBvBrAnEj@jM^pCg@|BkAlDyDfB_AnCKxF|ArE^tVsA|HGxGj@pG|AlTnJvCpBnFhItHfHnDtCjDdFhDnIpB`D`DlDpFbE`LlEhK|DbFlElEpGtFrHjHdF~FvBjHjAbILfGe@jKsCbPwFtYeK|PeG|JeCjHg@fILfb@hBzVdAbMjAnP|EfJ`BnGl@hMZxSk@jw@yDlLm@`KeBxYaIdI{AtDWdKLhH^va@vBxKV`OuB`a@cCfCL`Ct@rBzAjBpC`MpUlG|LpCtCfKjGzIhFfCjBbD|DtCnI|AvG|BfCdIlCrI`CpE|BnDfEdFrIlI~F|HfBtENnIaAlKsC~VaHbNcD|KOnKKnJkCrIuG~HaHtCsAbCe@|MPlMp@~PrAxSzEdf@~LnE^|Dc@|L}ClEw@zALzAr@jCpEhDvC|CbC~E|FpFvHtGrFtKvEnRdHzMfIjGxFxJzLlItPdEtLzCtHhFdI|KdK|EtCrJxDzJjBjMnAzSnCbHrBpKnFfOpKbIbFtNtL|DrD|JvGvMbFtWvGvL|EvFpCzO|GfKlD|KhFnUhP`]zM~X~KrKhI~J~IlJxGdQxGjIlAdY_@fIj@|OjExPzFzdAr]`]|Iv\\hIzTpG`\\zOlXnN`_@rRjS`M`TpPtSdStLdK~FvFvCbEvHtKpN~Rp\\f`@fUzVtRxShIhFlNvDnVhFfItBdHlDpEnDtV~YdR~TpClDdDdGbBlGl@fHNba@l@xNzAhRnAhK~Fl]pCnNfBbFzApCzFtGbVhNjRfKnHdGlIlK~EdElGrBdh@xLzo@jNjRfEhIhExExEpDnGtGjN|LlWnFpIjRnR~]bZjWjVndAlaAr^d]jKlIpPfOxMdM~DvE|BvFlCbLjIf^bJ|^vDfHbHpIfTzVjUrShQ|Vpa@tl@hPpTzDfE~DpCzKdExVhItDjBhJrI|V`VlZxYbKnKbKtN`ClH`@tTRlG~@dE|A`ExEdMnD~HzBvChHlLlJzPzFzFrOvLhO~XvPpW~EhGhErA`B`Bx@~AbBZ|Am@nBEx@\\pAzADh@k@bBjClG?tCdF|LxBhFj@E`LeErLqF`Aa@^|@At@hHbRxEnMTdChBdGtExKtFbMt@^hJyDvB_ANIFAt@SxFsBh@s@o@gB', 'Accepted', '2022-05-20 15:30:12', '2022-05-20 12:30:26', NULL),
-(5, 10004, 0, '-1.4922531', '36.9568555', '-1.334992', '36.6726212', 'GX54+3PC, Athi River, Kenya', 'PR35+G42, Ngong Rd, Nairobi, Kenya', 1, 5, 10002, 'Flutterwave', '', 3, '', '0', '75', 'Africa/Nairobi', 'dnbHidq`Fb@VKNQXRLj@Hp@`@mAdBkAvBm@lA`@JJNBD@H{CIi@Au@CaLu@sJgAaDc@iJyAkHaB}JsBmTqEeZoGyLyB_PqDkLuCyGmBaGsBmVwJyOmGkLmEmDgAgBg@aIqAyE_@cJQwE?sFLwBDeEEyRcAwC@cDl@aBx@oAz@w@f@}CvA}Cv@gFd@i@FiDHkBVeBfAqEnB}CdBiCvBgCfCw@`A}@zA_ApAoFxGqLxLwJjIgGtEiFhDiGnDwTdKmh@hUqV|KoLdFmSbJiDpA_@DiCjA{ExBcE`BsIbEmNfHaJhFyJ`GqH~EePjLaHvFeEbD{I~HmK|JmCnCcFlFkFfGqLrN}KlM_Xz[iTlWyFfGuC`CwEvCcJrDaDz@k]hG_KbB}MbCuI~BiEfB{At@yAdAaF~DcE~D{J`KaSfSwErEcHlHuJpKcXl[cChD}@xAy@|A_C~Hm@pEQlIX|Ht@bMdC`]jDdf@vAbTl@lJ@tGk@~F_AbEqD~IKj@kBhEwLpVw@vAuEnJ@pAl@lAj@v@^~@FjBBfAT~APv@jAnCTb@`A|BfBdHpAbMpAvL|BbShBjQx@tHh@pChAlE`E`I`C~FX`Ar@hENhDCtCWhDaBnKQjDFtCb@rEnBfSLdJSbYOjM_@bFaApE{@dCaCnE{JdMkGjI_KjOyCfDuEhDcG`EmDpBsIxF}DpCcC`CqBzCi@nAiAzD]rBQvB@lDn@jGpAfJZzDDhF[dH]~BqArGc@jCYbEB`D\\pDl@dC^`AbBfDzCtDlC`CbD~DfAxBr@rBl@`DRjDFbHNlD`@jCXjAjAzCrD|FpBzChAhCj@vBh@nD`AxKtB|WxAnQf@rH?zBU~CQrAcErMoKrZ}@|AcBxBoDdDqR|OoIzGqE|BuCx@gJ`ByC|@uAv@oCzBgAnAOb@Ih@LjAfAfBPt@@x@Qt@y@dAiAnAOv@?XAv@Vl@HNZn@`@j@nAtAtC`DzB|BdApAbClD`AtAbC`DdKhMpKhMrC~CbC`Dn@jA\\xA~AfIxC`Oz@nEx@`DH@NVALDf@fAxDhApENz@pDrL|B~H~@nJtBjTXjBFpAAxB]fCFv@h@bA`BbAxCz@l@f@^h@VbAFdBPpAVt@xA`BfB~AtAnBf@dBRvANlFE~@Yv@kAfA}C~B[h@W`ACb@J~@fFbP|BzGlEbMvBzFtAxBrBnC|A`BjCpBbBpAtAjAjAdA', 'Cancelled', '2023-06-17 04:51:09', '2023-06-17 04:53:10', NULL),
-(6, 10004, 0, '-1.4922531', '36.9569106', '-1.334992', '36.6726212', 'GX54+3PC, Athi River, Kenya', 'PR35+G42, Ngong Rd, Nairobi, Kenya', 1, 6, 10002, 'Flutterwave', '', 3, '', '0', '75', 'Africa/Nairobi', '~mbHmdq`Fh@Z]h@zAb@TTKNm@|@oApBe@dAWd@XDLJ@BHTmFMgHc@eIs@{Fu@wF{@eI{AqMoCoU}EgWqFwGmAsHyAkN}CmLsCkFwAiGqBeU}IiSkIcLkEaDeAuG{AmIeAkJSyFGoEHmHJ_TcAqAGaB?eDj@qAh@iBhAwDvB}Cx@sC\\aFd@eDFc@HuBlAyCpAmE`CiCrBgChCQHoAnBy@rAgGtH_HjHeLhKsGdFcFlDkHhEaJrE{q@lZwT`KeP|GcLdF{I~DiBn@I?o@PyFrCeE|AcKzE}J`FyMpHuOlJ_OdK}JrHeH|FkHpG_LhKuCvCmI`JoMfOsg@pm@iOrQgKzLmCfCsCtByCfBeDzA{FnB_QdDkYbFcMxByFpAaH|BiFtCqCtBqDjDqDzDuHlHsPzP{EvEsF|FuEtEoD~DaZp]}DlFkBfD_B~Ey@xD]jFIxBBhDJhCBb@x@rNh@nGt@|KlEln@~Bz[PdIUdFs@~EoAfEiCbGCXmMvXoCdFqCrFgA~BAZ@j@Vx@v@dAh@bAHv@JxDb@zBzAxCr@|AnAbEz@dFf@dFxAhNbBbOvArNdBtOt@lE^nBpBbFnAzB`BfDdB`Fd@~B\\|EIjFi@pEw@nEa@nE?jCN|BhCzWJzFQd\\IjKSjEs@xE{@vCiBbEuCfEkEhFaFtGgMbRkCjDoExDaHjEaBjAcI`F}F|DkCvBiC`Ds@lAyApEa@pBSxBGfCF|BTzBzAjKb@hEHxFI`Ec@tEmCvNMhD?jBZnDl@`D~@`CfBzC|BjCvAnAlAhArAzAlBfDb@~@`AtD`@|EDzCHnGTvBXzAn@vBrAtCr@hA`DpEjBvDjApEpAnNjBtUbBtS\\tDNfEI~CY|B_@dBiAjDsEfNqFzOgAbCmAfBwA~AkBbBqBbBkNfLwGrFeChBmBdAqDpAwIzAeEfA_Ab@eBlAqClCUf@Kd@Aj@Jh@z@rA\\~@Bx@Kv@q@dA}@t@Yb@Ml@C|Al@rAvAlBvDhEdAdApBrBnBxChA~A`BvBvBtCrG`IjJ|KhEbF~CzDv@lAV~@fBdJdCxLnArG|@lDFBPRAN@^t@fC~AdGB`@xDjM|BzH`ApJlB|Rh@xE@hC_@fCBt@^bAn@l@p@\\dDbAd@Z`@h@\\fAHzAJrAVx@f@t@n@n@`BzAzAlBh@`BXhBJjC@lCU`Ay@|@iDbCg@t@Uv@Eb@D~@d@fBbE`MpB`GzDzK|BxGhAtBpCvDr@x@rBfBpCtBvAhAdB|A', 'Accepted', '2023-06-17 04:53:10', '2023-06-17 01:53:14', NULL),
-(7, 10004, 0, '-1.4850465', '36.9509603', '-1.334992', '36.6726212', 'GX82+6GP, Old Namanga Rd, Athi River, Kenya', 'PR35+G42, Ngong Rd, Nairobi, Kenya', 1, 7, 10002, 'Mpesa', '', 3, '', '0', '75', 'Africa/Nairobi', 'h`aHe~o`FSKIEJcBBEDIC[LeAtAwCH_@i@CsBKqBKYAIOQ]AwADyCAMQKaAOEIKOEM^o@FGS[g@Wx@{B_ASgCk@kDu@HUu@OcH{AeCg@eHyAgWqFwGmAsHyAkN}CmLsCkFwAiGqBeU}IiSkIcLkEaDeAuG{AmIeAkJSyFGoEHmHJ_TcAqAGaB?eDj@qAh@iBhAwDvB}Cx@sC\\aFd@eDFc@HuBlAyCpAmE`CiCrBgChCQHoAnBy@rAgGtH_HjHeLhKsGdFcFlDkHhEaJrE{q@lZwT`KeP|GcLdF{I~DiBn@I?o@PyFrCeE|AcKzE}J`FyMpHuOlJ_OdK}JrHeH|FkHpG_LhKuCvCmI`JoMfOsg@pm@iOrQgKzLmCfCsCtByCfBeDzA{FnB_QdDkYbFcMxByFpAaH|BiFtCqCtBqDjDqDzDuHlHsPzP{EvEsF|FuEtEoD~DaZp]}DlFkBfD_B~Ey@xD]jFIxBBhDJhCBb@x@rNh@nGt@|KlEln@~Bz[PdIUdFs@~EoAfEiCbGCXmMvXoCdFqCrFgA~BAZ@j@Vx@v@dAh@bAHv@JxDb@zBzAxCr@|AnAbEz@dFf@dFxAhNbBbOvArNdBtOt@lE^nBpBbFnAzB`BfDdB`Fd@~B\\|EIjFi@pEw@nEa@nE?jCN|BhCzWJzFQd\\IjKSjEs@xE{@vCiBbEuCfEkEhFaFtGgMbRkCjDoExDaHjEaBjAcI`F}F|DkCvBiC`Ds@lAyApEa@pBSxBGfCF|BTzBzAjKb@hEHxFI`Ec@tEmCvNMhD?jBZnDl@`D~@`CfBzC|BjCvAnAlAhArAzAlBfDb@~@`AtD`@|EDzCHnGTvBXzAn@vBrAtCr@hA`DpEjBvDjApEpAnNjBtUbBtS\\tDNfEI~CY|B_@dBiAjDsEfNqFzOgAbCmAfBwA~AkBbBqBbBkNfLwGrFeChBmBdAqDpAwIzAeEfA_Ab@eBlAqClCUf@Kd@Aj@Jh@z@rA\\~@Bx@Kv@q@dA}@t@Yb@Ml@C|Al@rAvAlBvDhEdAdApBrBnBxChA~A`BvBvBtCrG`IjJ|KhEbF~CzDv@lAV~@fBdJdCxLnArG|@lDFBPRAN@^t@fC~AdGB`@xDjM|BzH`ApJlB|Rh@xE@hC_@fCBt@^bAn@l@p@\\dDbAd@Z`@h@\\fAHzAJrAVx@f@t@n@n@`BzAzAlBh@`BXhBJjC@lCU`Ay@|@iDbCg@t@Uv@Eb@D~@d@fBbE`MpB`GzDzK|BxGhAtBpCvDr@x@rBfBpCtBvAhAdB|A', 'Cancelled', '2023-06-17 05:59:11', '2023-06-17 05:59:21', NULL),
-(8, 10004, 0, '-1.4850465', '36.9509603', '-1.2962375', '36.807765599999996', 'GX82+6GP, Old Namanga Rd, Athi River, Kenya', 'PR35+G42 Ngong, Kenya', 1, 8, 10002, 'Mpesa', '', 3, '', '0', '75', 'Africa/Nairobi', 'h`aHe~o`FSKIEJcBBEDIC[?WLm@tAwCH_@i@CsBKqBKYAIOQ]CO@gA@oBBi@AMQKaAI?EEIKOEM^o@FGS[g@Wn@sBHG_ASgCk@kDu@HUu@OcH{AeCg@wBa@mDw@iCg@kFkAqK}BqFgAe@EsHyAkN}CeCo@gHcBkFwAiGqB}QkHgBq@iEiB_DoA_HqC}B}@sD{AqBq@aDeA}A_@w@W_Cc@sEq@yBSeCIeFIyEG_@?oEHoCH}C@aEQoBMiCIcFYqAGk@Cu@B_AJeB^c@Lm@ZiBhAe@ZgAp@iAh@}Cx@_BVs@DcD\\}@FaCBc@Bc@Hq@\\cAn@_@PODiBx@cCjAiAt@oA|@y@t@mAlAy@z@QHoAnBy@rAgGtH}CjDaC~BkGbGyCdCsGdFcFlDkHhEiDjBwDfBs\\`OgTjJyNxG}DfBqEnBsIlDeElB}EvB{I~DeBr@CCA?G?o@PyFrCeE|AcKzE}J`FmGhDkEfCiFzCkHpE_OdK}JrHwBlBsB`By@l@mAdA}EjEsAjAkI|HcAbAOTaA|@mBnBcDjD{@dAeFzFiFjGqClDmCvCyDvEyXr\\iOrQ{E~FkDzDmCfCsCtByCfBeDzA{FnBcBb@sJdBgBZkYbFcMxByFpAeF`B{@ZmAn@oAn@kAt@ST}B~AaBzAoAnA_C`Cq@x@uHlHsPzPoDnDk@f@sF|FuEtEoD~DuNrPkJ|KuBhCgAbBeAdBe@`A_B~Ea@`BWvAUxBGpBIxBBhDJhCBb@XtE^|GN`CXlCt@|KlEln@|@lM^xF`@rEJxCDjDChBQzBYbCYzAe@fBi@~AiCbG]h@eEtIgA`C_B~CkD|GkD~G_C`FiBlDoMxWoCbFM`@gBnDmExImCrFiD~Go@hAARSj@}@lCI`@K`@c@nBWt@e@hA_A|A]h@}AnBcDtCYPO@_Az@uBxAoBfAmEhBeGxBgHhCyNfFwHhCiBn@u@^c@\\AJELURMDQ@OAMEe@B}PlGsG~Be@XELGHMFOfACz@CZMjAc@jCe@vD@JSd@CL@B@HAJCDOBEA_DbA{CbAw@\\ORMROf@[bBMb@UT[PwAb@oAz@o@r@_@b@{@`BKb@?b@@v@K^UXs@`@qB`AMRIDIJQ`@LbAJ^PZRPZPn@Zf@f@RZL^Pn@\\vAd@fCJ`AD~@DzA?pF@jABj@N^Vb@h@n@tAtAz@|AZv@z@dBS@]JFWBUq@{A', 'Cancelled', '2023-06-17 07:50:58', '2023-06-17 07:51:09', NULL),
-(9, 10004, 0, '-1.4850448', '36.9510505', '-1.334992', '36.6726212', 'GX82+6GP, Old Namanga Rd, Athi River, Kenya', 'PR35+G42, Ngong Rd, Nairobi, Kenya', 1, 9, 10002, 'Mpesa', '', 3, '', '0', '75', 'Africa/Nairobi', '``aHi~o`FKGIEJcBBEDIC[LeAtAwCH_@i@CsBKqBKYAIOQ]AwADyCAMQKaAOEIKOEM^o@FGS[g@Wx@{B_ASgCk@kDu@HUu@OcH{AeCg@eHyAgWqFwGmAsHyAkN}CmLsCkFwAiGqBeU}IiSkIcLkEaDeAuG{AmIeAkJSyFGoEHmHJ_TcAqAGaB?eDj@qAh@iBhAwDvB}Cx@sC\\aFd@eDFc@HuBlAyCpAmE`CiCrBgChCQHoAnBy@rAgGtH_HjHeLhKsGdFcFlDkHhEaJrE{q@lZwT`KeP|GcLdF{I~DiBn@I?o@PyFrCeE|AcKzE}J`FyMpHuOlJ_OdK}JrHeH|FkHpG_LhKuCvCmI`JoMfOsg@pm@iOrQgKzLmCfCsCtByCfBeDzA{FnB_QdDkYbFcMxByFpAaH|BiFtCqCtBqDjDqDzDuHlHsPzP{EvEsF|FuEtEoD~DaZp]}DlFkBfD_B~Ey@xD]jFIxBBhDJhCBb@x@rNh@nGt@|KlEln@~Bz[PdIUdFs@~EoAfEiCbGCXmMvXoCdFqCrFgA~BAZ@j@Vx@v@dAh@bAHv@JxDb@zBzAxCr@|AnAbEz@dFf@dFxAhNbBbOvArNdBtOt@lE^nBpBbFnAzB`BfDdB`Fd@~B\\|EIjFi@pEw@nEa@nE?jCN|BhCzWJzFQd\\IjKSjEs@xE{@vCiBbEuCfEkEhFaFtGgMbRkCjDoExDaHjEaBjAcI`F}F|DkCvBiC`Ds@lAyApEa@pBSxBGfCF|BTzBzAjKb@hEHxFI`Ec@tEmCvNMhD?jBZnDl@`D~@`CfBzC|BjCvAnAlAhArAzAlBfDb@~@`AtD`@|EDzCHnGTvBXzAn@vBrAtCr@hA`DpEjBvDjApEpAnNjBtUbBtS\\tDNfEI~CY|B_@dBiAjDsEfNqFzOgAbCmAfBwA~AkBbBqBbBkNfLwGrFeChBmBdAqDpAwIzAeEfA_Ab@eBlAqClCUf@Kd@Aj@Jh@z@rA\\~@Bx@Kv@q@dA}@t@Yb@Ml@C|Al@rAvAlBvDhEdAdApBrBnBxChA~A`BvBvBtCrG`IjJ|KhEbF~CzDv@lAV~@fBdJdCxLnArG|@lDFBPRAN@^t@fC~AdGB`@xDjM|BzH`ApJlB|Rh@xE@hC_@fCBt@^bAn@l@p@\\dDbAd@Z`@h@\\fAHzAJrAVx@f@t@n@n@`BzAzAlBh@`BXhBJjC@lCU`Ay@|@iDbCg@t@Uv@Eb@D~@d@fBbE`MpB`GzDzK|BxGhAtBpCvDr@x@rBfBpCtBvAhAdB|A', 'Accepted', '2023-06-17 07:52:50', '2023-06-17 04:52:57', NULL);
 
 -- --------------------------------------------------------
 
@@ -2089,16 +1548,6 @@ CREATE TABLE `rider_location` (
   `work_longitude` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `latitude` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `longitude` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `rider_location`
---
-
-INSERT INTO `rider_location` (`id`, `user_id`, `home`, `work`, `home_latitude`, `home_longitude`, `work_latitude`, `work_longitude`, `latitude`, `longitude`) VALUES
-(1, 10001, 'Nairobi, Kenya', 'Mombasa, Kenya', '-1.2920659', '36.8219462', '-4.0434771', '39.6682065', '19.14430794923723', '72.83747524023056'),
-(2, 10004, 'PR35+G42, Ngong Rd, Nairobi, Kenya', 'Murang\'a, Kenya', '-1.2962359', '36.8077602', '-0.7236857999999999', '37.1606968', '43.07034264312149', '47.338916435837746');
-
 -- --------------------------------------------------------
 
 --
@@ -2151,7 +1600,7 @@ CREATE TABLE `schedule_cancel` (
   `schedule_ride_id` int(10) UNSIGNED NOT NULL,
   `cancel_reason` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `cancel_reason_id` int(10) UNSIGNED NOT NULL,
-  `cancel_by` enum('Rider','Driver','Admin','Company') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cancel_by` enum('Rider','Driver','Admin') COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2165,7 +1614,6 @@ CREATE TABLE `schedule_cancel` (
 CREATE TABLE `schedule_ride` (
   `id` int(10) UNSIGNED NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL,
-  `company_id` int(10) UNSIGNED DEFAULT NULL,
   `schedule_date` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `schedule_time` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `schedule_end_date` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -2184,9 +1632,7 @@ CREATE TABLE `schedule_ride` (
   `driver_id` int(11) NOT NULL DEFAULT '0',
   `status` enum('Pending','Completed','Cancelled','Car Not Found') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `timezone` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payment_method` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `fare_estimation` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `is_wallet` enum('Yes','No') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2349,7 +1795,6 @@ CREATE TABLE `site_settings` (
 
 INSERT INTO `site_settings` (`id`, `name`, `value`) VALUES
 (1, 'site_name', 'NewTaxi'),
-(2, 'payment_currency', 'USD'),
 (3, 'version', '1.0'),
 (4, 'logo', 'logo.png'),
 (5, 'page_logo', 'page_logo.png'),
@@ -2358,7 +1803,7 @@ INSERT INTO `site_settings` (`id`, `name`, `value`) VALUES
 (8, 'head_code', ''),
 (9, 'admin_contact', '700207417'),
 (10, 'admin_country_code', '138'),
-(11, 'site_url', 'http://newtaxi.seentechs.com/public/'),
+(11, 'site_url', ''),
 (12, 'heat_map', 'Off'),
 (13, 'heat_map_hours', '3'),
 (14, 'update_loc_interval', '1'),
@@ -2371,9 +1816,9 @@ INSERT INTO `site_settings` (`id`, `name`, `value`) VALUES
 (21, 'covid_enable', '0'),
 (22, 'driver_request_seconds', '45'),
 (23, 'driver_request_limit', '100'),
-(24, 'copyright_year', '2022'),
-(25, 'copyright_url', 'https://seentechs.com'),
-(26, 'copyright_name', 'SeenTechnologies'),
+(24, 'copyright_year', '2023'),
+(25, 'copyright_url', ''),
+(26, 'copyright_name', ''),
 (27, 'default_otp', 'firebase');
 
 -- --------------------------------------------------------
@@ -2462,65 +1907,6 @@ INSERT INTO `toll_reasons` (`id`, `reason`, `status`) VALUES
 
 -- --------------------------------------------------------
 
---
--- Table structure for table `transactions`
---
-
-CREATE TABLE `transactions` (
-  `id` int(11) NOT NULL,
-  `user_id` varchar(120) NOT NULL,
-  `payment_id` varchar(120) NOT NULL,
-  `amount` decimal(11,2) NOT NULL,
-  `currency` varchar(120) NOT NULL,
-  `pay_for` varchar(120) NOT NULL,
-  `payment_type` varchar(120) NOT NULL,
-  `transaction_id` varchar(255) DEFAULT NULL,
-  `payment_desc` varchar(255) DEFAULT NULL,
-  `status` enum('Pending','Paid','Failed') NOT NULL DEFAULT 'Pending',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `transactions`
---
-
-INSERT INTO `transactions` (`id`, `user_id`, `payment_id`, `amount`, `currency`, `pay_for`, `payment_type`, `transaction_id`, `payment_desc`, `status`, `created_at`, `updated_at`) VALUES
-(20, '10002', 'ws_CO_17062023035346773748977926', '1.00', 'USD', 'pay_to_admin', 'mpesa', NULL, NULL, 'Pending', '2023-06-17 00:52:32', NULL),
-(21, '10002', 'ws_CO_17062023035845402748977926', '1.00', 'USD', 'pay_to_admin', 'mpesa', NULL, NULL, 'Failed', '2023-06-17 00:58:14', '2023-06-17 00:58:23'),
-(22, '10002', 'ws_CO_17062023041952066748977926', '1.00', 'USD', 'pay_to_admin', 'mpesa', NULL, NULL, 'Failed', '2023-06-17 01:18:38', '2023-06-17 01:18:46'),
-(23, '10002', 'ws_CO_17062023042243870748977926', '1.00', 'USD', 'pay_to_admin', 'mpesa', NULL, NULL, 'Failed', '2023-06-17 01:21:29', '2023-06-17 01:21:38'),
-(24, '10002', 'ws_CO_17062023042352123748977926', '1.00', 'USD', 'pay_to_admin', 'mpesa', NULL, NULL, 'Failed', '2023-06-17 01:22:38', '2023-06-17 01:22:45'),
-(25, '10002', 'ws_CO_17062023043610882748977926', '1.00', 'USD', 'pay_to_admin', 'mpesa', NULL, NULL, 'Pending', '2023-06-17 01:34:56', NULL),
-(26, '10002', 'ws_CO_17062023043843762748977926', '1.00', 'USD', 'pay_to_admin', 'mpesa', 'RFH795RQRN', NULL, 'Paid', '2023-06-17 01:37:29', '2023-06-17 01:37:42'),
-(27, '10002', 'ws_CO_17062023044251265748977926', '1.00', 'USD', 'pay_to_admin', 'mpesa', 'RFH495SWG4', NULL, 'Paid', '2023-06-17 01:42:20', '2023-06-17 01:42:33'),
-(28, '10002', 'ws_CO_17062023044856408748977926', '10.00', 'USD', 'pay_to_admin', 'mpesa', NULL, 'The balance is insufficient for the transaction.', 'Failed', '2023-06-17 01:47:42', '2023-06-17 01:47:49'),
-(29, '10002', 'ws_CO_17062023045430289748977926', '1.00', 'USD', 'pay_to_admin', 'mpesa', NULL, 'Request cancelled by user', 'Failed', '2023-06-17 01:53:59', '2023-06-17 01:54:23'),
-(30, '10002', 'rave648d1ac59b6d8', '20.00', 'USD', 'pay_to_admin', 'flutterwave', NULL, NULL, 'Pending', '2023-06-17 02:30:29', NULL),
-(31, '10002', 'rave648d1cf1131a9', '10.00', 'USD', 'pay_to_admin', 'flutterwave', NULL, NULL, 'Pending', '2023-06-17 02:39:45', NULL),
-(32, '10002', 'rave648d1d4279a9a', '20.00', 'USD', 'pay_to_admin', 'flutterwave', NULL, NULL, 'Pending', '2023-06-17 02:41:06', NULL),
-(33, '10002', 'rave648d301ceab76', '9.00', 'USD', 'pay_to_admin', 'flutterwave', NULL, NULL, 'Pending', '2023-06-17 04:01:32', NULL),
-(34, '10002', 'rave648d335e0c874', '5.00', 'USD', 'pay_to_admin', 'flutterwave', 'RV31686975373940266CD73DA2', 'successful', 'Paid', '2023-06-17 04:15:26', '2023-06-17 04:16:25'),
-(35, '10004', 'ws_CO_17062023073500824700207417', '1.00', 'USD', 'wallet', 'mpesa', 'RFH699VOPI', 'The service request is processed successfully.', 'Paid', '2023-06-17 04:34:29', '2023-06-17 04:34:42'),
-(36, '10004', 'ws_CO_17062023074027084797049288', '1.00', 'USD', 'wallet', 'mpesa', NULL, NULL, 'Pending', '2023-06-17 04:39:12', NULL),
-(37, '10004', 'ws_CO_17062023074114708700207417', '1.00', 'USD', 'wallet', 'mpesa', NULL, 'Request cancelled by user', 'Failed', '2023-06-17 04:40:43', '2023-06-17 04:41:03'),
-(38, '10004', 'rave648d39f3e6652', '5.00', 'USD', 'wallet', 'flutterwave', 'RV3168697709206043D0C09AC9', 'successful', 'Paid', '2023-06-17 04:43:31', '2023-06-17 04:45:03'),
-(39, '10004', 'rave648d3a70d1641', '100.00', 'USD', 'wallet', 'flutterwave', 'RV31686977191106781FD9EF7D', 'successful', 'Paid', '2023-06-17 04:45:36', '2023-06-17 04:46:38'),
-(40, '10002', 'ws_CO_17062023082459769748977926', '10.00', 'USD', 'pay_to_admin', 'mpesa', NULL, NULL, 'Pending', '2023-06-17 05:23:45', NULL),
-(41, '10002', 'ws_CO_17062023082616709748977926', '1.00', 'USD', 'pay_to_admin', 'mpesa', NULL, NULL, 'Pending', '2023-06-17 05:25:02', NULL),
-(42, '10002', 'ws_CO_17062023082809415748977926', '10.00', 'USD', 'pay_to_admin', 'mpesa', NULL, NULL, 'Pending', '2023-06-17 05:27:38', NULL),
-(43, '10002', '', '8.00', 'USD', 'pay_to_admin', 'mpesa', NULL, NULL, 'Pending', '2023-06-17 05:37:24', NULL),
-(44, '10002', '', '1.00', 'USD', 'pay_to_admin', 'mpesa', NULL, NULL, 'Pending', '2023-06-17 05:46:22', NULL),
-(46, '10002', 'ws_CO_17062023085136826748977926', '1.00', 'USD', 'pay_to_admin', 'mpesa', NULL, 'The balance is insufficient for the transaction.', 'Failed', '2023-06-17 05:51:05', '2023-06-17 05:51:12'),
-(47, '10002', 'ws_CO_17062023085245315748977926', '1.00', 'USD', 'pay_to_admin', 'mpesa', 'RFH29FKJ3Q', 'The service request is processed successfully.', 'Paid', '2023-06-17 05:51:31', '2023-06-17 05:51:42'),
-(48, '10004', 'ws_CO_17062023101857623797049288', '100.00', 'USD', 'wallet', 'mpesa', NULL, 'Request cancelled by user', 'Failed', '2023-06-17 07:17:43', '2023-06-17 07:17:53'),
-(49, '10004', 'ws_CO_17062023101934963797049288', '1.00', 'USD', 'wallet', 'mpesa', NULL, NULL, 'Pending', '2023-06-17 07:18:20', NULL),
-(50, '10004', 'ws_CO_17062023102001612797049288', '1.00', 'USD', 'wallet', 'mpesa', NULL, NULL, 'Pending', '2023-06-17 07:18:47', NULL),
-(51, '10004', 'ws_CO_17062023102021948797049288', '1.00', 'USD', 'wallet', 'mpesa', 'RFH19NC7RX', 'The service request is processed successfully.', 'Paid', '2023-06-17 07:19:07', '2023-06-17 07:19:18');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `trips`
 --
 
@@ -2555,14 +1941,8 @@ CREATE TABLE `trips` (
   `tips` decimal(11,2) NOT NULL DEFAULT '0.00',
   `waiting_charge` decimal(11,2) NOT NULL DEFAULT '0.00',
   `toll_reason_id` int(10) UNSIGNED DEFAULT NULL,
-  `toll_fee` decimal(11,2) NOT NULL DEFAULT '0.00',
-  `wallet_amount` decimal(11,2) NOT NULL,
-  `promo_amount` decimal(11,2) NOT NULL,
   `subtotal_fare` decimal(11,2) NOT NULL,
   `total_fare` decimal(11,2) NOT NULL,
-  `driver_payout` decimal(11,2) NOT NULL,
-  `driver_or_company_commission` decimal(11,2) NOT NULL,
-  `owe_amount` decimal(11,2) NOT NULL,
   `remaining_owe_amount` decimal(11,2) NOT NULL,
   `applied_owe_amount` decimal(11,2) NOT NULL,
   `to_trip_id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -2570,8 +1950,6 @@ CREATE TABLE `trips` (
   `begin_trip` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `end_trip` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `paykey` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payment_mode` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Braintree',
-  `payment_status` enum('Pending','Completed','Trip Cancelled') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Pending',
   `is_calculation` enum('1','0') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
   `currency_code` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
   `fare_estimation` text COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -2580,19 +1958,6 @@ CREATE TABLE `trips` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `trips`
---
-
-INSERT INTO `trips` (`id`, `user_id`, `pool_id`, `pickup_latitude`, `pickup_longitude`, `drop_latitude`, `drop_longitude`, `pickup_location`, `drop_location`, `car_id`, `request_id`, `driver_id`, `trip_path`, `map_image`, `seats`, `total_time`, `total_km`, `time_fare`, `distance_fare`, `base_fare`, `additional_rider`, `additional_rider_amount`, `peak_fare`, `peak_amount`, `driver_peak_amount`, `schedule_fare`, `access_fee`, `tips`, `waiting_charge`, `toll_reason_id`, `toll_fee`, `wallet_amount`, `promo_amount`, `subtotal_fare`, `total_fare`, `driver_payout`, `driver_or_company_commission`, `owe_amount`, `remaining_owe_amount`, `applied_owe_amount`, `to_trip_id`, `arrive_time`, `begin_trip`, `end_trip`, `paykey`, `payment_mode`, `payment_status`, `is_calculation`, `currency_code`, `fare_estimation`, `status`, `otp`, `created_at`, `updated_at`) VALUES
-(1, 10001, 0, '19.1417606', '72.8339683', '19.141765', '72.8339667', 'Opposite Dheeraj Gaurav Heights, Off Lokhandwala Link Road, Lashkariya Tower, Shakti nagar, Adarsh Nagar, Andheri West, Mumbai, Maharashtra 400058, India', 'Opposite Dheeraj Gaurav Heights, Off Lokhandwala Link Road, Lashkariya Tower, Shakti nagar, Adarsh Nagar, Andheri West, Mumbai, Maharashtra 400058, India', 3, 1, 10002, 'g`zsBmbr{LlDa@RKjAOrDc@rFg@n@Wd@Yh@e@JUJa@B_@Ia@Kw@Eq@?gBRcCj@uHLcBRe@JmAd@gDH{@Bo@Ey@SoAWgAmAeE}@uBiAcD]wAOy@QcAMc@hAA`IUxBE~@HbBCbACv@Aza@o@vKM|FAbCI|@M`A[rDcB|B}@dASdAMlAAj@@hFt@zEp@fEn@pBTl@GfALvCXD?HEP?zBT\\DFJpDTx@cBt@kBZk@dAoBj@aBLw@ZiCF{@P{EgAu@MMaAaB}@sBq@aBc@s@Ya@a@[_Ac@yBy@WSKIAA', 'ad275297.jpg', 0, '0.00', '0.36', '0.00', '0.36', '100.00', 0, '0.00', '0.00', '0.00', '0.00', '0.00', '10.04', '0.00', '0.00', NULL, '0.00', '110.40', '0.00', '100.36', '0.00', '90.32', '10.04', '0.00', '0.00', '0.00', '', '2021-12-18 21:27:17', '2021-12-18 21:27:32', '2021-12-18 21:27:51', '', 'Cash & Wallet', 'Completed', '1', 'INR', '{\"status\":\"success\",\"distance\":5427,\"time\":916}', 'Completed', '0', '2021-12-18 21:26:53', '2021-12-18 16:17:24'),
-(2, 10001, 0, '19.1442764', '72.8374607', '19.1442672', '72.8374539', '25-A/B, Sultanabad Colony, Behram Baug, Jogeshwari West, Mumbai, Maharashtra 400102, India', '25-A/B, Sultanabad Colony, Behram Baug, Jogeshwari West, Mumbai, Maharashtra 400102, India', 3, 2, 10002, 'g`zsBmbr{LlDa@RKjAOrDc@rFg@n@Wd@Yh@e@JUJa@B_@Ia@Kw@Eq@?gBRcCj@uHLcBRe@JmAd@gDH{@Bo@Ey@SoAWgAmAeE}@uBiAcD]wAOy@QcAMc@hAA`IUxBE~@HbBCbACv@Aza@o@vKM|FAbCI|@M`A[rDcB|B}@dASdAMlAAj@@hFt@zEp@fEn@pBTl@GfALvCXD?HEP?zBT\\DFJpDTx@cBt@kBZk@dAoBj@aBLw@ZiCF{@P{EgAu@MMaAaB}@sBq@aBc@s@Ya@a@[_Ac@yBy@WSKIAA', 'f42291d5.jpg', 0, '0.00', '0.00', '0.00', '0.00', '100.00', 0, '0.00', '0.00', '0.00', '0.00', '0.00', '10.00', '0.00', '0.00', NULL, '0.00', '110.00', '0.00', '100.00', '0.00', '90.00', '10.00', '0.00', '0.00', '0.00', '', '2021-12-18 23:02:42', '2021-12-18 23:02:55', '2021-12-18 23:03:02', '', 'Cash & Wallet', 'Completed', '1', 'INR', '{\"status\":\"success\",\"distance\":5427,\"time\":916}', 'Completed', '0', '2021-12-18 23:02:10', '2021-12-18 17:33:48'),
-(3, 10004, 0, '-0.7274304', '37.162018', '-0.7274559', '37.1620176', '75F6+2R Murang\'a, Kenya', '75F6+2R Murang\'a, Kenya', 1, 3, 10003, '', '3bba046b.jpg', 0, '0.00', '0.00', '0.00', '0.00', '5.00', 0, '0.00', '0.00', '0.00', '0.00', '0.00', '0.50', '0.00', '0.00', NULL, '0.00', '0.00', '0.00', '5.00', '5.50', '4.50', '0.50', '0.00', '0.00', '0.00', '', '2022-05-18 08:32:53', '2022-05-18 08:33:11', '2022-05-18 08:33:36', 'pi_3L0iKsJbZQ9xXEmX1oQWvo12', 'Stripe', 'Completed', '1', 'USD', '{\"status\":\"success\",\"distance\":98295,\"time\":6687}', 'Completed', '0', '2022-05-18 08:09:39', '2022-05-18 05:34:28'),
-(4, 10004, 0, '-0.7282489', '37.158298', '-0.7282501', '37.1582946', '75F5+5GC, Murang\'a, Kenya', '75F5+5GC, Murang\'a, Kenya', 1, 4, 10003, 'remConxaFcBvNvAfEl@x@d@Zl@dABjBi@`BJpA\\zAI`@n@x@t@f@nFdHxEbEpF|AjDJpFs@pE{BbBgBnCkFbIcR`FiYLgIFkA|@iDbGaG`KkFvKsDhDYhCd@rCxCfFbNtAfKf@tN\\jI`@nBdAdBvBrAnEj@jM^pCg@|BkAlDyDfB_AnCKxF|ArE^tVsA|HGxGj@pG|AlTnJvCpBnFhItHfHnDtCjDdFhDnIpB`D`DlDpFbE`LlEhK|DbFlElEpGtFrHjHdF~FvBjHjAbILfGe@jKsCbPwFtYeK|PeG|JeCjHg@fILfb@hBzVdAbMjAnP|EfJ`BnGl@hMZxSk@jw@yDlLm@`KeBxYaIdI{AtDWdKLhH^va@vBxKV`OuB`a@cCfCL`Ct@rBzAjBpC`MpUlG|LpCtCfKjGzIhFfCjBbD|DtCnI|AvG|BfCdIlCrI`CpE|BnDfEdFrIlI~F|HfBtENnIaAlKsC~VaHbNcD|KOnKKnJkCrIuG~HaHtCsAbCe@|MPlMp@~PrAxSzEdf@~LnE^|Dc@|L}ClEw@zALzAr@jCpEhDvC|CbC~E|FpFvHtGrFtKvEnRdHzMfIjGxFxJzLlItPdEtLzCtHhFdI|KdK|EtCrJxDzJjBjMnAzSnCbHrBpKnFfOpKbIbFtNtL|DrD|JvGvMbFtWvGvL|EvFpCzO|GfKlD|KhFnUhP`]zM~X~KrKhI~J~IlJxGdQxGjIlAdY_@fIj@|OjExPzFzdAr]`]|Iv\\hIzTpG`\\zOlXnN`_@rRjS`M`TpPtSdStLdK~FvFvCbEvHtKpN~Rp\\f`@fUzVtRxShIhFlNvDnVhFfItBdHlDpEnDtV~YdR~TpClDdDdGbBlGl@fHNba@l@xNzAhRnAhK~Fl]pCnNfBbFzApCzFtGbVhNjRfKnHdGlIlK~EdElGrBdh@xLzo@jNjRfEhIhExExEpDnGtGjN|LlWnFpIjRnR~]bZjWjVndAlaAr^d]jKlIpPfOxMdM~DvE|BvFlCbLjIf^bJ|^vDfHbHpIfTzVjUrShQ|Vpa@tl@hPpTzDfE~DpCzKdExVhItDjBhJrI|V`VlZxYbKnKbKtN`ClH`@tTRlG~@dE|A`ExEdMnD~HzBvChHlLlJzPzFzFrOvLhO~XvPpW~EhGhErA`B`Bx@~AbBZ|Am@nBEx@\\pAzADh@k@bBjClG?tCdF|LxBhFj@E`LeErLqF`Aa@^|@At@hHbRxEnMTdChBdGtExKtFbMt@^hJyDvB_ANIFAt@SxFsBh@s@o@gB', '8f448512.jpg', 0, '1.00', '0.00', '1.00', '0.00', '4.00', 0, '0.00', '0.00', '0.00', '0.00', '0.00', '0.50', '0.00', '0.00', NULL, '0.00', '0.00', '0.00', '5.00', '5.50', '0.00', '0.50', '1.00', '0.00', '0.00', '', '2022-05-20 15:30:39', '2022-05-20 15:32:56', '2022-05-20 15:34:34', '', 'Cash', 'Completed', '1', 'USD', '{\"status\":\"success\",\"distance\":85805,\"time\":5491}', 'Completed', '0', '2022-05-20 15:30:26', '2022-05-20 12:36:02'),
-(5, 10004, 0, '-1.4922531', '36.9569106', '-1.334992', '36.6726212', 'GX54+3PC, Athi River, Kenya', 'PR35+G42, Ngong Rd, Nairobi, Kenya', 1, 6, 10002, '~mbHmdq`Fh@Z]h@zAb@TTKNm@|@oApBe@dAWd@XDLJ@BHTmFMgHc@eIs@{Fu@wF{@eI{AqMoCoU}EgWqFwGmAsHyAkN}CmLsCkFwAiGqBeU}IiSkIcLkEaDeAuG{AmIeAkJSyFGoEHmHJ_TcAqAGaB?eDj@qAh@iBhAwDvB}Cx@sC\\aFd@eDFc@HuBlAyCpAmE`CiCrBgChCQHoAnBy@rAgGtH_HjHeLhKsGdFcFlDkHhEaJrE{q@lZwT`KeP|GcLdF{I~DiBn@I?o@PyFrCeE|AcKzE}J`FyMpHuOlJ_OdK}JrHeH|FkHpG_LhKuCvCmI`JoMfOsg@pm@iOrQgKzLmCfCsCtByCfBeDzA{FnB_QdDkYbFcMxByFpAaH|BiFtCqCtBqDjDqDzDuHlHsPzP{EvEsF|FuEtEoD~DaZp]}DlFkBfD_B~Ey@xD]jFIxBBhDJhCBb@x@rNh@nGt@|KlEln@~Bz[PdIUdFs@~EoAfEiCbGCXmMvXoCdFqCrFgA~BAZ@j@Vx@v@dAh@bAHv@JxDb@zBzAxCr@|AnAbEz@dFf@dFxAhNbBbOvArNdBtOt@lE^nBpBbFnAzB`BfDdB`Fd@~B\\|EIjFi@pEw@nEa@nE?jCN|BhCzWJzFQd\\IjKSjEs@xE{@vCiBbEuCfEkEhFaFtGgMbRkCjDoExDaHjEaBjAcI`F}F|DkCvBiC`Ds@lAyApEa@pBSxBGfCF|BTzBzAjKb@hEHxFI`Ec@tEmCvNMhD?jBZnDl@`D~@`CfBzC|BjCvAnAlAhArAzAlBfDb@~@`AtD`@|EDzCHnGTvBXzAn@vBrAtCr@hA`DpEjBvDjApEpAnNjBtUbBtS\\tDNfEI~CY|B_@dBiAjDsEfNqFzOgAbCmAfBwA~AkBbBqBbBkNfLwGrFeChBmBdAqDpAwIzAeEfA_Ab@eBlAqClCUf@Kd@Aj@Jh@z@rA\\~@Bx@Kv@q@dA}@t@Yb@Ml@C|Al@rAvAlBvDhEdAdApBrBnBxChA~A`BvBvBtCrG`IjJ|KhEbF~CzDv@lAV~@fBdJdCxLnArG|@lDFBPRAN@^t@fC~AdGB`@xDjM|BzH`ApJlB|Rh@xE@hC_@fCBt@^bAn@l@p@\\dDbAd@Z`@h@\\fAHzAJrAVx@f@t@n@n@`BzAzAlBh@`BXhBJjC@lCU`Ay@|@iDbCg@t@Uv@Eb@D~@d@fBbE`MpB`GzDzK|BxGhAtBpCvDr@x@rBfBpCtBvAhAdB|A', '', 0, '0.00', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', NULL, '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', 'Flutterwave', 'Trip Cancelled', '0', 'USD', '{\"status\":\"success\",\"distance\":48912,\"time\":3491}', 'Cancelled', '4683', '2023-06-17 04:53:14', '2023-06-17 01:55:40'),
-(6, 10004, 0, '-1.4850366', '36.9510213', '-1.334992', '36.6726212', 'GX82+6GP, Old Namanga Rd, Athi River, Kenya', 'PR35+G42, Ngong Rd, Nairobi, Kenya', 1, 9, 10002, '``aHi~o`FKGIEJcBBEDIC[LeAtAwCH_@i@CsBKqBKYAIOQ]AwADyCAMQKaAOEIKOEM^o@FGS[g@Wx@{B_ASgCk@kDu@HUu@OcH{AeCg@eHyAgWqFwGmAsHyAkN}CmLsCkFwAiGqBeU}IiSkIcLkEaDeAuG{AmIeAkJSyFGoEHmHJ_TcAqAGaB?eDj@qAh@iBhAwDvB}Cx@sC\\aFd@eDFc@HuBlAyCpAmE`CiCrBgChCQHoAnBy@rAgGtH_HjHeLhKsGdFcFlDkHhEaJrE{q@lZwT`KeP|GcLdF{I~DiBn@I?o@PyFrCeE|AcKzE}J`FyMpHuOlJ_OdK}JrHeH|FkHpG_LhKuCvCmI`JoMfOsg@pm@iOrQgKzLmCfCsCtByCfBeDzA{FnB_QdDkYbFcMxByFpAaH|BiFtCqCtBqDjDqDzDuHlHsPzP{EvEsF|FuEtEoD~DaZp]}DlFkBfD_B~Ey@xD]jFIxBBhDJhCBb@x@rNh@nGt@|KlEln@~Bz[PdIUdFs@~EoAfEiCbGCXmMvXoCdFqCrFgA~BAZ@j@Vx@v@dAh@bAHv@JxDb@zBzAxCr@|AnAbEz@dFf@dFxAhNbBbOvArNdBtOt@lE^nBpBbFnAzB`BfDdB`Fd@~B\\|EIjFi@pEw@nEa@nE?jCN|BhCzWJzFQd\\IjKSjEs@xE{@vCiBbEuCfEkEhFaFtGgMbRkCjDoExDaHjEaBjAcI`F}F|DkCvBiC`Ds@lAyApEa@pBSxBGfCF|BTzBzAjKb@hEHxFI`Ec@tEmCvNMhD?jBZnDl@`D~@`CfBzC|BjCvAnAlAhArAzAlBfDb@~@`AtD`@|EDzCHnGTvBXzAn@vBrAtCr@hA`DpEjBvDjApEpAnNjBtUbBtS\\tDNfEI~CY|B_@dBiAjDsEfNqFzOgAbCmAfBwA~AkBbBqBbBkNfLwGrFeChBmBdAqDpAwIzAeEfA_Ab@eBlAqClCUf@Kd@Aj@Jh@z@rA\\~@Bx@Kv@q@dA}@t@Yb@Ml@C|Al@rAvAlBvDhEdAdApBrBnBxChA~A`BvBvBtCrG`IjJ|KhEbF~CzDv@lAV~@fBdJdCxLnArG|@lDFBPRAN@^t@fC~AdGB`@xDjM|BzH`ApJlB|Rh@xE@hC_@fCBt@^bAn@l@p@\\dDbAd@Z`@h@\\fAHzAJrAVx@f@t@n@n@`BzAzAlBh@`BXhBJjC@lCU`Ay@|@iDbCg@t@Uv@Eb@D~@d@fBbE`MpB`GzDzK|BxGhAtBpCvDr@x@rBfBpCtBvAhAdB|A', '', 0, '0.00', '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', NULL, '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '', '2023-06-17 09:36:55', '2023-06-17 09:37:41', '0000-00-00 00:00:00', '', 'Mpesa', 'Pending', '0', 'USD', '{\"status\":\"success\",\"distance\":48406,\"time\":3539}', 'End trip', '0', '2023-06-17 07:52:58', '2023-06-17 10:06:51');
-
 -- --------------------------------------------------------
 
 --
@@ -2623,7 +1988,6 @@ CREATE TABLE `users` (
   `mobile_number` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `user_type` enum('Rider','Driver') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `company_id` int(10) UNSIGNED DEFAULT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `firebase_token` text COLLATE utf8mb4_unicode_ci,
   `fb_id` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -2647,10 +2011,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `country_code`, `gender`, `mobile_number`, `password`, `user_type`, `company_id`, `remember_token`, `firebase_token`, `fb_id`, `google_id`, `apple_id`, `status`, `device_type`, `device_id`, `referral_code`, `used_referral_code`, `currency_code`, `language`, `country_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(10001, 'Mr', 'Rider', 'rider@gmail.com', '254', '1', '254700207417', '$2y$10$0BPaz6RIdChKe8qZwodAK.awkTlrbN6veYvez6MHTWI9xycRaVloG', 'Rider', NULL, NULL, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJmaXJlYmFzZS1hZG1pbnNkay10bWVkd0BjYWJtZS1jYWNhMi5pYW0uZ3NlcnZpY2VhY2NvdW50LmNvbSIsInN1YiI6ImZpcmViYXNlLWFkbWluc2RrLXRtZWR3QGNhYm1lLWNhY2EyLmlhbS5nc2VydmljZWFjY291bnQuY29tIiwiYXVkIjoiaHR0cHM6XC9cL2lkZW50aXR5dG9vbGtpdC5nb29nbGVhcGlzLmNvbVwvZ29vZ2xlLmlkZW50aXR5LmlkZW50aXR5dG9vbGtpdC52MS5JZGVudGl0eVRvb2xraXQiLCJ1aWQiOiJjbG9uZWFwcHNvbHV0aW9uc0BnbWFpbC5jb20gLSBSaWRlciIsImlhdCI6MTYzOTg5MDAwOCwiZXhwIjoxNjM5ODkzNjA4fQ.dE_NvHg3OSNXEPzxEVCRhjPpufWLxUyb6AOid6fq9SpB8iuFDVjTnbA7jLbGpb48jxH0F_Mj9CRb9Cy7cELIsqQ-cvXvfIMAhilnQuhod3YR0gWkQKlIhz_45Pb3slzGLXLQ7N_2TAkidfcf6x7Px6jjY1czxFpv2x49vI3j-o3-vLVrwcoHpusoB9JMMakkGS64UMx2Cpc1hUTC6eHXtum9mjFlBJe5C0g8k_nzCimM72rCd8e1WgD1r6w3XSSHFaw8fDExVQPZXqtcevCn0Jsg8Fk3U2eJXcGYTPn_abHr_gTLDSYym-t-W7NutgyOP9ww_TOKVXITYhvyUB-3qQ', NULL, NULL, NULL, 'Active', '2', 'c5Vl-2uyQ72IW-OoJBTh3K:APA91bHlp4NoYWuZYdayeez0qfsJJ4UCYHqx5gdYGnkC-H9s1Q_oUOlwOnmQHz5n3y8Fz0HDBVU_j_q8blWlIVITDvQDs9fW6bfcixxluCiEK7ruS8ZRC9d5oDXG_n3rHja2TS51uPaQ', 'QKPBGESSIW', '', 'INR', 'en', 110, '2021-12-18 13:56:05', '2022-05-20 04:31:19', NULL),
-(10002, 'Mr', 'Driver', 'driver@gmail.com', '254', '1', '0797049280', '$2y$10$.jAwV1S8Kiw3ZmCgUlRdkOgk.uQMUnE.b6Vz87nnNVeNOEODxBC0K', 'Driver', 1, NULL, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJmaXJlYmFzZS1hZG1pbnNkay1yM2FlZ0BuZXctdGF4aXMuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJzdWIiOiJmaXJlYmFzZS1hZG1pbnNkay1yM2FlZ0BuZXctdGF4aXMuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJhdWQiOiJodHRwczovL2lkZW50aXR5dG9vbGtpdC5nb29nbGVhcGlzLmNvbS9nb29nbGUuaWRlbnRpdHkuaWRlbnRpdHl0b29sa2l0LnYxLklkZW50aXR5VG9vbGtpdCIsInVpZCI6ImRyaXZlckBnbWFpbC5jb20gLSBEcml2ZXIiLCJpYXQiOjE2ODcwMDY2MDEuMTUyNTQ5MDI4Mzk2NjA2NDQ1MzEyNSwiZXhwIjoxNjg3MDEwMjAxLjE1MjU0OTAyODM5NjYwNjQ0NTMxMjV9.jAUYZ633C--9Kax-CK8GdzhKkk7Gm7-ouVaVrbulLHEbI0AJhgoE8oXJ-B8rK2N9zNWDVFBUxS40hZjGhXSnZEQoRUru-0BvyLSRCFDyV2URF6psTurX9TqddAadfrf0MLJqTYzCjHvYPuMuY4qFrQ4nHI6nBI4sK3rhhzbg_LcSV7mX03iirp2HhPtiso9BJIc8BiYTBeVsp25cErdpUlikaLpzmOKtI7CSnHZBJI0nxGZ_9QUmZeg0ERlUZ8DcWZLLTXn2VrEkiPknvKGkasVvA3F0EHV_QCc5V6h1AMQdbynLORh8_pe9iOpf9xkAYQwkfI0wJ1UoWLfwCKgxhA', NULL, NULL, NULL, 'Active', '2', 'ezrxrBgXRTOxgU9ZTSkGbP:APA91bHnrgejBLWKZ7QFgvd1BP1nwLzhaAzmaaHo1-Vz5hH0-EtRhwWOND6SUUwwF8AG2wVvk8VXB_54wnnduImNtVHOFT_cypsQ_mr8V16Wt2yAz1sZ642UDogSeUiUG6GynxduMBx4', 'N2IYFPKMVC', '', 'KES', 'en', 110, '2021-12-18 14:57:57', '2023-06-17 09:56:41', NULL),
-(10003, 'Test', 'Driver', 'devtwenties@gmail.com', '254', '1', '0797049288', '$2y$10$0b2E5v4/ex0DSJlPFnbJ/egfsrByh10GtmH4ZeGEv8lS1cUtU8ps.', 'Driver', 1, NULL, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJmaXJlYmFzZS1hZG1pbnNkay1yM2FlZ0BuZXctdGF4aXMuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJzdWIiOiJmaXJlYmFzZS1hZG1pbnNkay1yM2FlZ0BuZXctdGF4aXMuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJhdWQiOiJodHRwczpcL1wvaWRlbnRpdHl0b29sa2l0Lmdvb2dsZWFwaXMuY29tXC9nb29nbGUuaWRlbnRpdHkuaWRlbnRpdHl0b29sa2l0LnYxLklkZW50aXR5VG9vbGtpdCIsInVpZCI6ImRldnR3ZW50aWVzQGdtYWlsLmNvbSAtIERyaXZlciIsImlhdCI6MTY1MzA5MjUyMywiZXhwIjoxNjUzMDk2MTIzfQ.puGEgI9e5hY1BNlDVJXtBq9Saz5zf3HS9xYrc6suk5UN76plzlch1DpthAp76xQacLSFZvyqHBXYJmhvoFsobM7CtErw3l1dawUbIs7EEY5NE8n6Y-9kWl_u0wXZiB1SIiKFjJYJnOcQXUsnRdYyDUMOsrd8iFsajuYNRnzELySxP2Y76e-G3_07WSjocYFDQ_AHMkXOiVhAKMzdmL2cGYG51IcSYBkZ3uwj9YgnW24aFwDRp7DXyW6VGOIrYmcHVxiAruMTzfXkzY2-l7jwMiVSWA2PjmGbfAph0YIskiwsRRiOzYK4urQMphehrNLI9z_crLcuoflBENxo56Ui5Q', NULL, NULL, NULL, 'Active', '2', 'fAUdDmyLQDK-DwoHIZr6Zq:APA91bHOklsJlGlm-Ygccw5Pj1FmxkCAQaXQkskrulET9jvWPxdgy8FLjvJLcIzc7NLnxn8OHzuIukU7cAR_KAizp9HmBe9v2o0aTX_g8WxGVhNoYAAL2ZvRTdA4Pwd_KBRdWPMMBoov', 'ZAIKZQ5JOU', NULL, 'USD', 'en', 110, '2022-05-18 04:19:07', '2022-05-20 21:22:03', NULL),
-(10004, 'Test', 'User', 'rider@gmail.com', '254', '1', '0797049289', '$2y$10$yy0wsAsXeCVQI7Pi09/69.rJztOY6FU5Z5gpbNEbEVrhNsCX.o0mq', 'Rider', NULL, NULL, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJmaXJlYmFzZS1hZG1pbnNkay1yM2FlZ0BuZXctdGF4aXMuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJzdWIiOiJmaXJlYmFzZS1hZG1pbnNkay1yM2FlZ0BuZXctdGF4aXMuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJhdWQiOiJodHRwczovL2lkZW50aXR5dG9vbGtpdC5nb29nbGVhcGlzLmNvbS9nb29nbGUuaWRlbnRpdHkuaWRlbnRpdHl0b29sa2l0LnYxLklkZW50aXR5VG9vbGtpdCIsInVpZCI6InJpZGVyQGdtYWlsLmNvbSAtIFJpZGVyIiwiaWF0IjoxNjg3MDA0MTQzLjg3OTM1NTkwNzQ0MDE4NTU0Njg3NSwiZXhwIjoxNjg3MDA3NzQzLjg3OTM1NTkwNzQ0MDE4NTU0Njg3NX0.SMVW-W9lWkgkAVmLEfmKMXwdmeHWF2qYfJN07S4feiT1kwFzJm903835sHJieVGc2iyt2n9d4W3jDPA8i71i1SD8dBooZ3ovb8oDKiaJyDCRysN5_nr2XARXGKIDxJRo-7nBXB9IR9HtLTMrleVWmbuJ99tdxZtkfOKWkLjAizibtzLjjo-PHGyYcWWC_1fBq1OFc0mrWqkMS0WgMIbM-wiCHTjwVuGLNcCU_cJQ-r1WgWAhL_XfvbHYoW5WEL-FzYexPy-PFEyU21kLqqdq89cBG10rdamjcXD2_pOF6G4kfQTZIluuwdkNFExkuKYaP4Gf8Qn4bFAV3Ur3bTXtWQ', NULL, NULL, NULL, 'Active', '2', 'fcCpuCnXRu2WmeOGQK5luw:APA91bGfX6dZBrDzebW09YJJzzz5-MV6OE0OAy6KCbSpEWvnJHvtPPklwNzgjxXseMESQLk4VX78g1aFVAMqGQ7wQTlQTCjtIuTcTizFEJ3ZarN1kSMb-v9oCaHOSiZiDya0t_6F1crK', 'RCQX0QW2QL', NULL, 'KES', 'en', 110, '2022-05-18 04:26:48', '2023-06-17 09:15:43', NULL);
+(10001, 'Mr', 'Rider', 'rider@gmail.com', '254', '1', '254700207417', '$2y$10$0BPaz6RIdChKe8qZwodAK.awkTlrbN6veYvez6MHTWI9xycRaVloG', 'Rider', NULL, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJmaXJlYmFzZS1hZG1pbnNkay10bWVkd0BjYWJtZS1jYWNhMi5pYW0uZ3NlcnZpY2VhY2NvdW50LmNvbSIsInN1YiI6ImZpcmViYXNlLWFkbWluc2RrLXRtZWR3QGNhYm1lLWNhY2EyLmlhbS5nc2VydmljZWFjY291bnQuY29tIiwiYXVkIjoiaHR0cHM6XC9cL2lkZW50aXR5dG9vbGtpdC5nb29nbGVhcGlzLmNvbVwvZ29vZ2xlLmlkZW50aXR5LmlkZW50aXR5dG9vbGtpdC52MS5JZGVudGl0eVRvb2xraXQiLCJ1aWQiOiJjbG9uZWFwcHNvbHV0aW9uc0BnbWFpbC5jb20gLSBSaWRlciIsImlhdCI6MTYzOTg5MDAwOCwiZXhwIjoxNjM5ODkzNjA4fQ.dE_NvHg3OSNXEPzxEVCRhjPpufWLxUyb6AOid6fq9SpB8iuFDVjTnbA7jLbGpb48jxH0F_Mj9CRb9Cy7cELIsqQ-cvXvfIMAhilnQuhod3YR0gWkQKlIhz_45Pb3slzGLXLQ7N_2TAkidfcf6x7Px6jjY1czxFpv2x49vI3j-o3-vLVrwcoHpusoB9JMMakkGS64UMx2Cpc1hUTC6eHXtum9mjFlBJe5C0g8k_nzCimM72rCd8e1WgD1r6w3XSSHFaw8fDExVQPZXqtcevCn0Jsg8Fk3U2eJXcGYTPn_abHr_gTLDSYym-t-W7NutgyOP9ww_TOKVXITYhvyUB-3qQ', NULL, NULL, NULL, 'Active', '2', 'c5Vl-2uyQ72IW-OoJBTh3K:APA91bHlp4NoYWuZYdayeez0qfsJJ4UCYHqx5gdYGnkC-H9s1Q_oUOlwOnmQHz5n3y8Fz0HDBVU_j_q8blWlIVITDvQDs9fW6bfcixxluCiEK7ruS8ZRC9d5oDXG_n3rHja2TS51uPaQ', 'QKPBGESSIW', '', 'INR', 'en', 110, '2021-12-18 13:56:05', '2022-05-20 04:31:19', NULL),
+(10002, 'Mr', 'Driver', 'driver@gmail.com', '254', '1', '0797049280', '$2y$10$.jAwV1S8Kiw3ZmCgUlRdkOgk.uQMUnE.b6Vz87nnNVeNOEODxBC0K', 'Driver', NULL, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJmaXJlYmFzZS1hZG1pbnNkay1yM2FlZ0BuZXctdGF4aXMuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJzdWIiOiJmaXJlYmFzZS1hZG1pbnNkay1yM2FlZ0BuZXctdGF4aXMuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJhdWQiOiJodHRwczovL2lkZW50aXR5dG9vbGtpdC5nb29nbGVhcGlzLmNvbS9nb29nbGUuaWRlbnRpdHkuaWRlbnRpdHl0b29sa2l0LnYxLklkZW50aXR5VG9vbGtpdCIsInVpZCI6ImRyaXZlckBnbWFpbC5jb20gLSBEcml2ZXIiLCJpYXQiOjE2ODcwMDY2MDEuMTUyNTQ5MDI4Mzk2NjA2NDQ1MzEyNSwiZXhwIjoxNjg3MDEwMjAxLjE1MjU0OTAyODM5NjYwNjQ0NTMxMjV9.jAUYZ633C--9Kax-CK8GdzhKkk7Gm7-ouVaVrbulLHEbI0AJhgoE8oXJ-B8rK2N9zNWDVFBUxS40hZjGhXSnZEQoRUru-0BvyLSRCFDyV2URF6psTurX9TqddAadfrf0MLJqTYzCjHvYPuMuY4qFrQ4nHI6nBI4sK3rhhzbg_LcSV7mX03iirp2HhPtiso9BJIc8BiYTBeVsp25cErdpUlikaLpzmOKtI7CSnHZBJI0nxGZ_9QUmZeg0ERlUZ8DcWZLLTXn2VrEkiPknvKGkasVvA3F0EHV_QCc5V6h1AMQdbynLORh8_pe9iOpf9xkAYQwkfI0wJ1UoWLfwCKgxhA', NULL, NULL, NULL, 'Active', '2', 'ezrxrBgXRTOxgU9ZTSkGbP:APA91bHnrgejBLWKZ7QFgvd1BP1nwLzhaAzmaaHo1-Vz5hH0-EtRhwWOND6SUUwwF8AG2wVvk8VXB_54wnnduImNtVHOFT_cypsQ_mr8V16Wt2yAz1sZ642UDogSeUiUG6GynxduMBx4', 'N2IYFPKMVC', '', 'KES', 'en', 110, '2021-12-18 14:57:57', '2023-06-17 09:56:41', NULL),
+(10003, 'Test', 'Driver', 'devtwenties@gmail.com', '254', '1', '0797049288', '$2y$10$0b2E5v4/ex0DSJlPFnbJ/egfsrByh10GtmH4ZeGEv8lS1cUtU8ps.', 'Driver', NULL, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJmaXJlYmFzZS1hZG1pbnNkay1yM2FlZ0BuZXctdGF4aXMuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJzdWIiOiJmaXJlYmFzZS1hZG1pbnNkay1yM2FlZ0BuZXctdGF4aXMuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJhdWQiOiJodHRwczpcL1wvaWRlbnRpdHl0b29sa2l0Lmdvb2dsZWFwaXMuY29tXC9nb29nbGUuaWRlbnRpdHkuaWRlbnRpdHl0b29sa2l0LnYxLklkZW50aXR5VG9vbGtpdCIsInVpZCI6ImRldnR3ZW50aWVzQGdtYWlsLmNvbSAtIERyaXZlciIsImlhdCI6MTY1MzA5MjUyMywiZXhwIjoxNjUzMDk2MTIzfQ.puGEgI9e5hY1BNlDVJXtBq9Saz5zf3HS9xYrc6suk5UN76plzlch1DpthAp76xQacLSFZvyqHBXYJmhvoFsobM7CtErw3l1dawUbIs7EEY5NE8n6Y-9kWl_u0wXZiB1SIiKFjJYJnOcQXUsnRdYyDUMOsrd8iFsajuYNRnzELySxP2Y76e-G3_07WSjocYFDQ_AHMkXOiVhAKMzdmL2cGYG51IcSYBkZ3uwj9YgnW24aFwDRp7DXyW6VGOIrYmcHVxiAruMTzfXkzY2-l7jwMiVSWA2PjmGbfAph0YIskiwsRRiOzYK4urQMphehrNLI9z_crLcuoflBENxo56Ui5Q', NULL, NULL, NULL, 'Active', '2', 'fAUdDmyLQDK-DwoHIZr6Zq:APA91bHOklsJlGlm-Ygccw5Pj1FmxkCAQaXQkskrulET9jvWPxdgy8FLjvJLcIzc7NLnxn8OHzuIukU7cAR_KAizp9HmBe9v2o0aTX_g8WxGVhNoYAAL2ZvRTdA4Pwd_KBRdWPMMBoov', 'ZAIKZQ5JOU', NULL, 'USD', 'en', 110, '2022-05-18 04:19:07', '2022-05-20 21:22:03', NULL),
+(10004, 'Test', 'User', 'rider@gmail.com', '254', '1', '0797049289', '$2y$10$yy0wsAsXeCVQI7Pi09/69.rJztOY6FU5Z5gpbNEbEVrhNsCX.o0mq', 'Rider', NULL, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJmaXJlYmFzZS1hZG1pbnNkay1yM2FlZ0BuZXctdGF4aXMuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJzdWIiOiJmaXJlYmFzZS1hZG1pbnNkay1yM2FlZ0BuZXctdGF4aXMuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJhdWQiOiJodHRwczovL2lkZW50aXR5dG9vbGtpdC5nb29nbGVhcGlzLmNvbS9nb29nbGUuaWRlbnRpdHkuaWRlbnRpdHl0b29sa2l0LnYxLklkZW50aXR5VG9vbGtpdCIsInVpZCI6InJpZGVyQGdtYWlsLmNvbSAtIFJpZGVyIiwiaWF0IjoxNjg3MDA0MTQzLjg3OTM1NTkwNzQ0MDE4NTU0Njg3NSwiZXhwIjoxNjg3MDA3NzQzLjg3OTM1NTkwNzQ0MDE4NTU0Njg3NX0.SMVW-W9lWkgkAVmLEfmKMXwdmeHWF2qYfJN07S4feiT1kwFzJm903835sHJieVGc2iyt2n9d4W3jDPA8i71i1SD8dBooZ3ovb8oDKiaJyDCRysN5_nr2XARXGKIDxJRo-7nBXB9IR9HtLTMrleVWmbuJ99tdxZtkfOKWkLjAizibtzLjjo-PHGyYcWWC_1fBq1OFc0mrWqkMS0WgMIbM-wiCHTjwVuGLNcCU_cJQ-r1WgWAhL_XfvbHYoW5WEL-FzYexPy-PFEyU21kLqqdq89cBG10rdamjcXD2_pOF6G4kfQTZIluuwdkNFExkuKYaP4Gf8Qn4bFAV3Ur3bTXtWQ', NULL, NULL, NULL, 'Active', '2', 'fcCpuCnXRu2WmeOGQK5luw:APA91bGfX6dZBrDzebW09YJJzzz5-MV6OE0OAy6KCbSpEWvnJHvtPPklwNzgjxXseMESQLk4VX78g1aFVAMqGQ7wQTlQTCjtIuTcTizFEJ3ZarN1kSMb-v9oCaHOSiZiDya0t_6F1crK', 'RCQX0QW2QL', NULL, 'KES', 'en', 110, '2022-05-18 04:26:48', '2023-06-17 09:15:43', NULL);
 
 -- --------------------------------------------------------
 
@@ -2676,7 +2040,6 @@ CREATE TABLE `users_promo_code` (
 CREATE TABLE `vehicle` (
   `id` int(10) UNSIGNED NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL,
-  `company_id` int(10) UNSIGNED DEFAULT NULL,
   `vehicle_make_id` int(11) NOT NULL,
   `vehicle_model_id` int(11) NOT NULL,
   `vehicle_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -2694,9 +2057,9 @@ CREATE TABLE `vehicle` (
 -- Dumping data for table `vehicle`
 --
 
-INSERT INTO `vehicle` (`id`, `user_id`, `company_id`, `vehicle_make_id`, `vehicle_model_id`, `vehicle_id`, `vehicle_type`, `vehicle_name`, `vehicle_number`, `is_active`, `year`, `color`, `default_type`, `status`) VALUES
-(1, 10002, 1, 3, 5, '1,2,3,4', 'Micro,Mini,Prime,POOL', 'Nissan Terrano', 'DKR 882S', 1, '2020', 'Yellow', '1', 'Active'),
-(2, 10003, 1, 3, 6, '1,2,3,4', 'Micro,Mini,Prime,POOL', 'Nissan Sunny', 'KCB 2822', 1, '2015', 'White', '1', 'Active');
+INSERT INTO `vehicle` (`id`, `user_id`, `vehicle_make_id`, `vehicle_model_id`, `vehicle_id`, `vehicle_type`, `vehicle_name`, `vehicle_number`, `is_active`, `year`, `color`, `default_type`, `status`) VALUES
+(1, 10002, 3, 5, '1,2,3,4', 'Micro,Mini,Prime,POOL', 'Nissan Terrano', 'DKR 882S', 1, '2020', 'Yellow', '1', 'Active'),
+(2, 10003, 3, 6, '1,2,3,4', 'Micro,Mini,Prime,POOL', 'Nissan Sunny', 'KCB 2822', 1, '2015', 'White', '1', 'Active');
 
 -- --------------------------------------------------------
 
@@ -2749,26 +2112,6 @@ INSERT INTO `vehicle_model` (`id`, `vehicle_make_id`, `model_name`, `status`, `c
 (6, 3, 'Sunny', 'Active', '2021-12-18 12:35:23', '2021-12-18 12:35:23');
 
 -- --------------------------------------------------------
-
---
--- Table structure for table `wallet`
---
-
-CREATE TABLE `wallet` (
-  `user_id` int(10) UNSIGNED NOT NULL,
-  `amount` decimal(7,2) NOT NULL,
-  `currency_code` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `paykey` text COLLATE utf8mb4_unicode_ci
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `wallet`
---
-
-INSERT INTO `wallet` (`user_id`, `amount`, `currency_code`, `paykey`) VALUES
-(10001, '1367.60', 'INR', NULL),
-(10004, '8107.00', 'USD', 'RFH19NC7RX');
-
 --
 -- Indexes for dumped tables
 --
@@ -2832,35 +2175,6 @@ ALTER TABLE `car_type`
   ADD KEY `car_type_status_index` (`status`);
 
 --
--- Indexes for table `companies`
---
-ALTER TABLE `companies`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `companies_country_id_foreign` (`country_id`),
-  ADD KEY `companies_status_index` (`status`);
-
---
--- Indexes for table `company_documents`
---
-ALTER TABLE `company_documents`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `company_documents_company_id_foreign` (`company_id`);
-
---
--- Indexes for table `company_payout_credentials`
---
-ALTER TABLE `company_payout_credentials`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `company_payout_credentials_company_id_foreign` (`company_id`);
-
---
--- Indexes for table `company_payout_preference`
---
-ALTER TABLE `company_payout_preference`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `company_payout_preference_company_id_foreign` (`company_id`);
-
---
 -- Indexes for table `country`
 --
 ALTER TABLE `country`
@@ -2912,27 +2226,6 @@ ALTER TABLE `driver_location`
   ADD KEY `driver_location_user_id_foreign` (`user_id`),
   ADD KEY `driver_location_car_id_foreign` (`car_id`),
   ADD KEY `driver_location_status_latitude_longitude_index` (`status`,`latitude`,`longitude`);
-
---
--- Indexes for table `driver_owe_amounts`
---
-ALTER TABLE `driver_owe_amounts`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `driver_owe_amounts_user_id_foreign` (`user_id`);
-
---
--- Indexes for table `driver_owe_amount_payments`
---
-ALTER TABLE `driver_owe_amount_payments`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `driver_owe_amount_payments_user_id_foreign` (`user_id`);
-
---
--- Indexes for table `driver_payment`
---
-ALTER TABLE `driver_payment`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `driver_payment_driver_id_foreign` (`driver_id`);
 
 --
 -- Indexes for table `email_settings`
@@ -3091,45 +2384,6 @@ ALTER TABLE `password_resets`
   ADD KEY `password_resets_token_index` (`token`);
 
 --
--- Indexes for table `payment`
---
-ALTER TABLE `payment`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `payment_trip_id_foreign` (`trip_id`);
-
---
--- Indexes for table `payment_gateway`
---
-ALTER TABLE `payment_gateway`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `payment_method`
---
-ALTER TABLE `payment_method`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `payment_method_user_id_foreign` (`user_id`);
-
---
--- Indexes for table `payout_credentials`
---
-ALTER TABLE `payout_credentials`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `payout_credentials_type_index` (`type`);
-
---
--- Indexes for table `payout_preference`
---
-ALTER TABLE `payout_preference`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `paytm_payments`
---
-ALTER TABLE `paytm_payments`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `peak_fare_details`
 --
 ALTER TABLE `peak_fare_details`
@@ -3165,13 +2419,6 @@ ALTER TABLE `pool_trips`
 --
 ALTER TABLE `profile_picture`
   ADD UNIQUE KEY `profile_picture_user_id_unique` (`user_id`);
-
---
--- Indexes for table `promo_code`
---
-ALTER TABLE `promo_code`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `promo_code_currency_code_foreign` (`currency_code`);
 
 --
 -- Indexes for table `rating`
@@ -3242,7 +2489,6 @@ ALTER TABLE `schedule_cancel`
 ALTER TABLE `schedule_ride`
   ADD PRIMARY KEY (`id`),
   ADD KEY `schedule_ride_user_id_foreign` (`user_id`),
-  ADD KEY `schedule_ride_company_id_foreign` (`company_id`),
   ADD KEY `schedule_ride_car_id_foreign` (`car_id`),
   ADD KEY `schedule_ride_status_index` (`status`);
 
@@ -3290,12 +2536,6 @@ ALTER TABLE `toll_reasons`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `transactions`
---
-ALTER TABLE `transactions`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `trips`
 --
 ALTER TABLE `trips`
@@ -3322,7 +2562,6 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `users_fb_id_unique` (`fb_id`),
   ADD UNIQUE KEY `users_google_id_unique` (`google_id`),
   ADD UNIQUE KEY `users_apple_id_unique` (`apple_id`),
-  ADD KEY `users_company_id_foreign` (`company_id`),
   ADD KEY `users_country_id_foreign` (`country_id`),
   ADD KEY `users_status_user_type_index` (`status`,`user_type`);
 
@@ -3340,7 +2579,6 @@ ALTER TABLE `users_promo_code`
 ALTER TABLE `vehicle`
   ADD PRIMARY KEY (`id`),
   ADD KEY `vehicle_user_id_foreign` (`user_id`),
-  ADD KEY `vehicle_company_id_foreign` (`company_id`),
   ADD KEY `vehicle_status_index` (`status`);
 
 --
@@ -3354,13 +2592,6 @@ ALTER TABLE `vehicle_make`
 --
 ALTER TABLE `vehicle_model`
   ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `wallet`
---
-ALTER TABLE `wallet`
-  ADD UNIQUE KEY `wallet_user_id_unique` (`user_id`),
-  ADD KEY `wallet_currency_code_foreign` (`currency_code`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -3414,29 +2645,6 @@ ALTER TABLE `cancel_reason_translations`
 ALTER TABLE `car_type`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
---
--- AUTO_INCREMENT for table `companies`
---
-ALTER TABLE `companies`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `company_documents`
---
-ALTER TABLE `company_documents`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `company_payout_credentials`
---
-ALTER TABLE `company_payout_credentials`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `company_payout_preference`
---
-ALTER TABLE `company_payout_preference`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `country`
@@ -3485,18 +2693,6 @@ ALTER TABLE `driver_location`
 --
 ALTER TABLE `driver_owe_amounts`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT for table `driver_owe_amount_payments`
---
-ALTER TABLE `driver_owe_amount_payments`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT for table `driver_payment`
---
-ALTER TABLE `driver_payment`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `email_settings`
@@ -3631,42 +2827,6 @@ ALTER TABLE `pages_translations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `payment`
---
-ALTER TABLE `payment`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `payment_gateway`
---
-ALTER TABLE `payment_gateway`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
-
---
--- AUTO_INCREMENT for table `payment_method`
---
-ALTER TABLE `payment_method`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `payout_credentials`
---
-ALTER TABLE `payout_credentials`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `payout_preference`
---
-ALTER TABLE `payout_preference`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `paytm_payments`
---
-ALTER TABLE `paytm_payments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
-
---
 -- AUTO_INCREMENT for table `peak_fare_details`
 --
 ALTER TABLE `peak_fare_details`
@@ -3763,12 +2923,6 @@ ALTER TABLE `toll_reasons`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `transactions`
---
-ALTER TABLE `transactions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
-
---
 -- AUTO_INCREMENT for table `trips`
 --
 ALTER TABLE `trips`
@@ -3842,24 +2996,6 @@ ALTER TABLE `companies`
   ADD CONSTRAINT `companies_country_id_foreign` FOREIGN KEY (`country_id`) REFERENCES `country` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `company_documents`
---
-ALTER TABLE `company_documents`
-  ADD CONSTRAINT `company_documents_company_id_foreign` FOREIGN KEY (`company_id`) REFERENCES `companies` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `company_payout_credentials`
---
-ALTER TABLE `company_payout_credentials`
-  ADD CONSTRAINT `company_payout_credentials_company_id_foreign` FOREIGN KEY (`company_id`) REFERENCES `companies` (`id`);
-
---
--- Constraints for table `company_payout_preference`
---
-ALTER TABLE `company_payout_preference`
-  ADD CONSTRAINT `company_payout_preference_company_id_foreign` FOREIGN KEY (`company_id`) REFERENCES `companies` (`id`);
-
---
 -- Constraints for table `documents_langs`
 --
 ALTER TABLE `documents_langs`
@@ -3877,24 +3013,6 @@ ALTER TABLE `driver_address`
 ALTER TABLE `driver_location`
   ADD CONSTRAINT `driver_location_car_id_foreign` FOREIGN KEY (`car_id`) REFERENCES `car_type` (`id`),
   ADD CONSTRAINT `driver_location_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `driver_owe_amounts`
---
-ALTER TABLE `driver_owe_amounts`
-  ADD CONSTRAINT `driver_owe_amounts_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
-
---
--- Constraints for table `driver_owe_amount_payments`
---
-ALTER TABLE `driver_owe_amount_payments`
-  ADD CONSTRAINT `driver_owe_amount_payments_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
-
---
--- Constraints for table `driver_payment`
---
-ALTER TABLE `driver_payment`
-  ADD CONSTRAINT `driver_payment_driver_id_foreign` FOREIGN KEY (`driver_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `emergency_sos`
@@ -3950,18 +3068,6 @@ ALTER TABLE `help_translations`
 --
 ALTER TABLE `manage_fare`
   ADD CONSTRAINT `manage_fare_currency_code_foreign` FOREIGN KEY (`currency_code`) REFERENCES `currency` (`code`);
-
---
--- Constraints for table `payment`
---
-ALTER TABLE `payment`
-  ADD CONSTRAINT `payment_trip_id_foreign` FOREIGN KEY (`trip_id`) REFERENCES `trips` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `payment_method`
---
-ALTER TABLE `payment_method`
-  ADD CONSTRAINT `payment_method_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
 -- Constraints for table `peak_fare_details`
@@ -4045,7 +3151,6 @@ ALTER TABLE `schedule_cancel`
 --
 ALTER TABLE `schedule_ride`
   ADD CONSTRAINT `schedule_ride_car_id_foreign` FOREIGN KEY (`car_id`) REFERENCES `car_type` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `schedule_ride_company_id_foreign` FOREIGN KEY (`company_id`) REFERENCES `companies` (`id`),
   ADD CONSTRAINT `schedule_ride_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
@@ -4075,30 +3180,13 @@ ALTER TABLE `trip_toll_reasons`
 -- Constraints for table `users`
 --
 ALTER TABLE `users`
-  ADD CONSTRAINT `users_company_id_foreign` FOREIGN KEY (`company_id`) REFERENCES `companies` (`id`),
   ADD CONSTRAINT `users_country_id_foreign` FOREIGN KEY (`country_id`) REFERENCES `country` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `users_promo_code`
---
-ALTER TABLE `users_promo_code`
-  ADD CONSTRAINT `users_promo_code_promo_code_id_foreign` FOREIGN KEY (`promo_code_id`) REFERENCES `promo_code` (`id`),
-  ADD CONSTRAINT `users_promo_code_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
 -- Constraints for table `vehicle`
 --
 ALTER TABLE `vehicle`
-  ADD CONSTRAINT `vehicle_company_id_foreign` FOREIGN KEY (`company_id`) REFERENCES `companies` (`id`),
   ADD CONSTRAINT `vehicle_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `wallet`
---
-ALTER TABLE `wallet`
-  ADD CONSTRAINT `wallet_currency_code_foreign` FOREIGN KEY (`currency_code`) REFERENCES `currency` (`code`),
-  ADD CONSTRAINT `wallet_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

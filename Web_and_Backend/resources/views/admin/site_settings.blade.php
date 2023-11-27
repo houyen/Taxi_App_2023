@@ -66,7 +66,7 @@ input:checked + .slider:before {
 	<section class="content-header">
 		<h1> Site Settings </h1>
 		<ol class="breadcrumb">
-			<li><a href="{{ url(LOGIN_USER_TYPE.'/dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+			<li><a href="{{ url(LOGIN_USER_TYPE.'/dashboard') }}"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
 			<li><a href="#">Site Settings</a></li>
 			<li class="active">Edit</li>
 		</ol>
@@ -80,7 +80,7 @@ input:checked + .slider:before {
 					</div>
 					{!! Form::open(['url' => 'admin/site_setting', 'class' => 'form-horizontal', 'files' => true]) !!}
 					<div class="box-body">
-						<span class="text-danger">(*)Fields are Mandatory</span>
+						<span class="text-danger">(*)Trường bắt buộc</span>
 						<div class="form-group">
 							<label for="input_site_name" class="col-sm-3 control-label">Site Name<em class="text-danger">*</em></label>
 							<div class="col-md-7 col-sm-offset-1">
@@ -199,7 +199,7 @@ input:checked + .slider:before {
 
 						<div class="form-group">
 							<label for="input_admin_country_code" class="col-sm-3 control-label">
-								Country Code <em class="text-danger">*</em>
+								Quốc tịch <em class="text-danger">*</em>
 							</label>
 							<div class="col-md-7 col-sm-offset-1">
 								<select class='form-control' id = 'input_admin_country_code' name='admin_country_code' >
@@ -219,14 +219,14 @@ input:checked + .slider:before {
 								<span class="text-danger">{{ $errors->first('admin_contact') }}</span>
 							</div>
 						</div>
-						<div class="form-group">
+						<div class="form-group hidden">
 							<label for="input_heat_map" class="col-sm-3 control-label">Heat Map <em class="text-danger">*</em></label>
 							<div class="col-md-7 col-sm-offset-1">
 								{!! Form::select('heat_map',['On'=>'On','Off'=>'Off'], old('heat_map',site_settings('heat_map')), ['class' => 'form-control', 'id' => 'input_heat_map']) !!}
 								<span class="text-danger">{{ $errors->first('heat_map') }}</span>
 							</div>
 						</div>
-						<div class="form-group">
+						<div class="form-group hidden">
 							<label for="input_heat_map_hours" class="col-sm-3 control-label">Heat Map Hours <em class="text-danger">*</em></label>
 							<div class="col-md-7 col-sm-offset-1">
 								{!! Form::text('heat_map_hours', old('heat_map_hours',site_settings('heat_map_hours')), ['class' => 'form-control', 'id' => 'input_heat_map_hours', 'placeholder' => 'Heat Map Hours']) !!}
@@ -246,7 +246,7 @@ input:checked + .slider:before {
 						$social_logins = explode(',',$social_logins);
 						@endphp
 
-						<div class="form-group">
+						<div class="form-group hidden">
 							<label for="input_site_name" class="col-sm-3 control-label">Facebook Login</label>
 							<div class="col-md-7 col-sm-offset-1" style="padding-top: 7px;margin-bottom: 0;">
 								<label class="switch">
@@ -256,7 +256,7 @@ input:checked + .slider:before {
 							</div>
 						</div>
 
-						<div class="form-group">
+						<div class="form-group hidden">
 							<label for="input_site_name" class="col-sm-3 control-label">Google Login</label>
 							<div class="col-md-7 col-sm-offset-1" style="padding-top: 7px;margin-bottom: 0;">
 								<label class="switch">
@@ -288,7 +288,7 @@ input:checked + .slider:before {
 								</label>
 							</div>
 						</div>
-						<div class="form-group">
+						<div class="form-group hidden">
 							<label for="input_site_name" class="col-sm-3 control-label">Covid Feature</label>
 							<div class="col-md-7 col-sm-offset-1" style="padding-top: 7px;margin-bottom: 0;">
 								<label class="switch">
@@ -351,8 +351,8 @@ input:checked + .slider:before {
 						</div>
 					</div>
 					<div class="box-footer text-center">
-						<button type="submit" class="btn btn-info" name="submit" value="submit">Submit</button>
-						<button type="reset" class="btn btn-default" name="cancel" value="cancel">Cancel</button>
+						<button type="submit" class="btn btn-info" name="submit" value="submit">Xác nhận </button>
+						<button type="reset" class="btn btn-default" name="cancel" value="cancel">Huỷ bỏ</button>
 					</div>
 					{!! Form::close() !!}
 				</div>

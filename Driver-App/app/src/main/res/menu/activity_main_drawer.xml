@@ -25,20 +25,20 @@
             android:icon="@drawable/car_mine"
             android:title="@string/manage_vehicles" />
 
-        <item
+        <!--<item
             android:id="@+id/manage_documents"
             android:icon="@drawable/file"
-            android:title="@string/manage_documents" />
+            android:title="@string/manage_documents" />-->
 
         <item
             android:id="@+id/pay_to_admin"
             android:icon="@drawable/payment_method"
             android:title="@string/pay_to" />
 
-        <item
+        <!--<item
             android:id="@+id/nav_referral"
             android:icon="@drawable/my_referral"
-            android:title="@string/referral" />
+            android:title="@string/referral" />-->
 
         <item
             android:id="@+id/nav_setting"

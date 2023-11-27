@@ -47,7 +47,7 @@
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true">
 
-            <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+            <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -62,7 +62,7 @@
                 />
 
 
-            <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+            <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                 android:id="@+id/tv_rating_content"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -105,7 +105,7 @@
             android:layout_marginEnd="@dimen/_10adp"
             android:layout_marginStart="@dimen/_10adp">
 
-            <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+            <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                 android:id="@+id/lifetime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -116,7 +116,7 @@
                 android:textSize="@dimen/_18asp"
                 app:fontname="@string/font_Medium" />
 
-            <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+            <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                 android:id="@+id/fivestar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -128,7 +128,7 @@
                 android:textSize="@dimen/_18asp"
                 app:fontname="@string/font_Medium" />
 
-            <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+            <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                 android:id="@+id/ratingtrips"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -152,7 +152,7 @@
             android:layout_marginStart="@dimen/_10adp"
             android:paddingBottom="@dimen/_10adp">
 
-            <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+            <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                 android:id="@+id/textView4"
                 android:layout_width="@dimen/_110adp"
                 android:padding="@dimen/_5adp"
@@ -164,7 +164,7 @@
                 app:fontname="@string/font_Medium"
                 />
 
-            <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+            <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
@@ -179,7 +179,7 @@
                 app:fontname="@string/font_Medium"
                 />
 
-            <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+            <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                 android:id="@+id/tv_stars"
                 android:layout_width="@dimen/_80adp"
                 android:layout_height="wrap_content"
@@ -213,7 +213,7 @@
             android:paddingBottom="@dimen/_20adp"
             android:paddingTop="@dimen/_20adp">
 
-            <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+            <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                 android:id="@+id/historytext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -224,7 +224,7 @@
                 android:textSize="@dimen/_20adp"
                 app:fontname="@string/font_UberClone" />
 
-            <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+            <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                 android:id="@+id/triphistorytext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -235,7 +235,7 @@
                 android:textSize="@dimen/_16asp"
                 app:fontname="@string/font_Medium" />
 
-            <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+            <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/triphistorytext"
@@ -249,7 +249,7 @@
                 app:fontname="@string/font_Medium" />
 
 
-            <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+            <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                 android:id="@+id/arrarowone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -272,7 +272,7 @@
             android:paddingTop="20dp"
             android:visibility="invisible">
 
-            <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+            <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                 android:id="@+id/historytext2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -281,7 +281,7 @@
                 android:text="e"
                 app:fontname="@string/font_UberClone" />
 
-            <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+            <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                 android:id="@+id/paystatementtext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -292,7 +292,7 @@
                 android:textSize="18dp"
                 app:fontname="@string/font_Medium" />
 
-            <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+            <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/paystatementtext"
@@ -305,7 +305,7 @@
                 android:textSize="16dp"
                 app:fontname="@string/font_Medium" />
 
-            <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+            <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                 android:id="@+id/arrarowtwo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

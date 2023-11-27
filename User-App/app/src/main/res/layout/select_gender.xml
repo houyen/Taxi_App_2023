@@ -8,7 +8,7 @@
         android:padding="@dimen/_10adp"
         >
 
-    <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+    <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
             android:id="@+id/tv_gender_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

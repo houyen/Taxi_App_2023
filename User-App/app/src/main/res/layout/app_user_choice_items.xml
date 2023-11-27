@@ -16,7 +16,7 @@
             android:padding="@dimen/_15adp"
             >
 
-        <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+        <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                 android:id="@+id/tvname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
                 app:fontName="@string/font_Medium"
                 />
 
-        <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+        <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                 android:id="@+id/tv_code"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

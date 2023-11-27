@@ -9,7 +9,7 @@
     android:orientation="vertical"
     android:visibility="gone">
 
-    <com.seentechs.newtaxidriver.common.custompalette.FontEditText
+    <com.tkpmnc.sgtaxidriver.common.custompalette.FontEditText
         android:id="@+id/addresskana1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,7 +23,7 @@
         android:textColorHint="@color/calendar_text_unselectable"
         android:textSize="@dimen/_14asp" />
 
-    <com.seentechs.newtaxidriver.common.custompalette.FontEditText
+    <com.tkpmnc.sgtaxidriver.common.custompalette.FontEditText
         android:id="@+id/addresskana2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
         android:textSize="@dimen/_14asp"
         app:fontname="@string/font_Medium" />
 
-    <com.seentechs.newtaxidriver.common.custompalette.FontEditText
+    <com.tkpmnc.sgtaxidriver.common.custompalette.FontEditText
         android:id="@+id/kanacity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
         android:textSize="@dimen/_14asp"
         app:fontname="@string/font_Medium" />
 
-    <com.seentechs.newtaxidriver.common.custompalette.FontEditText
+    <com.tkpmnc.sgtaxidriver.common.custompalette.FontEditText
         android:id="@+id/kanastate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -69,7 +69,7 @@
         app:fontname="@string/font_Medium" />
 
 
-    <com.seentechs.newtaxidriver.common.custompalette.FontEditText
+    <com.tkpmnc.sgtaxidriver.common.custompalette.FontEditText
         android:id="@+id/kanapostalcode"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

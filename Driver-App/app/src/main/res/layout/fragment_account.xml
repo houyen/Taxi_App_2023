@@ -162,7 +162,7 @@
                 android:paddingTop="20dp"
                 android:visibility="gone">
 
-                <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/imghelptext"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -182,7 +182,7 @@
                     android:textColor="#09091A"
                     android:textSize="18dp" />
 
-                <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/arrarowone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -213,7 +213,7 @@
                     android:textColor="#09091A"
                     android:textSize="18dp" />
 
-                <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/arrarowtwo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -223,7 +223,7 @@
                     android:text="q"
                     app:fontname="@string/font_UberClone" />
 
-                <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/imgdocumenttext2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -248,7 +248,7 @@
                 android:paddingBottom="20dp"
                 android:paddingTop="20dp">
 
-                <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/imgpaymenttext2"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
@@ -269,7 +269,7 @@
                     android:textColor="#09091A"
                     android:textSize="18dp" />
 
-                <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
@@ -290,7 +290,7 @@
                 android:paddingBottom="20dp"
                 tools:visibility="visible">
 
-                <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/iv_pay"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
@@ -311,7 +311,7 @@
                     android:textColor="#09091A"
                     android:textSize="18dp" />
 
-                <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
@@ -332,7 +332,7 @@
                 android:paddingTop="20dp"
                 android:visibility="visible">
 
-                <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/iv_bank"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
@@ -353,7 +353,7 @@
                     android:textColor="#09091A"
                     android:textSize="18dp" />
 
-                <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
@@ -375,7 +375,7 @@
                 android:paddingTop="20dp"
                 android:visibility="gone">
 
-                <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/imgabouttext2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -395,7 +395,7 @@
                     android:textColor="#09091A"
                     android:textSize="18dp" />
 
-                <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
@@ -434,7 +434,7 @@
                     android:textColor="#09091A"
                     android:textSize="18dp" />
 
-                <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
@@ -456,7 +456,7 @@
                 android:paddingTop="10dp">
 
 
-                <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
@@ -467,7 +467,7 @@
                     android:textSize="18dp"
                     app:fontname="@string/fonts_UBERBook" />
 
-                <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/currency_code"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -494,7 +494,7 @@
                 android:paddingTop="10dp">
 
 
-                <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
@@ -505,7 +505,7 @@
                     android:textSize="18dp"
                     app:fontname="@string/fonts_UBERBook" />
 
-                <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                     android:id="@+id/language"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

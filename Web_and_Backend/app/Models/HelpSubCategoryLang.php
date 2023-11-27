@@ -2,13 +2,10 @@
 
 /**
  * Help Sub Category Lang Model
- *
- * @package     NewTaxi
+
  * @subpackage  Controller
  * @category    Help Sub Category Lang
- * @author      Seen Technologies
- * @version     2.2.1
- * @link        https://seentechs.com
+
  */
 
 namespace App\Models;

@@ -14,7 +14,7 @@
         app:layout_behavior="@string/bottom_sheet_behavior"
         >
 
-        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
             android:id="@+id/tv_payout_title"
             android:layout_width="match_parent"
             android:textColor="@color/newtaxi_app_black"
@@ -28,7 +28,7 @@
             app:fontname="@string/fonts_Book"
             />
 
-        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
             android:id="@+id/tv_mesgage"
             android:layout_width="match_parent"
             android:background="@drawable/bottomboarderearning"
@@ -41,7 +41,7 @@
             android:textAlignment="center"
             app:fontname="@string/font_UBERNews"
             />
-        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
             android:id="@+id/tv_default"
             android:layout_width="match_parent"
             android:textColor="@color/newtaxi_app_navy"
@@ -56,7 +56,7 @@
             app:fontname="@string/font_UBERNews"
             />
 
-        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
             android:id="@+id/tv_edit"
             android:layout_width="match_parent"
             android:textColor="@color/newtaxi_app_navy"
@@ -70,7 +70,7 @@
             app:fontname="@string/font_UBERNews"
             />
 
-        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
             android:id="@+id/tv_delete"
             android:layout_width="match_parent"
             android:textColor="@color/error_red"

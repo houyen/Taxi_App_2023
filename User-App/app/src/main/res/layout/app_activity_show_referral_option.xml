@@ -45,7 +45,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     >
 
-                <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+                <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                         android:id="@+id/tv_heading_invite_code"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -80,7 +80,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+                <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                         android:id="@+id/tv_referral_code"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -109,7 +109,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/tv_referral_code"
                         />
 
-                <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+                <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                         android:id="@+id/tv_referral_benifit_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -149,7 +149,7 @@
                             android:src="@drawable/ic_share"
                             />
 
-                    <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+                    <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
@@ -194,7 +194,7 @@
                         app:layout_constraintTop_toTopOf="parent"
                         >
 
-                    <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+                    <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                             android:id="@+id/tv_friends_in_completed"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -250,7 +250,7 @@
                             app:layout_constraintBottom_toTopOf="@+id/rv_completed_referrals"
                             >
 
-                        <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+                        <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                                 android:id="@+id/tv_friends_completed"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -262,7 +262,7 @@
                                 app:fontName="@string/font_Medium"
                                 />
 
-                        <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+                        <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                                 android:id="@+id/tv_total_earned"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -275,7 +275,7 @@
                                 app:layout_constraintTop_toTopOf="parent"
                                 />
 
-                        <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+                        <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                                 android:id="@+id/tv_amount"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -302,7 +302,7 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+            <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                     android:id="@+id/tv_no_referrals_yet"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_500adp"

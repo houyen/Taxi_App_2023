@@ -18,7 +18,7 @@
             android:paddingEnd="15dp"
             >
 
-        <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+        <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_20adp"
@@ -44,7 +44,7 @@
                 android:weightSum="2"
                 >
 
-            <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+            <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                     android:id="@+id/cancel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -59,7 +59,7 @@
                     app:fontName="@string/font_Medium"
                     />
 
-            <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+            <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                     android:id="@+id/continuebutton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

@@ -3,12 +3,12 @@
 /**
  * Payments Controller
  *
- * @package     NewTaxi
+ * @package     SGTaxi
  * @subpackage  Controller
  * @category    Payments
- * @author      Seen Technologies
- * @version     2.2.1
- * @link        https://seentechs.com
+
+
+ * 
  */
 
 namespace App\Http\Controllers\Admin;

@@ -18,7 +18,7 @@
         android:padding="@dimen/_15adp"
         android:paddingBottom="@dimen/_15adp">
 
-        <com.seentechs.newtaxidriver.common.custompalette.FontEditText
+        <com.tkpmnc.sgtaxidriver.common.custompalette.FontEditText
             android:id="@+id/payoutemail_edittext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
             android:textSize="@dimen/_15asp"
             app:fontname="@string/font_Medium" />
 
-        <com.seentechs.newtaxidriver.common.custompalette.FontButton
+        <com.tkpmnc.sgtaxidriver.common.custompalette.FontButton
             android:id="@+id/payout_submit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

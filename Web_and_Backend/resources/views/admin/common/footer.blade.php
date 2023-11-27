@@ -10,7 +10,7 @@
                     <p>Do you want to proceed?</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default confirm-delete_cancel" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-default confirm-delete_cancel" data-dismiss="modal">Huỷ bỏ</button>
                     <a class="btn btn-danger btn-ok confirm-delete">Delete</a>
                 </div>
             </div>

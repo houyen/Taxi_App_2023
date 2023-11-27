@@ -24,7 +24,7 @@
             app:layout_constraintTop_toTopOf="parent"
             />
 
-    <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+    <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
             android:id="@+id/tv_caller_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

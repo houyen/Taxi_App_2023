@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!DOCTYPE resources
-    [<!ENTITY appname "NewTaxi Driver">
-        <!ENTITY riderbundle "com.seentechs.newtaxiuser">
-        <!ENTITY driverbundle "com.seentechs.newtaxidriver">
-        <!ENTITY siteurl "https://newtaxi.seentechs.com/">
-        <!ENTITY googleMapKey "#ENTER GOOGLE MAPS API KEY HERE#">
-        <!ENTITY googleAutoCompleteKey "#ENTER GOOGLE AUTOCOMPLETE KEY HERE#">
+    [<!ENTITY appname "SG Taxi Driver">
+        <!ENTITY riderbundle "com.tkpmnc.sgtaxiuser">
+        <!ENTITY driverbundle "com.tkpmnc.sgtaxidriver">
+        <!ENTITY siteurl "https://taxiapp-tkpmnc.click/">
+        <!ENTITY googleMapKey "AIzaSyDpFzekXePARCI1WqbgcCCHWalRO7iVVrc">
+        <!ENTITY googleAutoCompleteKey "AIzaSyDpFzekXePARCI1WqbgcCCHWalRO7iVVrc">
         <!ENTITY firebaseDbMode "live">
         <!ENTITY otpEnable "false">
         ]>
@@ -354,21 +354,9 @@
 
     <string-array name="language" translatable="false">
         <item>English</item>
-        <item>Français</item>
-        <item>Español</item>
-        <item>عربى</item>
-        <item>Nederlands</item>
-        <item>Português</item>
-        <item>فارسی</item>
     </string-array>
     <string-array name="languageCode" translatable="false">
         <item>en</item>
-        <item>fr</item>
-        <item>es</item>
-        <item>ar</item>
-        <item>nl</item>
-        <item>pt</item>
-        <item>fa</item>
     </string-array>
     <string name="image_uploaded">Image Uploaded Successfully</string>
     <string name="settings">SETTINGS</string>
@@ -598,7 +586,7 @@
     <string name="New_vehicle">New</string>
     <string name="update_vehicle">Update Vehicle</string>
     <string name="setting">App Settings</string>
-    <string name="choose_make">Choose Make</string>
+    <string name="choose_make">Choose Brand</string>
     <string name="choose_year">Choose Year</string>
     <string name="your_trips">My Rides</string>
     <string name="manage_documents">Manage Documents</string>
@@ -612,7 +600,7 @@
     <string name="license_plate">License Plate</string>
     <string name="year">Year</string>
     <string name="model">Model</string>
-    <string name="make">Make</string>
+    <string name="make">Vehicle Brand</string>
     <string name="add_vehicle">Add Vehicle</string>
     <string name="delete_msg">"Are you sure you want to Delete?"</string>
     <string name="you_have_no_vehicles">You have no vehicles</string>
@@ -684,6 +672,7 @@
     <string name="mpesa_payment">Mpesa Payment</string>
     <string name="patym_payment">Paytm Payment</string>
     <string name="flutterwave_payment">Flutterwave Payment</string>
+    <string name="your_pay_to_desc">Making payments is easy! You can settle your fees by transferring funds to account number or simply drop off cash at our office. Choose the option that suits you best!</string>
 
 
     <plurals name="minutes">

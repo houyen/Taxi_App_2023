@@ -9,7 +9,7 @@
         Edit Country
       </h1>
       <ol class="breadcrumb">
-        <li><a href="{{ url(LOGIN_USER_TYPE.'/dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="{{ url(LOGIN_USER_TYPE.'/dashboard') }}"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
         <li><a href="{{ url(LOGIN_USER_TYPE.'/country') }}">Country</a></li>
         <li class="active">Edit</li>
       </ol>
@@ -29,7 +29,7 @@
             <!-- form start -->
             {!! Form::open(['url' => 'admin/edit_country/'.$result->id, 'class' => 'form-horizontal']) !!}
               <div class="box-body">
-              <span class="text-danger">(*)Fields are Mandatory</span>
+              <span class="text-danger">(*)Trường bắt buộc</span>
                 <div class="form-group">
                   <label for="input_short_name" class="col-sm-3 control-label">Short Name<em class="text-danger">*</em></label>
 
@@ -73,8 +73,8 @@
               </div>
               <!-- /.box-body -->
               <div class="box-footer text-center">
-                <button type="submit" class="btn btn-info" name="submit" value="submit">Submit</button>
-                 <button type="submit" class="btn btn-default" name="cancel" value="cancel">Cancel</button>
+                <button type="submit" class="btn btn-info" name="submit" value="submit">Xác nhận </button>
+                 <button type="submit" class="btn btn-default" name="cancel" value="cancel">Huỷ bỏ</button>
               </div>
               <!-- /.box-footer -->
             {!! Form::close() !!}

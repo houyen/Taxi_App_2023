@@ -15,7 +15,7 @@
             android:orientation="vertical"
             >
 
-        <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+        <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                 android:id="@+id/scheduleride_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -28,7 +28,7 @@
                 app:fontName="@string/font_Medium"
                 />
 
-        <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+        <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                 android:id="@+id/time_date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -41,7 +41,7 @@
                 app:fontName="@string/font_Medium"
                 />
 
-        <com.seentechs.newtaxiusers.taxiapp.singledateandtimepicker.SingleDateAndTimePicker
+        <com.tkpmnc.sgtaxiuser.taxiapp.singledateandtimepicker.SingleDateAndTimePicker
                 android:id="@+id/single_day_picker"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_200adp"
@@ -63,7 +63,7 @@
             android:paddingBottom="@dimen/_20adp"
             >
 
-        <com.seentechs.newtaxiusers.appcommon.custompalette.FontButton
+        <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontButton
                 android:id="@+id/set_pickup_window"
                 android:background="@drawable/app_curve_button_yellow"
                 android:layout_width="match_parent"

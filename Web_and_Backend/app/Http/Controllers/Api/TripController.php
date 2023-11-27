@@ -3,12 +3,12 @@
 /**
  * Trip Controller
  *
- * @package     NewTaxi
+ * @package     SGTaxi
  * @subpackage  Controller
  * @category    Trip
- * @author      Seen Technologies
- * @version     2.2.1
- * @link        https://seentechs.com
+
+
+ * 
  */
 
 namespace App\Http\Controllers\Api;
@@ -1195,7 +1195,7 @@ class TripController extends Controller
 				$pool_trip->seats = $pool_trip->seats - $ride_request->seats;
 			}
 
-			$pool_trip->status = 'Scheduled';
+			$pool_trip->status = 'Begin trip';
 			$pool_trip->currency_code = $user->currency->code;
 			$pool_trip->save();
 
@@ -1222,7 +1222,7 @@ class TripController extends Controller
 		$trip->request_id 		= $ride_request->id;
 		$trip->trip_path 		= $ride_request->trip_path;
 		$trip->payment_mode 	= $ride_request->payment_mode;
-		$trip->status 			= 'Scheduled';
+		$trip->status 			= 'Begin trip';
 		$trip->currency_code 	= $user->currency->code;
 		$trip->peak_fare 		= $ride_request->peak_fare;
 		$trip->fare_estimation 	= $fare_estimation;

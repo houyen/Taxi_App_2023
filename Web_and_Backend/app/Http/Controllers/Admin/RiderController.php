@@ -3,12 +3,12 @@
 /**
  * Rider Controller
  *
- * @package     NewTaxi
+ * @package     SGTaxi
  * @subpackage  Controller
  * @category    Rider
- * @author      Seen Technologies
- * @version     2.2.1
- * @link        https://seentechs.com
+
+
+ * 
  */
 
 namespace App\Http\Controllers\Admin;
@@ -110,6 +110,7 @@ class RiderController extends Controller
             $user->first_name   = $request->first_name;
             $user->last_name    = $request->last_name;
             $user->email        = $request->email;
+            $user->is_vip       = $request->is_vip;
             $user->country_code = $request->country_code;
             $user->country_id   = $request->country_id;
             $user->mobile_number= $request->mobile_number;
@@ -213,6 +214,7 @@ class RiderController extends Controller
             $user->first_name   = $request->first_name;
             $user->last_name    = $request->last_name;
             $user->email        = $request->email;
+            $user->is_vip       = $request->is_vip;
             $user->country_code = $request->country_code;
             $user->gender       = $request->gender;
             if($request->mobile_number != "") {

@@ -3,12 +3,12 @@
 /**
  * Datatable Base Controller - For custom search 
  *
- * @package     NewTaxi
+ * @package     SGTaxi
  * @subpackage  Controller
  * @category    Datatable Base
- * @author      Seen Technologies
- * @version     2.2.1
- * @link        https://seentechs.com
+
+
+ * 
  */
 
 namespace App\Http\Controllers\Admin;

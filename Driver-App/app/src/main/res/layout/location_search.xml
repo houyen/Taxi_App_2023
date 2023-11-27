@@ -13,7 +13,7 @@
         android:layout_toEndOf="@+id/pin"
         android:orientation="vertical">
 
-        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
             android:id="@+id/address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -24,7 +24,7 @@
             android:textSize="15dp"
             app:fontname="@string/font_UBERNews" />
 
-        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
             android:id="@+id/address_secondry"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -37,7 +37,7 @@
             app:fontname="@string/font_UBERNews" />
     </LinearLayout>
 
-    <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+    <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
         android:id="@+id/pin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

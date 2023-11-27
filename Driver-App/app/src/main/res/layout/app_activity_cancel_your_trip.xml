@@ -41,7 +41,7 @@
                     android:spinnerMode="dropdown" />
             </RelativeLayout>
 
-            <com.seentechs.newtaxidriver.common.custompalette.FontEditText
+            <com.tkpmnc.sgtaxidriver.common.custompalette.FontEditText
                 android:id="@+id/cancel_reason"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_160adp"
@@ -72,7 +72,7 @@
             android:paddingTop="@dimen/_10adp"
             android:paddingBottom="@dimen/_10adp">
 
-            <com.seentechs.newtaxidriver.common.custompalette.FontButton
+            <com.tkpmnc.sgtaxidriver.common.custompalette.FontButton
                 android:id="@+id/cancelreservation"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_60adp"

@@ -6,12 +6,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Manage Canceled Trips
-        <small>Control panel</small>
+        Quản lý Huỷ bỏed Trips
+        <small>Bảng điều khiển</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="{{ url(LOGIN_USER_TYPE.'/dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Canceled Trips </li>
+        <li><a href="{{ url(LOGIN_USER_TYPE.'/dashboard') }}"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
+        <li class="active">Huỷ bỏed Trips </li>
       </ol>
     </section>
 
@@ -22,7 +22,7 @@
 
           <div class="box">
             <div class="box-header" style="height: 54px;">
-              <!-- <h3 class="box-title">Manage Canceled Trips</h3> -->
+              <!-- <h3 class="box-title">Quản lý Huỷ bỏed Trips</h3> -->
               
             </div>
             <!-- /.box-header -->

@@ -5,7 +5,7 @@
     </ul>
     <!-- Tab panes -->
     <div class="tab-content">
-      <!-- Home tab content -->
+      <!-- Trang chủ tab content -->
       <div class="tab-pane" id="control-sidebar-home-tab">
         
       </div>

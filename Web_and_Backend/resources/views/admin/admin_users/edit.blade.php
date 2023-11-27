@@ -9,7 +9,7 @@
         Edit Admin User
       </h1>
       <ol class="breadcrumb">
-        <li><a href="{{ url(LOGIN_USER_TYPE.'/dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="{{ url(LOGIN_USER_TYPE.'/dashboard') }}"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
         <li><a href="{{ url(LOGIN_USER_TYPE.'/admin_user') }}">Admin Users</a></li>
         <li class="active">Edit</li>
       </ol>
@@ -29,7 +29,7 @@
             <!-- form start -->
               {!! Form::open(['url' => 'admin/edit_admin_users/'.$result->id, 'class' => 'form-horizontal']) !!}
               <div class="box-body">
-              <span class="text-danger">(*)Fields are Mandatory</span>
+              <span class="text-danger">(*)Trường bắt buộc</span>
                 <div class="form-group">
                   <label for="input_username" class="col-sm-3 control-label">Username<em class="text-danger">*</em></label>
 
@@ -47,10 +47,10 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="input_password" class="col-sm-3 control-label">Password</label>
+                  <label for="input_password" class="col-sm-3 control-label">Mật khẩu</label>
 
                   <div class="col-md-7 col-sm-offset-1">
-                    {!! Form::text('password', '', ['class' => 'form-control', 'id' => 'input_password', 'placeholder' => 'Password']) !!}
+                    {!! Form::text('password', '', ['class' => 'form-control', 'id' => 'input_password', 'placeholder' => 'Mật khẩu']) !!}
                     <em>Enter new password only. Leave blank to use existing password.</em>
                     <span class="text-danger">{{ $errors->first('password') }}</span>
                   </div>
@@ -58,7 +58,7 @@
 
                 <div class="form-group">
                   <label for="input_country_code" class="col-sm-3 control-label">
-                    Country Code  <em class="text-danger">*</em>
+                    Quốc tịch  <em class="text-danger">*</em>
                   </label>
                   <div class="col-md-7 col-sm-offset-1">
                     <select class='form-control' id = 'input_country_code' name='country_code' >
@@ -72,7 +72,7 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="input_mobile_number" class="col-sm-3 control-label">Mobile Number (For SOS Purpose) <em class="text-danger">*</em></label>
+                  <label for="input_mobile_number" class="col-sm-3 control-label">Số điện thoại (For SOS Purpose) <em class="text-danger">*</em></label>
                   <div class="col-md-7 col-sm-offset-1">
                     {!! Form::text('mobile_number', old('mobile_number',$result->mobile_number), ['class' => 'form-control', 'id' => 'input_mobile', 'placeholder' => 'Mobile']) !!}
                     <span class="text-danger">{{ $errors->first('mobile_number') }}</span>
@@ -82,23 +82,23 @@
                 <div class="form-group">
                   <label for="input_role" class="col-sm-3 control-label">Role<em class="text-danger">*</em></label>
                   <div class="col-md-7 col-sm-offset-1">
-                    {!! Form::select('role', $roles, @$result->roles->first()->id, ['class' => 'form-control', 'id' => 'input_role', 'placeholder' => 'Select']) !!}
+                    {!! Form::select('role', $roles, @$result->roles->first()->id, ['class' => 'form-control', 'id' => 'input_role', 'placeholder'  => 'Chọn']) !!}
                     <span class="text-danger">{{ $errors->first('role') }}</span>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="input_status" class="col-sm-3 control-label">Status<em class="text-danger">*</em></label>
+                  <label for="input_status" class="col-sm-3 control-label">Trạng thái<em class="text-danger">*</em></label>
 
                   <div class="col-md-7 col-sm-offset-1">
-                    {!! Form::select('status', array('Active' => 'Active', 'Inactive' => 'Inactive'), $result->status, ['class' => 'form-control', 'id' => 'input_status']) !!}
+                    {!! Form::select('status', array('Active' => 'Hoạt động', 'Inactive'  => 'Ẩn'), $result->status, ['class' => 'form-control', 'id' => 'input_status']) !!}
                     <span class="text-danger">{{ $errors->first('status') }}</span>
                   </div>
                 </div>
               </div>
               <!-- /.box-body -->
               <div class="box-footer text-center">
-                <button type="submit" class="btn btn-info " name="submit" value="submit">Submit</button>
-                <button type="submit" class="btn btn-default" name="cancel" value="cancel">Cancel</button>
+                <button type="submit" class="btn btn-info " name="submit" value="submit">Xác nhận </button>
+                <button type="submit" class="btn btn-default" name="cancel" value="cancel">Huỷ bỏ</button>
               </div>
               <!-- /.box-footer -->
             </form>

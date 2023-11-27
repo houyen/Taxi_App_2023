@@ -56,7 +56,7 @@
             app:tint="@color/light_blue_button_color"
             />
 
-        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
             android:id="@+id/tv_otp_heading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -73,7 +73,7 @@
             app:layout_constraintTop_toBottomOf="@+id/imgv_otp"
             />
 
-        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
             android:id="@+id/tv_otp_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -99,7 +99,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_otp_text"
             >
 
-            <com.seentechs.newtaxidriver.common.custompalette.FontEditText
+            <com.tkpmnc.sgtaxidriver.common.custompalette.FontEditText
                 android:id="@+id/one"
                 android:layout_width="@dimen/_50adp"
                 android:layout_height="@dimen/_50adp"
@@ -121,10 +121,10 @@
                 >
 
                 <requestFocus />
-            </com.seentechs.newtaxidriver.common.custompalette.FontEditText>
+            </com.tkpmnc.sgtaxidriver.common.custompalette.FontEditText>
 
 
-            <com.seentechs.newtaxidriver.common.custompalette.FontEditText
+            <com.tkpmnc.sgtaxidriver.common.custompalette.FontEditText
                 android:id="@+id/two"
                 android:layout_width="@dimen/_50adp"
                 android:layout_height="@dimen/_50adp"
@@ -146,7 +146,7 @@
                 app:fontname="@string/font_Medium"
                 />
 
-            <com.seentechs.newtaxidriver.common.custompalette.FontEditText
+            <com.tkpmnc.sgtaxidriver.common.custompalette.FontEditText
                 android:id="@+id/three"
                 android:layout_width="@dimen/_50adp"
                 android:layout_height="@dimen/_50adp"
@@ -168,7 +168,7 @@
                 app:fontname="@string/font_Medium"
                 />
 
-            <com.seentechs.newtaxidriver.common.custompalette.FontEditText
+            <com.tkpmnc.sgtaxidriver.common.custompalette.FontEditText
                 android:id="@+id/four"
                 android:layout_width="@dimen/_50adp"
                 android:layout_height="@dimen/_50adp"
@@ -189,7 +189,7 @@
                 android:textSize="@dimen/_16asp"
                 app:fontname="@string/font_Medium"
                 />
-            <com.seentechs.newtaxidriver.common.custompalette.FontEditText
+            <com.tkpmnc.sgtaxidriver.common.custompalette.FontEditText
                 android:id="@+id/five"
                 android:layout_width="@dimen/_50adp"
                 android:layout_height="@dimen/_50adp"
@@ -210,7 +210,7 @@
                 android:textSize="@dimen/_16asp"
                 app:fontname="@string/font_Medium"
                 />
-            <com.seentechs.newtaxidriver.common.custompalette.FontEditText
+            <com.tkpmnc.sgtaxidriver.common.custompalette.FontEditText
                 android:id="@+id/six"
                 android:layout_width="@dimen/_50adp"
                 android:layout_height="@dimen/_50adp"
@@ -233,7 +233,7 @@
                 />
         </RelativeLayout>
 
-        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
             android:id="@+id/tv_otp_error_field"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -288,7 +288,7 @@
                 />
 
         </androidx.cardview.widget.CardView>
-        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
             android:id="@+id/tv_resend_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -307,7 +307,7 @@
             app:layout_constraintStart_toStartOf="parent"
             />
 
-        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
             android:id="@+id/tv_otp_resend_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -327,7 +327,7 @@
             app:layout_constraintStart_toStartOf="parent"
             />
 
-        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
             android:id="@+id/tv_otp_resend_countdown"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

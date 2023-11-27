@@ -5,7 +5,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-    <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+    <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
             android:id="@+id/listempty"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

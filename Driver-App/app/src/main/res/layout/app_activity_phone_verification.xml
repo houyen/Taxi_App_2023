@@ -49,7 +49,7 @@
             />
 
 
-        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
             android:id="@+id/tv_mobile_heading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -65,7 +65,7 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView2"
             />
 
-        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
             android:id="@+id/tv_mobile_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -124,7 +124,7 @@
                 app:hintEnabled="false"
                 >
 
-                <com.seentechs.newtaxidriver.common.custompalette.FontEditText
+                <com.tkpmnc.sgtaxidriver.common.custompalette.FontEditText
                     android:id="@+id/phone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

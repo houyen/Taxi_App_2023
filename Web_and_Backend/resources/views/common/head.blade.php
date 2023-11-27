@@ -27,9 +27,6 @@
 
   {!! Html::style('css/jquery.bxslider.css') !!}
   {!! Html::style('css/jquery.sliderTabs.min.css') !!}
-  @if (Route::current()->uri() != 'driver_payment')
-  {!! Html::style('css/jquery-ui.min.css') !!} 
-  @endif
 
   <link rel="stylesheet" type="text/css" href=" https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>

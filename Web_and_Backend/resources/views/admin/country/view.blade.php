@@ -6,10 +6,10 @@
   <section class="content-header">
     <h1>
       Country
-      <small>Control panel</small>
+      <small>Bảng điều khiển</small>
     </h1>
     <ol class="breadcrumb">
-      <li><a href="{{ url(LOGIN_USER_TYPE.'/dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li><a href="{{ url(LOGIN_USER_TYPE.'/dashboard') }}"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
       <li class="active">Country</li>
     </ol>
   </section>
@@ -20,7 +20,7 @@
       <div class="col-xs-12">
         <div class="box">
           <div class="box-header">
-            <!-- <h3 class="box-title">Country Management</h3> -->
+            <!-- <h3 class="box-title">Country Quản lýment</h3> -->
             <div style="float:right;"><a class="btn btn-success" href="{{ url('admin/add_country') }}">Add Country</a></div>
           </div>
           <!-- /.box-header -->

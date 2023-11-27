@@ -6,12 +6,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Manage Vehicle types
-        <small>Control panel</small>
+        Quản lý Loại xe
+        <small>Bảng điều khiển</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="{{ url(LOGIN_USER_TYPE.'/dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Vehicle types </li>
+        <li><a href="{{ url(LOGIN_USER_TYPE.'/dashboard') }}"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
+        <li class="active">Loại xe </li>
       </ol>
     </section>
 
@@ -22,8 +22,8 @@
 
           <div class="box">
             <div class="box-header">
-              <!-- <h3 class="box-title">Manage Vehicle types</h3> -->
-              <div style="float:right;"><a class="btn btn-success" href="{{ url('admin/add_vehicle_type') }}">Add Vehicle types </a></div>
+              <!-- <h3 class="box-title">Quản lý Loại xe</h3> -->
+              <div style="float:right;"><a class="btn btn-success" href="{{ url('admin/add_vehicle_type') }}">Thêm loại xe </a></div>
             </div>
             <!-- /.box-header -->
             <div class="box-body">

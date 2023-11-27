@@ -8,7 +8,7 @@
         android:layout_height="wrap_content"
         >
 
-    <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+    <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
             android:layout_width="@dimen/_60adp"
             android:layout_height="@dimen/_60adp"
             android:textSize="@dimen/_20asp"

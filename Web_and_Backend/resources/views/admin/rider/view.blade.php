@@ -6,12 +6,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Manage Riders
-        <small>Control panel</small>
+        Quản lý Khách hàng
+        <small>Bảng điều khiển</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="{{ url(LOGIN_USER_TYPE.'/dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Riders</li>
+        <li><a href="{{ url(LOGIN_USER_TYPE.'/dashboard') }}"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
+        <li class="active">Khách hàng</li>
       </ol>
     </section>
 
@@ -22,9 +22,9 @@
 
           <div class="box">
             <div class="box-header">
-              <!-- <h3 class="box-title">Manage Riders</h3> -->
+              <!-- <h3 class="box-title">Quản lý Khách hàng</h3> -->
               @if(Auth::guard('admin')->user()->can('create_rider'))
-                <div style="float:right;"><a class="btn btn-success" href="{{ url('admin/add_rider') }}">Add Rider</a></div>
+                <div style="float:right;"><a class="btn btn-success" href="{{ url('admin/add_rider') }}">Thêm khách hàng</a></div>
               @endif
             </div>
             <!-- /.box-header -->

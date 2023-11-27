@@ -34,7 +34,7 @@
                 />
         </androidx.cardview.widget.CardView>
 
-        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
             android:id="@+id/tv_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
             app:fontname="@string/font_Medium" />
 
 
-        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
             android:id="@+id/ivDriverName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

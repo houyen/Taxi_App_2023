@@ -35,15 +35,15 @@
 <div class="manual-booking content-wrapper" ng-controller='manual_booking' ng-init="vehicle_types = {{$vehicle_types}}">
 	<section class="content-header">
 		<h1>
-			Manual Booking
+			Đặt xe thủ công
 		</h1>
 		<ol class="breadcrumb">
 			<li>
 				<a href="{{ url(LOGIN_USER_TYPE.'/dashboard') }}">
-					<i class="fa fa-dashboard"></i> Home
+					<i class="fa fa-dashboard"></i> Trang chủ
 				</a>
 			</li>
-			<li class="active">Manual Booking</li>
+			<li class="active">Đặt xe thủ công</li>
 		</ol>
 	</section>
 	{!! Form::open(['method'=>'POST','url' => LOGIN_USER_TYPE.'/manual_booking/store', 'class' => 'form-horizontal manual_booking','id'=>'manual_booking','name'=>'myForm']) !!}
@@ -54,7 +54,7 @@
 		{!! Form::hidden('utc_offset', '', ['id' => 'utc_offset']) !!}
 		{!! Form::hidden('location_id', @$schedule_ride->location_id, ['id' => 'location_id']) !!}
 		{!! Form::hidden('peak_id', @$schedule_ride->peak_id, ['id' => 'peak_id']) !!}
-		<h4>Manual Taxi Dispatch</h4>
+		<h4>Thông tin đặt xe</h4>
 		<div class="row">
 			<div class="col-md-2 cls_manualbook p-0" ng-init="country_code = {{ @$schedule_ride->users->country_code==null ? $country_code_option[0]->phone_code:@$schedule_ride->users->country_code }}">
 				<select class ='form-control selectpicker' data-live-search="true" id="input_country_code" name='country_code' ng-model="country_code">
@@ -72,17 +72,17 @@
 					<span class="text-danger error_msg">{{ $errors->first('country_code') }}</span>
 				</div>
 				<div class="col-md-7 col-lg-8">
-					{!! Form::text('mobile_number', @$schedule_ride->users->mobile_number, ['class' => 'form-control', 'id' => 'input_mobile_number', 'placeholder' => 'Phone No', 'autocomplete' => 'off']) !!}
+					{!! Form::text('mobile_number', @$schedule_ride->users->mobile_number, ['class' => 'form-control', 'id' => 'input_mobile_number', 'placeholder' => 'SDT', 'autocomplete' => 'off']) !!}
 					<span class="text-danger error_msg">{{ $errors->first('mobile_number') }}</span>
 				</div>
 			</div>
 			<div class="col-md-6 form-group m-0">
 				<div class="col-md-3 form-group m-0 p-1">
-					{!! Form::text('first_name', @$schedule_ride->users->first_name, ['class' => 'form-control', 'id' => 'input_first_name', 'placeholder' => 'First Name', 'autocomplete' => 'off']) !!}
+					{!! Form::text('first_name', @$schedule_ride->users->first_name, ['class' => 'form-control', 'id' => 'input_first_name', 'placeholder' => 'Tên', 'autocomplete' => 'off']) !!}
 					<span class="text-danger error_msg">{{ $errors->first('first_name') }}</span>
 				</div>
 				<div class="col-md-3 form-group m-0 p-1">
-					{!! Form::text('last_name', @$schedule_ride->users->last_name, ['class' => 'form-control', 'id' => 'input_last_name', 'placeholder' => 'Last Name', 'autocomplete' => 'off']) !!}
+					{!! Form::text('last_name', @$schedule_ride->users->last_name, ['class' => 'form-control', 'id' => 'input_last_name', 'placeholder' => 'Họ', 'autocomplete' => 'off']) !!}
 					<span class="text-danger error_msg">{{ $errors->first('last_name') }}</span>
 				</div>
 				<div class="col-md-3 form-group m-0 p-1">
@@ -91,19 +91,19 @@
 				</div>
 				<div class="col-md-3 form-group m-0 p-1">
 					<select name="gender" class="form-control" id="input_gender" ng-model="gender">
-						<option value="">Gender</option>
-						<option value="1">Male</option>
-						<option value="2">Female</option>
+						<option value="">Giới tính</option>
+						<option value="1">Nam</option>
+						<option value="2">Nữ</option>
 					</select>
 				</div>
 			</div>
-			<div class="col-md-2 form-group m-0 p-1">
+			<!-- <div class="col-md-2 form-group m-0 p-1">
 				<select name="filter[]" multiple="multiple" class="form-control" id="input_filter" style="display: none;">
 					<option value="2">Prefer Handicap Accessibility</option>
 					<option value="3">Prefer Child Seat Accessibility</option>
 					<option value="4">Prefer Female Drivers only</option>
 				</select>
-			</div>
+			</div> -->
 			{!! Form::hidden('user_id','',['id'=>'user_id']) !!}
 		</div>
 		<div class="clearfix">
@@ -112,7 +112,7 @@
 					<div class="col-md-12" ng-init='pickup_latitude = "{{@$schedule_ride->pickup_latitude}}"'>
 						{!! Form::hidden('pickup_latitude', @$schedule_ride->pickup_latitude, ['id' => 'pickup_latitude']) !!}
 						{!! Form::hidden('pickup_longitude', @$schedule_ride->pickup_longitude, ['id' => 'pickup_longitude']) !!}
-						{!! Form::text('pickup_location', @$schedule_ride->pickup_location, ['class' => 'form-control change_field', 'id' => 'input_pickup_location', 'placeholder' => 'Pick Up Location', 'autocomplete' => 'off']) !!}
+						{!! Form::text('pickup_location', @$schedule_ride->pickup_location, ['class' => 'form-control change_field', 'id' => 'input_pickup_location', 'placeholder' => 'Điểm đón', 'autocomplete' => 'off']) !!}
 						<span class="text-danger error_msg error_pickup_location">{{ $errors->first('pickup_location') }}</span>
 					</div>
 				</div>
@@ -121,7 +121,7 @@
 						{!! Form::hidden('drop_latitude', @$schedule_ride->drop_latitude, ['id' => 'drop_latitude']) !!}
 						{!! Form::hidden('drop_longitude', @$schedule_ride->drop_longitude, ['id' => 'drop_longitude']) !!}
 
-						{!! Form::text('drop_location', @$schedule_ride->drop_location, ['class' => 'form-control change_field', 'id' => 'input_drop_location', 'placeholder' => 'Drop Off Location', 'autocomplete' => 'off']) !!}
+						{!! Form::text('drop_location', @$schedule_ride->drop_location, ['class' => 'form-control change_field', 'id' => 'input_drop_location', 'placeholder' => 'Điểm đi', 'autocomplete' => 'off']) !!}
 						<span class="text-danger error_msg error_drop_location">{{ $errors->first('drop_location') }}</span>
 					</div>
 				</div>
@@ -143,7 +143,7 @@
 				<div class="row clearfix" ng-init="auto_assign_status = {{(@$schedule_ride->driver_id==0 && @$schedule_ride->id != '')?'true':'false'}}">
 					<div class="col-md-12">
 						<p id="auto_assign_status_error">
-							<input class="change_field" id="input_auto_assign_status" ng-model="auto_assign_status" type="checkbox" name="auto_assign_status" data-error-placement="container" data-error-container="#auto_assign_status_error"> Auto Assign Driver <br>
+							<input class="change_field" id="input_auto_assign_status" ng-model="auto_assign_status" type="checkbox" name="auto_assign_status" data-error-placement="container" data-error-container="#auto_assign_status_error">Tự động chọn tài xế <br>
 							<span class="text-danger error_msg"></span>
 						</p>
 					</div>
@@ -184,10 +184,10 @@
 				<div class="map-route-option">
 					<div>
 						<div class="clearfix driver_detail_popup" style="width:100%;background:white;display:none;position: absolute;z-index: 100">
-							<h4>Driver Details</h4>
+							<h4>Thông tin tài xế</h4>
 							<div class="row">
 								<div class="col-lg-4">
-									Driver :
+									Tài xế :
 								</div>
 								<div class="col-lg-8 driver_name_detail">
 
@@ -196,7 +196,7 @@
 							@if(LOGIN_USER_TYPE!='company')
 								<div class="row driver_company_show">
 									<div class="col-lg-4">
-										Company :
+										Tổ chức :
 									</div>
 									<div class="col-lg-8 driver_company_detail">
 
@@ -205,7 +205,7 @@
 							@endif
 							<div class="row">
 								<div class="col-lg-4">
-									Driver Email :
+									Email tài xế:
 								</div>
 								<div class="col-lg-8 driver_email_detail">
 
@@ -213,7 +213,7 @@
 							</div>
 							<div class="row">
 								<div class="col-lg-4">
-									Phone No :
+									Số điện thoại:
 								</div>
 								<div class="col-lg-8 driver_phone_detail">
 
@@ -223,7 +223,7 @@
 						<div class="clearfix">
 							<div class="col-md-4 p-0">
 								<label>
-									Select Driver Availability
+									Chọn tài xế
 								</label>
 							</div>
 							<div class="col-md-6" ng-init="driver_availability = ''">
@@ -235,16 +235,16 @@
 						<div class="clearfix map_zoom_level">
 							<div class="col-md-4 p-0">
 								<label>
-									Map Zoom Level
+									Phóng to
 								</label>
 							</div>
 							<div class="col-md-6" ng-init="map_radius=0">
 								<select class ='form-control' id = 'input_map_zoom' name='map_zoom' ng-model="map_radius" ng-change="map_zoom(map_radius)">
-									<option value="0">Select Radius</option>
-									<option value="5">5 Miles Radius</option>
-									<option value="10">10 Miles Radius</option>
-									<option value="20">20 Miles Radius</option>
-									<option value="30">30 Miles Radius</option>
+									<option value="0">Chọn bán kính</option>
+									<option value="5">5 Km</option>
+									<option value="10">10 Km</option>
+									<option value="20">20 Km</option>
+									<option value="30">30 Km</option>
 								</select>
 								<span class="text-danger error_msg">{{ $errors->first('map_zoom') }}</span>
 							</div>
@@ -255,52 +255,10 @@
 						<div id="map"></div>
 					</div>
 					<div class="fare-table clearfix">
-						<h3>Fare Estimation</h3>
+						<h3>Giá tạm tính</h3>
 						<div class="row">
 							<div class="col-md-8">
-								Minimum Fare :
-							</div>
-							<div class="col-md-4" ng-cloak>
-								{{$currency_symbol}}@{{vehicle_detail_minimum_fare | number: 2}}
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-8">
-								Base Fare :
-							</div>
-							<div class="col-md-4" ng-cloak>
-								{{$currency_symbol}}@{{vehicle_detail_base_fare | number: 2}}
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-8">
-								Distance ( <span ng-cloak> @{{vehicle_detail_km}} </span> Km) :
-							</div>
-							<div class="col-md-4" ng-cloak>
-								{{$currency_symbol}}@{{vehicle_detail_km_fare | number: 2}}
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-8">
-								Time ( <span ng-cloak> @{{vehicle_detail_minutes}} </span> Minutes) :
-							</div>
-							<div class="col-md-4" ng-cloak>
-								{{$currency_symbol}}@{{vehicle_detail_min_fare | number: 2}}
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-8">
-								Peak Price x <span  ng-cloak> @{{vehicle_detail_peak_price}} </span> :
-							</div>
-							<div class="col-md-4" ng-cloak>
-								{{$currency_symbol}}@{{(vehicle_detail_peak_fare) | number: 2}}
-							</div>
-						</div>
-
-
-						<div class="row">
-							<div class="col-md-8">
-								Total Fare :
+								Giá cước :
 							</div>
 							<div class="col-md-4" ng-cloak>
 								{{$currency_symbol}}@{{vehicle_detail_total_fare | number: 2}}
@@ -310,58 +268,19 @@
 					<div class="fare-btn clearfix">
 						<button type="button" class="btn btn-primary submit_button change_field" disabled ng-disabled="myForm.$invalid && page_loading==0" ng-click="submitForm($event);">
 							@if(!isset($schedule_ride->id))
-								Book Now
+								Đặt xe
 							@else
-								Submit
+								Đồng ý
 							@endif
 						</button>
 						@if(!isset($schedule_ride->id))
-						<button class="btn btn-default reset">Reset</button>
+						<button class="btn btn-default reset">Khôi phục</button>
 						@endif
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<div class="manual-notes">
-			<h4>Notes:</h4>
-			<ul>
-				<li>
-					Administrator can Add / Edit Ride later booking on this page.
-				</li>
-				<li>
-					Driver current availability is not connected with booking being made.
-				</li>
-				<li>
-					Adding booking from here will not send request to Driver immediately.
-				</li>
-			</ul>
-			<h5>Manual Auto Booking :</h5>
-			<ul>
-				<li>
-					In case of "Auto Assign Driver" option selected, Driver(s) get automatic request before 5 minutes of actual booking time.
-				</li>
-				<li>
-					In case of "Auto Assign Driver" option not selected, Driver(s) get booking confirmation sms as well as reminder sms before 30 minutes of actual booking.
-				</li>
-				<li>
-					Driver has to start the scheduled Trip by going to "Your Trip" >> Upcoming section from Driver App.
-				</li>
-				<li>
-					In case of "Auto Assign Driver", the competitive algorithm will be followed.
-				</li>
-			</ul>
-			<br>
-			<h5>Manual Assign Booking :</h5>
-			<ul>
-				<li>
-					Please confirm future avaialbility of Driver before doing booking.
-				</li>
-				<li>
-					Driver has to start the scheduled Trip by going to "Your Trip" >> Upcoming section from Driver App.
-				</li>
-			</ul>
-		</div>
 	</div>
 	</section>
 	{!! Form::close() !!}

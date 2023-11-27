@@ -21,7 +21,7 @@
 
                 >
 
-            <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+            <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                     android:id="@+id/tv_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -65,7 +65,7 @@
                 android:orientation="vertical"
                 >
 
-            <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+            <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/_25adp"
@@ -75,7 +75,7 @@
                     app:fontName="@string/font_NarrMedium"
                     />
 
-            <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+            <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_30adp"
@@ -88,7 +88,7 @@
                     app:fontName="@string/font_NarrMedium"
                     />
 
-            <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+            <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_30adp"
@@ -101,7 +101,7 @@
                     app:fontName="@string/font_NarrMedium"
                     />
 
-            <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+            <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_30adp"
@@ -114,7 +114,7 @@
                     app:fontName="@string/font_NarrMedium"
                     />
 
-            <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+            <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_15adp"
@@ -137,7 +137,7 @@
                 android:weightSum="2"
                 >
 
-            <com.seentechs.newtaxiusers.appcommon.custompalette.FontButton
+            <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontButton
                     android:id="@+id/cf_cancel"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -152,7 +152,7 @@
                     app:fontName="@string/font_Medium"
                     />
 
-            <com.seentechs.newtaxiusers.appcommon.custompalette.FontButton
+            <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontButton
                     android:id="@+id/cf_proceed"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"

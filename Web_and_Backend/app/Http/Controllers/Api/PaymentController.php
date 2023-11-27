@@ -3,12 +3,12 @@
 /**
  * Trip Controller
  *
- * @package     NewTaxi
+ * @package     SGTaxi
  * @subpackage  Controller
  * @category    Trip
- * @author      Seen Technologies
- * @version     2.2.1
- * @link        https://seentechs.com
+
+
+ * 
  */
 
 namespace App\Http\Controllers\Api;
@@ -1020,7 +1020,7 @@ public function mpesa_callback( Request $request ) {
         $txref = "rave" . uniqid(); // ensure you generate unique references per transaction.
         // get your public key from the dashboard.
         $PBFPubKey = "FLWPUBK_TEST-f2a7a1ca6cdf04f4ab00d9006073ff6d-X"; 
-        $redirect_url = "https://cyrus.seentechs.com/api/flutterwave_callback?email=$email&amount=$amount_pay"; // Set your own redirect URL
+        $redirect_url = "https://cyrus.tkpmnc.com/api/flutterwave_callback?email=$email&amount=$amount_pay"; // Set your own redirect URL
     
          curl_setopt_array($curl, array(
          CURLOPT_URL => "https://api.ravepay.co/flwv3-pug/getpaidx/api/v2/hosted/pay",

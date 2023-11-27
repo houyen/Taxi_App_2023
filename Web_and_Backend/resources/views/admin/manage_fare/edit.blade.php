@@ -5,12 +5,12 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Edit Peak Based Fare
+      Sửa giá vé
     </h1>
     <ol class="breadcrumb">
-      <li><a href="{{ url('admin/dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li><a href="{{ url('admin/manage_fare') }}">Peak Based Fare</a></li>
-      <li class="active">Edit</li>
+      <li><a href="{{ url('admin/dashboard') }}"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
+      <li><a href="{{ url('admin/manage_fare') }}">Giá vé</a></li>
+      <li class="active">Sửa</li>
     </ol>
   </section>
   <!-- Main content -->
@@ -21,77 +21,77 @@
         <!-- Horizontal Form -->
         <div class="box box-info">
           <div class="box-header with-border">
-            <h3 class="box-title">Edit Peak Based Fare Form</h3>
+            <h3 class="box-title">Sửa giá vé</h3>
           </div>
           <!-- /.box-header -->
           <!-- form start -->
           {!! Form::open(['url' => 'admin/edit_manage_fare/'.$result->id, 'class' => 'form-horizontal','id' => 'manage_peak_fare_form']) !!}
           <div class="box-body" ng-init="time_options={{ json_encode($time_options) }};day_options={{json_encode($day_options)}};">
-            <span class="text-danger">(*)Fields are Mandatory</span>
+            <span class="text-danger">(*)Trường bắt buộc</span>
             <div class="form-group">
               <label for="input_location" class="col-sm-3 control-label">
-                Location <em class="text-danger">*</em>
+               Vị trí <em class="text-danger">*</em>
               </label>
               <div class="col-md-7 col-sm-offset-1" ng-init="location='{{ old('location','') }}'">
-                {!! Form::select('location', $locations, $result->location_id, ['class' => 'form-control', 'id' => 'input_location','placeholder' => 'Select']) !!}
+                {!! Form::select('location', $locations, $result->location_id, ['class' => 'form-control', 'id' => 'input_location','placeholder'  => 'Chọn']) !!}
                 <span class="text-danger">{{ $errors->first('location') }}</span>
               </div>
             </div>
             <div class="form-group">
               <label for="input_vehicle_type" class="col-sm-3 control-label">
-                Vehicle Type <em class="text-danger">*</em>
+                Loại xe <em class="text-danger">*</em>
               </label>
               <div class="col-md-7 col-sm-offset-1">
-                {!! Form::select('vehicle_type', $vehicle_types, old('vehicle_type',$result->vehicle_id), ['class' => 'form-control', 'id' => 'input_vehicle_type','placeholder' => 'Select']) !!}
+                {!! Form::select('vehicle_type', $vehicle_types, old('vehicle_type',$result->vehicle_id), ['class' => 'form-control', 'id' => 'input_vehicle_type','placeholder'  => 'Chọn']) !!}
                 <span class="text-danger">{{ $errors->first('vehicle_type') }}</span>
                 <span class="text-danger">{{ $errors->first('same_loc_error') }}</span>
               </div>
             </div>
 
             <div class="form-group">
-                  <label for="input_base_fare" class="col-sm-3 control-label">Base Fare<em class="text-danger">*</em></label>
+                  <label for="input_base_fare" class="col-sm-3 control-label">Giá cơ bản<em class="text-danger">*</em></label>
 
                   <div class="col-md-7 col-sm-offset-1">
-                    {!! Form::text('base_fare', $result->base_fare, ['class' => 'form-control', 'id' => 'input_base_fare', 'placeholder' => 'Base Fare']) !!}
+                    {!! Form::text('base_fare', $result->base_fare, ['class' => 'form-control', 'id' => 'input_base_fare', 'placeholder' => 'Giá cơ bản']) !!}
                     <span class="text-danger">{{ $errors->first('base_fare') }}</span>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="input_capacity" class="col-sm-3 control-label">Capacity<em class="text-danger">*</em></label>
+                  <label for="input_capacity" class="col-sm-3 control-label">Sức chứa<em class="text-danger">*</em></label>
 
                   <div class="col-md-7 col-sm-offset-1">
-                    {!! Form::text('capacity', $result->capacity, ['class' => 'form-control', 'id' => 'input_capacity', 'placeholder' => 'Capacity']) !!}
+                    {!! Form::text('capacity', $result->capacity, ['class' => 'form-control', 'id' => 'input_capacity', 'placeholder' => 'Sức chứa']) !!}
                     <span class="text-danger">{{ $errors->first('capacity') }}</span>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="input_min_fare" class="col-sm-3 control-label">Minimum Fare<em class="text-danger">*</em></label>
+                  <label for="input_min_fare" class="col-sm-3 control-label">Giá tối thiểu<em class="text-danger">*</em></label>
 
                   <div class="col-md-7 col-sm-offset-1">
-                    {!! Form::text('min_fare',  $result->min_fare, ['class' => 'form-control', 'id' => 'input_min_fare', 'placeholder' => 'Minimum Fare']) !!}
+                    {!! Form::text('min_fare',  $result->min_fare, ['class' => 'form-control', 'id' => 'input_min_fare', 'placeholder' => 'Giá tối thiểu']) !!}
                     <span class="text-danger">{{ $errors->first('min_fare') }}</span>
                   </div>
                 </div>
               <div class="form-group">
-                  <label for="input_per_min" class="col-sm-3 control-label">Per Minutes<em class="text-danger">*</em></label>
+                  <label for="input_per_min" class="col-sm-3 control-label">Mỗi phút<em class="text-danger">*</em></label>
 
                   <div class="col-md-7 col-sm-offset-1">
-                    {!! Form::text('per_min', $result->per_min, ['class' => 'form-control', 'id' => 'input_per_min', 'placeholder' => 'Per Minutes']) !!}
+                    {!! Form::text('per_min', $result->per_min, ['class' => 'form-control', 'id' => 'input_per_min', 'placeholder' => 'Mỗi phút']) !!}
                     <span class="text-danger">{{ $errors->first('per_min') }}</span>
                   </div>
                 </div>
               <div class="form-group">
-                  <label for="input_per_km" class="col-sm-3 control-label">Per Kilometer<em class="text-danger">*</em></label>
+                  <label for="input_per_km" class="col-sm-3 control-label">Mỗi KM<em class="text-danger">*</em></label>
 
                   <div class="col-md-7 col-sm-offset-1">
-                    {!! Form::text('per_km', $result->per_km, ['class' => 'form-control', 'id' => 'input_per_km', 'placeholder' => 'Per Kilometer']) !!}
+                    {!! Form::text('per_km', $result->per_km, ['class' => 'form-control', 'id' => 'input_per_km', 'placeholder' => 'Mỗi KM']) !!}
                     <span class="text-danger">{{ $errors->first('per_km') }}</span>
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label for="input_waiting_time" class="col-sm-3 control-label">
-                    Waiting Time Limit (In Minutes) <em class="text-danger">*</em>
+                    Thời gian chờ  <em class="text-danger">*</em>
                   </label>
                   <div class="col-md-7 col-sm-offset-1">
                     {!! Form::text('waiting_time', old('waiting_time',$result->waiting_time), ['class' => 'form-control', 'id' => 'input_waiting_time', 'placeholder' => 'Waiting Time']) !!}
@@ -100,7 +100,7 @@
                 </div>
                 <div class="form-group">
                   <label for="input_waiting_charge" class="col-sm-3 control-label">
-                    Waiting Charges (Per Minute) <em class="text-danger">*</em>
+                    Phí chờ <em class="text-danger">*</em>
                   </label>
                   <div class="col-md-7 col-sm-offset-1">
                     {!! Form::text('waiting_charge', old('waiting_charge',$result->waiting_charge), ['class' => 'form-control', 'id' => 'input_waiting_charge', 'placeholder' => 'Waiting Charge']) !!}
@@ -109,29 +109,29 @@
                 </div>
 
               <div class="form-group">
-                  <label for="input_schedule_fare" class="col-sm-3 control-label">Schedule Ride Fare<em class="text-danger">*</em></label>
+                  <label for="input_schedule_fare" class="col-sm-3 control-label">Bảng báo phí<em class="text-danger">*</em></label>
                   <div class="col-md-7 col-sm-offset-1">
-                    {!! Form::text('schedule_fare', $result->schedule_fare, ['class' => 'form-control', 'id' => 'input_schedule_fare', 'placeholder' => 'Schedule Ride Fare']) !!}
+                    {!! Form::text('schedule_fare', $result->schedule_fare, ['class' => 'form-control', 'id' => 'input_schedule_fare', 'placeholder' => 'Bảng báo phí']) !!}
                     <span class="text-danger">{{ $errors->first('schedule_fare') }}</span>
                   </div>
               </div>
 
                 
               <div class="form-group">
-                  <label for="input_currency_code" class="col-sm-3 control-label">Currency code<em class="text-danger">*</em></label>
+                  <label for="input_currency_code" class="col-sm-3 control-label">Tiền tệ<em class="text-danger">*</em></label>
 
                   <div class="col-md-7 col-sm-offset-1">
-                    {!! Form::select('currency_code', $currency, $result->currency_code, ['class' => 'form-control', 'id' => 'input_currency_code', 'placeholder' => 'Select']) !!}
+                    {!! Form::select('currency_code', $currency, $result->currency_code, ['class' => 'form-control', 'id' => 'input_currency_code', 'placeholder'  => 'Chọn']) !!}
                     <span class="text-danger">{{ $errors->first('currency_code') }}</span>
                   </div>
                 </div>
 
             <div class="form-group">
               <label for="input_peak_fare" class="col-sm-3 control-label">
-                Apply Peak Fare <em class="text-danger">*</em>
+                Áp dụng giờ cao điểm <em class="text-danger">*</em>
               </label>
               <div class="col-md-7 col-sm-offset-1" ng-init="apply_peak='{{ old('apply_peak',$result->apply_peak) }}'">
-                {!! Form::select('apply_peak', array_merge([''=>'Select','Yes' =>'Yes','No' =>'No']),'', ['class' => 'form-control', 'id' => 'input_peak_fare','ng-model'=>'apply_peak']) !!}
+                {!! Form::select('apply_peak', array_merge([''=>'Select','Yes' =>'Có','No' =>'Không']),'', ['class' => 'form-control', 'id' => 'input_peak_fare','ng-model'=>'apply_peak']) !!}
                 <span class="text-danger" ng-hide="apply_peak != ''">{{ $errors->first('apply_peak') }}</span>
                 <span class="text-danger" ng-hide="apply_peak == 'Yes' || apply_night =='Yes'">{{ $errors->first('not_fare') }}</span>
               </div>
@@ -140,7 +140,7 @@
               <div class="col-md-12 peak_fare_wrapper">
                 <div class="panel panel-info">
                   <div class="panel-header">
-                    <h4> Peak Fare Details </h4>
+                    <h4> Giá cao điểm </h4>
                   </div>
                   <div class="panel-body" ng-init="peak_fare_details = {{json_encode(old('peak_fare_details') ?: $peak_fare_details)}};errors = {{json_encode($errors->getMessages())}};removed_fares=''">
                     <input type='hidden' name="removed_fares" ng-model="removed_fares" value="@{{ removed_fares }}">
@@ -164,7 +164,7 @@
                           <div class="col-md-4">
                             <div class="input-addon">
                               <label>
-                                Start Time
+                                Thời gian bắt đầu
                               </label>
                               <select name="peak_fare_details[@{{$index}}][start_time]" ng-model="fare_detail.start_time" id="peak_fare_starttime_@{{ $index }}" class="peak_fare_details form-control" ng-change="update_time($index,fare_detail.day)" ng-init="update_time($index,fare_detail.day)">
                                 <option value="" disabled>Select</option>
@@ -177,7 +177,7 @@
                           <div class="col-md-4">
                             <div class="input-addon">
                               <label>
-                                End Time
+                                Thời gian kết thúc
                               </label>
                               <select name="peak_fare_details[@{{$index}}][end_time]" ng-model="fare_detail.end_time" id="peak_fare_endtime_@{{ $index }}" class="peak_fare_details form-control" ng-change="update_time($index,fare_detail.day)">
                                 <option value="" disabled>Select</option>
@@ -220,10 +220,10 @@
             </div>
             <div class="form-group">
               <label for="input_night_fare" class="col-sm-3 control-label">
-                Apply Night Fare <em class="text-danger">*</em>
+                Áp dụng giờ đêm <em class="text-danger">*</em>
               </label>
               <div class="col-md-7 col-sm-offset-1" ng-init="apply_night='{{ old('apply_night',$result->apply_night) }}'">
-                {!! Form::select('apply_night', array_merge([''=>'Select','Yes' =>'Yes','No' =>'No']), '', ['class' => 'form-control', 'id' => 'input_night_fare','ng-model'=>'apply_night']) !!}
+                {!! Form::select('apply_night', array_merge([''=>'Select','Yes' =>'Có','No' =>'Không']), '', ['class' => 'form-control', 'id' => 'input_night_fare','ng-model'=>'apply_night']) !!}
                 <span class="text-danger" ng-hide="apply_night != ''">{{ $errors->first('apply_night') }}</span>
               </div>
             </div>
@@ -241,7 +241,7 @@
                           <div class="col-md-4">
                             <div class="input-addon">
                               <label>
-                                Start Time
+                                Thời gian bắt đầu
                               </label>
                               <select name="night_fare_details[start_time]" ng-model="night_fare_details.start_time" id="night_fare_starttime" class="peak_fare_details form-control" ng-change="updateNightTimeOptions();update_night_fare_time();">
                                 <option value="" disabled>Select</option>
@@ -254,7 +254,7 @@
                           <div class="col-md-4">
                             <div class="input-addon">
                               <label>
-                                End Time
+                                Thời gian kết thúc
                               </label>
                               <select name="night_fare_details[end_time]" ng-model="night_fare_details.end_time" id="night_fare_endtime" class="peak_fare_details form-control">
                                 <option value="" disabled>Select</option>
@@ -288,9 +288,9 @@
           </div>
           <!-- /.box-body -->
           <div class="box-footer text-center">
-            <button type="submit" class="btn btn-info manage_fare_submit" name="submit" value="submit" ng-click="disableButton($event)">Submit</button>
-            <a href="{{ url('admin/manage_fare') }}" class="btn btn-default" name="cancel" value="Cancel">
-              Cancel
+            <button type="submit" class="btn btn-info manage_fare_submit" name="submit" value="submit" ng-click="disableButton($event)">Xác nhận </button>
+            <a href="{{ url('admin/manage_fare') }}" class="btn btn-default" name="cancel" value="Huỷ bỏ">
+              Huỷ bỏ
             </a>
           </div>
           <!-- /.box-footer -->

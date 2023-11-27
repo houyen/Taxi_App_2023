@@ -6,12 +6,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Manage Company
-        <small>Control panel</small>
+        Quản lý Company
+        <small>Bảng điều khiển</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="{{ url(LOGIN_USER_TYPE.'/dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Manage Company</li>
+        <li><a href="{{ url(LOGIN_USER_TYPE.'/dashboard') }}"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
+        <li class="active">Quản lý Company</li>
       </ol>
     </section>
 
@@ -22,7 +22,7 @@
 
           <div class="box">
             <div class="box-header">
-              <!-- <h3 class="box-title">Manage Company</h3> -->
+              <!-- <h3 class="box-title">Quản lý Company</h3> -->
               @if(Auth::guard('admin')->user()->can('create_company'))
                 <div style="float:right;"><a class="btn btn-success" href="{{ url('admin/add_company') }}">Add Company</a></div>
               @endif

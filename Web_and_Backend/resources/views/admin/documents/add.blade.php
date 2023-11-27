@@ -10,7 +10,7 @@
          <?php echo $page; ?> Documents 
       </h1>
       <ol class="breadcrumb">
-        <li><a href="{{ url(LOGIN_USER_TYPE.'/dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="{{ url(LOGIN_USER_TYPE.'/dashboard') }}"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
         <li><a href="{{ url(LOGIN_USER_TYPE.'/documents') }}">Documents</a></li>
         <li class="active"><?php echo $page; ?></li>
       </ol>
@@ -30,7 +30,7 @@
             <!-- form start -->
             {!! Form::open(['url' => 'admin/add_document', 'class' => 'form-horizontal']) !!}
               <div class="box-body">
-              <span class="text-danger">(*)Fields are Mandatory</span>
+              <span class="text-danger">(*)Trường bắt buộc</span>
                <div class="form-group">
                   <label for="input_language" class="col-sm-3 control-label">Language<em class="text-danger">*</em></label>
                   <div class="col-md-7 col-sm-offset-1">
@@ -64,9 +64,9 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="input_status" class="col-sm-3 control-label">Status<em class="text-danger">*</em></label>
+                  <label for="input_status" class="col-sm-3 control-label">Trạng thái<em class="text-danger">*</em></label>
                   <div class="col-md-7 col-sm-offset-1">
-                    {!! Form::select('status', array('Active' => 'Active', 'Inactive' => 'Inactive'), $result->status ?? '', ['class' => 'form-control', 'id' => 'input_status']) !!}
+                    {!! Form::select('status', array('Active' => 'Hoạt động', 'Inactive'  => 'Ẩn'), $result->status ?? '', ['class' => 'form-control', 'id' => 'input_status']) !!}
                   </div>
                 </div>
 
@@ -121,8 +121,8 @@
               <input type="hidden" name="document_id" value="{{$result->id ?? ''}}">
               <!-- /.box-body -->
               <div class="box-footer text-center">
-                <button type="submit" class="btn btn-info" name="submit" value="submit">Submit</button>
-                 <button type="submit" class="btn btn-default" name="cancel" value="cancel">Cancel</button>
+                <button type="submit" class="btn btn-info" name="submit" value="submit">Xác nhận </button>
+                 <button type="submit" class="btn btn-default" name="cancel" value="cancel">Huỷ bỏ</button>
               </div>
               <!-- /.box-footer -->
             {!! Form::close() !!}

@@ -42,15 +42,15 @@
 						<h2>LOGIN TO <span class="red"><strong>{{ $site_name }}</strong></span></h2>
 						<div class="login-tabs">
 							<ul>
-								<li class="btn login_btn {{old('user_type','Admin')=='Admin'?'active':''}}" user="Admin">
+							<!--	<li class="btn login_btn {{old('user_type','Admin')=='Admin'?'active':''}}" user="Admin">
 									Admin
 								</li>
-								<li class="btn login_btn {{old('user_type','Admin')=='Dispatcher'?'active':''}}" user="Dispatcher">
+								li class="btn login_btn {{old('user_type','Admin')=='Dispatcher'?'active':''}}" user="Dispatcher">
 									Dispatcher
 								</li>
 								<li class="btn login_btn {{old('user_type','Admin')=='Company'?'active':''}}" user="Company">
 									Company
-								</li>
+								</li>-->
 							</ul>
 							<div class="tab-content">
 								<input type="hidden" name="user_type" class="user_type" value="Admin">
@@ -59,7 +59,7 @@
 									<input type="text" id="username" value="" name="username" placeholder="Enter the username">
 								</div>
 								<div class="form-group">
-									<label for="password">Password</label>
+									<label for="password">Mật khẩu</label>
 									<input type="password" id="password" value="{{ canDisplayCredentials() ? '123456':'' }}" name="password" placeholder="Enter the password">
 								</div>
 							</div>
@@ -108,9 +108,9 @@
 					if(canDisplayCredentials == '1') {
 						$('#username').val('9876543211');
 					}
-					$('#username').attr('placeholder','Email / Mobile Number');
-					$('.username_label').text('Email / Mobile Number');
-					$(".username_label").attr('label','Email / Mobile Number');
+					$('#username').attr('placeholder','Email / Số điện thoại');
+					$('.username_label').text('Email / Số điện thoại');
+					$(".username_label").attr('label','Email / Số điện thoại');
 				}
 			}
 		});

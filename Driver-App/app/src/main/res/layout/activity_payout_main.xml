@@ -36,7 +36,7 @@
             android:layout_toEndOf="@+id/payout_back" />
     </RelativeLayout>
 
-    <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+    <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
         android:id="@+id/payoutmain_title"
         android:layout_width="wrap_content"
         android:layout_marginLeft="10dp"
@@ -53,7 +53,7 @@
 
 
 
-    <com.seentechs.newtaxidriver.common.custompalette.FontButton
+    <com.tkpmnc.sgtaxidriver.common.custompalette.FontButton
         android:id="@+id/payout_start"
         android:layout_width="match_parent"
         android:layout_alignParentBottom="true"
@@ -70,7 +70,7 @@
         android:textAllCaps="false"
         android:textColor="@color/white"/>
 
-    <com.seentechs.newtaxidriver.common.custompalette.FontButton
+    <com.tkpmnc.sgtaxidriver.common.custompalette.FontButton
         android:id="@+id/payout_stripe"
         android:layout_width="match_parent"
         android:layout_alignParentBottom="true"

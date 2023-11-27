@@ -61,22 +61,6 @@
 				
 			</div>
 	
-			<div class="modal poppayout fade" id="support_links" aria-hidden="false" tabindex="-1">
-				<div id="modal-add-payout-set-address" class="modal-content">	
-					<div class="panel-header">
-						<button type="button" class="close" data-dismiss="modal"></button>
-							Contact Number
-					</div>
-					<div class="payout_popup_view">
-						<div class="payout_input_field">
-							<label for="payout_info_payout_country"> 
-								<em  id=pop_up_mobile_number>
-								</em> 
-							</label>
-						</div>
-					</div>
-				</div>
-			</div>
 
 			
 @push('scripts')

@@ -59,7 +59,7 @@ class BulKUserController extends Controller
                     'email'  => $faker->unique()->email,
                     'user_type' => $request->user_type,
                     'password' => '$2y$10$1FJrIFGFA4KFRDa/24d8WOIVmGLIHRXDARgLCLGC4K7J1/zVVo4Wu',
-                    'country_code' =>91,
+                    'country_code' =>233,
                     'gender' => 1,
                     'mobile_number' =>rand(8888888888,9999999999),
                     'status' =>'Active',
@@ -70,10 +70,10 @@ class BulKUserController extends Controller
                 ]);
                 if($request->user_type == 'Driver' || $request->user_type == 'driver'){
                 $address_line1 = '123' ;
-                $address_line2 = 'Temple Street';
-                $city = 'Madurai';
-                $state = 'tamilnadu';
-                $postalCode = '625001';
+                $address_line2 = '#';
+                $city = '#';
+                $state = '#';
+                $postalCode = '#';
                 $license_front =  asset('/images/newtaxi_logo.png');
                 $license_front_status = '';
                 $license_back = asset('/images/newtaxi_logo.png');; ;
@@ -188,11 +188,11 @@ class BulKUserController extends Controller
                         'drop_longitude' =>'78.16238059999999',
                         'driver_id' => $driver_value,
                         'car_id' => 1,
-                        'pickup_location'=> '12/9, Ranan Nagar, Madurai, Tamil Nadu 625020, India',
-                        'drop_location' => '1/276, Viraganur, Tamil Nadu 625009, India',
+                        'pickup_location'=> 'Viet Nam',
+                        'drop_location' => 'Viet Nam',
                         'payment_mode' => $request->payment_type,
                         // 'status' => 'Pending',
-                        'timezone' => 'Asia/Kolkata',
+                        'timezone' => 'Asia/Jakata',
                         'schedule_id' => $request->schedule_id ?? '',
                         'location_id' => 1,
                         'additional_fare' => 75,
@@ -362,18 +362,5 @@ class BulKUserController extends Controller
         }        
         echo("Update Sucessfull");        
     }                                                                                                                                                                                                                                                           
-    // public function helpPages(Request $request){
-    //     $faker = Faker::create();   
-    //     for ($i=1; $i <= $request->count; $i++) {
-    //         $help = new Help;
-    //         $help->category_id    = $request->category;
-    //         $help->subcategory_id = $request->subcategory;
-    //         $help->question       = $request->question;
-    //         $help->answer         = $request->answer;
-    //         $help->suggested      = $request->suggested;
-    //         $help->status         = $request->status;
-    //         $help->save();
-    //     }        
-    //     echo("Update Sucessfull");        
-    // }
+
 }

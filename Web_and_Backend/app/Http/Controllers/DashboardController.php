@@ -2,13 +2,10 @@
 
 /**
  * Dashboard Controller
- *
- * @package     NewTaxi
+
  * @subpackage  Controller
  * @category    Dashboard
- * @author      Seen Technologies
- * @version     2.2.1
- * @link        https://seentechs.com
+
  */
 
 namespace App\Http\Controllers;
@@ -22,10 +19,6 @@ use App\Models\Rating;
 use App\Models\ProfilePicture;
 use App\Models\ReferralSetting;
 use App\Models\ReferralUser;
-use App\Models\Wallet;
-use App\Models\UsersPromoCode;
-use App\Models\Currency;
-use App\Models\PaymentMethod;
 use App\Models\RiderLocation;
 use Validator;
 use Auth;
@@ -35,7 +28,6 @@ class DashboardController extends Controller
 {    
     public function __construct()
     {
-        $this->invoice_helper = resolve('App\Http\Helper\InvoiceHelper');
         $this->request_helper = resolve('App\Http\Helper\RequestHelper');
         $this->helper = resolve('App\Http\Start\Helpers');
     }
@@ -96,17 +88,7 @@ class DashboardController extends Controller
         return view('dashboard.deleteacc',$data);
     }
 
-    /** 
-    * Rider Trip Details Page
-    **/
-    public function trip_detail(Request $request)
-    {
-        $trip = Trips::findOrFail($request->id);
 
-        $invoice_data = $this->invoice_helper->getWebInvoice($trip);
-
-        return view('dashboard.trip_detail',compact('trip','invoice_data'));       
-    }
 
     /**
     * Rider Rating
@@ -126,36 +108,14 @@ class DashboardController extends Controller
         ];
         $rating = Rating::updateOrCreate(['trip_id' => $request->trip_id], $data);
 
-        Trips::where('id',$request->trip_id)->update(['status'   => 'Payment']);
         return [
             'success' => 'true',
             'user_rating' => $rating->rider_rating
         ];
     }
 
-    /**
-    * Rider invoice Page
-    **/
-    public function trip_invoice(Request $request)
-    {
-        $trip = Trips::findOrFail($request->id);
 
-        $invoice_data = $this->invoice_helper->getWebInvoice($trip);
 
-        return view('dashboard.rider_invoice', compact('trip','invoice_data'));
-    }
-
-    /**
-    * Driver Download invoice Page
-    **/
-    public function download_rider_invoice(Request $request)
-    {
-        $trip = Trips::findOrFail($request->id);
-
-        $invoice_data = $this->invoice_helper->getWebInvoice($trip);
-        $pdf = PDF::loadView('dashboard.download_rider_invoice', compact('trip','invoice_data'));
-        return $pdf->download('invoice.pdf');
-    }
    
 /**
      * Delete My Account 
@@ -172,13 +132,12 @@ class DashboardController extends Controller
             return back();
         }
         try {
-            PaymentMethod::where('user_id',$request->id)->delete();
             $user = User::where("id","=",$id)->first();
             $user->delete($id);
             //User::find($request->id)->delete();
         }
         catch(\Exception $e) {
-            flashMessage('error','Rider have wallet Amounts or Promo or Ongoing trips, Please check to ensure everything is cleared and try again or contact Admin.');
+            flashMessage('error','Please check to ensure everything is cleared and try again or contact Admin.');
             return back();
         }
 
@@ -191,13 +150,11 @@ class DashboardController extends Controller
     {
         $return  = array('status' => '1', 'message' => '');
 
-        $user_promo = UsersPromoCode::where('user_id',$user_id)->count();
-        $user_wallet = Wallet::where('user_id',$user_id)->count();
         $user_trips = Trips::where('user_id',$user_id)->count();
         $user_referral = ReferralUser::where('user_id',$user_id)->orWhere('referral_id',$user_id)->count();
 
-        if($user_promo || $user_wallet || $user_trips) {
-            $return = ['status' => 0, 'message' => 'Rider have wallet or promo or trips, So can\'t delete this rider'];
+        if($user_trips) {
+            $return = ['status' => 0, 'message' => 'Rider have trips, So can\'t delete this rider'];
         }
         else if($user_referral) {
             $return = ['status' => 0, 'message' => 'Rider have referrals, So can\'t delete this rider'];

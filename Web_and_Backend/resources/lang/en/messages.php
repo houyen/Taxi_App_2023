@@ -641,7 +641,6 @@ return [
 		'paid_out' => 'Paid Out',
 		'refund' => 'Refund',
 		'all_payout_methods' => 'All payout methods',
-		'export_to_csv' => 'Export to CSV',
 		'all_listings' => 'All listings',
 		'date' => 'Date',
 		'type' => 'Type',

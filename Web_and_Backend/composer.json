@@ -20,10 +20,7 @@
     "require": {
         "php": "^8.0",
         "barryvdh/laravel-dompdf": "^2.0.0",
-        "braintree/braintree_php": "^5.3",
         "code-lts/laravel-fcm": " 1.7.*",
-        "facebook/graph-sdk": "^5.7",
-        "mollie/laravel-mollie": "^2.14",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^1.0",
         "fzaninotto/faker": "^1.9",
@@ -40,8 +37,6 @@
         "rachidlaasri/laravel-installer": "dev-gofer",
         "shanmuga/laravel-entrust": "^1.2",
         "spatie/laravel-backup": "^6.13",
-        "stripe/stripe-php": "^7.14",
-        "twilio/sdk": "^6.20",
         "tymon/jwt-auth": "dev-develop",
         "web-token/jwt-framework": "^2.1",
         "yajra/laravel-datatables": "^1.5"

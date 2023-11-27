@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:weightSum="2">
 
-    <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+    <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_20adp"
@@ -38,7 +38,7 @@
                 android:padding="@dimen/_15adp"
                 android:src="@drawable/ic_googlemap" />
 
-            <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+            <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
@@ -67,7 +67,7 @@
                 android:padding="@dimen/_15adp"
                 android:src="@drawable/ic_wazemap" />
 
-            <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+            <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"

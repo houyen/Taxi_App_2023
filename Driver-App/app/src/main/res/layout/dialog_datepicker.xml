@@ -20,7 +20,7 @@
         android:paddingEnd="20dp"
         android:paddingStart="20dp">
 
-        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
             android:id="@+id/datepicker_cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -33,7 +33,7 @@
             android:textSize="14dp"
             app:fontname="@string/font_UBERNews" />
 
-        <com.seentechs.newtaxidriver.common.custompalette.FontTextView
+        <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
             android:id="@+id/datepicker_ok"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -71,7 +71,7 @@
                     </androidx.cardview.widget.CardView>
                 </RelativeLayout>
 
-                <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+                <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                         android:id="@+id/tv_profile_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -87,7 +87,7 @@
                         app:layout_constraintTop_toTopOf="parent"
                         />
 
-                <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+                <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                         android:id="@+id/tv_profile_rating"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -179,7 +179,7 @@
                         android:background="@color/chat_gray_border"
                         android:visibility="gone"/>
 
-                <com.seentechs.newtaxiusers.appcommon.custompalette.FontTextView
+                <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                         android:id="@+id/tv_gif_icon"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -195,7 +195,7 @@
                         app:fontName="@string/font_Medium"
                         android:visibility="gone"/>
 
-                <com.seentechs.newtaxiusers.appcommon.custompalette.FontEditText
+                <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontEditText
                         android:id="@+id/edt_new_msg"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -218,7 +218,7 @@
                         android:textCursorDrawable="@drawable/app_cursor_color">
 
                     <requestFocus/>
-                </com.seentechs.newtaxiusers.appcommon.custompalette.FontEditText>
+                </com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontEditText>
 
                 <ImageView
                         android:id="@+id/iv_send"

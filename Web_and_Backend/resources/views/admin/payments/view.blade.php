@@ -9,7 +9,7 @@
         Payments Details
       </h1>
       <ol class="breadcrumb">
-        <li><a href="{{ url(LOGIN_USER_TYPE.'/dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="{{ url(LOGIN_USER_TYPE.'/dashboard') }}"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
         <li><a href="{{ url(LOGIN_USER_TYPE.'/payments') }}">Payments</a></li>
         <li class="active">Details</li>
       </ol>
@@ -148,17 +148,17 @@
            
                 <div class="form-group">
                   <label class="col-sm-3 control-label">
-                    Status
+                    Trạng thái
                   </label>
                   <div class="col-md-7 col-sm-offset-1 form-control-static">
                     {{ $result->status }}
                    </div>
                 </div>
                
-                @if($result->status == "Cancelled")
+                @if($result->status == "Huỷ bỏled")
                   <div class="form-group">
                   <label class="col-sm-3 control-label">
-                    Cancelled Reason
+                    Huỷ bỏled Reason
                   </label>
                   <div class="col-md-7 col-sm-offset-1 form-control-static">
                     {{ @$result->cancel->cancelled_reason }}
@@ -166,7 +166,7 @@
                 </div>
                 <div class="form-group">
                   <label class="col-sm-3 control-label">
-                    Cancelled Message
+                    Huỷ bỏled Message
                   </label>
                   <div class="col-md-7 col-sm-offset-1 form-control-static">
                     {{ @$result->cancel->cancel_comments }}
@@ -175,7 +175,7 @@
 
                  <div class="form-group">
                   <label class="col-sm-3 control-label">
-                    Cancelled By
+                    Huỷ bỏled By
                   </label>
                   <div class="col-md-7 col-sm-offset-1 form-control-static">
                     {{ @$result->cancel->cancelled_by }}
@@ -183,7 +183,7 @@
                 </div>
                 <div class="form-group">
                   <label class="col-sm-3 control-label">
-                    Cancelled Date
+                    Huỷ bỏled Date
                   </label>
                   <div class="col-md-7 col-sm-offset-1 form-control-static">
                     {{ @$result->cancel->created_at }}

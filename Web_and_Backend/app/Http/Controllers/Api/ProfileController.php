@@ -3,12 +3,12 @@
 /**
  * Profile Controller
  *
- * @package     NewTaxi
+ * @package     SGTaxi
  * @subpackage  Controller
  * @category    Profile
- * @author      Seen Technologies
- * @version     2.2.1
- * @link        https://seentechs.com
+
+
+ * 
  */
 
 namespace App\Http\Controllers\Api;
@@ -200,6 +200,7 @@ class ProfileController extends Controller
 		$location_data = collect($user_details->rider_location)->only('home','work','home_latitude','home_longitude','work_latitude','work_longitude');
 
 		$user_data['email_id'] 		= $user_details->email;
+		$user_data['is_vip'] 		= $user_details->is_vip;
 		$user_data['profile_image'] = $user_details->profile_picture->src ?? url('images/user.jpeg');
 		$user_data['currency_code'] = $user_details->currency->code;
 		$user_data['country_code'] 	= isset($user_details->country->short_name) ? $user_details->country->short_name:$user_details->country_code;

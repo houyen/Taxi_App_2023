@@ -2,13 +2,10 @@
 
 /**
  * Join Us Model
- *
- * @package     NewTaxi
+
  * @subpackage  Model
  * @category    Join Us
- * @author      Seen Technologies
- * @version     2.2.1
- * @link        https://seentechs.com
+
  */
 
 namespace App\Models;

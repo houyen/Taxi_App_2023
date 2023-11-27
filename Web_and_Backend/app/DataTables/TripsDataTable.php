@@ -3,12 +3,12 @@
 /**
  * Trips DataTable
  *
- * @package     NewTaxi
+ * @package     SGTaxi
  * @subpackage  DataTable
  * @category    Trips
- * @author      Seen Technologies
- * @version     2.2.1
- * @link        https://seentechs.com
+
+
+ * 
  */
 
 namespace App\DataTables;
@@ -97,22 +97,7 @@ class TripsDataTable extends DataTable
         return $trips;
     }
 
-    /**
-     * Optional method if you want to use html builder.
-     *
-     * @return \Yajra\DataTables\Html\Builder
-     */
-    public function html()
-    {
-        return $this->builder()
-                    ->columns($this->getColumns())
-                    ->minifiedAjax()
-                    ->dom('lBfr<"table-responsive"t>ip')
-                    ->orderBy(0)
-                    ->buttons(
-                        ['csv', 'excel', 'print', 'reset']
-                    );
-    }
+
 
     /**
      * Get columns.
