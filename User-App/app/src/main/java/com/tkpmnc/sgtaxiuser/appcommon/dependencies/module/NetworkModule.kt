@@ -1,7 +1,7 @@
-package com.tkpmnc.sgtaxiusers.appcommon.dependencies.module
+package com.tkpmnc.sgtaxiuser.appcommon.dependencies.module
 
 /**
- * @package com.tkpmnc.sgtaxiusers
+ * @package com.tkpmnc.sgtaxiuser
  * @subpackage dependencies.module
  * @category NetworkModule
  * @author Seen Technologies
@@ -13,10 +13,10 @@ import android.content.Context
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.tkpmnc.sgtaxiusers.appcommon.configs.SessionManager
-import com.tkpmnc.sgtaxiusers.appcommon.dependencies.interceptors.AuthTokenInterceptor
-import com.tkpmnc.sgtaxiusers.appcommon.dependencies.interceptors.NetworkInterceptor
-import com.tkpmnc.sgtaxiusers.appcommon.interfaces.ApiService
+import com.tkpmnc.sgtaxiuser.appcommon.configs.SessionManager
+import com.tkpmnc.sgtaxiuser.appcommon.dependencies.interceptors.AuthTokenInterceptor
+import com.tkpmnc.sgtaxiuser.appcommon.dependencies.interceptors.NetworkInterceptor
+import com.tkpmnc.sgtaxiuser.appcommon.interfaces.ApiService
 
 import java.util.concurrent.TimeUnit
 

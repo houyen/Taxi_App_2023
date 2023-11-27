@@ -46,6 +46,8 @@
     @butterknife.OnLongClick <methods>;
 }
 
+#For Stripe payment (card payment)
+-keep class com.stripe.android.** { *; }
 
 
 #For retrofit
@@ -66,18 +68,18 @@
 -keep public class android.support.design.R$* { *; }
 -keep class android.support.v7.widget.AppCompatImageView { *; }
 -dontwarn com.github.mikephil.**
--keep public class com.tkpmnc.newtaxiusers.appcommon.helper.** {
+-keep public class com.tkpmnc.sgtaxiuser.appcommon.helper.** {
      public protected *;
 }
 
--keep class com.tkpmnc.newtaxiusers.taxiapp.views.firebaseChat.FirebaseChatModelClass{ *; }
+-keep class com.tkpmnc.sgtaxiuser.taxiapp.views.firebaseChat.FirebaseChatModelClass{ *; }
 
--keep class com.tkpmnc.newtaxiusers.taxiapp.views.main.MainActivity{ *; }
--keep class com.tkpmnc.newtaxiusers.appcommon.datamodels.**{ *; }
--keep class com.tkpmnc.newtaxiusers.taxiapp.datamodels.**{ *; }
--keep class com.tkpmnc.newtaxiusers.appcommon.map.**{ *; }
+-keep class com.tkpmnc.sgtaxiuser.taxiapp.views.main.MainActivity{ *; }
+-keep class com.tkpmnc.sgtaxiuser.appcommon.datamodels.**{ *; }
+-keep class com.tkpmnc.sgtaxiuser.taxiapp.datamodels.**{ *; }
+-keep class com.tkpmnc.sgtaxiuser.appcommon.map.**{ *; }
 
--keep class com.tkpmnc.newtaxiusers.taxiapp.views.voip.NewTaxiSinchService{ *; }
+-keep class com.tkpmnc.sgtaxiuser.taxiapp.views.voip.NewTaxiSinchService{ *; }
 #}
 
 

@@ -1,8 +1,8 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.datamodels
+package com.tkpmnc.sgtaxiuser.taxiapp.datamodels
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
-import com.tkpmnc.sgtaxiusers.taxiapp.views.main.filter.FeaturesInCarModel
+import com.tkpmnc.sgtaxiuser.taxiapp.views.main.filter.FeaturesInCarModel
 
 import java.io.Serializable
 

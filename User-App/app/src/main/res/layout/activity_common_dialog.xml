@@ -17,7 +17,7 @@
             android:layoutDirection="@string/layout_direction"
             >
 
-        <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+        <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                 android:id="@+id/message"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -33,7 +33,7 @@
                 app:fontName="@string/font_Medium"
                 />
 
-        <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontButton
+        <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontButton
                 android:id="@+id/ok_btn_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -2,11 +2,11 @@
 
 <!DOCTYPE resources [
     <!ENTITY appname "SG Taxi">
-    <!ENTITY driverbundle "com.tkpmnc.sgtaxidrivers">
-    <!ENTITY siteurl "https://sgtaxi.querysoftke.com/">
+    <!ENTITY driverbundle "com.tkpmnc.sgtaxidriver">
+    <!ENTITY siteurl "https://taxiapp-tkpmnc.click/">
     <!ENTITY facebookKey "#FACEBOOK KEY HERE##">
-    <!ENTITY googleMapKey "AIzaSyBjEDY9IfO_R61qEPUQDCoxydL9xkmhddI">
-    <!ENTITY googleAutoCompleteKey "AIzaSyBjEDY9IfO_R61qEPUQDCoxydL9xkmhddI">
+    <!ENTITY googleMapKey "AIzaSyDpFzekXePARCI1WqbgcCCHWalRO7iVVrc">
+    <!ENTITY googleAutoCompleteKey "AIzaSyDpFzekXePARCI1WqbgcCCHWalRO7iVVrc">
     <!ENTITY googleClientId "#GOGLE CLIENT ID HERE##">
     <!ENTITY firebaseDbMode "live">
     <!ENTITY otpEnable "false">

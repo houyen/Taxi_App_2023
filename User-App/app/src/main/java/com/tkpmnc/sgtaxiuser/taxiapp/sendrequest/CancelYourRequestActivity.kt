@@ -1,7 +1,7 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.sendrequest
+package com.tkpmnc.sgtaxiuser.taxiapp.sendrequest
 
 /**
- * @package com.tkpmnc.sgtaxiusers
+ * @package com.tkpmnc.sgtaxiuser
  * @subpackage sendrequest
  * @category CancelYourRequestActivity
  * @author Seen Technologies
@@ -27,23 +27,23 @@ import butterknife.ButterKnife
 import butterknife.OnClick
 import com.google.firebase.messaging.FirebaseMessaging
 import com.google.gson.Gson
-import com.tkpmnc.sgtaxiusers.R
-import com.tkpmnc.sgtaxiusers.appcommon.configs.SessionManager
-import com.tkpmnc.sgtaxiusers.appcommon.datamodels.JsonResponse
-import com.tkpmnc.sgtaxiusers.appcommon.interfaces.ApiService
-import com.tkpmnc.sgtaxiusers.appcommon.interfaces.ServiceListener
-import com.tkpmnc.sgtaxiusers.appcommon.network.AppController
-import com.tkpmnc.sgtaxiusers.appcommon.pushnotification.Config
-import com.tkpmnc.sgtaxiusers.appcommon.pushnotification.NotificationUtils
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonMethods
-import com.tkpmnc.sgtaxiusers.appcommon.utils.Enums.REQ_CANCEL
-import com.tkpmnc.sgtaxiusers.appcommon.utils.Enums.REQ_CANCEL_TRIP
-import com.tkpmnc.sgtaxiusers.appcommon.utils.RequestCallback
-import com.tkpmnc.sgtaxiusers.appcommon.views.CommonActivity
-import com.tkpmnc.sgtaxiusers.taxiapp.datamodels.trip.CancelReasonModel
-import com.tkpmnc.sgtaxiusers.taxiapp.datamodels.trip.CancelResultModel
-import com.tkpmnc.sgtaxiusers.taxiapp.views.customize.CustomDialog
-import com.tkpmnc.sgtaxiusers.taxiapp.views.main.MainActivity
+import com.tkpmnc.sgtaxiuser.R
+import com.tkpmnc.sgtaxiuser.appcommon.configs.SessionManager
+import com.tkpmnc.sgtaxiuser.appcommon.datamodels.JsonResponse
+import com.tkpmnc.sgtaxiuser.appcommon.interfaces.ApiService
+import com.tkpmnc.sgtaxiuser.appcommon.interfaces.ServiceListener
+import com.tkpmnc.sgtaxiuser.appcommon.network.AppController
+import com.tkpmnc.sgtaxiuser.appcommon.pushnotification.Config
+import com.tkpmnc.sgtaxiuser.appcommon.pushnotification.NotificationUtils
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonMethods
+import com.tkpmnc.sgtaxiuser.appcommon.utils.Enums.REQ_CANCEL
+import com.tkpmnc.sgtaxiuser.appcommon.utils.Enums.REQ_CANCEL_TRIP
+import com.tkpmnc.sgtaxiuser.appcommon.utils.RequestCallback
+import com.tkpmnc.sgtaxiuser.appcommon.views.CommonActivity
+import com.tkpmnc.sgtaxiuser.taxiapp.datamodels.trip.CancelReasonModel
+import com.tkpmnc.sgtaxiuser.taxiapp.datamodels.trip.CancelResultModel
+import com.tkpmnc.sgtaxiuser.taxiapp.views.customize.CustomDialog
+import com.tkpmnc.sgtaxiuser.taxiapp.views.main.MainActivity
 import kotlinx.android.synthetic.main.app_activity_add_wallet.*
 import org.json.JSONException
 import org.json.JSONObject

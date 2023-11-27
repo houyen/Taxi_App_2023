@@ -1,7 +1,7 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.interfaces
+package com.tkpmnc.sgtaxiuser.taxiapp.interfaces
 
 /**
- * @package com.tkpmnc.sgtaxiuserseatsdriver
+ * @package com.tkpmnc.sgtaxiusereatsdriver
  * @subpackage interfaces
  * @category YourTripsListener
  * @author Seen Technologies
@@ -10,7 +10,7 @@ package com.tkpmnc.sgtaxiusers.taxiapp.interfaces
 
 import android.content.res.Resources
 
-import com.tkpmnc.sgtaxiusers.taxiapp.sidebar.trips.YourTrips
+import com.tkpmnc.sgtaxiuser.taxiapp.sidebar.trips.YourTrips
 
 
 /*****************************************************************

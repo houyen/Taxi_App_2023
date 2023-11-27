@@ -44,7 +44,7 @@
                 >
 
 
-            <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+            <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                     android:id="@+id/schedule_date_time"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_30adp"
@@ -125,7 +125,7 @@
                         android:padding="@dimen/_5adp"
                         >
 
-                    <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontEditText
+                    <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontEditText
                             android:id="@+id/pickupaddress"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_30adp"
@@ -143,7 +143,7 @@
                             app:fontName="@string/font_UBERNews"
                             />
 
-                    <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+                    <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                             android:id="@+id/pickupclose"
                             android:layout_width="wrap_content"
                             android:layout_height="@dimen/_30adp"
@@ -174,7 +174,7 @@
                         android:padding="@dimen/_5adp"
                         >
 
-                    <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontEditText
+                    <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontEditText
                             android:id="@+id/destadddress"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_30adp"
@@ -193,9 +193,9 @@
                             >
 
                         <requestFocus />
-                    </com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontEditText>
+                    </com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontEditText>
 
-                    <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+                    <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                             android:id="@+id/destclose"
                             android:layout_width="wrap_content"
                             android:layout_height="@dimen/_30adp"
@@ -292,7 +292,7 @@
                             android:paddingBottom="@dimen/_10adp"
                             >
 
-                        <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+                        <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                                 android:id="@+id/hometext"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -303,7 +303,7 @@
                                 app:fontName="@string/font_Medium"
                                 />
 
-                        <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+                        <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                                 android:id="@+id/homeaddress"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -355,7 +355,7 @@
                             android:paddingBottom="@dimen/_10adp"
                             >
 
-                        <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+                        <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                                 android:id="@+id/worktext"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -365,7 +365,7 @@
                                 app:fontName="@string/font_Medium"
                                 />
 
-                        <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+                        <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                                 android:id="@+id/workaddress"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -415,7 +415,7 @@
                             android:paddingBottom="@dimen/_10adp"
                             >
 
-                        <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+                        <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/setlocationonmap"
@@ -505,7 +505,7 @@
         </androidx.cardview.widget.CardView>
 
 
-        <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+        <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                 android:id="@+id/drop_done"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_50adp"

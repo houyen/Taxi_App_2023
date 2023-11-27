@@ -1,9 +1,9 @@
 @file:Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 
-package com.tkpmnc.sgtaxiusers.taxiapp.sidebar
+package com.tkpmnc.sgtaxiuser.taxiapp.sidebar
 
 /**
- * @package com.tkpmnc.sgtaxiusers
+ * @package com.tkpmnc.sgtaxiuser
  * @subpackage Side_Bar
  * @category Profile
  * @author Seen Technologies
@@ -35,35 +35,35 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.gson.Gson
 import com.hbb20.CountryCodePicker
 import com.squareup.picasso.Picasso
-import com.tkpmnc.sgtaxiusers.R
-import com.tkpmnc.sgtaxiusers.appcommon.backgroundtask.ImageCompressAsyncTask
-import com.tkpmnc.sgtaxiusers.appcommon.configs.RunTimePermission
-import com.tkpmnc.sgtaxiusers.appcommon.configs.SessionManager
-import com.tkpmnc.sgtaxiusers.appcommon.datamodels.JsonResponse
-import com.tkpmnc.sgtaxiusers.appcommon.helper.Constants.Female
-import com.tkpmnc.sgtaxiusers.appcommon.helper.Constants.Male
-import com.tkpmnc.sgtaxiusers.appcommon.helper.Constants.PICK_IMAGE_REQUEST_CODE
-import com.tkpmnc.sgtaxiusers.appcommon.helper.Constants.SELECT_FILE
-import com.tkpmnc.sgtaxiusers.appcommon.interfaces.ApiService
-import com.tkpmnc.sgtaxiusers.appcommon.interfaces.ImageListener
-import com.tkpmnc.sgtaxiusers.appcommon.interfaces.ServiceListener
-import com.tkpmnc.sgtaxiusers.appcommon.network.AppController
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonKeys
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonKeys.FACEBOOK_ACCOUNT_KIT_PHONE_NUMBER_KEY
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonMethods
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonMethods.Companion.DebuggableLogI
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonMethods.Companion.DebuggableLogV
-import com.tkpmnc.sgtaxiusers.appcommon.utils.Enums.REQ_GET_RIDER_PROFILE
-import com.tkpmnc.sgtaxiusers.appcommon.utils.Enums.REQ_UPDATE_PROFILE
-import com.tkpmnc.sgtaxiusers.appcommon.utils.Enums.REQ_UPLOAD_PROFILE_IMG
-import com.tkpmnc.sgtaxiusers.appcommon.utils.RequestCallback
-import com.tkpmnc.sgtaxiusers.appcommon.utils.RuntimePermissionDialogFragment
-import com.tkpmnc.sgtaxiusers.appcommon.views.CommonActivity
-import com.tkpmnc.sgtaxiusers.taxiapp.datamodels.RiderProfile
-import com.tkpmnc.sgtaxiusers.taxiapp.firebase_auth.PhoneActivity
-import com.tkpmnc.sgtaxiusers.taxiapp.views.customize.CustomDialog
-import com.tkpmnc.sgtaxiusers.taxiapp.views.facebookAccountKit.FacebookAccountKitActivity
-import com.tkpmnc.sgtaxiusers.taxiapp.views.splash.SplashActivity
+import com.tkpmnc.sgtaxiuser.R
+import com.tkpmnc.sgtaxiuser.appcommon.backgroundtask.ImageCompressAsyncTask
+import com.tkpmnc.sgtaxiuser.appcommon.configs.RunTimePermission
+import com.tkpmnc.sgtaxiuser.appcommon.configs.SessionManager
+import com.tkpmnc.sgtaxiuser.appcommon.datamodels.JsonResponse
+import com.tkpmnc.sgtaxiuser.appcommon.helper.Constants.Female
+import com.tkpmnc.sgtaxiuser.appcommon.helper.Constants.Male
+import com.tkpmnc.sgtaxiuser.appcommon.helper.Constants.PICK_IMAGE_REQUEST_CODE
+import com.tkpmnc.sgtaxiuser.appcommon.helper.Constants.SELECT_FILE
+import com.tkpmnc.sgtaxiuser.appcommon.interfaces.ApiService
+import com.tkpmnc.sgtaxiuser.appcommon.interfaces.ImageListener
+import com.tkpmnc.sgtaxiuser.appcommon.interfaces.ServiceListener
+import com.tkpmnc.sgtaxiuser.appcommon.network.AppController
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonKeys
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonKeys.FACEBOOK_ACCOUNT_KIT_PHONE_NUMBER_KEY
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonMethods
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonMethods.Companion.DebuggableLogI
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonMethods.Companion.DebuggableLogV
+import com.tkpmnc.sgtaxiuser.appcommon.utils.Enums.REQ_GET_RIDER_PROFILE
+import com.tkpmnc.sgtaxiuser.appcommon.utils.Enums.REQ_UPDATE_PROFILE
+import com.tkpmnc.sgtaxiuser.appcommon.utils.Enums.REQ_UPLOAD_PROFILE_IMG
+import com.tkpmnc.sgtaxiuser.appcommon.utils.RequestCallback
+import com.tkpmnc.sgtaxiuser.appcommon.utils.RuntimePermissionDialogFragment
+import com.tkpmnc.sgtaxiuser.appcommon.views.CommonActivity
+import com.tkpmnc.sgtaxiuser.taxiapp.datamodels.RiderProfile
+import com.tkpmnc.sgtaxiuser.taxiapp.firebase_auth.PhoneActivity
+import com.tkpmnc.sgtaxiuser.taxiapp.views.customize.CustomDialog
+import com.tkpmnc.sgtaxiuser.taxiapp.views.facebookAccountKit.FacebookAccountKitActivity
+import com.tkpmnc.sgtaxiuser.taxiapp.views.splash.SplashActivity
 import kotlinx.android.synthetic.main.app_activity_add_wallet.*
 import okhttp3.RequestBody
 import org.json.JSONException

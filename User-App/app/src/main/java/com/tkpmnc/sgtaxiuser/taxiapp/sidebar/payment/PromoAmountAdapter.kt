@@ -1,7 +1,7 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.sidebar.payment
+package com.tkpmnc.sgtaxiuser.taxiapp.sidebar.payment
 
 /**
- * @package com.tkpmnc.sgtaxiusers
+ * @package com.tkpmnc.sgtaxiuser
  * @subpackage Side_Bar.payment
  * @category DataAdapter
  * @author Seen Technologies
@@ -15,9 +15,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 
-import com.tkpmnc.sgtaxiusers.R
-import com.tkpmnc.sgtaxiusers.appcommon.configs.SessionManager
-import com.tkpmnc.sgtaxiusers.appcommon.network.AppController
+import com.tkpmnc.sgtaxiuser.R
+import com.tkpmnc.sgtaxiuser.appcommon.configs.SessionManager
+import com.tkpmnc.sgtaxiuser.appcommon.network.AppController
 
 import java.util.ArrayList
 

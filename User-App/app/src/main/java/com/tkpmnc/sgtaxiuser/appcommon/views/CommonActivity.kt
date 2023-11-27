@@ -1,12 +1,12 @@
-package com.tkpmnc.sgtaxiusers.appcommon.views
+package com.tkpmnc.sgtaxiuser.appcommon.views
 
 import android.content.Context
 import android.content.res.Configuration
 import android.content.res.Resources
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.tkpmnc.sgtaxiusers.appcommon.configs.SessionManager
-import com.tkpmnc.sgtaxiusers.appcommon.network.AppController
+import com.tkpmnc.sgtaxiuser.appcommon.configs.SessionManager
+import com.tkpmnc.sgtaxiuser.appcommon.network.AppController
 import java.util.*
 import javax.inject.Inject
 

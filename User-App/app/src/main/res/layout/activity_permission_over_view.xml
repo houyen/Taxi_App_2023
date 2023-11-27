@@ -55,7 +55,7 @@
                 android:layout_height="wrap_content"
                 tools:ignore="TouchTargetSizeCheck" />
 
-            <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+            <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                 android:id="@+id/text_view_privacy_policy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -67,7 +67,7 @@
         </LinearLayout>
 
 
-        <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontButton
+        <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontButton
             android:id="@+id/btn_grant_permission"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -83,7 +83,7 @@
             app:fontName="@string/font_UBERMedium"
             app:layout_constraintBottom_toTopOf="@+id/btn_skip" />
 
-        <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontButton
+        <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontButton
             android:id="@+id/btn_skip"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

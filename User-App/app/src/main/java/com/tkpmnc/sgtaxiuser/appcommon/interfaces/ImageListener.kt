@@ -1,7 +1,7 @@
-package com.tkpmnc.sgtaxiusers.appcommon.interfaces
+package com.tkpmnc.sgtaxiuser.appcommon.interfaces
 
 /**
- * @package com.tkpmnc.sgtaxiusers
+ * @package com.tkpmnc.sgtaxiuser
  * @subpackage interfaces
  * @category ImageListener
  * @author Seen Technologies

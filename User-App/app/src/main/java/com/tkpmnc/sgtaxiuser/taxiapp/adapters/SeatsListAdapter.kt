@@ -1,4 +1,4 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.adapters
+package com.tkpmnc.sgtaxiuser.taxiapp.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.tkpmnc.sgtaxiusers.R
+import com.tkpmnc.sgtaxiuser.R
 
 class SeatsListAdapter(private var onClickListener: OnClickListener, private val context: Context, private val seatslist: ArrayList<String>):RecyclerView.Adapter<SeatsListAdapter.SeatsAdapter>() {
    private var rowPosition=0

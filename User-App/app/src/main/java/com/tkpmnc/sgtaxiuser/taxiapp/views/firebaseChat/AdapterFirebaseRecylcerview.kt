@@ -1,4 +1,4 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.views.firebaseChat
+package com.tkpmnc.sgtaxiuser.taxiapp.views.firebaseChat
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -11,10 +11,10 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 
 import com.squareup.picasso.Picasso
-import com.tkpmnc.sgtaxiusers.R
-import com.tkpmnc.sgtaxiusers.appcommon.configs.SessionManager
-import com.tkpmnc.sgtaxiusers.appcommon.network.AppController
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonKeys
+import com.tkpmnc.sgtaxiuser.R
+import com.tkpmnc.sgtaxiuser.appcommon.configs.SessionManager
+import com.tkpmnc.sgtaxiuser.appcommon.network.AppController
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonKeys
 
 import java.util.ArrayList
 

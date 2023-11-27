@@ -1,7 +1,7 @@
-package com.tkpmnc.sgtaxiusers.appcommon.helper
+package com.tkpmnc.sgtaxiuser.appcommon.helper
 
 /**
- * @package com.tkpmnc.sgtaxiusers
+ * @package com.tkpmnc.sgtaxiuser
  * @subpackage helper
  * @category CircularMusicProgressBar
  * @author Seen Technologies
@@ -31,7 +31,7 @@ import android.util.AttributeSet
 import android.widget.ImageView
 import androidx.core.content.ContextCompat
 
-import com.tkpmnc.sgtaxiusers.R
+import com.tkpmnc.sgtaxiuser.R
 
 /* ************************************************************
                 CircularMusicProgressBar

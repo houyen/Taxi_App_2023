@@ -1,50 +1,35 @@
 {
   "project_info": {
-    "project_number": "1079456627108",
-    "firebase_url": "https://new-taxis-default-rtdb.firebaseio.com",
-    "project_id": "new-taxis",
-    "storage_bucket": "new-taxis.appspot.com"
+    "project_number": "837348058433",
+    "firebase_url": "https://sg-taxi-34b52-default-rtdb.firebaseio.com",
+    "project_id": "sg-taxi-34b52",
+    "storage_bucket": "sg-taxi-34b52.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1079456627108:android:16548d72d4e064d2e7a931",
+        "mobilesdk_app_id": "1:837348058433:android:d016104f2482e85d0e6dc0",
         "android_client_info": {
-          "package_name": "com.tkpmnc.newtaxidriver"
+          "package_name": "com.tkpmnc.sgtaxidriver"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1079456627108-mkht1849cou0i1lc1kqd406hmhqsj0gn.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.tkpmnc.newtaxidriver",
-            "certificate_hash": "17d6568da6a0480ade41789172d2a04ababa04d3"
-          }
-        },
-        {
-          "client_id": "1079456627108-6e3bb94omdgvq2fdf7e0jnlm1ndhkag0.apps.googleusercontent.com",
+          "client_id": "837348058433-punrp0eergo5ppm98aofp046bvrq3arc.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB7jI8m9h7lbbdPURdxy0_7tBMWEpHJPHk"
+          "current_key": "AIzaSyBAfg93q05Yd49_9BqSI3J_2plfwj3LVR8"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1079456627108-6e3bb94omdgvq2fdf7e0jnlm1ndhkag0.apps.googleusercontent.com",
+              "client_id": "837348058433-punrp0eergo5ppm98aofp046bvrq3arc.apps.googleusercontent.com",
               "client_type": 3
-            },
-            {
-              "client_id": "1079456627108-4omfl49i3ljqtsn8o24nv0nh745kketp.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.tkpmnc.newtaxiuser"
-              }
             }
           ]
         }
@@ -52,155 +37,28 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1079456627108:android:2c3714d350482a01e7a931",
+        "mobilesdk_app_id": "1:837348058433:android:300d977992db94d40e6dc0",
         "android_client_info": {
-          "package_name": "com.tkpmnc.newtaxidrivers"
+          "package_name": "com.tkpmnc.sgtaxiuser"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1079456627108-7ic7g7umbnflgialheodudgbhms17r88.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.tkpmnc.newtaxidrivers",
-            "certificate_hash": "d07d209374c7df833ab6545a0c845c6e7cfaf121"
-          }
-        },
-        {
-          "client_id": "1079456627108-veed6ela534lusutdbltm420bmhb06jq.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.tkpmnc.newtaxidrivers",
-            "certificate_hash": "5cc6b22f4501fbd68a94effc71b5b714107d9a83"
-          }
-        },
-        {
-          "client_id": "1079456627108-6e3bb94omdgvq2fdf7e0jnlm1ndhkag0.apps.googleusercontent.com",
+          "client_id": "837348058433-punrp0eergo5ppm98aofp046bvrq3arc.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB7jI8m9h7lbbdPURdxy0_7tBMWEpHJPHk"
+          "current_key": "AIzaSyBAfg93q05Yd49_9BqSI3J_2plfwj3LVR8"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1079456627108-6e3bb94omdgvq2fdf7e0jnlm1ndhkag0.apps.googleusercontent.com",
+              "client_id": "837348058433-punrp0eergo5ppm98aofp046bvrq3arc.apps.googleusercontent.com",
               "client_type": 3
-            },
-            {
-              "client_id": "1079456627108-4omfl49i3ljqtsn8o24nv0nh745kketp.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.tkpmnc.newtaxiuser"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:1079456627108:android:348f97485238fca6e7a931",
-        "android_client_info": {
-          "package_name": "com.tkpmnc.newtaxiuser"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "1079456627108-1ghfeilkraamv7f9qel8826a41e0ekbo.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.tkpmnc.newtaxiuser",
-            "certificate_hash": "1daef57173406072d83ec497d0b042f63acde4a1"
-          }
-        },
-        {
-          "client_id": "1079456627108-1nf9c8o4afsksfkovka5idjikteq3q2v.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.tkpmnc.newtaxiuser",
-            "certificate_hash": "d2720727e8b5752cbb401ca8b482c7b1a06298eb"
-          }
-        },
-        {
-          "client_id": "1079456627108-6e3bb94omdgvq2fdf7e0jnlm1ndhkag0.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyB7jI8m9h7lbbdPURdxy0_7tBMWEpHJPHk"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "1079456627108-6e3bb94omdgvq2fdf7e0jnlm1ndhkag0.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "1079456627108-4omfl49i3ljqtsn8o24nv0nh745kketp.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.tkpmnc.newtaxiuser"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:1079456627108:android:f98b6cf6200a6dfbe7a931",
-        "android_client_info": {
-          "package_name": "com.tkpmnc.newtaxiusers"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "1079456627108-bd8sliehl83aiapln9s2khkgtqndd3di.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.tkpmnc.newtaxiusers",
-            "certificate_hash": "b26c1504e9a3ff7e0f4f93737d0a519990cc881a"
-          }
-        },
-        {
-          "client_id": "1079456627108-ojoml41ohjg9skeodg1ma7dlrnec3hu7.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.tkpmnc.newtaxiusers",
-            "certificate_hash": "d2720727e8b5752cbb401ca8b482c7b1a06298eb"
-          }
-        },
-        {
-          "client_id": "1079456627108-6e3bb94omdgvq2fdf7e0jnlm1ndhkag0.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyB7jI8m9h7lbbdPURdxy0_7tBMWEpHJPHk"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "1079456627108-6e3bb94omdgvq2fdf7e0jnlm1ndhkag0.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "1079456627108-4omfl49i3ljqtsn8o24nv0nh745kketp.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.tkpmnc.newtaxiuser"
-              }
             }
           ]
         }

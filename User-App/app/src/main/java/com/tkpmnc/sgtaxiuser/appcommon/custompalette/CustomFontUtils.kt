@@ -1,7 +1,7 @@
-package com.tkpmnc.sgtaxiusers.appcommon.custompalette
+package com.tkpmnc.sgtaxiuser.appcommon.custompalette
 
 /**
- * @package com.tkpmnc.sgtaxiusers
+ * @package com.tkpmnc.sgtaxiuser
  * @subpackage custompalette
  * @category customfonts
  * @author Seen Technologies
@@ -15,7 +15,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 
-import com.tkpmnc.sgtaxiusers.R
+import com.tkpmnc.sgtaxiuser.R
 
 /* ************************************************************
                 CustomFontUtils

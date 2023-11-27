@@ -1,7 +1,7 @@
-package com.tkpmnc.sgtaxiusers.appcommon.dependencies.interceptors
+package com.tkpmnc.sgtaxiuser.appcommon.dependencies.interceptors
 
 /**
- * @package com.tkpmnc.sgtaxiusers
+ * @package com.tkpmnc.sgtaxiuser
  * @subpackage dependencies.interceptors
  * @category NetWorkInterceptor
  * @author Seen Technologies

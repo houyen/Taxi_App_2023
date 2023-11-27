@@ -1,7 +1,7 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.adapters
+package com.tkpmnc.sgtaxiuser.taxiapp.adapters
 
 /**
- * @package com.tkpmnc.sgtaxiusersdriver.rating
+ * @package com.tkpmnc.sgtaxiuserdriver.rating
  * @subpackage rating
  * @category CommentsRecycleAdapter
  * @author Seen Technologies
@@ -21,11 +21,11 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 
-import com.tkpmnc.sgtaxiusers.R
-import com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontCache
-import com.tkpmnc.sgtaxiusers.taxiapp.datamodels.trip.InvoiceModel
-import com.tkpmnc.sgtaxiusers.appcommon.network.AppController
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonMethods
+import com.tkpmnc.sgtaxiuser.R
+import com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontCache
+import com.tkpmnc.sgtaxiuser.taxiapp.datamodels.trip.InvoiceModel
+import com.tkpmnc.sgtaxiuser.appcommon.network.AppController
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonMethods
 
 import java.util.ArrayList
 

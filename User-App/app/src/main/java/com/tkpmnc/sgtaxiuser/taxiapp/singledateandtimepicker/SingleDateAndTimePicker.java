@@ -1,4 +1,4 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.singledateandtimepicker;
+package com.tkpmnc.sgtaxiuser.taxiapp.singledateandtimepicker;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -12,15 +12,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-import com.tkpmnc.sgtaxiusers.R;
-import com.tkpmnc.sgtaxiusers.taxiapp.singledateandtimepicker.widget.WheelAmPmPicker;
-import com.tkpmnc.sgtaxiusers.taxiapp.singledateandtimepicker.widget.WheelDayOfMonthPicker;
-import com.tkpmnc.sgtaxiusers.taxiapp.singledateandtimepicker.widget.WheelDayPicker;
-import com.tkpmnc.sgtaxiusers.taxiapp.singledateandtimepicker.widget.WheelHourPicker;
-import com.tkpmnc.sgtaxiusers.taxiapp.singledateandtimepicker.widget.WheelMinutePicker;
-import com.tkpmnc.sgtaxiusers.taxiapp.singledateandtimepicker.widget.WheelMonthPicker;
-import com.tkpmnc.sgtaxiusers.taxiapp.singledateandtimepicker.widget.WheelPicker;
-import com.tkpmnc.sgtaxiusers.taxiapp.singledateandtimepicker.widget.WheelYearPicker;
+import com.tkpmnc.sgtaxiuser.R;
+import com.tkpmnc.sgtaxiuser.taxiapp.singledateandtimepicker.widget.WheelAmPmPicker;
+import com.tkpmnc.sgtaxiuser.taxiapp.singledateandtimepicker.widget.WheelDayOfMonthPicker;
+import com.tkpmnc.sgtaxiuser.taxiapp.singledateandtimepicker.widget.WheelDayPicker;
+import com.tkpmnc.sgtaxiuser.taxiapp.singledateandtimepicker.widget.WheelHourPicker;
+import com.tkpmnc.sgtaxiuser.taxiapp.singledateandtimepicker.widget.WheelMinutePicker;
+import com.tkpmnc.sgtaxiuser.taxiapp.singledateandtimepicker.widget.WheelMonthPicker;
+import com.tkpmnc.sgtaxiuser.taxiapp.singledateandtimepicker.widget.WheelPicker;
+import com.tkpmnc.sgtaxiuser.taxiapp.singledateandtimepicker.widget.WheelYearPicker;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -29,7 +29,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import static com.tkpmnc.sgtaxiusers.taxiapp.singledateandtimepicker.DateHelper.getCalendarOfDate;
+import static com.tkpmnc.sgtaxiuser.taxiapp.singledateandtimepicker.DateHelper.getCalendarOfDate;
 
 public class SingleDateAndTimePicker extends LinearLayout {
 

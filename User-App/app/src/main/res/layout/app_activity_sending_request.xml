@@ -26,7 +26,7 @@
             android:src="@drawable/circular_border"
             />
 
-    <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+    <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
             android:id="@+id/carname_request"
             android:layout_width="@dimen/_220adp"
             android:layout_height="wrap_content"
@@ -86,7 +86,7 @@
             android:visibility="gone"
             >
 
-        <com.tkpmnc.sgtaxiusers.appcommon.helper.CircularMusicProgressBar
+        <com.tkpmnc.sgtaxiuser.appcommon.helper.CircularMusicProgressBar
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/album_art"
                 android:layout_width="match_parent"
@@ -106,7 +106,7 @@
                 />
 
 
-        <com.tkpmnc.sgtaxiusers.taxiapp.RoundedLayout
+        <com.tkpmnc.sgtaxiuser.taxiapp.RoundedLayout
                 android:id="@+id/maplayout"
                 android:layout_width="300dp"
                 android:layout_height="300dp"
@@ -117,7 +117,7 @@
                 >
 
 
-        </com.tkpmnc.sgtaxiusers.taxiapp.RoundedLayout>
+        </com.tkpmnc.sgtaxiuser.taxiapp.RoundedLayout>
 
 
         <!--      <de.hdodenhof.circleimageview.CircleImageView

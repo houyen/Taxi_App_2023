@@ -1,4 +1,4 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.views.permissionoverview
+package com.tkpmnc.sgtaxiuser.taxiapp.views.permissionoverview
 
 import android.app.ActivityOptions
 import android.content.Intent
@@ -14,10 +14,10 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
-import com.tkpmnc.sgtaxiusers.R
-import com.tkpmnc.sgtaxiusers.appcommon.data.local.ApplicationPermissionModel
-import com.tkpmnc.sgtaxiusers.databinding.ActivityPermissionOverViewBinding
-import com.tkpmnc.sgtaxiusers.taxiapp.views.signinsignup.SigninSignupActivity
+import com.tkpmnc.sgtaxiuser.R
+import com.tkpmnc.sgtaxiuser.appcommon.data.local.ApplicationPermissionModel
+import com.tkpmnc.sgtaxiuser.databinding.ActivityPermissionOverViewBinding
+import com.tkpmnc.sgtaxiuser.taxiapp.views.signinsignup.SigninSignupActivity
 
 class PermissionOverViewActivity : AppCompatActivity() {
     private lateinit var mBinding: ActivityPermissionOverViewBinding

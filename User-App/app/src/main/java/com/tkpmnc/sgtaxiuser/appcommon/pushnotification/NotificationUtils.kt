@@ -1,7 +1,7 @@
-package com.tkpmnc.sgtaxiusers.appcommon.pushnotification
+package com.tkpmnc.sgtaxiuser.appcommon.pushnotification
 
 /**
- * @package com.tkpmnc.sgtaxiusers
+ * @package com.tkpmnc.sgtaxiuser
  * @subpackage pushnotification
  * @category NotificationUtils
  * @author Seen Technologies
@@ -24,12 +24,12 @@ import android.text.TextUtils
 import android.util.Patterns
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
-import com.tkpmnc.sgtaxiusers.R
-import com.tkpmnc.sgtaxiusers.appcommon.helper.Constants
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonKeys
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonMethods
-import com.tkpmnc.sgtaxiusers.taxiapp.views.firebaseChat.ActivityChat
-import com.tkpmnc.sgtaxiusers.taxiapp.views.main.MainActivity
+import com.tkpmnc.sgtaxiuser.R
+import com.tkpmnc.sgtaxiuser.appcommon.helper.Constants
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonKeys
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonMethods
+import com.tkpmnc.sgtaxiuser.taxiapp.views.firebaseChat.ActivityChat
+import com.tkpmnc.sgtaxiuser.taxiapp.views.main.MainActivity
 import java.io.IOException
 import java.net.URL
 import java.text.ParseException

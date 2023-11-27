@@ -1,9 +1,9 @@
 @file:Suppress("DEPRECATION")
 
-package com.tkpmnc.sgtaxiusers.taxiapp.views.signinsignup
+package com.tkpmnc.sgtaxiuser.taxiapp.views.signinsignup
 
 /**
- * @package com.tkpmnc.sgtaxiusers
+ * @package com.tkpmnc.sgtaxiuser
  * @subpackage signin_signup
  * @category SigninSignupActivity
  * @author Seen Technologies
@@ -42,7 +42,7 @@ import androidx.recyclerview.widget.RecyclerView
 import butterknife.BindView
 import butterknife.ButterKnife
 import butterknife.OnClick
-import com.tkpmnc.sgtaxiusers.taxiapp.firebase_auth.PhoneActivity
+import com.tkpmnc.sgtaxiuser.taxiapp.firebase_auth.PhoneActivity
 import com.facebook.*
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
@@ -53,35 +53,35 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
 import com.google.gson.Gson
-import com.tkpmnc.sgtaxiusers.R
-import com.tkpmnc.sgtaxiusers.appcommon.configs.SessionManager
-import com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
-import com.tkpmnc.sgtaxiusers.appcommon.datamodels.JsonResponse
-import com.tkpmnc.sgtaxiusers.appcommon.helper.Constants
-import com.tkpmnc.sgtaxiusers.appcommon.interfaces.ApiService
-import com.tkpmnc.sgtaxiusers.appcommon.interfaces.ServiceListener
-import com.tkpmnc.sgtaxiusers.appcommon.network.AppController
-import com.tkpmnc.sgtaxiusers.appcommon.pushnotification.MyFirebaseInstanceIDService
-import com.tkpmnc.sgtaxiusers.appcommon.pushnotification.NotificationUtils
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonKeys
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonKeys.ACTIVITY_REQUEST_CODE_START_FACEBOOK_ACCOUNT_KIT
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonKeys.FACEBOOK_ACCOUNT_KIT_PHONE_NUMBER_COUNTRY_CODE_KEY
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonKeys.FACEBOOK_ACCOUNT_KIT_PHONE_NUMBER_COUNTRY_NAME_CODE_KEY
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonKeys.FACEBOOK_ACCOUNT_KIT_PHONE_NUMBER_KEY
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonMethods
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonMethods.Companion.DebuggableLogE
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonMethods.Companion.DebuggableLogV
-import com.tkpmnc.sgtaxiusers.appcommon.utils.Enums
-import com.tkpmnc.sgtaxiusers.appcommon.utils.RequestCallback
-import com.tkpmnc.sgtaxiusers.appcommon.utils.userchoice.UserChoice
-import com.tkpmnc.sgtaxiusers.appcommon.utils.userchoice.UserChoiceSuccessResponse
-import com.tkpmnc.sgtaxiusers.appcommon.views.CommonActivity
-import com.tkpmnc.sgtaxiusers.taxiapp.datamodels.signinsignup.SigninResult
-import com.tkpmnc.sgtaxiusers.taxiapp.sidebar.currency.CurrencyModel
-import com.tkpmnc.sgtaxiusers.taxiapp.views.customize.CustomDialog
-import com.tkpmnc.sgtaxiusers.taxiapp.views.facebookAccountKit.FacebookAccountKitActivity
-import com.tkpmnc.sgtaxiusers.taxiapp.views.main.MainActivity
-import com.tkpmnc.sgtaxiusers.taxiapp.views.splash.SplashActivity.Companion.checkVersionModel
+import com.tkpmnc.sgtaxiuser.R
+import com.tkpmnc.sgtaxiuser.appcommon.configs.SessionManager
+import com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
+import com.tkpmnc.sgtaxiuser.appcommon.datamodels.JsonResponse
+import com.tkpmnc.sgtaxiuser.appcommon.helper.Constants
+import com.tkpmnc.sgtaxiuser.appcommon.interfaces.ApiService
+import com.tkpmnc.sgtaxiuser.appcommon.interfaces.ServiceListener
+import com.tkpmnc.sgtaxiuser.appcommon.network.AppController
+import com.tkpmnc.sgtaxiuser.appcommon.pushnotification.MyFirebaseInstanceIDService
+import com.tkpmnc.sgtaxiuser.appcommon.pushnotification.NotificationUtils
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonKeys
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonKeys.ACTIVITY_REQUEST_CODE_START_FACEBOOK_ACCOUNT_KIT
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonKeys.FACEBOOK_ACCOUNT_KIT_PHONE_NUMBER_COUNTRY_CODE_KEY
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonKeys.FACEBOOK_ACCOUNT_KIT_PHONE_NUMBER_COUNTRY_NAME_CODE_KEY
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonKeys.FACEBOOK_ACCOUNT_KIT_PHONE_NUMBER_KEY
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonMethods
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonMethods.Companion.DebuggableLogE
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonMethods.Companion.DebuggableLogV
+import com.tkpmnc.sgtaxiuser.appcommon.utils.Enums
+import com.tkpmnc.sgtaxiuser.appcommon.utils.RequestCallback
+import com.tkpmnc.sgtaxiuser.appcommon.utils.userchoice.UserChoice
+import com.tkpmnc.sgtaxiuser.appcommon.utils.userchoice.UserChoiceSuccessResponse
+import com.tkpmnc.sgtaxiuser.appcommon.views.CommonActivity
+import com.tkpmnc.sgtaxiuser.taxiapp.datamodels.signinsignup.SigninResult
+import com.tkpmnc.sgtaxiuser.taxiapp.sidebar.currency.CurrencyModel
+import com.tkpmnc.sgtaxiuser.taxiapp.views.customize.CustomDialog
+import com.tkpmnc.sgtaxiuser.taxiapp.views.facebookAccountKit.FacebookAccountKitActivity
+import com.tkpmnc.sgtaxiuser.taxiapp.views.main.MainActivity
+import com.tkpmnc.sgtaxiuser.taxiapp.views.splash.SplashActivity.Companion.checkVersionModel
 //import com.willowtreeapps.signinwithapplebutton.SignInWithAppleCallback
 //import com.willowtreeapps.signinwithapplebutton.SignInWithAppleConfiguration
 //import com.willowtreeapps.signinwithapplebutton.view.BaseUrl

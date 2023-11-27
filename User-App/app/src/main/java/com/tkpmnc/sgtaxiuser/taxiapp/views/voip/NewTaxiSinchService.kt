@@ -1,4 +1,4 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.views.voip
+package com.tkpmnc.sgtaxiuser.taxiapp.views.voip
 
 import android.app.Service
 import android.content.Context
@@ -13,11 +13,11 @@ import com.sinch.android.rtc.calling.Call
 import com.sinch.android.rtc.calling.CallClient
 import com.sinch.android.rtc.calling.CallClientListener
 import com.sinch.android.rtc.calling.CallListener
-import com.tkpmnc.sgtaxiusers.R
-import com.tkpmnc.sgtaxiusers.appcommon.configs.SessionManager
-import com.tkpmnc.sgtaxiusers.appcommon.pushnotification.Config
-import com.tkpmnc.sgtaxiusers.appcommon.pushnotification.NotificationUtils
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonKeys
+import com.tkpmnc.sgtaxiuser.R
+import com.tkpmnc.sgtaxiuser.appcommon.configs.SessionManager
+import com.tkpmnc.sgtaxiuser.appcommon.pushnotification.Config
+import com.tkpmnc.sgtaxiuser.appcommon.pushnotification.NotificationUtils
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonKeys
 import java.text.SimpleDateFormat
 import java.util.*
 

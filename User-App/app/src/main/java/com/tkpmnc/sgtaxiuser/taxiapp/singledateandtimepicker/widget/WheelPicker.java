@@ -1,4 +1,4 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.singledateandtimepicker.widget;
+package com.tkpmnc.sgtaxiuser.taxiapp.singledateandtimepicker.widget;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -25,7 +25,7 @@ import android.view.ViewConfiguration;
 import android.widget.Scroller;
 
 
-import com.tkpmnc.sgtaxiusers.R;
+import com.tkpmnc.sgtaxiuser.R;
 
 import java.util.ArrayList;
 import java.util.Calendar;

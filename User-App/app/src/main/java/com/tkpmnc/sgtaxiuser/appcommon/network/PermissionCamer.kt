@@ -1,7 +1,7 @@
-package com.tkpmnc.sgtaxiusers.appcommon.network
+package com.tkpmnc.sgtaxiuser.appcommon.network
 
 /**
- * @package com.tkpmnc.sgtaxiusersdriver.appcommon.network
+ * @package com.tkpmnc.sgtaxiuserdriver.appcommon.network
  * @subpackage network
  * @category PermissionCamer
  * @author Seen Technologies

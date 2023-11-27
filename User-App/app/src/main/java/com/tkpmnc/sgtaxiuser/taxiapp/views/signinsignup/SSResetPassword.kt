@@ -1,8 +1,8 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.views.signinsignup
+package com.tkpmnc.sgtaxiuser.taxiapp.views.signinsignup
 
 
 /**
- * @package com.tkpmnc.sgtaxiusers
+ * @package com.tkpmnc.sgtaxiuser
  * @subpackage signin_signup
  * @category SSResetPassword
  * @author Seen Technologies
@@ -27,21 +27,21 @@ import butterknife.ButterKnife
 import butterknife.OnClick
 import com.google.android.material.textfield.TextInputLayout
 import com.google.gson.Gson
-import com.tkpmnc.sgtaxiusers.R
-import com.tkpmnc.sgtaxiusers.appcommon.configs.SessionManager
-import com.tkpmnc.sgtaxiusers.appcommon.datamodels.JsonResponse
-import com.tkpmnc.sgtaxiusers.appcommon.interfaces.ApiService
-import com.tkpmnc.sgtaxiusers.appcommon.interfaces.ServiceListener
-import com.tkpmnc.sgtaxiusers.appcommon.network.AppController
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonKeys.FACEBOOK_ACCOUNT_KIT_PHONE_NUMBER_COUNTRY_CODE_KEY
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonKeys.FACEBOOK_ACCOUNT_KIT_PHONE_NUMBER_COUNTRY_NAME_CODE_KEY
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonKeys.FACEBOOK_ACCOUNT_KIT_PHONE_NUMBER_KEY
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonMethods
-import com.tkpmnc.sgtaxiusers.appcommon.utils.RequestCallback
-import com.tkpmnc.sgtaxiusers.appcommon.views.CommonActivity
-import com.tkpmnc.sgtaxiusers.taxiapp.datamodels.signinsignup.SigninResult
-import com.tkpmnc.sgtaxiusers.taxiapp.views.customize.CustomDialog
-import com.tkpmnc.sgtaxiusers.taxiapp.views.main.MainActivity
+import com.tkpmnc.sgtaxiuser.R
+import com.tkpmnc.sgtaxiuser.appcommon.configs.SessionManager
+import com.tkpmnc.sgtaxiuser.appcommon.datamodels.JsonResponse
+import com.tkpmnc.sgtaxiuser.appcommon.interfaces.ApiService
+import com.tkpmnc.sgtaxiuser.appcommon.interfaces.ServiceListener
+import com.tkpmnc.sgtaxiuser.appcommon.network.AppController
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonKeys.FACEBOOK_ACCOUNT_KIT_PHONE_NUMBER_COUNTRY_CODE_KEY
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonKeys.FACEBOOK_ACCOUNT_KIT_PHONE_NUMBER_COUNTRY_NAME_CODE_KEY
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonKeys.FACEBOOK_ACCOUNT_KIT_PHONE_NUMBER_KEY
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonMethods
+import com.tkpmnc.sgtaxiuser.appcommon.utils.RequestCallback
+import com.tkpmnc.sgtaxiuser.appcommon.views.CommonActivity
+import com.tkpmnc.sgtaxiuser.taxiapp.datamodels.signinsignup.SigninResult
+import com.tkpmnc.sgtaxiuser.taxiapp.views.customize.CustomDialog
+import com.tkpmnc.sgtaxiuser.taxiapp.views.main.MainActivity
 import kotlinx.android.synthetic.main.activity_ss_resetpassword.*
 import org.json.JSONException
 import org.json.JSONObject

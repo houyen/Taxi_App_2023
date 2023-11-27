@@ -1,7 +1,7 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.views.customize
+package com.tkpmnc.sgtaxiuser.taxiapp.views.customize
 
 /**
- * @package com.tkpmnc.sgtaxiusers
+ * @package com.tkpmnc.sgtaxiuser
  * @subpackage view.customize
  * @category CustomDialog
  * @author Seen Technologies
@@ -18,7 +18,7 @@ import android.widget.TextView
 
 import androidx.core.content.ContextCompat
 
-import com.tkpmnc.sgtaxiusers.R
+import com.tkpmnc.sgtaxiuser.R
 
 /*****************************************************************
  * Custom dialog box fragment

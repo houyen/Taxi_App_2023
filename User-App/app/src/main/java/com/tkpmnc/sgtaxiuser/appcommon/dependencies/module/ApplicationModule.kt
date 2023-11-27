@@ -1,7 +1,7 @@
-package com.tkpmnc.sgtaxiusers.appcommon.dependencies.module
+package com.tkpmnc.sgtaxiuser.appcommon.dependencies.module
 
 /**
- * @package com.tkpmnc.sgtaxiusers
+ * @package com.tkpmnc.sgtaxiuser
  * @subpackage dependencies.module
  * @category ApplicationModule
  * @author Seen Technologies

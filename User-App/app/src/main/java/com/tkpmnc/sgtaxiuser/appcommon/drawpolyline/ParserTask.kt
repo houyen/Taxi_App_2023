@@ -1,7 +1,7 @@
-package com.tkpmnc.sgtaxiusers.appcommon.drawpolyline
+package com.tkpmnc.sgtaxiuser.appcommon.drawpolyline
 
 /**
- * @package com.tkpmnc.sgtaxiusersdriver
+ * @package com.tkpmnc.sgtaxiuserdriver
  * @subpackage map.drawpolyline
  * @category ParserTask
  * @author Seen Technologies
@@ -14,8 +14,8 @@ import android.os.AsyncTask
 import androidx.core.content.ContextCompat
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.PolylineOptions
-import com.tkpmnc.sgtaxiusers.R
-import com.tkpmnc.sgtaxiusers.taxiapp.datamodels.StepsClass
+import com.tkpmnc.sgtaxiuser.R
+import com.tkpmnc.sgtaxiuser.taxiapp.datamodels.StepsClass
 import org.json.JSONObject
 import java.util.*
 

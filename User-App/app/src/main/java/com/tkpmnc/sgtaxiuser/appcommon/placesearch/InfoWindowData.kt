@@ -1,4 +1,4 @@
-package com.tkpmnc.sgtaxiusers.appcommon.placesearch
+package com.tkpmnc.sgtaxiuser.appcommon.placesearch
 
 class InfoWindowData {
     var image: String = ""

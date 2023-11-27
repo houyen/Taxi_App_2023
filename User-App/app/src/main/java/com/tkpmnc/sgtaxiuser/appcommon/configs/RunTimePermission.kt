@@ -1,7 +1,7 @@
-package com.tkpmnc.sgtaxiusers.appcommon.configs
+package com.tkpmnc.sgtaxiuser.appcommon.configs
 
 /**
- * @package com.tkpmnc.sgtaxiusers
+ * @package com.tkpmnc.sgtaxiuser
  * @subpackage configs
  * @category RunTimePermission
  * @author Seen Technologies
@@ -15,7 +15,7 @@ import android.content.pm.PackageManager
 import android.os.Build
 import androidx.core.app.ActivityCompat
 
-import com.tkpmnc.sgtaxiusers.appcommon.network.AppController
+import com.tkpmnc.sgtaxiuser.appcommon.network.AppController
 
 import java.util.ArrayList
 

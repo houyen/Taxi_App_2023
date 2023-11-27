@@ -30,11 +30,11 @@ android {
         enabled = true
     }
     defaultConfig {
-        applicationId "com.tkpmnc.newtaxiusers"
+        applicationId "com.tkpmnc.sgtaxiuser"
         minSdkVersion 21
         targetSdkVersion 33
         versionCode 8
-        versionName "1.7"
+        versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
         /*javaCompileOptions {
@@ -184,6 +184,10 @@ dependencies {
     implementation 'com.google.firebase:firebase-crashlytics:17.3.1'
     implementation 'com.google.firebase:firebase-analytics:18.0.2'
 
+
+    // For Braintree payment
+    implementation 'com.braintreepayments.api:drop-in:5.0.1'
+    implementation 'com.braintreepayments.api:braintree:3.20.1'
 
     implementation 'com.airbnb.android:lottie:3.7.0'
 

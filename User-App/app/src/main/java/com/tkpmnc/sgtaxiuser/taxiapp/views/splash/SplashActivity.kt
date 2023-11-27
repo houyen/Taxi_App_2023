@@ -1,7 +1,7 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.views.splash
+package com.tkpmnc.sgtaxiuser.taxiapp.views.splash
 
 /**
- * @package com.tkpmnc.sgtaxiusers
+ * @package com.tkpmnc.sgtaxiuser
  * @subpackage splash
  * @category SplashActivity
  * @author Seen Technologies
@@ -23,24 +23,24 @@ import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.view.ContextThemeWrapper
 import com.google.gson.Gson
-import com.tkpmnc.sgtaxiusers.R
-import com.tkpmnc.sgtaxiusers.appcommon.configs.SessionManager
-import com.tkpmnc.sgtaxiusers.appcommon.datamodels.CheckVersionModel
-import com.tkpmnc.sgtaxiusers.appcommon.datamodels.JsonResponse
-import com.tkpmnc.sgtaxiusers.appcommon.helper.Constants
-import com.tkpmnc.sgtaxiusers.appcommon.helper.Constants.FORCE_UPDATE
-import com.tkpmnc.sgtaxiusers.appcommon.helper.Constants.SKIP_UPDATE
-import com.tkpmnc.sgtaxiusers.appcommon.interfaces.ApiService
-import com.tkpmnc.sgtaxiusers.appcommon.interfaces.ServiceListener
-import com.tkpmnc.sgtaxiusers.appcommon.network.AppController
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonKeys
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonMethods
-import com.tkpmnc.sgtaxiusers.appcommon.utils.Enums.REG_GET_CHECK_VERSION
-import com.tkpmnc.sgtaxiusers.appcommon.utils.RequestCallback
-import com.tkpmnc.sgtaxiusers.appcommon.views.CommonActivity
-import com.tkpmnc.sgtaxiusers.taxiapp.views.main.MainActivity
-import com.tkpmnc.sgtaxiusers.taxiapp.views.permissionoverview.PermissionOverViewActivity
-import com.tkpmnc.sgtaxiusers.taxiapp.views.signinsignup.SigninSignupActivity
+import com.tkpmnc.sgtaxiuser.R
+import com.tkpmnc.sgtaxiuser.appcommon.configs.SessionManager
+import com.tkpmnc.sgtaxiuser.appcommon.datamodels.CheckVersionModel
+import com.tkpmnc.sgtaxiuser.appcommon.datamodels.JsonResponse
+import com.tkpmnc.sgtaxiuser.appcommon.helper.Constants
+import com.tkpmnc.sgtaxiuser.appcommon.helper.Constants.FORCE_UPDATE
+import com.tkpmnc.sgtaxiuser.appcommon.helper.Constants.SKIP_UPDATE
+import com.tkpmnc.sgtaxiuser.appcommon.interfaces.ApiService
+import com.tkpmnc.sgtaxiuser.appcommon.interfaces.ServiceListener
+import com.tkpmnc.sgtaxiuser.appcommon.network.AppController
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonKeys
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonMethods
+import com.tkpmnc.sgtaxiuser.appcommon.utils.Enums.REG_GET_CHECK_VERSION
+import com.tkpmnc.sgtaxiuser.appcommon.utils.RequestCallback
+import com.tkpmnc.sgtaxiuser.appcommon.views.CommonActivity
+import com.tkpmnc.sgtaxiuser.taxiapp.views.main.MainActivity
+import com.tkpmnc.sgtaxiuser.taxiapp.views.permissionoverview.PermissionOverViewActivity
+import com.tkpmnc.sgtaxiuser.taxiapp.views.signinsignup.SigninSignupActivity
 import org.json.JSONException
 import java.util.*
 import javax.inject.Inject

@@ -1,4 +1,4 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.adapters
+package com.tkpmnc.sgtaxiuser.taxiapp.adapters
 
 import android.content.Context
 import android.text.TextUtils
@@ -8,11 +8,11 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
-import com.tkpmnc.sgtaxiusers.R
-import com.tkpmnc.sgtaxiusers.appcommon.configs.SessionManager
-import com.tkpmnc.sgtaxiusers.appcommon.network.AppController
-import com.tkpmnc.sgtaxiusers.taxiapp.datamodels.trip.TripListModelArrayList
-import com.tkpmnc.sgtaxiusers.taxiapp.interfaces.PaginationAdapterCallback
+import com.tkpmnc.sgtaxiuser.R
+import com.tkpmnc.sgtaxiuser.appcommon.configs.SessionManager
+import com.tkpmnc.sgtaxiuser.appcommon.network.AppController
+import com.tkpmnc.sgtaxiuser.taxiapp.datamodels.trip.TripListModelArrayList
+import com.tkpmnc.sgtaxiuser.taxiapp.interfaces.PaginationAdapterCallback
 import java.util.*
 import javax.inject.Inject
 

@@ -1,14 +1,14 @@
-package com.tkpmnc.sgtaxiusers.appcommon.dependencies.interceptors
+package com.tkpmnc.sgtaxiuser.appcommon.dependencies.interceptors
 
 /**
- * @package com.tkpmnc.sgtaxiusers
+ * @package com.tkpmnc.sgtaxiuser
  * @subpackage dependencies.interceptors
  * @category AuthTokenInterceptor
  * @author Seen Technologies
  *
  */
 
-import com.tkpmnc.sgtaxiusers.appcommon.configs.SessionManager
+import com.tkpmnc.sgtaxiuser.appcommon.configs.SessionManager
 
 import java.io.IOException
 

@@ -55,7 +55,7 @@
                     android:orientation="vertical">
 
 
-                    <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+                    <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                         android:id="@+id/nametext"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -85,7 +85,7 @@
                             app:ccp_showPhoneCode="true"
                             app:ccp_textSize="@dimen/_15asp" />
 
-                        <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+                        <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                             android:id="@+id/tv_phone"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -99,7 +99,7 @@
 
                     </RelativeLayout>
 
-                    <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+                    <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                         android:id="@+id/tv_email"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -148,7 +148,7 @@
                     android:layout_toEndOf="@+id/iv_homeimage"
                     android:orientation="vertical">
 
-                    <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+                    <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                         android:id="@+id/hometext"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -160,7 +160,7 @@
 
                         />
 
-                    <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+                    <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                         android:id="@+id/textadress"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -215,7 +215,7 @@
                     android:layout_toEndOf="@+id/iv_workimage"
                     android:orientation="vertical">
 
-                    <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+                    <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                         android:id="@+id/workaddress"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -226,7 +226,7 @@
                         android:textSize="@dimen/_14asp"
                         app:fontName="@string/font_Medium" />
 
-                    <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+                    <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                         android:id="@+id/worktext"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -271,7 +271,7 @@
                     android:src="@drawable/app_ic_currency"
                     app:tint="@color/newtaxi_app_yellow" />
 
-                <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+                <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/_20adp"
@@ -282,7 +282,7 @@
                     android:textSize="@dimen/_14asp"
                     app:fontName="@string/font_Medium" />
 
-                <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+                <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                     android:id="@+id/currency_code"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -327,7 +327,7 @@
                     android:src="@drawable/app_ic_language"
                     app:tint="@color/newtaxi_app_yellow" />
 
-                <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+                <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_20adp"
@@ -341,7 +341,7 @@
                     android:textSize="@dimen/_14asp"
                     app:fontName="@string/font_Medium" />
 
-                <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+                <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                     android:id="@+id/language"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -385,7 +385,7 @@
                     app:tint="@color/newtaxi_app_yellow"/>
 
 
-                <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+                <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_20adp"
@@ -426,7 +426,7 @@
                     app:tint="@color/newtaxi_app_yellow"/>
 
 
-                <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+                <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_20adp"
@@ -466,7 +466,7 @@
                     android:src="@drawable/app_ic_signout" />
 
 
-                <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+                <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_20adp"

@@ -1,4 +1,4 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.singledateandtimepicker.widget;
+package com.tkpmnc.sgtaxiuser.taxiapp.singledateandtimepicker.widget;
 
 
 import android.content.Context;
@@ -6,8 +6,8 @@ import android.util.AttributeSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.tkpmnc.sgtaxiusers.taxiapp.singledateandtimepicker.DateHelper.getDay;
-import static com.tkpmnc.sgtaxiusers.taxiapp.singledateandtimepicker.DateHelper.today;
+import static com.tkpmnc.sgtaxiuser.taxiapp.singledateandtimepicker.DateHelper.getDay;
+import static com.tkpmnc.sgtaxiuser.taxiapp.singledateandtimepicker.DateHelper.today;
 
 public class WheelDayOfMonthPicker extends WheelPicker<String> {
 

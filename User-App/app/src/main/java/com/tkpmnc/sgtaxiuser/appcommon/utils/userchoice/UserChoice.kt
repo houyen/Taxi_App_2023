@@ -1,4 +1,4 @@
-package com.tkpmnc.sgtaxiusers.appcommon.utils.userchoice
+package com.tkpmnc.sgtaxiuser.appcommon.utils.userchoice
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -6,13 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.*
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.tkpmnc.sgtaxiusers.R
-import com.tkpmnc.sgtaxiusers.appcommon.configs.SessionManager
-import com.tkpmnc.sgtaxiusers.appcommon.datamodels.settings.CurrencyListModel
-import com.tkpmnc.sgtaxiusers.appcommon.network.AppController
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonMethods
-import com.tkpmnc.sgtaxiusers.appcommon.utils.Enums
-import com.tkpmnc.sgtaxiusers.taxiapp.sidebar.currency.CurrencyModel
+import com.tkpmnc.sgtaxiuser.R
+import com.tkpmnc.sgtaxiuser.appcommon.configs.SessionManager
+import com.tkpmnc.sgtaxiuser.appcommon.datamodels.settings.CurrencyListModel
+import com.tkpmnc.sgtaxiuser.appcommon.network.AppController
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonMethods
+import com.tkpmnc.sgtaxiuser.appcommon.utils.Enums
+import com.tkpmnc.sgtaxiuser.taxiapp.sidebar.currency.CurrencyModel
 import java.util.ArrayList
 import javax.inject.Inject
 

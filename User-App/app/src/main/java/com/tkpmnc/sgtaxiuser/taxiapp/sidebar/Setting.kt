@@ -1,7 +1,7 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.sidebar
+package com.tkpmnc.sgtaxiuser.taxiapp.sidebar
 
 /**
- * @package com.tkpmnc.sgtaxiusers
+ * @package com.tkpmnc.sgtaxiuser
  * @subpackage Side_Bar
  * @category Setting
  * @author Seen Technologies
@@ -35,36 +35,36 @@ import com.google.firebase.ktx.Firebase
 import com.google.gson.Gson
 import com.hbb20.CountryCodePicker
 import com.squareup.picasso.Picasso
-import com.tkpmnc.sgtaxiusers.R
-import com.tkpmnc.sgtaxiusers.appcommon.configs.SessionManager
-import com.tkpmnc.sgtaxiusers.appcommon.datamodels.JsonResponse
-import com.tkpmnc.sgtaxiusers.appcommon.datamodels.settings.CurrencyListModel
-import com.tkpmnc.sgtaxiusers.appcommon.datamodels.settings.CurrencyModelList
-import com.tkpmnc.sgtaxiusers.appcommon.interfaces.ApiService
-import com.tkpmnc.sgtaxiusers.appcommon.interfaces.ServiceListener
-import com.tkpmnc.sgtaxiusers.appcommon.network.AppController
-import com.tkpmnc.sgtaxiusers.taxiapp.sidebar.currency.CurrencyModel
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonKeys
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonMethods
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonMethods.Companion.DebuggableLogI
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonMethods.Companion.DebuggableLogV
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonMethods.Companion.stopSinchService
-import com.tkpmnc.sgtaxiusers.appcommon.utils.Enums
-import com.tkpmnc.sgtaxiusers.appcommon.utils.Enums.REQ_CURRENCYLIST
-import com.tkpmnc.sgtaxiusers.appcommon.utils.Enums.REQ_GET_RIDER_PROFILE
-import com.tkpmnc.sgtaxiusers.appcommon.utils.Enums.REQ_LOGOUT
-import com.tkpmnc.sgtaxiusers.appcommon.utils.Enums.REQ_UPDATE_CURR
-import com.tkpmnc.sgtaxiusers.appcommon.utils.Enums.REQ_UPDATE_LANG
-import com.tkpmnc.sgtaxiusers.appcommon.utils.Enums.REQ_UPDATE_LOCATION
-import com.tkpmnc.sgtaxiusers.appcommon.utils.RequestCallback
-import com.tkpmnc.sgtaxiusers.appcommon.utils.userchoice.UserChoice
-import com.tkpmnc.sgtaxiusers.appcommon.utils.userchoice.UserChoiceSuccessResponse
-import com.tkpmnc.sgtaxiusers.appcommon.views.CommonActivity
-import com.tkpmnc.sgtaxiusers.taxiapp.views.customize.CustomDialog
-import com.tkpmnc.sgtaxiusers.taxiapp.views.signinsignup.SigninSignupActivity
-import com.tkpmnc.sgtaxiusers.taxiapp.views.splash.SplashActivity
-import com.tkpmnc.sgtaxiusers.taxiapp.views.termsPolicy.Privacy
-import com.tkpmnc.sgtaxiusers.taxiapp.views.termsPolicy.Terms
+import com.tkpmnc.sgtaxiuser.R
+import com.tkpmnc.sgtaxiuser.appcommon.configs.SessionManager
+import com.tkpmnc.sgtaxiuser.appcommon.datamodels.JsonResponse
+import com.tkpmnc.sgtaxiuser.appcommon.datamodels.settings.CurrencyListModel
+import com.tkpmnc.sgtaxiuser.appcommon.datamodels.settings.CurrencyModelList
+import com.tkpmnc.sgtaxiuser.appcommon.interfaces.ApiService
+import com.tkpmnc.sgtaxiuser.appcommon.interfaces.ServiceListener
+import com.tkpmnc.sgtaxiuser.appcommon.network.AppController
+import com.tkpmnc.sgtaxiuser.taxiapp.sidebar.currency.CurrencyModel
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonKeys
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonMethods
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonMethods.Companion.DebuggableLogI
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonMethods.Companion.DebuggableLogV
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonMethods.Companion.stopSinchService
+import com.tkpmnc.sgtaxiuser.appcommon.utils.Enums
+import com.tkpmnc.sgtaxiuser.appcommon.utils.Enums.REQ_CURRENCYLIST
+import com.tkpmnc.sgtaxiuser.appcommon.utils.Enums.REQ_GET_RIDER_PROFILE
+import com.tkpmnc.sgtaxiuser.appcommon.utils.Enums.REQ_LOGOUT
+import com.tkpmnc.sgtaxiuser.appcommon.utils.Enums.REQ_UPDATE_CURR
+import com.tkpmnc.sgtaxiuser.appcommon.utils.Enums.REQ_UPDATE_LANG
+import com.tkpmnc.sgtaxiuser.appcommon.utils.Enums.REQ_UPDATE_LOCATION
+import com.tkpmnc.sgtaxiuser.appcommon.utils.RequestCallback
+import com.tkpmnc.sgtaxiuser.appcommon.utils.userchoice.UserChoice
+import com.tkpmnc.sgtaxiuser.appcommon.utils.userchoice.UserChoiceSuccessResponse
+import com.tkpmnc.sgtaxiuser.appcommon.views.CommonActivity
+import com.tkpmnc.sgtaxiuser.taxiapp.views.customize.CustomDialog
+import com.tkpmnc.sgtaxiuser.taxiapp.views.signinsignup.SigninSignupActivity
+import com.tkpmnc.sgtaxiuser.taxiapp.views.splash.SplashActivity
+import com.tkpmnc.sgtaxiuser.taxiapp.views.termsPolicy.Privacy
+import com.tkpmnc.sgtaxiuser.taxiapp.views.termsPolicy.Terms
 import kotlinx.android.synthetic.main.app_activity_add_wallet.*
 import org.apache.http.client.methods.HttpGet
 import org.apache.http.impl.client.BasicResponseHandler

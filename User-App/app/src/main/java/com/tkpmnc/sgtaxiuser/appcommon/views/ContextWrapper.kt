@@ -1,4 +1,4 @@
-package com.tkpmnc.sgtaxiusers.appcommon.views
+package com.tkpmnc.sgtaxiuser.appcommon.views
 
 import android.content.Context
 import android.content.res.Configuration

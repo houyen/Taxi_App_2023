@@ -1,4 +1,4 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.singledateandtimepicker.widget;
+package com.tkpmnc.sgtaxiuser.taxiapp.singledateandtimepicker.widget;
 
 public class SingleDateAndTimeConstants {
     public static final int MIN_HOUR_DEFAULT = 0;

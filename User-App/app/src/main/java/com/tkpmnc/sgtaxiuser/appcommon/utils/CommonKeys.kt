@@ -1,4 +1,4 @@
-package com.tkpmnc.sgtaxiusers.appcommon.utils
+package com.tkpmnc.sgtaxiuser.appcommon.utils
 
 import androidx.annotation.IntDef
 import androidx.annotation.StringDef

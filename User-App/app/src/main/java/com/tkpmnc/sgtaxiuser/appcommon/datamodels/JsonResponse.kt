@@ -1,7 +1,7 @@
-package com.tkpmnc.sgtaxiusers.appcommon.datamodels
+package com.tkpmnc.sgtaxiuser.appcommon.datamodels
 
 /**
- * @package com.tkpmnc.sgtaxiusers
+ * @package com.tkpmnc.sgtaxiuser
  * @subpackage datamodels.main
  * @category JsonResponse
  * @author Seen Technologies

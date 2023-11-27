@@ -1,7 +1,7 @@
-package com.tkpmnc.sgtaxiusers.appcommon.pushnotification
+package com.tkpmnc.sgtaxiuser.appcommon.pushnotification
 
 /**
- * @package com.tkpmnc.sgtaxiusers
+ * @package com.tkpmnc.sgtaxiuser
  * @subpackage pushnotification
  * @category FirebaseMessagingService
  * @author Seen Technologies
@@ -14,11 +14,11 @@ import android.content.res.Configuration
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import com.sinch.android.rtc.SinchHelpers
-import com.tkpmnc.sgtaxiusers.appcommon.configs.SessionManager
-import com.tkpmnc.sgtaxiusers.appcommon.network.AppController
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonMethods
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonMethods.Companion.DebuggableLogE
-import com.tkpmnc.sgtaxiusers.taxiapp.views.voip.NewTaxiSinchService
+import com.tkpmnc.sgtaxiuser.appcommon.configs.SessionManager
+import com.tkpmnc.sgtaxiuser.appcommon.network.AppController
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonMethods
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonMethods.Companion.DebuggableLogE
+import com.tkpmnc.sgtaxiuser.taxiapp.views.voip.NewTaxiSinchService
 import org.json.JSONObject
 import java.util.*
 import javax.inject.Inject

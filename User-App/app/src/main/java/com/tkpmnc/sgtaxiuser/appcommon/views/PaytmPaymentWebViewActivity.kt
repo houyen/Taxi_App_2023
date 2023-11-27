@@ -1,4 +1,4 @@
-package com.tkpmnc.sgtaxiusers.appcommon.views
+package com.tkpmnc.sgtaxiuser.appcommon.views
 
 import android.annotation.SuppressLint
 import android.app.ProgressDialog
@@ -8,13 +8,13 @@ import android.graphics.Bitmap
 import android.os.Bundle
 import android.util.Log
 import android.webkit.*
-import com.tkpmnc.sgtaxiusers.R
-import com.tkpmnc.sgtaxiusers.appcommon.configs.SessionManager
-import com.tkpmnc.sgtaxiusers.appcommon.helper.Constants
-import com.tkpmnc.sgtaxiusers.appcommon.network.AppController
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonKeys
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonMethods
-import com.tkpmnc.sgtaxiusers.taxiapp.views.customize.CustomDialog
+import com.tkpmnc.sgtaxiuser.R
+import com.tkpmnc.sgtaxiuser.appcommon.configs.SessionManager
+import com.tkpmnc.sgtaxiuser.appcommon.helper.Constants
+import com.tkpmnc.sgtaxiuser.appcommon.network.AppController
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonKeys
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonMethods
+import com.tkpmnc.sgtaxiuser.taxiapp.views.customize.CustomDialog
 import kotlinx.android.synthetic.main.activity_payment_web_view.*
 import kotlinx.android.synthetic.main.app_common_header.*
 import org.json.JSONException

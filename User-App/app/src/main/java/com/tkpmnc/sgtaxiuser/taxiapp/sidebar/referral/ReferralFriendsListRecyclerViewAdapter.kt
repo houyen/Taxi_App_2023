@@ -1,4 +1,4 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.sidebar.referral
+package com.tkpmnc.sgtaxiuser.taxiapp.sidebar.referral
 
 import android.content.Context
 import androidx.recyclerview.widget.RecyclerView
@@ -9,11 +9,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.squareup.picasso.Picasso
-import com.tkpmnc.sgtaxiusers.R
-import com.tkpmnc.sgtaxiusers.taxiapp.sidebar.referral.model.CompletedOrPendingReferrals
+import com.tkpmnc.sgtaxiuser.R
+import com.tkpmnc.sgtaxiuser.taxiapp.sidebar.referral.model.CompletedOrPendingReferrals
 
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonKeys.CompletedReferralArray
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonKeys.IncompleteReferralArray
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonKeys.CompletedReferralArray
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonKeys.IncompleteReferralArray
 
 class ReferralFriendsListRecyclerViewAdapter(private val mContext: Context, internal var referredFriendsModelArrayList: List<CompletedOrPendingReferrals>?, private val referralArrayType: Int) : RecyclerView.Adapter<ReferralFriendsListRecyclerViewAdapter.ViewHolder>() {
 

@@ -1,7 +1,7 @@
-package com.tkpmnc.sgtaxiusers.appcommon.utils
+package com.tkpmnc.sgtaxiuser.appcommon.utils
 
 /**
- * @package com.tkpmnc.sgtaxiusers
+ * @package com.tkpmnc.sgtaxiuser
  * @subpackage utils
  * @category LogManager
  * @author Seen Technologies
@@ -10,7 +10,7 @@ package com.tkpmnc.sgtaxiusers.appcommon.utils
 
 import android.util.Log
 
-import com.tkpmnc.sgtaxiusers.BuildConfig
+import com.tkpmnc.sgtaxiuser.BuildConfig
 
 /*****************************************************************
  * LogManager

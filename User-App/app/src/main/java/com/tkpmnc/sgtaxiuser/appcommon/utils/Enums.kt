@@ -1,7 +1,7 @@
-package com.tkpmnc.sgtaxiusers.appcommon.utils
+package com.tkpmnc.sgtaxiuser.appcommon.utils
 
 /**
- * @package com.tkpmnc.sgtaxiusers
+ * @package com.tkpmnc.sgtaxiuser
  * @subpackage utils
  * @category Enums
  * @author Seen Technologies

@@ -1,4 +1,4 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.sidebar.referral.model
+package com.tkpmnc.sgtaxiuser.taxiapp.sidebar.referral.model
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName

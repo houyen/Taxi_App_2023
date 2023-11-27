@@ -1,12 +1,12 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.singledateandtimepicker.widget;
+package com.tkpmnc.sgtaxiuser.taxiapp.singledateandtimepicker.widget;
 
 import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 
-import com.tkpmnc.sgtaxiusers.R;
-import com.tkpmnc.sgtaxiusers.taxiapp.singledateandtimepicker.DateHelper;
+import com.tkpmnc.sgtaxiuser.R;
+import com.tkpmnc.sgtaxiuser.taxiapp.singledateandtimepicker.DateHelper;
 
 import java.util.Arrays;
 import java.util.Calendar;

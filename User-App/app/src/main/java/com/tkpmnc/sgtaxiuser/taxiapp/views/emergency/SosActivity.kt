@@ -1,4 +1,4 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.views.emergency
+package com.tkpmnc.sgtaxiuser.taxiapp.views.emergency
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -15,21 +15,21 @@ import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.DrawableImageViewTarget
 import com.google.gson.Gson
-import com.tkpmnc.sgtaxiusers.R
-import com.tkpmnc.sgtaxiusers.appcommon.configs.SessionManager
-import com.tkpmnc.sgtaxiusers.appcommon.datamodels.JsonResponse
-import com.tkpmnc.sgtaxiusers.appcommon.interfaces.ApiService
-import com.tkpmnc.sgtaxiusers.appcommon.interfaces.ServiceListener
-import com.tkpmnc.sgtaxiusers.appcommon.network.AppController
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonMethods
-import com.tkpmnc.sgtaxiusers.appcommon.utils.RequestCallback
-import com.tkpmnc.sgtaxiusers.taxiapp.views.customize.CustomDialog
+import com.tkpmnc.sgtaxiuser.R
+import com.tkpmnc.sgtaxiuser.appcommon.configs.SessionManager
+import com.tkpmnc.sgtaxiuser.appcommon.datamodels.JsonResponse
+import com.tkpmnc.sgtaxiuser.appcommon.interfaces.ApiService
+import com.tkpmnc.sgtaxiuser.appcommon.interfaces.ServiceListener
+import com.tkpmnc.sgtaxiuser.appcommon.network.AppController
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonMethods
+import com.tkpmnc.sgtaxiuser.appcommon.utils.RequestCallback
+import com.tkpmnc.sgtaxiuser.taxiapp.views.customize.CustomDialog
 
 import javax.inject.Inject
 
 import butterknife.BindView
 import butterknife.ButterKnife
-import com.tkpmnc.sgtaxiusers.appcommon.views.CommonActivity
+import com.tkpmnc.sgtaxiuser.appcommon.views.CommonActivity
 import kotlinx.android.synthetic.main.app_activity_add_wallet.*
 import kotlinx.android.synthetic.main.app_common_header.*
 

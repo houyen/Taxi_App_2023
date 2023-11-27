@@ -1,7 +1,7 @@
-package com.tkpmnc.sgtaxiusers.appcommon.utils
+package com.tkpmnc.sgtaxiuser.appcommon.utils
 
 /**
- * @package com.tkpmnc.sgtaxiusers
+ * @package com.tkpmnc.sgtaxiuser
  * @subpackage utils
  * @category RequestCallback
  * @author Seen Technologies
@@ -13,15 +13,15 @@ import android.content.Context
 import android.content.Intent
 import android.net.ConnectivityManager
 import android.text.TextUtils
-import com.tkpmnc.sgtaxiusers.BuildConfig
-import com.tkpmnc.sgtaxiusers.R
-import com.tkpmnc.sgtaxiusers.appcommon.configs.SessionManager
-import com.tkpmnc.sgtaxiusers.appcommon.datamodels.JsonResponse
-import com.tkpmnc.sgtaxiusers.appcommon.helper.Constants
-import com.tkpmnc.sgtaxiusers.appcommon.interfaces.ApiService
-import com.tkpmnc.sgtaxiusers.appcommon.interfaces.ServiceListener
-import com.tkpmnc.sgtaxiusers.appcommon.network.AppController
-import com.tkpmnc.sgtaxiusers.taxiapp.views.signinsignup.SigninSignupActivity
+import com.tkpmnc.sgtaxiuser.BuildConfig
+import com.tkpmnc.sgtaxiuser.R
+import com.tkpmnc.sgtaxiuser.appcommon.configs.SessionManager
+import com.tkpmnc.sgtaxiuser.appcommon.datamodels.JsonResponse
+import com.tkpmnc.sgtaxiuser.appcommon.helper.Constants
+import com.tkpmnc.sgtaxiuser.appcommon.interfaces.ApiService
+import com.tkpmnc.sgtaxiuser.appcommon.interfaces.ServiceListener
+import com.tkpmnc.sgtaxiuser.appcommon.network.AppController
+import com.tkpmnc.sgtaxiuser.taxiapp.views.signinsignup.SigninSignupActivity
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback

@@ -1,4 +1,4 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.singledateandtimepicker;
+package com.tkpmnc.sgtaxiuser.taxiapp.singledateandtimepicker;
 
 import java.util.Calendar;
 import java.util.Date;

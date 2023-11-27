@@ -1,4 +1,4 @@
-package com.tkpmnc.sgtaxiusers.appcommon.database
+package com.tkpmnc.sgtaxiuser.appcommon.database
 
 import android.content.ContentValues
 import android.content.Context

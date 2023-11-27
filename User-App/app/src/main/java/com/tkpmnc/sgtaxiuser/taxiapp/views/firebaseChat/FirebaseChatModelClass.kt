@@ -1,4 +1,4 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.views.firebaseChat
+package com.tkpmnc.sgtaxiuser.taxiapp.views.firebaseChat
 
 import com.google.firebase.database.IgnoreExtraProperties
 

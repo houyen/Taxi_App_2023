@@ -1,7 +1,7 @@
-package com.tkpmnc.sgtaxiusers.appcommon.drawpolyline
+package com.tkpmnc.sgtaxiuser.appcommon.drawpolyline
 
 /**
- * @package com.tkpmnc.sgtaxiusersdriver
+ * @package com.tkpmnc.sgtaxiuserdriver
  * @subpackage map.drawpolyline
  * @category DownloadTask
  * @author Seen Technologies
@@ -12,8 +12,8 @@ import android.content.Context
 import android.os.AsyncTask
 
 
-import com.tkpmnc.sgtaxiusers.appcommon.network.AppController
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonMethods
+import com.tkpmnc.sgtaxiuser.appcommon.network.AppController
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonMethods
 
 import java.io.BufferedReader
 import java.io.IOException

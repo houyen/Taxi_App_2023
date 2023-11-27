@@ -1,7 +1,7 @@
-package com.tkpmnc.sgtaxiusers.appcommon.helper
+package com.tkpmnc.sgtaxiuser.appcommon.helper
 
 /**
- * @package com.tkpmnc.sgtaxiusers
+ * @package com.tkpmnc.sgtaxiuser
  * @subpackage helper
  * @category ReturnValues
  * @author Seen Technologies

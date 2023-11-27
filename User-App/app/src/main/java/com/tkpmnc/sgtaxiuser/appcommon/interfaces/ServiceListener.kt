@@ -1,14 +1,14 @@
-package com.tkpmnc.sgtaxiusers.appcommon.interfaces
+package com.tkpmnc.sgtaxiuser.appcommon.interfaces
 
 /**
- * @package com.tkpmnc.sgtaxiusers
+ * @package com.tkpmnc.sgtaxiuser
  * @subpackage interfaces
  * @category ServiceListener
  * @author Seen Technologies
  * 
  */
 
-import com.tkpmnc.sgtaxiusers.appcommon.datamodels.JsonResponse
+import com.tkpmnc.sgtaxiuser.appcommon.datamodels.JsonResponse
 
 /*****************************************************************
  * ServiceListener

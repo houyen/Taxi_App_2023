@@ -1,4 +1,4 @@
-package com.tkpmnc.sgtaxiusers.appcommon.helper
+package com.tkpmnc.sgtaxiuser.appcommon.helper
 
 import com.google.android.gms.maps.model.LatLng
 

@@ -1,4 +1,4 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.datamodels
+package com.tkpmnc.sgtaxiuser.taxiapp.datamodels
 
 /**
  * Created by bowshulsheikrahaman on 29/01/18.

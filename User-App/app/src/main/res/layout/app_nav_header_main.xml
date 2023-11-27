@@ -39,7 +39,7 @@
         </androidx.cardview.widget.CardView>
 
 
-        <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+        <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
             android:id="@+id/tv_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -55,7 +55,7 @@
             android:textSize="@dimen/_16asp"
             app:fontName="@string/font_Medium" />
 
-        <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+        <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
             android:id="@+id/username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

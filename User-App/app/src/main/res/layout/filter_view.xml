@@ -16,7 +16,7 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             />
 
-    <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontButton
+    <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontButton
             android:id="@+id/tv_save_filter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

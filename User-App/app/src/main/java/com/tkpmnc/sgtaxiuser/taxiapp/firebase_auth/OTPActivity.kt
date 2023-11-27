@@ -1,4 +1,4 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.firebase_auth
+package com.tkpmnc.sgtaxiuser.taxiapp.firebase_auth
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,7 +11,7 @@ import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
-import com.tkpmnc.sgtaxiusers.R
+import com.tkpmnc.sgtaxiuser.R
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -22,11 +22,11 @@ import butterknife.OnClick
 import com.google.firebase.FirebaseException
 import com.google.firebase.FirebaseTooManyRequestsException
 import com.google.firebase.auth.*
-import com.tkpmnc.sgtaxiusers.appcommon.network.AppController
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonKeys
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonMethods
-import com.tkpmnc.sgtaxiusers.taxiapp.views.main.MainActivity
-import com.tkpmnc.sgtaxiusers.taxiapp.views.signinsignup.SSRegisterActivity
+import com.tkpmnc.sgtaxiuser.appcommon.network.AppController
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonKeys
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonMethods
+import com.tkpmnc.sgtaxiuser.taxiapp.views.main.MainActivity
+import com.tkpmnc.sgtaxiuser.taxiapp.views.signinsignup.SSRegisterActivity
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 

@@ -1,7 +1,7 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.sidebar.payment
+package com.tkpmnc.sgtaxiuser.taxiapp.sidebar.payment
 
 /**
- * @package com.tkpmnc.sgtaxiusers
+ * @package com.tkpmnc.sgtaxiuser
  * @subpackage Side_Bar.payment
  * @category PaymentPage
  * @author Seen Technologies
@@ -21,17 +21,17 @@ import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
 
-import com.tkpmnc.sgtaxiusers.R
-import com.tkpmnc.sgtaxiusers.appcommon.configs.SessionManager
-import com.tkpmnc.sgtaxiusers.appcommon.datamodels.JsonResponse
-import com.tkpmnc.sgtaxiusers.appcommon.interfaces.ApiService
-import com.tkpmnc.sgtaxiusers.appcommon.interfaces.ServiceListener
-import com.tkpmnc.sgtaxiusers.appcommon.network.AppController
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonKeys
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonMethods
-import com.tkpmnc.sgtaxiusers.appcommon.utils.Enums
-import com.tkpmnc.sgtaxiusers.appcommon.utils.RequestCallback
-import com.tkpmnc.sgtaxiusers.taxiapp.views.customize.CustomDialog
+import com.tkpmnc.sgtaxiuser.R
+import com.tkpmnc.sgtaxiuser.appcommon.configs.SessionManager
+import com.tkpmnc.sgtaxiuser.appcommon.datamodels.JsonResponse
+import com.tkpmnc.sgtaxiuser.appcommon.interfaces.ApiService
+import com.tkpmnc.sgtaxiuser.appcommon.interfaces.ServiceListener
+import com.tkpmnc.sgtaxiuser.appcommon.network.AppController
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonKeys
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonMethods
+import com.tkpmnc.sgtaxiuser.appcommon.utils.Enums
+import com.tkpmnc.sgtaxiuser.appcommon.utils.RequestCallback
+import com.tkpmnc.sgtaxiuser.taxiapp.views.customize.CustomDialog
 
 import org.json.JSONException
 import org.json.JSONObject
@@ -42,13 +42,13 @@ import butterknife.BindView
 import butterknife.ButterKnife
 import butterknife.OnClick
 import com.google.gson.Gson
-import com.tkpmnc.sgtaxiusers.taxiapp.datamodels.PaymentMethodsModel
+import com.tkpmnc.sgtaxiuser.taxiapp.datamodels.PaymentMethodsModel
 
 
-import com.tkpmnc.sgtaxiusers.appcommon.utils.Enums.REQ_ADD_CARD
-import com.tkpmnc.sgtaxiusers.appcommon.utils.Enums.REQ_ADD_PROMO
-import com.tkpmnc.sgtaxiusers.appcommon.utils.Enums.REQ_GET_PROMO
-import com.tkpmnc.sgtaxiusers.appcommon.views.CommonActivity
+import com.tkpmnc.sgtaxiuser.appcommon.utils.Enums.REQ_ADD_CARD
+import com.tkpmnc.sgtaxiuser.appcommon.utils.Enums.REQ_ADD_PROMO
+import com.tkpmnc.sgtaxiuser.appcommon.utils.Enums.REQ_GET_PROMO
+import com.tkpmnc.sgtaxiuser.appcommon.views.CommonActivity
 import kotlinx.android.synthetic.main.app_activity_add_wallet.*
 import kotlinx.android.synthetic.main.app_activity_add_wallet.common_header
 import kotlinx.android.synthetic.main.app_activity_payment_page.*
@@ -150,7 +150,7 @@ class PaymentPage : CommonActivity(), ServiceListener,PaymentMethodAdapter.ItemC
 
 
     override fun onItemClick() {
-        val stripe = Intent(this, com.tkpmnc.sgtaxiusers.taxiapp.views.addCardDetails.AddCardActivity::class.java)
+        val stripe = Intent(this, com.tkpmnc.sgtaxiuser.taxiapp.views.addCardDetails.AddCardActivity::class.java)
         startActivityForResult(stripe, CommonKeys.REQUEST_CODE_PAYMENT)
     }
 
@@ -234,7 +234,7 @@ class PaymentPage : CommonActivity(), ServiceListener,PaymentMethodAdapter.ItemC
 
     @OnClick(R.id.addCreditOrDebitCard)
     fun creditOrDebitCard() {
-            val stripe = Intent(this, com.tkpmnc.sgtaxiusers.taxiapp.views.addCardDetails.AddCardActivity::class.java)
+            val stripe = Intent(this, com.tkpmnc.sgtaxiuser.taxiapp.views.addCardDetails.AddCardActivity::class.java)
             startActivityForResult(stripe, CommonKeys.REQUEST_CODE_PAYMENT)
 
     }

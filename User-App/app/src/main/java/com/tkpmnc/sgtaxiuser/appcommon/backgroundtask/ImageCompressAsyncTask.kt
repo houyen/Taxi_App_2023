@@ -1,6 +1,6 @@
-package com.tkpmnc.sgtaxiusers.appcommon.backgroundtask
+package com.tkpmnc.sgtaxiuser.appcommon.backgroundtask
 /**
- * @package com.tkpmnc.sgtaxiusers
+ * @package com.tkpmnc.sgtaxiuser
  * @subpackage backgroundtask
  * @category ImageCompressAsyncTask
  * @author Seen Technologies
@@ -10,9 +10,9 @@ package com.tkpmnc.sgtaxiusers.appcommon.backgroundtask
 import android.graphics.Bitmap
 import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
-import com.tkpmnc.sgtaxiusers.appcommon.configs.SessionManager
-import com.tkpmnc.sgtaxiusers.appcommon.interfaces.ImageListener
-import com.tkpmnc.sgtaxiusers.appcommon.network.AppController
+import com.tkpmnc.sgtaxiuser.appcommon.configs.SessionManager
+import com.tkpmnc.sgtaxiuser.appcommon.interfaces.ImageListener
+import com.tkpmnc.sgtaxiuser.appcommon.network.AppController
 import id.zelory.compressor.Compressor
 import okhttp3.MediaType
 import okhttp3.MediaType.Companion.toMediaTypeOrNull

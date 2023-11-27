@@ -1,7 +1,7 @@
-package com.tkpmnc.sgtaxiusers.appcommon.map
+package com.tkpmnc.sgtaxiuser.appcommon.map
 
 /**
- * @package com.tkpmnc.sgtaxiusers
+ * @package com.tkpmnc.sgtaxiuser
  * @subpackage map
  * @category AppUtils
  * @author Seen Technologies
@@ -27,7 +27,7 @@ class AppUtils {
 
         val FAILURE_RESULT = 1
 
-        val PACKAGE_NAME = "com.tkpmnc.sgtaxiusers.map"
+        val PACKAGE_NAME = "com.tkpmnc.sgtaxiuser.map"
 
         val RECEIVER = "$PACKAGE_NAME.RECEIVER"
 

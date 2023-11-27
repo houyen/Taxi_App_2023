@@ -33,7 +33,7 @@
             android:orientation="vertical"
             >
 
-        <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+        <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/_20adp"
@@ -44,7 +44,7 @@
                 app:fontName="@string/font_Medium"
                 />
 
-        <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+        <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                 android:id="@+id/try_again"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -65,7 +65,7 @@
             android:layout_alignParentBottom="true"
             >
 
-        <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+        <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                 android:id="@+id/tv_manualtitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -96,7 +96,7 @@
                     app:tint="@color/newtaxi_app_black"
                     />
 
-            <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+            <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                     android:id="@+id/tv_call"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

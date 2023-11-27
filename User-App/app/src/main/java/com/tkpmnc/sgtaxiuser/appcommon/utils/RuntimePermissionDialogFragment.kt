@@ -1,4 +1,4 @@
-package com.tkpmnc.sgtaxiusers.appcommon.utils
+package com.tkpmnc.sgtaxiuser.appcommon.utils
 
 import android.Manifest
 import android.content.Context
@@ -19,8 +19,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 
-import com.tkpmnc.sgtaxiusers.BuildConfig
-import com.tkpmnc.sgtaxiusers.R
+import com.tkpmnc.sgtaxiuser.BuildConfig
+import com.tkpmnc.sgtaxiuser.R
 
 import java.util.Objects
 

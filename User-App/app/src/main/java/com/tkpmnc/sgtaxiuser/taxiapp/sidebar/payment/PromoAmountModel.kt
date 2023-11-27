@@ -1,9 +1,9 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.sidebar.payment
+package com.tkpmnc.sgtaxiuser.taxiapp.sidebar.payment
 
 /**
  * @author Seen Technologies
  * 
- * @package com.tkpmnc.sgtaxiusers
+ * @package com.tkpmnc.sgtaxiuser
  * @subpackage Side_Bar.payment
  * @category Model
  */

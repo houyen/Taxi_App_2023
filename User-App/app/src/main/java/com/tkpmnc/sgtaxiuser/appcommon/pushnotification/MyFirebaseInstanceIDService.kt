@@ -1,7 +1,7 @@
-package com.tkpmnc.sgtaxiusers.appcommon.pushnotification
+package com.tkpmnc.sgtaxiuser.appcommon.pushnotification
 
 /**
- * @package com.tkpmnc.sgtaxiusers
+ * @package com.tkpmnc.sgtaxiuser
  * @subpackage MyFirebaseInstanceIDService
  * @category Firebase instance service
  * @author Seen Technologies
@@ -11,15 +11,15 @@ package com.tkpmnc.sgtaxiusers.appcommon.pushnotification
 import android.text.TextUtils
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.gson.Gson
-import com.tkpmnc.sgtaxiusers.appcommon.configs.SessionManager
-import com.tkpmnc.sgtaxiusers.appcommon.datamodels.JsonResponse
-import com.tkpmnc.sgtaxiusers.appcommon.interfaces.ApiService
-import com.tkpmnc.sgtaxiusers.appcommon.interfaces.ServiceListener
-import com.tkpmnc.sgtaxiusers.appcommon.network.AppController
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonMethods
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonMethods.Companion.DebuggableLogE
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonMethods.Companion.DebuggableLogV
-import com.tkpmnc.sgtaxiusers.appcommon.utils.RequestCallback
+import com.tkpmnc.sgtaxiuser.appcommon.configs.SessionManager
+import com.tkpmnc.sgtaxiuser.appcommon.datamodels.JsonResponse
+import com.tkpmnc.sgtaxiuser.appcommon.interfaces.ApiService
+import com.tkpmnc.sgtaxiuser.appcommon.interfaces.ServiceListener
+import com.tkpmnc.sgtaxiuser.appcommon.network.AppController
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonMethods
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonMethods.Companion.DebuggableLogE
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonMethods.Companion.DebuggableLogV
+import com.tkpmnc.sgtaxiuser.appcommon.utils.RequestCallback
 import javax.inject.Inject
 
 /* ************************************************************

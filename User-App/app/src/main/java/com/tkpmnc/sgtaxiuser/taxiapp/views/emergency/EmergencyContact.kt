@@ -1,8 +1,8 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.views.emergency
+package com.tkpmnc.sgtaxiuser.taxiapp.views.emergency
 
 
 /**
- * @package com.tkpmnc.sgtaxiusers
+ * @package com.tkpmnc.sgtaxiuser
  * @subpackage emergency
  * @category Emergency contact
  * @author Seen Technologies
@@ -25,24 +25,24 @@ import butterknife.OnClick
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.gson.Gson
 import com.hbb20.CountryCodePicker
-import com.tkpmnc.sgtaxiusers.R
-import com.tkpmnc.sgtaxiusers.appcommon.configs.SessionManager
-import com.tkpmnc.sgtaxiusers.appcommon.database.SqLiteDb
-import com.tkpmnc.sgtaxiusers.appcommon.datamodels.JsonResponse
-import com.tkpmnc.sgtaxiusers.appcommon.helper.Constants
-import com.tkpmnc.sgtaxiusers.appcommon.interfaces.ApiService
-import com.tkpmnc.sgtaxiusers.appcommon.interfaces.ServiceListener
-import com.tkpmnc.sgtaxiusers.appcommon.network.AppController
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonMethods
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonMethods.Companion.DebuggableLogV
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonMethods.Companion.showUserMessage
-import com.tkpmnc.sgtaxiusers.appcommon.utils.RequestCallback
-import com.tkpmnc.sgtaxiusers.appcommon.utils.RuntimePermissionDialogFragment
-import com.tkpmnc.sgtaxiusers.appcommon.views.CommonActivity
-import com.tkpmnc.sgtaxiusers.taxiapp.adapters.EmergencyContactAdapter
-import com.tkpmnc.sgtaxiusers.taxiapp.datamodels.EmergencyContactModel
-import com.tkpmnc.sgtaxiusers.taxiapp.datamodels.main.EmergencyContactResult
-import com.tkpmnc.sgtaxiusers.taxiapp.views.customize.CustomDialog
+import com.tkpmnc.sgtaxiuser.R
+import com.tkpmnc.sgtaxiuser.appcommon.configs.SessionManager
+import com.tkpmnc.sgtaxiuser.appcommon.database.SqLiteDb
+import com.tkpmnc.sgtaxiuser.appcommon.datamodels.JsonResponse
+import com.tkpmnc.sgtaxiuser.appcommon.helper.Constants
+import com.tkpmnc.sgtaxiuser.appcommon.interfaces.ApiService
+import com.tkpmnc.sgtaxiuser.appcommon.interfaces.ServiceListener
+import com.tkpmnc.sgtaxiuser.appcommon.network.AppController
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonMethods
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonMethods.Companion.DebuggableLogV
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonMethods.Companion.showUserMessage
+import com.tkpmnc.sgtaxiuser.appcommon.utils.RequestCallback
+import com.tkpmnc.sgtaxiuser.appcommon.utils.RuntimePermissionDialogFragment
+import com.tkpmnc.sgtaxiuser.appcommon.views.CommonActivity
+import com.tkpmnc.sgtaxiuser.taxiapp.adapters.EmergencyContactAdapter
+import com.tkpmnc.sgtaxiuser.taxiapp.datamodels.EmergencyContactModel
+import com.tkpmnc.sgtaxiuser.taxiapp.datamodels.main.EmergencyContactResult
+import com.tkpmnc.sgtaxiuser.taxiapp.views.customize.CustomDialog
 import org.json.JSONException
 import kotlinx.android.synthetic.main.app_activity_add_wallet.*
 import java.util.*

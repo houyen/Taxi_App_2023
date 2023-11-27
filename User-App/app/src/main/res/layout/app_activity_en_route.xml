@@ -22,7 +22,7 @@
                 android:padding="@dimen/_5adp"
                 android:visibility="gone"
                 android:background="@drawable/app_curve_button_yellow">
-            <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+            <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                     android:id="@+id/arrivel_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -85,7 +85,7 @@
                         >
 
 
-                    <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+                    <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                             android:id="@+id/vehicle_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -102,7 +102,7 @@
                             android:textColor="@color/newtaxi_app_text_ash"
                             />
 
-                    <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+                    <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                             android:id="@+id/starrating"
                             android:layout_width="wrap_content"
                             android:layout_toEndOf="@+id/driver_name"
@@ -124,7 +124,7 @@
                             android:layout_alignParentEnd="true"
                             android:elevation="@dimen/_2adp"
                             android:layout_marginEnd="10dp">
-                        <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+                        <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                                 android:id="@+id/driver_car_number"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -139,7 +139,7 @@
                                 />
                     </RelativeLayout>
 
-                    <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+                    <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                             android:id="@+id/driver_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -176,7 +176,7 @@
                                 android:gravity="center"
                                 >
 
-                            <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+                            <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/contact"
@@ -201,7 +201,7 @@
                                 >
 
 
-                            <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+                            <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                                     android:id="@+id/cancel_txt"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -229,7 +229,7 @@
                     android:background="@color/newtaxi_app_white"
                     >
 
-                <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+                <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
@@ -253,7 +253,7 @@
                     android:background="@color/newtaxi_app_white"
                     >
 
-                <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+                <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                         android:id="@+id/pickup_location"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -289,7 +289,7 @@
                         android:visibility="gone"
                         />
 
-                <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+                <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                         android:layout_width="32dp"
                         android:layout_height="32dp"
                         android:layout_marginStart="10dp"
@@ -333,7 +333,7 @@
                         android:src="@drawable/app_ic_time"
                         />
 
-                <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+                <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                         android:id="@+id/arrival_txt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

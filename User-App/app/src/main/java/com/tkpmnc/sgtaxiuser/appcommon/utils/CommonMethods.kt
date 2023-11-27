@@ -1,7 +1,7 @@
-package com.tkpmnc.sgtaxiusers.appcommon.utils
+package com.tkpmnc.sgtaxiuser.appcommon.utils
 
 /**
- * @package com.tkpmnc.sgtaxiusers
+ * @package com.tkpmnc.sgtaxiuser
  * @subpackage utils
  * @category CommonMethods
  * @author Seen Technologies
@@ -54,25 +54,25 @@ import com.google.firebase.messaging.FirebaseMessaging
 import com.stripe.android.PaymentConfiguration
 import com.stripe.android.Stripe
 import com.stripe.android.model.ConfirmPaymentIntentParams
-import com.tkpmnc.sgtaxiusers.BuildConfig
-import com.tkpmnc.sgtaxiusers.R
-import com.tkpmnc.sgtaxiusers.appcommon.configs.SessionManager
-import com.tkpmnc.sgtaxiusers.appcommon.datamodels.JsonResponse
-import com.tkpmnc.sgtaxiusers.appcommon.helper.CommonDialog
-import com.tkpmnc.sgtaxiusers.appcommon.helper.Constants
-import com.tkpmnc.sgtaxiusers.appcommon.network.AppController
-import com.tkpmnc.sgtaxiusers.appcommon.pushnotification.Config
-import com.tkpmnc.sgtaxiusers.appcommon.pushnotification.MyFirebaseMessagingService
-import com.tkpmnc.sgtaxiusers.appcommon.pushnotification.NotificationUtils
-import com.tkpmnc.sgtaxiusers.appcommon.views.CommonActivity
-import com.tkpmnc.sgtaxiusers.taxiapp.firebase_keys.FirebaseDbKeys
-import com.tkpmnc.sgtaxiusers.taxiapp.sendrequest.DriverRatingActivity
-import com.tkpmnc.sgtaxiusers.taxiapp.sendrequest.SendingRequestActivity
-import com.tkpmnc.sgtaxiusers.taxiapp.views.customize.CustomDialog
-import com.tkpmnc.sgtaxiusers.taxiapp.views.firebaseChat.ActivityChat
-import com.tkpmnc.sgtaxiusers.taxiapp.views.main.MainActivity
-import com.tkpmnc.sgtaxiusers.taxiapp.views.voip.NewTaxiSinchService
-import com.tkpmnc.sgtaxiusers.taxiapp.views.voip.NewTaxiSinchService.Companion.sinchClient
+import com.tkpmnc.sgtaxiuser.BuildConfig
+import com.tkpmnc.sgtaxiuser.R
+import com.tkpmnc.sgtaxiuser.appcommon.configs.SessionManager
+import com.tkpmnc.sgtaxiuser.appcommon.datamodels.JsonResponse
+import com.tkpmnc.sgtaxiuser.appcommon.helper.CommonDialog
+import com.tkpmnc.sgtaxiuser.appcommon.helper.Constants
+import com.tkpmnc.sgtaxiuser.appcommon.network.AppController
+import com.tkpmnc.sgtaxiuser.appcommon.pushnotification.Config
+import com.tkpmnc.sgtaxiuser.appcommon.pushnotification.MyFirebaseMessagingService
+import com.tkpmnc.sgtaxiuser.appcommon.pushnotification.NotificationUtils
+import com.tkpmnc.sgtaxiuser.appcommon.views.CommonActivity
+import com.tkpmnc.sgtaxiuser.taxiapp.firebase_keys.FirebaseDbKeys
+import com.tkpmnc.sgtaxiuser.taxiapp.sendrequest.DriverRatingActivity
+import com.tkpmnc.sgtaxiuser.taxiapp.sendrequest.SendingRequestActivity
+import com.tkpmnc.sgtaxiuser.taxiapp.views.customize.CustomDialog
+import com.tkpmnc.sgtaxiuser.taxiapp.views.firebaseChat.ActivityChat
+import com.tkpmnc.sgtaxiuser.taxiapp.views.main.MainActivity
+import com.tkpmnc.sgtaxiuser.taxiapp.views.voip.NewTaxiSinchService
+import com.tkpmnc.sgtaxiuser.taxiapp.views.voip.NewTaxiSinchService.Companion.sinchClient
 import kotlinx.android.synthetic.main.app_common_header.view.*
 import org.json.JSONException
 import org.json.JSONObject

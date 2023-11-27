@@ -1,4 +1,4 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.datamodels
+package com.tkpmnc.sgtaxiuser.taxiapp.datamodels
 
 
 import com.google.gson.annotations.Expose

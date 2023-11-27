@@ -1,4 +1,4 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.interfaces
+package com.tkpmnc.sgtaxiuser.taxiapp.interfaces
 
 /**
  * Created by Suleiman on 16/11/16.

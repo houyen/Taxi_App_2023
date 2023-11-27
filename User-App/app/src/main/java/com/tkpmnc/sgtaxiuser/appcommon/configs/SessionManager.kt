@@ -1,7 +1,7 @@
-package com.tkpmnc.sgtaxiusers.appcommon.configs
+package com.tkpmnc.sgtaxiuser.appcommon.configs
 
 /**
- * @package com.tkpmnc.sgtaxiusers
+ * @package com.tkpmnc.sgtaxiuser
  * @subpackage configs
  * @category SessionManager
  * @author Seen Technologies
@@ -9,7 +9,7 @@ package com.tkpmnc.sgtaxiusers.appcommon.configs
  */
 
 import android.content.SharedPreferences
-import com.tkpmnc.sgtaxiusers.appcommon.network.AppController
+import com.tkpmnc.sgtaxiuser.appcommon.network.AppController
 import javax.inject.Inject
 
 /*****************************************************************

@@ -1,4 +1,4 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.views.main.filter
+package com.tkpmnc.sgtaxiuser.taxiapp.views.main.filter
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName

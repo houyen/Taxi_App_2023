@@ -1,10 +1,10 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.views.main.filter
+package com.tkpmnc.sgtaxiuser.taxiapp.views.main.filter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.tkpmnc.sgtaxiusers.appcommon.network.AppController
-import com.tkpmnc.sgtaxiusers.databinding.UpdateFiltersBinding
+import com.tkpmnc.sgtaxiuser.appcommon.network.AppController
+import com.tkpmnc.sgtaxiuser.databinding.UpdateFiltersBinding
 
 class FeaturesInVehicleAdapter(private val featuresInCarModel: List<FeaturesInCarModel>, private var featureSelectListener: FeatureSelectListener) : RecyclerView.Adapter<FeaturesInVehicleAdapter.ViewHolder>() {
     init {

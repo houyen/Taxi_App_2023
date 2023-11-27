@@ -1,19 +1,19 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.views.peakPricing
+package com.tkpmnc.sgtaxiuser.taxiapp.views.peakPricing
 
 import android.os.Bundle
 import android.widget.TextView
 
-import com.tkpmnc.sgtaxiusers.R
-import com.tkpmnc.sgtaxiusers.appcommon.configs.SessionManager
-import com.tkpmnc.sgtaxiusers.appcommon.network.AppController
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonKeys
+import com.tkpmnc.sgtaxiuser.R
+import com.tkpmnc.sgtaxiuser.appcommon.configs.SessionManager
+import com.tkpmnc.sgtaxiuser.appcommon.network.AppController
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonKeys
 
 import javax.inject.Inject
 
 import butterknife.BindView
 import butterknife.ButterKnife
 import butterknife.OnClick
-import com.tkpmnc.sgtaxiusers.appcommon.views.CommonActivity
+import com.tkpmnc.sgtaxiuser.appcommon.views.CommonActivity
 
 class PeakPricing : CommonActivity() {
     @BindView(R.id.tv_peak_price_percentage) lateinit var tvPeakPricePercentage: TextView

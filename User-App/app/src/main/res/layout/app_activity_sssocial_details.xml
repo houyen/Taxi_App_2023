@@ -49,7 +49,7 @@
                     android:layout_height="wrap_content"
                     >
 
-                <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+                <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                         android:id="@+id/namemsg"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -77,7 +77,7 @@
                         >
 
 
-                    <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontEditText
+                    <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontEditText
                             android:id="@+id/input_first"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -96,7 +96,7 @@
                             />
 
 
-                    <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontEditText
+                    <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontEditText
                         android:id="@+id/input_last"
                         android:layout_width="155dp"
                         android:layout_height="wrap_content"
@@ -114,7 +114,7 @@
 
                 </LinearLayout>
 
-                <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontEditText
+                <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontEditText
                         android:id="@+id/input_email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -173,7 +173,7 @@
                         android:layout_toEndOf="@+id/ccp"
                         app:hintEnabled="false">
 
-                        <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontEditText
+                        <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontEditText
                             android:id="@+id/input_phone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -220,7 +220,7 @@
                         app:passwordToggleTint="@color/newtaxi_app_black"
                         >
 
-                    <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontEditText
+                    <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontEditText
                             android:id="@+id/input_password"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -252,7 +252,7 @@
                         app:hintEnabled="false"
                         >
 
-                    <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontEditText
+                    <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontEditText
                             android:id="@+id/input_referral"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -267,7 +267,7 @@
                             />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontButton
+                <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontButton
                         android:id="@+id/socialdetailnext"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

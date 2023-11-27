@@ -1,7 +1,7 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.views.addCardDetails
+package com.tkpmnc.sgtaxiuser.taxiapp.views.addCardDetails
 
 /**
- * @package com.tkpmnc.sgtaxiusers
+ * @package com.tkpmnc.sgtaxiuser
  * @subpackage views.subviews
  * @category Stripe Activity
  * @author Seen Technologies
@@ -32,19 +32,19 @@ import com.stripe.android.model.PaymentMethod
 import com.stripe.android.model.PaymentMethodCreateParams
 import com.stripe.android.model.StripeIntent
 import com.stripe.android.view.CardMultilineWidget
-import com.tkpmnc.sgtaxiusers.R
-import com.tkpmnc.sgtaxiusers.appcommon.configs.SessionManager
-import com.tkpmnc.sgtaxiusers.appcommon.datamodels.JsonResponse
-import com.tkpmnc.sgtaxiusers.appcommon.interfaces.ApiService
-import com.tkpmnc.sgtaxiusers.appcommon.interfaces.ServiceListener
-import com.tkpmnc.sgtaxiusers.appcommon.network.AppController
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonKeys.REQUEST_CODE_PAYMENT
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonMethods
-import com.tkpmnc.sgtaxiusers.appcommon.utils.RequestCallback
-import com.tkpmnc.sgtaxiusers.taxiapp.views.customize.CustomDialog
+import com.tkpmnc.sgtaxiuser.R
+import com.tkpmnc.sgtaxiuser.appcommon.configs.SessionManager
+import com.tkpmnc.sgtaxiuser.appcommon.datamodels.JsonResponse
+import com.tkpmnc.sgtaxiuser.appcommon.interfaces.ApiService
+import com.tkpmnc.sgtaxiuser.appcommon.interfaces.ServiceListener
+import com.tkpmnc.sgtaxiuser.appcommon.network.AppController
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonKeys.REQUEST_CODE_PAYMENT
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonMethods
+import com.tkpmnc.sgtaxiuser.appcommon.utils.RequestCallback
+import com.tkpmnc.sgtaxiuser.taxiapp.views.customize.CustomDialog
 import javax.inject.Inject
 import com.stripe.android.model.*
-import com.tkpmnc.sgtaxiusers.appcommon.views.CommonActivity
+import com.tkpmnc.sgtaxiuser.appcommon.views.CommonActivity
 import kotlinx.android.synthetic.main.app_activity_add_wallet.*
 
 class AddCardActivity : CommonActivity(), ServiceListener {

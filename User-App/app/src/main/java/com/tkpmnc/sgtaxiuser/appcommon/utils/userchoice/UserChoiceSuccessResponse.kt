@@ -1,4 +1,4 @@
-package com.tkpmnc.sgtaxiusers.appcommon.utils.userchoice
+package com.tkpmnc.sgtaxiuser.appcommon.utils.userchoice
 
 interface UserChoiceSuccessResponse {
     fun onSuccessUserSelected(type: String?, userChoiceData: String?, userChoiceCode: String?)

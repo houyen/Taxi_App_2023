@@ -1,7 +1,7 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.datamodels.trip
+package com.tkpmnc.sgtaxiuser.taxiapp.datamodels.trip
 
 /**
- * @package com.tkpmnc.sgtaxiusers
+ * @package com.tkpmnc.sgtaxiuser
  * @subpackage sendrequest
  * @category TripDetailsModel Model
  * @author Seen Technologies

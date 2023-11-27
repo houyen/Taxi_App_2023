@@ -1,7 +1,7 @@
-package com.tkpmnc.sgtaxiusers.appcommon.custompalette
+package com.tkpmnc.sgtaxiuser.appcommon.custompalette
 
 /**
- * @package com.tkpmnc.sgtaxiusers
+ * @package com.tkpmnc.sgtaxiuser
  * @subpackage custompalette
  * @category FontTextView
  * @author Seen Technologies

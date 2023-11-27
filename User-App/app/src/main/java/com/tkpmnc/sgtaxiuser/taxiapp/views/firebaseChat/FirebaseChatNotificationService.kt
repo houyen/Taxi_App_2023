@@ -1,12 +1,12 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.views.firebaseChat
+package com.tkpmnc.sgtaxiuser.taxiapp.views.firebaseChat
 
 import android.app.Service
 import android.content.Intent
 import android.os.IBinder
 
-import com.tkpmnc.sgtaxiusers.appcommon.pushnotification.NotificationUtils
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonKeys
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonMethods
+import com.tkpmnc.sgtaxiuser.appcommon.pushnotification.NotificationUtils
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonKeys
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonMethods
 
 class FirebaseChatNotificationService : Service(), FirebaseChatHandler.FirebaseChatHandlerInterface {
     

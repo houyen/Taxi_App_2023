@@ -1,7 +1,7 @@
-package com.tkpmnc.sgtaxiusers.appcommon.helper
+package com.tkpmnc.sgtaxiuser.appcommon.helper
 
 /**
- * @package com.tkpmnc.sgtaxiusers
+ * @package com.tkpmnc.sgtaxiuser
  * @subpackage helper
  * @category CommonDialog
  * @author Seen Technologies
@@ -17,11 +17,11 @@ import android.view.View
 import android.view.Window
 import android.widget.Button
 import butterknife.ButterKnife
-import com.tkpmnc.sgtaxiusers.R
-import com.tkpmnc.sgtaxiusers.appcommon.configs.SessionManager
-import com.tkpmnc.sgtaxiusers.appcommon.network.AppController
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonMethods
-import com.tkpmnc.sgtaxiusers.taxiapp.views.main.MainActivity
+import com.tkpmnc.sgtaxiuser.R
+import com.tkpmnc.sgtaxiuser.appcommon.configs.SessionManager
+import com.tkpmnc.sgtaxiuser.appcommon.network.AppController
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonMethods
+import com.tkpmnc.sgtaxiuser.taxiapp.views.main.MainActivity
 import kotlinx.android.synthetic.main.activity_common_dialog.*
 import java.util.*
 import javax.inject.Inject

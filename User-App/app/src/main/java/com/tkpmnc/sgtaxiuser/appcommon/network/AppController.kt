@@ -1,7 +1,7 @@
-package com.tkpmnc.sgtaxiusers.appcommon.network
+package com.tkpmnc.sgtaxiuser.appcommon.network
 
 /**
- * @package com.tkpmnc.sgtaxiusers
+ * @package com.tkpmnc.sgtaxiuser
  * @subpackage network
  * @category AppController
  * @author Seen Technologies
@@ -16,11 +16,11 @@ import android.os.LocaleList
 import androidx.multidex.MultiDex
 
 import com.google.firebase.FirebaseApp
-import com.tkpmnc.sgtaxiusers.R
-import com.tkpmnc.sgtaxiusers.appcommon.dependencies.component.AppComponent
-import com.tkpmnc.sgtaxiusers.appcommon.dependencies.component.DaggerAppComponent
-import com.tkpmnc.sgtaxiusers.appcommon.dependencies.module.ApplicationModule
-import com.tkpmnc.sgtaxiusers.appcommon.dependencies.module.NetworkModule
+import com.tkpmnc.sgtaxiuser.R
+import com.tkpmnc.sgtaxiuser.appcommon.dependencies.component.AppComponent
+import com.tkpmnc.sgtaxiuser.appcommon.dependencies.component.DaggerAppComponent
+import com.tkpmnc.sgtaxiuser.appcommon.dependencies.module.ApplicationModule
+import com.tkpmnc.sgtaxiuser.appcommon.dependencies.module.NetworkModule
 import java.util.*
 
 /* ************************************************************

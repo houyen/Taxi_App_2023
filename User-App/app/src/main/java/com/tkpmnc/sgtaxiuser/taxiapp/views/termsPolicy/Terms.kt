@@ -1,9 +1,9 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.views.termsPolicy;
+package com.tkpmnc.sgtaxiuser.taxiapp.views.termsPolicy;
 
 import android.os.Bundle
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
-import com.tkpmnc.sgtaxiusers.R
+import com.tkpmnc.sgtaxiuser.R
 import kotlinx.android.synthetic.main.privacy_policy.*
 
 public class Terms : AppCompatActivity() {

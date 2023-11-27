@@ -1,10 +1,10 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.views.signinsignup;
+package com.tkpmnc.sgtaxiuser.taxiapp.views.signinsignup;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.tkpmnc.sgtaxiusers.R;
+import com.tkpmnc.sgtaxiuser.R;
 
 public class lanuching extends AppCompatActivity {
 

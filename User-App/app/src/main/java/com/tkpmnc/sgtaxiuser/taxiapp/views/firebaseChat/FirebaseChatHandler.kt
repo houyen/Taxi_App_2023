@@ -1,14 +1,14 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.views.firebaseChat
+package com.tkpmnc.sgtaxiuser.taxiapp.views.firebaseChat
 
 import android.text.TextUtils
 import com.google.firebase.database.*
-import com.tkpmnc.sgtaxiusers.R
-import com.tkpmnc.sgtaxiusers.appcommon.configs.SessionManager
-import com.tkpmnc.sgtaxiusers.taxiapp.firebase_keys.FirebaseDbKeys
-import com.tkpmnc.sgtaxiusers.appcommon.network.AppController
-import com.tkpmnc.sgtaxiusers.appcommon.network.AppController.Companion.getContext
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonKeys
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonMethods
+import com.tkpmnc.sgtaxiuser.R
+import com.tkpmnc.sgtaxiuser.appcommon.configs.SessionManager
+import com.tkpmnc.sgtaxiuser.taxiapp.firebase_keys.FirebaseDbKeys
+import com.tkpmnc.sgtaxiuser.appcommon.network.AppController
+import com.tkpmnc.sgtaxiuser.appcommon.network.AppController.Companion.getContext
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonKeys
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonMethods
 import java.util.*
 import javax.inject.Inject
 

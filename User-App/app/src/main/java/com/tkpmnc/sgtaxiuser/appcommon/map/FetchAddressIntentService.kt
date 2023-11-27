@@ -1,7 +1,7 @@
-package com.tkpmnc.sgtaxiusers.appcommon.map
+package com.tkpmnc.sgtaxiuser.appcommon.map
 
 /**
- * @package com.tkpmnc.sgtaxiusers
+ * @package com.tkpmnc.sgtaxiuser
  * @subpackage map
  * @category FetchAddressIntentService
  * @author Seen Technologies
@@ -17,13 +17,13 @@ import android.os.Bundle
 import android.os.ResultReceiver
 import android.text.TextUtils
 
-import com.tkpmnc.sgtaxiusers.R
+import com.tkpmnc.sgtaxiuser.R
 
 import java.io.IOException
 import java.util.ArrayList
 import java.util.Locale
 
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonMethods.Companion.DebuggableLogE
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonMethods.Companion.DebuggableLogE
 
 
 /**

@@ -30,7 +30,7 @@
                 android:paddingBottom="@dimen/_5adp"
                 >
 
-            <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+            <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                     android:id="@+id/car_min"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -59,7 +59,7 @@
                         android:duplicateParentState="true"
                         />
 
-                <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+                <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                     android:id="@+id/image_pool"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_18adp"
@@ -73,7 +73,7 @@
             </RelativeLayout>
 
 
-            <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+            <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                     android:id="@+id/car_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -88,7 +88,7 @@
                     app:fontName="@string/font_Medium"
                     />
 
-            <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+            <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                 android:id="@+id/car_amount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

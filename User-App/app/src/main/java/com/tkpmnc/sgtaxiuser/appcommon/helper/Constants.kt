@@ -1,12 +1,12 @@
-package com.tkpmnc.sgtaxiusers.appcommon.helper
+package com.tkpmnc.sgtaxiuser.appcommon.helper
 
 import com.google.android.gms.maps.model.LatLng
-import com.tkpmnc.sgtaxiusers.R
+import com.tkpmnc.sgtaxiuser.R
 
 /**
  * @author Seen Technologies
  * 
- * @package com.tkpmnc.sgtaxiusers
+ * @package com.tkpmnc.sgtaxiuser
  * @subpackage helper
  * @category Constants
  */

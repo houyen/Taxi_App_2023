@@ -1,11 +1,11 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.singledateandtimepicker.widget;
+package com.tkpmnc.sgtaxiuser.taxiapp.singledateandtimepicker.widget;
 
 import android.content.Context;
 import androidx.annotation.NonNull;
 import android.util.AttributeSet;
 
-import com.tkpmnc.sgtaxiusers.R;
-import com.tkpmnc.sgtaxiusers.taxiapp.singledateandtimepicker.DateHelper;
+import com.tkpmnc.sgtaxiuser.R;
+import com.tkpmnc.sgtaxiuser.taxiapp.singledateandtimepicker.DateHelper;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -14,7 +14,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import static com.tkpmnc.sgtaxiusers.taxiapp.singledateandtimepicker.widget.SingleDateAndTimeConstants.*;
+import static com.tkpmnc.sgtaxiuser.taxiapp.singledateandtimepicker.widget.SingleDateAndTimeConstants.*;
 
 public class WheelDayPicker extends WheelPicker<String> {
 

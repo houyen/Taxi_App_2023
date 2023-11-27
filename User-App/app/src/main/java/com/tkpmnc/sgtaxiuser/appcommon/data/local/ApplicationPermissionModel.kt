@@ -1,4 +1,4 @@
-package com.tkpmnc.sgtaxiusers.appcommon.data.local
+package com.tkpmnc.sgtaxiuser.appcommon.data.local
 
 data class ApplicationPermissionModel(
     val imageId: Int,

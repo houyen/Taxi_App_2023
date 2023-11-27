@@ -1,4 +1,4 @@
-package com.tkpmnc.sgtaxiusers.appcommon.helper
+package com.tkpmnc.sgtaxiuser.appcommon.helper
 
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -6,7 +6,7 @@ import android.content.Intent
 
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 
-import com.tkpmnc.sgtaxiusers.appcommon.pushnotification.Config
+import com.tkpmnc.sgtaxiuser.appcommon.pushnotification.Config
 
 
 class NetworkChangeReceiver : BroadcastReceiver() {

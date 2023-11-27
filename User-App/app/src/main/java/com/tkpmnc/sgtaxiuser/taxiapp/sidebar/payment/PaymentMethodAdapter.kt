@@ -1,4 +1,4 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.sidebar.payment
+package com.tkpmnc.sgtaxiuser.taxiapp.sidebar.payment
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -9,11 +9,11 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
-import com.tkpmnc.sgtaxiusers.R
-import com.tkpmnc.sgtaxiusers.appcommon.configs.SessionManager
-import com.tkpmnc.sgtaxiusers.taxiapp.datamodels.PaymentMethodsModel
-import com.tkpmnc.sgtaxiusers.appcommon.network.AppController
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonKeys
+import com.tkpmnc.sgtaxiuser.R
+import com.tkpmnc.sgtaxiuser.appcommon.configs.SessionManager
+import com.tkpmnc.sgtaxiuser.taxiapp.datamodels.PaymentMethodsModel
+import com.tkpmnc.sgtaxiuser.appcommon.network.AppController
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonKeys
 import javax.inject.Inject
 
 

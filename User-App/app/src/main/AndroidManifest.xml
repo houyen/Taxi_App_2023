@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        package="com.tkpmnc.sgtaxiusers">
+        package="com.tkpmnc.sgtaxiuser">
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -37,11 +37,11 @@
             android:required="false" />
 
     <permission
-            android:name="com.tkpmnc.sgtaxiusers.C2D_MESSAGE"
+            android:name="com.tkpmnc.sgtaxiuser.C2D_MESSAGE"
             android:protectionLevel="signature" />
 
     <application
-            android:name="com.tkpmnc.sgtaxiusers.appcommon.network.AppController"
+            android:name="com.tkpmnc.sgtaxiuser.appcommon.network.AppController"
             android:allowBackup="false"
             android:fullBackupContent="false"
             android:icon="@mipmap/ic_launcher"
@@ -53,7 +53,7 @@
             android:usesCleartextTraffic="true"
             tools:replace="android:allowBackup">
         <activity
-                android:name="com.tkpmnc.sgtaxiusers.taxiapp.views.signinsignup.lanuching"
+                android:name="com.tkpmnc.sgtaxiuser.taxiapp.views.signinsignup.lanuching"
                 android:screenOrientation="portrait"
                 android:theme="@style/AppTheme.NoActionBar"
                 android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
@@ -67,38 +67,38 @@
             -->
         </activity>
         <activity
-                android:name="com.tkpmnc.sgtaxiusers.appcommon.views.PaymentWebViewActivity"
+                android:name="com.tkpmnc.sgtaxiuser.appcommon.views.PaymentWebViewActivity"
                 android:screenOrientation="portrait"
                 android:theme="@style/AppTheme.NoActionBar"
                 android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <activity
-            android:name="com.tkpmnc.sgtaxiusers.appcommon.views.PaytmPaymentWebViewActivity"
+            android:name="com.tkpmnc.sgtaxiuser.appcommon.views.PaytmPaymentWebViewActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <activity
-            android:name="com.tkpmnc.sgtaxiusers.appcommon.views.FlutterwaveWebViewActivity"
+            android:name="com.tkpmnc.sgtaxiuser.appcommon.views.FlutterwaveWebViewActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <activity
-            android:name="com.tkpmnc.sgtaxiusers.taxiapp.firebase_auth.PhoneActivity"
+            android:name="com.tkpmnc.sgtaxiuser.taxiapp.firebase_auth.PhoneActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <activity
-            android:name="com.tkpmnc.sgtaxiusers.taxiapp.firebase_auth.OTPActivity"
+            android:name="com.tkpmnc.sgtaxiuser.taxiapp.firebase_auth.OTPActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
 
         <activity
-            android:name="com.tkpmnc.sgtaxiusers.appcommon.views.MpesaPaymentWebViewActivity"
+            android:name="com.tkpmnc.sgtaxiuser.appcommon.views.MpesaPaymentWebViewActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <receiver
-                android:name="com.tkpmnc.sgtaxiusers.appcommon.helper.NetworkChangeReceiver"
+                android:name="com.tkpmnc.sgtaxiuser.appcommon.helper.NetworkChangeReceiver"
                 android:label="NetworkChangeReceiver"
             android:exported="true">
             <intent-filter>
@@ -108,32 +108,32 @@
         </receiver>
 
         <service
-                android:name="com.tkpmnc.sgtaxiusers.taxiapp.views.voip.NewTaxiSinchService"
+                android:name="com.tkpmnc.sgtaxiuser.taxiapp.views.voip.NewTaxiSinchService"
                 android:enabled="true"
                 android:exported="false" />
 
         <activity
-                android:name="com.tkpmnc.sgtaxiusers.taxiapp.sendrequest.PaymentAmountPage"
+                android:name="com.tkpmnc.sgtaxiuser.taxiapp.sendrequest.PaymentAmountPage"
                 android:screenOrientation="portrait"
                 android:theme="@style/AppTheme.NoActionBar" />
         <activity
-                android:name="com.tkpmnc.sgtaxiusers.taxiapp.views.voip.CallProcessingActivity"
+                android:name="com.tkpmnc.sgtaxiuser.taxiapp.views.voip.CallProcessingActivity"
                 android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
                 android:excludeFromRecents="true"
                 android:screenOrientation="portrait"
                 android:theme="@style/AppTheme.NoActionBar"
                 android:windowSoftInputMode="stateHidden" />
         <activity
-                android:name="com.tkpmnc.sgtaxiusers.taxiapp.sendrequest.CancelYourTripActivity"
+                android:name="com.tkpmnc.sgtaxiuser.taxiapp.sendrequest.CancelYourTripActivity"
                 android:screenOrientation="portrait"
                 android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name="com.tkpmnc.sgtaxiusers.taxiapp.sendrequest.CancelYourRequestActivity"
+            android:name="com.tkpmnc.sgtaxiuser.taxiapp.sendrequest.CancelYourRequestActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-                android:name="com.tkpmnc.sgtaxiusers.taxiapp.views.splash.SplashActivity"
+                android:name="com.tkpmnc.sgtaxiuser.taxiapp.views.splash.SplashActivity"
                 android:label="@string/app_name"
                 android:theme="@style/SplashTheme"
                 android:exported="true">
@@ -145,10 +145,10 @@
         </activity>
 
         <service
-                android:name="com.tkpmnc.sgtaxiusers.appcommon.map.FetchAddressIntentService"
+                android:name="com.tkpmnc.sgtaxiuser.appcommon.map.FetchAddressIntentService"
                 android:exported="false" />
         <service
-                android:name="com.tkpmnc.sgtaxiusers.appcommon.pushnotification.MyFirebaseMessagingService"
+                android:name="com.tkpmnc.sgtaxiuser.appcommon.pushnotification.MyFirebaseMessagingService"
                 android:theme="@style/Theme.AppCompat"
                 android:exported="true">
             <intent-filter>
@@ -158,7 +158,7 @@
             </intent-filter>
         </service>
         <service
-                android:name="com.tkpmnc.sgtaxiusers.appcommon.pushnotification.MyFirebaseInstanceIDService"
+                android:name="com.tkpmnc.sgtaxiuser.appcommon.pushnotification.MyFirebaseInstanceIDService"
                 android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
@@ -203,72 +203,72 @@
             android:value="@string/google_maps_key" />
         -->
         <activity
-                android:name="com.tkpmnc.sgtaxiusers.taxiapp.views.signinsignup.SigninSignupActivity"
+                android:name="com.tkpmnc.sgtaxiuser.taxiapp.views.signinsignup.SigninSignupActivity"
                 android:screenOrientation="portrait"
                 android:theme="@style/AppTheme.NoActionBar"
                 android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-                android:name="com.tkpmnc.sgtaxiusers.taxiapp.views.main.MainActivity"
+                android:name="com.tkpmnc.sgtaxiuser.taxiapp.views.main.MainActivity"
                 android:screenOrientation="portrait"
                 android:theme="@style/AppTheme.NoActionBar"
                 android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-                android:name="com.tkpmnc.sgtaxiusers.taxiapp.views.signinsignup.SSResetPassword"
+                android:name="com.tkpmnc.sgtaxiuser.taxiapp.views.signinsignup.SSResetPassword"
                 android:screenOrientation="portrait"
                 android:theme="@style/AppTheme.NoActionBar"
                 android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <activity
-                android:name="com.tkpmnc.sgtaxiusers.taxiapp.sidebar.Profile"
+                android:name="com.tkpmnc.sgtaxiuser.taxiapp.sidebar.Profile"
                 android:screenOrientation="portrait"
                 android:theme="@style/AppTheme.NoActionBar"
                 android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <activity
-                android:name="com.tkpmnc.sgtaxiusers.taxiapp.views.signinsignup.SSRegisterActivity"
+                android:name="com.tkpmnc.sgtaxiuser.taxiapp.views.signinsignup.SSRegisterActivity"
                 android:screenOrientation="portrait"
                 android:theme="@style/AppTheme.NoActionBar"
                 android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <activity
-                android:name="com.tkpmnc.sgtaxiusers.taxiapp.sidebar.Setting"
+                android:name="com.tkpmnc.sgtaxiuser.taxiapp.sidebar.Setting"
                 android:screenOrientation="portrait"
                 android:theme="@style/AppTheme.NoActionBar"
                 android:windowSoftInputMode="stateAlwaysHidden|adjustNothing" />
         <activity
-                android:name="com.tkpmnc.sgtaxiusers.taxiapp.sidebar.FareBreakdown"
+                android:name="com.tkpmnc.sgtaxiuser.taxiapp.sidebar.FareBreakdown"
                 android:screenOrientation="portrait"
                 android:theme="@style/AppTheme.NoActionBar"
                 android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <activity
-                android:name="com.tkpmnc.sgtaxiusers.taxiapp.views.search.PlaceSearchActivity"
+                android:name="com.tkpmnc.sgtaxiuser.taxiapp.views.search.PlaceSearchActivity"
                 android:screenOrientation="portrait"
                 android:theme="@style/AppTheme.NoActionBar"
                 android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <activity
-                android:name="com.tkpmnc.sgtaxiusers.taxiapp.sidebar.EnRoute"
+                android:name="com.tkpmnc.sgtaxiuser.taxiapp.sidebar.EnRoute"
                 android:screenOrientation="portrait"
                 android:theme="@style/AppTheme.NoActionBar" />
         <activity
-                android:name="com.tkpmnc.sgtaxiusers.taxiapp.sidebar.DriverContactActivity"
+                android:name="com.tkpmnc.sgtaxiuser.taxiapp.sidebar.DriverContactActivity"
                 android:screenOrientation="portrait"
                 android:theme="@style/AppTheme.NoActionBar" />
         <activity
-                android:name="com.tkpmnc.sgtaxiusers.taxiapp.sidebar.trips.YourTrips"
+                android:name="com.tkpmnc.sgtaxiuser.taxiapp.sidebar.trips.YourTrips"
                 android:screenOrientation="portrait"
                 android:theme="@style/AppTheme.NoActionBar" />
         <activity
-                android:name="com.tkpmnc.sgtaxiusers.taxiapp.sidebar.trips.TripDetails"
+                android:name="com.tkpmnc.sgtaxiuser.taxiapp.sidebar.trips.TripDetails"
                 android:screenOrientation="portrait"
                 android:theme="@style/AppTheme.NoActionBar" />
         <activity
-                android:name="com.tkpmnc.sgtaxiusers.taxiapp.views.addCardDetails.AddCardActivity"
+                android:name="com.tkpmnc.sgtaxiuser.taxiapp.views.addCardDetails.AddCardActivity"
                 android:screenOrientation="portrait"
                 android:theme="@style/AppTheme.NoActionBar"
                 android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <activity
-                android:name="com.tkpmnc.sgtaxiusers.taxiapp.sendrequest.DriverNotAcceptActivity"
+                android:name="com.tkpmnc.sgtaxiuser.taxiapp.sendrequest.DriverNotAcceptActivity"
                 android:screenOrientation="portrait"
                 android:theme="@style/AppTheme.NoActionBar" />
         <activity
-                android:name="com.tkpmnc.sgtaxiusers.taxiapp.sendrequest.DriverRatingActivity"
+                android:name="com.tkpmnc.sgtaxiuser.taxiapp.sendrequest.DriverRatingActivity"
                 android:screenOrientation="portrait"
                 android:theme="@style/AppTheme.NoActionBar"
                 android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
@@ -282,14 +282,14 @@
             -->
         </activity>
         <activity
-                android:name="com.tkpmnc.sgtaxiusers.taxiapp.sidebar.AddHome"
+                android:name="com.tkpmnc.sgtaxiuser.taxiapp.sidebar.AddHome"
                 android:screenOrientation="portrait"
                 android:theme="@style/AppTheme.NoActionBar" />
         <activity
-                android:name="com.tkpmnc.sgtaxiusers.appcommon.helper.CommonDialog"
+                android:name="com.tkpmnc.sgtaxiuser.appcommon.helper.CommonDialog"
                 android:theme="@android:style/Theme.Holo.Light.Dialog" />
         <activity
-                android:name="com.tkpmnc.sgtaxiusers.taxiapp.sidebar.payment.PromoAmountActivity"
+                android:name="com.tkpmnc.sgtaxiuser.taxiapp.sidebar.payment.PromoAmountActivity"
                 android:screenOrientation="portrait"
                 android:theme="@style/AppTheme.NoActionBar"
                 android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
@@ -300,68 +300,68 @@
                 android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         -->
         <activity
-                android:name="com.tkpmnc.sgtaxiusers.taxiapp.sidebar.payment.AddWalletActivity"
+                android:name="com.tkpmnc.sgtaxiuser.taxiapp.sidebar.payment.AddWalletActivity"
                 android:screenOrientation="portrait"
                 android:theme="@style/AppTheme.NoActionBar"
                 android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <activity
-                android:name="com.tkpmnc.sgtaxiusers.taxiapp.views.emergency.EmergencyContact"
+                android:name="com.tkpmnc.sgtaxiuser.taxiapp.views.emergency.EmergencyContact"
                 android:screenOrientation="portrait"
                 android:theme="@style/AppTheme.NoActionBar"
                 android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <activity
-                android:name="com.tkpmnc.sgtaxiusers.taxiapp.views.emergency.SosActivity"
+                android:name="com.tkpmnc.sgtaxiuser.taxiapp.views.emergency.SosActivity"
                 android:screenOrientation="portrait"
                 android:theme="@style/AppTheme.NoActionBar"
                 android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <activity
-                android:name="com.tkpmnc.sgtaxiusers.taxiapp.ScheduleRideDetailActivity"
+                android:name="com.tkpmnc.sgtaxiuser.taxiapp.ScheduleRideDetailActivity"
                 android:screenOrientation="portrait"
                 android:theme="@style/AppTheme.NoActionBar"
                 android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
-        <activity android:name="com.tkpmnc.sgtaxiusers.taxiapp.views.firebaseChat.ActivityChat"
+        <activity android:name="com.tkpmnc.sgtaxiuser.taxiapp.views.firebaseChat.ActivityChat"
                 android:screenOrientation="portrait"
                 android:theme="@style/AppTheme.NoActionBar"
                 android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
 
         <service
-                android:name="com.tkpmnc.sgtaxiusers.taxiapp.views.firebaseChat.FirebaseChatNotificationService"
+                android:name="com.tkpmnc.sgtaxiuser.taxiapp.views.firebaseChat.FirebaseChatNotificationService"
                 android:enabled="true"
                 android:exported="false" />
 
-        <activity android:name="com.tkpmnc.sgtaxiusers.taxiapp.views.facebookAccountKit.FacebookAccountKitActivity" />
+        <activity android:name="com.tkpmnc.sgtaxiuser.taxiapp.views.facebookAccountKit.FacebookAccountKitActivity" />
         <activity
-                android:name="com.tkpmnc.sgtaxiusers.taxiapp.views.peakPricing.PeakPricing"
+                android:name="com.tkpmnc.sgtaxiuser.taxiapp.views.peakPricing.PeakPricing"
                 android:screenOrientation="portrait" />
-        <activity android:name="com.tkpmnc.sgtaxiusers.taxiapp.views.signinsignup.SSLoginActivity" />
+        <activity android:name="com.tkpmnc.sgtaxiuser.taxiapp.views.signinsignup.SSLoginActivity" />
         <activity
-                android:name="com.tkpmnc.sgtaxiusers.taxiapp.sidebar.referral.ShowReferralOptions"
+                android:name="com.tkpmnc.sgtaxiuser.taxiapp.sidebar.referral.ShowReferralOptions"
                 android:screenOrientation="portrait"
                 android:theme="@style/AppTheme.NoActionBar" />
         <activity
-                android:name="com.tkpmnc.sgtaxiusers.taxiapp.sidebar.payment.PaymentPage"
+                android:name="com.tkpmnc.sgtaxiuser.taxiapp.sidebar.payment.PaymentPage"
                 android:screenOrientation="portrait"
                 android:theme="@style/AppTheme.NoActionBar"
                 android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <activity
-                android:name="com.tkpmnc.sgtaxiusers.taxiapp.sendrequest.SendingRequestActivity"
+                android:name="com.tkpmnc.sgtaxiuser.taxiapp.sendrequest.SendingRequestActivity"
                 android:hardwareAccelerated="true"
                 android:screenOrientation="portrait"
                 android:theme="@style/AppTheme.NoActionBar" />
         <activity
-                android:name="com.tkpmnc.sgtaxiusers.appcommon.views.SupportActivityCommon"
+                android:name="com.tkpmnc.sgtaxiuser.appcommon.views.SupportActivityCommon"
                 android:screenOrientation="portrait"
                 android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.tkpmnc.sgtaxiusers.appcommon.views.BannerActivityCommon"
+            android:name="com.tkpmnc.sgtaxiuser.appcommon.views.BannerActivityCommon"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.tkpmnc.sgtaxiusers.taxiapp.views.termsPolicy.Privacy"
+            android:name="com.tkpmnc.sgtaxiuser.taxiapp.views.termsPolicy.Privacy"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.tkpmnc.sgtaxiusers.taxiapp.views.termsPolicy.Terms"
+            android:name="com.tkpmnc.sgtaxiuser.taxiapp.views.termsPolicy.Terms"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity

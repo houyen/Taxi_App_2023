@@ -1,13 +1,13 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.views.permissionoverview
+package com.tkpmnc.sgtaxiuser.taxiapp.views.permissionoverview
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.tkpmnc.sgtaxiusers.R
-import com.tkpmnc.sgtaxiusers.appcommon.data.local.ApplicationPermissionModel
-import com.tkpmnc.sgtaxiusers.databinding.ItemPermissionListBinding
+import com.tkpmnc.sgtaxiuser.R
+import com.tkpmnc.sgtaxiuser.appcommon.data.local.ApplicationPermissionModel
+import com.tkpmnc.sgtaxiuser.databinding.ItemPermissionListBinding
 
 class PermissionOverViewAdapter(
     var permissionList: List<ApplicationPermissionModel>,

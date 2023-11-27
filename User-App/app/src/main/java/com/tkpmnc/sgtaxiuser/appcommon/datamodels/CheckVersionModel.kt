@@ -1,4 +1,4 @@
-package com.tkpmnc.sgtaxiusers.appcommon.datamodels
+package com.tkpmnc.sgtaxiuser.appcommon.datamodels
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName

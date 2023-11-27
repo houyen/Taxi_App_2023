@@ -1,4 +1,4 @@
-package com.tkpmnc.sgtaxiusers.appcommon.views
+package com.tkpmnc.sgtaxiuser.appcommon.views
 
 import android.content.Context
 import android.content.Intent
@@ -12,11 +12,11 @@ import androidx.recyclerview.widget.RecyclerView
 import butterknife.BindView
 import butterknife.ButterKnife
 import butterknife.OnClick
-import com.tkpmnc.sgtaxiusers.R
-import com.tkpmnc.sgtaxiusers.appcommon.datamodels.Banner
-import com.tkpmnc.sgtaxiusers.appcommon.network.AppController
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonMethods
-import com.tkpmnc.sgtaxiusers.taxiapp.views.splash.SplashActivity.Companion.checkVersionModel
+import com.tkpmnc.sgtaxiuser.R
+import com.tkpmnc.sgtaxiuser.appcommon.datamodels.Banner
+import com.tkpmnc.sgtaxiuser.appcommon.network.AppController
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonMethods
+import com.tkpmnc.sgtaxiuser.taxiapp.views.splash.SplashActivity.Companion.checkVersionModel
 import kotlinx.android.synthetic.main.app_activity_add_wallet.*
 import java.util.*
 import javax.inject.Inject

@@ -44,7 +44,7 @@
                 />
 
 
-        <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+        <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                 android:id="@+id/tv_mobile_heading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -60,7 +60,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/imageView2"
                 />
 
-        <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+        <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                 android:id="@+id/tv_mobile_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -118,7 +118,7 @@
                     app:hintEnabled="false"
                     >
 
-                <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontEditText
+                <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontEditText
                         android:id="@+id/phone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -209,7 +209,7 @@
                 app:tint="@color/newtaxi_app_yellow"
                 />
 
-        <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+        <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                 android:id="@+id/tv_otp_heading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -226,7 +226,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/imgv_otp"
                 />
 
-        <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+        <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                 android:id="@+id/tv_otp_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -252,7 +252,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/tv_otp_text"
                 >
 
-            <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontEditText
+            <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontEditText
                     android:id="@+id/one"
                     android:layout_width="@dimen/_60adp"
                     android:layout_height="@dimen/_60adp"
@@ -274,10 +274,10 @@
                     >
 
                 <requestFocus />
-            </com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontEditText>
+            </com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontEditText>
 
 
-            <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontEditText
+            <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontEditText
                     android:id="@+id/two"
                     android:layout_width="@dimen/_60adp"
                     android:layout_height="@dimen/_60adp"
@@ -299,7 +299,7 @@
                     android:textCursorDrawable="@drawable/app_cursor_color"
                     />
 
-            <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontEditText
+            <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontEditText
                     android:id="@+id/three"
                     android:layout_width="@dimen/_60adp"
                     android:layout_height="@dimen/_60adp"
@@ -321,7 +321,7 @@
                     android:textCursorDrawable="@drawable/app_cursor_color"
                     />
 
-            <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontEditText
+            <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontEditText
                     android:id="@+id/four"
                     android:layout_width="@dimen/_60adp"
                     android:layout_height="@dimen/_60adp"
@@ -344,7 +344,7 @@
                     />
         </RelativeLayout>
 
-        <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+        <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                 android:id="@+id/tv_otp_error_field"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -400,7 +400,7 @@
 
 
         </androidx.cardview.widget.CardView>
-        <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+        <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                 android:id="@+id/tv_resend_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -419,7 +419,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 />
 
-        <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+        <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                 android:id="@+id/tv_otp_resend_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -439,7 +439,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 />
 
-        <com.tkpmnc.sgtaxiusers.appcommon.custompalette.FontTextView
+        <com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontTextView
                 android:id="@+id/tv_otp_resend_countdown"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

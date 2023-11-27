@@ -1,7 +1,7 @@
-package com.tkpmnc.sgtaxiusers.appcommon.dependencies.component
+package com.tkpmnc.sgtaxiuser.appcommon.dependencies.component
 
 /**
- * @package com.tkpmnc.sgtaxiusers
+ * @package com.tkpmnc.sgtaxiuser
  * @subpackage dependencies.component
  * @category AppComponent
  * @author Seen Technologies
@@ -9,63 +9,63 @@ package com.tkpmnc.sgtaxiusers.appcommon.dependencies.component
  */
 
 
-import com.tkpmnc.sgtaxiusers.taxiapp.firebase_auth.OTPActivity
-import com.tkpmnc.sgtaxiusers.taxiapp.firebase_auth.PhoneActivity
-import com.tkpmnc.sgtaxiusers.taxiapp.ScheduleRideDetailActivity
-import com.tkpmnc.sgtaxiusers.taxiapp.adapters.CarDetailsListAdapter
+import com.tkpmnc.sgtaxiuser.taxiapp.firebase_auth.OTPActivity
+import com.tkpmnc.sgtaxiuser.taxiapp.firebase_auth.PhoneActivity
+import com.tkpmnc.sgtaxiuser.taxiapp.ScheduleRideDetailActivity
+import com.tkpmnc.sgtaxiuser.taxiapp.adapters.CarDetailsListAdapter
 
-import com.tkpmnc.sgtaxiusers.taxiapp.adapters.PastTripsPaginationAdapter
-import com.tkpmnc.sgtaxiusers.taxiapp.adapters.PriceRecycleAdapter
-import com.tkpmnc.sgtaxiusers.taxiapp.adapters.UpcomingAdapter
-import com.tkpmnc.sgtaxiusers.taxiapp.adapters.UpcomingTripsPaginationAdapter
-import com.tkpmnc.sgtaxiusers.appcommon.backgroundtask.ImageCompressAsyncTask
-import com.tkpmnc.sgtaxiusers.appcommon.configs.RunTimePermission
-import com.tkpmnc.sgtaxiusers.appcommon.configs.SessionManager
-import com.tkpmnc.sgtaxiusers.taxiapp.database.AddFirebaseDatabase
-import com.tkpmnc.sgtaxiusers.appcommon.dependencies.module.AppContainerModule
-import com.tkpmnc.sgtaxiusers.appcommon.dependencies.module.ApplicationModule
-import com.tkpmnc.sgtaxiusers.appcommon.dependencies.module.NetworkModule
-import com.tkpmnc.sgtaxiusers.appcommon.helper.CommonDialog
-import com.tkpmnc.sgtaxiusers.appcommon.drawpolyline.DownloadTask
-import com.tkpmnc.sgtaxiusers.appcommon.pushnotification.MyFirebaseInstanceIDService
-import com.tkpmnc.sgtaxiusers.appcommon.pushnotification.MyFirebaseMessagingService
-import com.tkpmnc.sgtaxiusers.taxiapp.sendrequest.CancelYourTripActivity
-import com.tkpmnc.sgtaxiusers.taxiapp.sendrequest.DriverNotAcceptActivity
-import com.tkpmnc.sgtaxiusers.taxiapp.sendrequest.DriverRatingActivity
-import com.tkpmnc.sgtaxiusers.taxiapp.sendrequest.PaymentAmountPage
-import com.tkpmnc.sgtaxiusers.taxiapp.sendrequest.SendingRequestActivity
-import com.tkpmnc.sgtaxiusers.taxiapp.sidebar.AddHome
-import com.tkpmnc.sgtaxiusers.taxiapp.sidebar.DriverContactActivity
-import com.tkpmnc.sgtaxiusers.taxiapp.sidebar.EnRoute
-import com.tkpmnc.sgtaxiusers.taxiapp.sidebar.FareBreakdown
-import com.tkpmnc.sgtaxiusers.taxiapp.sidebar.Profile
-import com.tkpmnc.sgtaxiusers.taxiapp.sidebar.Setting
-import com.tkpmnc.sgtaxiusers.taxiapp.sidebar.payment.*
-import com.tkpmnc.sgtaxiusers.taxiapp.sidebar.referral.ShowReferralOptions
-import com.tkpmnc.sgtaxiusers.taxiapp.sidebar.trips.Past
-import com.tkpmnc.sgtaxiusers.taxiapp.sidebar.trips.Receipt
-import com.tkpmnc.sgtaxiusers.taxiapp.sidebar.trips.TripDetails
-import com.tkpmnc.sgtaxiusers.taxiapp.sidebar.trips.Upcoming
-import com.tkpmnc.sgtaxiusers.taxiapp.sidebar.trips.YourTrips
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonMethods
-import com.tkpmnc.sgtaxiusers.appcommon.utils.RequestCallback
-import com.tkpmnc.sgtaxiusers.appcommon.utils.userchoice.UserChoice
-import com.tkpmnc.sgtaxiusers.appcommon.views.*
-import com.tkpmnc.sgtaxiusers.taxiapp.views.addCardDetails.AddCardActivity
-import com.tkpmnc.sgtaxiusers.taxiapp.views.facebookAccountKit.FacebookAccountKitActivity
-import com.tkpmnc.sgtaxiusers.taxiapp.views.emergency.EmergencyContact
-import com.tkpmnc.sgtaxiusers.taxiapp.views.emergency.SosActivity
-import com.tkpmnc.sgtaxiusers.taxiapp.views.firebaseChat.ActivityChat
-import com.tkpmnc.sgtaxiusers.taxiapp.views.firebaseChat.AdapterFirebaseRecylcerview
-import com.tkpmnc.sgtaxiusers.taxiapp.views.firebaseChat.FirebaseChatHandler
-import com.tkpmnc.sgtaxiusers.taxiapp.views.main.MainActivity
-import com.tkpmnc.sgtaxiusers.taxiapp.views.main.filter.FeaturesInVehicleAdapter
-import com.tkpmnc.sgtaxiusers.taxiapp.views.peakPricing.PeakPricing
-import com.tkpmnc.sgtaxiusers.taxiapp.views.search.PlaceSearchActivity
-import com.tkpmnc.sgtaxiusers.taxiapp.views.signinsignup.*
-import com.tkpmnc.sgtaxiusers.taxiapp.views.splash.SplashActivity
-import com.tkpmnc.sgtaxiusers.taxiapp.views.voip.CallProcessingActivity
-import com.tkpmnc.sgtaxiusers.taxiapp.views.voip.NewTaxiSinchService
+import com.tkpmnc.sgtaxiuser.taxiapp.adapters.PastTripsPaginationAdapter
+import com.tkpmnc.sgtaxiuser.taxiapp.adapters.PriceRecycleAdapter
+import com.tkpmnc.sgtaxiuser.taxiapp.adapters.UpcomingAdapter
+import com.tkpmnc.sgtaxiuser.taxiapp.adapters.UpcomingTripsPaginationAdapter
+import com.tkpmnc.sgtaxiuser.appcommon.backgroundtask.ImageCompressAsyncTask
+import com.tkpmnc.sgtaxiuser.appcommon.configs.RunTimePermission
+import com.tkpmnc.sgtaxiuser.appcommon.configs.SessionManager
+import com.tkpmnc.sgtaxiuser.taxiapp.database.AddFirebaseDatabase
+import com.tkpmnc.sgtaxiuser.appcommon.dependencies.module.AppContainerModule
+import com.tkpmnc.sgtaxiuser.appcommon.dependencies.module.ApplicationModule
+import com.tkpmnc.sgtaxiuser.appcommon.dependencies.module.NetworkModule
+import com.tkpmnc.sgtaxiuser.appcommon.helper.CommonDialog
+import com.tkpmnc.sgtaxiuser.appcommon.drawpolyline.DownloadTask
+import com.tkpmnc.sgtaxiuser.appcommon.pushnotification.MyFirebaseInstanceIDService
+import com.tkpmnc.sgtaxiuser.appcommon.pushnotification.MyFirebaseMessagingService
+import com.tkpmnc.sgtaxiuser.taxiapp.sendrequest.CancelYourTripActivity
+import com.tkpmnc.sgtaxiuser.taxiapp.sendrequest.DriverNotAcceptActivity
+import com.tkpmnc.sgtaxiuser.taxiapp.sendrequest.DriverRatingActivity
+import com.tkpmnc.sgtaxiuser.taxiapp.sendrequest.PaymentAmountPage
+import com.tkpmnc.sgtaxiuser.taxiapp.sendrequest.SendingRequestActivity
+import com.tkpmnc.sgtaxiuser.taxiapp.sidebar.AddHome
+import com.tkpmnc.sgtaxiuser.taxiapp.sidebar.DriverContactActivity
+import com.tkpmnc.sgtaxiuser.taxiapp.sidebar.EnRoute
+import com.tkpmnc.sgtaxiuser.taxiapp.sidebar.FareBreakdown
+import com.tkpmnc.sgtaxiuser.taxiapp.sidebar.Profile
+import com.tkpmnc.sgtaxiuser.taxiapp.sidebar.Setting
+import com.tkpmnc.sgtaxiuser.taxiapp.sidebar.payment.*
+import com.tkpmnc.sgtaxiuser.taxiapp.sidebar.referral.ShowReferralOptions
+import com.tkpmnc.sgtaxiuser.taxiapp.sidebar.trips.Past
+import com.tkpmnc.sgtaxiuser.taxiapp.sidebar.trips.Receipt
+import com.tkpmnc.sgtaxiuser.taxiapp.sidebar.trips.TripDetails
+import com.tkpmnc.sgtaxiuser.taxiapp.sidebar.trips.Upcoming
+import com.tkpmnc.sgtaxiuser.taxiapp.sidebar.trips.YourTrips
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonMethods
+import com.tkpmnc.sgtaxiuser.appcommon.utils.RequestCallback
+import com.tkpmnc.sgtaxiuser.appcommon.utils.userchoice.UserChoice
+import com.tkpmnc.sgtaxiuser.appcommon.views.*
+import com.tkpmnc.sgtaxiuser.taxiapp.views.addCardDetails.AddCardActivity
+import com.tkpmnc.sgtaxiuser.taxiapp.views.facebookAccountKit.FacebookAccountKitActivity
+import com.tkpmnc.sgtaxiuser.taxiapp.views.emergency.EmergencyContact
+import com.tkpmnc.sgtaxiuser.taxiapp.views.emergency.SosActivity
+import com.tkpmnc.sgtaxiuser.taxiapp.views.firebaseChat.ActivityChat
+import com.tkpmnc.sgtaxiuser.taxiapp.views.firebaseChat.AdapterFirebaseRecylcerview
+import com.tkpmnc.sgtaxiuser.taxiapp.views.firebaseChat.FirebaseChatHandler
+import com.tkpmnc.sgtaxiuser.taxiapp.views.main.MainActivity
+import com.tkpmnc.sgtaxiuser.taxiapp.views.main.filter.FeaturesInVehicleAdapter
+import com.tkpmnc.sgtaxiuser.taxiapp.views.peakPricing.PeakPricing
+import com.tkpmnc.sgtaxiuser.taxiapp.views.search.PlaceSearchActivity
+import com.tkpmnc.sgtaxiuser.taxiapp.views.signinsignup.*
+import com.tkpmnc.sgtaxiuser.taxiapp.views.splash.SplashActivity
+import com.tkpmnc.sgtaxiuser.taxiapp.views.voip.CallProcessingActivity
+import com.tkpmnc.sgtaxiuser.taxiapp.views.voip.NewTaxiSinchService
 
 import javax.inject.Singleton
 

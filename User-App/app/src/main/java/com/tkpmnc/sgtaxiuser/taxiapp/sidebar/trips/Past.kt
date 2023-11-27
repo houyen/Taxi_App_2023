@@ -1,7 +1,7 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.sidebar.trips
+package com.tkpmnc.sgtaxiuser.taxiapp.sidebar.trips
 
 /**
- * @package com.tkpmnc.sgtaxiusers
+ * @package com.tkpmnc.sgtaxiuser
  * @subpackage Side_Bar.trips
  * @category Past
  * @author Seen Technologies
@@ -27,29 +27,29 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import butterknife.BindView
 import butterknife.ButterKnife
 import com.google.gson.Gson
-import com.tkpmnc.sgtaxiusers.R
-import com.tkpmnc.sgtaxiusers.appcommon.configs.SessionManager
-import com.tkpmnc.sgtaxiusers.appcommon.database.SqLiteDb
-import com.tkpmnc.sgtaxiusers.appcommon.datamodels.JsonResponse
-import com.tkpmnc.sgtaxiusers.appcommon.helper.Constants
-import com.tkpmnc.sgtaxiusers.appcommon.interfaces.ApiService
-import com.tkpmnc.sgtaxiusers.appcommon.interfaces.ServiceListener
-import com.tkpmnc.sgtaxiusers.appcommon.network.AppController
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonMethods
-import com.tkpmnc.sgtaxiusers.appcommon.utils.Enums.REQ_GET_DRIVER
-import com.tkpmnc.sgtaxiusers.appcommon.utils.Enums.REQ_PAST_TRIPS
-import com.tkpmnc.sgtaxiusers.appcommon.utils.PaginationScrollListener
-import com.tkpmnc.sgtaxiusers.appcommon.utils.RequestCallback
-import com.tkpmnc.sgtaxiusers.taxiapp.adapters.PastTripsPaginationAdapter
-import com.tkpmnc.sgtaxiusers.taxiapp.datamodels.trip.TripDetailsModel
-import com.tkpmnc.sgtaxiusers.taxiapp.datamodels.trip.TripListModel
-import com.tkpmnc.sgtaxiusers.taxiapp.datamodels.trip.TripListModelArrayList
-import com.tkpmnc.sgtaxiusers.taxiapp.interfaces.PaginationAdapterCallback
-import com.tkpmnc.sgtaxiusers.taxiapp.interfaces.YourTripsListener
-import com.tkpmnc.sgtaxiusers.taxiapp.sendrequest.DriverRatingActivity
-import com.tkpmnc.sgtaxiusers.taxiapp.sendrequest.PaymentAmountPage
-import com.tkpmnc.sgtaxiusers.taxiapp.views.customize.CustomDialog
-import com.tkpmnc.sgtaxiusers.taxiapp.views.main.MainActivity
+import com.tkpmnc.sgtaxiuser.R
+import com.tkpmnc.sgtaxiuser.appcommon.configs.SessionManager
+import com.tkpmnc.sgtaxiuser.appcommon.database.SqLiteDb
+import com.tkpmnc.sgtaxiuser.appcommon.datamodels.JsonResponse
+import com.tkpmnc.sgtaxiuser.appcommon.helper.Constants
+import com.tkpmnc.sgtaxiuser.appcommon.interfaces.ApiService
+import com.tkpmnc.sgtaxiuser.appcommon.interfaces.ServiceListener
+import com.tkpmnc.sgtaxiuser.appcommon.network.AppController
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonMethods
+import com.tkpmnc.sgtaxiuser.appcommon.utils.Enums.REQ_GET_DRIVER
+import com.tkpmnc.sgtaxiuser.appcommon.utils.Enums.REQ_PAST_TRIPS
+import com.tkpmnc.sgtaxiuser.appcommon.utils.PaginationScrollListener
+import com.tkpmnc.sgtaxiuser.appcommon.utils.RequestCallback
+import com.tkpmnc.sgtaxiuser.taxiapp.adapters.PastTripsPaginationAdapter
+import com.tkpmnc.sgtaxiuser.taxiapp.datamodels.trip.TripDetailsModel
+import com.tkpmnc.sgtaxiuser.taxiapp.datamodels.trip.TripListModel
+import com.tkpmnc.sgtaxiuser.taxiapp.datamodels.trip.TripListModelArrayList
+import com.tkpmnc.sgtaxiuser.taxiapp.interfaces.PaginationAdapterCallback
+import com.tkpmnc.sgtaxiuser.taxiapp.interfaces.YourTripsListener
+import com.tkpmnc.sgtaxiuser.taxiapp.sendrequest.DriverRatingActivity
+import com.tkpmnc.sgtaxiuser.taxiapp.sendrequest.PaymentAmountPage
+import com.tkpmnc.sgtaxiuser.taxiapp.views.customize.CustomDialog
+import com.tkpmnc.sgtaxiuser.taxiapp.views.main.MainActivity
 import org.json.JSONException
 import javax.inject.Inject
 

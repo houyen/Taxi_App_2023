@@ -1,7 +1,7 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.sidebar
+package com.tkpmnc.sgtaxiuser.taxiapp.sidebar
 
 /**
- * @package com.tkpmnc.sgtaxiusers
+ * @package com.tkpmnc.sgtaxiuser
  * @subpackage Side_Bar
  * @category EnRoute
  * @author Seen Technologies
@@ -25,17 +25,17 @@ import butterknife.ButterKnife
 import butterknife.OnClick
 import com.google.firebase.messaging.FirebaseMessaging
 import com.squareup.picasso.Picasso
-import com.tkpmnc.sgtaxiusers.R
-import com.tkpmnc.sgtaxiusers.appcommon.configs.SessionManager
-import com.tkpmnc.sgtaxiusers.taxiapp.datamodels.trip.Riders
-import com.tkpmnc.sgtaxiusers.taxiapp.datamodels.trip.TripDetailsModel
-import com.tkpmnc.sgtaxiusers.appcommon.network.AppController
-import com.tkpmnc.sgtaxiusers.appcommon.pushnotification.Config
-import com.tkpmnc.sgtaxiusers.appcommon.pushnotification.NotificationUtils
-import com.tkpmnc.sgtaxiusers.taxiapp.sendrequest.CancelYourTripActivity
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonKeys.KEY_CALLER_ID
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonMethods
-import com.tkpmnc.sgtaxiusers.appcommon.views.CommonActivity
+import com.tkpmnc.sgtaxiuser.R
+import com.tkpmnc.sgtaxiuser.appcommon.configs.SessionManager
+import com.tkpmnc.sgtaxiuser.taxiapp.datamodels.trip.Riders
+import com.tkpmnc.sgtaxiuser.taxiapp.datamodels.trip.TripDetailsModel
+import com.tkpmnc.sgtaxiuser.appcommon.network.AppController
+import com.tkpmnc.sgtaxiuser.appcommon.pushnotification.Config
+import com.tkpmnc.sgtaxiuser.appcommon.pushnotification.NotificationUtils
+import com.tkpmnc.sgtaxiuser.taxiapp.sendrequest.CancelYourTripActivity
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonKeys.KEY_CALLER_ID
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonMethods
+import com.tkpmnc.sgtaxiuser.appcommon.views.CommonActivity
 import kotlinx.android.synthetic.main.app_activity_add_wallet.*
 import org.json.JSONException
 import org.json.JSONObject

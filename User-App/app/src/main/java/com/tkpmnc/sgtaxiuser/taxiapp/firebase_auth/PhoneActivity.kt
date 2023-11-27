@@ -1,4 +1,4 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.firebase_auth
+package com.tkpmnc.sgtaxiuser.taxiapp.firebase_auth
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -17,12 +17,12 @@ import com.google.firebase.FirebaseException
 import com.google.firebase.FirebaseTooManyRequestsException
 import com.google.firebase.auth.*
 import com.hbb20.CountryCodePicker
-import com.tkpmnc.sgtaxiusers.R
-import com.tkpmnc.sgtaxiusers.appcommon.network.AppController
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonMethods
-import com.tkpmnc.sgtaxiusers.taxiapp.firebase_auth.OTPActivity
-import com.tkpmnc.sgtaxiusers.taxiapp.views.main.MainActivity
-import com.tkpmnc.sgtaxiusers.taxiapp.views.signinsignup.SSRegisterActivity
+import com.tkpmnc.sgtaxiuser.R
+import com.tkpmnc.sgtaxiuser.appcommon.network.AppController
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonMethods
+import com.tkpmnc.sgtaxiuser.taxiapp.firebase_auth.OTPActivity
+import com.tkpmnc.sgtaxiuser.taxiapp.views.main.MainActivity
+import com.tkpmnc.sgtaxiuser.taxiapp.views.signinsignup.SSRegisterActivity
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 

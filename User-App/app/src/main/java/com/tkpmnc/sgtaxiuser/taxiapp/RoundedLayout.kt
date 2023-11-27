@@ -1,4 +1,4 @@
-package com.tkpmnc.sgtaxiusers.taxiapp
+package com.tkpmnc.sgtaxiuser.taxiapp
 
 
 import android.content.Context

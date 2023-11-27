@@ -1,7 +1,7 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.views.customize
+package com.tkpmnc.sgtaxiuser.taxiapp.views.customize
 
 /**
- * @package com.tkpmnc.sgtaxiusers
+ * @package com.tkpmnc.sgtaxiuser
  * @subpackage view.customize
  * @category BaseDialogFragment
  * @author Seen Technologies
@@ -17,7 +17,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
 
-import com.tkpmnc.sgtaxiusers.R
+import com.tkpmnc.sgtaxiuser.R
 
 /*****************************************************************
  * Custom dialog base fragment

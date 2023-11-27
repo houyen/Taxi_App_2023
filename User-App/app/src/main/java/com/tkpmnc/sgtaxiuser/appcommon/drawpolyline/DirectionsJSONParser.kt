@@ -1,7 +1,7 @@
-package com.tkpmnc.sgtaxiusers.appcommon.drawpolyline
+package com.tkpmnc.sgtaxiuser.appcommon.drawpolyline
 
 /**
- * @package com.tkpmnc.sgtaxiusersdriver
+ * @package com.tkpmnc.sgtaxiuserdriver
  * @subpackage map.drawpolyline
  * @category DirectionsJSONParser
  * @author Seen Technologies
@@ -10,7 +10,7 @@ package com.tkpmnc.sgtaxiusers.appcommon.drawpolyline
 
 import android.location.Location
 import com.google.android.gms.maps.model.LatLng
-import com.tkpmnc.sgtaxiusers.taxiapp.datamodels.StepsClass
+import com.tkpmnc.sgtaxiuser.taxiapp.datamodels.StepsClass
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject

@@ -1,4 +1,4 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.views.search
+package com.tkpmnc.sgtaxiuser.taxiapp.views.search
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 import com.google.android.libraries.places.api.model.AutocompletePrediction
-import com.tkpmnc.sgtaxiusers.R
+import com.tkpmnc.sgtaxiuser.R
 
 
 class GoogleMapPlaceSearchAutoCompleteRecyclerView(private var autocompletePredictions: MutableList<AutocompletePrediction>?, private var mContext: Context, private val autoCompleteAddressTouchListener: AutoCompleteAddressTouchListener) : RecyclerView.Adapter<GoogleMapPlaceSearchAutoCompleteRecyclerView.RecyclerViewHolder>() {

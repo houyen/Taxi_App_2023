@@ -1,7 +1,7 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.sendrequest
+package com.tkpmnc.sgtaxiuser.taxiapp.sendrequest
 
 /**
- * @package com.tkpmnc.sgtaxiusers
+ * @package com.tkpmnc.sgtaxiuser
  * @subpackage sendrequest
  * @category AcceptedTripId Model
  * @author Seen Technologies
@@ -36,31 +36,31 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.messaging.FirebaseMessaging
 import com.google.gson.Gson
 import com.google.maps.android.PolyUtil
-import com.tkpmnc.sgtaxiusers.R
-import com.tkpmnc.sgtaxiusers.appcommon.configs.SessionManager
-import com.tkpmnc.sgtaxiusers.appcommon.datamodels.JsonResponse
-import com.tkpmnc.sgtaxiusers.appcommon.helper.CircularMusicProgressBar
-import com.tkpmnc.sgtaxiusers.appcommon.helper.WaveDrawable
-import com.tkpmnc.sgtaxiusers.appcommon.interfaces.ApiService
-import com.tkpmnc.sgtaxiusers.appcommon.interfaces.ServiceListener
-import com.tkpmnc.sgtaxiusers.appcommon.network.AppController
-import com.tkpmnc.sgtaxiusers.appcommon.pushnotification.Config
-import com.tkpmnc.sgtaxiusers.appcommon.pushnotification.NotificationUtils
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonKeys
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonMethods
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonMethods.Companion.DebuggableLogI
-import com.tkpmnc.sgtaxiusers.appcommon.utils.CommonMethods.Companion.DebuggableLogV
-import com.tkpmnc.sgtaxiusers.appcommon.utils.Enums.REQ_GET_DRIVER
-import com.tkpmnc.sgtaxiusers.taxiapp.sendrequest.CancelYourRequestActivity
-import com.tkpmnc.sgtaxiusers.taxiapp.sendrequest.CancelYourTripActivity
-import com.tkpmnc.sgtaxiusers.appcommon.utils.RequestCallback
-import com.tkpmnc.sgtaxiusers.appcommon.views.CommonActivity
-import com.tkpmnc.sgtaxiusers.taxiapp.RoundedLayout
-import com.tkpmnc.sgtaxiusers.taxiapp.database.AddFirebaseDatabase
-import com.tkpmnc.sgtaxiusers.taxiapp.database.IFirebaseReqListener
-import com.tkpmnc.sgtaxiusers.taxiapp.datamodels.trip.TripDetailsModel
-import com.tkpmnc.sgtaxiusers.taxiapp.views.customize.CustomDialog
-import com.tkpmnc.sgtaxiusers.taxiapp.views.main.MainActivity
+import com.tkpmnc.sgtaxiuser.R
+import com.tkpmnc.sgtaxiuser.appcommon.configs.SessionManager
+import com.tkpmnc.sgtaxiuser.appcommon.datamodels.JsonResponse
+import com.tkpmnc.sgtaxiuser.appcommon.helper.CircularMusicProgressBar
+import com.tkpmnc.sgtaxiuser.appcommon.helper.WaveDrawable
+import com.tkpmnc.sgtaxiuser.appcommon.interfaces.ApiService
+import com.tkpmnc.sgtaxiuser.appcommon.interfaces.ServiceListener
+import com.tkpmnc.sgtaxiuser.appcommon.network.AppController
+import com.tkpmnc.sgtaxiuser.appcommon.pushnotification.Config
+import com.tkpmnc.sgtaxiuser.appcommon.pushnotification.NotificationUtils
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonKeys
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonMethods
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonMethods.Companion.DebuggableLogI
+import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonMethods.Companion.DebuggableLogV
+import com.tkpmnc.sgtaxiuser.appcommon.utils.Enums.REQ_GET_DRIVER
+import com.tkpmnc.sgtaxiuser.taxiapp.sendrequest.CancelYourRequestActivity
+import com.tkpmnc.sgtaxiuser.taxiapp.sendrequest.CancelYourTripActivity
+import com.tkpmnc.sgtaxiuser.appcommon.utils.RequestCallback
+import com.tkpmnc.sgtaxiuser.appcommon.views.CommonActivity
+import com.tkpmnc.sgtaxiuser.taxiapp.RoundedLayout
+import com.tkpmnc.sgtaxiuser.taxiapp.database.AddFirebaseDatabase
+import com.tkpmnc.sgtaxiuser.taxiapp.database.IFirebaseReqListener
+import com.tkpmnc.sgtaxiuser.taxiapp.datamodels.trip.TripDetailsModel
+import com.tkpmnc.sgtaxiuser.taxiapp.views.customize.CustomDialog
+import com.tkpmnc.sgtaxiuser.taxiapp.views.main.MainActivity
 import io.github.krtkush.lineartimer.LinearTimer
 import io.github.krtkush.lineartimer.LinearTimerView
 import kotlinx.android.synthetic.main.app_activity_trip_details.*

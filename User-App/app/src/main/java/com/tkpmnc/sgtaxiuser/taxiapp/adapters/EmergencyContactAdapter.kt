@@ -1,7 +1,7 @@
-package com.tkpmnc.sgtaxiusers.taxiapp.adapters
+package com.tkpmnc.sgtaxiuser.taxiapp.adapters
 
 /**
- * @package com.tkpmnc.sgtaxiusers
+ * @package com.tkpmnc.sgtaxiuser
  * @subpackage emergency
  * @category Emergency contact adapter
  * @author Seen Technologies
@@ -17,8 +17,8 @@ import android.widget.ImageView
 import android.widget.PopupMenu
 import android.widget.TextView
 
-import com.tkpmnc.sgtaxiusers.R
-import com.tkpmnc.sgtaxiusers.taxiapp.datamodels.EmergencyContactModel
+import com.tkpmnc.sgtaxiuser.R
+import com.tkpmnc.sgtaxiuser.taxiapp.datamodels.EmergencyContactModel
 
 import java.util.ArrayList
 
