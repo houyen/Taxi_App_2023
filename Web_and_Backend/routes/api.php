@@ -15,12 +15,7 @@
 Route::post('payment/success', 'PaymentController@success')->name('payment.success');
 Route::get('payment/cancel', 'PaymentController@cancel')->name('payment.cancel');
 Route::get('cron_request_car', 'CronController@requestCars');
-Route::get('cron_offline', 'CronController@updateOfflineUsers');
-Route::get('currency_cron', 'CronController@updateCurrency');
-Route::get('update_referral_cron', 'CronController@updateReferralStatus');
 Route::match(['get', 'post'], 'paypal_payout', 'CronController@updatePaypalPayouts');
-
-Route::get('check_version', 'RiderController@check_version');
 
 // With Login Routes
 Route::group(['middleware' => 'jwt.verify'], function () {
@@ -31,7 +26,6 @@ Route::group(['middleware' => 'jwt.verify'], function () {
 
 	Route::get('logout', 'TokenAuthController@logout');
 	
-	Route::get('language','TokenAuthController@language');
 	Route::get('update_device', 'TokenAuthController@updateDevice');
 	Route::get('updatelocation', 'DriverController@updateLocation');
 	Route::get('check_status', 'DriverController@checkStatus');
