@@ -71,11 +71,6 @@
 		</div>
 		<!-- /.login-box -->
 		<!-- jQuery 2.1.4 -->
-		<script src="{{ url('admin_assets/plugins/jQuery/jQuery-2.1.4.min.js') }}"></script>
-		<!-- Bootstrap 3.3.5 -->
-		<script src="{{ url('admin_assets/bootstrap/js/bootstrap.min.js') }}"></script>
-		<script src="{{ url('admin_assets/plugins/login_slider/scripts.js') }}"></script>
-		<script src="{{ url('admin_assets/plugins/login_slider/jquery.backstretch.min.js') }}"></script>
 		<script>
 		$(document).ready(function() {
 			var canDisplayCredentials = '{!! canDisplayCredentials() !!}';
