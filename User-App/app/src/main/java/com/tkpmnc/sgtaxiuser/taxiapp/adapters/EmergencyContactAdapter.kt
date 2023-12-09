@@ -4,7 +4,7 @@ package com.tkpmnc.sgtaxiuser.taxiapp.adapters
  * @package com.tkpmnc.sgtaxiuser
  * @subpackage emergency
  * @category Emergency contact adapter
- * @author Seen Technologies
+ * 
  * 
  */
 

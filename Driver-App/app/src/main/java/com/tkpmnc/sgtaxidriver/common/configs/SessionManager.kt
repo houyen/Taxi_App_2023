@@ -4,7 +4,7 @@ package com.tkpmnc.sgtaxidriver.common.configs
  * @package com.tkpmnc.sgtaxidriver
  * @subpackage configs
  * @category SessionManager
- * @author Seen Technologies
+ * 
  *
  */
 
@@ -141,10 +141,6 @@ class SessionManager {
         get() = sharedPreferences.getString("TemporaryPhonenumber", "")
         set(phoneNumber) = sharedPreferences.edit().putString("TemporaryPhonenumber", phoneNumber).apply()
 
-    var temporaryCountryCode: String?
-        get() = sharedPreferences.getString("TemporaryCountryCode", "")
-        set(countryCode) = sharedPreferences.edit().putString("TemporaryCountryCode", countryCode).apply()
-
 
     var countryCode: String?
         get() = sharedPreferences.getString("countryCode", "")
@@ -167,11 +163,6 @@ class SessionManager {
     var tripId: String?
         get() = sharedPreferences.getString("tripId", "")
         set(tripId) = sharedPreferences.edit().putString("tripId", tripId).apply()
-
-
-    var poolIds: String?
-        get() = sharedPreferences.getString("poolIds", "")
-        set(poolIds) = sharedPreferences.edit().putString("poolIds", poolIds).apply()
 
     var tripStatus: String?
         get() = sharedPreferences.getString("tripStatus", "")
@@ -211,14 +202,6 @@ class SessionManager {
         get() = sharedPreferences.getString("doc5", "")
         set(doc5) = sharedPreferences.edit().putString("doc5", doc5).apply()
 
-    var currencyCode: String?
-        get() = sharedPreferences.getString("currencyCode", "")
-        set(currencyCode) = sharedPreferences.edit().putString("currencyCode", currencyCode).apply()
-
-    var currencySymbol: String?
-        get() = sharedPreferences.getString("currencysymbol", "")
-        set(currencySymbol) = sharedPreferences.edit().putString("currencysymbol", currencySymbol).apply()
-
     var userId: String?
         get() = sharedPreferences.getString("UserId", "")
         set(UserId) = sharedPreferences.edit().putString("UserId", UserId).apply()
@@ -232,43 +215,6 @@ class SessionManager {
         get() = sharedPreferences.getString("profilearratdetail", "")
         set(profilearratdetail) = sharedPreferences.edit().putString("profilearratdetail", profilearratdetail).apply()
 
-
-    var paymentMethodkey: String
-        get() = sharedPreferences.getString("paymentMethodkey", "").toString()
-        set(paymentMethodkey) = sharedPreferences.edit().putString("paymentMethodkey", paymentMethodkey).apply()
-
-
-    var paymentMethod: String?
-        get() = sharedPreferences.getString("paymentMethod", "")
-        set(paymentMethod) = sharedPreferences.edit().putString("paymentMethod", paymentMethod).apply()
-
-    var paymentMethodImage: String
-        get() = sharedPreferences.getString("paymentMethodImage", "").toString()
-        set(paymentMethodImage) = sharedPreferences.edit().putString("paymentMethodImage", paymentMethodImage).apply()
-
-    var cardValue: String?
-        get() = sharedPreferences.getString("cardValue", "")
-        set(cardValue) = sharedPreferences.edit().putString("cardValue", cardValue).apply()
-
-    var cardBrand: String?
-        get() = sharedPreferences.getString("cardBrand", "")
-        set(cardBrand) = sharedPreferences.edit().putString("cardBrand", cardBrand).apply()
-
-    var carType: String?
-        get() = sharedPreferences.getString("CarType", "")
-        set(CarType) = sharedPreferences.edit().putString("CarType", CarType).apply()
-
-    var oweAmount: String?
-        get() = sharedPreferences.getString("oweAmount", "")
-        set(oweAmount) = sharedPreferences.edit().putString("oweAmount", oweAmount).apply()
-
-    var driverReferral: String?
-        get() = sharedPreferences.getString("driverReferral", "")
-        set(driverReferral) = sharedPreferences.edit().putString("driverReferral", driverReferral).apply()
-
-    var paypalEmail: String?
-        get() = sharedPreferences.getString("PaypalEmail", "")
-        set(PaypalEmail) = sharedPreferences.edit().putString("PaypalEmail", PaypalEmail).apply()
 
     var docCount: String?
         get() = sharedPreferences.getString("imagecount", "")
@@ -306,14 +252,6 @@ class SessionManager {
         get() = sharedPreferences.getString("currencyname2", "")
         set(currencyName2) = sharedPreferences.edit().putString("currencyname2", currencyName2).apply()
 
-    var stripeCountryCode: String?
-        get() = sharedPreferences.getString("StripeCountryCode", "")
-        set(stripeCountryCode) = sharedPreferences.edit().putString("StripeCountryCode", stripeCountryCode).apply()
-
-    var payPalCountryCode: String?
-        get() = sharedPreferences.getString("paypalcountrycode", "")
-        set(payPalCountryCode) = sharedPreferences.edit().putString("paypalcountrycode", payPalCountryCode).apply()
-
     var bookingType: String?
         get() = sharedPreferences.getString("bookingType", "")
         set(bookingType) = sharedPreferences.edit().putString("bookingType", bookingType).apply()
@@ -336,28 +274,13 @@ class SessionManager {
         get() = sharedPreferences.getString("vehicleId", "")
         set(vehicleId) = sharedPreferences.edit().putString("vehicleId", vehicleId).apply()
 
-    var walletCard: Int
-        get() = sharedPreferences.getInt("walletCard", 0)
-        set(walletCard) = sharedPreferences.edit().putInt("walletCard", walletCard).apply()
-
     var isExtraFeeCollectable: Boolean
         get() = sharedPreferences.getBoolean("extra_fee", false)
         set(status) = sharedPreferences.edit().putBoolean("extra_fee", status).apply()
 
-    val isReferralOptionEnabled: Boolean
-        get() = sharedPreferences.getBoolean("safkey64", true)
-
     var isHeatMapChecked: Boolean
         get() = sharedPreferences.getBoolean("heatMap", false)
         set(HeatMapChecked) = sharedPreferences.edit().putBoolean("heatMap", HeatMapChecked).apply()
-
-    var sinchKey: String?
-        get() = sharedPreferences.getString("weasqr", "")
-        set(sinchKey) = sharedPreferences.edit().putString("weasqr", sinchKey).apply()
-
-    var sinchSecret: String?
-        get() = sharedPreferences.getString("udueuw", "")
-        set(sinchSecret) = sharedPreferences.edit().putString("udueuw", sinchSecret).apply()
 
     var offlineDistance: Float
         get() = sharedPreferences.getFloat("offline_distance", 0f)
@@ -374,10 +297,6 @@ class SessionManager {
     var isTrip: Boolean
         get() = sharedPreferences.getBoolean("isTrip", false)
         set(isTrip) = sharedPreferences.edit().putBoolean("isTrip", isTrip).apply()
-
-    var isPool: Boolean
-        get() = sharedPreferences.getBoolean("isPool", true)
-        set(isPool) = sharedPreferences.edit().putBoolean("isPool", isPool).apply()
 
     var beginLongitude: String?
         get() = sharedPreferences.getString("beginLongitude", "")
@@ -443,32 +362,6 @@ class SessionManager {
         editor.apply()
     }
 
-    fun setReferralOpiton(referralStatus: Boolean) {
-        sharedPreferences.edit().putBoolean("safkey64", referralStatus).apply()
-    }
-
-
-    var stripePublishKey: String
-        get() = sharedPreferences.getString("StripePublishKey", "").toString()
-        set(stripePublishKey) =sharedPreferences.edit().putString("StripePublishKey",stripePublishKey).apply()
-
-
-    var paypal_mode: Int
-        get() = sharedPreferences.getInt("paypal_mode", 0)
-        set(paypal_mode) =sharedPreferences.edit().putInt("paypal_mode",paypal_mode).apply()
-
-    var paypal_app_id: String
-        get() = sharedPreferences.getString("paypal_app_id", "").toString()
-        set(paypal_app_id) =sharedPreferences.edit().putString("paypal_app_id",paypal_app_id).apply()
-
-    var braintree_public_key: String
-        get() = sharedPreferences.getString("braintree_public_key", "").toString()
-        set(braintree_public_key) =sharedPreferences.edit().putString("braintree_public_key",braintree_public_key).apply()
-
-    var braintree_env: String
-        get() = sharedPreferences.getString("braintree_env", "").toString()
-        set(braintree_env) =sharedPreferences.edit().putString("braintree_env",braintree_env).apply()
-
     var gateway_type: String
         get() = sharedPreferences.getString("gateway_type", "").toString()
         set(gateway_type) =sharedPreferences.edit().putString("gateway_type",gateway_type).apply()
@@ -476,10 +369,6 @@ class SessionManager {
     var isEndTripCalled: Boolean
         get() = sharedPreferences.getBoolean("isEndTripCalled", false)
         set(isEndTripCalled) = sharedPreferences.edit().putBoolean("isEndTripCalled", isEndTripCalled).apply()
-
-    var payementModeWebView: Boolean?
-        get() = sharedPreferences.getBoolean("payementModeWebView", false)
-        set(payementModeWebView) =sharedPreferences.edit().putBoolean("payementModeWebView",payementModeWebView!!).apply()
 
     var isGeoFireUpdatedWhenOnline: Boolean?
         get() = sharedPreferences.getBoolean("isGeoFireUpdatedWhenOnline", false)

@@ -4,7 +4,7 @@ package com.tkpmnc.sgtaxidriver.common.dependencies.module
  * @package com.tkpmnc.sgtaxidriver
  * @subpackage dependencies.module
  * @category AppContainerModule
- * @author Seen Technologies
+ * 
  *
  */
 

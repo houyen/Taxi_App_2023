@@ -10,7 +10,7 @@ import com.tkpmnc.sgtaxidriver.common.network.AppController
 import com.tkpmnc.sgtaxidriver.common.util.CommonMethods
 import com.tkpmnc.sgtaxidriver.common.util.CommonMethods.Companion.DebuggableLogE
 import com.tkpmnc.sgtaxidriver.home.datamodel.firebase_keys.FirebaseDbKeys
-import com.tkpmnc.sgtaxidriver.trips.rating.PaymentAmountPage
+
 import org.json.JSONObject
 import javax.inject.Inject
 
@@ -43,10 +43,6 @@ class AddFirebaseDatabase {
         try {
             mFirebaseDatabase = FirebaseDatabase.getInstance().getReference(context.getString(R.string.real_time_db))
 
-            sessionManager.tripId?.let {
-                mFirebaseDatabase!!.child(FirebaseDbKeys.TRIP_PAYMENT_NODE)!!.child(FirebaseDbKeys.TRIPLIVEPOLYLINE).removeValue()
-                mFirebaseDatabase!!.child(FirebaseDbKeys.TRIP_PAYMENT_NODE)!!.child(it).removeValue()
-            }
             query!!.removeEventListener(mSearchedDriverReferenceListener!!)
             mFirebaseDatabase!!.removeEventListener(mSearchedDriverReferenceListener!!)
             sessionManager.clearTripID()
@@ -69,11 +65,6 @@ class AddFirebaseDatabase {
     }
 
     fun removeRequestTable() {
-
-        /* mFirebaseDatabase.getDatabase().getReference(FirebaseDbKeys.Rider).removeValue();
-        query.removeEventListener(mSearchedDriverReferenceListener);
-        mFirebaseDatabase.removeEventListener(mSearchedDriverReferenceListener);
-        mSearchedDriverReferenceListener = null;*/
         query!!.removeEventListener(mSearchedDriverReferenceListener!!)
     }
 
@@ -118,50 +109,11 @@ class AddFirebaseDatabase {
 
     }
 
-
-    fun initPaymentChangeListener(context: Context) {
-        mFirebaseDatabase = FirebaseDatabase.getInstance().getReference(context.getString(R.string.real_time_db))
-
-        // mFirebaseDatabase = FirebaseDatabase.getInstance().getReference(FirebaseDbKeys.TRIP_PAYMENT_NODE)
-
-        query = mFirebaseDatabase!!.child(FirebaseDbKeys.TRIP_PAYMENT_NODE).child(sessionManager.tripId!!).child(FirebaseDbKeys.TRIP_PAYMENT_NODE_REFRESH_PAYMENT_TYPE_KEY)
-
-        mSearchedDriverReferenceListener = query!!.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                PaymentAmountPage.paymentAmountPageInstance.callGetInvoiceAPI()
-                DebuggableLogE(TAG, "Database Updated Successfully")
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                // Failed to read value
-                DebuggableLogE(TAG, "Failed to read user", error.toException())
-            }
-        })
-    }
-
-    fun updateEtaToFirebase(eta: String, context: Context) {
-        if (sessionManager.isTrip) {
-            mFirebaseDatabase = FirebaseDatabase.getInstance().getReference(context.getString(R.string.real_time_db))
-            mFirebaseDatabase!!.child(FirebaseDbKeys.TRIP_PAYMENT_NODE).child(sessionManager.tripId!!).child(FirebaseDbKeys.TRIPETA).setValue(eta)
-        }
-
-    }
-
     fun UpdatePolyLinePoints(overviewpolylines: String, context: Context) {
         if (sessionManager.isTrip) {
             val value = overviewpolylines
             mFirebaseDatabase = FirebaseDatabase.getInstance().getReference(context.getString(R.string.real_time_db))
-            mFirebaseDatabase!!.child(FirebaseDbKeys.TRIP_PAYMENT_NODE).child(sessionManager.tripId!!).child(FirebaseDbKeys.TRIPLIVEPOLYLINE).setValue(value)
-
-
             var poolIds: List<String> = sessionManager.poolIds!!.split(",").map { it.trim() }
-
-            for (i in poolIds.indices) {
-                if (!poolIds.get(i).equals(sessionManager.tripId!!))
-                    mFirebaseDatabase!!.child(FirebaseDbKeys.TRIP_PAYMENT_NODE).child(poolIds.get(i)).child(FirebaseDbKeys.TRIPLIVEPOLYLINE).setValue("0")
-
-
-            }
         }
 
     }

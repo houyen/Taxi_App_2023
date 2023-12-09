@@ -4,7 +4,7 @@ package com.tkpmnc.sgtaxidriver.trips.tripsdetails
  * @package com.tkpmnc.sgtaxidriver.trips.tripsdetails
  * @subpackage tripsdetails model
  * @category ViewPagerAdapter
- * @author Seen Technologies
+ * 
  *
  */
 

@@ -1,7 +1,7 @@
 package com.tkpmnc.sgtaxidriver.home.pushnotification
 
 /**
- * @author Seen Technologies
+ * 
  *
  * @package com.tkpmnc.sgtaxidriver.home.pushnotification
  * @subpackage pushnotification model

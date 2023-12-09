@@ -4,7 +4,7 @@ package com.tkpmnc.sgtaxidriver.home.splash
  * @package com.tkpmnc.sgtaxidriver.home.splash
  * @subpackage Splash
  * @category GetDriverTripDetails
- * @author Seen Technologies
+ * 
  *
  */
 

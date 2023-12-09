@@ -4,7 +4,7 @@ package com.tkpmnc.sgtaxiuser.appcommon.configs
  * @package com.tkpmnc.sgtaxiuser
  * @subpackage configs
  * @category SessionManager
- * @author Seen Technologies
+ * 
  * 
  */
 

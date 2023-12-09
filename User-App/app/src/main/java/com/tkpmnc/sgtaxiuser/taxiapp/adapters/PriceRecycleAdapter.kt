@@ -4,7 +4,7 @@ package com.tkpmnc.sgtaxiuser.taxiapp.adapters
  * @package com.tkpmnc.sgtaxiuserdriver.rating
  * @subpackage rating
  * @category CommentsRecycleAdapter
- * @author Seen Technologies
+ * 
  * 
  */
 

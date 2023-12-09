@@ -126,13 +126,6 @@
                    </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-sm-3 control-label">
-                    @if($result->driver->default_payout_credentials->type == 'paypal')
-                      Driver payout Email id
-                    @else
-                      Driver payout Account
-                    @endif
-                  </label>
                   <div class="col-md-7 col-sm-offset-1">
                     {{ $result->driver->payout_id }}
                    </div>

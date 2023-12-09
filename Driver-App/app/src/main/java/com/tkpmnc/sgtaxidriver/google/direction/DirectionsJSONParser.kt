@@ -4,7 +4,7 @@ package com.tkpmnc.sgtaxidriver.google.direction
  * @package com.tkpmnc.sgtaxidriver
  * @subpackage map.drawpolyline
  * @category DirectionsJSONParser
- * @author Seen Technologies
+ * 
  * @version 1.5
  */
 

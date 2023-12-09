@@ -4,7 +4,7 @@ package com.tkpmnc.sgtaxidriver.home.signinsignup
  * @package com.tkpmnc.sgtaxidriver
  * @subpackage signinsignup model
  * @category ResetPassword
- * @author Seen Technologies
+ * 
  *
  */
 
@@ -112,8 +112,6 @@ class ResetPassword : CommonActivity(), ServiceListener {
         dialog = commonMethods.getAlertDialog(this)
 
         isInternetAvailable = commonMethods.isOnline(this)
-
-
     }
 
     private fun getMobileNumerAndCountryCodeFromIntent() {
@@ -125,7 +123,6 @@ class ResetPassword : CommonActivity(), ServiceListener {
             facebookVerifiedMobileNumberCountryNameCode =
                     intent.getStringExtra(FACEBOOK_ACCOUNT_KIT_PHONE_NUMBER_COUNTRY_Name_CODE_KEY).toString()
         }
-
 
     }
 
@@ -309,32 +306,12 @@ class ResetPassword : CommonActivity(), ServiceListener {
 
                 // If driver status is pending check paypal email is exists then redirect to home page otherwise redirect to paypal email address page
                 sessionManager.vehicle_id = signInUpResultModel.vehicleId
-                /*if (sessionManager.getPaypalEmail().length() > 0) {
-
-                    Intent x = new Intent(getApplicationContext(), MainActivity.class);
-                    x.putExtra("signinup", true);
-                    Bundle bndlanimation = ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.cb_fade_in, R.anim.cb_face_out).toBundle();
-                    startActivity(x, bndlanimation);
-                    finish();
-                } else {
-                    Intent signin = new Intent(getApplicationContext(), PaymentPage.class);
-                    startActivity(signin);
-                    overridePendingTransition(R.anim.ub__slide_in_right, R.anim.ub__slide_out_left);
-                }*/
+               
                 openMainActivity()
             } else if (driverStatus == "Active") {
                 // If driver status is active check paypal email is exists then redirect to home page otherwise redirect to paypal email address page
                 sessionManager.vehicle_id = signInUpResultModel.vehicleId
-                /* if (sessionManager.getPaypalEmail().length() > 0) {
-                    Intent x = new Intent(getApplicationContext(), MainActivity.class);
-                    x.putExtra("signinup", true);
-                    Bundle bndlanimation = ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.cb_fade_in, R.anim.cb_face_out).toBundle();
-                    startActivity(x, bndlanimation);
-                    finish();
-                } else {
-                    Intent signin = new Intent(getApplicationContext(), PaymentPage.class);
-                    startActivity(signin);
-                    overridePendingTransition(R.anim.ub__slide_in_right, R.anim.ub__slide_out_left);
+               
                 }*/openMainActivity()
             } else {
                 // Redirect to sign in signup home page
@@ -346,20 +323,9 @@ class ResetPassword : CommonActivity(), ServiceListener {
                 ).toBundle()
                 startActivity(x, bndlanimation)
                 finish()
-
             }
-
-
         }
-
     }
-
-    override fun onFailure(jsonResp: JsonResponse, data: String) {
-        progressBar.visibility = View.GONE
-        nextArrow.visibility = View.VISIBLE
-    }
-
-
     private fun startMainActivity() {
         val x = Intent(applicationContext, MainActivity::class.java)
         x.putExtra("signinup", true)
@@ -383,6 +349,5 @@ class ResetPassword : CommonActivity(), ServiceListener {
         startActivity(x, bndlanimation)
         finish()
     }
-
 
 }

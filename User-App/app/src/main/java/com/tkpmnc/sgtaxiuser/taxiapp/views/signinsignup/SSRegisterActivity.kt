@@ -4,7 +4,7 @@ package com.tkpmnc.sgtaxiuser.taxiapp.views.signinsignup
  * @package com.tkpmnc.sgtaxiuser
  * @subpackage signin_signup
  * @category SSRegisterActivity
- * @author Seen Technologies
+ * 
  *
  */
 

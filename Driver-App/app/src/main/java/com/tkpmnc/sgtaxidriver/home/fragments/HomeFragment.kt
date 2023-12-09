@@ -4,7 +4,7 @@ package com.tkpmnc.sgtaxidriver.home.fragments
  * @package com.tkpmnc.sgtaxidriver.home.fragments
  * @subpackage fragments
  * @category HomeFragment
- * @author Seen Technologies
+ * 
  *
  */
 
@@ -92,7 +92,6 @@ import com.tkpmnc.sgtaxidriver.home.managevehicles.ManageVehicles
 import com.tkpmnc.sgtaxidriver.home.map.AppUtils
 import com.tkpmnc.sgtaxidriver.home.service.HeatMapUpdation
 import com.tkpmnc.sgtaxidriver.trips.RequestAcceptActivity
-import com.tkpmnc.sgtaxidriver.trips.rating.PaymentAmountPage
 import com.tkpmnc.sgtaxidriver.trips.rating.Riderrating
 import kotlinx.android.synthetic.main.fragment_home.*
 import org.json.JSONArray
@@ -316,10 +315,6 @@ class HomeFragment : Fragment(), OnMapReadyCallback, GoogleApiClient.ConnectionC
                 intent.data = Uri.parse("package:$packageName")
                 startActivity(intent)
             }
-            /* else{
-                 intent.action=Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS
-             }
-             context!!.startActivity(intent);*/
         }
 
 
@@ -352,11 +347,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback, GoogleApiClient.ConnectionC
                     mOverlay2Hr!!.clearTileCache()
                     mOverlay2Hr!!.remove()
                 }
-                //                if (mOverlay5Min != null) {
-                //                    mOverlay5Min.clearTileCache();
-                //                    mOverlay5Min.remove();
-                //                }
-                //commonMethods.showProgressDialog((MainActivity) getActivity(), customDialog);
+
                 apiService.heatMap(sessionManager.accessToken!!, TimeZone.getDefault().id)
                     .enqueue(RequestCallback(REQ_HEAT_MAP, this@HomeFragment))
             }
@@ -370,43 +361,11 @@ class HomeFragment : Fragment(), OnMapReadyCallback, GoogleApiClient.ConnectionC
     }
 
     private fun initView() {
-        /*  switch_driverstatus.switchPadding = 40
-          switch_driverstatus.setOnCheckedChangeListener(this)
 
-          if (sessionManager.driverSignupStatus == "pending") {
-
-              switch_driverstatus.visibility = View.GONE
-
-          }
-          *//*
-         * Set driver status
-         *//*
-        if (sessionManager.driverStatus == "Online") {
-
-            switch_driverstatus.isChecked = true
-            sessionManager.driverStatus = "Online"
-        } else {
-            switch_driverstatus.isChecked = false
-            sessionManager.driverStatus = "Offline"
-        }*/
-
-        /*  println("driver status"+ arguments?.get("status"))
-         // if(arguments["stat"])
-          val status:String= arguments?.get("status") as String
-          if(status?.equals("1"))
-          {
-              rltSelectedcar.visibility = View.VISIBLE
-              rlt_documentdetails.visibility=View.GONE
-          }else
-          {
-              rltSelectedcar.visibility = View.GONE
-              rlt_documentdetails.visibility=View.VISIBLE
-          }*/
         val animation =
             AnimationUtils.loadLayoutAnimation(context, R.anim.layout_animation_bottom_up)
         rtl_driver_details.layoutAnimation = animation
 
-        //  navController = findNavController(activity as MainActivity,R.id.navHostFragment)
 
     }
 
@@ -421,8 +380,6 @@ class HomeFragment : Fragment(), OnMapReadyCallback, GoogleApiClient.ConnectionC
                 arrayOf(
                     android.Manifest.permission.ACCESS_COARSE_LOCATION,
                     android.Manifest.permission.ACCESS_FINE_LOCATION,
-                    //Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                   // Manifest.permission.READ_EXTERNAL_STORAGE,
                     Manifest.permission.READ_MEDIA_IMAGES
                 ),
                 3
@@ -609,17 +566,6 @@ class HomeFragment : Fragment(), OnMapReadyCallback, GoogleApiClient.ConnectionC
                     displayLocationSettingsRequest(mContext)
 
                 }
-                /*val hasForegroundLocationPermission = ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED
-
-                if (hasForegroundLocationPermission) {
-                    val hasBackgroundLocationPermission = ActivityCompat.checkSelfPermission(requireContext(),
-                            Manifest.permission.ACCESS_BACKGROUND_LOCATION) == PackageManager.PERMISSION_GRANTED
-                    if (hasBackgroundLocationPermission) {
-                        // handle location update
-                    } else {
-                        ActivityCompat.requestPermissions(requireActivity(), arrayOf(Manifest.permission.ACCESS_BACKGROUND_LOCATION), Constants.REQUEST_CODE_BACKGROUND)
-                    }
-                }*/
             }
 
             1220 -> {
@@ -728,40 +674,10 @@ class HomeFragment : Fragment(), OnMapReadyCallback, GoogleApiClient.ConnectionC
             mOverlay2Hr!!.remove()
 
         }
-        //        if (!req5min.isEmpty()) {
-        ////            addHeatMap5Min(req5min);
-        //        }
+       
 
 
     }
-
-    //    private void addHeatMap5Min(List<LatLng> req5min) {
-    //
-    //        if (!req5min.isEmpty()) {
-    //
-    //            if (mProvider5Min == null) {
-    //
-    //                // Create a heat map tile provider, passing it the latlngs of the police stations.
-    //                mProvider5Min = new HeatmapTileProvider.Builder()
-    //                        .data(Objects.requireNonNull(req5min))
-    //                        .gradient(ALT_HEATMAP_GRADIENT_5MIN)
-    //                        .build();
-    //
-    //                // Add a tile overlay to the map, using the heat map tile provider.
-    //                mOverlay5Min = mMap.addTileOverlay(new TileOverlayOptions().tileProvider(mProvider5Min));
-    //
-    //            } else {
-    //                mProvider5Min.setData(req5min);
-    //                mOverlay5Min.clearTileCache();
-    //                mOverlay5Min.remove();
-    //                mOverlay5Min = mMap.addTileOverlay(new TileOverlayOptions().tileProvider(mProvider5Min));
-    //            }
-    //        } else if (mProvider5Min != null) {
-    //            mOverlay5Min.clearTileCache();
-    //            mOverlay5Min.remove();
-    //        }
-    //    }
-
 
     @Throws(JSONException::class)
     private fun readItems(resource: Int): ArrayList<LatLng> {
@@ -1348,94 +1264,6 @@ class HomeFragment : Fragment(), OnMapReadyCallback, GoogleApiClient.ConnectionC
 
     }
 
-    private fun onSuccessCommonData(jsonResp: JsonResponse) {
-        try {
-            try {
-                sessionManager.payementModeWebView = commonMethods.getJsonValue(
-                    jsonResp.strResponse,
-                    "is_web_payment",
-                    String::class.java
-                ) as Boolean
-            } catch (e: Exception) {
-                sessionManager.payementModeWebView = false
-                e.printStackTrace()
-            }
-
-            sessionManager.sinchKey = commonMethods.getJsonValue(
-                jsonResp.strResponse,
-                "sinch_key",
-                String::class.java
-            ) as String
-            sessionManager.sinchSecret = commonMethods.getJsonValue(
-                jsonResp.strResponse,
-                "sinch_secret_key",
-                String::class.java
-            ) as String
-
-            //sessionManager.googleMapKey = commonMethods.getJsonValue(jsonResp.strResponse, "google_map_key", String::class.java) as String
-
-            sessionManager.googleMapKey = resources.getString(R.string.google_key_url)
-
-            sessionManager.stripePublishKey = commonMethods.getJsonValue(
-                jsonResp.strResponse,
-                "stripe_publish_key",
-                String::class.java
-            ) as String
-            //sessionManager.paypal_mode = commonMethods.getJsonValue(jsonResp.strResponse, "paypal_mode", String::class.java) as Int
-            //sessionManager.paypal_app_id = commonMethods.getJsonValue(jsonResp.strResponse, "paypal_client", String::class.java) as String
-            sessionManager.cardBrand = commonMethods.getJsonValue(
-                jsonResp.strResponse,
-                "brand",
-                String::class.java
-            ) as String
-            sessionManager.cardValue = commonMethods.getJsonValue(
-                jsonResp.strResponse,
-                "last4",
-                String::class.java
-            ) as String
-            sessionManager.firebaseCustomToken = commonMethods.getJsonValue(
-                jsonResp.strResponse,
-                "firebase_token",
-                String::class.java
-            ) as String
-            commonMethods.initStripeData(this.mContext)
-            //val sinchKey = commonMethods.getJsonValue(jsonResp.strResponse, "sinch_key", String::class.java) as String
-            //val sinchSecret = commonMethods.getJsonValue(jsonResp.strResponse, "sinch_secret_key", String::class.java) as String
-            sessionManager.isExtraFeeCollectable = commonMethods.getJsonValue(
-                jsonResp.strResponse,
-                "apply_trip_extra_fee",
-                Boolean::class.java
-            ) as Boolean
-            //initSinchClient(sinchKey, sinchSecret);
-
-            val commonData = gson.fromJson(jsonResp.strResponse, CommonData::class.java)
-            if (commonData != null) {
-                sessionManager.payementModeWebView = commonData.isWebPaymentEnable
-                if (commonData.status.equals("pending", ignoreCase = true)) {
-                    updateActInActStatus(true)
-                } else {
-                    updateActInActStatus(false)
-                }
-                if (commonData.heatMap!!.equals("1", ignoreCase = true)) {
-                    //rbHeatMap.setChecked(false);
-                    rbHeatMap.visibility = View.VISIBLE
-                } else {
-                    rbHeatMap.visibility = View.GONE
-                    rbHeatMap.isChecked = false
-                    sessionManager.isHeatMapChecked = false
-                }
-            } else {
-                rbHeatMap.visibility = View.GONE
-                rbHeatMap.isChecked = false
-                sessionManager.isHeatMapChecked = false
-            }
-
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-
-        signinFirebase()
-    }
 
     @SuppressLint("UseRequireInsteadOfGet")
     private fun signinFirebase() {
@@ -1619,7 +1447,6 @@ class HomeFragment : Fragment(), OnMapReadyCallback, GoogleApiClient.ConnectionC
         sessionManager.beginLatitude = tripDetailsModel.riderDetails.get(0).pickup_lat
         sessionManager.beginLongitude = tripDetailsModel.riderDetails.get(0).pickup_lng
         val invoiceModels = tripDetailsModel.riderDetails.get(0).invoice
-        // sessionManager.paymentMethod = tripDetailsModel.paymentMode
 
         var poolIDs = ""
         sessionManager.poolIds = ""
@@ -1633,12 +1460,6 @@ class HomeFragment : Fragment(), OnMapReadyCallback, GoogleApiClient.ConnectionC
             }
         }
         sessionManager.poolIds = poolIDs
-        // Pass different data based on trip status
-        /*  sessionManager.isPool=tripDetailsModel.isPool
-          if(!sessionManager.isPool)
-          {
-              AddFirebaseDatabase().removeDriverFromGeofire(context!!)
-          }*/
         isTrip = false
         if (CommonKeys.TripStatus.Scheduled == tripStatus || CommonKeys.TripStatus.Begin_Trip == tripStatus || CommonKeys.TripStatus.End_Trip == tripStatus) {
             val requstreceivepage = Intent(mContext, RequestAcceptActivity::class.java)
@@ -1677,36 +1498,18 @@ class HomeFragment : Fragment(), OnMapReadyCallback, GoogleApiClient.ConnectionC
             }
             startActivity(requstreceivepage)
         } else if (CommonKeys.TripStatus.Rating == tripStatus) {
-            //sessionManager.setTripStatus("End Trip");
-            /*isTrip = false
-            sessionManager.tripStatus = CommonKeys.TripDriverStatus.EndTrip
-            val rating = Intent(mContext, Riderrating::class.java)
-            rating.putExtra("imgprofile", tripDetailsModel.riderDetails.get(0).profileImage)
-            commonMethods.hideProgressDialog()
-            startActivity(rating)*/
 
             isTrip = false
             val bundle = Bundle()
             bundle.putSerializable("invoiceModels", invoiceModels)
-            val main = Intent(mContext, PaymentAmountPage::class.java)
+        
             main.putExtra("AmountDetails", jsonResp.strResponse)
             main.putExtras(bundle)
             commonMethods.hideProgressDialog()
             startActivity(main)
 
-        } else if (CommonKeys.TripStatus.Payment == tripStatus) {
-            isTrip = false
-            val bundle = Bundle()
-            bundle.putSerializable("invoiceModels", invoiceModels)
-            val main = Intent(mContext, PaymentAmountPage::class.java)
-            main.putExtra("AmountDetails", jsonResp.strResponse)
-            main.putExtras(bundle)
-            commonMethods.hideProgressDialog()
-            startActivity(main)
-        }
+        } 
         activity?.overridePendingTransition(R.anim.ub__slide_in_right, R.anim.ub__slide_out_left)
-
-
     }
 
 
@@ -1769,79 +1572,6 @@ class HomeFragment : Fragment(), OnMapReadyCallback, GoogleApiClient.ConnectionC
     }
 
 
-    fun updateOnlineStatus() {
-        println("UPDATE FROM HOME")
-        //apiService.updateLocation(location).enqueue(RequestCallback(REQ_UPDATE_ONLINE, this))
-
-    }
-
-
-    /*
- *  Check driver status is online or offline
- */
-    /*override fun onCheckedChanged(buttonView: CompoundButton, isChecked: Boolean) {
-        when (buttonView.id) {
-            R.id.switch_driverstatus -> {
-                CommonMethods.DebuggableLogI("switch_compat", isChecked.toString() + "")
-                if (switch_driverstatus.isChecked) {
-
-                    sessionManager.driverStatus = "Online"
-
-                    tvStatus.text = getString(R.string.go_offline)
-                    isInternetAvailable = commonMethods.isOnline(context)
-                    if (isInternetAvailable) {
-                        if (!isTriggeredFromDriverAPIErrorMessage) {
-                            updateOnlineStatus()
-                        } else {
-                            isTriggeredFromDriverAPIErrorMessage = false
-                        }
-
-                    } else {
-                        commonMethods.showMessage(context, dialog, resources.getString(R.string.no_connection))
-                    }
-
-                } else {
-                    sessionManager.driverStatus = "Offline"
-
-                    tvStatus.text = getString(R.string.go_onlines)
-
-
-                    if (isInternetAvailable) {
-                        if (!isTriggeredFromDriverAPIErrorMessage) {
-                            updateOnlineStatus()
-                        } else {
-                            isTriggeredFromDriverAPIErrorMessage = false
-                        }
-
-                    } else {
-                        commonMethods.showMessage(context, dialog, resources.getString(R.string.no_connection))
-                    }
-                }
-            }
-            else -> {
-                sessionManager.isHeatMapChecked = isChecked
-                if (!isChecked) {
-                    if (mOverlay2Hr != null) {
-                        mOverlay2Hr!!.clearTileCache()
-                        mOverlay2Hr!!.remove()
-                    }
-                    *//*if (mOverlay5Min != null) {
-                       mOverlay5Min.clearTileCache();
-                      mOverlay5Min.remove();
-                   }*//*
-                    cancelTimer()
-                } else {
-                    startTimer()
-                    //commonMethods.showProgressDialog((MainActivity) getActivity(), customDialog);
-                    apiService.heatMap(sessionManager.accessToken!!, TimeZone.getDefault().id)
-                            .enqueue(RequestCallback(REQ_HEAT_MAP, this))
-
-                }
-            }
-        }
-
-    }*/
-
     fun updateDocumentstatus(driverstatus: String) {
 
         if (driverstatus.equals("1")) {
@@ -1857,52 +1587,12 @@ class HomeFragment : Fragment(), OnMapReadyCallback, GoogleApiClient.ConnectionC
 
     }
 
-    fun updateActInActStatus(isInActive: Boolean) {
-
-        if (isAdded) {
-            /* if (isInActive) {
-                 sessionManager.driverSignupStatus = "pending"
-                 txt_checkdriverstatus.visibility = View.VISIBLE
-                 txt_driverstatus.visibility = View.GONE
-                 switch_driverstatus.visibility = View.GONE
-                 view.visibility = View.GONE
-
-             } else {
-                 sessionManager.driverSignupStatus = "Active"
-                 txt_checkdriverstatus.visibility = View.GONE
-                 txt_driverstatus.visibility = View.VISIBLE
-                 switch_driverstatus.visibility = View.VISIBLE
-                 view.visibility = View.VISIBLE
-
-             }*/
-        }
-
-
-    }
-
 
     companion object {
 
         protected val REQUEST_CHECK_SETTINGS = 0x1
         private val PLAY_SERVICES_RESOLUTION_REQUEST = 9000
         private val TAG = "MAP LOCATION"
-
-
-        //    private static final int[] ALT_HEATMAP_GRADIENT_COLORS_5MIN = {
-        //            Color.argb(0, 247, 207, 5),// transparent
-        //            Color.argb(255 / 3 * 2, 247, 207, 5),
-        //            Color.rgb(247, 178, 5),
-        //            Color.rgb(245, 39, 39),
-        //            Color.rgb(255, 0, 0)
-        //    };
-        //
-        //    private static final int[] ALT_HEATMAP_GRADIENT_COLORS_2HR = {
-        //            Color.argb(0, 0, 255, 255),// transparent
-        //            Color.argb(255 / 3 * 2, 0, 255, 255),
-        //            Color.rgb(0, 191, 255),
-        //            Color.rgb(0, 0, 127),
-        //            Color.rgb(255, 0, 0)
-        //    };
 
         val ALT_HEATMAP_GRADIENT_START_POINTS = floatArrayOf(0.0f, 0.10f, 0.20f, 0.60f, 1.0f)
 
@@ -1922,16 +1612,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback, GoogleApiClient.ConnectionC
             Color.rgb(0, 100, 0)    // green
         )
 
-        //    public static float[] startPoints = {
-        //            0.2f, 0.5f, 1f
-        //    };
-
-
-        //    public static final Gradient ALT_HEATMAP_GRADIENT_5MIN = new Gradient(ALT_HEATMAP_GRADIENT_COLORS_5MIN,
-        //            ALT_HEATMAP_GRADIENT_START_POINTS);
-        //
-        //    public static final Gradient ALT_HEATMAP_GRADIENT_2HR = new Gradient(ALT_HEATMAP_GRADIENT_COLORS_2HR,
-        //            ALT_HEATMAP_GRADIENT_START_POINTS);
+       
 
         val ALT_HEATMAP_GRADIENT_5MIN = Gradient(
             colors_5min,
@@ -1980,10 +1661,6 @@ class HomeFragment : Fragment(), OnMapReadyCallback, GoogleApiClient.ConnectionC
                 mOverlay2Hr!!.clearTileCache()
                 mOverlay2Hr!!.remove()
             }
-            /*if (mOverlay5Min != null) {
-               mOverlay5Min.clearTileCache();
-              mOverlay5Min.remove();
-           }*/
             cancelTimer()
         } else {
             startTimer()

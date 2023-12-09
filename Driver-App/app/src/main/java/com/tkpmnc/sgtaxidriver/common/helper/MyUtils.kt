@@ -4,7 +4,7 @@ package com.tkpmnc.sgtaxidriver.common.helper
  * @package com.tkpmnc.sgtaxidriver.common.helper
  * @subpackage helper
  * @category MyUtils
- * @author Seen Technologies
+ * 
  *
  */
 

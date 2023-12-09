@@ -4,7 +4,7 @@ package com.tkpmnc.sgtaxiuser.taxiapp.views.splash
  * @package com.tkpmnc.sgtaxiuser
  * @subpackage splash
  * @category SplashActivity
- * @author Seen Technologies
+ * 
  *
  */
 

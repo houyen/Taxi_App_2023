@@ -4,7 +4,7 @@ package com.tkpmnc.sgtaxidriver.home.map
  * @package com.tkpmnc.sgtaxidriver
  * @subpackage map
  * @category FetchAddressIntentService
- * @author Seen Technologies
+ * 
  *
  */
 

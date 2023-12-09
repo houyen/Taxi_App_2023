@@ -4,7 +4,7 @@ package com.tkpmnc.sgtaxiuser.taxiapp.views.customize
  * @package com.tkpmnc.sgtaxiuser
  * @subpackage view.customize
  * @category BaseDialogFragment
- * @author Seen Technologies
+ * 
  * 
  */
 

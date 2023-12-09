@@ -24,7 +24,7 @@ package com.tkpmnc.sgtaxidriver.home.fragments
  * @package com.tkpmnc.sgtaxidriver.home.fragments
  * @subpackage fragments
  * @category RatingActivity
- * @author Seen Technologies
+ * 
  *
  */
 

@@ -4,7 +4,7 @@ package com.tkpmnc.sgtaxiuser.appcommon.pushnotification
  * @package com.tkpmnc.sgtaxiuser
  * @subpackage MyFirebaseInstanceIDService
  * @category Firebase instance service
- * @author Seen Technologies
+ * 
  * 
  */
 
@@ -58,9 +58,7 @@ class MyFirebaseInstanceIDService : FirebaseMessagingService(), ServiceListener 
         sessionManager.deviceId = token
 
         if ("" != sessionManager.token) {
-            /*ManagedPushRegistration managedPushRegistration;
-            ManagedPush.registerPushToken(sessionManager.getDeviceId());*/
-            /*instanceOfMyPushTokenRegistrationClass.registerPushToken();*/
+           
             storeRegId()
         }
     }

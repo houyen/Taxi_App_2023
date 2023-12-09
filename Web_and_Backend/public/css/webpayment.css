@@ -46,9 +46,7 @@ main {
 .content {
     text-align: center;
     }
-.cls_paypal {
-    margin: 15px;
-}
+
 
 .row {
   display: grid;

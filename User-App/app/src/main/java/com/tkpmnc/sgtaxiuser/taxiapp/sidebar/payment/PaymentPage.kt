@@ -4,7 +4,7 @@ package com.tkpmnc.sgtaxiuser.taxiapp.sidebar.payment
  * @package com.tkpmnc.sgtaxiuser
  * @subpackage Side_Bar.payment
  * @category PaymentPage
- * @author Seen Technologies
+ * 
  * 
  */
 

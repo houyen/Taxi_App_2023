@@ -24,7 +24,7 @@ package com.tkpmnc.sgtaxidriver.home.fragments
  * @package com.tkpmnc.sgtaxidriver.home.fragments
  * @subpackage fragments
  * @category AccountFragment
- * @author Seen Technologies
+ * 
  *
  */
 
@@ -64,7 +64,6 @@ import com.tkpmnc.sgtaxidriver.home.datamodel.DriverProfileModel
 import com.tkpmnc.sgtaxidriver.home.fragments.currency.CurrencyListAdapter
 import com.tkpmnc.sgtaxidriver.home.fragments.currency.CurrencyModel
 import com.tkpmnc.sgtaxidriver.home.fragments.language.LanguageAdapter
-import com.tkpmnc.sgtaxidriver.home.fragments.payment.PayToAdminActivity
 import com.tkpmnc.sgtaxidriver.common.helper.CustomDialog
 import com.tkpmnc.sgtaxidriver.home.interfaces.ApiService
 import com.tkpmnc.sgtaxidriver.home.interfaces.ServiceListener
@@ -120,8 +119,6 @@ class AccountFragment : Fragment(), ServiceListener {
     var documentlayout: RelativeLayout
     lateinit @BindView(R.id.signlayout)
     var signlayout: RelativeLayout
-    lateinit @BindView(R.id.paymentlayout)
-    var paymentlayout: RelativeLayout
     lateinit @BindView(R.id.rltPayTo)
     var rltPayTo: RelativeLayout
     lateinit @BindView(R.id.currencylayout)
@@ -262,17 +259,6 @@ class AccountFragment : Fragment(), ServiceListener {
     }
 
 
-    /**
-     * Payout
-     */
-    @SuppressLint("UseRequireInsteadOfGet")
-    @OnClick(R.id.paymentlayout)
-    fun payout() {
-        val signin = Intent(activity, PayoutEmailListActivity::class.java)
-        startActivity(signin)
-        activity!!.overridePendingTransition(R.anim.ub__slide_in_right, R.anim.ub__slide_out_left)
-    }
-
     @SuppressLint("UseRequireInsteadOfGet")
     @OnClick(R.id.signlayout)
     fun logoutpopup() {
@@ -301,14 +287,10 @@ class AccountFragment : Fragment(), ServiceListener {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
-
     }
 
     override fun onStart() {
         super.onStart()
-
-
     }
 
 

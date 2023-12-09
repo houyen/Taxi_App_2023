@@ -30,14 +30,6 @@ object CommonKeys {
     val IncompleteReferralArray = 358// just a random number
     val CompletedReferralArray = 247
 
-    var isSetPaymentMethod =false
-
-
-    const val WEB_PAY_TO_ADMIN = "web_payment?"
-    const val WEB_MPESA_PAY_TO_ADMIN = "mpesa_web_payment?"
-    const val WEB_PAYTM_PAY_TO_ADMIN = "paytm_web_payment?"
-    const val WEB_FLUTTERWAVE_TO_ADMIN = "flutterwave_web_payment?"
-    const val PAY_TO_ADMIN = "pay_to_admin"
 
     var driverInActive = 1
     var FIREBASE_CHAT_MESSAGE_KEY = "message"
@@ -59,14 +51,6 @@ object CommonKeys {
     val FACEBOOK_ACCOUNT_KIT_PHONE_NUMBER_COUNTRY_CODE_KEY = "countryCode"
     val FACEBOOK_ACCOUNT_KIT_PHONE_NUMBER_COUNTRY_Name_CODE_KEY = "countryNameCode"
     var TripId = "trip_id"
-
-    // payment types used in payment select activity for shared preference purpose
-    val PAYMENT_PAYPAL = "paypal"
-    val PAYMENT_CARD = "stripe"
-    val PAYMENT_BRAINTREE = "braintree"
-    val PAYMENT_PAYTM ="paytm"
-    val PAYMENT_MPESA = "mpesa"
-    val PAYMENT_FLUTTERWAVE = "flutterwave"
 
     //Distance Check
     val CheckNormalDistanceEverySec = 250
@@ -144,14 +128,13 @@ object CommonKeys {
         }
     }
 
-    @StringDef(TripStatus.Completed, TripStatus.Rating, TripStatus.Cancelled, TripStatus.Payment, TripStatus.Begin_Trip, TripStatus.End_Trip, TripStatus.Scheduled)
+    @StringDef(TripStatus.Completed, TripStatus.Rating, TripStatus.Cancelled, TripStatus.Begin_Trip, TripStatus.End_Trip, TripStatus.Scheduled)
     @Retention(RetentionPolicy.SOURCE)
     annotation class TripStatus {
         companion object {
             const val Completed = "Completed"
             const val Rating = "Rating"
             const val Cancelled = "Cancelled"
-            const val Payment = "Payment"
             const val Begin_Trip = "Begin trip"
             const val End_Trip = "End trip"
             const val Scheduled = "Scheduled"

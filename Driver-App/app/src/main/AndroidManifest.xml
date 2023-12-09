@@ -59,27 +59,6 @@
         tools:replace="android:allowBackup">
 
         <activity
-            android:name="com.tkpmnc.sgtaxidriver.common.views.PaymentWebViewActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
-
-        <activity
-            android:name="com.tkpmnc.sgtaxidriver.common.views.MpesaPaymentWebViewActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
-
-        <activity
-            android:name="com.tkpmnc.sgtaxidriver.common.views.PaytmPaymentWebViewActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
-
-        <activity
             android:name="com.tkpmnc.sgtaxidriver.common.views.FlutterwaveWebViewActivity"
             android:exported="false"
             android:screenOrientation="portrait"
@@ -95,9 +74,7 @@
         <activity
             android:name="com.tkpmnc.sgtaxidriver.home.managevehicles.ManageVehicles"
              />
-        <activity
-            android:name="com.tkpmnc.sgtaxidriver.home.payouts.PayoutDetailsListActivity"
-           />
+       
         <activity
             android:name="com.tkpmnc.sgtaxidriver.home.fragments.Referral.ShowReferralOptionsActivity"
              />
@@ -225,16 +202,7 @@
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.tkpmnc.sgtaxidriver.home.paymentstatement.PaymentStatementActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.tkpmnc.sgtaxidriver.home.paymentstatement.PayStatementDetails"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name="com.tkpmnc.sgtaxidriver.home.profile.VehiclInformation"
             android:exported="false"
@@ -249,16 +217,6 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.tkpmnc.sgtaxidriver.trips.RequestAcceptActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.tkpmnc.sgtaxidriver.home.paymentstatement.DailyEarningDetails"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.tkpmnc.sgtaxidriver.home.paymentstatement.TripEarningsDetail"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -324,16 +282,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
-        <activity
-            android:name="com.tkpmnc.sgtaxidriver.home.fragments.payment.PaymentPage"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.tkpmnc.sgtaxidriver.home.fragments.payment.AddPayment"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+       
         <activity
             android:name="com.tkpmnc.sgtaxidriver.common.helper.CommonDialog"
             android:exported="false"
@@ -355,37 +304,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
-        <activity
-            android:name="com.tkpmnc.sgtaxidriver.home.payouts.PayoutMainActivity"
-            android:exported="false"
-            android:hardwareAccelerated="true"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.tkpmnc.sgtaxidriver.home.payouts.PayoutAddressDetailsActivity"
-            android:exported="false"
-            android:hardwareAccelerated="true"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.tkpmnc.sgtaxidriver.home.payouts.PayoutBankDetailsActivity"
-            android:hardwareAccelerated="true"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
-        <activity
-            android:name="com.tkpmnc.sgtaxidriver.home.payouts.PayoutEmailActivity"
-            android:exported="false"
-            android:hardwareAccelerated="true"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.tkpmnc.sgtaxidriver.home.payouts.PayoutEmailListActivity"
-            android:exported="false"
-            android:hardwareAccelerated="true"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-
+       
         <service
             android:name="com.tkpmnc.sgtaxidriver.home.firebaseChat.FirebaseChatNotificationService"
             android:enabled="true"
@@ -407,41 +326,12 @@
             android:label="RestartServiceWhenStopped" />
 
         <activity
-            android:name="com.tkpmnc.sgtaxidriver.home.payouts.BankDetailsActivity"
-            android:exported="false"
-            android:hardwareAccelerated="true"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.tkpmnc.sgtaxidriver.home.fragments.payment.PayToAdminActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoTransulent"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
-
-
-        <activity
-            android:name="com.tkpmnc.sgtaxidriver.home.fragments.EarningActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoTransulent"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
-        <activity
             android:name="com.tkpmnc.sgtaxidriver.home.fragments.RatingActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoTransulent"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
-        <activity
-            android:name="com.tkpmnc.sgtaxidriver.home.fragments.payment.AddCardActivity"
-            android:exported="false"
-            android:theme="@style/AppTheme.NoTransulent"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
-        <activity
-            android:name="com.tkpmnc.sgtaxidriver.home.fragments.payment.PaymentActivity"
-            android:exported="false"
-            android:theme="@style/AppTheme.NoTransulent"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+       
         <activity
             android:name="com.tkpmnc.sgtaxidriver.trips.voip.CallProcessingActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
@@ -449,24 +339,7 @@
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.tkpmnc.sgtaxidriver.trips.rating.PaymentAmountPage"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.braintreepayments.api.BraintreeBrowserSwitchActivity"
-            android:exported="true"
-            android:launchMode="singleTask">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
 
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-
-                <data android:scheme="${applicationId}.braintree" />
-            </intent-filter>
-        </activity>
         <activity
             android:name="com.tkpmnc.sgtaxidriver.common.views.SupportActivityCommon"
             android:exported="false"

@@ -4,7 +4,7 @@ package com.tkpmnc.sgtaxidriver.home.map.drawpolyline
  * @package com.tkpmnc.sgtaxidriver
  * @subpackage map.drawpolyline
  * @category DownloadTask
- * @author Seen Technologies
+ * 
  *
  */
 

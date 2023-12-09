@@ -4,7 +4,7 @@ package com.tkpmnc.sgtaxidriver.home.signinsignup
  * @package com.tkpmnc.sgtaxidriver
  * @subpackage signinsignup model
  * @category RegisterCarDetailsActivity
- * @author Seen Technologies
+ * 
  *
  */
 

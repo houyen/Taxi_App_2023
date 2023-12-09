@@ -4,7 +4,7 @@ package com.tkpmnc.sgtaxidriver.trips
  * @package com.tkpmnc.sgtaxidriver.home
  * @subpackage home
  * @category RequestReceiveActivity
- * @author Seen Technologies
+ * 
  *
  */
 
@@ -493,14 +493,8 @@ class RequestReceiveActivity : CommonActivity(), LinearTimer.TimerListener, Serv
         sessionManager.subTripStatus = resources.getString(R.string.confirm_arrived)
         //sessionManager.setTripStatus("CONFIRM YOU'VE ARRIVED");
         sessionManager.tripStatus = CommonKeys.TripDriverStatus.ConfirmArrived
-        // sessionManager.paymentMethod = tripDetailsModel.paymentMode
 
         sessionManager.isTrip = true
-        /*  sessionManager.isPool=tripDetailsModel.isPool
-          if(!sessionManager.isPool)
-          {
-              AddFirebaseDatabase().removeDriverFromGeofire(this)
-          }*/
         sessionManager.isDriverAndRiderAbleToChat = true
         CommonMethods.startFirebaseChatListenerService(this)
 

@@ -4,7 +4,7 @@ package com.tkpmnc.sgtaxiuser.taxiapp.sidebar.trips
  * @package com.tkpmnc.sgtaxiuser
  * @subpackage Side_Bar.trips
  * @category Upcoming
- * @author Seen Technologies
+ * 
  *
  */
 
