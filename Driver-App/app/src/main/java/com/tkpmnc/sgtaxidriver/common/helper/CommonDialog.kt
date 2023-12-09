@@ -4,7 +4,7 @@ package com.tkpmnc.sgtaxidriver.common.helper
  * @package com.tkpmnc.sgtaxidriver.common.helper
  * @subpackage helper
  * @category CommonDialog
- * @author Seen Technologies
+ * 
  *
  */
 
@@ -25,11 +25,6 @@ import com.tkpmnc.sgtaxidriver.common.util.CommonMethods
 import com.tkpmnc.sgtaxidriver.home.MainActivity
 import java.util.*
 import javax.inject.Inject
-
-/* ************************************************************
-                      CommonDialog
-Its used for commondialog screen    (Like Arrive now, Begin trip, Payment completed)
-*************************************************************** */
 
 class CommonDialog : Activity(), View.OnClickListener {
 
@@ -54,9 +49,6 @@ class CommonDialog : Activity(), View.OnClickListener {
         if (status == 1) {
             setMessage = resources.getString(R.string.yourtripcanceledrider)
         } else if (status == 2) {
-
-            setMessage = resources.getString(R.string.paymentcompleted)
-        }
         val message = findViewById<View>(R.id.message) as TextView
         println("getMessag $setMessage")
         message.text = setMessage

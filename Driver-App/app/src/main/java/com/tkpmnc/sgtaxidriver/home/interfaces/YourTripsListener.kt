@@ -4,7 +4,7 @@ package com.tkpmnc.sgtaxidriver.home.interfaces
  * @package com.tkpmnc.sgtaxidriver
  * @subpackage interfaces
  * @category YourTripsListener
- * @author Seen Technologies
+ * 
  *
  */
 

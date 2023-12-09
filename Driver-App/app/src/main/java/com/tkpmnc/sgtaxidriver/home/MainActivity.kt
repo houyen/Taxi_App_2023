@@ -5,7 +5,7 @@ package com.tkpmnc.sgtaxidriver.home
  * @package com.tkpmnc.sgtaxidriver
  * @subpackage -
  * @category MainActivity
- * @author Seen Technologies
+ * 
  *
  */
 
@@ -86,7 +86,6 @@ import com.tkpmnc.sgtaxidriver.home.fragments.EarningActivity
 import com.tkpmnc.sgtaxidriver.home.fragments.HomeFragment
 import com.tkpmnc.sgtaxidriver.home.fragments.RatingActivity
 import com.tkpmnc.sgtaxidriver.home.fragments.Referral.ShowReferralOptionsActivity
-import com.tkpmnc.sgtaxidriver.home.fragments.payment.PayToAdminActivity
 import com.tkpmnc.sgtaxidriver.home.interfaces.ApiService
 import com.tkpmnc.sgtaxidriver.home.interfaces.ServiceListener
 import com.tkpmnc.sgtaxidriver.home.managevehicles.DocumentDetails
@@ -1251,7 +1250,7 @@ class MainActivity : CommonActivity(), ServiceListener {
 
 
     /*
-     *  Dialog for arrive now , begin trip, end trip, payment completed
+     *  Dialog for arrive now , begin trip, end trip
      */
     fun statusDialog(message: String, show: Int) {
 

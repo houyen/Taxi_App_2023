@@ -551,10 +551,7 @@ class SettingActivity : CommonActivity(), ServiceListener, UserChoiceSuccessResp
             language.text = lang
             updateLanguage()
             setLocale(langocde!!)
-            /*CommonKeys.isFirstSetpaymentMethod=false
-            val intent = Intent(this@SettingActivity, SplashActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-            startActivity(intent)*/
+        
         }
         else if (type.equals(Enums.USER_CHOICE_CURRENCY)){
             currency = sessionManager.currencyCode!!

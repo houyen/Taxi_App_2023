@@ -4,7 +4,7 @@ package com.tkpmnc.sgtaxidriver.common.dependencies.component
  * @package com.tkpmnc.sgtaxidriver
  * @subpackage dependencies.component
  * @category AppComponent
- * @author Seen Technologies
+ * 
  *
  */
 
@@ -35,15 +35,11 @@ import com.tkpmnc.sgtaxidriver.home.fragments.RatingActivity
 import com.tkpmnc.sgtaxidriver.home.fragments.Referral.ShowReferralOptionsActivity
 import com.tkpmnc.sgtaxidriver.home.fragments.currency.CurrencyListAdapter
 import com.tkpmnc.sgtaxidriver.home.fragments.language.LanguageAdapter
-import com.tkpmnc.sgtaxidriver.home.fragments.payment.*
 import com.tkpmnc.sgtaxidriver.home.managevehicles.*
 import com.tkpmnc.sgtaxidriver.home.managevehicles.adapter.*
 import com.tkpmnc.sgtaxidriver.home.map.GpsService
 import com.tkpmnc.sgtaxidriver.home.map.drawpolyline.DownloadTask
-import com.tkpmnc.sgtaxidriver.home.paymentstatement.*
 import com.tkpmnc.sgtaxidriver.home.payouts.*
-import com.tkpmnc.sgtaxidriver.home.payouts.adapter.PayoutCountryListAdapter
-import com.tkpmnc.sgtaxidriver.home.payouts.payout_model_classed.PayPalEmailAdapter
 import com.tkpmnc.sgtaxidriver.home.profile.DriverProfile
 import com.tkpmnc.sgtaxidriver.home.profile.VehiclInformation
 import com.tkpmnc.sgtaxidriver.home.pushnotification.MyFirebaseInstanceIDService
@@ -59,7 +55,6 @@ import com.tkpmnc.sgtaxidriver.trips.viewmodel.ReqAccpVM
 import com.tkpmnc.sgtaxidriver.trips.voip.CallProcessingActivity
 import com.tkpmnc.sgtaxidriver.trips.voip.NewTaxiSinchService
 import com.tkpmnc.sgtaxidriver.common.views.FlutterwaveWebViewActivity
-import com.tkpmnc.sgtaxidriver.common.views.PaytmPaymentWebViewActivity
 import com.tkpmnc.sgtaxidriver.home.firebase_auth.OTPActivity
 import com.tkpmnc.sgtaxidriver.home.firebase_auth.PhoneActivity
 import dagger.Component
@@ -74,27 +69,9 @@ import javax.inject.Singleton
 interface AppComponent {
     // ACTIVITY
 
-    fun inject(bankDetailsActivity: BankDetailsActivity)
-
-
     fun inject(currencyListAdapter: CurrencyListAdapter)
 
-    fun inject(payoutEmailActivity: PayoutEmailActivity)
-
-    fun inject(payoutEmailListActivity: PayoutEmailListActivity)
-
-
-    fun inject(payPalEmailAdapter: PayPalEmailAdapter)
-
-    fun inject(payoutAddressDetailsActivity: PayoutAddressDetailsActivity)
-
-    fun inject(payoutBankDetailsActivity: PayoutBankDetailsActivity)
-
-    fun inject(payoutCoutryListAdapter2: PayoutCoutryListAdapter2)
-
     fun inject(priceStatementAdapter: PriceStatementAdapter)
-
-    fun inject(paymentPage: PaymentPage)
 
     fun inject(driverDetailsAdapter: DriverDetailsAdapter)
 
@@ -120,21 +97,14 @@ interface AppComponent {
 
     fun inject(tripDetails: TripDetails)
 
-    fun inject(PaymentStatementActivity: PaymentStatementActivity)
-
-
     fun inject(ManageVehicleActivity: ManageVehicleFragment)
     fun inject(vehicleTypeAdapter: VehicleTypeAdapter)
-
-    fun inject(earningFragment: EarningActivity)
 
     fun inject(mainActivity: MainActivity)
 
     fun inject(signinSignupHomeActivity: SigninSignupHomeActivity)
 
     fun inject(splashActivity: SplashActivity)
-
-    fun inject(addPayment: AddPayment)
 
     fun inject(riderProfilePage: RiderProfilePage)
 
@@ -154,13 +124,9 @@ interface AppComponent {
 
     fun inject(documentDetails: DocumentDetails)
 
-    fun inject(paymentAmountPage: PaymentAmountPage)
-
     fun inject(payStatementDetails: PayStatementDetails)
 
     fun inject(tripEarningsDetail: TripEarningsDetail)
-
-    fun inject(dailyEarningDetails: DailyEarningDetails)
 
     fun inject(riderrating: Riderrating)
 
@@ -197,13 +163,10 @@ interface AppComponent {
 
     fun inject(phoneActivity: PhoneActivity)
 
-    fun inject(otpActivity: OTPActivity)
     // Adapters
     fun inject(manageVehicleAdapter: ManageVehicleAdapter)
 
     fun inject(yearAdapter: YearAdapter)
-
-    fun inject(payoutDetailsListAdapter: PayoutDetailsListAdapter)
 
     fun inject(languageAdapter: LanguageAdapter)
 
@@ -219,7 +182,6 @@ interface AppComponent {
 
     fun inject(firebaseChatHandler: FirebaseChatHandler)
 
-    fun inject(payoutCountryListAdapter: PayoutCountryListAdapter)
 
     fun inject(adapterFirebaseRecylcerview: AdapterFirebaseRecylcerview)
 
@@ -238,31 +200,15 @@ interface AppComponent {
 
     fun inject(newTaxiSinchService: NewTaxiSinchService)
 
-    //fun inject(workerUtils: WorkerUtils)
-
-
-    //fun inject(updateGPSWorker: UpdateGPSWorker)
-
-
     fun inject(locationService: LocationService)
 
     fun inject(firebaseDatabase: AddFirebaseDatabase)
 
-    fun inject(payToAdminActivity: PayToAdminActivity)
-
-    fun inject(paytmPaymentWebViewActivity: PaytmPaymentWebViewActivity)
-
-    fun inject(mpesaPaymentWebViewActivity: MpesaPaymentWebViewActivity)
 
     fun inject(flutterwaveWebViewActivity: FlutterwaveWebViewActivity)
 
     fun inject(manageVehicles: ManageVehicles)
 
-    fun inject(paymentActivity: PaymentActivity)
-
-    fun inject(addCardActivity: AddCardActivity)
-
-    fun inject(payoutDetailsListActivity: PayoutDetailsListActivity)
 
     fun inject(manageDocumentActivity: ManageVehicleDocumentFragment)
 
@@ -270,13 +216,7 @@ interface AppComponent {
 
     fun inject(priceRecycleAdapter: PriceRecycleAdapter)
 
-    fun inject(showReferralOptionsActivity: ShowReferralOptionsActivity)
-
-    fun inject(upcomingTripsPaginationAdapter: PendingTripsPaginationAdapter)
-
     fun inject(pastTripsPaginationAdapter: CompletedTripsPaginationAdapter)
-    fun inject(paymentMethodAdapter: PaymentMethodAdapter)
-
 
     fun inject(featuresInVehicleAdapter: FeaturesInVehicleAdapter)
 
@@ -295,20 +235,6 @@ interface AppComponent {
     fun inject(androidPositionProvider: AndroidPositionProvider)
 
     fun inject(trackingController: TrackingController)
-
-    fun inject(supportActivityCommon: SupportActivityCommon)
-
-    fun inject(supportAdapter: SupportAdapter)
-
-    fun inject(payStatementPaginationAdapter: PayStatementPaginationAdapter)
-
-    fun inject(dailyEarnPaginationAdapter: DailyEarnPaginationAdapter)
-
-    fun inject(dailyHoursPaginationAdapter: DailyHoursPaginationAdapter)
-
-    fun inject(dailyEarnListAdapter: DailyEarnListAdapter)
-
-    fun inject(paymentWebViewActivity: PaymentWebViewActivity)
 
     fun inject(commonActivity: CommonActivity)
 

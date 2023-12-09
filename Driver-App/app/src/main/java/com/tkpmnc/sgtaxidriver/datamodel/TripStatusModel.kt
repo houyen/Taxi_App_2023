@@ -56,13 +56,6 @@ class TripStatusModel {
     @Expose
     var dropLocation: String? = null
 
-    @SerializedName("schedule_display_date")
-    @Expose
-    var scheduleDisplayDate: String? = null
-
-    @SerializedName("driver_earnings")
-    @Expose
-    var driverEarnings: String? = null
 
 
 }

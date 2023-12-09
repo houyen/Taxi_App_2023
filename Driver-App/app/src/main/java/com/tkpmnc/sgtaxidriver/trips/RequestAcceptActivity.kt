@@ -4,7 +4,7 @@ package com.tkpmnc.sgtaxidriver.trips
  * @package com.tkpmnc.sgtaxidriver.home
  * @subpackage home
  * @category RequestAcceptActivity
- * @author Seen Technologies
+ * 
  *
  */
 
@@ -116,7 +116,6 @@ import com.tkpmnc.sgtaxidriver.home.map.drawpolyline.DirectionsJSONParser
 import com.tkpmnc.sgtaxidriver.home.pushnotification.Config
 import com.tkpmnc.sgtaxidriver.home.pushnotification.NotificationUtils
 import com.tkpmnc.sgtaxidriver.trips.proswipebutton.ProSwipeButton
-import com.tkpmnc.sgtaxidriver.trips.rating.PaymentAmountPage
 import com.tkpmnc.sgtaxidriver.trips.rating.Riderrating
 import com.tkpmnc.sgtaxidriver.trips.viewmodel.ReqAccpVM
 import com.tkpmnc.sgtaxidriver.trips.viewmodel.RequestAcceptActivityInterface
@@ -160,7 +159,6 @@ class RequestAcceptActivity : CommonActivity(),ImageListener, DriverDetailsAdapt
     /**
      * Coroutine variables
      */
-
 
     val uiScope = CoroutineScope(Dispatchers.Main)
 
@@ -435,22 +433,6 @@ class RequestAcceptActivity : CommonActivity(),ImageListener, DriverDetailsAdapt
         startActivity(intent)
     }
 
-    /*@OnClick(R.id.fab_start_chat)
-    fun startChating() {
-        try {
-            sessionManager.riderName = tripDetailsModel.riderDetails.get(currentRiderPosition).name
-            sessionManager.riderId = tripDetailsModel.riderDetails.get(currentRiderPosition).riderId!!
-            sessionManager.riderRating = tripDetailsModel.riderDetails.get(currentRiderPosition).rating
-            sessionManager.riderProfilePic = tripDetailsModel.riderDetails.get(currentRiderPosition).profileImage
-            sessionManager.tripId = tripDetailsModel.riderDetails.get(currentRiderPosition).tripId!!.toString()
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-        sessionManager.chatJson = ""
-
-        startActivity(Intent(this, ActivityChat::class.java))
-    }*/
-
     lateinit var positionProvider: PositionProvider
     private var directionModel: DirectionDataModel? = null
 
@@ -479,20 +461,7 @@ class RequestAcceptActivity : CommonActivity(),ImageListener, DriverDetailsAdapt
     }
 
 
-    private fun permissionCheck() {
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            return
-        }
-        positionProvider.requestSingleLocation()
-    }
-
+    
     fun getIntentValues() {
         /*
          *  Get Trip rider details
@@ -637,14 +606,6 @@ class RequestAcceptActivity : CommonActivity(),ImageListener, DriverDetailsAdapt
             pickup_address.text = tripDetailsModel.riderDetails.get(currentRiderPosition).pickupAddress
         }
 
-
-
-        if (tripDetailsModel.riderDetails.get(currentRiderPosition).paymentMode.equals("Cash")) {
-            cashtrip_lay.visibility = View.VISIBLE
-        } else {
-            cashtrip_lay.visibility = View.GONE
-
-        }
         ridername.text = tripDetailsModel.riderDetails.get(currentRiderPosition).name
         val imageUr = tripDetailsModel.riderDetails.get(currentRiderPosition).profileImage
 
@@ -702,10 +663,6 @@ class RequestAcceptActivity : CommonActivity(),ImageListener, DriverDetailsAdapt
         sessionManager.bookingType = tripDetailsModel.riderDetails.get(currentRiderPosition).bookingType.toString()
         sessionManager.beginLatitude = tripDetailsModel.riderDetails.get(currentRiderPosition).pickup_lat
         sessionManager.beginLongitude = tripDetailsModel.riderDetails.get(currentRiderPosition).pickup_lng
-        val invoiceModels = tripDetailsModel.riderDetails.get(currentRiderPosition).invoice
-        // sessionManager.paymentMethod = tripDetailsModel.paymentMode
-
-        // Pass different data based on trip status
 
         sessionManager.isTrip = true
         if (CommonKeys.TripStatus.Scheduled == tripStatus || CommonKeys.TripStatus.Begin_Trip == tripStatus || CommonKeys.TripStatus.End_Trip == tripStatus) {
@@ -781,144 +738,6 @@ class RequestAcceptActivity : CommonActivity(),ImageListener, DriverDetailsAdapt
         }
     }
 
-    fun showTollFeeBottomSheet() {
-        val tiplFeeDescription: TextInputLayout
-        val tiplFeeAmount: TextInputLayout
-        val view = layoutInflater.inflate(R.layout.extra_fee, null)
-        val btnNo: FontButton
-        val btnYes: FontButton
-        val btnCancel: FontButton
-        val btnApply: FontButton
-        val applyTollFare = view.findViewById<ConstraintLayout>(R.id.ctlv_apply_toll_fare)
-        val enterTollFare = view.findViewById<ConstraintLayout>(R.id.ctlv_enter_toll_fare)
-        tiplFeeDescription = view.findViewById(R.id.tipl_extra_fee_description)
-        tiplFeeAmount = view.findViewById(R.id.tipl_extra_fee_amount)
-        val tollFare = view.findViewById<EditText>(R.id.edtx_toll_amount)
-        edtxExtraFeeDescription = view.findViewById(R.id.edtx_extra_fee_description)
-        edtx_extra_fee_other_description = view.findViewById(R.id.edtx_extra_fee_other_description)
-        tipl_extra_fee_other_description = view.findViewById(R.id.tipl_extra_fee_other_description)
-        //FontTextView currencySymbol = view.findViewById(R.id.tv_currency_symbol);
-
-        btnNo = view.findViewById(R.id.btn_no)
-        btnYes = view.findViewById(R.id.btn_yes)
-        btnCancel = view.findViewById(R.id.btn_cancel)
-        btnApply = view.findViewById(R.id.btn_apply)
-
-        tripastatusbutton.showResultIcon(false, true)
-
-        tollFare.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
-
-            }
-
-            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-
-            }
-
-            override fun afterTextChanged(s: Editable) {
-                if (!TextUtils.isEmpty(s.toString())) {
-                    tiplFeeAmount.isErrorEnabled = false
-                }
-            }
-        })
-
-        edtx_extra_fee_other_description!!.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
-
-            }
-
-            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-
-            }
-
-            override fun afterTextChanged(s: Editable) {
-                if (!TextUtils.isEmpty(s.toString())) {
-                    //tipl_extra_fee_other_description!!.isErrorEnabled = false
-                }
-            }
-        })
-
-        tiplFeeAmount.hint = resources.getString(R.string.amount) + " (" + sessionManager.currencySymbol + ")"
-
-
-        val bottomSheetDialog = Dialog(this, R.style.BottomSheetDialogThemeTransparent)
-        bottomSheetDialog.setContentView(view)
-        bottomSheetDialog.setCancelable(true)
-        if (bottomSheetDialog.window == null) return
-        bottomSheetDialog.window!!.setLayout(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
-        bottomSheetDialog.window!!.setGravity(Gravity.BOTTOM)
-        bottomSheetDialog.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
-        bottomSheetDialog.setCancelable(false)
-
-        bottomSheetDialog.show()
-
-        btnNo.setOnClickListener { _ ->
-            isTollFee = false
-            tripastatusbutton.AutoSwipe(this, CommonKeys.TripDriverStatus.EndTrip)
-            bottomSheetDialog.dismiss()
-
-        }
-        btnYes.setOnClickListener { _ ->
-            viewModel?.getTollReasons(this)
-            applyTollFare.visibility = View.GONE
-            enterTollFare.visibility = View.VISIBLE
-            isTollFee = true
-        }
-        btnCancel.setOnClickListener { _ ->
-            applyTollFare.visibility = View.VISIBLE
-
-            enterTollFare.visibility = View.GONE
-
-            tiplFeeAmount.isErrorEnabled = false
-            tiplFeeDescription.isErrorEnabled = false
-        }
-
-        edtxExtraFeeDescription!!.setOnClickListener { _ -> showExtraFeeReasons(tiplFeeDescription) }
-
-        btnApply.setOnClickListener { _ ->
-
-            tiplFeeAmount.isErrorEnabled = false
-            tiplFeeDescription.isErrorEnabled = false
-
-            if (tollFare.text.toString().trim { it <= ' ' } == "0" || tollFare.text.toString().isEmpty()) {
-                //tiplFeeAmount.isErrorEnabled = true
-                Toast.makeText(this,resources.getString(R.string.enter_amount_empty),Toast.LENGTH_SHORT).show()
-                //tiplFeeAmount.error = resources.getString(R.string.enter_amount_empty)
-            } else if (extraFeeDescriptionID.equals("", ignoreCase = true)) {
-                //tiplFeeDescription.isErrorEnabled = true
-                Toast.makeText(this,resources.getString(R.string.error_select_extra_fee_description),Toast.LENGTH_SHORT).show()
-                //tiplFeeDescription.error = resources.getString(R.string.error_select_extra_fee_description)
-            } else {
-                if (edtx_extra_fee_other_description!!.visibility == View.VISIBLE && TextUtils.isEmpty(edtx_extra_fee_other_description!!.text.toString())) {
-                    //tipl_extra_fee_other_description!!.isErrorEnabled = true
-                    Toast.makeText(this,resources.getString(R.string.enter_extra_fee_description),Toast.LENGTH_SHORT).show()
-                    //tipl_extra_fee_other_description!!.error = resources.getString(R.string.enter_extra_fee_description)
-                } else {
-                    bottomSheetDialog.dismiss()
-                    extraFeeAmount = tollFare.text.toString().trim { it <= ' ' }
-
-                    if (extraFeeDescriptionID.equals("1", ignoreCase = true)) {
-
-                        extra_fee_reason = edtx_extra_fee_other_description!!.text.toString()
-                        // System.out.println("extra fee_reason"+extra_fee_reason);
-                    } else {
-                        extra_fee_reason = edtxExtraFeeDescription!!.text.toString()
-                        // System.out.println("extra fee_reason"+extra_fee_reason);
-                    }
-                    //extraFeeDescription= edtxExtraFeeDescription.getText().toString().trim();
-                    println("extra fee_reason$extra_fee_reason")
-                    tripastatusbutton.AutoSwipe(this, CommonKeys.TripDriverStatus.EndTrip)
-                }
-            }
-
-        }
-
-    }
-
-
-    /**
-     *
-     */
 
     private suspend fun downloadTask(polyLineType: String, origin: LatLng, dest: LatLng) {
 
@@ -1198,48 +1017,6 @@ class RequestAcceptActivity : CommonActivity(),ImageListener, DriverDetailsAdapt
     }
 
 
-    fun showExtraFeeReasons(tiplFeeDescription: TextInputLayout) {
-        val recyclerView1 = RecyclerView(this)
-
-        val extraFeeReasonAdapter = ExtraFeeReasonAdapter(this, toll_reasons!!.extraFeeReason, object : ExtraFeeReasonAdapter.IExtraFeeReasonSelectListener {
-            override fun selectedExtraFeeReason(extraFeeReason: ExtraFeeReason) {
-                //   if(extraFeeDescriptionID.equalsIgnoreCase())
-                //tiplFeeDescription.isErrorEnabled = false
-                edtxExtraFeeDescription!!.setText(extraFeeReason.name)
-                extraFeeDescriptionID = extraFeeReason.id.toString()
-                if (extraFeeDescriptionID.equals("1", ignoreCase = true)) {
-                    edtx_extra_fee_other_description!!.visibility = View.VISIBLE
-                    tipl_extra_fee_other_description!!.visibility = View.VISIBLE
-                    title!!.text = resources.getString(R.string.enter_other_reason)
-                } else {
-                    edtx_extra_fee_other_description!!.visibility = View.GONE
-                    tipl_extra_fee_other_description!!.visibility = View.GONE
-                }
-                if (alertDialogStores != null) {
-                    alertDialogStores!!.cancel()
-                }
-            }
-        })
-
-
-
-        recyclerView1.layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.VERTICAL, false)
-        recyclerView1.adapter = extraFeeReasonAdapter
-        // loadcurrencylist(0);
-
-
-        val inflater = layoutInflater
-        val view = inflater.inflate(R.layout.header, null)
-        title = view.findViewById<View>(R.id.header) as TextView
-        title!!.text = resources.getString(R.string.select_reason)
-        alertDialogStores = android.app.AlertDialog.Builder(this)
-                .setCustomTitle(view)
-                .setView(recyclerView1)
-                .setCancelable(true)
-                .show()
-
-    }
-
     private fun initProcessForEndTrip() {
         sessionManager.isDriverAndRiderAbleToChat = false
         stopFirebaseChatListenerService()
@@ -1254,17 +1031,6 @@ class RequestAcceptActivity : CommonActivity(),ImageListener, DriverDetailsAdapt
 
             user_details_lay.isEnabled = false
 
-            /*if (Build.VERSION.SDK_INT > 15) {
-                val permissions = arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.READ_MEDIA_IMAGES)
-
-                val permissionsToRequest = ArrayList<String>()
-                for (permission in permissions) {
-                    if (ActivityCompat.checkSelfPermission(this@RequestAcceptActivity, permission) != PackageManager.PERMISSION_GRANTED) {
-                        permissionsToRequest.add(permission)
-                    }
-                }
-
-            }*/
             try {
 
                 SqliteDB.AddUserLocation(UserLocationModel(java.lang.Double.valueOf(sessionManager.currentLatitude!!), java.lang.Double.valueOf(sessionManager.currentLongitude!!), ""))
@@ -1283,71 +1049,7 @@ class RequestAcceptActivity : CommonActivity(),ImageListener, DriverDetailsAdapt
         }
     }
 
-    fun showBottomOTPsheet() {
-        val view = layoutInflater.inflate(R.layout.otp_verification_screen_before_begin_trip, null)
-
-
-        edtxOne = view.findViewById(R.id.one)
-        edtxTwo = view.findViewById(R.id.two)
-        edtxThree = view.findViewById(R.id.three)
-        edtxFour = view.findViewById(R.id.four)
-        val closePoupu = view.findViewById<TextView>(R.id.tv_close_popup)
-
-        validateOTPToBeginTrip = view.findViewById(R.id.btn_verify_OTP)
-        tvOTPErrorMessage = view.findViewById(R.id.tv_otp_error_field)
-        rlEdittexts = view.findViewById(R.id.rl_edittexts)
-
-
-        val bottomSheetDialog = BottomSheetDialog(this, R.style.BottomSheetDialogTheme)
-        bottomSheetDialog.setContentView(view)
-        bottomSheetDialog.setCancelable(false)
-        if (bottomSheetDialog.window == null) return
-        /*bottomSheetDialog.window!!.setLayout(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
-        bottomSheetDialog.window!!.setGravity(Gravity.BOTTOM)*/
-        //bottomSheetDialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
-        closePoupu.setOnClickListener { _ ->
-            tripastatusbutton.showResultIcon(false, true)
-            bottomSheetDialog.dismiss()
-        }
-        initOTPTextviewListener()
-        bottomSheetDialog.show()
-
-
-
-        validateOTPToBeginTrip.setOnClickListener {
-            if (!beginTripOTP.equals("", ignoreCase = true)) {
-                if (beginTripOTP.equals(tripDetailsModel.riderDetails.get(currentRiderPosition).otp!!, ignoreCase = true)) {
-                    //CommonMethods.showUserMessage("Success");
-                    bottomSheetDialog.dismiss()
-                    //commonMethods.showProgressDialog(RequestAcceptActivity.this,customDialog);
-                    //startBeginTripProgress();
-                    tripastatusbutton.showResultIcon(false, true)
-                    tripastatusbutton.AutoSwipe(this@RequestAcceptActivity, CommonKeys.TripDriverStatus.BeginTrip)
-                } else {
-                    showOTPMismatchIssue()
-                }
-            }
-        }
-
-        bottomSheetDialog.setOnDismissListener {
-            //tripastatusbutton.showResultIcon(false, true);
-        }
-
-
-    }
-
-    private fun initOTPTextviewListener() {
-        edtxOne.addTextChangedListener(OtpTextWatcher())
-        edtxTwo.addTextChangedListener(OtpTextWatcher())
-        edtxThree.addTextChangedListener(OtpTextWatcher())
-        edtxFour.addTextChangedListener(OtpTextWatcher())
-
-        edtxOne.setOnKeyListener(OtpTextBackWatcher())
-        edtxTwo.setOnKeyListener(OtpTextBackWatcher())
-        edtxThree.setOnKeyListener(OtpTextBackWatcher())
-        edtxFour.setOnKeyListener(OtpTextBackWatcher())
-
-
+   
     }
 
     private fun shakeEdittexts() {
@@ -1359,149 +1061,15 @@ class RequestAcceptActivity : CommonActivity(),ImageListener, DriverDetailsAdapt
     }
 
 
-    private inner class OtpTextWatcher : TextWatcher {
-
-
-        override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
-
-        }
-
-        override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
-
-            if (edtxOne.isFocused) {
-                if (edtxOne.text.toString().length > 0)
-                //size as per your requirement
-                {
-                    edtxTwo.requestFocus()
-                    edtxTwo.setSelectAllOnFocus(true)
-                    //one.setBackgroundResource(R.drawable.d_buttomboardermobilenumber);
-                }
-            } else if (edtxTwo.isFocused) {
-                if (edtxTwo.text.toString().length > 0)
-                //size as per your requirement
-                {
-                    edtxThree.requestFocus()
-                    edtxThree.setSelectAllOnFocus(true)
-                    //two.setBackgroundResource(R.drawable.d_buttomboardermobilenumber);
-                } else {
-                    edtxOne.requestFocus()
-                    edtxOne.setSelectAllOnFocus(true)
-                    // edtxOne.setSelection(1);
-                }
-            } else if (edtxThree.isFocused) {
-                if (edtxThree.text.toString().length > 0)
-                //size as per your requirement
-                {
-                    edtxFour.requestFocus()
-                    edtxFour.setSelectAllOnFocus(true)
-                    //three.setBackgroundResource(R.drawable.d_buttomboardermobilenumber);
-                } else {
-                    edtxTwo.requestFocus()
-                    //edtxTwo.setSelection(1);
-                }
-            } else if (edtxFour.isFocused) {
-                if (edtxFour.text.toString().length == 0) {
-                    edtxThree.requestFocus()
-                }
-            }
-
-            if (edtxOne.text.toString().trim { it <= ' ' }.length > 0 && edtxTwo.text.toString().trim { it <= ' ' }.length > 0 && edtxThree.text.toString().trim { it <= ' ' }.length > 0 && edtxFour.text.toString().trim { it <= ' ' }.length > 0) {
-                beginTripOTP = edtxOne.text.toString().trim { it <= ' ' } + edtxTwo.text.toString().trim { it <= ' ' } + edtxThree.text.toString().trim { it <= ' ' } + edtxFour.text.toString().trim { it <= ' ' }
-                validateOTPToBeginTrip.setBackground(ContextCompat.getDrawable(applicationContext, R.drawable.app_curve_button_navy))
-                validateOTPToBeginTrip.setTextColor(ContextCompat.getColor(applicationContext, R.color.newtaxi_app_black))
-            } else {
-                beginTripOTP = ""
-                validateOTPToBeginTrip.setBackground(ContextCompat.getDrawable(applicationContext, R.drawable.app_curve_button_navy_disable))
-                validateOTPToBeginTrip.setTextColor(ContextCompat.getColor(applicationContext, R.color.newtaxi_app_black))
-            }
-            tvOTPErrorMessage.visibility = View.GONE
-        }
-
-        override fun afterTextChanged(editable: Editable) {
-            DebuggableLogI("Newtaxi", "Textchange")
-
-        }
-    }
-
-    fun showOTPMismatchIssue() {
-        shakeEdittexts()
-        tvOTPErrorMessage.visibility = View.VISIBLE
-    }
-
-    private inner class OtpTextBackWatcher : View.OnKeyListener {
-
-        override fun onKey(v: View, keyCode: Int, event: KeyEvent): Boolean {
-            DebuggableLogD("keyview", v.id.toString() + "")
-            DebuggableLogD("keycode", keyCode.toString() + "")
-            DebuggableLogD("keyEvent", event.toString())
-            if (keyCode == KeyEvent.KEYCODE_DEL && isDeletable) {
-                when (v.id) {
-                    /* case R.id.one: {
-                        break;
-                    }*/
-                    R.id.two -> {
-                        edtxTwo.text.clear()
-                        edtxOne.requestFocus()
-                        edtxOne.setSelectAllOnFocus(true)
-                    }
-                    R.id.three -> {
-                        edtxThree.text.clear()
-                        edtxTwo.requestFocus()
-                        edtxTwo.setSelectAllOnFocus(true)
-                    }
-                    R.id.four -> {
-                        edtxFour.text.clear()
-                        edtxThree.requestFocus()
-                        edtxThree.setSelectAllOnFocus(true)
-                    }//edtxThree.setSelection(1);
-                }
-                countdownTimerForOTPBackpress()
-            }
-            return false
-        }
-    }
-
-    fun countdownTimerForOTPBackpress() {
-        isDeletable = false
-
-        if (backPressCounter != null) backPressCounter!!.cancel()
-        backPressCounter = object : CountDownTimer(100, 1000) {
-
-            override fun onTick(millisUntilFinished: Long) {
-                //tvResendOTPCountdown.setText(String.valueOf(millisUntilFinished / 1000));
-            }
-
-            override fun onFinish() {
-                isDeletable = true
-            }
-        }.start()
-    }
-
     private fun startBeginTripProgress() {
         beginTrip()
         try {
-            /*GpsService gps_service = new GpsService();
-                            gps_service.latLngList = new ArrayList<LatLng>();
-
-                            LatLng newLatLng = new LatLng(Double.valueOf(sessionManager.getCurrentLatitude()), Double.valueOf(sessionManager.getCurrentLongitude()));
-                            gps_service.latLngList.add(newLatLng);*/
 
             SqliteDB.AddUserLocation(UserLocationModel(java.lang.Double.valueOf(sessionManager.currentLatitude!!), java.lang.Double.valueOf(sessionManager.currentLongitude!!), ""))
-
-
         } catch (e: Exception) {
             e.printStackTrace()
         }
 
-    }
-
-
-    private fun checkAllPermission() {
-        if (Build.VERSION.SDK_INT >= 33) {
-        checkPermissionStatus(this, supportFragmentManager, this, IMAGE_PERMISSION_ARRAY, 0, 0)
-        }else{
-        checkPermissionStatus(this, supportFragmentManager, this, STORAGEPERMISSIONARRAY, 0, 0)  
-        }
     }
 
 
@@ -1515,54 +1083,6 @@ class RequestAcceptActivity : CommonActivity(),ImageListener, DriverDetailsAdapt
         val dialog = builder.create()
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE) //before
         dialog.show()
-
-    }
-
-    private fun hideChatAccordingToBookingType() {
-        if (sessionManager.bookingType == CommonKeys.RideBookedType.manualBooking) {
-            fabChat.visibility = View.GONE
-        }
-    }
-
-    private fun playNotificatinSoundAndViberate() {
-        try {
-           /* val mPlayer = MediaPlayer.create(this, R.raw.newtaxi)
-            mPlayer.start()
-            mPlayer.isLooping = true
-
-            Timer().schedule(object : TimerTask() {
-                override fun run() {
-                    mPlayer.stop()
-                    mPlayer.release()
-                }
-            }, 2000)*/
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-
-
-        try {
-            val v = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
-            // Vibrate for 500 milliseconds
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                v.vibrate(VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE))
-            } else {
-                //deprecated in API 26
-                v.vibrate(500)
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-
-    }
-
-    private fun deleteFirbaseChatNode() {
-        try {
-            sessionManager.clearRiderNameRatingAndProfilePicture()
-            FirebaseChatHandler.deleteChatNode(sessionManager.tripId!!, this)
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
 
     }
 
@@ -1595,22 +1115,12 @@ class RequestAcceptActivity : CommonActivity(),ImageListener, DriverDetailsAdapt
 
     }
 
-
-    private fun startFirebaseChatListenerService() {
-        //  startService(Intent(this, FirebaseChatNotificationService::class.java))
-    }
-
-    private fun stopFirebaseChatListenerService() {
-        // stopService(Intent(this, FirebaseChatNotificationService::class.java))
-    }
-
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
         mMap!!.setMapStyle(MapStyleOptions.loadRawResourceStyle(this, R.raw.map_style))
 
 
     }
-
 
     override fun onConnected(bundle: Bundle?) {
         val lm = getSystemService(Context.LOCATION_SERVICE) as LocationManager
@@ -1676,24 +1186,6 @@ class RequestAcceptActivity : CommonActivity(),ImageListener, DriverDetailsAdapt
         //acceptedRequest();
 
 
-    }
-
-    @SuppressLint("MissingPermission")
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode.equals(4) && grantResults.size > 0) {
-            val mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient)
-            if (mLastLocation != null) {
-                changeMap(mLastLocation)
-                acceptedRequest()
-                sessionManager.currentLatitude = java.lang.Double.toString(mLastLocation.latitude)
-                sessionManager.currentLongitude = java.lang.Double.toString(mLastLocation.longitude)
-                sessionManager.latitude = java.lang.Double.toString(mLastLocation.latitude)
-                sessionManager.longitude = java.lang.Double.toString(mLastLocation.longitude)
-            }
-        } else {
-            buildGoogleApiClient()
-        }
     }
 
     override fun onConnectionSuspended(i: Int) {
@@ -1845,29 +1337,6 @@ class RequestAcceptActivity : CommonActivity(),ImageListener, DriverDetailsAdapt
 
         }
     }
-
-    private fun defaultETA() {
-        EtaTime = "1"
-        tvEta.text = resources.getQuantityString(R.plurals.minutes, EtaTime.toInt(), EtaTime.toInt())
-        AddFirebaseDatabase().updateEtaToFirebase(EtaTime, this)
-    }
-
-    override fun onStatusChanged(provider: String, status: Int, extras: Bundle) {
-
-    }
-
-    override fun onProviderEnabled(provider: String) {
-
-    }
-
-    override fun onProviderDisabled(provider: String) {
-
-    }
-
-    override fun onConnectionFailed(connectionResult: ConnectionResult) {
-
-    }
-
 
     /*
      *  Google API client called
@@ -2359,14 +1828,12 @@ class RequestAcceptActivity : CommonActivity(),ImageListener, DriverDetailsAdapt
 
     fun onSuccessArrive(jsonResp: JsonResponse) {
 
-
         currentRiderPosition = 0
         val tripDetailsModels = gson.fromJson(jsonResp.strResponse, TripDetailsModel::class.java)
         tripDetailsModel = tripDetailsModels
         tripStatusChanges()
         initView()
         initResume()
-
 
     }
 
@@ -2431,17 +1898,10 @@ class RequestAcceptActivity : CommonActivity(),ImageListener, DriverDetailsAdapt
             println("Delete User $checkuser")
         }
 
-        val rating = Intent(applicationContext, PaymentAmountPage::class.java)
-        rating.putExtra("imgprofile", tripDetailsModel.riderDetails.get(currentRiderPosition).profileImage)
-        startActivity(rating)
-        /*startActivity(new Intent(getApplicationContext(),PaymentAmountPage.class));*/
+    
 
     }
 
-
-    /*
-     *  Show dialog for payment completed trip cancelled
-     */
     fun statusDialog(message: String) {
         println("Print Message $message")
         AlertDialog.Builder(this@RequestAcceptActivity)
@@ -2651,56 +2111,6 @@ class RequestAcceptActivity : CommonActivity(),ImageListener, DriverDetailsAdapt
         startDistanceTimer()
     }
 
-    private fun initResume() {
-
-        distanceCalcCorout()
-        positionProvider.requestSingleLocation()
-
-
-        if (tripastatusbutton.text.toString() == resources.getString(R.string.confirm_arrived) || tripastatusbutton.text.toString() == resources.getString(R.string.begin_trip)) {
-            AddFirebaseDatabase().UpdatePolyLinePoints("0", this)
-        }
-
-    }
-
-
-    private fun calculateEtaFromPolyline(distance: String) {
-
-        try {
-            if (isEtaFromPolyline) {
-                isEtaFromPolyline = false
-                ETACalculatingwithDistance = distance.toDouble()
-
-
-            }
-            println("Distance calclulation : " + ETACalculatingwithDistance)
-        } catch (e: java.lang.Exception) {
-
-        }
-
-
-    }
-
-    private fun calcMinDiff(lastTime: String, lastTime1: String): Long {
-
-        val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
-
-        val date1: Date = simpleDateFormat.parse(lastTime1)
-        val date2: Date = simpleDateFormat.parse(lastTime)
-
-
-
-        println("last time : " + lastTime)
-        println("last time two : " + lastTime1)
-
-
-        val difference = date2.time - date1.time
-        val diffInSec = TimeUnit.MILLISECONDS.toSeconds(difference)
-
-        return diffInSec
-
-    }
-
 
     /**
      * To stop timer
@@ -2799,20 +2209,10 @@ class RequestAcceptActivity : CommonActivity(),ImageListener, DriverDetailsAdapt
                 if (tripastatusbutton.text.toString() == resources.getString(R.string.confirm_arrived) || tripastatusbutton.text.toString() == resources.getString(R.string.begin_trip)) {
                     // Getting URL to the Google Directions API
                     directionModel = GetDirectionData(this@RequestAcceptActivity).directionParse(CommonKeys.DownloadTask.UpdateRoute, driverlatlng, pickuplatlng)
-                    //downloadTask(CommonKeys.DownloadTask.UpdateRoute, driverlatlng, pickuplatlng)
 
                 } else {
                     directionModel = GetDirectionData(this@RequestAcceptActivity).directionParse(CommonKeys.DownloadTask.UpdateRoute, driverlatlng, droplatlng)
-                    //downloadTask(CommonKeys.DownloadTask.UpdateRoute, driverlatlng, droplatlng)
                 }
-
-                println("NAthiya 2798")
-                println("NAthiya ${driverlatlng.latitude}")
-                println("NAthiya ${driverlatlng.longitude}")
-
-                println("NAthiya ${droplatlng.latitude}")
-                println("NAthiya ${droplatlng.longitude}")
-
 
                 withContext(Dispatchers.Main) {
                     updateRouteDirectionUrl(directionModel!!.totalDuration, directionModel!!.distances, directionModel!!.stepPoints, directionModel!!.overviewPolyline, directionModel!!.lineOptions, directionModel!!.points)
@@ -2889,8 +2289,6 @@ class RequestAcceptActivity : CommonActivity(),ImageListener, DriverDetailsAdapt
                     newPoints.add(points[j])
                 }
 
-                /* Location.distanceBetween(latLng1.latitude,latLng1.longitude,points[j].latitude,points[j].longitude,result)
-                    println("distance$distance.")*/
             }
 
 
@@ -3376,8 +2774,6 @@ class RequestAcceptActivity : CommonActivity(),ImageListener, DriverDetailsAdapt
                             //sessionManager.setTripStatus("End Trip");
                             sessionManager.tripStatus = CommonKeys.TripDriverStatus.EndTrip
                             sessionManager.isTrip = false
-
-                            startActivity(Intent(applicationContext, PaymentAmountPage::class.java))
                         } else {
                             commonMethods.showMessage(mContext, dialog, statusmessage)
                         }

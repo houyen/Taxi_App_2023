@@ -4,7 +4,7 @@ package com.tkpmnc.sgtaxiuser.taxiapp.views.main
  * @package com.tkpmnc.sgtaxiuser
  * @subpackage -
  * @category MainActivity
- * @author Seen Technologies
+ * 
  *
  */
 

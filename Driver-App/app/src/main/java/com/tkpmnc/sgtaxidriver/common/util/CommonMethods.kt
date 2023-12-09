@@ -31,9 +31,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import androidx.core.content.res.ResourcesCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
-import com.braintreepayments.api.models.ThreeDSecureAdditionalInformation
-import com.braintreepayments.api.models.ThreeDSecurePostalAddress
-import com.braintreepayments.api.models.ThreeDSecureRequest
 import com.google.android.gms.maps.model.BitmapDescriptor
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.tasks.OnCompleteListener
@@ -42,9 +39,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.iid.FirebaseInstanceId
 import com.google.gson.Gson
-import com.stripe.android.PaymentConfiguration
-import com.stripe.android.Stripe
-import com.stripe.android.model.ConfirmPaymentIntentParams
 import com.tkpmnc.sgtaxidriver.BuildConfig
 import com.tkpmnc.sgtaxidriver.R
 import com.tkpmnc.sgtaxidriver.common.configs.SessionManager
@@ -205,21 +199,6 @@ class CommonMethods {
         return dialog
     }
 
-
-    fun showProgressDialogPaypal(mActivity: AppCompatActivity?, customDialog: CustomDialog?, message: String) {
-        if (mActivity == null || customDialog == null || customDialog.dialog != null && customDialog.dialog!!.isShowing)
-            return
-        progressDialogPaypal = CustomDialog(true, message)
-        progressDialogPaypal!!.show(mActivity.supportFragmentManager, "")
-    }
-
-    fun hideProgressDialogPaypal() {
-        if (progressDialogPaypal == null || progressDialogPaypal!!.dialog == null || !progressDialogPaypal!!.dialog?.isShowing!!)
-            return
-        progressDialogPaypal!!.dismissAllowingStateLoss()
-        progressDialogPaypal = null
-    }
-
     fun imageChangeforLocality(context: Context, image: ImageView) {
         if (context.resources.getString(R.string.layout_direction) == "1") {
             image.rotation = 180f
@@ -237,11 +216,6 @@ class CommonMethods {
     }
 
     fun cameraFilePath(context: Context): File {
-        /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            return File(getDefaultStoragePath(context.getResources().getString(R.string.app_name)), context.getResources().getString(R.string.app_name) + System.currentTimeMillis() + ".png")
-        } else {
-            return File(getDefaultCameraPath(context), context.resources.getString(R.string.app_name) + System.currentTimeMillis() + ".png")
-        }*/
         return File(context.getExternalFilesDir(Environment.DIRECTORY_PICTURES), context.resources.getString(R.string.app_name) + System.currentTimeMillis() + ".png")
     }
 
@@ -355,17 +329,7 @@ class CommonMethods {
                     dialogs.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                     context.startActivity(dialogs)
 
-
-                } else if (json.getJSONObject("custom").has("trip_payment")) {
-                    val riderProfile = json.getJSONObject("custom").getJSONObject("trip_payment").getString("rider_thumb_image")
-                    sessionManager.riderProfilePic = riderProfile
-
-                    val dialogs = Intent(context, CommonDialog::class.java)
-                    dialogs.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                    dialogs.putExtra("message", context.resources.getString(R.string.paymentcompleted))
-                    dialogs.putExtra("type", 1)
-                    dialogs.putExtra("status", 2)
-                    context.startActivity(dialogs)
+                }
 
                 } else if (json.getJSONObject("custom").has("custom_message")) {
                     val notificationUtils = NotificationUtils(context)
@@ -392,21 +356,10 @@ class CommonMethods {
                     val timeStamp = SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Date())
                     //String timeStamp = new SimpleDateFormat("HH.mm.ss").format(new Date());
                     if (!ActivityChat.isOnChat || !sessionManager.tripId!!.equals(tripId)) {
-                        /*  val notificationIntent = Intent(context, ActivityChat::class.java)
-                      notificationIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
-                      notificationIntent.putExtra(CommonKeys.FIREBASE_CHAT_FROM_PUSH, json.toString())
-
-                      val notificationUtils = NotificationUtils(context)
-                      notificationUtils.playNotificationSound()
-                      val message = json.getJSONObject("custom").getJSONObject("chat_notification").getString("message_data")
-                      val title = context.getString(R.string.app_name)
-                      println("ChatNotification : Driver" + message)
-                      notificationUtils.showNotificationMessage(title, message, timeStamp, notificationIntent, null)
-*/
+                       
                         val pushNotification = Intent(Config.PUSH_NOTIFICATION)
                         pushNotification.putExtra("message", "message")
                         LocalBroadcastManager.getInstance(context).sendBroadcast(pushNotification)
-                        //startActivity(rider);
                     }
                 } else {
                     DebuggableLogE("Ride Request Received", "unable to process")
@@ -528,36 +481,6 @@ class CommonMethods {
                         dialogs.putExtra("message", context.resources.getString(R.string.yourtripcanceledrider))
                         dialogs.putExtra("type", 1)
                         dialogs.putExtra("status", 1)
-                        context.startActivity(dialogs)
-                    }
-
-                } else if (json.getJSONObject("custom").has("trip_payment")) {
-                    val riderProfile = json.getJSONObject("custom").getJSONObject("trip_payment").getString("rider_thumb_image")
-                    sessionManager.riderProfilePic = riderProfile
-
-
-                    AddFirebaseDatabase().removeNodesAfterCompletedTrip(context)
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && NotificationUtils.isAppIsInBackground(context)) {
-                        val timeStamp = SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Date())
-                        val intent = Intent(context, MainActivity::class.java)
-                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                        //notificationIntent.putExtra(CommonKeys.FIREBASE_CHAT_FROM_PUSH, json.toString())
-                        val notificationUtils = NotificationUtils(context)
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
-                            notificationUtils.playNotificationSound()
-                        val message = context.resources.getString(R.string.paymentcompleted)
-                        val title = context.getString(R.string.app_name)
-                        notificationUtils.showNotificationMessage(title, message, timeStamp, intent, null, 0L)
-                        val pushNotification = Intent(Config.PUSH_NOTIFICATION)
-                        pushNotification.putExtra("message", "message")
-                        LocalBroadcastManager.getInstance(context).sendBroadcast(pushNotification)
-                    } else {
-                        val dialogs = Intent(context, CommonDialog::class.java)
-                        dialogs.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                        dialogs.putExtra("message", context.resources.getString(R.string.paymentcompleted))
-                        dialogs.putExtra("type", 1)
-                        dialogs.putExtra("status", 2)
                         context.startActivity(dialogs)
                     }
 
@@ -696,11 +619,6 @@ class CommonMethods {
     }
 
 
-    /**
-     * This ThreeDSecureRequest for Custom Ui
-     * It may differ for Custom UI
-     * @return ThreeDSecureRequest For 3D Secure
-     */
     fun threeDSecureRequest(amount: String): ThreeDSecureRequest {
         val address = ThreeDSecurePostalAddress()
                 .givenName(sessionManager!!.firstName)
@@ -733,7 +651,6 @@ class CommonMethods {
 
     companion object {
         var progressDialog: CustomDialog? = null
-        var progressDialogPaypal: CustomDialog? = null
         fun gotoMainActivityFromChatActivity(mActivity: Activity) {
             val mainActivityIntent = Intent(mActivity, MainActivity::class.java)
             mainActivityIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
@@ -999,41 +916,7 @@ class CommonMethods {
 
     }
 
-    /**
-     * init Stripe
-     */
-    fun initStripeData(context: Context) {
-        PaymentConfiguration.init(context, sessionManager.stripePublishKey)
-        stripe = Stripe(context, PaymentConfiguration.getInstance(context).publishableKey)
-    }
-
-    /**
-     * Stripe Instance
-     */
-    fun stripeInstance(): Stripe? {
-        return stripe
-    }
-
-    /**
-     * Get Client Secret From Response
-     */
-    fun getClientSecret(jsonResponse: JsonResponse, activity: AppCompatActivity) {
-        val clientSecret = getJsonValue(jsonResponse.strResponse, "two_step_id", String::class.java) as String
-        if (stripeInstance() != null) {
-            stripeInstance()!!.confirmPayment(activity, createPaymentIntentParams(clientSecret, activity.applicationContext))
-        } else {
-            hideProgressDialog()
-            Toast.makeText(activity.applicationContext, activity.applicationContext.resources.getString(R.string.internal_server_error), Toast.LENGTH_SHORT).show()
-        }
-    }
-
-    /**
-     * Create a Payment to Start Payment Process
-     */
-    private fun createPaymentIntentParams(clientSecret: String, context: Context): ConfirmPaymentIntentParams {
-        return ConfirmPaymentIntentParams.create(clientSecret)
-    }
-
+   
     /**
      *  Update Total Distance in Session
      */
@@ -1086,19 +969,10 @@ class CommonMethods {
         sessionManager.subTripStatus = context.resources.getString(R.string.confirm_arrived)
         //sessionManager.setTripStatus("CONFIRM YOU'VE ARRIVED");
         sessionManager.tripStatus = CommonKeys.TripDriverStatus.ConfirmArrived
-        //sessionManager.paymentMethod = riderModel.paymentMode
 
         sessionManager.isDriverAndRiderAbleToChat = true
         CommonMethods.startFirebaseChatListenerService(context)
 
-
-        /* if (!WorkerUtils.isWorkRunning(CommonKeys.WorkTagForUpdateGPS)) {
-             DebuggableLogE("locationupdate", "StartWork:")
-             WorkerUtils.startWorkManager(CommonKeys.WorkKeyForUpdateGPS, CommonKeys.WorkTagForUpdateGPS, UpdateGPSWorker::class.java,this,sessionManager.driverStatus)
-         }*/
-
-        //  acceptedDriverDetails = new AcceptedDriverDetails(ridername, mobilenumber, profileimg, ratingvalue, cartype, pickuplocation, droplocation, pickuplatitude, droplatitude, droplongitude, pickuplongitude);
-        //        mPlayer.stop();
         val requestaccept = Intent(context, RequestAcceptActivity::class.java)
         requestaccept.putExtra("riderDetails", riderModel)
         requestaccept.putExtra("tripstatus", context.resources.getString(R.string.confirm_arrived))

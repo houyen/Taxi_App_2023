@@ -4,7 +4,7 @@ package com.tkpmnc.sgtaxiuser.appcommon.network
  * @package com.tkpmnc.sgtaxiuser
  * @subpackage network
  * @category AppController
- * @author Seen Technologies
+ * 
  * 
  */
 

@@ -4,7 +4,7 @@ package com.tkpmnc.sgtaxidriver.trips.rating
  * @package com.tkpmnc.sgtaxidriver.trips.rating
  * @subpackage rating
  * @category PaymentAmountPage
- * @author Seen Technologies
+ * 
  *
  */
 
@@ -130,7 +130,6 @@ class PaymentAmountPage : CommonActivity(), ServiceListener {
 
     private var isPaymentCompleted: Boolean = false
 
-    private var tripInvoiceModel: TripInvoiceModel? = null
 
     @OnClick(R.id.back)
     fun backPressed() {
@@ -195,13 +194,6 @@ class PaymentAmountPage : CommonActivity(), ServiceListener {
 
     private fun lookForPaymentNodeChanges() {
         addFirebaseDatabase.initPaymentChangeListener(this)
-    }
-
-    fun callGetInvoiceAPI() {
-        if (isInternetAvailable) {
-            /*  commonMethods.showProgressDialog(this)*/
-            apiService.getInvoice(sessionManager.accessToken!!, sessionManager.tripId!!, sessionManager.type!!).enqueue(RequestCallback(REQ_GET_INVOICE, this))
-        }
     }
 
     override fun onBackPressed() {
@@ -352,10 +344,7 @@ class PaymentAmountPage : CommonActivity(), ServiceListener {
         builder.setCustomTitle(view)
         builder.setTitle(message)
                 .setCancelable(false)
-                .setPositiveButton(R.string.ok) { dialog, which ->
-                    dialog.dismiss()
-                    /*Intent intent = new Intent(getApplicationContext(), Riderrating.class);
-                        intent.putExtra("imgprofile",invoicePaymentDetail.getRiderImage());
+                .setPositiveButton(R.string.ok) { dialog, which ->nvoicePaymentDetail.getRiderImage());
                         startActivity(intent);*/
                     CommonKeys.IS_ALREADY_IN_TRIP = false
                     val intent = Intent(applicationContext, MainActivity::class.java)
@@ -368,14 +357,6 @@ class PaymentAmountPage : CommonActivity(), ServiceListener {
     override fun onSuccess(jsonResp: JsonResponse, data: String) {
         commonMethods.hideProgressDialog()
         when (jsonResp.requestCode) {
-            REQ_GET_INVOICE -> {
-                commonMethods.hideProgressDialog()
-                if (jsonResp.isSuccess) {
-                    getInvoice(jsonResp)
-                } else if (!TextUtils.isEmpty(jsonResp.statusMsg)) {
-                    //commonMethods.showMessage(this, dialog, jsonResp.statusMsg)
-                }
-            }
 
             REQ_CASH_COLLECTED -> if (jsonResp.isSuccess) {
                 commonMethods.hideProgressDialog()
@@ -397,95 +378,6 @@ class PaymentAmountPage : CommonActivity(), ServiceListener {
         }
     }
 
-    private fun getInvoice(jsonResponse: JsonResponse) {
-        tripInvoiceModel = gson.fromJson(jsonResponse.strResponse, TripInvoiceModel::class.java)
-        invoiceModels.clear()
-        invoiceModels.addAll(tripInvoiceModel!!.invoice!!)
-        loaddata()
-    }
-
-
-    /*
-      *  Cash collected API called
-      */
-    fun cashCollected() {
-        if ((!isPaymentCompleted)) {
-            commonMethods.showProgressDialog(this)
-            apiService.cashCollected(sessionManager.tripId!!, sessionManager.accessToken!!).enqueue(RequestCallback(REQ_CASH_COLLECTED, this))
-        }
-    }
-
-    /*
-      *   show error or information
-      */
-    fun snackBar(message: String, buttonmessage: String, buttonvisible: Boolean, duration: Int) {
-        // Create the Snackbar
-        val snackbar: Snackbar
-        val snackbar_background: RelativeLayout
-        val snack_button: TextView
-        val snack_message: TextView
-
-        // Snack bar visible duration
-        if (duration == 1)
-            snackbar = Snackbar.make(button, "", Snackbar.LENGTH_INDEFINITE)
-        else if (duration == 2)
-            snackbar = Snackbar.make(button, "", Snackbar.LENGTH_LONG)
-        else
-            snackbar = Snackbar.make(button, "", Snackbar.LENGTH_SHORT)
-
-        // Get the Snackbar's layout view
-        val layout = snackbar.view as Snackbar.SnackbarLayout
-        // Hide the text
-        val textView = layout.findViewById<View>(com.google.android.material.R.id.snackbar_text) as TextView
-        textView.visibility = View.INVISIBLE
-
-        // Inflate our custom view
-        val snackView = layoutInflater.inflate(R.layout.snackbar, null)
-        // Configure the view
-
-        snackbar_background = snackView.findViewById<View>(R.id.snackbar) as RelativeLayout
-        snack_button = snackView.findViewById<View>(R.id.snack_button) as TextView
-        snack_message = snackView.findViewById<View>(R.id.snackbar_text) as TextView
-
-        snackbar_background.setBackgroundColor(resources.getColor(R.color.textblack)) // Background Color
-
-        if (buttonvisible)
-        // set Right side button visible or gone
-            snack_button.visibility = View.VISIBLE
-        else
-            snack_button.visibility = View.GONE
-
-        snack_button.setTextColor(resources.getColor(R.color.ub__ui_core_warning)) // set right side button text color
-        snack_button.text = buttonmessage // set right side button text
-
-
-        snack_message.setTextColor(resources.getColor(R.color.white)) // set left side main message text color
-        snack_message.text = message  // set left side main message text
-
-        // Add the view to the Snackbar's layout
-        layout.addView(snackView, 0)
-        // Show the Snackbar
-        val snackBarView = snackbar.view
-        snackBarView.setBackgroundColor(resources.getColor(R.color.textblack))
-        snackbar.show()
-
-
-    }
-
-    companion object {
-        lateinit var paymentAmountPageInstance: PaymentAmountPage
-
-        fun deleteTripDb(tripID: String, context: Context) {
-            try {
-                val root = FirebaseDatabase.getInstance().reference.child(context.getString(R.string.real_time_db)).child(FirebaseDbKeys.LIVE_TRACKING_NODE).child(tripID)
-                root.removeValue()
-                println("Trip ID Removed  : $tripID")
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
-
-        }
-    }
 
 
 }

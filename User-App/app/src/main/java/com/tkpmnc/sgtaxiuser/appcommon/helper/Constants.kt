@@ -4,7 +4,7 @@ import com.google.android.gms.maps.model.LatLng
 import com.tkpmnc.sgtaxiuser.R
 
 /**
- * @author Seen Technologies
+ * 
  * 
  * @package com.tkpmnc.sgtaxiuser
  * @subpackage helper

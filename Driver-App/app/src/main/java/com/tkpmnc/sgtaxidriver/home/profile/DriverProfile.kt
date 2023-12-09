@@ -4,7 +4,7 @@ package com.tkpmnc.sgtaxidriver.home.profile
  * @package com.tkpmnc.sgtaxidriver.home.profile
  * @subpackage profile model
  * @category DriverProfile
- * @author Seen Technologies
+ * 
  *
  */
 

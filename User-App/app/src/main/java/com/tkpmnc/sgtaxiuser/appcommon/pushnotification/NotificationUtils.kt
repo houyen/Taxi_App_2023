@@ -4,7 +4,7 @@ package com.tkpmnc.sgtaxiuser.appcommon.pushnotification
  * @package com.tkpmnc.sgtaxiuser
  * @subpackage pushnotification
  * @category NotificationUtils
- * @author Seen Technologies
+ * 
  *
  */
 
@@ -103,38 +103,7 @@ class NotificationUtils(private val mContext: Context) {
 
         val notificationManager = mContext.getSystemService(NOTIFICATION_SERVICE) as NotificationManager
 
-        /* mBuilder.setSmallIcon(icon);
-        mBuilder.setAutoCancel(true)
-                .setContentTitle(title)
-                .setContentIntent(resultPendingIntent)
-                .setPriority(Notification.PRIORITY_MAX)
-                .setDefaults(Notification.DEFAULT_ALL)
-                .setCategory(Notification.CATEGORY_SERVICE)
-                .setWhen(getTimeMilliSec(timeStamp))
-                .setSmallIcon(R.drawable.ic_app_notification)
-                .setLargeIcon(BitmapFactory.decodeResource(mContext.getResources(), icon))
-                .setColor(ContextCompat.getColor(mContext, R.color.ub__black))
-                .setContentText(message);
-
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O)
-        {
-            int importance = NotificationManager.IMPORTANCE_HIGH;
-            NotificationChannel notificationChannel = new NotificationChannel(notificationChannelID, notificationChannelName, importance);
-            notificationChannel.enableLights(true);
-            notificationChannel.setLightColor(Color.RED);
-            notificationChannel.enableVibration(true);
-            notificationChannel.setVibrationPattern(new long[]{1000,1000});
-            assert notificationManager != null;
-            mBuilder.setChannelId("10010");
-            notificationManager.createNotificationChannel(notificationChannel);
-        }
-
-
-
-        assert notificationManager != null;
-        notificationManager.notify(Config.NOTIFICATION_ID, mBuilder.build());*/
-
-        //mBuilder = new NotificationCompat.Builder(mContext,notificationChannelName);
+        
         mBuilder.setSmallIcon(icon)
         mBuilder.setContentTitle(title)
                 .setContentText(message)
@@ -229,21 +198,6 @@ class NotificationUtils(private val mContext: Context) {
             e.printStackTrace()
             return null
         }
-
-    }
-
-    // Playing notification sound
-    fun playNotificationSound() {
-        /*try {
-            val alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
-
-            *//* Uri alarmSound = Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE
-                    + "://" + mContext.getPackageName() + "/raw/notification");*//*
-            val r = RingtoneManager.getRingtone(mContext, alarmSound)
-            r.play()
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }*/
 
     }
 

@@ -4,7 +4,7 @@ package com.tkpmnc.sgtaxidriver.trips
  * @package com.tkpmnc.sgtaxidriver.home
  * @subpackage home
  * @category CancelYourTripActivity
- * @author Seen Technologies
+ * 
  *
  */
 

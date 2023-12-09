@@ -4,7 +4,7 @@ package com.tkpmnc.sgtaxidriver.home.placesearch
  * @package com.tkpmnc.sgtaxidriver
  * @subpackage placesearch
  * @category Recycler view Item click listener
- * @author Seen Technologies
+ * 
  *
  */
 

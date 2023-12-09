@@ -4,7 +4,7 @@ package com.tkpmnc.sgtaxiuser.taxiapp.views.search
  * @package com.tkpmnc.sgtaxiuser
  * @subpackage search
  * @category PlaceSearchActivity
- * @author Seen Technologies
+ * 
  * 
  */
 

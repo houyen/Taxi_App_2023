@@ -314,36 +314,4 @@ class AppServiceProvider extends ServiceProvider
 		View::share('acceptable_mimes',$acceptable_mimes);
 	}
 
-	protected function setPaymentConfig()
-	{
-		$paypal_mode  = payment_gateway('mode','Paypal');
-		
-		define('PAYPAL_ID', payment_gateway('mode','paypal_id'));
-		define('PAYPAL_MODE', ($paypal_mode == 'sandbox') ? 0 : 1);
-		define('PAYPAL_CLIENT_ID', payment_gateway('client','Paypal'));
-
-		define('STRIPE_KEY', payment_gateway('publish','Stripe'));
-		define('STRIPE_SECRET', payment_gateway('secret','Stripe'));
-
-		$site_settings = resolve('site_settings');
-
-		
-
-        $this->app->bind('paypal', function($app) {
-        	$gateway = \Omnipay\Omnipay::create('PayPal_Rest');
-
-			$gateway->initialize(array(
-				'clientId' 	=> payment_gateway('client','Paypal'),
-				'secret' 	=> payment_gateway('secret','Paypal'),
-				'testMode' 	=> (payment_gateway('mode','Paypal') == 'sandbox'),
-			));
-
-			return $gateway;
-        });
-
-        $this->app->singleton('google_service', function($app) {
-        	$google_service = new \App\Services\GoogleAPIService;
-			return $google_service;
-        });
-	}
 }

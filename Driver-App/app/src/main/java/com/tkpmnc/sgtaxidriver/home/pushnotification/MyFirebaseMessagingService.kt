@@ -4,7 +4,7 @@ package com.tkpmnc.sgtaxidriver.home.pushnotification
  * @package com.tkpmnc.sgtaxidriver.home.pushnotification
  * @subpackage pushnotification model
  * @category MyFirebaseMessagingService
- * @author Seen Technologies
+ * 
  *
  */
 
@@ -106,10 +106,6 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
     }
 
 
-    /*
-     *  Handle push notification message
-     */
-
     private fun handleDataMessage(json: JSONObject , context: Context) {
         DebuggableLogE(TAG, "push json: $json")
         val TripStatus = sessionManager.tripStatus
@@ -123,10 +119,6 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
             sessionManager.pushJson = json.toString()
 
             if (!NotificationUtils.isAppIsInBackground(context)) {
-                //CommonMethods.DebuggableLogE(TAG, "IF: " + json.toString());
-                // app is in foreground, broadcast the push message
-
-
                 try {
                     val json = JSONObject(json.toString())
                     var requestId = ""
@@ -147,113 +139,22 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
                             if (DriverStatus == "Online"
                                     && (TripStatus == null || TripStatus == CommonKeys.TripDriverStatus.EndTrip || TripStatus == "" || isPool)
                                     && UserId != null) {
-                                //  Intent rider=new Intent(getApplicationContext(), Riderrating.class);
-
 
                                 val requstreceivepage = Intent(context, RequestReceiveActivity::class.java)
                                 requstreceivepage.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                                 requstreceivepage.flags = Intent.FLAG_ACTIVITY_NEW_TASK
                                 startActivity(requstreceivepage)
-
-                                /* val pushNotification = Intent(Config.PUSH_NOTIFICATION)
-                                 pushNotification.putExtra("message", "message")
-                                 LocalBroadcastManager.getInstance(this).sendBroadcast(pushNotification)*/
-                                //startActivity(rider);
                             }
                         }
 
                     }
 
 
-                } catch (e: Exception) {
+                } catch (e: Exception) {}
 
-                }
-
-
-
-
-
-
-                if (json.getJSONObject("custom").has("cancel_trip")) {
-
-                    val tripriders=json.getJSONObject("custom").getJSONObject("cancel_trip").getJSONArray("trip_riders")
-                    if(tripriders.length()>0){
-                        sessionManager.isTrip=true
-                    }else{
-                        sessionManager.isTrip=false
-                    }
-                    sessionManager.clearTripID()
-                    sessionManager.clearTripStatus()
-                    sessionManager.isDriverAndRiderAbleToChat = false
-                    CommonMethods.stopFirebaseChatListenerService(context)
-                    stopSinchService()
-                    val dialogs = Intent(context, CommonDialog::class.java)
-                    println("Langugage " + resources.getString(R.string.yourtripcanceledrider))
-                    sessionManager.dialogMessage = resources.getString(R.string.yourtripcanceledrider)
-                    dialogs.putExtra("message", resources.getString(R.string.yourtripcanceledrider))
-                    dialogs.putExtra("type", 1)
-                    dialogs.putExtra("status", 1)
-                    dialogs.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                    startActivity(dialogs)
-
-
-                } else if (json.getJSONObject("custom").has("trip_payment")) {
-                    val riderProfile = json.getJSONObject("custom").getJSONObject("trip_payment").getString("rider_thumb_image")
-                    sessionManager.riderProfilePic = riderProfile
-
-                    val dialogs = Intent(context, CommonDialog::class.java)
-                    dialogs.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                    dialogs.putExtra("message", resources.getString(R.string.paymentcompleted))
-                    dialogs.putExtra("type", 1)
-                    dialogs.putExtra("status", 2)
-                    startActivity(dialogs)
-
-                } else if (json.getJSONObject("custom").has("custom_message")) {
-                    val notificationUtils = NotificationUtils(context)
-                    notificationUtils.playNotificationSound()
-
-                    val message = json.getJSONObject("custom").getJSONObject("custom_message").getString("message_data")
-                    val title = json.getJSONObject("custom").getJSONObject("custom_message").getString("title")
-
-                    notificationUtils.generateNotification(context, message, title)
-                } else if (json.getJSONObject("custom").has("manual_booking_trip_booked_info")) {
-                    manualBookingTripBookedInfo(CommonKeys.ManualBookingPopupType.bookedInfo, json.getJSONObject("custom").getJSONObject("manual_booking_trip_booked_info"),context)
-                } else if (json.getJSONObject("custom").has("manual_booking_trip_reminder")) {
-                    manualBookingTripBookedInfo(CommonKeys.ManualBookingPopupType.reminder, json.getJSONObject("custom").getJSONObject("manual_booking_trip_reminder"),context)
-                } else if (json.getJSONObject("custom").has("manual_booking_trip_canceled_info")) {
-                    manualBookingTripBookedInfo(CommonKeys.ManualBookingPopupType.cancel, json.getJSONObject("custom").getJSONObject("manual_booking_trip_canceled_info"),context)
-                } else if (json.getJSONObject("custom").has("manual_booking_trip_assigned")) {
-                    manualBookingTripStarts(json.getJSONObject("custom").getJSONObject("manual_booking_trip_assigned"),context)
-                } else if (json.getJSONObject("custom").has("user_calling")) {
-                    initSinchService()
-                } else if (json.getJSONObject("custom").has("chat_notification")) {
-
-                    val tripId = json.getJSONObject("custom").getJSONObject("chat_notification").getString("trip_id")
-
-                    val timeStamp = SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Date())
-                    //String timeStamp = new SimpleDateFormat("HH.mm.ss").format(new Date());
-                    if (!ActivityChat.isOnChat || !sessionManager.tripId!!.equals(tripId)) {
-                        /*  val notificationIntent = Intent(context, ActivityChat::class.java)
-                          notificationIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
-                          notificationIntent.putExtra(CommonKeys.FIREBASE_CHAT_FROM_PUSH, json.toString())
-
-                          val notificationUtils = NotificationUtils(context)
-                          notificationUtils.playNotificationSound()
-                          val message = json.getJSONObject("custom").getJSONObject("chat_notification").getString("message_data")
-                          val title = context.getString(R.string.app_name)
-                          println("ChatNotification : Driver" + message)
-                          notificationUtils.showNotificationMessage(title, message, timeStamp, notificationIntent, null)
-  */
-                        val pushNotification = Intent(Config.PUSH_NOTIFICATION)
-                        pushNotification.putExtra("message", "message")
-                        LocalBroadcastManager.getInstance(this).sendBroadcast(pushNotification)
-                        //startActivity(rider);
-                    }
-                } else {
+                else {
                     DebuggableLogE("Ride Request Received", "unable to process")
                 }
-
-
             } else {
                 DebuggableLogE(TAG, "ELSE: $json")
 
@@ -313,56 +214,6 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
                     dialogs.putExtra("type", 1)
                     dialogs.putExtra("status", 1)
                     startActivity(dialogs)
-
-
-                } else if (json.getJSONObject("custom").has("trip_payment")) {
-                    val riderProfile = json.getJSONObject("custom").getJSONObject("trip_payment").getString("rider_thumb_image")
-                    sessionManager.riderProfilePic = riderProfile
-
-                    val dialogs = Intent(context, CommonDialog::class.java)
-                    dialogs.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                    dialogs.putExtra("message", resources.getString(R.string.paymentcompleted))
-                    dialogs.putExtra("type", 1)
-                    dialogs.putExtra("status", 2)
-                    startActivity(dialogs)
-
-                }/* else if (json.getJSONObject("custom").has("custom_message")) {
-                    val notificationUtils = NotificationUtils(context)
-                    notificationUtils.playNotificationSound()
-                    val message = json.getJSONObject("custom").getJSONObject("custom_message").getString("message_data")
-                    val title = json.getJSONObject("custom").getJSONObject("custom_message").getString("title")
-
-                    notificationUtils.generateNotification(context, message, title)
-                }*/ else if (json.getJSONObject("custom").has("manual_booking_trip_booked_info")) {
-                    manualBookingTripBookedInfo(CommonKeys.ManualBookingPopupType.bookedInfo, json.getJSONObject("custom").getJSONObject("manual_booking_trip_booked_info"),context)
-                } else if (json.getJSONObject("custom").has("manual_booking_trip_reminder")) {
-                    manualBookingTripBookedInfo(CommonKeys.ManualBookingPopupType.reminder, json.getJSONObject("custom").getJSONObject("manual_booking_trip_reminder"),context)
-                } else if (json.getJSONObject("custom").has("manual_booking_trip_canceled_info")) {
-                    manualBookingTripBookedInfo(CommonKeys.ManualBookingPopupType.cancel, json.getJSONObject("custom").getJSONObject("manual_booking_trip_canceled_info"),context)
-                } else if (json.getJSONObject("custom").has("manual_booking_trip_assigned")) {
-                    manualBookingTripStarts(json.getJSONObject("custom").getJSONObject("manual_booking_trip_assigned"),context)
-                } else if (json.getJSONObject("custom").has("user_calling")) {
-                    initSinchService()
-                } else if (json.getJSONObject("custom").has("chat_notification")) {
-
-
-                    val timeStamp = SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Date())
-                    //String timeStamp = new SimpleDateFormat("HH.mm.ss").format(new Date());
-
-
-                    val notificationIntent = Intent(context, ActivityChat::class.java)
-                    notificationIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
-                    notificationIntent.putExtra(CommonKeys.FIREBASE_CHAT_FROM_PUSH, json.toString())
-
-                    sessionManager.chatJson = json.toString()
-                    val notificationUtils = NotificationUtils(context)
-                    notificationUtils.playNotificationSound()
-
-                    val message = json.getJSONObject("custom").getJSONObject("chat_notification").getString("message_data")
-                    //val title = context.getString(R.string.app_name)
-                    val title = json.getJSONObject("custom").getJSONObject("chat_notification").getString("user_name")
-                    println("ChatNotification : Driver" + message)
-                    notificationUtils.showNotificationMessage(title, message, timeStamp, notificationIntent, null, 0L)
 
 
                 } else {
@@ -428,19 +279,10 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         sessionManager.subTripStatus = resources.getString(R.string.confirm_arrived)
         //sessionManager.setTripStatus("CONFIRM YOU'VE ARRIVED");
         sessionManager.tripStatus = CommonKeys.TripDriverStatus.ConfirmArrived
-        //sessionManager.paymentMethod = riderModel.paymentMode
 
         sessionManager.isDriverAndRiderAbleToChat = true
         CommonMethods.startFirebaseChatListenerService(this)
 
-
-        /* if (!WorkerUtils.isWorkRunning(CommonKeys.WorkTagForUpdateGPS)) {
-             DebuggableLogE("locationupdate", "StartWork:")
-             WorkerUtils.startWorkManager(CommonKeys.WorkKeyForUpdateGPS, CommonKeys.WorkTagForUpdateGPS, UpdateGPSWorker::class.java,this,sessionManager.driverStatus)
-         }*/
-
-        //  acceptedDriverDetails = new AcceptedDriverDetails(ridername, mobilenumber, profileimg, ratingvalue, cartype, pickuplocation, droplocation, pickuplatitude, droplatitude, droplongitude, pickuplongitude);
-        //        mPlayer.stop();
         val requestaccept = Intent(context, RequestAcceptActivity::class.java)
         requestaccept.putExtra("riderDetails", riderModel)
         requestaccept.putExtra("tripstatus", resources.getString(R.string.confirm_arrived))

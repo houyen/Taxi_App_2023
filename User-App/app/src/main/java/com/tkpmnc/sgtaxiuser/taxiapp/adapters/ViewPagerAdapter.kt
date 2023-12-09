@@ -4,7 +4,7 @@ package com.tkpmnc.sgtaxiuser.taxiapp.adapters
  * @package com.tkpmnc.sgtaxiuser
  * @subpackage Side_Bar.trips
  * @category ViewPagerAdapter
- * @author Seen Technologies
+ * 
  * 
  */
 

@@ -16,9 +16,6 @@ class RiderDetailsModelList : Serializable {
     @SerializedName("id")
     @Expose
     var riderId: String? = null
-    @SerializedName("payment_mode")
-    @Expose
-    var paymentMode: String? = null
     @SerializedName("trip_id")
     @Expose
     var tripId: String? = null
@@ -47,10 +44,6 @@ class RiderDetailsModelList : Serializable {
     @SerializedName("drop_lng")
     @Expose
     var drop_lng: String? = null
-
-    @SerializedName("otp")
-    @Expose
-    var otp: String? = null
 
     @SerializedName("status")
     @Expose
@@ -82,10 +75,6 @@ class RiderDetailsModelList : Serializable {
     @SerializedName("total_fare")
     @Expose
     var totalFare: String? = null
-    @SerializedName("driver_earnings")
-    @Expose
-    var driverEarnings: String? = null
-
     @SerializedName("total_time")
     @Expose
     var totalTime: String? = null

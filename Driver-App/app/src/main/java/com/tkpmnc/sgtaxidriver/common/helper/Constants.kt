@@ -3,7 +3,7 @@ package com.tkpmnc.sgtaxidriver.common.helper
 import com.tkpmnc.sgtaxidriver.R
 
 /**
- * @author Seen Technologies
+ * 
  *
  * @package com.tkpmnc.sgtaxidriver.common.helper
  * @subpackage helper
@@ -46,10 +46,6 @@ object Constants {
 
 
     /**************** DB Keys*************/
-    val DB_KEY_TRIP_DETAILS: String? = "TripDetails"
-    val DB_KEY_PAY_STATEMENTS_WEEKLY: String? = "WeeklyPaymentList"
-    val DB_KEY_PAY_STATEMENTS_WEEKLY_DETAILS: String? = "WeeklyPaymentListDetails"
-    val DB_KEY_PAY_STATEMENTS_DAILY_DETAILS: String? = "DailyPaymentListDetails"
 
 
     val DB_KEY_DRIVER_PROFILE: String? = "DriverProfile"

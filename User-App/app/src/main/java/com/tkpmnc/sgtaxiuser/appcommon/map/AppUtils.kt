@@ -4,7 +4,7 @@ package com.tkpmnc.sgtaxiuser.appcommon.map
  * @package com.tkpmnc.sgtaxiuser
  * @subpackage map
  * @category AppUtils
- * @author Seen Technologies
+ * 
  * 
  */
 

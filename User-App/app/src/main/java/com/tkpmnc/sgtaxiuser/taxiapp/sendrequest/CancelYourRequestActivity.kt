@@ -4,7 +4,7 @@ package com.tkpmnc.sgtaxiuser.taxiapp.sendrequest
  * @package com.tkpmnc.sgtaxiuser
  * @subpackage sendrequest
  * @category CancelYourRequestActivity
- * @author Seen Technologies
+ * 
  *
  */
 

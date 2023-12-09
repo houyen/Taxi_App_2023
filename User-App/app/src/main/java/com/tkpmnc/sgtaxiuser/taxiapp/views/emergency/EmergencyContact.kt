@@ -5,7 +5,7 @@ package com.tkpmnc.sgtaxiuser.taxiapp.views.emergency
  * @package com.tkpmnc.sgtaxiuser
  * @subpackage emergency
  * @category Emergency contact
- * @author Seen Technologies
+ * 
  *
  */
 

@@ -1,7 +1,7 @@
 package com.tkpmnc.sgtaxiuser.appcommon.pushnotification
 
 /**
- * @author Seen Technologies
+ * 
  * 
  * @package com.tkpmnc.sgtaxiuser
  * @subpackage pushnotification

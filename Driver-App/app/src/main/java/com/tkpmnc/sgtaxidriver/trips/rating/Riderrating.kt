@@ -4,7 +4,7 @@ package com.tkpmnc.sgtaxidriver.trips.rating
  * @package com.tkpmnc.sgtaxidriver.trips.rating
  * @subpackage rating
  * @category Riderrating
- * @author Seen Technologies
+ * 
  *
  */
 

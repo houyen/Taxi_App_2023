@@ -23,8 +23,6 @@ class CreateCurrencyTable extends Migration
             $table->decimal('rate', 10, 2);
             $table->enum('status', ['Active','Inactive'])->default('Active');
             $table->enum('default_currency', ['1','0']);
-            $table->enum('paypal_currency', ['Yes','No'])->default('No');
-            $table->index(['status','default_currency','paypal_currency']);
         });
     }
 

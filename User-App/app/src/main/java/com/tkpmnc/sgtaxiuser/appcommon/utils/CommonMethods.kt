@@ -4,7 +4,7 @@ package com.tkpmnc.sgtaxiuser.appcommon.utils
  * @package com.tkpmnc.sgtaxiuser
  * @subpackage utils
  * @category CommonMethods
- * @author Seen Technologies
+ * 
  *
  */
 

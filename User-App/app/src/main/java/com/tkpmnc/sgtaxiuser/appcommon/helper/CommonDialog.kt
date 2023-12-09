@@ -4,7 +4,7 @@ package com.tkpmnc.sgtaxiuser.appcommon.helper
  * @package com.tkpmnc.sgtaxiuser
  * @subpackage helper
  * @category CommonDialog
- * @author Seen Technologies
+ * 
  *
  */
 

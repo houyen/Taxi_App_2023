@@ -6,7 +6,7 @@ package com.tkpmnc.sgtaxiuser.taxiapp.views.signinsignup
  * @package com.tkpmnc.sgtaxiuser
  * @subpackage signin_signup
  * @category SigninSignupActivity
- * @author Seen Technologies
+ * 
  *
  */
 

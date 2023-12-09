@@ -4,7 +4,7 @@ package com.tkpmnc.sgtaxidriver.trips
  * @package com.tkpmnc.sgtaxidriver.home
  * @subpackage home
  * @category RiderContactActivity
- * @author Seen Technologies
+ * 
  *
  */
 
@@ -26,7 +26,6 @@ import com.tkpmnc.sgtaxidriver.common.util.CommonMethods
 import com.tkpmnc.sgtaxidriver.common.views.CommonActivity
 import com.tkpmnc.sgtaxidriver.home.firebaseChat.ActivityChat
 import com.tkpmnc.sgtaxidriver.trips.voip.CallProcessingActivity
-import kotlinx.android.synthetic.main.activity_payment.*
 import javax.inject.Inject
 
 /* ************************************************************
@@ -59,21 +58,11 @@ class RiderContactActivity : CommonActivity() {
             val intent =  Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + mobilenumbertext.getText().toString()));
             startActivity(intent);
         }else{
-           /* val callScreenIntent = Intent(this, CallProcessingActivity::class.java)
-            callScreenIntent.putExtra(CommonKeys.KEY_TYPE, CallProcessingActivity.CallActivityType.CallProcessing)
-            callScreenIntent.putExtra(KEY_CALLER_ID, intent.getStringExtra(KEY_CALLER_ID))
-            startActivity(callScreenIntent) */
             val intent =  Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + mobilenumbertext.getText().toString()));
             startActivity(intent);
         }
     }
 
-    /*@OnClick(R.id.ll_message)
-    fun startChatActivity() {
-        sessionManager.chatJson = ""
-
-        startActivity(Intent(this, ActivityChat::class.java))
-    }*/
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -85,7 +74,6 @@ class RiderContactActivity : CommonActivity() {
         mobilenumbertext.setText(getIntent().getStringExtra("mobile_number"))
         println("mobilenumbertext ${mobilenumbertext.text.toString()}")
         if (sessionManager.bookingType == CommonKeys.RideBookedType.manualBooking) {
-            //llMessage.visibility = View.GONE
         }
     }
 

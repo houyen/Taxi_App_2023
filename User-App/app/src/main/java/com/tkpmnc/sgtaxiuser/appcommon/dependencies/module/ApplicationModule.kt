@@ -4,7 +4,7 @@ package com.tkpmnc.sgtaxiuser.appcommon.dependencies.module
  * @package com.tkpmnc.sgtaxiuser
  * @subpackage dependencies.module
  * @category ApplicationModule
- * @author Seen Technologies
+ * 
  *
  */
 

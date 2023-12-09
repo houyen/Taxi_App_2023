@@ -5,7 +5,7 @@ package com.tkpmnc.sgtaxidriver.home.map
  * @package com.tkpmnc.sgtaxidriver
  * @subpackage map
  * @category AppUtils
- * @author Seen Technologies
+ * 
  *
  */
 

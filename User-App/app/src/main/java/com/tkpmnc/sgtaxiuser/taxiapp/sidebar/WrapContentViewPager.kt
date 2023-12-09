@@ -4,7 +4,7 @@ package com.tkpmnc.sgtaxiuser.taxiapp.sidebar
  * @package com.tkpmnc.sgtaxiuser
  * @subpackage Side_Bar
  * @category WrapContentViewPager
- * @author Seen Technologies
+ * 
  * 
  */
 
