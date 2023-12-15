@@ -137,10 +137,6 @@ class DriverRatingActivity : CommonActivity(), ServiceListener {
         }
     }
 
-    /*@OnClick(R.id.tvskip)
-    public void skip() {
-        onBackPressed();
-    }*/
 
     @BindView(R.id.rate_submit)
     lateinit var button: Button
@@ -164,11 +160,6 @@ class DriverRatingActivity : CommonActivity(), ServiceListener {
         isInternetAvailable = commonMethods.isOnline(applicationContext)
         dialog = commonMethods.getAlertDialog(this)
 
-        //val laydir = resources.getString(R.string.layout_direction)
-        /*if ("1" == laydir) {
-            riderrate.gravity = SimpleRatingBar.Gravity.Right
-        }*/
-        // Get Driver profile image
         val intent = intent
         if (intent.getStringExtra("imgprofile") != null && !TextUtils.isEmpty(intent.getStringExtra("imgprofile"))) {
             user_thumb_image = intent.getStringExtra("imgprofile")!!
@@ -261,20 +252,9 @@ class DriverRatingActivity : CommonActivity(), ServiceListener {
             } catch (j: JSONException) {
                 j.printStackTrace()
             }
-
-            //Bundle bundle = new Bundle();
-            //bundle.putSerializable("invoiceModels", invoiceModels);
             val main = Intent(this, PaymentAmountPage::class.java)
-            //main.putExtra("AmountDetails", jsonResp.getStrResponse().toString());
-            //main.putExtras(bundle);
             startActivity(main)
-            /*sessionManager.setIsrequest(false);
-            sessionManager.setIsTrip(false);
-            sessionManager.setDriverAndRiderAbleToChat(false);
-            CommonMethods.stopFirebaseChatListenerService(this);
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);*/
+
             finish()
 
         } else if (jsonResp.statusCode == "2") {
@@ -358,23 +338,7 @@ class DriverRatingActivity : CommonActivity(), ServiceListener {
                 Toast.makeText(this@DriverRatingActivity, "Please enter amount", Toast.LENGTH_SHORT).show()
             }
         }
-        /*Button confirm = (Button) dialog.findViewById(R.id.signup_cancel_confirm);
-        Button cancel = (Button) dialog.findViewById(R.id.signup_cancel);
-
-        cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
-
-        confirm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-                overridePendingTransition(R.anim.ub__slide_in_left, R.anim.ub__slide_out_right);
-            }
-        });*/
+     
         if (!bottomSheetDialog.isShowing) {
             bottomSheetDialog.show()
         }

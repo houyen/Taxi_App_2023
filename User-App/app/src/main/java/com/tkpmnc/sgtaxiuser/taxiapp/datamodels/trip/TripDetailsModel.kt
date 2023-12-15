@@ -131,9 +131,6 @@ class Riders : Serializable {
     @Expose
     var waitingTime: String = ""
 
-    @SerializedName("waiting_charge")
-    @Expose
-    var waitingCharge: String = ""
 
     @SerializedName("total_fare")
     @Expose
@@ -152,9 +149,5 @@ class Riders : Serializable {
     @Expose
     var creatdate : String = ""
 
-
-    @SerializedName("invoice")
-    @Expose
-    var invoice = ArrayList<InvoiceModel>()
 
 }

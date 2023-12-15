@@ -1,8 +1,5 @@
 package com.tkpmnc.sgtaxidriver.common.util
 
-/**
- * Created by Seen Technologies on 9/8/18.
- */
 
 object Enums {
 

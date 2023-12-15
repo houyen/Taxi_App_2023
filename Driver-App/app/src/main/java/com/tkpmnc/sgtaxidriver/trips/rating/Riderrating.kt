@@ -166,10 +166,7 @@ class Riderrating : CommonActivity(), ServiceListener {
     override fun onSuccess(jsonResp: JsonResponse, data: String) {
         if (jsonResp.isSuccess) {
             commonMethods.hideProgressDialog()
-            val earningModel = gson.fromJson(jsonResp.strResponse, TripRatingResult::class.java)
-            val invoiceModels = earningModel.invoice
             val bundle = Bundle()
-            bundle.putSerializable("invoiceModels", invoiceModels)
 
             val main = Intent(applicationContext, PaymentAmountPage::class.java)
             main.putExtras(bundle)

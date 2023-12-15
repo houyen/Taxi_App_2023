@@ -32,9 +32,6 @@ class TripStatusModel {
     @SerializedName("booking_type")
     @Expose
     var bookingType: String? = null
-    @SerializedName("currency_symbol")
-    @Expose
-    var currencySymbol: String? = null
     @SerializedName("status")
     @Expose
     var status: String? = null

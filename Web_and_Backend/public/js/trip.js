@@ -12,30 +12,13 @@ app.directive('postsPagination', function(){
 			'</ul>'
 	 };
 })
-.directive('invoicesPagination', function(){  
-	return{
-			restrict: 'E',
-			template: '<ul class="pagination">'+
-				// '<li ng-show="currentPage != 1"><a href="javascript:void(0)" ng-click="getTrips(1)">&laquo;</a></li>'+
-				'<li ng-show="invoicecurrentPage != 1"><a href="javascript:void(0)" ng-click="getInvoice(invoicecurrentPage-1)"><span class="icon icon_left-arrow"></span></li>'+
-				'<li ng-repeat="i in range" ng-class="{active : invoicecurrentPage == i}">'+
-						'<a href="javascript:void(0)" ng-click="getInvoice(i)">{{i}}</a>'+
-				'</li>'+
-				'<li ng-show="invoicecurrentPage != totalPages"><a href="javascript:void(0)" ng-click="getInvoice(invoicecurrentPage+1)"><span class="icon icon_right-arrow"></span></a></li>'+
-				// '<li ng-show="currentPage != totalPages"><a href="javascript:void(0)" ng-click="getTrips(totalPages)">&raquo;</a></li>'+
-			'</ul>'
-	 };
-}).controller('trip', ['$scope', '$http', '$compile', function($scope, $http, $compile) {
+.controller('trip', ['$scope', '$http', '$compile', function($scope, $http, $compile) {
 $scope.date = new Date();
 $( document ).ready(function() 
 {
     $scope.getTrips();
-    $scope.getInvoice();
 });
-// $(document).click('#trip-filterer-button',function()
-// {
-// 	$('.custom-cls').addClass('loading');
-// });
+
 
 $scope.getTrips = function(pageNumber)
 {
@@ -103,26 +86,7 @@ $scope.Rating = function(rate,trip_id)
     	}
     });
 }
-$scope.getInvoice = function(pageNumber) {
-	$(".driver_trips_details").addClass("loading");
-	if(pageNumber===undefined) {
-		pageNumber = '1';
-	}
-	var page = $('#per_page').val();
-	if(page == undefined) {
-		return false;
-	}
-	$http.get('driver_invoice?limit='+page+'&page='+pageNumber).then(function(response) 
-    {
-		$(".driver_trips_details").removeClass("loading");    	
-    	if(response.data)
-    	{
-    		$scope.driver_trips = response.data;
-    		$scope.totalPages   = response.data.last_page;
-	    	$scope.invoicecurrentPage  = response.data.current_page;
-    	}
-    });
-};
+
 
 }]);
 

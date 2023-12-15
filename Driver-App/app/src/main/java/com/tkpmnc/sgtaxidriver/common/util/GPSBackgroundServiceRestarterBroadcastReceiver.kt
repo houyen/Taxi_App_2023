@@ -9,6 +9,5 @@ class GPSBackgroundServiceRestarterBroadcastReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
         Log.i(GPSBackgroundServiceRestarterBroadcastReceiver::class.java.simpleName, "Service Stops! Oooooooooooooppppssssss!!!!")
-        //context.startService(Intent(context, TrackingService::class.java))
     }
 }

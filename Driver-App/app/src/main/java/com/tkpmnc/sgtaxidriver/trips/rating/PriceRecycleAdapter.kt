@@ -21,7 +21,6 @@ import com.tkpmnc.sgtaxidriver.R
 import com.tkpmnc.sgtaxidriver.common.custompalette.FontCache
 import com.tkpmnc.sgtaxidriver.common.network.AppController
 import com.tkpmnc.sgtaxidriver.common.util.CommonMethods
-import com.tkpmnc.sgtaxidriver.home.datamodel.InvoiceModel
 import java.util.*
 import javax.inject.Inject
 
@@ -29,7 +28,7 @@ import javax.inject.Inject
                 CommentsRecycleAdapter
 Its used to view the feedback comments with rider screen page function
 *************************************************************** */
-class PriceRecycleAdapter(private val context: Context, private val feedbackarraylist: ArrayList<InvoiceModel>) : RecyclerView.Adapter<PriceRecycleAdapter.ViewHolder>() {
+class PriceRecycleAdapter(private val context: Context, private val feedbackarraylist: ArrayList<ViewHolder>) : RecyclerView.Adapter<PriceRecycleAdapter.ViewHolder>() {
     @Inject
 
     lateinit var commonMethods: CommonMethods
@@ -55,7 +54,7 @@ class PriceRecycleAdapter(private val context: Context, private val feedbackarra
     override fun onBindViewHolder(viewHolder: PriceRecycleAdapter.ViewHolder, i: Int) {
         CommonMethods.DebuggableLogI("key", feedbackarraylist[i].key)
         CommonMethods.DebuggableLogI("value", feedbackarraylist[i].value)
-        // viewHolder.basrfarelayout.visibility = View.VISIBLE
+
         viewHolder.faretxt.text = feedbackarraylist[i].key
         viewHolder.fareAmt.text = feedbackarraylist[i].value!!.replace("\"", "")
         viewHolder.fareinfo.visibility = View.GONE
@@ -64,9 +63,6 @@ class PriceRecycleAdapter(private val context: Context, private val feedbackarra
             viewHolder.isbase.visibility = View.GONE
         }
 
-        /*if (feedbackarraylist[i].key == "Total Fare") {
-            viewHolder.basrfarelayout.visibility = View.GONE
-        }*/
 
         if (!feedbackarraylist[i].fareComments.equals("", ignoreCase = true)) {
             viewHolder.fareinfo.visibility = View.VISIBLE

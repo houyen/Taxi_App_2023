@@ -23,7 +23,6 @@ import androidx.core.content.ContextCompat
 
 import com.tkpmnc.sgtaxiuser.R
 import com.tkpmnc.sgtaxiuser.appcommon.custompalette.FontCache
-import com.tkpmnc.sgtaxiuser.taxiapp.datamodels.trip.InvoiceModel
 import com.tkpmnc.sgtaxiuser.appcommon.network.AppController
 import com.tkpmnc.sgtaxiuser.appcommon.utils.CommonMethods
 
@@ -35,7 +34,7 @@ import javax.inject.Inject
                 CommentsRecycleAdapter
 Its used to view the feedback comments with rider screen page function
 *************************************************************** */
-class PriceRecycleAdapter(private val context: Context, private val pricelist: ArrayList<InvoiceModel>) : RecyclerView.Adapter<PriceRecycleAdapter.ViewHolder>() {
+class PriceRecycleAdapter(private val context: Context, private val pricelist: ArrayList<>) : RecyclerView.Adapter<PriceRecycleAdapter.ViewHolder>() {
     @Inject
     lateinit var commonMethods: CommonMethods
     lateinit var dialog: AlertDialog

@@ -346,8 +346,7 @@ class CompletedTripsFragments : Fragment(), ServiceListener, PaginationAdapterCa
     private fun onSuccessRiderProfile(jsonResp: JsonResponse) {
         commonMethods.hideProgressDialog()
         val tripDetailsModel = gson.fromJson(jsonResp.strResponse, TripDetailsModel::class.java)
-        val invoiceModels = tripDetailsModel.riderDetails.get(0).invoice
-        //  sessionManager.paymentMethod = tripDetailsModel.paymentMode
+
         sessionManager.bookingType = tripDetailsModel.riderDetails.get(0).bookingType
 
         // Pass different data based on trip status
@@ -386,7 +385,6 @@ class CompletedTripsFragments : Fragment(), ServiceListener, PaginationAdapterCa
         } else if (CommonKeys.TripStatus.Payment == tripStatus) {
 
             val bundle = Bundle()
-            bundle.putSerializable("invoiceModels", invoiceModels)
             val main = Intent(activity, PaymentAmountPage::class.java)
             main.putExtra("AmountDetails", jsonResp.strResponse)
             main.putExtras(bundle)

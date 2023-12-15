@@ -59,11 +59,6 @@ class DriverContactActivity : CommonActivity() {
         onBackPressed()
     }
 
-    /*@OnClick(R.id.messageButton)
-    fun messageDriver() {
-        CommonMethods.startChatActivityFrom(this)
-    }*/
-
     @OnClick(R.id.callbutton)
     fun initializeCall() {
 
@@ -93,16 +88,6 @@ class DriverContactActivity : CommonActivity() {
             val intent =  Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + driver_phone_contact.text.toString()))
             startActivity(intent)
 
-/*
-            if (sessionManager.bookingType.equals("Manual Booking",ignoreCase = true)) {
-                val intent =  Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + driver_phone_contact.getText().toString()));
-                startActivity(intent);
-            }else {
-                val callScreenIntent = Intent(this@DriverContactActivity, CallProcessingActivity::class.java)
-                callScreenIntent.putExtra(CommonKeys.TYPE_INTENT_ARGUMENT_KEY, CallProcessingActivity.CallActivityType.CallProcessing)
-                callScreenIntent.putExtra(KEY_CALLER_ID, callerId)
-                startActivity(callScreenIntent)
-            }*/
         }
     }
 

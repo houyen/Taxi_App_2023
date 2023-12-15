@@ -280,34 +280,6 @@ class Setting : CommonActivity(), ServiceListener,UserChoiceSuccessResponse {
             }
         }
 
-
-        /**
-         * Change currency button clicked
-         */
-        currencylayout.setOnClickListener {
-          /*  currencylayout.isClickable = false
-            currency_list() // Show curtency list*/
-            if (SystemClock.elapsedRealtime() - mLastClickTime < 1000) {
-                return@setOnClickListener
-            }
-            mLastClickTime = SystemClock.elapsedRealtime();
-            if (isInternetAvailable) {
-                currencyList()
-            } else {
-                commonMethods.showMessage(this@Setting, dialog, resources.getString(R.string.no_connection))
-            }
-        }
-        languagelayout.setOnClickListener {
-            //languagelayout.isClickable = false
-            //languagelist() // Show curtency list
-            languagelist = ArrayList()
-            loadlang()
-            if (SystemClock.elapsedRealtime() - mLastClickTime < 1000) {
-                return@setOnClickListener
-            }
-            mLastClickTime = SystemClock.elapsedRealtime();
-            userChoice.getUsersLanguages(this,languagelist, Enums.USER_CHOICE_LANGUAGE,this)
-        }
     }
 
     public override fun onDestroy() {
@@ -336,8 +308,6 @@ class Setting : CommonActivity(), ServiceListener,UserChoiceSuccessResponse {
                 if ("lib" != s) {
                     deleteDir(File(appDir, s))
                     DebuggableLogI("TAG", "**************** File /data/data/APP_PACKAGE/$s DELETED *******************")
-
-                    // clearApplicationData();
                 }
             }
         }
@@ -393,35 +363,6 @@ class Setting : CommonActivity(), ServiceListener,UserChoiceSuccessResponse {
                 if (statuscode.matches("1".toRegex())) {
                     getRiderDetails()
                 }
-            } else if (!TextUtils.isEmpty(jsonResp.statusMsg)) {
-                commonMethods.hideProgressDialog()
-                commonMethods.showMessage(this, dialog, jsonResp.statusMsg)
-            }
-            REQ_CURRENCYLIST -> if (jsonResp.isSuccess) {
-                commonMethods.hideProgressDialog()
-                onSuccessGetCurr(jsonResp)
-            } else if (!TextUtils.isEmpty(jsonResp.statusMsg)) {
-                commonMethods.hideProgressDialog()
-                commonMethods.showMessage(this, dialog, jsonResp.statusMsg)
-            }
-            REQ_UPDATE_CURR -> if (jsonResp.isSuccess) {
-                commonMethods.hideProgressDialog()
-                //Integer wallet_amount = (Integer) commonMethods.getJsonValue(jsonResp.getStrResponse(), "wallet_amount", String.class);
-
-                var wallet_amount = commonMethods.getJsonValue(jsonResp.strResponse, "wallet_amount", String::class.java) as String
-                val result = java.lang.Float.parseFloat(wallet_amount)
-                val result1 = result.toInt()
-                wallet_amount = Integer.toString(result1)
-
-                println("wallet amout : $wallet_amount")
-                sessionManager.walletAmount = wallet_amount
-            } else if (!TextUtils.isEmpty(jsonResp.statusMsg)) {
-                commonMethods.hideProgressDialog()
-                commonMethods.showMessage(this, dialog, jsonResp.statusMsg)
-            }
-            REQ_UPDATE_LANG -> if (jsonResp.isSuccess) {
-                DebuggableLogI("Settings", "Language")
-                commonMethods.hideProgressDialog()
             } else if (!TextUtils.isEmpty(jsonResp.statusMsg)) {
                 commonMethods.hideProgressDialog()
                 commonMethods.showMessage(this, dialog, jsonResp.statusMsg)
@@ -594,8 +535,6 @@ class Setting : CommonActivity(), ServiceListener,UserChoiceSuccessResponse {
                 }
             }
 
-            // Geocoder failed :-(
-            // Our B Plan : Google Map
             private fun fetchLocationUsingGoogleMap(): String? {
                 getAddress = getAddress.replace(" ".toRegex(), "%20")
                 val googleMapUrl = "https://maps.google.com/maps/api/geocode/json?address=" + getAddress + "&sensor=false" + "&key=" + sessionManager.googleMapKey
@@ -603,10 +542,6 @@ class Setting : CommonActivity(), ServiceListener,UserChoiceSuccessResponse {
                 try {
                     val googleMapResponse = JSONObject(ANDROID_HTTP_CLIENT.execute(HttpGet(googleMapUrl),
                             BasicResponseHandler()))
-
-                    // many nested loops.. not great -> use expression instead
-                    // loop among all results
-
 
                     val longitute = (googleMapResponse.get("results") as JSONArray).getJSONObject(0)
                             .getJSONObject("geometry").getJSONObject("location")
@@ -625,9 +560,6 @@ class Setting : CommonActivity(), ServiceListener,UserChoiceSuccessResponse {
                                     .getJSONArray("address_components").getJSONObject(i).getString("long_name")
 
                         }
-                    }
-                    /*countrys = ((JSONArray)googleMapResponse.get("results")).getJSONObject(0)
-                                    .getJSONArray("address_components").getJSONObject(3).getString("long_name");*/
 
                     return "$latitude,$longitute"
 
@@ -666,17 +598,6 @@ class Setting : CommonActivity(), ServiceListener,UserChoiceSuccessResponse {
         }.execute()
     }
 
-    private fun loadlang() {
-        val languages = resources.getStringArray(R.array.language)
-        val langCode = resources.getStringArray(R.array.languageCode)
-        for (i in languages.indices) {
-            val listdata = CurrencyModel()
-            listdata.currencyName = languages[i]
-            listdata.currencySymbol = langCode[i]
-            languagelist.add(listdata)
-
-        }
-    }
 
     fun setLocale(lang: String) {
         val myLocale = Locale(lang)
@@ -687,41 +608,8 @@ class Setting : CommonActivity(), ServiceListener,UserChoiceSuccessResponse {
         res.updateConfiguration(conf, dm)
     }
 
-    // Get currency list from API
-    fun currencyList() {
-        commonMethods.showProgressDialog(this)
-        apiService.currencyList(sessionManager.accessToken!!).enqueue(RequestCallback(REQ_CURRENCYLIST, this))
-    }
 
-    fun onSuccessGetCurr(jsonResp: JsonResponse) {
-        val currencyModel = gson.fromJson(jsonResp.strResponse, CurrencyModelList::class.java)
-        val currencyListModel = currencyModel.currencyList
-        userChoice.getUserCurrency(this,currencyListModel,Enums.USER_CHOICE_CURRENCY,this)
-        /*currencyList.clear()
-        currencyList.addAll(currencyListModel)
-        currencyListAdapter.notifyDataChanged()*/
-
-    }
-
-    // After Get currency to Update currency
-    fun updateCurrency() {
-        commonMethods.showProgressDialog(this)
-        currency = sessionManager.currencyCode!!
-        currency_code.text =sessionManager.currencySymbol +" "+ currency
-        apiService.updateCurrency(sessionManager.accessToken!!, currency).enqueue(RequestCallback(REQ_UPDATE_CURR, this))
-
-    }
-
-    fun updateLanguage() {
-        // commonMethods.showProgressDialog(this);
-        Language = sessionManager.language!!
-        LanguageCode = sessionManager.languageCode!!
-
-        language.text = Language
-        apiService.updateLanguage(sessionManager.accessToken!!, LanguageCode).enqueue(RequestCallback(REQ_UPDATE_LANG, this))
-
-    }
-
+ 
     companion object {
 
         var langclick: Boolean? = false

@@ -99,11 +99,6 @@ class RiderDetailsModelList : Serializable {
     @Expose
     var scheduleDisplayDate: String? = null
 
-
-    @SerializedName("invoice")
-    @Expose
-    var invoice: ArrayList<InvoiceModel>? = null
-
     companion object {
         @BindingAdapter("android:loadImage")
         @JvmStatic

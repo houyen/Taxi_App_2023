@@ -105,14 +105,6 @@ class Profile : CommonActivity(), ServiceListener, ImageListener, RuntimePermiss
     lateinit var emailgettext: String  // First, Last, Email text string
     @BindView(R.id.emaitext)
     lateinit var emaitext: EditText
-  /*  @BindView(R.id.emaitext)
-    lateinit var emaitext: EditText // Email Edit text*/
-  /*  @BindView(R.id.input_layout_first)
-    lateinit var input_layout_first: TextInputLayout
-    @BindView(R.id.input_layout_last)
-    lateinit var input_layout_last: TextInputLayout*/
-   /* @BindView(R.id.input_layout_email)
-    lateinit var emailName: TextInputLayout*/
     @BindView(R.id.input_first)
     lateinit var input_first: EditText
     @BindView(R.id.input_last)
@@ -164,12 +156,6 @@ class Profile : CommonActivity(), ServiceListener, ImageListener, RuntimePermiss
     }
 
 
-    /*@OnClick(R.id.transprantview)
-    fun mobileCodeClick() {
-        FacebookAccountKitActivity.openFacebookAccountKitActivity(this, 0)
-    }
-*/
-
     @OnClick(R.id.back)
     fun back() {
         onBackPressed()
@@ -205,17 +191,6 @@ class Profile : CommonActivity(), ServiceListener, ImageListener, RuntimePermiss
                 e.printStackTrace()
             }
 
-            /*try {
-                firstnamegettext = URLEncoder.encode(firstnamegettext, "UTF-8")
-                lastnamegettext = URLEncoder.encode(lastnamegettext, "UTF-8")
-            } catch (e: UnsupportedEncodingException) {
-                e.printStackTrace()
-            }*/
-
-            /**
-             * Update Rider profile
-             */
-
             hideSoftKeyboard()
 
             emaitext.isFocusableInTouchMode = true
@@ -229,8 +204,6 @@ class Profile : CommonActivity(), ServiceListener, ImageListener, RuntimePermiss
 
     @OnClick(R.id.edit_image)
     fun profileImage() {// Profile click listener
-        //marshMallowPermission.getPhotoFromCamera();
-        //checkAllPermission(Constants.PERMISSIONS_PHOTO);
         pickProfileImg()
     }
 
@@ -401,12 +374,7 @@ class Profile : CommonActivity(), ServiceListener, ImageListener, RuntimePermiss
                 if (resultCode == Activity.RESULT_OK) {
                     updateRiderPhoneNumber(data!!.getStringExtra(FACEBOOK_ACCOUNT_KIT_PHONE_NUMBER_KEY), data.getStringExtra(CommonKeys.FACEBOOK_ACCOUNT_KIT_PHONE_NUMBER_COUNTRY_NAME_CODE_KEY)!!)
                 }
-            }/*if(resultCode == CommonKeys.FACEBOOK_ACCOUNT_KIT_RESULT_NEW_USER){
-                            updateRiderPhoneNumber(data.getStringExtra(FACEBOOK_ACCOUNT_KIT_PHONE_NUMBER_KEY),data.getStringExtra(FACEBOOK_ACCOUNT_KIT_PHONE_NUMBER_COUNTRY_CODE_KEY));
-                        }else if (resultCode == CommonKeys.FACEBOOK_ACCOUNT_KIT_RESULT_OLD_USER){
-                            commonMethods.showMessage(this, dialog, data.getStringExtra(FACEBOOK_ACCOUNT_KIT_MESSAGE_KEY));
-
-                        }*/
+            }
             else -> {
             }
         }
@@ -479,13 +447,6 @@ class Profile : CommonActivity(), ServiceListener, ImageListener, RuntimePermiss
             Picasso.get().load(imageUr)
                     .into(profile_image)
 
-           /* val rb = findViewById<View>(R.id.rd_female) as RadioButton
-            val rb2 = findViewById<View>(R.id.rd_female) as RadioButton
-            val font: Typeface = Typeface.createFromAsset(assets, resources.getString(R.string.fonts_UBERMedium))
-            val font1: Typeface = Typeface.createFromAsset(assets, resources.getString(R.string.fonts_UBERMedium))
-            rb.setTypeface(font)
-            rb2.setTypeface(font1)*/
-
             if (!gender.isNullOrEmpty()){
                 if (gender.equals(Male,true)){
                     radiogroupGender.check(R.id.rd_male)
@@ -516,82 +477,23 @@ class Profile : CommonActivity(), ServiceListener, ImageListener, RuntimePermiss
         val email = emaitext.text.toString().trim { it <= ' ' }
 
         if (email.isEmpty() || !isValidEmail(email)) {
-            // emailName.setError(getString(R.string.error_msg_email));
-            //requestFocus(emaitext);
             return false
-        } else {
-           // emailName.isErrorEnabled = false
         }
-
         return true
     }
 
     private fun isValidEmail(email: String): Boolean {
         return !TextUtils.isEmpty(email) && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
-    /**
-     * Validate first name
-     */
     private fun validateFirst(): Boolean {
         if (input_first.text.toString().trim { it <= ' ' }.isEmpty()) {
-          //  input_layout_first.error = getString(R.string.error_msg_firstname)
-            //requestFocus(input_first);
             return false
-        } else {
-            //input_layout_first.isErrorEnabled = false
-        }
-
+        } 
         return true
     }
 
-    /**
-     * Validate last name
-     */
-    private fun validateLast(): Boolean {
-        if (input_last.text.toString().trim { it <= ' ' }.isEmpty()) {
-            //input_layout_last.error = getString(R.string.error_msg_lastname)
-            //requestFocus(input_last);
-            return false
-        } else {
-           // input_layout_last.isErrorEnabled = false
-        }
-        return true
-    }
+  
 
-
-    /*public boolean isStoragePermissionGranted() {
-        if (Build.VERSION.SDK_INT >= 23) {
-            if (checkPermissionStatus(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                    == PackageManager.PERMISSION_GRANTED) {
-                return true;
-            } else {
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
-                return false;
-            }
-        } else { //permission is automatically granted on sdk<23 upon installation
-            return true;
-        }
-    }*/
-
-    /**
-     * Camera permission
-     */
-    /*@Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        ArrayList<String> permission = runTimePermission.onRequestPermissionsResult(permissions, grantResults);
-        DebuggableLogV("permission", "permission" + permission);
-        DebuggableLogV("permission", "grantResults" + grantResults);
-        if (permission != null && !permission.isEmpty()) {
-            runTimePermission.setFirstTimePermission(true);
-            String[] dsf = new String[permission.size()];
-            permission.toArray(dsf);
-            checkAllPermission(dsf);
-        } else {
-            pickProfileImg();
-        }
-    }
-*/
     override fun onImageCompress(filePath: String, requestBody: RequestBody?) {
         commonMethods.hideProgressDialog()
         if (!TextUtils.isEmpty(filePath)) {
@@ -602,48 +504,6 @@ class Profile : CommonActivity(), ServiceListener, ImageListener, RuntimePermiss
         }
     }
 
-    /*private void checkAllPermission(String[] permission) {
-        ArrayList<String> blockedPermission = runTimePermission.checkHasPermission(this, permission);
-        DebuggableLogV("blockedPermission", "blockedPermission" + blockedPermission);
-        if (blockedPermission != null && !blockedPermission.isEmpty()) {
-            boolean isBlocked = runTimePermission.isPermissionBlocked(this, blockedPermission.toArray(new String[blockedPermission.size()]));
-            if (isBlocked) {
-                new Handler(Looper.getMainLooper()).post(new Runnable() {
-                    public void run() {
-                        showEnablePermissionDailog(0, getString(R.string.please_enable_permissions));
-                    }
-                });
-            } else {
-                ActivityCompat.requestPermissions(this, permission, 300);
-            }
-        } else {
-            // pickProfileImg();
-            //checkGpsEnable();
-
-        }
-    }*/
-
-    /*private void showEnablePermissionDailog(final int type, String message) {
-        if (!customDialog.isVisible()) {
-            customDialog = new CustomDialog(message, getString(R.string.ok), new CustomDialog.BtnAllowClick() {
-                @Override
-                public void clicked() {
-                    if (type == 0) callPermissionSettings();
-                    else
-                        startActivityForResult(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS), 101);
-                }
-            });
-            customDialog.show(getSupportFragmentManager(), "");
-        }
-    }*/
-
-    /*private void callPermissionSettings() {
-        Intent intent = new Intent();
-        intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-        Uri uri = Uri.fromParts("package", getApplicationContext().getPackageName(), null);
-        intent.setData(uri);
-        startActivityForResult(intent, 300);
-    }*/
 
     fun pickProfileImg() {
         val view = layoutInflater.inflate(R.layout.app_camera_dialog_layout, null)
@@ -687,31 +547,6 @@ class Profile : CommonActivity(), ServiceListener, ImageListener, RuntimePermiss
         RuntimePermissionDialogFragment.checkPermissionStatus(this, supportFragmentManager, this, requestPermissionFor, requestCodeForCallbackIdentificationCode, requestCodeForCallbackIdentificationCodeSubDivision)
     }
 
-    fun pickImageFromCamera() {
-        /*Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        imageFile = commonMethods.cameraFilePath();
-        Uri imageUri = FileProvider.getUriForFile(Profile.this, BuildConfig.APPLICATION_ID + ".provider", imageFile);
-
-        try {
-            List<ResolveInfo> resolvedIntentActivities = Profile.this.getPackageManager().queryIntentActivities(cameraIntent, PackageManager.MATCH_DEFAULT_ONLY);
-            for (ResolveInfo resolvedIntentInfo : resolvedIntentActivities) {
-                String packageName = resolvedIntentInfo.activityInfo.packageName;
-                grantUriPermission(packageName, imageUri, Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);
-            }
-            cameraIntent.putExtra("return-data", true);
-            cameraIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
-        startActivityForResult(cameraIntent, 1);*/
-       /* val cameraIntent = Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE)
-        startActivityForResult(cameraIntent, 1)*/
-        //commonMethods.refreshGallery(Profile.this, imageFile);
-
-        imageFile = commonMethods!!.cameraFilePath(this)
-        commonMethods.cameraIntent(imageFile!!, this)
-    }
 
     private fun pickImageFromGallary() {
         imageFile = commonMethods.getDefaultFileName(this@Profile)
@@ -734,14 +569,6 @@ class Profile : CommonActivity(), ServiceListener, ImageListener, RuntimePermiss
     }
 
     private fun onImageCapturedFromCamera(data: Intent) {
-        //startCropImage();
-        // bm = ImagePicker.getImageFromResult(this, requestCode, resultCode, data);
-        //profile_image.setImageBitmap(bm);
-        /*String myBase64Image;
-                    myBase64Image = encodeToBase64(bm, Bitmap.CompressFormat.JPEG, 100);*/
-        //imagepath = imageWrite(bm);
-        /*imageUri = Uri.fromFile(imageFile);
-                    imagepath = imageUri.getPath();*/
 
         val photo = data.extras?.get("data") as Bitmap
         // CALL THIS METHOD TO GET THE URI FROM THE BITMAP

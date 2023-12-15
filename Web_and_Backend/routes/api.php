@@ -15,7 +15,6 @@
 Route::post('payment/success', 'PaymentController@success')->name('payment.success');
 Route::get('payment/cancel', 'PaymentController@cancel')->name('payment.cancel');
 Route::get('cron_request_car', 'CronController@requestCars');
-Route::match(['get', 'post'], 'paypal_payout', 'CronController@updatePaypalPayouts');
 
 // With Login Routes
 Route::group(['middleware' => 'jwt.verify'], function () {

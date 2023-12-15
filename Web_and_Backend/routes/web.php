@@ -47,26 +47,6 @@ Route::group(['middleware' =>'locale'], function () {
 	Route::get('help/article/{id}/{question}', 'HomeController@help');
 	Route::get('ajax_help_search', 'HomeController@ajax_help_search');
 
-	Route::get('user_disabled', 'UserController@user_disabled');
-
-	Route::match(array('GET', 'POST'), 'signin_driver', 'UserController@signin_driver');
-
-	// Driver Signin To Delete Account
-	Route::match(array('GET', 'POST'), 'driver_deletion', 'UserController@driver_deletion');
-	Route::match(array('GET', 'POST'),'signin_rider', 'UserController@signin_rider')->name('rider.signin');
-
-    //Rider Signin for Account Deletion
-	Route::match(array('GET', 'POST'),'rider_deletion', 'UserController@rider_deletion')->name('rider.rider_deletion');
-
-	Route::match(array('GET', 'POST'),'signin_company', 'UserController@signin_company');
-	Route::get('forgot_password_driver', 'UserController@forgot_password');
-	Route::get('forgot_password_rider', 'UserController@forgot_password');
-	Route::post('forgotpassword', 'UserController@forgotpassword');
-	Route::match(array('GET', 'POST'), 'reset_password', 'UserController@reset_password');
-	Route::get('forgot_password_link/{id}', 'EmailController@forgot_password_link');
-	Route::match(array('GET', 'POST'),'signup_rider', 'UserController@signup_rider');
-	Route::match(array('GET', 'POST'),'signup_driver', 'UserController@signup_driver');
-
 	
 	Route::view('signin', 'user.signin');
 	Route::view('signup', 'user.signup');
@@ -83,15 +63,13 @@ Route::group(['middleware' =>'locale'], function () {
 	// signup functionality
 	Route::post('rider_register', 'UserController@rider_register');
 	Route::post('driver_register', 'UserController@driver_register');
-	Route::post('company_register', 'UserController@company_register');
 	Route::post('login', 'UserController@login');
 	Route::post('login_driver', 'UserController@login_driver');
 	Route::post('ajax_trips/{id}', 'DashboardController@ajax_trips');
 
 	Route::post('change_mobile_number', 'DriverDashboardController@change_mobile_number');
 	Route::post('profile_upload', 'DriverDashboardController@profile_upload');
-	Route::get('download_invoice/{id}', 'DriverDashboardController@download_invoice');
-	Route::get('download_rider_invoice/{id}', 'DashboardController@download_rider_invoice');
+
 });
 
 // Rider Routes..
@@ -135,8 +113,6 @@ Route::group(['middleware' => ['locale','driver_guest']], function () {
 
 	// profile update
 	Route::post('driver_update_profile/{id}', 'DriverDashboardController@driver_update_profile');
-	Route::get('driver_invoice', 'DriverDashboardController@show_invoice');
-	Route::get('print_invoice/{id}', 'DriverDashboardController@print_invoice');
 
 });
 
@@ -169,12 +145,4 @@ Route::group(['prefix' => (LOGIN_USER_TYPE=='company')?'company':'admin', 'middl
 	}
 });
 
-Route::get('clear__l--log', 'HomeController@clearLog');
-Route::get('show__l--log', 'HomeController@showLog');
-Route::get('update__env--content', 'HomeController@updateEnv');
-Route::get('clear__distance--log', 'HomeController@clearDistanceLog');
-Route::get('show__distance--log', 'HomeController@showDistanceLog');
-
-// Static page route
-Route::get('{name}', 'HomeController@static_pages');
 

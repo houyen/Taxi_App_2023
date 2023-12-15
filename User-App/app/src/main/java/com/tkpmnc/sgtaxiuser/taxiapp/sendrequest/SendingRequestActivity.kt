@@ -128,17 +128,7 @@ class SendingRequestActivity : CommonActivity(), LinearTimer.TimerListener, Serv
         super.onSaveInstanceState(outState)
         outState.clear()
     }
- /*  @OnClick(R.id.cf_cancel)
-   fun decline() {
-       try {
-           linearTimer!!.pauseTimer()
-           waveDrawable.stopAnimation()
-           //mPlayer.release()
-       } catch (e: java.lang.Exception) {
-           e.printStackTrace()
-       }
-       moveToNext()
-   } */
+
  @OnClick(R.id.cf_cancel)
  fun cancel() {
      isSendingRequestisLive = false
@@ -146,16 +136,6 @@ class SendingRequestActivity : CommonActivity(), LinearTimer.TimerListener, Serv
      MainActivity.isMainActivity = true
      finish()
  }
- /*  @OnClick(R.id.cf_cancel)
-   fun cancel() {
-       val jsonString = """{"custom":{"ride_request":{"title":"Trip Request","request_id":1782,"pickup_location":"75F3+WCM, Murang'a, Kenya","drop_location":"Seen Technologies, Nairobi, Kenya","min_time":1,"fare_estimation":"0","pickup_latitude":"-0.7255108","pickup_longitude":"37.1532548","is_pool":false,"seat_count":""},"id":1673627745,"end_time":1673627770,"title":"Trip Request"}}"""
-       val jsonObject = JSONObject(jsonString)
-       val requestId = jsonObject.getJSONObject("custom").getJSONObject("ride_request").getInt("request_id")
-       val ref = FirebaseDatabase.getInstance().getReference("request_table")
-       ref.child(requestId.toString()).removeValue()
- }   */
-    /*@BindView(R.id.iv_request_loader)
-    lateinit var ivRequestLoader: ImageView*/
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -259,11 +239,6 @@ class SendingRequestActivity : CommonActivity(), LinearTimer.TimerListener, Serv
         rl.setBorderWidth(2)
     }
 
-
-    override fun onBackPressed() {
-        //super.onBackPressed();
-    }
-
     /**
      * Waiting for driver response to show the circular image
      */
@@ -335,7 +310,6 @@ class SendingRequestActivity : CommonActivity(), LinearTimer.TimerListener, Serv
 
     }
 
-
     /**
      * After completed time for reqeust to stop animation
      */
@@ -355,19 +329,6 @@ class SendingRequestActivity : CommonActivity(), LinearTimer.TimerListener, Serv
     }
 
     /**
-     * Loader timer for request
-     */
-    override fun timerTick(tickUpdateInMillis: Long) {
-        DebuggableLogI("Time left", tickUpdateInMillis.toString())
-
-    }
-
-    override fun onTimerReset() {
-        DebuggableLogV("Do", "Nothing")
-    }
-
-
-    /**
      * Receive push notification
      */
     fun requestReceive() {
@@ -382,10 +343,6 @@ class SendingRequestActivity : CommonActivity(), LinearTimer.TimerListener, Serv
 
 
                 } else if (intent.action == Config.PUSH_NOTIFICATION) {
-                    // new push notification is received
-
-                    //  String message = intent.getStringExtra("message");
-
                     loadJSONDATA()
 
                 }
@@ -399,8 +356,6 @@ class SendingRequestActivity : CommonActivity(), LinearTimer.TimerListener, Serv
      */
     fun loadJSONDATA() {
         JSON_DATA = sessionManager.pushJson.toString()
-
-
 
         try {
             val jsonObject = JSONObject(JSON_DATA)
@@ -530,9 +485,6 @@ class SendingRequestActivity : CommonActivity(), LinearTimer.TimerListener, Serv
 
         val dropmarker: MarkerOptions
         val pickupMarker: MarkerOptions
-
-
-//        locationHashMap["pickup_longitude"] = pickup?.longitude.toString()
         val pickupLatLng = LatLng(this.locationHashMap?.get("pickup_latitude")!!.toDouble(), locationHashMap?.get("pickup_longitude")!!.toDouble())
         // val dropLatLng = LatLng(this.locationHashMap["drop_latitude"]!!.toDouble(),locationHashMap["drop_longitude"]!!.toDouble())
         val dropLatLng = LatLng(this.locationHashMap?.get("drop_latitude")!!.toDouble(), locationHashMap?.get("drop_longitude")!!.toDouble())
@@ -596,11 +548,6 @@ class SendingRequestActivity : CommonActivity(), LinearTimer.TimerListener, Serv
         var isSendingRequestisLive = false
     }
 
- /*   private fun moveToNext() {
-        val intent = Intent(this, MainActivity::class.java)
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-        startActivity(intent)
-        finish()
-    } */
+
 }
 

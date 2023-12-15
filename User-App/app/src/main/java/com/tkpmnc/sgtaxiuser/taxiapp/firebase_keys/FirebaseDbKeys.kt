@@ -20,20 +20,11 @@ object FirebaseDbKeys {
     var TRIPETA = "eta_min"
 
 
-    @StringDef(PaymentChangeMode.TYPE_CASH, PaymentChangeMode.TYPE_STRIPE, PaymentChangeMode.TYPE_PAYPAL,PaymentChangeMode.TYPE_PAYTM,PaymentChangeMode.TYPE_MPESA,PaymentChangeMode.TYPE_FLUTTERWAVE, PaymentChangeMode.WALLET_ADDED, PaymentChangeMode.PROMO_ADDED, PaymentChangeMode.TIPS_ADDED)
+    @StringDef(PaymentChangeMode.TYPE_CASH)
     @kotlin.annotation.Retention(AnnotationRetention.SOURCE)
     annotation class PaymentChangeMode {
         companion object {
-            const val TYPE_CASH = "C"
-            const val TYPE_STRIPE = "S"
-            const val TYPE_PAYPAL = "P"
-            const val TYPE_PAYTM = "Q"
-            const val TYPE_MPESA = "M"
-            const val TYPE_FLUTTERWAVE = "F"
-            const val TYPE_BRAINTREE = "B"
-            const val TIPS_ADDED = "T"
-            const val WALLET_ADDED = "W"
-            const val PROMO_ADDED = "P"
+            const val TYPE_CASH = "C"        
         }
     }
 }

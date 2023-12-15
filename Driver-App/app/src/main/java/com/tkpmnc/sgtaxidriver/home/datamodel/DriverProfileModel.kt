@@ -10,9 +10,6 @@ import com.google.gson.annotations.SerializedName
 
 import java.io.Serializable
 
-/**
- * Created by Seen Technologies on 9/14/18.
- */
 
 class DriverProfileModel : BaseObservable(), Serializable {
 

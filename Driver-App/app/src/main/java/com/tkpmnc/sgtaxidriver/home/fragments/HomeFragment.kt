@@ -369,66 +369,6 @@ class HomeFragment : Fragment(), OnMapReadyCallback, GoogleApiClient.ConnectionC
 
     }
 
-    /*
-     *  Show location permission dialog
-     **/
-    private fun showPermissionDialog() {
-        println("Permission check " + !PermissionCamer.checkPermission(mContext))
-        if (!PermissionCamer.checkPermission(mContext)) {
-            // android.app.Fragment fragment=(android.app.Fragment)
-            requestPermissions(
-                arrayOf(
-                    android.Manifest.permission.ACCESS_COARSE_LOCATION,
-                    android.Manifest.permission.ACCESS_FINE_LOCATION,
-                    Manifest.permission.READ_MEDIA_IMAGES
-                ),
-                3
-            )
-            //displayLocationSettingsRequest(mContext)
-
-        } else {
-            buildGoogleApiClient()
-            displayLocationSettingsRequest(mContext);
-        }
-    }
-
-    private fun requestLocationPermission(): Array<String> {
-        val foreground = ActivityCompat.checkSelfPermission(
-            requireContext(),
-            Manifest.permission.ACCESS_COARSE_LOCATION
-        ) == PackageManager.PERMISSION_GRANTED
-        if (foreground) {
-            val background = ActivityCompat.checkSelfPermission(
-                requireContext(),
-                Manifest.permission.ACCESS_BACKGROUND_LOCATION
-            ) == PackageManager.PERMISSION_GRANTED
-            if (!background) {
-                return arrayOf(
-                    Manifest.permission.ACCESS_BACKGROUND_LOCATION,
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                    Manifest.permission.READ_EXTERNAL_STORAGE,
-                    Manifest.permission.READ_MEDIA_IMAGES
-                )
-            }
-        } else {
-            return arrayOf(
-                Manifest.permission.ACCESS_COARSE_LOCATION,
-                Manifest.permission.ACCESS_BACKGROUND_LOCATION,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                Manifest.permission.READ_EXTERNAL_STORAGE,
-                Manifest.permission.READ_MEDIA_IMAGES
-            )
-        }
-        return arrayOf(
-            Manifest.permission.ACCESS_COARSE_LOCATION,
-            Manifest.permission.ACCESS_BACKGROUND_LOCATION,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE,
-            Manifest.permission.READ_EXTERNAL_STORAGE,
-            Manifest.permission.READ_MEDIA_IMAGES
-        )
-    }
-
-
     // Load currency list deatils in dialog
     fun vehicleTypeList() {
 
@@ -548,38 +488,6 @@ class HomeFragment : Fragment(), OnMapReadyCallback, GoogleApiClient.ConnectionC
         }
     }
 
-    /*
-     *  Request for location permission
-     **/
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-
-        when (requestCode) {
-            4 -> {
-                // If request is cancelled, the result arrays are empty.
-                if (grantResults.size > 0 && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
-                    buildGoogleApiClient()
-                    displayLocationSettingsRequest(mContext)
-
-                }
-            }
-
-            1220 -> {
-                val backgroundLocationPermission = ActivityCompat.checkSelfPermission(
-                    requireContext(),
-                    Manifest.permission.ACCESS_BACKGROUND_LOCATION
-                ) == PackageManager.PERMISSION_GRANTED
-                println("backgroundLocationPermission " + backgroundLocationPermission)
-            }
-            else -> {
-            }
-        }
-
-    }
 
     /*
      *  Check location permission enable or not and show dialog
@@ -674,8 +582,6 @@ class HomeFragment : Fragment(), OnMapReadyCallback, GoogleApiClient.ConnectionC
             mOverlay2Hr!!.remove()
 
         }
-       
-
 
     }
 
@@ -1446,7 +1352,6 @@ class HomeFragment : Fragment(), OnMapReadyCallback, GoogleApiClient.ConnectionC
         sessionManager.bookingType = tripDetailsModel.riderDetails.get(0).bookingType.toString()
         sessionManager.beginLatitude = tripDetailsModel.riderDetails.get(0).pickup_lat
         sessionManager.beginLongitude = tripDetailsModel.riderDetails.get(0).pickup_lng
-        val invoiceModels = tripDetailsModel.riderDetails.get(0).invoice
 
         var poolIDs = ""
         sessionManager.poolIds = ""
@@ -1501,7 +1406,6 @@ class HomeFragment : Fragment(), OnMapReadyCallback, GoogleApiClient.ConnectionC
 
             isTrip = false
             val bundle = Bundle()
-            bundle.putSerializable("invoiceModels", invoiceModels)
         
             main.putExtra("AmountDetails", jsonResp.strResponse)
             main.putExtras(bundle)

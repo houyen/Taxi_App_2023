@@ -3,9 +3,6 @@ package com.tkpmnc.sgtaxiuser.taxiapp.datamodels.signinsignup
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-/**
- * Created by Seen Technologies on 6/9/18.
- */
 
 class SigninResult {
 

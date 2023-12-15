@@ -39,12 +39,9 @@ import com.tkpmnc.sgtaxidriver.common.network.AppController
 import com.tkpmnc.sgtaxidriver.common.util.CommonKeys
 import com.tkpmnc.sgtaxidriver.common.util.CommonMethods
 import com.tkpmnc.sgtaxidriver.common.util.Enums.REQ_CASH_COLLECTED
-import com.tkpmnc.sgtaxidriver.common.util.Enums.REQ_GET_INVOICE
 import com.tkpmnc.sgtaxidriver.common.util.RequestCallback
 import com.tkpmnc.sgtaxidriver.common.views.CommonActivity
 import com.tkpmnc.sgtaxidriver.home.MainActivity
-import com.tkpmnc.sgtaxidriver.home.datamodel.InvoiceModel
-import com.tkpmnc.sgtaxidriver.home.datamodel.TripInvoiceModel
 import com.tkpmnc.sgtaxidriver.home.datamodel.firebase_keys.FirebaseDbKeys
 import com.tkpmnc.sgtaxidriver.home.interfaces.ApiService
 import com.tkpmnc.sgtaxidriver.home.interfaces.ServiceListener
@@ -125,7 +122,6 @@ class PaymentAmountPage : CommonActivity(), ServiceListener {
     var payment_method: String? = null
     protected var isInternetAvailable: Boolean = false
     private var mRegistrationBroadcastReceiver: BroadcastReceiver? = null
-    internal var invoiceModels: ArrayList<InvoiceModel> = ArrayList()
     lateinit internal var addFirebaseDatabase: AddFirebaseDatabase
 
     private var isPaymentCompleted: Boolean = false
@@ -213,17 +209,15 @@ class PaymentAmountPage : CommonActivity(), ServiceListener {
     fun loaddata() {
 
         recyclerView.removeAllViews()
-        val adapter = PriceRecycleAdapter(this, invoiceModels)
+        val adapter = PriceRecycleAdapter(this)
         recyclerView.adapter = adapter
 
 
         var total_fare: String? = ""
 
-
-
-        payment_status = tripInvoiceModel!!.paymentStatus
-        payment_method = tripInvoiceModel!!.paymentMode
-        total_fare = tripInvoiceModel!!.totalFare
+        payment_status = paymentStatus
+        payment_method = paymentMode
+        total_fare = totalFare
 
         if (CommonKeys.TripStatus.Completed == payment_status) {
             button.setTextColor(resources.getColor(R.color.newtaxi_app_black))
@@ -331,53 +325,6 @@ class PaymentAmountPage : CommonActivity(), ServiceListener {
     public override fun onPause() {
         super.onPause()
     }
-
-    /*
-  *    Show dialog like arrive now push notification
-  */
-    fun showDialog(message: String) {
-        val inflater = layoutInflater
-        val view = inflater.inflate(R.layout.addphoto_header, null)
-        val tit = view.findViewById<View>(R.id.header) as TextView
-        tit.text = resources.getString(R.string.paymentcompleted)
-        val builder = android.app.AlertDialog.Builder(this)
-        builder.setCustomTitle(view)
-        builder.setTitle(message)
-                .setCancelable(false)
-                .setPositiveButton(R.string.ok) { dialog, which ->nvoicePaymentDetail.getRiderImage());
-                        startActivity(intent);*/
-                    CommonKeys.IS_ALREADY_IN_TRIP = false
-                    val intent = Intent(applicationContext, MainActivity::class.java)
-                    startActivity(intent)
-                }
-
-                .show()
-    }
-
-    override fun onSuccess(jsonResp: JsonResponse, data: String) {
-        commonMethods.hideProgressDialog()
-        when (jsonResp.requestCode) {
-
-            REQ_CASH_COLLECTED -> if (jsonResp.isSuccess) {
-                commonMethods.hideProgressDialog()
-                sessionManager.isDriverAndRiderAbleToChat = false
-                CommonMethods.stopFirebaseChatListenerService(applicationContext)
-                AddFirebaseDatabase().removeNodesAfterCompletedTrip(this)
-                showDialog(resources.getString(R.string.paymentcompleted))
-            } else if (!TextUtils.isEmpty(jsonResp.statusMsg)) {
-                commonMethods.showMessage(this, dialog, jsonResp.statusMsg)
-            }
-        }
-
-    }
-
-    override fun onFailure(jsonResp: JsonResponse, data: String) {
-        commonMethods.hideProgressDialog()
-        if (!TextUtils.isEmpty(jsonResp.statusMsg)) {
-            commonMethods.showMessage(this, dialog, jsonResp.statusMsg)
-        }
-    }
-
 
 
 }

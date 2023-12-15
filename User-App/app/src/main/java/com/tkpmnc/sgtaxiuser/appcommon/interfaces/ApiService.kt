@@ -76,13 +76,6 @@ interface ApiService {
     @GET("get_rider_trips")
     fun getRiderTrips(@Query("token") token: String, @Query("user_type") type: String): Call<ResponseBody>
   
-    // Change Paytm CurrencyModelList
-    @GET("paytm_currency_conversion")
-    fun paytmCurrency(@Query("token") token: String, @Query("currency_code") currency_code: String, @Query("amount") amount: String): Call<ResponseBody>
-    // Add wallet amount using Flutterwave
-    @GET("add_wallet")
-    fun addWalletMoneyUsingFlutterwave(@Query("token") token: String, @Query("paykey") paykey: String, @Query("amount") amount: String): Call<ResponseBody>
-
     // Update Rider Profile
     @GET("update_rider_profile")
     fun updateProfile(@Query("profile_image") profile_image: String, @Query("first_name") first_name: String, @Query("last_name") last_name: String, @Query("country_code") country_code: String, @Query("mobile_number") mobile_number: String, @Query("email_id") email_id: String, @Query("token") token: String): Call<ResponseBody>
@@ -94,14 +87,6 @@ interface ApiService {
     // Log out Rider
     @GET("logout")
     fun logOut(@Query("token") token: String, @Query("user_type") user_type: String): Call<ResponseBody>
-
-    // Get Currency
-    @GET("currency_list")
-    fun currencyList(@Query("token") token: String): Call<ResponseBody>
-
-    // Get Currency
-    @GET("language")
-    fun updateLanguage(@Query("token") token: String, @Query("language") language: String): Call<ResponseBody>
 
     // Cancel selected order
     @GET("cancel_trip")
@@ -118,7 +103,6 @@ interface ApiService {
     // Change Mobile Number
     @GET("update_device")
     fun updateDevice(@Query("token") token: String, @Query("user_type") userType: String, @Query("device_type") device_type: String, @Query("device_id") device_id: String): Call<ResponseBody>
-
 
    // SoS alert
     @GET("sosalert")
@@ -153,13 +137,5 @@ interface ApiService {
     //Common Data
     @GET("get_upcoming_trips")
     fun getUpcomingTrips(@Query("token") token: String, @Query("page") page: String): Call<ResponseBody>
-
-    // Get given trip details
-    @GET("get_trip_details")
-    fun getTripDetails(@Query("token") token: String, @Query("trip_id") trip_id: String): Call<ResponseBody>
-
-    // Get Card
-    @GET("get_card_details")
-    fun viewCard(@Query("token") token: String): Call<ResponseBody>
 
 }

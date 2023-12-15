@@ -138,19 +138,7 @@ class CancelYourRequestActivity : CommonActivity(), ServiceListener {
          */
         receivePushNotification()
         isInternetAvailable = commonMethods.isOnline(applicationContext)
-        /*
 
-        ArrayAdapter<CharSequence> canceladapter;
-
-        // Get Cancel reason
-        canceladapter = ArrayAdapter.createFromResource(
-                this, R.array.cancel_types, R.layout.spinner_layout);
-        canceladapter.setDropDownViewResource(R.layout.spinner_layout);
-
-
-        spinner.setAdapter(canceladapter);
-
-*/
         getCancelReason()
 
 

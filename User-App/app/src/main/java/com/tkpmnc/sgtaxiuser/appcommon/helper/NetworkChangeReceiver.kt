@@ -13,9 +13,6 @@ class NetworkChangeReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
 
-        /*String status = NetworkUtil.getConnectivityStatusString(context);
-
-        Toast.makeText(context, status, Toast.LENGTH_LONG).show();*/
         val pushNotification = Intent(Config.NETWORK_CHANGES)
         LocalBroadcastManager.getInstance(context).sendBroadcast(pushNotification)
     }

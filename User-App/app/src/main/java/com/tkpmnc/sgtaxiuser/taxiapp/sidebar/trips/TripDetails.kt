@@ -82,21 +82,8 @@ class TripDetails : CommonActivity(), ServiceListener {
     @Inject
     lateinit var gson: Gson
 
-    //This is our tablayout
-    /*   @BindView(R.id.tabLayout2)
-    lateinit var tabLayouttripdetails: TabLayout*/
-    //This is our viewPager
-    /* @BindView(R.id.pager2)
-    lateinit var viewPagertripdetails: ViewPager*/
     @BindView(R.id.carname)
     lateinit var carname: TextView
-    /* @BindView(R.id.addressone)
-    lateinit var addressone: TextView
-
-    @BindView(R.id.adresstwo)
-    lateinit var adresstwo: TextView*/
-    /*  @BindView(R.id.static_map)
-    lateinit var staticmapview: ImageView*/
 
     @BindView(R.id.rlt_mapview)
     lateinit var mapView: RelativeLayout
@@ -167,17 +154,6 @@ class TripDetails : CommonActivity(), ServiceListener {
         viewPager.adapter = adapter
     }
 
-    /* override fun onTabSelected(tab: TabLayout.Tab) {
-        viewPagertripdetails.currentItem = tab.position
-    }
-
-    override fun onTabUnselected(tab: TabLayout.Tab) {
-        DebuggableLogI("SG Taxi", "Tab")
-    }
-
-    override fun onTabReselected(tab: TabLayout.Tab) {
-        DebuggableLogI("SG Taxi", "Tab")
-    }*/
 
     private fun getTripDetails() {
         val allHomeDataCursor: Cursor = dbHelper.getDocument(Constants.DB_KEY_TRIP_DETAILS + tripId)
@@ -251,11 +227,8 @@ class TripDetails : CommonActivity(), ServiceListener {
         recyclerView.setHasFixedSize(true)
         val layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
-        val invoiceModels = tripDetailsModel.riders.get(0).invoice
-        if (invoiceModels.size <= 0) {
-            profilelayout.visibility = View.GONE
-        }
-        val adapter = PriceRecycleAdapter(this, invoiceModels)
+       
+        val adapter = PriceRecycleAdapter(this)
         recyclerView.adapter = adapter
         tv_pick_Address.text = ridersDetails.pickup
         tv_drop_address.text = ridersDetails.drop
@@ -266,9 +239,6 @@ class TripDetails : CommonActivity(), ServiceListener {
         }else{
             tripstatus.gravity = Gravity.END
         }
-        /*setupViewPager(viewPagertripdetails)
-
-        tabLayouttripdetails.setupWithViewPager(viewPagertripdetails)*/
 
         if (TextUtils.isEmpty(ridersDetails.mapImage)) {
             val pikcuplatlng = LatLng(java.lang.Double.valueOf(ridersDetails.pickupLat), java.lang.Double.valueOf(ridersDetails.pickupLng))
@@ -279,42 +249,14 @@ class TripDetails : CommonActivity(), ServiceListener {
             val dropstr = droplatlng.latitude.toString() + "," + droplatlng.longitude
             val positionOnMap = "&markers=size:mid|icon:" + resources.getString(R.string.image_url) + "pickup.png|" + pickupstr
             val positionOnMap1 = "&markers=size:mid|icon:" + resources.getString(R.string.image_url) + "drop.png|" + dropstr
-
-            //staticmapview.visibility=View.VISIBLE
             mapView.visibility = View.GONE
-
-
-            /* addressdetailayout.visibility=View.GONE
-            addressdetailayout2.visibility=View.GONE*/
-
-
-            /*  var staticMapURL: String
-              if (tripDetailsModel.tripPath == "") {
-                  staticMapURL = "https://maps.googleapis.com/maps/api/staticmap?size=640x250&" +
-                          pikcuplatlng.latitude + "," + pikcuplatlng.longitude +
-                          "" + positionOnMap + "" + positionOnMap1 + //"&zoom=14" +
-
-                          "&key=" + sessionManager.googleMapKey + "&language=" + Locale.getDefault()
-              } else {
-                  staticMapURL = "https://maps.googleapis.com/maps/api/staticmap?size=640x250&" +
-                          pikcuplatlng.latitude + "," + pikcuplatlng.longitude +
-                          pathString + "" + positionOnMap + "" + positionOnMap1 + //"&zoom=14" +
-
-                          "&key=" + sessionManager.googleMapKey + "&language=" + Locale.getDefault()
-              }
-              Picasso.with(applicationContext).load(staticMapURL)
-                      .into(mapimage)*/
         } else {
-            /*  addressdetailayout.visibility=View.VISIBLE
-            addressdetailayout2.visibility=View.VISIBLE*/
-            //  staticmapview.visibility=View.INVISIBLE
+        
             mapView.visibility = View.VISIBLE
             Picasso.get().load(ridersDetails.mapImage)
                     .into(mapimage)
         }
-        /*Picasso.with(getApplicationContext()).load(tripDetailsModel.getMapImage())
-                .placeholder(R.drawable.mapimg).error(R.drawable.ic_app_notification)
-                .into(mapimage);*/
+
         if (tripDetailsModel.isPool!! && tripDetailsModel.seats != 0) {
             seatcount.visibility = View.VISIBLE
             seatcount.setText(resources.getString(R.string.seat_count) + " " + tripDetailsModel.seats.toString())
@@ -330,11 +272,6 @@ class TripDetails : CommonActivity(), ServiceListener {
 
         driver_name.text = resources.getString(R.string.your_ride_with) + " " + tripDetailsModel.driverName
 
-        /*if (tripDetailsModel.getStatus().equalsIgnoreCase("Rating")){
-            btnrate.setVisibility(View.VISIBLE);
-        }else {
-            btnrate.setVisibility(View.GONE);
-        }*/
         val profileurl = tripDetailsModel.driverThumbImage
 
 
@@ -343,9 +280,7 @@ class TripDetails : CommonActivity(), ServiceListener {
                     .into(ProfileImage)
         }
 
-        if (invoiceModels.size <= 0) {
-            profilelayout.visibility = View.GONE
-        }
+       
         if (isViewUpdatedWithLocalDB) {
             isViewUpdatedWithLocalDB = false
             getUserTripsDetail()

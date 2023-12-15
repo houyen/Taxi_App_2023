@@ -103,18 +103,9 @@ class CarDetailsListAdapter
         viewHolder.car_name.text = currentItem.carName
 
         if (viewHolder.itemView.isSelected) {
-            selectedItem = viewHolder.layoutPosition
-            //            viewHolder.car_amount.setTextColor(context.getResources().getColor(R.color.text_black));
-            //            viewHolder.car_min.setTextColor(context.getResources().getColor(R.color.text_black));
-            //            viewHolder.car_name.setTextColor(context.getResources().getColor(R.color.text_black));
-            //viewHolder.carimage.setBackground(context.getResources().getDrawable(R.drawable.car));
-            Picasso.get().load(currentItem.carActiveImage).error(R.drawable.car).into(viewHolder.carimage)
+           Picasso.get().load(currentItem.carActiveImage).error(R.drawable.car).into(viewHolder.carimage)
 
         } else {
-            //            viewHolder.car_amount.setTextColor(context.getResources().getColor(R.color.text_light_gray));
-            //            viewHolder.car_min.setTextColor(context.getResources().getColor(R.color.text_light_gray));
-            //            viewHolder.car_name.setTextColor(context.getResources().getColor(R.color.text_light_gray));
-            //viewHolder.carimage.setBackground(context.getResources().getDrawable(R.drawable.cartwo));
             Picasso.get().load(currentItem.carImage).error(R.drawable.car).into(viewHolder.carimage)
         }
 

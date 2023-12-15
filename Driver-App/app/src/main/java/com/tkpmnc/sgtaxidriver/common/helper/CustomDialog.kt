@@ -14,9 +14,6 @@ import androidx.appcompat.widget.ListPopupWindow
 import androidx.core.content.ContextCompat
 import com.tkpmnc.sgtaxidriver.R
 
-/**
- * Created by Seen Technologies on 9/7/18.
- */
 
 @SuppressLint("ValidFragment")
 class CustomDialog : BaseDialogFragment {

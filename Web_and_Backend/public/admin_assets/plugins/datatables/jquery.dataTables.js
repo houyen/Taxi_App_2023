@@ -354,7 +354,6 @@
 	
 	/**
 	 * Convert from camel case parameters to Hungarian, based on a Hungarian map
-	 * created by _fnHungarianMap.
 	 *  @param {object} src The model object which holds all parameters that can be
 	 *    mapped.
 	 *  @param {object} user The object to convert from camel case to Hungarian.

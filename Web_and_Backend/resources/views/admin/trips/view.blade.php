@@ -124,17 +124,6 @@
 								{{ $result->currency_code }}
 							</div>
 						</div>
-
-						@foreach($invoice_data as $invoice)
-						<div class="form-group">
-							<label class="col-sm-3 control-label">
-								{{ $invoice['key'] }}
-							</label>
-							<div class="col-md-7 col-sm-offset-1 form-control-static">
-								{{ $invoice['value'] }}
-							</div>
-						</div>
-						@endforeach
 						
 						<div class="form-group">
 							<label class="col-sm-3 control-label">

@@ -22,7 +22,7 @@ class Trips extends Model
 {
     use CurrencyConversion;
 
-    public $convert_fields = ['time_fare', 'distance_fare', 'base_fare', 'total_fare', 'access_fee', 'driver_payout', 'owe_amount', 'remaining_owe_amount', 'applied_owe_amount', 'wallet_amount','promo_amount','payable_driver_payout','cash_collectable','commission','company_admin_commission','total_trip_fare','total_invoice','total_payout_frontend','cash_collect_frontend','driver_front_payout','rider_paid_amount','subtotal_fare','peak_amount','schedule_fare','driver_peak_amount','company_commission','driver_service_fee','driver_or_company_commission','driver_or_company_earning','tips','admin_total_amount', 'waiting_charge','toll_fee','driver_earnings','additional_rider_amount'];
+    public $convert_fields = ['time_fare', 'distance_fare', 'base_fare', 'total_fare', 'access_fee', 'driver_payout', 'owe_amount', 'remaining_owe_amount', 'applied_owe_amount', 'wallet_amount','promo_amount','payable_driver_payout','cash_collectable','commission','company_admin_commission','total_trip_fare','rider_paid_amount','subtotal_fare','peak_amount','schedule_fare','driver_peak_amount','company_commission','driver_service_fee','driver_or_company_commission','driver_or_company_earning','tips','admin_total_amount', 'waiting_charge','toll_fee','driver_earnings','additional_rider_amount'];
     /**
      * The database table used by the model.
      *
@@ -30,7 +30,7 @@ class Trips extends Model
      */
     protected $table = 'trips';
 
-    protected $appends = ['vehicle_name','driver_name','rider_name','rider_profile_picture','driver_thumb_image','rider_thumb_image','date','pickup_time','pickup_time_formatted','drop_time','pickup_date_time','trip_time','begin_date','payout_status','date_time_trip','driver_joined_at','payable_driver_payout','cash_collectable','commission','company_admin_commission','total_trip_fare','total_invoice','total_payout_frontend','cash_collect_frontend','driver_front_payout','rider_paid_amount','map_image','currency_symbol','status','toll_fee_reason','company_driver_earnings'];
+    protected $appends = ['vehicle_name','driver_name','rider_name','rider_profile_picture','driver_thumb_image','rider_thumb_image','date','pickup_time','pickup_time_formatted','drop_time','pickup_date_time','trip_time','begin_date','payout_status','date_time_trip','driver_joined_at','payable_driver_payout','cash_collectable','commission','company_admin_commission','total_trip_fare','total_payout_frontend','cash_collect_frontend','driver_front_payout','rider_paid_amount','map_image','currency_symbol','status','toll_fee_reason','company_driver_earnings'];
 
     /**
      * The attributes that aren't mass assignable.
@@ -180,29 +180,6 @@ class Trips extends Model
             ->where('payment_mode','<>','Cash');
     }
 
-    public function scopeCompanyPayoutTripsOnly($query) {
-        return $query->with(['payment'])
-            ->whereHas('driver_payment', function ($query) {
-                if(LOGIN_USER_TYPE == 'admin') {
-                    $query->where('admin_payout_status','Pending');
-                }
-                else {
-                    $query->where('driver_payout_status', 'Pending');
-                }
-            })
-            ->join('users', function ($join) {
-                $join->on('users.id', '=', 'trips.driver_id')
-                    ->where('users.company_id', '!=', 1);
-            })
-            ->join('companies', function ($join) {
-                $join->on('companies.id', '=', 'users.company_id')
-                    ->where('users.company_id', '!=', 1);
-            })
-            ->where('trips.status','Completed')
-            ->where('trips.driver_payout','>',0)
-            ->where('trips.payment_mode','<>','Cash');
-    }
-
     // Get vehicle name
     public function getVehicleNameAttribute()
     {
@@ -235,48 +212,9 @@ class Trips extends Model
     {
         return $this->attributes['access_fee'] + ( $this->attributes['peak_amount'] - $this->attributes['driver_peak_amount'] ) + $this->attributes['schedule_fare'] + $this->attributes['driver_or_company_commission'];
     }
-    public function getCompanyAdminCommissionAttribute()
-    {
-        return ( $this->attributes['peak_amount'] - $this->attributes['driver_peak_amount'] ) + $this->attributes['driver_or_company_commission'];
-    }
-    public function getDriverOrCompanyEarningAttribute()
-    {
-        return ( $this->attributes['subtotal_fare'] + $this->attributes['driver_peak_amount'] + $this->attributes['tips'] + $this->attributes['waiting_charge'] + $this->attributes['toll_fee'] + $this->attributes['additional_rider_amount']) - $this->attributes['driver_or_company_commission'];
-    }
-    
-    public function getAdminTotalAmountAttribute()
-    {
-        if( $this->attributes['payment_status'] == 'Completed' && $this->attributes['status'] == 'Completed' ){
-            return ( $this->attributes['subtotal_fare'] + $this->attributes['peak_amount'] + $this->attributes['access_fee'] + $this->attributes['schedule_fare'] + $this->attributes['tips'] + $this->attributes['toll_fee'] + $this->attributes['waiting_charge']);
-        }else
-        {
-            return ( $this->attributes['subtotal_fare'] + $this->attributes['peak_amount'] + $this->attributes['access_fee'] + $this->attributes['schedule_fare'] + $this->attributes['toll_fee'] + $this->attributes['waiting_charge']);
-        }
-    }
+   
 
-    public function getPayableDriverPayoutAttribute()
-    {
-        if($this->attributes['payment_mode']=="Cash" && $this->attributes['wallet_amount']==0 && $this->attributes['promo_amount']==0){
-            return 0;
-        }
-        
-        if(($this->attributes['payment_mode']=="Cash" || $this->attributes['payment_mode']=="Cash & Wallet") && ($this->attributes['wallet_amount']!=0 || $this->attributes['promo_amount']!=0)) {
-            $promo_wallet=$this->attributes['wallet_amount']+$this->attributes['promo_amount'];
-            $cash_collectable = $this->total_fare()-$promo_wallet;
-            if($promo_wallet > $this->total_fare()) {
-                $cash_collectable= 0;
-            }
 
-            return number_format(($this->attributes['driver_payout'] + $this->attributes['access_fee'] -$cash_collectable),2, '.', '');
-        }
-
-        return number_format((($this->total_fare()-$this->attributes['access_fee'])-$this->attributes['applied_owe_amount']),2, '.', '');
-    }
-
-    public function getRiderPaidAmountAttribute()
-    {
-        return number_format(($this->attributes['total_fare'])-($this->attributes['wallet_amount']+$this->attributes['promo_amount']),2, '.', '');   
-    }
     public function getCashCollectableAttribute()
     {
         $cashcollect=0;
@@ -311,24 +249,8 @@ class Trips extends Model
         return number_format($cashcollect,2, '.', '');
     }
 
-    public function getTotalPayoutFrontendAttribute()
-    {
-        return number_format($this->attributes['driver_payout'],2, '.', '');
-    }
 
-    public function getPayoutStatusAttribute()
-    {
-        $payout=Payment::where('trip_id',$this->attributes['id']);
-        if($payout->count())
-        {
-            return Payment::where('trip_id',$this->attributes['id'])->first()->driver_payout_status;    
-        }
-        else
-        {
-            return "";
-        }
-        
-    } 
+  
     // get begin trip value
     public function getDateAttribute()
     {
@@ -450,14 +372,6 @@ class Trips extends Model
         return number_format(($this->attributes['total_fare']-$this->attributes['access_fee']),2, '.', '');    
     }
 
-    /**
-     * get Total Invoice Attribute
-     * 
-     */
-    public function getTotalInvoiceAttribute()
-    {
-        return $this->total_fare();
-    }
 
     /**
      * get Total Fare Attribute
@@ -468,14 +382,6 @@ class Trips extends Model
         return number_format(($this->attributes['total_fare']),2, '.', ''); 
     }
 
-    /**
-     * get Driver Payout Attribute
-     * 
-     */
-    public function getDriverPayoutAttribute()
-    {
-        return number_format(($this->attributes['driver_payout']),2, '.', ''); 
-    }
 
     /**
      * get Access Fee Attribute
@@ -486,50 +392,6 @@ class Trips extends Model
         return number_format(($this->attributes['access_fee']),2, '.', ''); 
     }
 
-    /**
-     * get Owe Amount Attribute
-     * 
-     */
-    public function getOweAmountAttribute()
-    {
-        return number_format(($this->attributes['owe_amount']),2, '.', ''); 
-    }
-
-    /**
-     * get Wallet Amount Attribute
-     * 
-     */
-    public function getWalletAmountAttribute()
-    {
-        return number_format(($this->attributes['wallet_amount']),2, '.', ''); 
-    }
-
-    /**
-     * get Applied Owe Amount Attribute
-     * 
-     */
-    public function getAppliedOweAmountAttribute()
-    {
-        return number_format(($this->attributes['applied_owe_amount']),2, '.', ''); 
-    }
-
-    /**
-     * get Remaining Owe Amount Attribute
-     * 
-     */
-    public function getRemainingOweAmountAttribute()
-    {
-        return number_format(($this->attributes['remaining_owe_amount']),2, '.', ''); 
-    }
-
-    /**
-     * get Promo Amount Attribute
-     * 
-     */
-    public function getPromoAmountAttribute()
-    {
-        return number_format(($this->attributes['promo_amount']),2, '.', ''); 
-    }
 
     /**
      * get Date Time Trip Attribute
@@ -642,42 +504,10 @@ class Trips extends Model
         return $week_days;
     }
 
-     /**
-     * Scope to get company trips only
-     * 
-     */
-    public function scopeCompanyTripsOnly($query, $company_id)
-    {
-        $company_trips = $query->whereHas('driver', function ($query) use ($company_id) {
-            $query->where('company_id',$company_id);
-        });
-        return $company_trips;
-    }
+   
+  
 
-    /**
-     * Get Company driver amount
-     * 
-     */
-    public function getCompanyDriverAmountAttribute()
-    {
-        if($this->driver->company_id == 1) {
-           return  $this->driver_payout;
-        }
-        $payment_mode  = $this->attributes['payment_mode'];
-
-        $subtotal_fare = ($payment_mode == 'Cash' || $payment_mode == 'Cash & Wallet') ? $this->total_fare : $this->subtotal_fare;
-        return $subtotal_fare;
-    }
-
-    /**
-     * Get Company driver earnings
-     * 
-     */
-    public function getCompanyDriverEarningsAttribute()
-    {
-        return  $this->driver_or_company_earning;
-    }
-
+    
     /**
      * Get Trip additional fee reson
      * 

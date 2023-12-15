@@ -51,12 +51,7 @@ class RiderFeedBack : CommonActivity(), ServiceListener {
     @BindView(R.id.starcomment)
 
     lateinit var starcomment: RelativeLayout
-    //This is our tablayout
-    /*@BindView(R.id.tabLayout)
-    lateinit var tabLayout: TabLayout
-    //This is our viewPager
-    @BindView(R.id.pager)
-    lateinit var viewPager: ViewPager*/
+
     lateinit @Inject
     var commonMethods: CommonMethods
 
@@ -103,9 +98,7 @@ class RiderFeedBack : CommonActivity(), ServiceListener {
         /*common header textview*/
         commonMethods.setheaderText(resources.getString(R.string.riderfeedback),common_header)
         starcomment.visibility = View.GONE
-        //commonMethods.imageChangeforLocality(this,dochome_back)
-        //setupViewPager(viewPager)
-        //tabLayout.setupWithViewPager(viewPager)
+
 
     commonMethods.setheaderText(resources.getString(R.string.riderfeedback),common_header)
     dialog = commonMethods.getAlertDialog(this)

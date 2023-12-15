@@ -297,7 +297,6 @@ class SigninActivity : CommonActivity(), ServiceListener {
             }
             sessionManager.currencyCode = signInUpResultModel.currencyCode
             sessionManager.countryCode = signInUpResultModel.country_code
-            sessionManager.paypalEmail = signInUpResultModel.payoutId
             sessionManager.driverSignupStatus = signInUpResultModel.userStatus
             sessionManager.setAcesssToken(signInUpResultModel.token)
             sessionManager.isRegister = true
@@ -324,7 +323,6 @@ class SigninActivity : CommonActivity(), ServiceListener {
 
                 startMainActivity()
             } else if (driverStatus == "Active") {
-                // If driver status is active check paypal email is exists then redirect to home page otherwise redirect to paypal email address page
                 sessionManager.vehicle_id = signInUpResultModel.vehicleId
                 startMainActivity()
             } else {

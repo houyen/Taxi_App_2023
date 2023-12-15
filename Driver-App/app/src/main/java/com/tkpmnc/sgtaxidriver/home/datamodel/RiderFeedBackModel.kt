@@ -6,9 +6,6 @@ import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 import java.util.ArrayList
 
-/**
- * Created by Seen Technologies on 9/12/18.
- */
 
 class RiderFeedBackModel : Serializable {
 

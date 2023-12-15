@@ -22,9 +22,6 @@ import retrofit2.Callback
 import retrofit2.Response
 import javax.inject.Inject
 
-/**
- * Created by Seen Technologies on 9/7/18.
- */
 
 class RequestCallback : Callback<ResponseBody> {
 
@@ -162,13 +159,6 @@ class RequestCallback : Callback<ResponseBody> {
                     trackingServiceListener.stopTrackingService()
 
                 }
-                //                else if (response.code() == 403) {
-                //                    jsonResp.setStatusMsg(context.getString(R.string.status_pending));
-                //                    Intent intent=new Intent(Config.UPDATE_UI);
-                //                    intent.putExtra("isInActive",true);
-                //                    LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
-                //                }
-
 
                 jsonResp.requestData = requestData
                 jsonResp.isOnline = isOnline

@@ -375,7 +375,6 @@ class Past : Fragment(), ServiceListener, PaginationAdapterCallback {
     @SuppressLint("UseRequireInsteadOfGet")
     private fun onSuccessDriver(jsonResp: JsonResponse) {
         tripDetailsModel = gson.fromJson(jsonResp.strResponse, TripDetailsModel::class.java)
-        val invoiceModels = tripDetailsModel.riders.get(0).invoice
         sessionManager.isrequest = false
         sessionManager.isTrip = true
 
@@ -413,7 +412,6 @@ class Past : Fragment(), ServiceListener, PaginationAdapterCallback {
             sessionManager.isrequest = false
             sessionManager.isTrip = false
             val bundle = Bundle()
-            bundle.putSerializable("invoiceModels", invoiceModels)
             val main = Intent(activity, PaymentAmountPage::class.java)
             main.putExtra("AmountDetails", jsonResp.strResponse)
             main.putExtra("driverDetails", tripDetailsModel)

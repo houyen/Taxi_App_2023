@@ -27,12 +27,7 @@ import java.util.ArrayList
 *************************************************************************** */
 
 class EmergencyContactAdapter
-/**
- * EmergencyContactAdapter Constructor to intialize getEmergencyContactDetails and Context context
- *
- * @param getEmergencyContactDetails array list
- * @param context                    context of the emergency context
- */
+
 (var getEmergencyContactDetails: ArrayList<EmergencyContactModel>, var context: Context) : RecyclerView.Adapter<EmergencyContactAdapter.ViewHolder>() {
     var alterpostion: Int = 0
     lateinit var id1: String
@@ -64,8 +59,7 @@ class EmergencyContactAdapter
             val popupMenu = PopupMenu(context, v)
             popupMenu.inflate(R.menu.emergency_delete)
             popupMenu.setOnMenuItemClickListener { item ->
-                // TODO Auto-generated method stub
-                val id = item.itemId
+              
                 if (id == R.id.delete_menu) {
                     alterpostion = position
                     val mobilenumber = getEmergencyContactDetails[position].mobileNumber.replace(" ".toRegex(), "")

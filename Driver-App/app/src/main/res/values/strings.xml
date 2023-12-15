@@ -76,7 +76,6 @@
     <string name="first">"First Name"</string>
     <string name="last">"Last Name"</string>
     <string name="email">"Email"</string>
-    <string name="paypalemail">"PAYPAL EMAIL"</string>
     <string name="address1">"Address 1"</string>
     <string name="address2">"Address 2"</string>
     <string name="city">"City"</string>
@@ -118,10 +117,6 @@
     <string name="current_rating">"LIFETIME TRIPS"</string>
     <string name="trip_cancel">"5 STARS"</string>
     <string name="request_accepted">"RATED TRIPS"</string>
-    <string name="enter4digit">Enter the 4-digit code sent to you at </string>
-    <string name="resend">Resend Code</string>
-    <string name="otp_mismatch">"OTP code Mismatch."</string>
-    <string name="otp_emty">"Please enter the OTP"</string>
 
 
     <string name="privacy_policy" translatable="false">&siteurl;privacy_policy</string>
@@ -217,11 +212,6 @@
     <string name="pay_statemet">"Pay Statements"</string>
     <string name="payment">"Payment"</string>
     <string name="payment_failed">"Payment Failed"</string>
-    <string name="payout">"Payout"</string>
-    <string name="addpayout">Add PayPal Payout</string>
-    <string name="most_recent">"Most recent payout: "</string>
-    <string name="addpayment_msg">"To add a new payout. Create a email for your &appname;
-        account. "</string>
 
     <string name="begin_trip">"Swipe to Begin Trip"</string>
     <string name="confirm_arrived">"SWIPE TO CONFIRM YOU'VE ARRIVED"</string>
@@ -402,8 +392,6 @@
     <string name="city_kana">City</string>
     <string name="postal_code_kana">Postal code</string>
     <string name="address_kana">Address Kana</string>
-    <string name="paypal_email">PayPal Email ID</string>
-    <string name="address_kanji">Address Kanji</string>
     <string name="showpassword">Show Password</string>
     <string name="delete">Delete</string>
     <string name="makedefault">Make Default</string>
@@ -411,45 +399,7 @@
     <string name="selectcountry">Select country</string>
     <string name="select">Selected</string>
 
-    <string name="enable_permissions_to_proceed_further">Enable permission to proceed further</string>
-    <string name="takephoto_title">Take a photo</string>
-    <string name="add_stripe_payout">Add Stripe Payout</string>
-    <string name="choose_currency">Please choose a currency</string>
-    <string name="please_choose_a_currency">Please choose a currency</string>
-    <string name="please_enter_account_number">please enter account number</string>
-    <string name="please_enter_bank_name">please enter bank name</string>
-    <string name="please_enter_branch_name">please enter branch name</string>
-    <string name="please_enter_bank_code">please enter bank code</string>
-    <string name="please_enter_branch_code">please enter branch code</string>
-    <string name="please_enter_account_holder_name">please enter account holder name</string>
-    <string name="please_enter_address1">please enter address 1</string>
-    <string name="please_enter_city">please enter city</string>
-    <string name="please_enter_state">please enter state</string>
-    <string name="please_enter_postal_code">\"please enter postal code \"</string>
-    <string name="please_upload_legal_document">please upload legal document</string>
-    <string name="please_upload_additional_document">please upload additional document</string>
-    <string name="external_storage_permission_necessary">External storage permission is necessary</string>
-    <string name="please_enter_sort_code">please enter sort code</string>
-    <string name="please_enter_SSN">please enter SSN</string>
-    <string name="please_enter_routing_number">please enter routing number</string>
-    <string name="please_enter_clearing_code">please enter clearing code</string>
-    <string name="please_enter_account_owner_name">please enter account owner name</string>
-    <string name="please_enter_phone_number">"please enter phone number "</string>
-    <string name="please_choose_gender">please choose gender</string>
-    <string name="please_enter_address_1_of_kana">please enter address 1 of kana</string>
-    <string name="please_enter_address_2_of_kana">please enter address 2 of kana</string>
-    <string name="please_enter_city_of_kana">please enter city of kana</string>
-    <string name="please_enter_state_of_kana">please enter state of kana</string>
-    <string name="please_enter_postal_code_of_kana">please enter postal code of kana</string>
-    <string name="please_enter_address_1_of_kanji">please enter address 1 of kanji</string>
-    <string name="please_enter_address_2_of_kanji">please enter address 2 of kanji</string>
-    <string name="please_enter_city_of_kanji">please enter city of kanji</string>
-    <string name="please_enter_state_of_kanji">please enter state of kanji</string>
-    <string name="please_enter_postal_code_of_kanji">please enter postal code of kanji</string>
-    <string name="please_choose_country">please choose country</string>
-    <string name="please_enter_transit_number">please enter transit number</string>
-    <string name="please_enter_institution_number">please enter institution number</string>
-    <string name="please_enter_BSB">please enter BSB</string>
+    
     <string name="manually_booked">Manually Booked For Ride</string>
     <string name="manual_booking_reminder">Manual Booking Reminder</string>
     <string name="manual_booking_cancelled">Manual Booking Cancelled</string>
@@ -464,17 +414,8 @@
     <string name="skip">Skip</string>
 
 
-    <string name="bank_location">Bank Location</string>
-    <string name="bic_swift_code">BIC/SWIFT Code</string>
-    <string name="name_of_bank">Name of Bank</string>
-    <string name="account_number">Account Number</string>
-    <string name="account_holder_name">Account Holder Name</string>
-    <string name="clabe" translatable="false">CLABE</string>
-
     <string name="required"> Required</string>
 
-    <string name="bank_details">Bank Details</string>
-    <string name="bank_details_success_message">Bank Details Added Successfully</string>
     <string name="rate_your_ride">Rate your ride</string>
     <string name="no_ratings_display">You have no rating to display</string>
     <string name="pending_trips">Pending Trips</string>
@@ -488,17 +429,6 @@
     <string name="total_trip_amount">Total trip amount</string>
     <string name="doc_upload_error">Please upload all documents</string>
 
-    <string name="pay_to">Pay to Admin</string>
-    <string name="your_pay_to">Your Payment To Admin</string>
-
-    <string name="add_card">Add Card</string>
-    <string name="change">CHANGE</string>
-    <string name="enter_amount">Enter Amount</string>
-    <string name="enter_amount_empty">Please Enter the amount</string>
-    <string name="entered_amt_msg">Entered amount is greater than Owe amount</string>
-    <string name="payment_methods">Payment method</string>
-    <string name="credit_or_debit">Add Credit or Debit Card</string>
-    <string name="select_reason">Select Reason</string>
 
     <string name="default_direction" translatable="false">0</string>
     <string name="mobile_verification">Mobile Verification</string>
@@ -511,7 +441,6 @@
     <string name="send_OTP_again_in">You can send OTP again in</string>
     <string name="enter_valid_otp">Enter valid OTP!</string>
     <string name="enter_pendg_amount_empty">You have no pending amount</string>
-    <string name="enter_otp_to_begin_trip">Enter OTP to begin the trip</string>
     <string name="Done">Done</string>
     <string name="close">close</string>
     <string name="connected">Connected</string>
@@ -531,47 +460,6 @@
     <string name="error_select_extra_fee_description">Please select extra fee description</string>
     <string name="er_read_loc">Problem reading list of locations.</string>
 
-
-    <string name="referral">My Referrals</string>
-    <string name="your_invite_code">Your invite Code</string>
-    <string name="share_my_code">Share My Code</string>
-    <string name="friends_incompleted">Friends - Incomplete</string>
-    <string name="friends_completed">Friends - Completed</string>
-    <string name="referral_code_copied">Referral Code Copied</string>
-    <string name="referral_code_not_copied">Unable to copy Referral code, please share the code</string>
-    <string name="days_left">days left</string>
-    <string name="need_to_complete">Need to complete</string>
-    <string name="max_referral_earning_statement">Get up to %s for every friend who rides with &appname;</string>
-    <string name="referral_code_optional">Referral Code (Optional)</string>
-    <string name="earned">"Earned "</string>
-    <string name="no_referrals_yet">No Referrals Yet</string>
-    <string name="referral_expired">Referral Expired</string>
-    <string name="share_to_contacts">Share to contacts</string>
-    <string name="invite_msg"><![CDATA[SignUp & Get Paid For Every Invited Sign-up & Much More Bonus Awaits! Use my invite code]]></string>
-    <string name="referrel_amount">Referral Amount</string>
-    <string name="day_left">day left</string>
-    <string name="trip_left">TRIP</string>
-
-    <string name="tap_to_reload">Tap to reload</string>
-    <string name="error_msg_unknown">An unexpected error occurred</string>
-    <string name="total_earnings">"TOTAL EARNINGS"</string>
-    <string name="remaining_referral">Remaining Referral</string>
-    <string name="hr_eta">"&#160;hr&#160;"</string>
-
-    <string name="stripe" translatable="false">Stripe</string>
-    <string name="choose">Choose</string>
-    <string name="Add_payment_type">Add payment Type</string>
-    <string name="choose_payment_type">Please Choose Your Payment Type</string>
-    <string name="add_payout">Add payout </string>
-    <string name="update">Update</string>
-    <string name="min">&#160;Min</string>
-
-
-    <string name="add_paypal">Add Paypal</string>
-    <string name="add_driver_proof">Add Driver Proof</string>
-    <string name="payout_details">Payout Details</string>
-    <string name="onlinepayment">Online payment</string>
-    <string name="paypal">Paypal</string>
     <string name="set_canceled">Setup canceled try again</string>
     <string name="stripe_error_1">Something went wrong try again</string>
     <string name="stripe_error_2">Invalid Stripe API version try again later</string>

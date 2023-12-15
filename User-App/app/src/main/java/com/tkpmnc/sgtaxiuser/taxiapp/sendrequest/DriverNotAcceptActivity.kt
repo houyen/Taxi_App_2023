@@ -116,7 +116,6 @@ class DriverNotAcceptActivity : CommonActivity(), ServiceListener {
                     requestSend = true
                     sendRequest()
                 }
-                //new SendRequest().execute(getIntent().getStringExtra("url"));
             }
         }
     }
@@ -130,14 +129,9 @@ class DriverNotAcceptActivity : CommonActivity(), ServiceListener {
         sendrequst.putExtra("loadData", "load")
         sendrequst.putExtra("carname", intent.getStringExtra("carname"))
         sendrequst.putExtra("url", intent.getStringExtra("url"))
-        //        sendrequst.putExtra("fare_estimation", getIntent().getStringExtra("fare_estimation"));
-        //sendrequst.putExtra("mapurl", getIntent().getStringExtra("mapurl"));
         sendrequst.putExtra("totalcar", intent.getIntExtra("totalcar", 0))
         sendrequst.putExtra("hashMap", locationHashMap)
         startActivity(sendrequst)
-        //        if (locationHashMap != null) {
-        //            locationHashMap.put("fare_estimation", getIntent().getStringExtra("fare_estimation"));
-        //        }
         apiService.sendRequest(locationHashMap).enqueue(RequestCallback(this))
         finish()
     }

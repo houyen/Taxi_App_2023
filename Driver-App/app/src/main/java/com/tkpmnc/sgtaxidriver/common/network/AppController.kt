@@ -88,42 +88,4 @@ class AppController : Application() {
             get() = instance
     }
 
-    /* public static void createSinchClient(String userCallId, String sinchKey, String sinchSecret){
-        if(sinchClient !=null){
-            sinchClient.stopListeningOnActiveConnection();
-            sinchClient.terminate();
-        }
-
-
-        sinchClient = Sinch.getSinchClientBuilder()
-                .context(getContext())
-                .userId(userCallId)
-                .applicationKey(sinchKey)
-                .applicationSecret(sinchSecret)
-                .environmentHost("clientapi.sinch.com")
-                .build();
-        sinchClient.setSupportPushNotifications(true);
-        //sinchClient.setPushNotificationDisplayName("you missed a call from");
-        sinchClient.setSupportCalling(true);
-        sinchClient.startListeningOnActiveConnection();
-
-
-        sinchClient.getCallClient().addCallClientListener(new SinchCallClientListener());
-
-        sinchClient.start();
-    }*/
-
-
-    /*private static class SinchCallClientListener implements CallClientListener {
-        @Override
-        public void onIncomingCall(CallClient callClient, Call incomingCall) {
-            call = incomingCall;
-
-            Intent callScreen = new Intent(getContext(), CallProcessingActivity.class);
-            callScreen.putExtra(CommonKeys.KEY_TYPE,CallProcessingActivity.CallActivityType.Ringing);
-            callScreen.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            getContext().startActivity(callScreen);
-
-        }
-    }*/
 }

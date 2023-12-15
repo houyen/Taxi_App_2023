@@ -131,12 +131,6 @@ class EnRoute : CommonActivity() {
         insertDriverInfoToSession()
         driver_name.text = tripDetailsModel.driverName
 
-
-        /*if (Integer.parseInt(tripDetailsModel.getArrivalTime()) > 1) {
-            arrivel_time.setText(tripDetailsModel.getArrivaltime() + " " + getResources().getString(R.string.mins));
-        } else {
-            arrivel_time.setText(tripDetailsModel.getArrivaltime() + " " + getResources().getString(R.string.min));
-        }*/
         vehicle_name.text = tripDetailsModel.vehicleName
 
         if (tripDetailsModel.rating == "" || tripDetailsModel.rating == "0.0") {
@@ -147,12 +141,6 @@ class EnRoute : CommonActivity() {
         }
         driver_car_number.text = tripDetailsModel.vehicleNumber
 
-
-     /*   if (tripDetailsModel.arrivalTime > 1) {
-            arrival_txt.text = tripDetailsModel.arrivalTime.toString() + " " + resources.getString(R.string.mins)
-        } else {
-            arrival_txt.text = tripDetailsModel.arrivalTime.toString() + " " + resources.getString(R.string.min)
-        }*/
 
         var etaText: String
 
@@ -219,8 +207,6 @@ class EnRoute : CommonActivity() {
 
                 // checking for type intent filter
                 if (intent.action == Config.REGISTRATION_COMPLETE) {
-                    // FCM successfully registered
-                    // now subscribe to `global` topic to receive app wide notifications
                     FirebaseMessaging.getInstance().subscribeToTopic(Config.TOPIC_GLOBAL)
 
 

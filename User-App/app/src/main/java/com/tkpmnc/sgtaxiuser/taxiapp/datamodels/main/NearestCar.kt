@@ -5,9 +5,6 @@ import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 import java.util.*
 
-/**
- * Created by Seen Technologies on 7/9/18.
- */
 
 class NearestCar : Serializable {
 

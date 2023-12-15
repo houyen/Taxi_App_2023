@@ -133,7 +133,6 @@ CREATE TABLE `currency` (
   `rate` decimal(10,2) NOT NULL,
   `status` enum('Active','Inactive') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Active',
   `default_currency` enum('1','0') COLLATE utf8mb4_unicode_ci NOT NULL,
-  `paypal_currency` enum('Yes','No') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'No'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -729,7 +728,6 @@ ALTER TABLE `country`
 ALTER TABLE `currency`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `currency_code_unique` (`code`),
-  ADD KEY `currency_status_default_currency_paypal_currency_index` (`status`,`default_currency`,`paypal_currency`);
 
 --
 -- Indexes for table `documents`

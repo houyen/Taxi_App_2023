@@ -230,7 +230,6 @@ class DriverController extends Controller
                 $payout_preference->account_number  = $request->account_number;
                 $payout_preference->holder_name     = $request->account_holder_name;
                 $payout_preference->holder_type     = "company";
-                $payout_preference->paypal_email    = $request->account_number;
 
                 $payout_preference->phone_number    = $request->mobile_number ?? '';
                 $payout_preference->branch_code     = $request->bank_code ?? '';
@@ -453,7 +452,6 @@ class DriverController extends Controller
                 $payout_preference->account_number  = $request->account_number;
                 $payout_preference->holder_name     = $request->account_holder_name;
                 $payout_preference->holder_type     = "company";
-                $payout_preference->paypal_email    = $request->account_number;
                 $payout_preference->phone_number    = $request->mobile_number ?? '';
                 $payout_preference->branch_code     = $request->bank_code ?? '';
                 $payout_preference->bank_name       = $request->bank_name ?? '';

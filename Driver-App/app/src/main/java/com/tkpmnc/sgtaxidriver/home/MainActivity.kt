@@ -327,26 +327,7 @@ class MainActivity : CommonActivity(), ServiceListener {
 
     }
 
-    /**
-     * SuccessFully Log out
-     */
 
-    fun clearApplicationData() {
-        val cache = this.cacheDir
-        val appDir = File(cache.parent)
-        if (appDir.exists()) {
-            val children = appDir.list()
-            for (s in children) {
-                if ("lib" != s) {
-                    SettingActivity.deleteDir(File(appDir, s))
-                    CommonMethods.DebuggableLogI("TAG", "**************** File /data/data/APP_PACKAGE/$s DELETED *******************")
-
-                    // clearApplicationData();
-                }
-            }
-        }
-
-    }
     /*-------------------------/FULLL LOGOUT CODE ON Main ------------------*/
     private var isViewUpdatedWithLocalDB: Boolean = false
 

@@ -2,9 +2,6 @@ package com.tkpmnc.sgtaxidriver.home.interfaces;
 
 import com.tkpmnc.sgtaxidriver.common.model.JsonResponse;
 
-/**
- * Created by Seen Technologies on 9/7/18.
- */
 
 public interface ServiceListener {
 

@@ -3,9 +3,7 @@ package com.tkpmnc.sgtaxiuser.taxiapp.datamodels
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-/**
- * Created by Seen Technologies on 12/9/18.
- */
+
 
 class EmergencyContactModel {
 

@@ -25,22 +25,17 @@ use App\Models\HelpSubCategory;
 use App\Models\Help;
 use App\Models\Fees;
 use App\Models\Rating;
-use App\Http\Start\Helpers;
-use App\Http\Helper\RequestHelper;
 use App\Repositories\DriverOweAmountRepository;
-use App\Http\Helper\InvoiceHelper;
 use App\Models\Payment;
 
 class BulKUserController extends Controller 
 {
 
 
-    public function __construct(RequestHelper $request,DriverOweAmountRepository $driver_owe_amt_repository,InvoiceHelper $invoice_helper)
+    public function __construct(RequestHelper $request)
     {
         $this->request_helper = $request;
         $this->helper = new Helpers;
-        $this->invoice_helper = $invoice_helper;
-        $this->driver_owe_amt_repository = $driver_owe_amt_repository;
     }
 
 	/**
@@ -257,7 +252,6 @@ class BulKUserController extends Controller
                             'user_id' => $user_value,
                             'save_to_trip_table' => 1,
                         ];
-                        $this->invoice_helper->calculation($data);
                     }
                     if($request->payment_type != 'Cash')
                     {

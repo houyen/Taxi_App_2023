@@ -130,29 +130,15 @@ class RatingActivity : CommonActivity(), ServiceListener {
         textView2.visibility = View.GONE
         tvRatingContent.visibility = View.GONE
         tvTitle.text = getString(R.string.rating)
-
         if (isInternetAvailable) {
-            /*
-         *  Get driver rating and feed back details API
-         **/
-            updateEarningChart()
-
+            commonMethods.showProgressDialog(this, customDialog)
+            apiService.getRating(userRating).enqueue(RequestCallback(this))
         } else {
             dialogfunction()
         }
         initView()
     }
 
-    private fun initView() {
-    }
-
-
-    fun updateEarningChart() {
-
-        commonMethods.showProgressDialog(this)
-        apiService.updateDriverRating(userRating).enqueue(RequestCallback(this))
-
-    }
 
     override fun onSuccess(jsonResp: JsonResponse, data: String) {
         commonMethods.hideProgressDialog()
@@ -213,7 +199,6 @@ class RatingActivity : CommonActivity(), ServiceListener {
         commonMethods.hideProgressDialog()
 
     }
-
 
     /*
      *  show dialog for no internet available

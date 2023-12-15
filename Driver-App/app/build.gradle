@@ -218,19 +218,11 @@ dependencies {
 
     //GeoFire
     implementation 'com.firebase:geofire-android:3.0.0'
-    //Paypal
-    //implementation 'com.paypal.sdk:paypal-android-sdk:2.15.3'
-
-    //credit or debit call integration dependencies
-    implementation 'com.stripe:stripe-android:20.22.0'
+   
     //Dagger
     implementation 'com.google.dagger:dagger:2.45'
     kapt 'com.google.dagger:dagger-compiler:2.45'
 
-
-
-    //credit or debit call integration dependencies
-    implementation 'com.stripe:stripe-android:20.22.0'
     //Dagger
     implementation 'com.google.dagger:dagger:2.45'
     kapt 'com.google.dagger:dagger-compiler:2.45'

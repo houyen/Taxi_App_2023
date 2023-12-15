@@ -249,27 +249,6 @@
                 android:paddingTop="20dp">
 
                 <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
-                    android:id="@+id/imgpaymenttext2"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="20dp"
-                    android:background="@drawable/paypal"
-                    android:backgroundTint="#ffc2c2c2"
-                    android:textColor="#ffc2c2c2"
-                    android:textSize="20dp"
-                    app:fontname="@string/font_UberClone" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toEndOf="@+id/imgpaymenttext2"
-                    android:paddingStart="20dp"
-                    android:text="@string/payout"
-                    android:textColor="#09091A"
-                    android:textSize="18dp" />
-
-                <com.tkpmnc.sgtaxidriver.common.custompalette.FontTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"

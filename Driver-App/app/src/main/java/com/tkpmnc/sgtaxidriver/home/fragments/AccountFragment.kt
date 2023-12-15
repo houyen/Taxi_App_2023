@@ -202,15 +202,6 @@ class AccountFragment : Fragment(), ServiceListener {
         startActivity(intent)
     }
 
-    /**
-     * Bank Details
-     */
-    @OnClick(R.id.rlt_bank_layout)
-    fun bankDetails() {
-        val intent = Intent(activity, PayoutDetailsListActivity::class.java)
-        //intent.putExtra("bankDetailsModel", bankDetailsModel)
-        startActivity(intent)
-    }
 
     /**
      * Driver Vehicle Profile
@@ -227,29 +218,6 @@ class AccountFragment : Fragment(), ServiceListener {
         startActivity(intent)
     }
 
-    /**
-     * Pay to admin
-     */
-    @OnClick(R.id.rltPayTo)
-    fun payto() {
-        val payto = Intent(activity, PayToAdminActivity::class.java)
-        startActivity(payto)
-    }
-
-    /**
-     * Language List
-     */
-    @OnClick(R.id.rltLanguage)
-    fun language() {
-        languagelist()
-        languagelayout.isClickable = false
-    }
-
-    @OnClick(R.id.referral_layout)
-    fun referral() {
-        val intent = Intent(activity, ShowReferralOptionsActivity::class.java)
-        startActivity(intent)
-    }
 
 
     override fun onAttach(context: Context) {
@@ -257,7 +225,6 @@ class AccountFragment : Fragment(), ServiceListener {
 
 
     }
-
 
     @SuppressLint("UseRequireInsteadOfGet")
     @OnClick(R.id.signlayout)
@@ -317,99 +284,6 @@ class AccountFragment : Fragment(), ServiceListener {
         return view
     }
 
-    // Load currency list deatils in dialog
-    @SuppressLint("UseRequireInsteadOfGet")
-    fun currency_list() {
-
-        getCurrency()
-
-        recyclerView1 = RecyclerView(activity!!)
-        currencyList = ArrayList()
-
-        currencyListAdapter = CurrencyListAdapter(activity!!, currencyList)
-
-        recyclerView1.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
-        recyclerView1.adapter = currencyListAdapter
-
-        val inflater = LayoutInflater.from(activity)
-        val view = inflater.inflate(R.layout.header, null)
-        alertDialogStores1 = android.app.AlertDialog.Builder(activity).setCustomTitle(view).setView(recyclerView1).setCancelable(true).show()
-        currencylayout.isClickable = true
-
-        alertDialogStores1!!.setOnDismissListener {
-            // TODO Auto-generated method stub
-            if (currencyclick!!) {
-                currencyclick = false
-                currency = sessionManager.currencyCode!!
-                // Toast.makeText(getApplicationContext(),"Dismiss dialog "+currency_codes,Toast.LENGTH_SHORT).show();
-                print("currency$currency")
-                currency_code.text = currency
-                updateCurrency()
-            }
-        }
-
-    }
-
-    /**
-     * Language List
-     */
-    @SuppressLint("UseRequireInsteadOfGet")
-    fun languagelist() {
-
-        languageView = RecyclerView(activity!!)
-        loadlang()
-
-        LanguageAdapter = LanguageAdapter(activity!!, languagelist)
-        languageView.layoutManager = LinearLayoutManager(activity!!.applicationContext, LinearLayoutManager.VERTICAL, false)
-        languageView.adapter = LanguageAdapter
-
-        val inflater = activity!!.layoutInflater
-        val view = inflater.inflate(R.layout.header, null)
-        val T = view.findViewById<View>(R.id.header) as TextView
-        T.text = getString(R.string.selectlanguage)
-        alertDialogStores2 = android.app.AlertDialog.Builder(activity).setCustomTitle(view).setView(languageView).setCancelable(true).show()
-        languagelayout.isClickable = true
-
-        alertDialogStores2!!.setOnDismissListener {
-            // TODO Auto-generated method stub
-            if (langclick) {
-                langclick = false
-
-
-                langocde = sessionManager.languageCode!!
-                val lang = sessionManager.language
-                language.text = lang
-                updateLanguage()
-            }
-            languagelayout.isClickable = true
-        }
-    }
-
-    fun loadlang() {
-
-        val languages: Array<String>
-        val langCode: Array<String>
-        languages = resources.getStringArray(R.array.language)
-        langCode = resources.getStringArray(R.array.languageCode)
-        languagelist.clear()
-        for (i in languages.indices) {
-            val listdata = CurrencyModel()
-            listdata.currencyName = languages[i]
-            listdata.currencySymbol = langCode[i]
-            languagelist.add(listdata)
-
-        }
-    }
-
-    fun setLocale(lang: String) {
-        val myLocale = Locale(lang)
-        val res = resources
-        val dm = res.displayMetrics
-        val conf = res.configuration
-        conf.setLocale(myLocale)
-        conf.locale = myLocale
-        res.updateConfiguration(conf, dm)
-    }
 
     /**
      * Driver Datas
@@ -427,29 +301,6 @@ class AccountFragment : Fragment(), ServiceListener {
         apiService.logout(sessionManager.type!!, sessionManager.accessToken!!).enqueue(RequestCallback(REQ_LOGOUT, this))
     }
 
-    /**
-     * get Currency List
-     */
-    fun getCurrency() {
-        apiService.getCurrency(sessionManager.accessToken!!).enqueue(RequestCallback(REQ_CURRENCY, this))
-    }
-
-    /**
-     * Update Language
-     */
-    fun updateLanguage() {
-        commonMethods.showProgressDialog(activity as AppCompatActivity)
-        apiService.language(sessionManager.languageCode!!, sessionManager.accessToken!!).enqueue(RequestCallback(REQ_LANGUAGE, this))
-    }
-
-    /**
-     * Update Currency
-     */
-    private fun updateCurrency() {
-        commonMethods.showProgressDialog(activity as AppCompatActivity)
-        apiService.updateCurrency(currency, sessionManager.accessToken!!)
-                .enqueue(RequestCallback(REQ_UPDATE_CURRENCY, this))
-    }
 
     @SuppressLint("UseRequireInsteadOfGet")
     override fun onSuccess(jsonResp: JsonResponse, data: String) {
@@ -495,35 +346,6 @@ class AccountFragment : Fragment(), ServiceListener {
         }
     }
 
-    private fun onSuccessgetCurrency(jsonResp: JsonResponse) {
-        val currencyDetailsModel = gson.fromJson(jsonResp.strResponse, CurrencyDetailsModel::class.java)
-        curreneyListModels.clear()
-        curreneyListModels.addAll(currencyDetailsModel.curreneyListModels)
-
-        currencycode = arrayOfNulls<String>(curreneyListModels.size)
-        symbol = arrayOfNulls<String>(curreneyListModels.size)
-        currencyList.clear()
-        for (i in curreneyListModels.indices) {
-
-            currencycode[i] = curreneyListModels[i].code
-            symbol[i] = curreneyListModels[i].symbol
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                symbol[i] = Html.fromHtml(symbol[i],Html.FROM_HTML_MODE_COMPACT).toString()
-            }else{
-                symbol[i] = Html.fromHtml(symbol[i]).toString()
-            }
-
-
-            val listdata = CurrencyModel()
-            listdata.currencyName = currencycode[i]
-            listdata.currencySymbol = symbol[i]
-
-            currencyList.add(listdata)
-        }
-        currencyListAdapter.notifyDataChanged()
-
-    }
 
     override fun onFailure(jsonResp: JsonResponse, data: String) {
 
@@ -626,26 +448,6 @@ class AccountFragment : Fragment(), ServiceListener {
 
     }
 
-    /*
-     *  Clear app cache data
-     **/
-    @SuppressLint("UseRequireInsteadOfGet")
-    fun clearApplicationData() {
-        val cache = activity!!.cacheDir
-        val appDir = File(cache.parent)
-        if (appDir.exists()) {
-            val children = appDir.list()
-            for (s in children) {
-                if ("lib" != s) {
-                    deleteDir(File(appDir, s))
-                    CommonMethods.DebuggableLogI("TAG", "**************** File /data/data/APP_PACKAGE/$s DELETED *******************")
-
-                    // clearApplicationData();
-                }
-            }
-        }
-
-    }
 
     /*
      *  Get Driver profile while open the page
@@ -689,30 +491,4 @@ class AccountFragment : Fragment(), ServiceListener {
 
     }
 
-    companion object {
-
-
-        var curreneyListModels = ArrayList<CurreneyListModel>()
-
-
-
-        /*
-     *  Delete app local cache data
-     **/
-        fun deleteDir(dir: File?): Boolean {
-            if (dir != null && dir.isDirectory) {
-                val children = dir.list()
-                if (children != null) {
-                    for (i in children.indices) {
-                        val success = deleteDir(File(dir, children[i]))
-                        if (!success) {
-                            return false
-                        }
-                    }
-                }
-            }
-
-            return dir!!.delete()
-        }
-    }
 }

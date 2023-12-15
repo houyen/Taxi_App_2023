@@ -5,9 +5,6 @@ import com.google.gson.annotations.SerializedName
 
 import java.util.ArrayList
 
-/**
- * Created by Seen Technologies on 8/9/18.
- */
 
 class TripDetailModel {
 
@@ -120,9 +117,6 @@ class TripDetailModel {
     @SerializedName("map_image")
     @Expose
     var mapImage: String=""
-    @SerializedName("invoice")
-    @Expose
-    var invoice: ArrayList<InvoiceModel> = ArrayList()
 
     fun setStaticMapUR(staticMapURL: String) {
         this.staticMapURL = staticMapURL

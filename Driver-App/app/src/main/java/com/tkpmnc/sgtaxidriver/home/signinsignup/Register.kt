@@ -73,14 +73,12 @@ class Register : CommonActivity(), ServiceListener {
     lateinit var gson: Gson
     @Inject
     lateinit var customDialog: CustomDialog
-//    @BindView(R.id.input_first)
-//    lateinit var input_first: EditText
+
     @BindView(R.id.input_referral)
     lateinit var input_referral: EditText
     @BindView(R.id.input_layout_referral)
     lateinit var input_layout_referral: TextInputLayout
-//    @BindView(R.id.input_last)
-//    lateinit var input_last: EditText
+
     @BindView(R.id.emaitext)
     lateinit var emaitext: EditText
     @BindView(R.id.passwordtext)
@@ -89,26 +87,15 @@ class Register : CommonActivity(), ServiceListener {
     lateinit var cityText: EditText
     @BindView(R.id.mobile_number)
     lateinit var mobile_number: EditText
-    /*@BindView(R.id.input_layout_first)
-    lateinit var input_layout_first: TextInputLayout*/
-   /* @BindView(R.id.input_layout_last)
-    lateinit var input_layout_last: TextInputLayout*/
-   /* @BindView(R.id.emailName)
-    lateinit var emailName: TextInputLayout
-    @BindView(R.id.passwordName)
-    lateinit var passwordName: TextInputLayout*/
+
     @BindView(R.id.cityName)
     lateinit var cityName: TextInputLayout
     @BindView(R.id.mobile_code)
     lateinit var ccp: CountryCodePicker
-    /*@BindView(R.id.btn_continue)
-    lateinit var btn_continue: Button*/
+
     @BindView(R.id.loginlink)
     lateinit var loginlink: TextView
-    /*@BindView(R.id.dochome_back)
-    lateinit var dochome_back: ImageView*/
-   /* @BindView(R.id.scrollView)
-    lateinit var scrollView: ScrollView*/
+
     @BindView(R.id.location_placesearch)
     lateinit var mRecyclerView: RecyclerView
 
@@ -180,12 +167,6 @@ class Register : CommonActivity(), ServiceListener {
 
         mRecyclerView.visibility = View.GONE
 
-
-        //mobile_number.setText(sessionManager.getPhoneNumber());
-        //ccp.setCountryForPhoneCode(Integer.parseInt(sessionManager.getCountryCode()));
-        //mobile_number.setKeyListener(null);
-        //mobile_number.setEnabled(false);
-
         genderRadioGroup.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener { radioGroup, i ->
             val radioButton = radioGroup.findViewById(i) as RadioButton
             if (radioButton.id == R.id.rd_male){
@@ -210,7 +191,6 @@ class Register : CommonActivity(), ServiceListener {
          */
         button.setOnClickListener { numberRegister() }
 
-        //dochome_back.setOnClickListener { onBackPressed() }
 
         ccp.setOnCountryChangeListener {
             ccp.selectedCountryName //  Toast.makeText(getApplicationContext(), "Updated " + ccp.getSelectedCountryName(), Toast.LENGTH_SHORT).show();
@@ -260,7 +240,7 @@ class Register : CommonActivity(), ServiceListener {
         if (!validateLast()) {
             return
         }
-        if (!validateEmail()) {      //setting error message in submit button
+        if (!validateEmail()) {  
             //.error = getString(R.string.error_msg_email)
             return
         } else {
@@ -293,15 +273,6 @@ class Register : CommonActivity(), ServiceListener {
             return
         }
 
-
-        /*sessionManager.setFirstName(input_first.getText().toString());
-        sessionManager.setLastName(input_last.getText().toString());
-        sessionManager.setEmail(emaitext.getText().toString());
-        sessionManager.setTemporaryPhonenumber(mobile_number.getText().toString());
-        sessionManager.setPassword(passwordtext.getText().toString());
-        sessionManager.setTemporaryCountryCode(ccp.getSelectedCountryCodeWithPlus().replaceAll("\\+", ""));
-        sessionManager.setCity(cityText.getText().toString());*/
-
         if (isInternetAvailable) {
             commonMethods.showProgressDialog(this@Register)
             //apiService.numberValidation(sessionManager.getType(), sessionManager.getTemporaryPhonenumber(), sessionManager.getTemporaryCountryCode(), "", sessionManager.getLanguageCode()).enqueue(new RequestCallback(REQ_VALIDATE_NUMBER),this);
@@ -331,7 +302,6 @@ class Register : CommonActivity(), ServiceListener {
     private fun validateFirst(): Boolean {
         if (input_first.text.toString().trim { it <= ' ' }.isEmpty()) {
             //input_layout_first.error = getString(R.string.error_msg_firstname)
-            //requestFocus(input_first)
             return false
         } else {
             //input_layout_first.isErrorEnabled = false
@@ -346,7 +316,6 @@ class Register : CommonActivity(), ServiceListener {
     private fun validateLast(): Boolean {
         if (input_last.text.toString().trim { it <= ' ' }.isEmpty()) {
             //input_layout_last.error = getString(R.string.error_msg_lastname)
-            //requestFocus(input_last)
             return false
         } else {
             //input_layout_last.isErrorEnabled = false
@@ -362,7 +331,6 @@ class Register : CommonActivity(), ServiceListener {
 
         if (email.isEmpty() || !isValidEmail(email)) {
             //emailName.setError(getString(R.string.error_msg_email));
-            //requestFocus(emaitext)
             return false
         } else {
             //emailName.isErrorEnabled = false
@@ -387,35 +355,12 @@ class Register : CommonActivity(), ServiceListener {
         return true
     }
 
-    /*
-     *   Validate city
-     */
-    private fun validateCity(): Boolean {
-
-        isCity = cityText.text.toString() != ""
-
-
-        if (!isCity) {
-            if (cityText.text.toString() == "") {
-                //cityName.error = getString(R.string.error_msg_city)
-            }else{
-                //cityName.isErrorEnabled = false
-            }
-            //requestFocus(cityText)
-            return false
-        } else {
-            //cityName.isErrorEnabled = false
-        }
-
-        return true
-    }
 
     /*
      *   Validate password
      */
     private fun validatePassword(): Boolean {
         if (passwordtext.text.toString().trim { it <= ' ' }.isEmpty() || passwordtext.text.toString().length < 6) {
-            //requestFocus(passwordtext)
             return false
         } else {
             passwordName.isErrorEnabled = false
@@ -424,16 +369,6 @@ class Register : CommonActivity(), ServiceListener {
         return true
     }
 
-    private fun validReferral(): Boolean {
-        if (input_referral.text.toString().trim { it <= ' ' }.isEmpty() || input_referral.text.toString().length < 6) {
-            //requestFocus(input_first)
-            return false
-        } else {
-            input_layout_referral.isErrorEnabled = false
-        }
-
-        return true
-    }
 
     private fun requestFocus(view: View) {
         if (view.requestFocus()) {
@@ -457,7 +392,6 @@ class Register : CommonActivity(), ServiceListener {
 
     }
 
-
     override fun onFailure(jsonResp: JsonResponse, data: String) {
         commonMethods.hideProgressDialog()
     }
@@ -468,7 +402,6 @@ class Register : CommonActivity(), ServiceListener {
         startActivity(signin)
         overridePendingTransition(R.anim.ub__slide_in_left, R.anim.ub__slide_out_right)
     }
-
 
 
 
@@ -537,14 +470,6 @@ class Register : CommonActivity(), ServiceListener {
                     val carDeailsModel = gson.toJson(signInUpResultModel.carDetailModel)
                     sessionManager.carType = carDeailsModel
 
-                    /*JSONArray cardetails = new JSONArray(carDeailsModel);
-
-                    StringBuilder type = new StringBuilder();
-                    type.append(getResources().getString(R.string.vehicle_type)).append(",");
-                    for (int i = 0; i < cardetails.length(); i++) {
-                        JSONObject cartype = cardetails.getJSONObject(i);
-                        type.append(cartype.getString("car_name")).append(",");
-                    }*/
 
                     sessionManager.userId = signInUpResultModel.userID
 
@@ -555,7 +480,6 @@ class Register : CommonActivity(), ServiceListener {
                         Html.fromHtml(signInUpResultModel.currencySymbol).toString()
                     }
                     sessionManager.currencyCode = signInUpResultModel.currencyCode
-                    sessionManager.paypalEmail = signInUpResultModel.payoutId
                     sessionManager.driverSignupStatus = signInUpResultModel.userStatus
                     /*sessionManager.setType(type.toString());*/
                     sessionManager.setAcesssToken(signInUpResultModel.token)

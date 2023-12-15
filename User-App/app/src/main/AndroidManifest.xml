@@ -293,12 +293,7 @@
                 android:screenOrientation="portrait"
                 android:theme="@style/AppTheme.NoActionBar"
                 android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
-        <!--
-<activity
-                android:name="com.paypal.android.MEP.PayPalActivity"
-                android:configChanges="keyboardHidden|orientation"
-                android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        -->
+       
         <activity
                 android:name="com.tkpmnc.sgtaxiuser.taxiapp.sidebar.payment.AddWalletActivity"
                 android:screenOrientation="portrait"

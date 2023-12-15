@@ -74,7 +74,6 @@
     <string name="cancelrequest">CANCEL REQUEST</string>
     <string name="editaccount">Edit Account</string>
     <string name="textpayment">Payment</string>
-    <string name="paypal_payment">PayPal</string>
     <string name="helptitle">Help</string>
 
     <string name="capacity">Capacity</string>
@@ -94,32 +93,6 @@
 
     <string name="paymentmethods">Payment Methods</string>
     <string name="cash">Cash</string>
-    <string name="wallets">Wallet</string>
-    <string name="promotions">Promotions</string>
-    <string name="add">"Add"</string>
-    <string name="add_promo">"Add Promo/Gift Code"</string>
-    <string name="free_trip">Free trip up to</string>
-    <string name="from">from</string>
-    <string name="off">OFF</string>
-    <string name="promo_applied">Promo Applied</string>
-    <string name="enter_promo_code">"Enter your promo/gift code"</string>
-    <string name="wallet">My Wallet</string>
-    <string name="use_wallet">Use Wallet</string>
-    <string name="wallet_amount">Your Wallet Amount is</string>
-    <string name="add_amount">Add Money</string>
-    <string name="payable_amount">Payable Amount</string>
-    <string name="paid_amount">"Paid Amount"</string>
-    <string name="enter_amount">Enter The Amount</string>
-    <string name="add_money">"Add money to the wallet</string>
-    <string name="pay">Pay</string>
-    <string name="trip_id">Trip Id :</string>
-    <string name="proceed">Proceed</string>
-    <string name="waitfordriver">Waiting for driver to confirm</string>
-    <string name="paypal">PayPal</string>
-    <string name="credit_or_debit_card">Add Credit or Debit Card</string>
-    <string name="change_credit_or_debit_card">Change Credit or Debit Card</string>
-    <string name="card">Card</string>
-    <string name="save">Save</string>
 
     <string name="baseFare">Base Fare</string>
     <string name="currency">"Currency"</string>

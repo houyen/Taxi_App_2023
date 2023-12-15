@@ -35,9 +35,6 @@ interface ApiService {
     @GET("login")
     fun login(@Query("mobile_number") mobilenumber: String, @Query("user_type") usertype: String, @Query("country_code") countrycode: String, @Query("password") password: String, @Query("device_id") deviceid: String, @Query("device_type") devicetype: String, @Query("language") language: String): Call<ResponseBody>
 
-    @GET("get_referral_details")
-    fun getReferralDetails(@Query("token") token: String): Call<ResponseBody>
-
     //Login
     @GET("vehicle_details")
     fun vehicleDetails(@Query("vehicle_id") vehicleid: Long, @Query("vehicleName") vehiclename: String, @Query("vehicle_type") vehicletype: String, @Query("vehicle_number") vehiclenumber: String, @Query("token") token: String): Call<ResponseBody>

@@ -39,7 +39,7 @@ import com.tkpmnc.sgtaxidriver.common.util.CommonMethods.Companion.showNoInterne
 import com.tkpmnc.sgtaxidriver.common.util.Enums.REQ_TRIP_DETAILS
 import com.tkpmnc.sgtaxidriver.common.util.RequestCallback
 import com.tkpmnc.sgtaxidriver.common.views.CommonActivity
-import com.tkpmnc.sgtaxidriver.home.datamodel.InvoiceModel
+
 import com.tkpmnc.sgtaxidriver.home.datamodel.TripDetailsModel
 import com.tkpmnc.sgtaxidriver.home.interfaces.ApiService
 import com.tkpmnc.sgtaxidriver.home.interfaces.ServiceListener
@@ -81,50 +81,6 @@ class TripDetails : CommonActivity(), ServiceListener {
     @Inject
     lateinit var dbHelper: Sqlite
 
-   /* @BindView(R.id.adminamountlayout)
-    lateinit var adminamountlayout: RelativeLayout
-*/
-  /*  @BindView(R.id.oweamountlayout)
-    lateinit var oweamountlayout: RelativeLayout*/
-
- /*   @BindView(R.id.driverpayoutlayout)
-    lateinit var driverpayoutlayout: RelativeLayout
-
-    @BindView(R.id.cashcollectamountlayout)
-    lateinit var cashcollectamountlayout: RelativeLayout*/
-/*
-    @BindView(R.id.basefare_amount)
-    lateinit var basefare_amount: TextView
-
-    @BindView(R.id.distance_fare)
-    lateinit var distance_fare: TextView
-
-    @BindView(R.id.time_fare)
-    lateinit var time_fare: TextView
-
-    @BindView(R.id.fee)
-    lateinit var fee: TextView
-
-    @BindView(R.id.totalamount)
-    lateinit var totalamount: TextView
-
-    @BindView(R.id.total_payouts)
-    lateinit var total_payouts: TextView
-
-    @BindView(R.id.cashcollectamount)
-    lateinit var cashcollectamount: TextView
-
-    @BindView(R.id.cashcollectamount_txt)
-    lateinit var cashcollectamount_txt: TextView
-
-    @BindView(R.id.oweamount)
-    lateinit var oweamount: TextView
-
-    @BindView(R.id.driverpayout)
-    lateinit var driverpayout: TextView
-
-    @BindView(R.id.adminamount)
-    lateinit var adminamount: TextView*/
 
     @BindView(R.id.trip_amount)
     lateinit var trip_amount: TextView
@@ -154,7 +110,6 @@ class TripDetails : CommonActivity(), ServiceListener {
 
     @BindView(R.id.rvPrice)
     lateinit var recyclerView: RecyclerView
-    internal var invoiceModels = ArrayList<InvoiceModel>()
 
     @BindView(R.id.rlt_mapview)
     lateinit var staticmapview: RelativeLayout
@@ -170,11 +125,7 @@ class TripDetails : CommonActivity(), ServiceListener {
     @BindView(R.id.tv_tripid)
     lateinit var tvTripid : TextView
 
-    /*@BindView(R.id.rlt_mapview)
-    lateinit var rltImageView: RelativeLayout*/
 
-   /* @BindView(R.id.basrfarelayout)
-    lateinit var farelayout: RelativeLayout*/
     var tripDetailsModels: TripDetailsModel? = null
 
     @OnClick(R.id.back)
@@ -289,10 +240,10 @@ class TripDetails : CommonActivity(), ServiceListener {
     private fun onSuccessTripDetail(jsonResponse: String) {
 
         tripDetailsModels = gson.fromJson(jsonResponse, TripDetailsModel::class.java)
-        invoiceModels.clear()
-        with(tripDetailsModels) { this?.riderDetails?.get(0)?.invoice }?.let { invoiceModels.addAll(it) }
+
+       
         recyclerView.removeAllViewsInLayout()
-        val adapter = PriceRecycleAdapter(this, invoiceModels)
+        val adapter = PriceRecycleAdapter(this)
         recyclerView.setAdapter(adapter)
 
         if (tripDetailsModels?.isPool!! && tripDetailsModels?.seats != 0) {

@@ -90,7 +90,6 @@ class AppServiceProvider extends ServiceProvider
 				$findCountryCode=Country::where('id',$site_settings[9]->value)->first()->phone_code;
 				define('MANUAL_BOOK_CONTACT', '+'.$findCountryCode.' '.$site_settings[8]->value);
 
-				define('PAYPAL_CURRENCY_CODE', $site_settings[1]->value);
 				define('PHP_DATE_FORMAT','Y-m-d');
 				define('SITE_URL',$site_settings[10]->value);
 				define('Driver_Km', $site_settings[6]->value);

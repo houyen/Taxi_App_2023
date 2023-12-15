@@ -33,9 +33,6 @@ import java.text.SimpleDateFormat
 import java.util.*
 import javax.inject.Inject
 
-/**
- * Created by Seen Technologies on 7/11/18.
- */
 
 class UpcomingAdapter(private val scheduleRideDetailsArrayList: ArrayList<ScheduleDetail>, private val context: CommonActivity) : RecyclerView.Adapter<UpcomingAdapter.ViewHolder>(), ServiceListener {
     private var mLastClickTime: Long = 0
